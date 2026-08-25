@@ -234,6 +234,10 @@ h1 { margin-bottom: 24px; color: var(--paper); font-family: var(--serif); font-s
 .admin-data-note { max-width: 760px; margin: -8px 0 24px; padding: 11px 13px; border-left: 1px solid #a4795e; color: #d0b2a2; background: rgba(164,121,94,0.08); font-family: var(--mono); font-size: 0.62rem; line-height: 1.65; }
 .admin-brief-list { display: grid; gap: 14px; }
 .brief-filter { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; margin: -10px 0 24px; color: #aaa9a1; font-family: var(--mono); font-size: 0.62rem; }
+.admin-brief-header-actions { display: flex; align-items: center; gap: 16px; }
+.admin-export-button { display: inline-flex; align-items: center; gap: 7px; padding: 10px 12px; border: 1px solid var(--signal); color: #19200e; background: var(--signal); font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.04em; }
+.admin-export-button:disabled { opacity: 0.55; }
+.brief-export-note { max-width: 760px; margin: -7px 0 22px; padding: 10px 12px; border-left: 1px solid #a4795e; color: #c9b1a5; background: rgba(164,121,94,0.06); font-family: var(--mono); font-size: 0.58rem; line-height: 1.65; }
 .brief-filter select, .brief-triage-form input, .brief-triage-form select, .brief-triage-form textarea { border: 1px solid rgba(235, 233, 224, 0.2); color: #efede5; background: rgba(255,255,255,0.03); font: inherit; }
 .brief-filter select { padding: 7px 9px; }
 .admin-brief { padding: 20px; border: 1px solid rgba(235, 233, 224, 0.14); background: rgba(255,255,255,0.02); }

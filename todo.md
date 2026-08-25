@@ -37,3 +37,6 @@
 - [x] Create protected operational metrics for production-brief workload, alert health, and buyer-rollout readiness.
 - [x] Add an administrative operations overview with concise status and attention states.
 - [x] Add automated coverage for operations metrics permissions and verify the overview across desktop and mobile.
+- [x] Create a protected CSV export procedure for production briefs and their follow-up fields.
+- [x] Add an export control with concise internal data-handling guidance to the production-brief admin view.
+- [x] Add automated coverage for export permissions and validate the control across desktop and mobile.

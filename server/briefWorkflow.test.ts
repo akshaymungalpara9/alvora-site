@@ -115,4 +115,17 @@ describe("public production-brief workflow", () => {
     expect(mocks.updateProductionBriefFollowUp).toHaveBeenCalledWith({ id: 31, followUpStatus: "reviewing", ownerName: "AK", internalNote: "Check setting dimensions" });
     await expect(userCaller.updateFollowUp({ briefId: 31, followUpStatus: "closed" })).rejects.toMatchObject({ code: "FORBIDDEN" });
   });
+
+  it("exports production briefs with operational fields only for administrators", async () => {
+    mocks.listProductionBriefs.mockResolvedValue([{ ...savedBrief, ownerName: "AK", internalNote: "Quote after calibration check" }]);
+    const adminCaller = adminProductionBriefRouter.createCaller(makeContext("admin") as any);
+    const userCaller = adminProductionBriefRouter.createCaller(makeContext("user") as any);
+
+    const exported = await adminCaller.exportCsv();
+    expect(exported.filename).toMatch(/^alvora-production-briefs-\d{4}-\d{2}-\d{2}\.csv$/);
+    expect(exported.content).toContain("\"Follow-up status\"");
+    expect(exported.content).toContain("\"AK\"");
+    expect(exported.content).toContain("\"Quote after calibration check\"");
+    await expect(userCaller.exportCsv()).rejects.toMatchObject({ code: "FORBIDDEN" });
+  });
 });

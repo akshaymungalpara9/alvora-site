@@ -16,6 +16,17 @@ const publicBriefInput = z.object({
   brief: z.string().min(10).max(5000),
 });
 
+const csvCell = (value: unknown) => `"${String(value ?? "").replaceAll("\"", "\"\"")}"`;
+const exportProductionBriefCsv = (briefs: Awaited<ReturnType<typeof listProductionBriefs>>) => {
+  const columns = [
+    "Brief ID", "Received at (UTC)", "Follow-up status", "Owner", "Contact name", "Work email", "Company / workshop", "Request type", "Years trading", "Trade references", "Preferred first-order approach", "Production brief", "Alert status", "Alert error", "Last action at (UTC)", "Internal note",
+  ];
+  const rows = briefs.map((brief) => [
+    brief.id, brief.createdAt.toISOString(), brief.followUpStatus, brief.ownerName, brief.contactName, brief.email, brief.company, brief.requestType, brief.yearsTrading, brief.tradeReferencesAvailable, brief.preferredPaymentApproach, brief.brief, brief.alertStatus, brief.alertError, brief.lastActionAt?.toISOString(), brief.internalNote,
+  ].map(csvCell).join(","));
+  return [columns.map(csvCell).join(","), ...rows].join("\n");
+};
+
 export const publicProductionBriefRouter = router({
   submit: publicProcedure.input(publicBriefInput).mutation(async ({ input }) => {
     const saved = await createProductionBrief(input);
@@ -44,6 +55,11 @@ export const publicProductionBriefRouter = router({
 
 export const adminProductionBriefRouter = router({
   list: adminProcedure.query(() => listProductionBriefs()),
+  exportCsv: adminProcedure.query(async () => {
+    const briefs = await listProductionBriefs();
+    const stamp = new Date().toISOString().slice(0, 10);
+    return { filename: `alvora-production-briefs-${stamp}.csv`, content: exportProductionBriefCsv(briefs) };
+  }),
   updateFollowUp: adminProcedure.input(z.object({
     briefId: z.number().int().positive(),
     followUpStatus: z.enum(["new", "reviewing", "quoted", "on_hold", "closed"]),
