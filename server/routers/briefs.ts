@@ -1,6 +1,6 @@
 import { TRPCError } from "@trpc/server";
 import { z } from "zod";
-import { createProductionBrief, listProductionBriefs, markProductionBriefAlert } from "../db";
+import { createProductionBrief, listProductionBriefs, markProductionBriefAlert, updateProductionBriefFollowUp } from "../db";
 import { escapeHtml, sendTransactionalEmail } from "../email";
 import { ENV } from "../_core/env";
 import { adminProcedure, publicProcedure, router } from "../_core/trpc";
@@ -44,4 +44,19 @@ export const publicProductionBriefRouter = router({
 
 export const adminProductionBriefRouter = router({
   list: adminProcedure.query(() => listProductionBriefs()),
+  updateFollowUp: adminProcedure.input(z.object({
+    briefId: z.number().int().positive(),
+    followUpStatus: z.enum(["new", "reviewing", "quoted", "on_hold", "closed"]),
+    ownerName: z.string().max(120).optional(),
+    internalNote: z.string().max(3000).optional(),
+  })).mutation(async ({ input }) => {
+    const updated = await updateProductionBriefFollowUp({
+      id: input.briefId,
+      followUpStatus: input.followUpStatus,
+      ownerName: input.ownerName,
+      internalNote: input.internalNote,
+    });
+    if (!updated) throw new TRPCError({ code: "NOT_FOUND", message: "Production brief was not found" });
+    return updated;
+  }),
 });

@@ -152,12 +152,17 @@ export const productionBriefs = mysqlTable(
     alertStatus: mysqlEnum("alertStatus", ["pending", "sent", "failed"]).default("pending").notNull(),
     alertError: text("alertError"),
     alertMessageId: varchar("alertMessageId", { length: 160 }),
+    followUpStatus: mysqlEnum("followUpStatus", ["new", "reviewing", "quoted", "on_hold", "closed"]).default("new").notNull(),
+    ownerName: varchar("ownerName", { length: 120 }),
+    internalNote: text("internalNote"),
+    lastActionAt: timestamp("lastActionAt"),
     createdAt: timestamp("createdAt").defaultNow().notNull(),
     updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
   },
   (table) => [
     index("production_briefs_created_idx").on(table.createdAt),
     index("production_briefs_alert_idx").on(table.alertStatus),
+    index("production_briefs_follow_up_idx").on(table.followUpStatus, table.createdAt),
   ],
 );
 

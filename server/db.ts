@@ -227,3 +227,19 @@ export async function listProductionBriefs() {
   const db = await requireDb();
   return db.select().from(productionBriefs).orderBy(desc(productionBriefs.createdAt));
 }
+
+export async function updateProductionBriefFollowUp(input: {
+  id: number;
+  followUpStatus: "new" | "reviewing" | "quoted" | "on_hold" | "closed";
+  ownerName?: string;
+  internalNote?: string;
+}) {
+  const db = await requireDb();
+  await db.update(productionBriefs).set({
+    followUpStatus: input.followUpStatus,
+    ownerName: input.ownerName?.trim() || null,
+    internalNote: input.internalNote?.trim() || null,
+    lastActionAt: new Date(),
+  }).where(eq(productionBriefs.id, input.id));
+  return (await db.select().from(productionBriefs).where(eq(productionBriefs.id, input.id)).limit(1))[0];
+}

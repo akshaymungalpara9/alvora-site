@@ -30,3 +30,7 @@
 - [x] Connect the public production brief form to database-first submission and tagged LEAD_ALERT_TO delivery.
 - [x] Add focused tests for public brief persistence, alert-failure resilience, and admin lead permissions.
 - [x] Verify the public form, alert routing, and internal lead retrieval workflow.
+- [x] Add a protected production-brief status and internal follow-up fields for admin triage.
+- [x] Add admin actions to update a production brief’s operational status and follow-up ownership.
+- [x] Refine the admin production-brief view with status filtering and concise triage metadata.
+- [x] Add automated coverage for protected triage updates and validate the admin workflow responsively.

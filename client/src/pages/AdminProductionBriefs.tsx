@@ -1,13 +1,33 @@
 import { useAuth } from "@/_core/hooks/useAuth";
 import DashboardLayout from "@/components/DashboardLayout";
 import { trpc } from "@/lib/trpc";
-import { ClipboardList, Loader2, MailWarning } from "lucide-react";
+import { Check, ClipboardList, Loader2, MailWarning } from "lucide-react";
+import { FormEvent, useMemo, useState } from "react";
+
+const statusOptions = ["new", "reviewing", "quoted", "on_hold", "closed"] as const;
+type FollowUpStatus = (typeof statusOptions)[number];
 
 export default function AdminProductionBriefs() {
   const { user, loading } = useAuth();
   const briefs = trpc.adminBriefs.list.useQuery();
+  const utils = trpc.useUtils();
+  const [statusFilter, setStatusFilter] = useState<"all" | FollowUpStatus>("all");
+  const [notice, setNotice] = useState("");
+  const update = trpc.adminBriefs.updateFollowUp.useMutation({ onSuccess: () => { utils.adminBriefs.list.invalidate(); setNotice("Follow-up details saved."); }, onError: (error) => setNotice(error.message) });
+  const visibleBriefs = useMemo(() => briefs.data?.filter((item) => statusFilter === "all" || item.followUpStatus === statusFilter) ?? [], [briefs.data, statusFilter]);
+
+  const saveFollowUp = (event: FormEvent<HTMLFormElement>, briefId: number) => {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    update.mutate({
+      briefId,
+      followUpStatus: String(data.get("followUpStatus")) as FollowUpStatus,
+      ownerName: String(data.get("ownerName") || "").trim() || undefined,
+      internalNote: String(data.get("internalNote") || "").trim() || undefined,
+    });
+  };
 
   if (!loading && user?.role !== "admin") return <DashboardLayout><div className="admin-shell"><p className="portal-kicker">ALVORA / ADMIN</p><h1>Administrative access only.</h1><p className="admin-empty">This area is reserved for the Alvora team.</p></div></DashboardLayout>;
 
-  return <DashboardLayout><div className="admin-shell"><header className="admin-topline"><div><p className="portal-kicker">ALVORA / PRODUCTION BRIEFS</p><h1>Incoming makes</h1><p>Public manufacturing enquiries are stored before an alert email is attempted.</p></div><ClipboardList size={25} className="text-[#c9ff63]" /></header>{briefs.isLoading ? <Loader2 className="animate-spin text-[#c9ff63]" /> : <div className="admin-brief-list">{briefs.data?.map((item) => <article className="admin-brief" key={item.id}><header><div><p className="admin-account-name">{item.company || item.contactName}</p><p>{item.contactName} · <a href={`mailto:${item.email}`}>{item.email}</a></p></div><span className={`admin-status admin-status-${item.alertStatus}`}>alert {item.alertStatus}</span></header><p className="admin-bands">{item.requestType} · {item.yearsTrading} years trading · references {item.tradeReferencesAvailable}</p><p className="admin-brief-body">{item.brief}</p><footer><span>{item.preferredPaymentApproach}</span><span>{new Date(item.createdAt).toLocaleString()}</span>{item.alertError && <span className="admin-brief-error"><MailWarning size={14} /> {item.alertError}</span>}</footer></article>)}{briefs.data?.length === 0 && <p className="admin-empty"><ClipboardList size={18} /> No public production briefs have been recorded.</p>}</div>}</div></DashboardLayout>;
+  return <DashboardLayout><div className="admin-shell"><header className="admin-topline"><div><p className="portal-kicker">ALVORA / PRODUCTION BRIEFS</p><h1>Incoming makes</h1><p>Public manufacturing enquiries are stored before an alert email is attempted.</p></div><ClipboardList size={25} className="text-[#c9ff63]" /></header><div className="brief-filter"><span>Show</span><select value={statusFilter} onChange={(event) => setStatusFilter(event.target.value as "all" | FollowUpStatus)}><option value="all">All follow-up states</option>{statusOptions.map((status) => <option value={status} key={status}>{status.replaceAll("_", " ")}</option>)}</select><span>{visibleBriefs.length} shown</span></div>{notice && <p className="admin-message">{notice}</p>}{briefs.isLoading ? <Loader2 className="animate-spin text-[#c9ff63]" /> : <div className="admin-brief-list">{visibleBriefs.map((item) => <article className="admin-brief" key={item.id}><header><div><p className="admin-account-name">{item.company || item.contactName}</p><p>{item.contactName} · <a href={`mailto:${item.email}`}>{item.email}</a></p></div><div className="admin-brief-statuses"><span className={`admin-status admin-status-${item.followUpStatus}`}>{item.followUpStatus.replaceAll("_", " ")}</span><span className={`admin-status admin-status-${item.alertStatus}`}>alert {item.alertStatus}</span></div></header><p className="admin-bands">{item.requestType} · {item.yearsTrading} years trading · references {item.tradeReferencesAvailable}</p><p className="admin-brief-body">{item.brief}</p><form className="brief-triage-form" onSubmit={(event) => saveFollowUp(event, item.id)}><label>Follow-up<select name="followUpStatus" defaultValue={item.followUpStatus}>{statusOptions.map((status) => <option key={status} value={status}>{status.replaceAll("_", " ")}</option>)}</select></label><label>Owner<input name="ownerName" defaultValue={item.ownerName || ""} placeholder="Initials or team member" /></label><label className="brief-triage-note">Internal note<textarea name="internalNote" defaultValue={item.internalNote || ""} rows={2} placeholder="Next action, quote detail, or constraint" /></label><button type="submit" disabled={update.isPending}>{update.isPending ? "Saving…" : <><Check size={14} /> Save triage</>}</button></form><footer><span>{item.preferredPaymentApproach}</span><span>Received {new Date(item.createdAt).toLocaleString()}</span>{item.lastActionAt && <span>Updated {new Date(item.lastActionAt).toLocaleString()}</span>}{item.alertError && <span className="admin-brief-error"><MailWarning size={14} /> {item.alertError}</span>}</footer></article>)}{visibleBriefs.length === 0 && <p className="admin-empty"><ClipboardList size={18} /> {briefs.data?.length ? "No briefs match this follow-up state." : "No public production briefs have been recorded."}</p>}</div>}</div></DashboardLayout>;
 }

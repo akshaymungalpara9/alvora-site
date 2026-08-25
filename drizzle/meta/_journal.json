@@ -15,6 +15,13 @@
       "when": 1787683585177,
       "tag": "0001_rare_wiccan",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1787685273319,
+      "tag": "0002_acoustic_silver_sable",
+      "breakpoints": true
     }
   ]
 }

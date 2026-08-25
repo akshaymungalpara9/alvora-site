@@ -5,6 +5,7 @@ const mocks = vi.hoisted(() => ({
   listProductionBriefs: vi.fn(),
   markProductionBriefAlert: vi.fn(),
   sendTransactionalEmail: vi.fn(),
+  updateProductionBriefFollowUp: vi.fn(),
 }));
 
 vi.mock("./db", () => mocks);
@@ -34,6 +35,10 @@ const savedBrief = {
   alertStatus: "pending" as const,
   alertError: null,
   alertMessageId: null,
+  followUpStatus: "new" as const,
+  ownerName: null,
+  internalNote: null,
+  lastActionAt: null,
   createdAt: new Date(),
   updatedAt: new Date(),
 };
@@ -61,6 +66,7 @@ describe("public production-brief workflow", () => {
     vi.clearAllMocks();
     ENV.leadAlertTo = "alerts@alvora.example";
     mocks.createProductionBrief.mockResolvedValue(savedBrief);
+    mocks.updateProductionBriefFollowUp.mockResolvedValue({ ...savedBrief, followUpStatus: "reviewing", ownerName: "AK", internalNote: "Check setting dimensions", lastActionAt: new Date() });
   });
 
   afterEach(() => {
@@ -99,5 +105,14 @@ describe("public production-brief workflow", () => {
 
     await expect(adminCaller.list()).resolves.toEqual([savedBrief]);
     await expect(userCaller.list()).rejects.toMatchObject({ code: "FORBIDDEN" });
+  });
+
+  it("allows only an admin to record protected triage status, ownership, and internal notes", async () => {
+    const adminCaller = adminProductionBriefRouter.createCaller(makeContext("admin") as any);
+    const userCaller = adminProductionBriefRouter.createCaller(makeContext("user") as any);
+
+    await expect(adminCaller.updateFollowUp({ briefId: 31, followUpStatus: "reviewing", ownerName: "AK", internalNote: "Check setting dimensions" })).resolves.toMatchObject({ followUpStatus: "reviewing", ownerName: "AK" });
+    expect(mocks.updateProductionBriefFollowUp).toHaveBeenCalledWith({ id: 31, followUpStatus: "reviewing", ownerName: "AK", internalNote: "Check setting dimensions" });
+    await expect(userCaller.updateFollowUp({ briefId: 31, followUpStatus: "closed" })).rejects.toMatchObject({ code: "FORBIDDEN" });
   });
 });
