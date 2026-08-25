@@ -1,0 +1,142 @@
+import {
+  double,
+  index,
+  int,
+  json,
+  mysqlEnum,
+  mysqlTable,
+  text,
+  timestamp,
+  uniqueIndex,
+  varchar,
+} from "drizzle-orm/mysql-core";
+
+/** Core Manus-authenticated user identity. */
+export const users = mysqlTable("users", {
+  id: int("id").autoincrement().primaryKey(),
+  openId: varchar("openId", { length: 64 }).notNull().unique(),
+  name: text("name"),
+  email: varchar("email", { length: 320 }),
+  loginMethod: varchar("loginMethod", { length: 64 }),
+  role: mysqlEnum("role", ["user", "admin"]).default("user").notNull(),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+  lastSignedIn: timestamp("lastSignedIn").defaultNow().notNull(),
+});
+
+/** A commercial account that can be approved before its contact first signs in. */
+export const buyerAccounts = mysqlTable(
+  "buyer_accounts",
+  {
+    id: int("id").autoincrement().primaryKey(),
+    userId: int("userId"),
+    accountName: varchar("accountName", { length: 180 }).notNull(),
+    contactName: varchar("contactName", { length: 180 }).notNull(),
+    email: varchar("email", { length: 320 }).notNull(),
+    status: mysqlEnum("status", ["pending", "approved", "suspended"]).default("pending").notNull(),
+    shapes: text("shapes").notNull(),
+    caratMin: double("caratMin").notNull(),
+    caratMax: double("caratMax").notNull(),
+    colors: text("colors").notNull(),
+    clarities: text("clarities").notNull(),
+    approvedAt: timestamp("approvedAt"),
+    createdAt: timestamp("createdAt").defaultNow().notNull(),
+    updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+  },
+  (table) => [
+    uniqueIndex("buyer_accounts_email_unique").on(table.email),
+    index("buyer_accounts_status_idx").on(table.status),
+  ],
+);
+
+/** The current availability import. Data derives from the supplied availability CSV. */
+export const availabilityStones = mysqlTable(
+  "availability_stones",
+  {
+    id: int("id").autoincrement().primaryKey(),
+    stockNumber: varchar("stockNumber", { length: 100 }).notNull(),
+    availability: varchar("availability", { length: 40 }).notNull(),
+    shape: varchar("shape", { length: 40 }).notNull(),
+    carat: double("carat").notNull(),
+    color: varchar("color", { length: 20 }).notNull(),
+    clarity: varchar("clarity", { length: 30 }).notNull(),
+    cut: varchar("cut", { length: 30 }),
+    polish: varchar("polish", { length: 30 }),
+    lab: varchar("lab", { length: 30 }),
+    reportNumber: varchar("reportNumber", { length: 120 }),
+    price: double("price"),
+    location: varchar("location", { length: 90 }),
+    importedAt: timestamp("importedAt").defaultNow().notNull(),
+  },
+  (table) => [
+    uniqueIndex("availability_stones_stock_number_unique").on(table.stockNumber),
+    index("availability_stones_band_idx").on(table.shape, table.carat, table.color, table.clarity),
+  ],
+);
+
+/** A stored, buyer-filtered PDF line sheet. File bytes live in S3, not this table. */
+export const lineSheets = mysqlTable(
+  "line_sheets",
+  {
+    id: int("id").autoincrement().primaryKey(),
+    buyerAccountId: int("buyerAccountId").notNull(),
+    storageKey: varchar("storageKey", { length: 512 }).notNull(),
+    storageUrl: varchar("storageUrl", { length: 1024 }).notNull(),
+    validUntil: timestamp("validUntil").notNull(),
+    createdByUserId: int("createdByUserId"),
+    createdAt: timestamp("createdAt").defaultNow().notNull(),
+  },
+  (table) => [index("line_sheets_buyer_account_idx").on(table.buyerAccountId)],
+);
+
+/** Immutable audit log for welcome and private-list email delivery attempts. */
+export const emailLogs = mysqlTable(
+  "email_logs",
+  {
+    id: int("id").autoincrement().primaryKey(),
+    buyerAccountId: int("buyerAccountId"),
+    requestId: int("requestId"),
+    emailType: mysqlEnum("emailType", ["approved_buyer_welcome", "private_list_request_alert"]).notNull(),
+    recipient: varchar("recipient", { length: 320 }).notNull(),
+    subject: varchar("subject", { length: 500 }).notNull(),
+    status: mysqlEnum("status", ["queued", "sent", "failed"]).default("queued").notNull(),
+    providerMessageId: varchar("providerMessageId", { length: 160 }),
+    errorMessage: text("errorMessage"),
+    metadata: json("metadata"),
+    sentAt: timestamp("sentAt"),
+    createdAt: timestamp("createdAt").defaultNow().notNull(),
+  },
+  (table) => [
+    index("email_logs_buyer_account_idx").on(table.buyerAccountId),
+    index("email_logs_request_idx").on(table.requestId),
+  ],
+);
+
+/** A buyer request is persisted before any alert is attempted. */
+export const privateListRequests = mysqlTable(
+  "private_list_requests",
+  {
+    id: int("id").autoincrement().primaryKey(),
+    buyerAccountId: int("buyerAccountId").notNull(),
+    availabilityStoneId: int("availabilityStoneId").notNull(),
+    requestedByUserId: int("requestedByUserId").notNull(),
+    certificateNumber: varchar("certificateNumber", { length: 120 }).notNull(),
+    buyerAccountName: varchar("buyerAccountName", { length: 180 }).notNull(),
+    buyerEmail: varchar("buyerEmail", { length: 320 }).notNull(),
+    note: text("note"),
+    requestStatus: mysqlEnum("requestStatus", ["pending", "confirmed", "closed"]).default("pending").notNull(),
+    emailStatus: mysqlEnum("emailStatus", ["pending", "sent", "failed"]).default("pending").notNull(),
+    emailError: text("emailError"),
+    createdAt: timestamp("createdAt").defaultNow().notNull(),
+    updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+  },
+  (table) => [
+    index("private_requests_buyer_idx").on(table.buyerAccountId),
+    index("private_requests_status_idx").on(table.requestStatus, table.emailStatus),
+  ],
+);
+
+export type User = typeof users.$inferSelect;
+export type InsertUser = typeof users.$inferInsert;
+export type BuyerAccount = typeof buyerAccounts.$inferSelect;
+export type AvailabilityStone = typeof availabilityStones.$inferSelect;

@@ -51,6 +51,7 @@ export default function Home() {
           <a href="#production">Our production</a>
           <a href="#made-to-spec">Made to specification</a>
           <a href="#how-we-work">How we work</a>
+          <a href="/availability">Buyer list</a>
         </nav>
 
         <button
@@ -76,6 +77,7 @@ export default function Home() {
             <a href="#production" onClick={() => setMenuOpen(false)}>Our production</a>
             <a href="#made-to-spec" onClick={() => setMenuOpen(false)}>Made to specification</a>
             <a href="#how-we-work" onClick={() => setMenuOpen(false)}>How we work</a>
+            <a href="/availability" onClick={() => setMenuOpen(false)}>Buyer list</a>
             <button type="button" onClick={() => openBrief()}>Commission a make <ArrowUpRight size={16} /></button>
           </div>
         )}

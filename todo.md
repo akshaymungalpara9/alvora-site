@@ -8,3 +8,14 @@
 - [x] Add a compact credentials and compliance strip with clearly editable verification placeholders.
 - [x] Add private trade-account qualification fields to the production brief form.
 - [x] Verify the updated commercial copy, form layout, and responsive presentation.
+- [x] Establish the approved-buyer account, availability, line-sheet, email-log, and request data model.
+- [x] Build the buyer approval flow, private availability list, and buyer-band filtering.
+- [x] Generate and save a premium buyer-specific one-page line sheet PDF from availability data.
+- [x] Send and log the approved-buyer welcome email with the private-list link and line sheet.
+- [x] Add private-list stone requests with prefilled buyer and certificate details plus tagged alert delivery.
+- [x] Verify permissions, document delivery, email logging, and request routing.
+- [x] Configure a swappable approved-buyer email sender, initially using Alvora Diamonds <onboarding@resend.dev>.
+- [x] Persist private-list requests before attempting tagged LEAD_ALERT_TO delivery, with delivery status visible to admins.
+- [ ] Populate the availability import with confirmed IGI certificate numbers and prices before treating generated line sheets as final collateral.
+- [ ] Populate private-list requests and alert subjects with confirmed IGI certificate numbers from a completed availability source.
+- [x] Add focused automated coverage for approval, email-log, permission, and database-first private-request workflows.
