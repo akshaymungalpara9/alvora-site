@@ -6,12 +6,13 @@ import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import AdminBuyers from "./pages/AdminBuyers";
+import AdminOperations from "./pages/AdminOperations";
 import AdminProductionBriefs from "./pages/AdminProductionBriefs";
 import BuyerAvailability from "./pages/BuyerAvailability";
 import Home from "./pages/Home";
 
 function Router() {
-  return <Switch><Route path="/" component={Home} /><Route path="/availability" component={BuyerAvailability} /><Route path="/admin/buyers" component={AdminBuyers} /><Route path="/admin/briefs" component={AdminProductionBriefs} /><Route path="/404" component={NotFound} /><Route component={NotFound} /></Switch>;
+  return <Switch><Route path="/" component={Home} /><Route path="/availability" component={BuyerAvailability} /><Route path="/admin" component={AdminOperations} /><Route path="/admin/buyers" component={AdminBuyers} /><Route path="/admin/briefs" component={AdminProductionBriefs} /><Route path="/404" component={NotFound} /><Route component={NotFound} /></Switch>;
 }
 
 function App() {

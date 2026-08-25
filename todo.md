@@ -34,3 +34,6 @@
 - [x] Add admin actions to update a production brief’s operational status and follow-up ownership.
 - [x] Refine the admin production-brief view with status filtering and concise triage metadata.
 - [x] Add automated coverage for protected triage updates and validate the admin workflow responsively.
+- [x] Create protected operational metrics for production-brief workload, alert health, and buyer-rollout readiness.
+- [x] Add an administrative operations overview with concise status and attention states.
+- [x] Add automated coverage for operations metrics permissions and verify the overview across desktop and mobile.

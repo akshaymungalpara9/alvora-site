@@ -4,6 +4,7 @@ import { systemRouter } from "./_core/systemRouter";
 import { publicProcedure, router } from "./_core/trpc";
 import { adminBuyerRouter, buyerPortalRouter } from "./routers/buyers";
 import { adminProductionBriefRouter, publicProductionBriefRouter } from "./routers/briefs";
+import { adminOperationsRouter } from "./routers/operations";
 
 export const appRouter = router({
   system: systemRouter,
@@ -17,6 +18,7 @@ export const appRouter = router({
   }),
   admin: adminBuyerRouter,
   adminBriefs: adminProductionBriefRouter,
+  adminOperations: adminOperationsRouter,
   buyer: buyerPortalRouter,
   productionBrief: publicProductionBriefRouter,
 });

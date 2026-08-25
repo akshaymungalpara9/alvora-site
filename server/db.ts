@@ -243,3 +243,41 @@ export async function updateProductionBriefFollowUp(input: {
   }).where(eq(productionBriefs.id, input.id));
   return (await db.select().from(productionBriefs).where(eq(productionBriefs.id, input.id)).limit(1))[0];
 }
+
+export async function getOperationsOverview() {
+  const db = await requireDb();
+  const [briefRows, privateRequestRows, inventoryRows, buyerRows] = await Promise.all([
+    db.select().from(productionBriefs),
+    db.select().from(privateListRequests),
+    db.select().from(availabilityStones),
+    db.select().from(buyerAccounts),
+  ]);
+
+  const newBriefs = briefRows.filter((brief) => brief.followUpStatus === "new");
+  const activeBriefs = briefRows.filter((brief) => ["new", "reviewing", "quoted", "on_hold"].includes(brief.followUpStatus));
+  const incompleteInventory = inventoryRows.filter((stone) => !stone.reportNumber || stone.price === null);
+
+  return {
+    productionBriefs: {
+      total: briefRows.length,
+      new: newBriefs.length,
+      active: activeBriefs.length,
+      failedAlerts: briefRows.filter((brief) => brief.alertStatus === "failed").length,
+      recent: briefRows.sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime()).slice(0, 5),
+    },
+    privateRequests: {
+      total: privateRequestRows.length,
+      failedAlerts: privateRequestRows.filter((request) => request.emailStatus === "failed").length,
+    },
+    inventory: {
+      total: inventoryRows.length,
+      incomplete: incompleteInventory.length,
+      isReady: inventoryRows.length > 0 && incompleteInventory.length === 0,
+    },
+    buyerRollout: {
+      activationEnabled: ENV.alvoraEarlyAccessEnabled,
+      accountsCreated: buyerRows.length,
+      accountsApproved: buyerRows.filter((account) => account.status === "approved").length,
+    },
+  };
+}

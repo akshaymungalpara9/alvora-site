@@ -21,13 +21,14 @@ import {
 } from "@/components/ui/sidebar";
 import { startLogin } from "@/const";
 import { useIsMobile } from "@/hooks/useMobile";
-import { ClipboardList, FileStack, LogOut, PanelLeft, Users } from "lucide-react";
+import { ClipboardList, FileStack, Gauge, LogOut, PanelLeft, Users } from "lucide-react";
 import { CSSProperties, useEffect, useRef, useState } from "react";
 import { useLocation } from "wouter";
 import { DashboardLayoutSkeleton } from './DashboardLayoutSkeleton';
 import { Button } from "./ui/button";
 
 const menuItems = [
+  { icon: Gauge, label: "Operations", path: "/admin" },
   { icon: Users, label: "Buyer accounts", path: "/admin/buyers" },
   { icon: ClipboardList, label: "Production briefs", path: "/admin/briefs" },
   { icon: FileStack, label: "Private availability", path: "/availability" },
