@@ -21,3 +21,4 @@
 - [x] Add focused automated coverage for approval, email-log, permission, and database-first private-request workflows.
 - [x] Add a temporary admin-only early-access inventory-population notice while preserving public homepage and brief-form availability.
 - [x] Verify the public homepage remains active and the early-access notice stays restricted to the admin area.
+- [x] Provide the exact partner availability CSV schema and upload template for the consolidated IGI-validated export.
