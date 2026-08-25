@@ -10,4 +10,5 @@ export const ENV = {
   resendApiKey: process.env.RESEND_API_KEY ?? "",
   leadAlertTo: process.env.LEAD_ALERT_TO ?? "",
   alvoraEmailFrom: process.env.ALVORA_EMAIL_FROM ?? "Alvora Diamonds <onboarding@resend.dev>",
+  alvoraEarlyAccessEnabled: process.env.ALVORA_EARLY_ACCESS_ENABLED === "true",
 };

@@ -98,9 +98,11 @@ async function sendWelcomeKit(input: {
 }
 
 export const adminBuyerRouter = router({
+  rolloutStatus: adminProcedure.query(() => ({ buyerActivationEnabled: ENV.alvoraEarlyAccessEnabled })),
   listBuyerAccounts: adminProcedure.query(() => listBuyerAccounts()),
   createBuyerAccount: adminProcedure.input(buyerBands.refine((value) => value.caratMax >= value.caratMin, { message: "Maximum carat must be at least the minimum" })).mutation(({ input }) => createBuyerAccount(input)),
   approveBuyerAccount: adminProcedure.input(z.object({ buyerAccountId: z.number().int().positive() })).mutation(async ({ ctx, input }) => {
+    if (!ENV.alvoraEarlyAccessEnabled) throw new TRPCError({ code: "PRECONDITION_FAILED", message: "Buyer activation is locked while controlled early access is being prepared." });
     const buyer = await approveBuyerAccount(input.buyerAccountId);
     if (!buyer) throw new TRPCError({ code: "NOT_FOUND", message: "Buyer account was not found" });
     const lineSheet = await createStoredLineSheet(buyer, ctx.user.id);
@@ -122,6 +124,7 @@ export const adminBuyerRouter = router({
 
 export const buyerPortalRouter = router({
   myAvailability: protectedProcedure.query(async ({ ctx }) => {
+    if (!ENV.alvoraEarlyAccessEnabled) return { status: "not_approved" as const, buyer: null, stones: [], latestLineSheet: null };
     const buyer = await resolveBuyerAccountForUser(ctx.user);
     if (!buyer || buyer.status !== "approved") return { status: "not_approved" as const, buyer: null, stones: [], latestLineSheet: null };
     return {
@@ -132,6 +135,7 @@ export const buyerPortalRouter = router({
     };
   }),
   requestStone: protectedProcedure.input(z.object({ stoneId: z.number().int().positive(), note: z.string().max(1000).optional() })).mutation(async ({ ctx, input }) => {
+    if (!ENV.alvoraEarlyAccessEnabled) throw new TRPCError({ code: "PRECONDITION_FAILED", message: "Private-list requests are not active during controlled early access." });
     const buyer = await resolveBuyerAccountForUser(ctx.user);
     if (!buyer || buyer.status !== "approved") throw new TRPCError({ code: "FORBIDDEN", message: "This account is not approved for private availability" });
     const stone = await getBuyerStone(buyer, input.stoneId);

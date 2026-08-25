@@ -30,6 +30,7 @@ vi.mock("./storage", () => ({ storagePut: mocks.storagePut }));
 vi.mock("./lineSheets", () => ({ buildLineSheetPdf: mocks.buildLineSheetPdf }));
 
 import { adminBuyerRouter, buyerPortalRouter } from "./routers/buyers";
+import { ENV } from "./_core/env";
 
 const buyer = {
   id: 4,
@@ -84,6 +85,7 @@ const makeContext = (role: "admin" | "user") => ({
 describe("approved-buyer workflow", () => {
   beforeEach(() => {
     vi.clearAllMocks();
+    ENV.alvoraEarlyAccessEnabled = false;
     mocks.resolveBuyerAccountForUser.mockResolvedValue(buyer);
     mocks.getBuyerStone.mockResolvedValue(stone);
     mocks.createPrivateListRequest.mockResolvedValue(91);
@@ -96,6 +98,7 @@ describe("approved-buyer workflow", () => {
   });
 
   it("persists a private-list request before attempting the tagged alert and preserves it if delivery fails", async () => {
+    ENV.alvoraEarlyAccessEnabled = true;
     mocks.sendTransactionalEmail.mockRejectedValueOnce(new Error("delivery unavailable"));
     const caller = buyerPortalRouter.createCaller(makeContext("user") as any);
 
@@ -116,6 +119,7 @@ describe("approved-buyer workflow", () => {
   });
 
   it("stores a line sheet and logs a welcome email when an admin approves a buyer", async () => {
+    ENV.alvoraEarlyAccessEnabled = true;
     mocks.sendTransactionalEmail.mockResolvedValueOnce({ id: "resend-welcome-1" });
     const caller = adminBuyerRouter.createCaller(makeContext("admin") as any);
 
@@ -130,6 +134,17 @@ describe("approved-buyer workflow", () => {
     }));
     expect(mocks.markEmailLog).toHaveBeenCalledWith(62, "sent", { providerMessageId: "resend-welcome-1" });
     expect(result.welcome.status).toBe("sent");
+  });
+
+  it("blocks approval, welcome-email sending, buyer visibility, and requests while early access is locked", async () => {
+    const adminCaller = adminBuyerRouter.createCaller(makeContext("admin") as any);
+    const buyerCaller = buyerPortalRouter.createCaller(makeContext("user") as any);
+
+    await expect(adminCaller.approveBuyerAccount({ buyerAccountId: 4 })).rejects.toMatchObject({ code: "PRECONDITION_FAILED" });
+    await expect(buyerCaller.requestStone({ stoneId: 8 })).rejects.toMatchObject({ code: "PRECONDITION_FAILED" });
+    await expect(buyerCaller.myAvailability()).resolves.toMatchObject({ status: "not_approved", stones: [] });
+    expect(mocks.approveBuyerAccount).not.toHaveBeenCalled();
+    expect(mocks.sendTransactionalEmail).not.toHaveBeenCalled();
   });
 
   it("rejects buyer-account administration from a non-admin session", async () => {

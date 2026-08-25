@@ -22,3 +22,6 @@
 - [x] Add a temporary admin-only early-access inventory-population notice while preserving public homepage and brief-form availability.
 - [x] Verify the public homepage remains active and the early-access notice stays restricted to the admin area.
 - [x] Provide the exact partner availability CSV schema and upload template for the consolidated IGI-validated export.
+- [x] Add a server-enforced early-access guard that blocks buyer approval and welcome-email sending until the rollout is deliberately enabled.
+- [x] Update the admin buyer screen to explain the early-access lock without affecting public homepage or brief-form access.
+- [x] Verify the approval lock, admin messaging, and public access states.
