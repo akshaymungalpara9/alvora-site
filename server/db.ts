@@ -197,6 +197,7 @@ export async function listPrivateRequests() {
 
 export type ProductionBriefInput = {
   requestType: string;
+  market: "GLOBAL" | "FR" | "IT" | "US" | "CA";
   contactName: string;
   email: string;
   company?: string;

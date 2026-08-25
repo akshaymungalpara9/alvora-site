@@ -37,6 +37,9 @@ a { color: inherit; text-decoration: none; }
 .desktop-nav { display: flex; align-items: center; gap: 29px; margin-left: auto; margin-right: 32px; }
 .desktop-nav a { color: var(--paper-dim); font-family: var(--mono); font-size: 0.63rem; letter-spacing: 0.09em; transition: color 180ms var(--ease-out); }
 .desktop-nav a:hover { color: var(--signal); }
+.language-switcher { display: inline-flex; align-items: center; gap: 7px; margin-right: 25px; }
+.language-switcher a { padding: 4px 2px; border-bottom: 1px solid transparent; color: #7e8179; font-family: var(--mono); font-size: 0.57rem; letter-spacing: 0.08em; transition: color 180ms var(--ease-out), border-color 180ms var(--ease-out); }
+.language-switcher a:hover, .language-switcher a.is-active { border-color: var(--signal); color: var(--signal); }
 .header-cta, .menu-toggle { border: 0; background: transparent; color: var(--paper); }
 .header-cta { display: inline-flex; align-items: center; gap: 8px; color: var(--signal); font-family: var(--mono); font-size: 0.67rem; letter-spacing: 0.07em; transition: transform 180ms var(--ease-out), color 180ms var(--ease-out); }
 .header-cta:hover { color: var(--paper); transform: translateX(3px); }
@@ -44,6 +47,16 @@ a { color: inherit; text-decoration: none; }
 .mobile-nav { position: absolute; inset: 76px 0 auto; display: grid; gap: 4px; padding: 18px 4.25vw 24px; background: #151717; border-bottom: 1px solid var(--rule); }
 .mobile-nav a, .mobile-nav button { padding: 12px 0; color: var(--paper); border: 0; background: transparent; border-bottom: 1px solid var(--rule); font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.1em; text-align: left; }
 .mobile-nav button { color: var(--signal); display: flex; align-items: center; justify-content: space-between; }
+.mobile-nav .language-switcher { margin: 5px 0; padding: 8px 0; border-bottom: 1px solid var(--rule); }
+
+.market-panel-section { display: grid; grid-template-columns: 0.72fr 1.28fr; gap: 7vw; padding: 90px 9.3vw 88px 5.45vw; border-bottom: 1px solid var(--rule); color: var(--paper); background: #151817; }
+.market-panel-section h2 { max-width: 410px; margin: 0 0 20px; color: var(--paper); font-family: var(--serif); font-size: clamp(3.15rem, 5vw, 5.3rem); font-weight: 500; letter-spacing: -0.055em; line-height: 0.84; }
+.market-panel-section > div:first-child > p:not(.eyebrow) { max-width: 390px; margin: 0; color: #b8bab3; font-size: 0.84rem; line-height: 1.75; }
+.market-panel-list { border-top: 1px solid var(--rule); }
+.market-panel-list article { display: grid; grid-template-columns: 135px 1fr; gap: 26px; padding: 21px 0; border-bottom: 1px solid var(--rule); }
+.market-panel-list span { color: var(--signal); font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.09em; text-transform: uppercase; }
+.market-panel-list p { max-width: 470px; margin: 0; color: #d2d3cc; font-size: 0.79rem; line-height: 1.72; }
+.market-panel-note { grid-column: 2; margin: -24px 0 0; color: #7f837a; font-family: var(--mono); font-size: 0.56rem; letter-spacing: 0.03em; line-height: 1.6; }
 
 .hero { min-height: min(760px, calc(100vh - 76px)); position: relative; display: flex; align-items: flex-end; isolation: isolate; border-bottom: 1px solid var(--rule); }
 .hero-image, .process-image-wrap > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -3; }
@@ -308,7 +321,7 @@ h1 { margin-bottom: 24px; color: var(--paper); font-family: var(--serif); font-s
 }
 
 @media (max-width: 900px) {
-  .desktop-nav, .header-cta { display: none; }
+  .desktop-nav, .site-header > .language-switcher, .header-cta { display: none; }
   .menu-toggle { display: inline-flex; color: var(--signal); }
   .hero { min-height: 670px; }
   .hero-content { padding-top: 100px; }
@@ -327,6 +340,8 @@ h1 { margin-bottom: 24px; color: var(--paper); font-family: var(--serif); font-s
   .credentials-strip { grid-template-columns: 1fr; gap: 20px; }
   .brief-section { gap: 60px; padding-right: 5.45vw; }
   .brief-aside { padding-top: 35px; }
+  .market-panel-section { grid-template-columns: 1fr; gap: 45px; }
+  .market-panel-note { grid-column: auto; margin: -25px 0 0; }
 }
 
 @media (max-width: 640px) {

@@ -1,0 +1,1 @@
+ALTER TABLE `production_briefs` ADD `market` enum('GLOBAL','FR','IT','US','CA') DEFAULT 'GLOBAL' NOT NULL;

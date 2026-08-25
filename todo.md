@@ -40,3 +40,10 @@
 - [x] Create a protected CSV export procedure for production briefs and their follow-up fields.
 - [x] Add an export control with concise internal data-handling guidance to the production-brief admin view.
 - [x] Add automated coverage for export permissions and validate the control across desktop and mobile.
+- [x] Verify French diamond denomination language against official French consumer-protection sources and document the permitted terminology.
+- [x] Add a market field to production briefs, including country selection for North American enquiries.
+- [x] Create French and Italian Alvora landing pages with translated buyer-facing copy and market credentials notes.
+- [x] Create the North American Alvora landing page with US/Canada shipping and quote-direction guidance.
+- [x] Add a working EN / FR / IT language switcher across public landing routes.
+- [x] Add automated coverage and responsive validation for market tagging, localized routes, and French terminology compliance.
+- [x] Add automated French terminology content-guard coverage for the localized landing data.

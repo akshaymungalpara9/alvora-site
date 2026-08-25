@@ -19,6 +19,7 @@ import { adminProductionBriefRouter, publicProductionBriefRouter } from "./route
 
 const input = {
   requestType: "Production run",
+  market: "FR" as const,
   contactName: "Asha Patel",
   email: "asha@atelier.example",
   company: "Atelier North",
@@ -84,8 +85,8 @@ describe("public production-brief workflow", () => {
     expect(mocks.createProductionBrief.mock.invocationCallOrder[0]).toBeLessThan(mocks.sendTransactionalEmail.mock.invocationCallOrder[0]);
     expect(mocks.sendTransactionalEmail).toHaveBeenCalledWith(expect.objectContaining({
       to: "alerts@alvora.example",
-      subject: "[Public brief — Atelier North] Production run",
-      tags: expect.arrayContaining([expect.objectContaining({ value: "public_production_brief" })]),
+      subject: "[Public brief — FR — Atelier North] Production run",
+      tags: expect.arrayContaining([expect.objectContaining({ value: "public_production_brief" }), expect.objectContaining({ name: "market", value: "FR" })]),
     }));
     expect(mocks.markProductionBriefAlert).toHaveBeenCalledWith(31, "failed", { alertError: "mail transport unavailable" });
   });
@@ -96,6 +97,20 @@ describe("public production-brief workflow", () => {
 
     await expect(caller.submit(input)).resolves.toEqual({ briefId: 31, alertStatus: "sent" });
     expect(mocks.markProductionBriefAlert).toHaveBeenCalledWith(31, "sent", { alertMessageId: "resend-public-brief-1" });
+  });
+
+  it("persists a Canadian market code and includes it in alert routing metadata", async () => {
+    const canadianInput = { ...input, market: "CA" as const };
+    mocks.createProductionBrief.mockResolvedValueOnce({ ...savedBrief, market: "CA" as const });
+    mocks.sendTransactionalEmail.mockResolvedValueOnce({ id: "resend-public-brief-ca-1" });
+    const caller = publicProductionBriefRouter.createCaller({} as any);
+
+    await expect(caller.submit(canadianInput)).resolves.toEqual({ briefId: 31, alertStatus: "sent" });
+    expect(mocks.createProductionBrief).toHaveBeenCalledWith(canadianInput);
+    expect(mocks.sendTransactionalEmail).toHaveBeenCalledWith(expect.objectContaining({
+      subject: "[Public brief — CA — Atelier North] Production run",
+      tags: expect.arrayContaining([expect.objectContaining({ name: "market", value: "CA" })]),
+    }));
   });
 
   it("limits lead retrieval to administrators", async () => {
@@ -124,6 +139,8 @@ describe("public production-brief workflow", () => {
     const exported = await adminCaller.exportCsv();
     expect(exported.filename).toMatch(/^alvora-production-briefs-\d{4}-\d{2}-\d{2}\.csv$/);
     expect(exported.content).toContain("\"Follow-up status\"");
+    expect(exported.content).toContain("\"Market\"");
+    expect(exported.content).toContain("\"FR\"");
     expect(exported.content).toContain("\"AK\"");
     expect(exported.content).toContain("\"Quote after calibration check\"");
     await expect(userCaller.exportCsv()).rejects.toMatchObject({ code: "FORBIDDEN" });

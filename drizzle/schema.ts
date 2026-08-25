@@ -142,6 +142,7 @@ export const productionBriefs = mysqlTable(
   {
     id: int("id").autoincrement().primaryKey(),
     requestType: varchar("requestType", { length: 120 }).notNull(),
+    market: mysqlEnum("market", ["GLOBAL", "FR", "IT", "US", "CA"]).default("GLOBAL").notNull(),
     contactName: varchar("contactName", { length: 180 }).notNull(),
     email: varchar("email", { length: 320 }).notNull(),
     company: varchar("company", { length: 180 }),

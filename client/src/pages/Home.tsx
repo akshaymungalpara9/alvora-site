@@ -50,6 +50,7 @@ export default function Home() {
     setAlertStatus(null);
     submitProductionBrief.mutate({
       requestType: String(values.get("request_type")),
+      market: "GLOBAL",
       contactName: String(values.get("name")).trim(),
       email: String(values.get("email")).trim(),
       company: String(values.get("company") || "").trim() || undefined,
@@ -75,6 +76,8 @@ export default function Home() {
           <a href="/availability">Buyer list</a>
         </nav>
 
+        <nav className="language-switcher" aria-label="Language selection"><a href="/" className="is-active">EN</a><a href="/fr" lang="fr">FR</a><a href="/it" lang="it">IT</a></nav>
+
         <button
           className="header-cta"
           type="button"
@@ -99,6 +102,7 @@ export default function Home() {
             <a href="#made-to-spec" onClick={() => setMenuOpen(false)}>Made to specification</a>
             <a href="#how-we-work" onClick={() => setMenuOpen(false)}>How we work</a>
             <a href="/availability" onClick={() => setMenuOpen(false)}>Buyer list</a>
+            <nav className="language-switcher" aria-label="Language selection"><a href="/" className="is-active">EN</a><a href="/fr" lang="fr">FR</a><a href="/it" lang="it">IT</a></nav>
             <button type="button" onClick={() => openBrief()}>Commission a make <ArrowUpRight size={16} /></button>
           </div>
         )}
