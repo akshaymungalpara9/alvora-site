@@ -91,6 +91,7 @@ export default function Home() {
             <p className="eyebrow eyebrow-bright"><span /> Lab-Grown Diamond Manufacturers, Surat</p>
             <h1 id="hero-title">Diamonds made to a standard exacting buyers can rely on.</h1>
             <p className="hero-copy">Alvora manufactures certified, calibrated lab-grown diamonds for jewellery teams that need control in every dimension.</p>
+            <p className="hero-maker-line">You’re buying from the bench — there’s no factory behind us to go around.</p>
             <div className="hero-actions">
               <button className="button button-signal" type="button" onClick={() => openBrief()}>
                 Commission a make <ArrowDownRight size={18} strokeWidth={1.6} />
@@ -108,11 +109,25 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="intro-band" aria-label="Alvora positioning">
-          <p className="section-number">02 — THE HOUSE</p>
-          <div>
-            <p className="intro-statement">We make stones for the part of your work that cannot be approximated.</p>
-            <p className="intro-copy">From repeatable profiles to a one-off specification, our production is built around the information your bench, setting, and buyer already hold.</p>
+        <section className="heritage-section" id="heritage" aria-labelledby="heritage-title">
+          <p className="section-number">02 — MADE IN SURAT</p>
+          <div className="heritage-content">
+            <h2 id="heritage-title">Made in Surat,<br /><em>by our benches.</em></h2>
+            <div className="heritage-prose">
+              <p>Alvora is built inside Surat’s lab-grown cutting-and-polishing cluster: close to the work, the tools and the people who understand the make.</p>
+              <p>Every stone we ship is calibrated to our standard make: <strong>Excellent/Ideal cut, no fluorescence, no BGM.</strong> It is IGI laser-inscribed and validated against the IGI database before dispatch.</p>
+              <p>We make to a specification, and we can rework what we have made.</p>
+              <p className="heritage-maker-line">Cut, calibrated and IGI-certified by our own team.</p>
+            </div>
+          </div>
+          <div className="by-numbers" aria-label="Alvora production proof points">
+            <p>By the numbers</p>
+            <div className="numbers-strip">
+              <article><strong>[XX]</strong><span>months of production history</span></article>
+              <article><strong>[XXX]</strong><span>stones dispatched</span></article>
+              <article><strong>100%</strong><span>IGI standard on every stone</span></article>
+              <article><strong>DIRECT</strong><span>from-bench pricing</span></article>
+            </div>
           </div>
         </section>
 
@@ -213,9 +228,31 @@ export default function Home() {
           </div>
         </section>
 
+        <section className="faq-section" id="faq" aria-labelledby="faq-title">
+          <div className="faq-heading">
+            <p className="eyebrow"><span /> 06 — FAQ</p>
+            <h2 id="faq-title">The useful questions.</h2>
+          </div>
+          <div className="faq-content">
+            <details open>
+              <summary>What can I specify in a custom make?<span>+</span></summary>
+              <p>Shape, exact dimensions, ratios, finish, parcel requirements and timing can all be placed in the production brief.</p>
+            </details>
+            <details>
+              <summary>Can you match stones for a manufacturing layout?<span>+</span></summary>
+              <p>Yes. Matched layouts and calibrated parcels are prepared around the proportions and visual consistency your finished piece requires.</p>
+            </details>
+            <details>
+              <summary>Can a stone be reworked after it is made?<span>+</span></summary>
+              <p>We can assess recut, repolish and rework requirements for stones made by Alvora, with the original production information close at hand.</p>
+            </details>
+            <p className="faq-maker-line">Every stone we ship is one we made.</p>
+          </div>
+        </section>
+
         <section className="brief-section" id="production-brief" aria-labelledby="brief-title">
           <div className="brief-intro">
-            <p className="eyebrow eyebrow-bright"><span /> 06 — PRODUCTION BRIEF</p>
+            <p className="eyebrow eyebrow-bright"><span /> 07 — PRODUCTION BRIEF</p>
             <h2 id="brief-title">Commission a make.</h2>
             <p>Tell us the programme, profile, or specification you need. We will return with the practical production detail.</p>
             <div className="brief-aside">
