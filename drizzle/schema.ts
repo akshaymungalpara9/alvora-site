@@ -136,7 +136,33 @@ export const privateListRequests = mysqlTable(
   ],
 );
 
+/** A public production brief is saved before any alert email is attempted. */
+export const productionBriefs = mysqlTable(
+  "production_briefs",
+  {
+    id: int("id").autoincrement().primaryKey(),
+    requestType: varchar("requestType", { length: 120 }).notNull(),
+    contactName: varchar("contactName", { length: 180 }).notNull(),
+    email: varchar("email", { length: 320 }).notNull(),
+    company: varchar("company", { length: 180 }),
+    yearsTrading: varchar("yearsTrading", { length: 20 }).notNull(),
+    tradeReferencesAvailable: varchar("tradeReferencesAvailable", { length: 10 }).notNull(),
+    preferredPaymentApproach: varchar("preferredPaymentApproach", { length: 120 }).notNull(),
+    brief: text("brief").notNull(),
+    alertStatus: mysqlEnum("alertStatus", ["pending", "sent", "failed"]).default("pending").notNull(),
+    alertError: text("alertError"),
+    alertMessageId: varchar("alertMessageId", { length: 160 }),
+    createdAt: timestamp("createdAt").defaultNow().notNull(),
+    updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+  },
+  (table) => [
+    index("production_briefs_created_idx").on(table.createdAt),
+    index("production_briefs_alert_idx").on(table.alertStatus),
+  ],
+);
+
 export type User = typeof users.$inferSelect;
 export type InsertUser = typeof users.$inferInsert;
 export type BuyerAccount = typeof buyerAccounts.$inferSelect;
 export type AvailabilityStone = typeof availabilityStones.$inferSelect;
+export type ProductionBrief = typeof productionBriefs.$inferSelect;

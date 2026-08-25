@@ -25,3 +25,8 @@
 - [x] Add a server-enforced early-access guard that blocks buyer approval and welcome-email sending until the rollout is deliberately enabled.
 - [x] Update the admin buyer screen to explain the early-access lock without affecting public homepage or brief-form access.
 - [x] Verify the approval lock, admin messaging, and public access states.
+- [x] Create a database model for public production-brief submissions and alert delivery status.
+- [x] Add a protected admin lead view for retrievable production briefs and failed alert status.
+- [x] Connect the public production brief form to database-first submission and tagged LEAD_ALERT_TO delivery.
+- [x] Add focused tests for public brief persistence, alert-failure resilience, and admin lead permissions.
+- [x] Verify the public form, alert routing, and internal lead retrieval workflow.

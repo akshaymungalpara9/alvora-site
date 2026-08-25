@@ -11,6 +11,7 @@ import {
   MoveRight,
   X,
 } from "lucide-react";
+import { trpc } from "@/lib/trpc";
 
 const heroImage = "/manus-storage/alvora-hero-qc_9e0d540e.jpg";
 const facetingImage = "/manus-storage/alvora-cutting-faceting_9e45364b.jpg";
@@ -21,10 +22,18 @@ export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [requestType, setRequestType] = useState("Production run");
   const [submitted, setSubmitted] = useState(false);
+  const [alertStatus, setAlertStatus] = useState<"sent" | "failed" | null>(null);
+  const submitProductionBrief = trpc.productionBrief.submit.useMutation({
+    onSuccess: (result) => {
+      setSubmitted(true);
+      setAlertStatus(result.alertStatus);
+    },
+  });
 
   const openBrief = (type = "Production run") => {
     setRequestType(type);
     setSubmitted(false);
+    setAlertStatus(null);
     setMenuOpen(false);
     window.setTimeout(() => {
       document.getElementById("production-brief")?.scrollIntoView({
@@ -36,7 +45,19 @@ export default function Home() {
 
   const submitBrief = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setSubmitted(true);
+    const values = new FormData(event.currentTarget);
+    setSubmitted(false);
+    setAlertStatus(null);
+    submitProductionBrief.mutate({
+      requestType: String(values.get("request_type")),
+      contactName: String(values.get("name")).trim(),
+      email: String(values.get("email")).trim(),
+      company: String(values.get("company") || "").trim() || undefined,
+      yearsTrading: String(values.get("years_trading")) as "Under 2" | "2–5" | "5–10" | "10+",
+      tradeReferencesAvailable: String(values.get("trade_references")) as "Yes" | "No",
+      preferredPaymentApproach: String(values.get("preferred_payment_approach")) as "Prepaid on proforma" | "Agreed trade terms subject to credit check" | "Open to discussion",
+      brief: String(values.get("brief")).trim(),
+    });
   };
 
   return (
@@ -334,10 +355,11 @@ export default function Home() {
               <textarea name="brief" required rows={5} placeholder="Shape, dimensions, ratios, finish, quantity, timing or anything already decided at your bench." />
             </label>
             <div className="form-submit-row">
-              <button className="button button-signal" type="submit">Send production brief <ArrowUpRight size={18} /></button>
+              <button className="button button-signal" type="submit" disabled={submitProductionBrief.isPending}>{submitProductionBrief.isPending ? "Recording brief…" : <>Send production brief <ArrowUpRight size={18} /></>}</button>
               <p>We use this information only to understand the make you require.</p>
             </div>
-            {submitted && <p className="form-confirmation" role="status">Thank you. Your production brief has been prepared for the Alvora team.</p>}
+            {submitProductionBrief.error && <p className="form-confirmation form-confirmation-error" role="alert">Your brief could not be recorded. Please try again, or contact Alvora directly.</p>}
+            {submitted && <p className="form-confirmation" role="status">{alertStatus === "sent" ? "Thank you. Your production brief has been recorded and sent to the Alvora team." : "Thank you. Your production brief has been safely recorded for the Alvora team."}</p>}
           </form>
         </section>
       </main>

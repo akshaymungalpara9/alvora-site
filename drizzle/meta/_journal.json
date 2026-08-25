@@ -8,6 +8,13 @@
       "when": 1787677769630,
       "tag": "0000_nasty_darkstar",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1787683585177,
+      "tag": "0001_rare_wiccan",
+      "breakpoints": true
     }
   ]
 }

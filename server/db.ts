@@ -7,6 +7,7 @@ import {
   type InsertUser,
   lineSheets,
   privateListRequests,
+  productionBriefs,
   users,
 } from "../drizzle/schema";
 import { ENV } from "./_core/env";
@@ -192,4 +193,37 @@ export async function markPrivateRequestEmail(id: number, status: "sent" | "fail
 export async function listPrivateRequests() {
   const db = await requireDb();
   return db.select().from(privateListRequests).orderBy(desc(privateListRequests.createdAt));
+}
+
+export type ProductionBriefInput = {
+  requestType: string;
+  contactName: string;
+  email: string;
+  company?: string;
+  yearsTrading: string;
+  tradeReferencesAvailable: string;
+  preferredPaymentApproach: string;
+  brief: string;
+};
+
+export async function createProductionBrief(input: ProductionBriefInput) {
+  const db = await requireDb();
+  const result = await db.insert(productionBriefs).values({
+    ...input,
+    contactName: input.contactName.trim(),
+    email: input.email.trim().toLowerCase(),
+    company: input.company?.trim() || null,
+    brief: input.brief.trim(),
+  });
+  return (await db.select().from(productionBriefs).where(eq(productionBriefs.id, Number(result[0].insertId))).limit(1))[0];
+}
+
+export async function markProductionBriefAlert(id: number, status: "sent" | "failed", details: { alertMessageId?: string; alertError?: string }) {
+  const db = await requireDb();
+  await db.update(productionBriefs).set({ alertStatus: status, alertMessageId: details.alertMessageId ?? null, alertError: details.alertError ?? null }).where(eq(productionBriefs.id, id));
+}
+
+export async function listProductionBriefs() {
+  const db = await requireDb();
+  return db.select().from(productionBriefs).orderBy(desc(productionBriefs.createdAt));
 }
