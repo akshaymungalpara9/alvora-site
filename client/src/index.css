@@ -267,6 +267,9 @@ h1 { margin-bottom: 24px; color: var(--paper); font-family: var(--serif); font-s
 .admin-brief-body { max-width: 780px; margin: 15px 0; color: #e4e1d8; font-size: 0.84rem; line-height: 1.72; white-space: pre-wrap; }
 .admin-brief footer { flex-wrap: wrap; color: #8b8e85; font-family: var(--mono); font-size: 0.59rem; letter-spacing: 0.025em; line-height: 1.55; }
 .admin-brief-error { display: inline-flex; align-items: center; gap: 5px; color: #d0a49a; }
+.brief-retry-button { display: inline-flex; align-items: center; gap: 6px; padding: 7px 9px; border: 1px solid rgba(201,255,99,0.48); color: var(--signal); background: transparent; font-family: var(--mono); font-size: 0.54rem; letter-spacing: 0.04em; }
+.brief-retry-button:hover:not(:disabled) { color: var(--signal-ink); background: var(--signal); }
+.brief-retry-button:disabled { opacity: 0.55; }
 .brief-triage-form { display: grid; grid-template-columns: 150px minmax(160px, 0.65fr) minmax(230px, 1.35fr) auto; align-items: end; gap: 11px; margin: 18px 0; padding: 14px 0; border-top: 1px solid rgba(235, 233, 224, 0.12); border-bottom: 1px solid rgba(235, 233, 224, 0.12); }
 .brief-triage-form label { display: grid; gap: 6px; color: #a6a9a0; font-family: var(--mono); font-size: 0.56rem; letter-spacing: 0.04em; text-transform: uppercase; }
 .brief-triage-form input, .brief-triage-form select, .brief-triage-form textarea { width: 100%; padding: 9px 10px; resize: vertical; text-transform: none; }

@@ -66,3 +66,6 @@
 - [x] Add a server-enforced honeypot guard to public production-brief submissions before persistence or alert delivery.
 - [x] Add unobtrusive hidden honeypot fields to English, French, Italian, and North American public brief forms.
 - [x] Verify legitimate market-tagged submissions remain valid and honeypot-triggered submissions create neither lead records nor alerts.
+- [x] Add an admin-only retry action for failed production-brief alert delivery using the already-saved lead record.
+- [x] Show a protected retry control only for failed alerts, with pending, sent, and repeat-failure outcomes.
+- [x] Verify retry authorization, delivery metadata updates, and absence of duplicate lead-record persistence.

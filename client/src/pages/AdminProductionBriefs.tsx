@@ -1,7 +1,7 @@
 import { useAuth } from "@/_core/hooks/useAuth";
 import DashboardLayout from "@/components/DashboardLayout";
 import { trpc } from "@/lib/trpc";
-import { Check, ClipboardList, Download, Loader2, MailWarning } from "lucide-react";
+import { Check, ClipboardList, Download, Loader2, MailWarning, RotateCw } from "lucide-react";
 import { FormEvent, useMemo, useState } from "react";
 
 const statusOptions = ["new", "reviewing", "quoted", "on_hold", "closed"] as const;
@@ -20,6 +20,13 @@ export default function AdminProductionBriefs() {
     onSuccess: () => {
       utils.adminBriefs.list.invalidate();
       setNotice("Follow-up details saved.");
+    },
+    onError: (error) => setNotice(error.message),
+  });
+  const retryAlert = trpc.adminBriefs.retryAlert.useMutation({
+    onSuccess: (result) => {
+      utils.adminBriefs.list.invalidate();
+      setNotice(result.alertStatus === "sent" ? "Alert delivery retried and sent." : "Alert retry failed; the saved lead remains available for follow-up.");
     },
     onError: (error) => setNotice(error.message),
   });
@@ -89,7 +96,7 @@ export default function AdminProductionBriefs() {
           <label className="brief-triage-note">Internal note<textarea name="internalNote" defaultValue={item.internalNote || ""} rows={2} placeholder="Next action, quote detail, or constraint" /></label>
           <button type="submit" disabled={update.isPending}>{update.isPending ? "Saving…" : <><Check size={14} /> Save triage</>}</button>
         </form>
-        <footer><span>{item.preferredPaymentApproach}</span><span>Received {new Date(item.createdAt).toLocaleString()}</span>{item.lastActionAt && <span>Updated {new Date(item.lastActionAt).toLocaleString()}</span>}{item.alertError && <span className="admin-brief-error"><MailWarning size={14} /> {item.alertError}</span>}</footer>
+        <footer><span>{item.preferredPaymentApproach}</span><span>Received {new Date(item.createdAt).toLocaleString()}</span>{item.lastActionAt && <span>Updated {new Date(item.lastActionAt).toLocaleString()}</span>}{item.alertError && <span className="admin-brief-error"><MailWarning size={14} /> {item.alertError}</span>}{item.alertStatus === "failed" && <button className="brief-retry-button" type="button" onClick={() => retryAlert.mutate({ briefId: item.id })} disabled={retryAlert.isPending}>{retryAlert.isPending ? <Loader2 size={13} className="animate-spin" /> : <RotateCw size={13} />} Retry internal alert</button>}</footer>
       </article>)}
       {visibleBriefs.length === 0 && <p className="admin-empty"><ClipboardList size={18} /> {briefs.data?.length ? "No briefs match the current market and follow-up filters." : "No public production briefs have been recorded."}</p>}
     </div>}

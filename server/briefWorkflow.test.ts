@@ -2,6 +2,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 const mocks = vi.hoisted(() => ({
   createProductionBrief: vi.fn(),
+  getProductionBriefById: vi.fn(),
   listProductionBriefs: vi.fn(),
   markProductionBriefAlert: vi.fn(),
   sendTransactionalEmail: vi.fn(),
@@ -67,6 +68,7 @@ describe("public production-brief workflow", () => {
     vi.clearAllMocks();
     ENV.leadAlertTo = "alerts@alvora.example";
     mocks.createProductionBrief.mockResolvedValue(savedBrief);
+    mocks.getProductionBriefById.mockResolvedValue({ ...savedBrief, alertStatus: "failed", alertError: "mail transport unavailable" });
     mocks.updateProductionBriefFollowUp.mockResolvedValue({ ...savedBrief, followUpStatus: "reviewing", ownerName: "AK", internalNote: "Check setting dimensions", lastActionAt: new Date() });
   });
 
@@ -120,6 +122,36 @@ describe("public production-brief workflow", () => {
       subject: "[Public brief — CA — Atelier North] Production run",
       tags: expect.arrayContaining([expect.objectContaining({ name: "market", value: "CA" })]),
     }));
+  });
+
+  it("lets only an admin retry a failed alert from the saved brief without creating a duplicate lead", async () => {
+    mocks.sendTransactionalEmail.mockResolvedValueOnce({ id: "resend-public-brief-retry-1" });
+    const adminCaller = adminProductionBriefRouter.createCaller(makeContext("admin") as any);
+    const userCaller = adminProductionBriefRouter.createCaller(makeContext("user") as any);
+
+    await expect(adminCaller.retryAlert({ briefId: 31 })).resolves.toEqual({ briefId: 31, alertStatus: "sent" });
+    expect(mocks.getProductionBriefById).toHaveBeenCalledWith(31);
+    expect(mocks.createProductionBrief).not.toHaveBeenCalled();
+    expect(mocks.markProductionBriefAlert).toHaveBeenCalledWith(31, "sent", { alertMessageId: "resend-public-brief-retry-1" });
+    await expect(userCaller.retryAlert({ briefId: 31 })).rejects.toMatchObject({ code: "FORBIDDEN" });
+  });
+
+  it("does not retry an alert that is not in failed state", async () => {
+    mocks.getProductionBriefById.mockResolvedValueOnce({ ...savedBrief, alertStatus: "sent", alertError: null });
+    const adminCaller = adminProductionBriefRouter.createCaller(makeContext("admin") as any);
+
+    await expect(adminCaller.retryAlert({ briefId: 31 })).rejects.toMatchObject({ code: "PRECONDITION_FAILED" });
+    expect(mocks.sendTransactionalEmail).not.toHaveBeenCalled();
+    expect(mocks.createProductionBrief).not.toHaveBeenCalled();
+  });
+
+  it("retains the existing lead and records a repeat alert failure when an admin retry cannot deliver", async () => {
+    mocks.sendTransactionalEmail.mockRejectedValueOnce(new Error("retry transport unavailable"));
+    const adminCaller = adminProductionBriefRouter.createCaller(makeContext("admin") as any);
+
+    await expect(adminCaller.retryAlert({ briefId: 31 })).resolves.toEqual({ briefId: 31, alertStatus: "failed" });
+    expect(mocks.createProductionBrief).not.toHaveBeenCalled();
+    expect(mocks.markProductionBriefAlert).toHaveBeenCalledWith(31, "failed", { alertError: "retry transport unavailable" });
   });
 
   it("limits lead retrieval to administrators", async () => {

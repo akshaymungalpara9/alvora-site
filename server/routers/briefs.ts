@@ -1,6 +1,6 @@
 import { TRPCError } from "@trpc/server";
 import { z } from "zod";
-import { createProductionBrief, listProductionBriefs, markProductionBriefAlert, updateProductionBriefFollowUp } from "../db";
+import { createProductionBrief, getProductionBriefById, listProductionBriefs, markProductionBriefAlert, updateProductionBriefFollowUp } from "../db";
 import { escapeHtml, sendTransactionalEmail } from "../email";
 import { ENV } from "../_core/env";
 import { adminProcedure, publicProcedure, router } from "../_core/trpc";
@@ -30,6 +30,27 @@ const exportProductionBriefCsv = (briefs: Awaited<ReturnType<typeof listProducti
   return [columns.map(csvCell).join(","), ...rows].join("\n");
 };
 
+async function sendSavedProductionBriefAlert(saved: NonNullable<Awaited<ReturnType<typeof getProductionBriefById>>>) {
+  const senderName = saved.company || saved.contactName;
+  const subject = `[Public brief — ${saved.market} — ${senderName}] ${saved.requestType}`;
+  try {
+    if (!ENV.leadAlertTo) throw new Error("LEAD_ALERT_TO is not configured");
+    const result = await sendTransactionalEmail({
+      to: ENV.leadAlertTo,
+      subject,
+      html: `<div style="font-family:Arial,sans-serif;line-height:1.6"><p><strong>Public production brief</strong></p><p><strong>Market:</strong> ${escapeHtml(saved.market)}<br/><strong>Contact:</strong> ${escapeHtml(saved.contactName)} (${escapeHtml(saved.email)})<br/><strong>Company:</strong> ${escapeHtml(saved.company || "Not supplied")}<br/><strong>Request:</strong> ${escapeHtml(saved.requestType)}<br/><strong>Years trading:</strong> ${escapeHtml(saved.yearsTrading)}<br/><strong>Trade references:</strong> ${escapeHtml(saved.tradeReferencesAvailable)}<br/><strong>First-order approach:</strong> ${escapeHtml(saved.preferredPaymentApproach)}</p><p><strong>Brief</strong><br/>${escapeHtml(saved.brief).replaceAll("\n", "<br/>")}</p><p>Brief ID: ${saved.id}</p></div>`,
+      text: `Public production brief\nMarket: ${saved.market}\nContact: ${saved.contactName} (${saved.email})\nCompany: ${saved.company || "Not supplied"}\nRequest: ${saved.requestType}\nYears trading: ${saved.yearsTrading}\nTrade references: ${saved.tradeReferencesAvailable}\nFirst-order approach: ${saved.preferredPaymentApproach}\n\nBrief:\n${saved.brief}\n\nBrief ID: ${saved.id}`,
+      tags: [{ name: "workflow", value: "public_production_brief" }, { name: "brief_id", value: String(saved.id) }, { name: "market", value: saved.market }],
+    });
+    await markProductionBriefAlert(saved.id, "sent", { alertMessageId: result.id });
+    return { briefId: saved.id, alertStatus: "sent" as const };
+  } catch (error) {
+    const message = error instanceof Error ? error.message : "Unknown alert failure";
+    await markProductionBriefAlert(saved.id, "failed", { alertError: message });
+    return { briefId: saved.id, alertStatus: "failed" as const };
+  }
+}
+
 export const publicProductionBriefRouter = router({
   submit: publicProcedure.input(publicBriefInput).mutation(async ({ input }) => {
     const { website, ...briefInput } = input;
@@ -37,24 +58,7 @@ export const publicProductionBriefRouter = router({
     const saved = await createProductionBrief(briefInput);
     if (!saved) throw new TRPCError({ code: "INTERNAL_SERVER_ERROR", message: "Production brief could not be saved" });
 
-    const senderName = saved.company || saved.contactName;
-    const subject = `[Public brief — ${saved.market} — ${senderName}] ${saved.requestType}`;
-    try {
-      if (!ENV.leadAlertTo) throw new Error("LEAD_ALERT_TO is not configured");
-      const result = await sendTransactionalEmail({
-        to: ENV.leadAlertTo,
-        subject,
-        html: `<div style="font-family:Arial,sans-serif;line-height:1.6"><p><strong>Public production brief</strong></p><p><strong>Market:</strong> ${escapeHtml(saved.market)}<br/><strong>Contact:</strong> ${escapeHtml(saved.contactName)} (${escapeHtml(saved.email)})<br/><strong>Company:</strong> ${escapeHtml(saved.company || "Not supplied")}<br/><strong>Request:</strong> ${escapeHtml(saved.requestType)}<br/><strong>Years trading:</strong> ${escapeHtml(saved.yearsTrading)}<br/><strong>Trade references:</strong> ${escapeHtml(saved.tradeReferencesAvailable)}<br/><strong>First-order approach:</strong> ${escapeHtml(saved.preferredPaymentApproach)}</p><p><strong>Brief</strong><br/>${escapeHtml(saved.brief).replaceAll("\n", "<br/>")}</p><p>Brief ID: ${saved.id}</p></div>`,
-        text: `Public production brief\nMarket: ${saved.market}\nContact: ${saved.contactName} (${saved.email})\nCompany: ${saved.company || "Not supplied"}\nRequest: ${saved.requestType}\nYears trading: ${saved.yearsTrading}\nTrade references: ${saved.tradeReferencesAvailable}\nFirst-order approach: ${saved.preferredPaymentApproach}\n\nBrief:\n${saved.brief}\n\nBrief ID: ${saved.id}`,
-        tags: [{ name: "workflow", value: "public_production_brief" }, { name: "brief_id", value: String(saved.id) }, { name: "market", value: saved.market }],
-      });
-      await markProductionBriefAlert(saved.id, "sent", { alertMessageId: result.id });
-      return { briefId: saved.id, alertStatus: "sent" as const };
-    } catch (error) {
-      const message = error instanceof Error ? error.message : "Unknown alert failure";
-      await markProductionBriefAlert(saved.id, "failed", { alertError: message });
-      return { briefId: saved.id, alertStatus: "failed" as const };
-    }
+    return sendSavedProductionBriefAlert(saved);
   }),
 });
 
@@ -66,6 +70,12 @@ export const adminProductionBriefRouter = router({
     const stamp = new Date().toISOString().slice(0, 10);
     const scope = input?.market ? `-${input.market.toLowerCase()}` : "";
     return { filename: `alvora-production-briefs${scope}-${stamp}.csv`, content: exportProductionBriefCsv(scopedBriefs) };
+  }),
+  retryAlert: adminProcedure.input(z.object({ briefId: z.number().int().positive() })).mutation(async ({ input }) => {
+    const saved = await getProductionBriefById(input.briefId);
+    if (!saved) throw new TRPCError({ code: "NOT_FOUND", message: "Production brief was not found" });
+    if (saved.alertStatus !== "failed") throw new TRPCError({ code: "PRECONDITION_FAILED", message: "Only failed alert delivery can be retried" });
+    return sendSavedProductionBriefAlert(saved);
   }),
   updateFollowUp: adminProcedure.input(z.object({
     briefId: z.number().int().positive(),

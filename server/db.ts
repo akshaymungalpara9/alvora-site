@@ -233,6 +233,11 @@ export async function createProductionBrief(input: ProductionBriefInput) {
   return (await db.select().from(productionBriefs).where(eq(productionBriefs.id, Number(result[0].insertId))).limit(1))[0];
 }
 
+export async function getProductionBriefById(id: number) {
+  const db = await requireDb();
+  return (await db.select().from(productionBriefs).where(eq(productionBriefs.id, id)).limit(1))[0];
+}
+
 export async function markProductionBriefAlert(id: number, status: "sent" | "failed", details: { alertMessageId?: string; alertError?: string }) {
   const db = await requireDb();
   await db.update(productionBriefs).set({ alertStatus: status, alertMessageId: details.alertMessageId ?? null, alertError: details.alertError ?? null }).where(eq(productionBriefs.id, id));
