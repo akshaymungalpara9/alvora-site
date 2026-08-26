@@ -12,6 +12,7 @@ import {
   X,
 } from "lucide-react";
 import { trpc } from "@/lib/trpc";
+import PublicMetadata from "@/components/PublicMetadata";
 
 const heroImage = "/manus-storage/alvora-hero-qc_9e0d540e.jpg";
 const facetingImage = "/manus-storage/alvora-cutting-faceting_9e45364b.jpg";
@@ -62,7 +63,7 @@ export default function Home() {
   };
 
   return (
-    <div className="site-shell">
+    <div className="site-shell"><PublicMetadata locale="global" />
       <header className="site-header" aria-label="Primary navigation">
         <a className="brand" href="#top" aria-label="Alvora home">
           <img className="brand-mark" src={markImage} alt="" />

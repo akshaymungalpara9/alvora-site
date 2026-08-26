@@ -1,6 +1,7 @@
 import { FormEvent, useState } from "react";
 import { ArrowDownRight, ArrowUpRight, Menu, MoveRight, X } from "lucide-react";
 import { trpc } from "@/lib/trpc";
+import PublicMetadata from "@/components/PublicMetadata";
 
 const heroImage = "/manus-storage/alvora-hero-qc_9e0d540e.jpg";
 const facetingImage = "/manus-storage/alvora-cutting-faceting_9e45364b.jpg";
@@ -102,7 +103,7 @@ export default function MarketLanding({ variant }: { variant: Variant }) {
     });
   };
 
-  return <div className="site-shell" lang={content.lang}>
+  return <div className="site-shell" lang={content.lang}><PublicMetadata locale={variant} />
     <header className="site-header" aria-label="Primary navigation">
       <a className="brand" href="#top" aria-label="Alvora home"><img className="brand-mark" src={markImage} alt="" /><span className="brand-name">ALVORA</span></a>
       <nav className="desktop-nav" aria-label="Main navigation"><a href="#production">{content.nav.production}</a><a href="#made-to-spec">{content.nav.specification}</a><a href="#how-we-work">{content.nav.process}</a><a href="/availability">{content.nav.buyer}</a></nav>

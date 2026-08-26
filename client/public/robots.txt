@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /admin/
+Disallow: /availability
+
+# A canonical sitemap will be added when the public production domain is confirmed.

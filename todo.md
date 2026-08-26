@@ -56,3 +56,6 @@
 - [x] Add an offline preflight validator for the required verified partner availability CSV contract.
 - [x] Validate header, availability, duplicate-stock, IGI-report, and final-price diagnostics without importing data.
 - [x] Document the exact safe preflight command for the future partner export.
+- [x] Add route-specific multilingual titles, descriptions, and alternate-language metadata for public Alvora pages.
+- [x] Add non-sensitive crawler directives limited to public routes; defer a canonical sitemap until the public domain is confirmed.
+- [x] Add automated validation for locale metadata and public crawler configuration.
