@@ -125,6 +125,31 @@ describe("public production-brief workflow", () => {
     expect(mocks.markProductionBriefAlert).not.toHaveBeenCalled();
   });
 
+  it("normalizes valid public text and rejects whitespace-only or oversized input before persistence", async () => {
+    const caller = publicProductionBriefRouter.createCaller({} as any);
+    mocks.sendTransactionalEmail.mockResolvedValueOnce({ id: "resend-normalized-brief-1" });
+
+    await caller.submit({
+      ...input,
+      contactName: "  Asha Patel  ",
+      email: "  ASHA@ATELIER.EXAMPLE  ",
+      company: "  Atelier North  ",
+      brief: `  ${input.brief}  `,
+    });
+    expect(mocks.createProductionBrief).toHaveBeenCalledWith({
+      ...input,
+      contactName: "Asha Patel",
+      email: "asha@atelier.example",
+      company: "Atelier North",
+    });
+
+    vi.clearAllMocks();
+    await expect(caller.submit({ ...input, contactName: "   " })).rejects.toMatchObject({ code: "BAD_REQUEST" });
+    await expect(caller.submit({ ...input, brief: "x".repeat(5001) })).rejects.toMatchObject({ code: "BAD_REQUEST" });
+    expect(mocks.createProductionBrief).not.toHaveBeenCalled();
+    expect(mocks.sendTransactionalEmail).not.toHaveBeenCalled();
+  });
+
   it("persists a Canadian market code and includes it in alert routing metadata", async () => {
     const canadianInput = { ...input, market: "CA" as const };
     mocks.createProductionBrief.mockResolvedValueOnce({ ...savedBrief, market: "CA" as const });

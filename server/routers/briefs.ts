@@ -6,16 +6,16 @@ import { ENV } from "../_core/env";
 import { adminProcedure, publicProcedure, router } from "../_core/trpc";
 
 const publicBriefInput = z.object({
-  requestType: z.string().min(2).max(120),
+  requestType: z.string().trim().min(2).max(120),
   market: z.enum(["GLOBAL", "FR", "IT", "US", "CA"]).default("GLOBAL"),
-  website: z.string().max(200).optional().default(""),
-  contactName: z.string().min(2).max(180),
-  email: z.string().email().max(320),
-  company: z.string().max(180).optional(),
+  website: z.string().trim().max(200).optional().default(""),
+  contactName: z.string().trim().min(2).max(180),
+  email: z.string().trim().email().max(320).transform((value) => value.toLowerCase()),
+  company: z.string().trim().max(180).optional().transform((value) => value || undefined),
   yearsTrading: z.enum(["Under 2", "2–5", "5–10", "10+"]),
   tradeReferencesAvailable: z.enum(["Yes", "No"]),
   preferredPaymentApproach: z.enum(["Prepaid on proforma", "Agreed trade terms subject to credit check", "Open to discussion"]),
-  brief: z.string().min(10).max(5000),
+  brief: z.string().trim().min(10).max(5000),
 });
 const marketCode = z.enum(["GLOBAL", "FR", "IT", "US", "CA"]);
 
