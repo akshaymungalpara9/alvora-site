@@ -82,3 +82,5 @@
 - [x] Verify public and protected route resolution and document the resulting production bundle split.
 - [x] Align client-side name, email, company, and brief character limits with the protected public submission contract on every locale route.
 - [x] Add regression coverage for public client/server field-bound consistency without submitting lead data.
+- [x] Align client-side name and brief minimum requirements with the server submission contract across every locale route.
+- [x] Add regression coverage proving public minimum constraints remain consistent without submitting lead data.

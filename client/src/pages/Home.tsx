@@ -319,7 +319,7 @@ export default function Home() {
             <div className="form-row">
               <label>
                 <span>Your name</span>
-                <input name="name" type="text" autoComplete="name" maxLength={180} required placeholder="Name" />
+                <input name="name" type="text" autoComplete="name" minLength={2} maxLength={180} required placeholder="Name" />
               </label>
               <label>
                 <span>Work email</span>
@@ -359,7 +359,7 @@ export default function Home() {
             <p className="form-qualification-note">These details are used only to assess the right account approach for your enquiry.</p>
             <label>
               <span>What needs to be made?</span>
-              <textarea name="brief" maxLength={5000} required rows={5} placeholder="Shape, dimensions, ratios, finish, quantity, timing or anything already decided at your bench." />
+              <textarea name="brief" minLength={10} maxLength={5000} required rows={5} placeholder="Shape, dimensions, ratios, finish, quantity, timing or anything already decided at your bench." />
             </label>
             <div className="form-submit-row">
               <button className="button button-signal" type="submit" disabled={submitProductionBrief.isPending}>{submitProductionBrief.isPending ? "Recording brief…" : <>Send production brief <ArrowUpRight size={18} /></>}</button>
