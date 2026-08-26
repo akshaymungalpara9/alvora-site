@@ -376,7 +376,7 @@ export default function Home() {
         <div className="credentials-list">
           <p><b>IEC</b><span>India IEC-registered exporter <em>[IEC no. to confirm]</em></span></p>
           <p><b>GJ</b><span>GJEPC member <em>[membership no. to confirm]</em></span></p>
-          <p><b>IGI</b><span>IGI laboratory-authorised supplier <em>[authorisation to confirm]</em></span></p>
+          <p><b>IGI</b><span>IGI laboratory authorisation <em>[authorisation to confirm]</em></span></p>
           <p><b>INS</b><span>Shipments fully insured via <em>[insurer / DHL / FedEx to confirm]</em></span></p>
           <p><b>FR</b><span>France-market documentation compliant with Décret n°2002-65 <em>[document reference to confirm]</em></span></p>
         </div>

@@ -84,3 +84,4 @@
 - [x] Add regression coverage for public client/server field-bound consistency without submitting lead data.
 - [x] Align client-side name and brief minimum requirements with the server submission contract across every locale route.
 - [x] Add regression coverage proving public minimum constraints remain consistent without submitting lead data.
+- [x] Add automated guards that prevent prohibited sourcing and supply language from re-entering public Alvora route copy.
