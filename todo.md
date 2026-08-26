@@ -85,3 +85,5 @@
 - [x] Align client-side name and brief minimum requirements with the server submission contract across every locale route.
 - [x] Add regression coverage proving public minimum constraints remain consistent without submitting lead data.
 - [x] Add automated guards that prevent prohibited sourcing and supply language from re-entering public Alvora route copy.
+- [x] Create a no-data controlled inventory-release runbook covering preflight, IGI validation, import review, and explicit rollout approval.
+- [x] Cross-check the runbook against the current preflight validator and server-enforced early-access lock.
