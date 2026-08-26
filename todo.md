@@ -73,3 +73,6 @@
 - [x] Add regression coverage showing that control characters cannot alter outbound alert subjects.
 - [x] Neutralize formula-like values in protected Production Brief CSV export cells.
 - [x] Add regression coverage proving that formula-like lead and follow-up text is exported as inert text.
+- [x] Add standards-based autofill metadata to public production-brief identity fields across every locale route.
+- [x] Verify public form identity inputs retain compatible browser input semantics.
+- [x] Verify accessible labels or label associations for public identity and North American country inputs across English and localised forms.

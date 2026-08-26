@@ -319,16 +319,16 @@ export default function Home() {
             <div className="form-row">
               <label>
                 <span>Your name</span>
-                <input name="name" type="text" required placeholder="Name" />
+                <input name="name" type="text" autoComplete="name" required placeholder="Name" />
               </label>
               <label>
                 <span>Work email</span>
-                <input name="email" type="email" required placeholder="name@company.com" />
+                <input name="email" type="email" autoComplete="email" inputMode="email" autoCapitalize="none" spellCheck={false} required placeholder="name@company.com" />
               </label>
             </div>
             <label>
               <span>Company / workshop</span>
-              <input name="company" type="text" placeholder="Company name" />
+              <input name="company" type="text" autoComplete="organization" placeholder="Company name" />
             </label>
             <div className="form-qualification-grid">
               <label>
