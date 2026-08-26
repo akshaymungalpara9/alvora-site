@@ -53,3 +53,6 @@
 - [ ] Validate the authenticated Operations and Production Briefs market-aware screens on desktop and mobile.
 - [x] Add a protected market-scoped Production Brief CSV export that reduces unnecessary data handling.
 - [x] Verify market-scoped CSV permissions, filename, and row filtering with automated coverage.
+- [x] Add an offline preflight validator for the required verified partner availability CSV contract.
+- [x] Validate header, availability, duplicate-stock, IGI-report, and final-price diagnostics without importing data.
+- [x] Document the exact safe preflight command for the future partner export.

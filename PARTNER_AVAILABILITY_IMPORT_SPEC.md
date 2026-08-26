@@ -27,4 +27,14 @@ Every row intended for early access must have a unique `Stock #`, a non-blank IG
 
 > Do not include buyer names, trade terms, internal margins, supplier costs, or personal contact data in the CSV.
 
+## Safe preflight before hand-off
+
+Before sending a completed export for import, run the following command locally or in the Alvora project workspace. It reads the CSV and reports format or quality blockers only; it **does not import data**, change buyer availability, alter the early-access lock, validate the certificate in the live IGI database, or send email.
+
+```bash
+node scripts/validate-partner-availability.mjs /absolute/path/to/partner_export.csv
+```
+
+The preflight blocks a non-exact header, empty required cells, duplicate `Stock #` values, implausible IGI report identifiers, non-numeric or non-positive prices, and availability values other than `Available` or `Unavailable`. Passing preflight is necessary but not sufficient for release: report numbers must still be verified against the IGI database before an import or buyer-access decision.
+
 The provided `partner_availability_import_template.csv` contains the exact header and one illustrative row. Replace that row with confirmed partner inventory before upload.
