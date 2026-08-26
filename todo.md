@@ -108,3 +108,4 @@
 - [x] Document the protected hourly qualifier-follow-up workflow, including publication prerequisite, enable action, callback path, shortlist-sent pause, and failure investigation.
 - [x] Add regression coverage for the admin scheduler-enable procedure and scheduled callback authentication, orphan, and disabled paths.
 - [x] Add an explicit scheduled-callback regression for a persisted disabled schedule that returns safely without sending follow-ups.
+- [x] Replace editable public heritage proof points with the owner-provided 25+ years of experience and 10,000+ stones dispatched figures across public market routes.

@@ -153,8 +153,8 @@ export default function Home() {
           <div className="by-numbers" aria-label="Alvora production proof points">
             <p>By the numbers</p>
             <div className="numbers-strip">
-              <article><strong>[XX]</strong><span>months of production history</span></article>
-              <article><strong>[XXX]</strong><span>stones dispatched</span></article>
+              <article><strong>25+</strong><span>years of experience</span></article>
+              <article><strong>10,000+</strong><span>stones dispatched</span></article>
               <article><strong>100%</strong><span>IGI standard on every stone</span></article>
               <article><strong>DIRECT</strong><span>from-bench pricing</span></article>
             </div>

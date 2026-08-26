@@ -16,4 +16,10 @@ describe("localized market landing content", () => {
     expect(italianCopy).toContain("diamanti sintetici");
     expect(marketLandingContent.us.northAmerica?.countries).toEqual([["United States", "US"], ["Canada", "CA"]]);
   });
+
+  it("keeps the owner-provided experience and dispatch proof points across public market variants", () => {
+    expect(marketLandingContent.fr.heritage.numbers.slice(0, 2)).toEqual([["25+", "ans d’expérience"], ["10 000+", "pierres expédiées"]]);
+    expect(marketLandingContent.it.heritage.numbers.slice(0, 2)).toEqual([["25+", "anni di esperienza"], ["10.000+", "pietre spedite"]]);
+    expect(marketLandingContent.us.heritage.numbers.slice(0, 2)).toEqual([["25+", "years of experience"], ["10,000+", "stones dispatched"]]);
+  });
 });
