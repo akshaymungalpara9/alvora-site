@@ -80,3 +80,5 @@
 - [x] Verify malformed oversized or whitespace-only public input is rejected before lead persistence or alert delivery.
 - [x] Defer protected buyer and admin route modules from the initial public client bundle with an accessible loading fallback.
 - [x] Verify public and protected route resolution and document the resulting production bundle split.
+- [x] Align client-side name, email, company, and brief character limits with the protected public submission contract on every locale route.
+- [x] Add regression coverage for public client/server field-bound consistency without submitting lead data.
