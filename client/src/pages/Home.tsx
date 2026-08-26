@@ -63,7 +63,7 @@ export default function Home() {
   };
 
   return (
-    <div className="site-shell"><PublicMetadata locale="global" />
+    <div className="site-shell"><PublicMetadata locale="global" /><a className="skip-link" href="#main-content">Skip to main content</a>
       <header className="site-header" aria-label="Primary navigation">
         <a className="brand" href="#top" aria-label="Alvora home">
           <img className="brand-mark" src={markImage} alt="" />
@@ -109,7 +109,7 @@ export default function Home() {
         )}
       </header>
 
-      <main id="top">
+      <main id="main-content" tabIndex={-1}>
         <section className="hero" aria-labelledby="hero-title">
           <img className="hero-image" src={heroImage} alt="A diamond being inspected through a jeweller's loupe during quality control." />
           <div className="hero-scrim" />

@@ -59,3 +59,7 @@
 - [x] Add route-specific multilingual titles, descriptions, and alternate-language metadata for public Alvora pages.
 - [x] Add non-sensitive crawler directives limited to public routes; defer a canonical sitemap until the public domain is confirmed.
 - [x] Add automated validation for locale metadata and public crawler configuration.
+- [x] Add keyboard-visible skip navigation and consistent focus treatment across public locale routes.
+- [x] Localize maker-image alternative text and descriptive form/navigation labels for French and Italian routes.
+- [x] Add automated accessibility-structure coverage and verify the public desktop keyboard flow.
+- [x] Verify skip-link focus handoff at a mobile breakpoint on a public locale route.
