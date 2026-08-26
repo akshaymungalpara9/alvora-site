@@ -78,3 +78,5 @@
 - [x] Verify accessible labels or label associations for public identity and North American country inputs across English and localised forms.
 - [x] Add explicit server-side length and whitespace-normalisation safeguards for public production-brief text input.
 - [x] Verify malformed oversized or whitespace-only public input is rejected before lead persistence or alert delivery.
+- [x] Defer protected buyer and admin route modules from the initial public client bundle with an accessible loading fallback.
+- [x] Verify public and protected route resolution and document the resulting production bundle split.
