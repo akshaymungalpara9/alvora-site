@@ -87,3 +87,7 @@
 - [x] Add automated guards that prevent prohibited sourcing and supply language from re-entering public Alvora route copy.
 - [x] Create a no-data controlled inventory-release runbook covering preflight, IGI validation, import review, and explicit rollout approval.
 - [x] Cross-check the runbook against the current preflight validator and server-enforced early-access lock.
+- [x] Defer French, Italian, and North American market landing content from the initial English public bundle.
+- [x] Verify the deferred French and North American public market routes after the bundle split.
+- [x] Verify the deferred Italian public market route directly after the bundle split.
+- [x] Document the resulting public market-route bundle split in the project validation record.

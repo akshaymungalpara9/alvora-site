@@ -7,15 +7,15 @@ import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
-import MarketLanding from "./pages/MarketLanding";
 
 const AdminBuyers = lazy(() => import("./pages/AdminBuyers"));
 const AdminOperations = lazy(() => import("./pages/AdminOperations"));
 const AdminProductionBriefs = lazy(() => import("./pages/AdminProductionBriefs"));
 const BuyerAvailability = lazy(() => import("./pages/BuyerAvailability"));
+const MarketLanding = lazy(() => import("./pages/MarketLanding"));
 
 function RouteLoadingFallback() {
-  return <main className="route-loading" role="status" aria-live="polite"><p>Loading secure workspace…</p></main>;
+  return <main className="route-loading" role="status" aria-live="polite"><p>Loading Alvora…</p></main>;
 }
 
 function Router() {
