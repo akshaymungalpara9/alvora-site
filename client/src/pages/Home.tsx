@@ -52,6 +52,7 @@ export default function Home() {
     submitProductionBrief.mutate({
       requestType: String(values.get("request_type")),
       market: "GLOBAL",
+      website: String(values.get("_website") || ""),
       contactName: String(values.get("name")).trim(),
       email: String(values.get("email")).trim(),
       company: String(values.get("company") || "").trim() || undefined,
@@ -305,6 +306,7 @@ export default function Home() {
           </div>
 
           <form className="brief-form" onSubmit={submitBrief}>
+            <div className="honeypot-field" aria-hidden="true"><label>Website<input name="_website" type="text" tabIndex={-1} autoComplete="off" /></label></div>
             <label>
               <span>Request type</span>
               <select name="request_type" value={requestType} onChange={(event) => setRequestType(event.target.value)}>

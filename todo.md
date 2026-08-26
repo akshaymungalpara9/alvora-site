@@ -63,3 +63,6 @@
 - [x] Localize maker-image alternative text and descriptive form/navigation labels for French and Italian routes.
 - [x] Add automated accessibility-structure coverage and verify the public desktop keyboard flow.
 - [x] Verify skip-link focus handoff at a mobile breakpoint on a public locale route.
+- [x] Add a server-enforced honeypot guard to public production-brief submissions before persistence or alert delivery.
+- [x] Add unobtrusive hidden honeypot fields to English, French, Italian, and North American public brief forms.
+- [x] Verify legitimate market-tagged submissions remain valid and honeypot-triggered submissions create neither lead records nor alerts.

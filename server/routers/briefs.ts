@@ -8,6 +8,7 @@ import { adminProcedure, publicProcedure, router } from "../_core/trpc";
 const publicBriefInput = z.object({
   requestType: z.string().min(2).max(120),
   market: z.enum(["GLOBAL", "FR", "IT", "US", "CA"]).default("GLOBAL"),
+  website: z.string().max(200).optional().default(""),
   contactName: z.string().min(2).max(180),
   email: z.string().email().max(320),
   company: z.string().max(180).optional(),
@@ -31,7 +32,9 @@ const exportProductionBriefCsv = (briefs: Awaited<ReturnType<typeof listProducti
 
 export const publicProductionBriefRouter = router({
   submit: publicProcedure.input(publicBriefInput).mutation(async ({ input }) => {
-    const saved = await createProductionBrief(input);
+    const { website, ...briefInput } = input;
+    if (website.trim()) throw new TRPCError({ code: "BAD_REQUEST", message: "Invalid public submission" });
+    const saved = await createProductionBrief(briefInput);
     if (!saved) throw new TRPCError({ code: "INTERNAL_SERVER_ERROR", message: "Production brief could not be saved" });
 
     const senderName = saved.company || saved.contactName;

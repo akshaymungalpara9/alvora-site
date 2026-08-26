@@ -99,6 +99,15 @@ describe("public production-brief workflow", () => {
     expect(mocks.markProductionBriefAlert).toHaveBeenCalledWith(31, "sent", { alertMessageId: "resend-public-brief-1" });
   });
 
+  it("rejects a filled honeypot before creating a lead record or attempting an alert", async () => {
+    const caller = publicProductionBriefRouter.createCaller({} as any);
+
+    await expect(caller.submit({ ...input, website: "https://automated.example" })).rejects.toMatchObject({ code: "BAD_REQUEST" });
+    expect(mocks.createProductionBrief).not.toHaveBeenCalled();
+    expect(mocks.sendTransactionalEmail).not.toHaveBeenCalled();
+    expect(mocks.markProductionBriefAlert).not.toHaveBeenCalled();
+  });
+
   it("persists a Canadian market code and includes it in alert routing metadata", async () => {
     const canadianInput = { ...input, market: "CA" as const };
     mocks.createProductionBrief.mockResolvedValueOnce({ ...savedBrief, market: "CA" as const });

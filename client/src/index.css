@@ -178,6 +178,7 @@ h1 { margin-bottom: 24px; color: var(--paper); font-family: var(--serif); font-s
 .brief-intro > p:not(.eyebrow) { max-width: 360px; color: #b7b8b2; font-size: 0.87rem; line-height: 1.75; }
 .brief-aside { display: grid; gap: 5px; margin-top: auto; padding-top: 90px; color: #747770; font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.085em; }
 .brief-form { display: grid; gap: 23px; padding-top: 6px; }
+.honeypot-field { position: absolute !important; width: 1px !important; height: 1px !important; overflow: hidden !important; clip: rect(1px, 1px, 1px, 1px) !important; clip-path: inset(50%) !important; white-space: nowrap !important; }
 .brief-form label { display: grid; gap: 9px; }
 .brief-form label > span { color: #92958d; font-family: var(--mono); font-size: 0.59rem; letter-spacing: 0.075em; text-transform: uppercase; }
 .brief-form input, .brief-form textarea, .brief-form select { width: 100%; padding: 0 0 12px; border: 0; border-bottom: 1px solid #5a5e57; border-radius: 0; outline: 0; color: var(--paper); background: transparent; font-size: 0.84rem; transition: border-color 180ms var(--ease-out); }
