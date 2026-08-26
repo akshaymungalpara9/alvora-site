@@ -20,6 +20,7 @@ const publicBriefInput = z.object({
 const marketCode = z.enum(["GLOBAL", "FR", "IT", "US", "CA"]);
 
 const csvCell = (value: unknown) => `"${String(value ?? "").replaceAll("\"", "\"\"")}"`;
+const alertSubjectSegment = (value: string) => value.replace(/[\u0000\r\n]+/g, " ").replace(/\s{2,}/g, " ").trim();
 const exportProductionBriefCsv = (briefs: Awaited<ReturnType<typeof listProductionBriefs>>) => {
   const columns = [
     "Brief ID", "Received at (UTC)", "Market", "Follow-up status", "Owner", "Contact name", "Work email", "Company / workshop", "Request type", "Years trading", "Trade references", "Preferred first-order approach", "Production brief", "Alert status", "Alert error", "Last action at (UTC)", "Internal note",
@@ -31,8 +32,9 @@ const exportProductionBriefCsv = (briefs: Awaited<ReturnType<typeof listProducti
 };
 
 async function sendSavedProductionBriefAlert(saved: NonNullable<Awaited<ReturnType<typeof getProductionBriefById>>>) {
-  const senderName = saved.company || saved.contactName;
-  const subject = `[Public brief — ${saved.market} — ${senderName}] ${saved.requestType}`;
+  const senderName = alertSubjectSegment(saved.company || saved.contactName);
+  const requestType = alertSubjectSegment(saved.requestType);
+  const subject = `[Public brief — ${saved.market} — ${senderName}] ${requestType}`;
   try {
     if (!ENV.leadAlertTo) throw new Error("LEAD_ALERT_TO is not configured");
     const result = await sendTransactionalEmail({

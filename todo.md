@@ -69,3 +69,5 @@
 - [x] Add an admin-only retry action for failed production-brief alert delivery using the already-saved lead record.
 - [x] Show a protected retry control only for failed alerts, with pending, sent, and repeat-failure outcomes.
 - [x] Verify retry authorization, delivery metadata updates, and absence of duplicate lead-record persistence.
+- [x] Sanitize untrusted production-brief alert-subject segments before internal email delivery.
+- [x] Add regression coverage showing that control characters cannot alter outbound alert subjects.

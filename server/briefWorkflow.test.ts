@@ -101,6 +101,21 @@ describe("public production-brief workflow", () => {
     expect(mocks.markProductionBriefAlert).toHaveBeenCalledWith(31, "sent", { alertMessageId: "resend-public-brief-1" });
   });
 
+  it("strips control characters from internal alert subject segments", async () => {
+    mocks.createProductionBrief.mockResolvedValueOnce({
+      ...savedBrief,
+      company: "Atelier North\r\nBcc: unwanted@example.invalid",
+      requestType: "Production run\nInjected header",
+    });
+    mocks.sendTransactionalEmail.mockResolvedValueOnce({ id: "resend-public-brief-subject-1" });
+    const caller = publicProductionBriefRouter.createCaller({} as any);
+
+    await expect(caller.submit(input)).resolves.toEqual({ briefId: 31, alertStatus: "sent" });
+    const subject = mocks.sendTransactionalEmail.mock.calls[0]?.[0]?.subject as string;
+    expect(subject).toBe("[Public brief — FR — Atelier North Bcc: unwanted@example.invalid] Production run Injected header");
+    expect(subject).not.toMatch(/[\r\n\u0000]/);
+  });
+
   it("rejects a filled honeypot before creating a lead record or attempting an alert", async () => {
     const caller = publicProductionBriefRouter.createCaller({} as any);
 
