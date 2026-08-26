@@ -210,4 +210,15 @@ describe("public production-brief workflow", () => {
     expect(frenchOnly.content).not.toContain("\"New York Atelier\"");
     await expect(userCaller.exportCsv({ market: "FR" })).rejects.toMatchObject({ code: "FORBIDDEN" });
   });
+
+  it("exports formula-like lead and follow-up values as inert text", async () => {
+    mocks.listProductionBriefs.mockResolvedValue([
+      { ...savedBrief, company: "=HYPERLINK(\"https://unsafe.example\",\"open\")", internalNote: " +SUM(1,1)" },
+    ]);
+    const adminCaller = adminProductionBriefRouter.createCaller(makeContext("admin") as any);
+
+    const exported = await adminCaller.exportCsv();
+    expect(exported.content).toContain("\"'=HYPERLINK(\"\"https://unsafe.example\"\",\"\"open\"\")\"");
+    expect(exported.content).toContain("\"' +SUM(1,1)\"");
+  });
 });

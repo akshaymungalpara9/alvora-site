@@ -19,7 +19,11 @@ const publicBriefInput = z.object({
 });
 const marketCode = z.enum(["GLOBAL", "FR", "IT", "US", "CA"]);
 
-const csvCell = (value: unknown) => `"${String(value ?? "").replaceAll("\"", "\"\"")}"`;
+const csvCell = (value: unknown) => {
+  const raw = String(value ?? "");
+  const safe = /^\s*[=+\-@]/.test(raw) ? `'${raw}` : raw;
+  return `"${safe.replaceAll("\"", "\"\"")}"`;
+};
 const alertSubjectSegment = (value: string) => value.replace(/[\u0000\r\n]+/g, " ").replace(/\s{2,}/g, " ").trim();
 const exportProductionBriefCsv = (briefs: Awaited<ReturnType<typeof listProductionBriefs>>) => {
   const columns = [

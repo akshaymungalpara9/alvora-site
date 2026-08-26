@@ -71,3 +71,5 @@
 - [x] Verify retry authorization, delivery metadata updates, and absence of duplicate lead-record persistence.
 - [x] Sanitize untrusted production-brief alert-subject segments before internal email delivery.
 - [x] Add regression coverage showing that control characters cannot alter outbound alert subjects.
+- [x] Neutralize formula-like values in protected Production Brief CSV export cells.
+- [x] Add regression coverage proving that formula-like lead and follow-up text is exported as inert text.
