@@ -1,4 +1,5 @@
 import {
+  boolean,
   double,
   index,
   int,
@@ -96,7 +97,8 @@ export const emailLogs = mysqlTable(
     id: int("id").autoincrement().primaryKey(),
     buyerAccountId: int("buyerAccountId"),
     requestId: int("requestId"),
-    emailType: mysqlEnum("emailType", ["approved_buyer_welcome", "private_list_request_alert"]).notNull(),
+    productionBriefId: int("productionBriefId"),
+    emailType: mysqlEnum("emailType", ["approved_buyer_welcome", "private_list_request_alert", "public_brief_acknowledgement", "public_brief_qualifier_follow_up"]).notNull(),
     recipient: varchar("recipient", { length: 320 }).notNull(),
     subject: varchar("subject", { length: 500 }).notNull(),
     status: mysqlEnum("status", ["queued", "sent", "failed"]).default("queued").notNull(),
@@ -109,6 +111,7 @@ export const emailLogs = mysqlTable(
   (table) => [
     index("email_logs_buyer_account_idx").on(table.buyerAccountId),
     index("email_logs_request_idx").on(table.requestId),
+    index("email_logs_production_brief_idx").on(table.productionBriefId),
   ],
 );
 
@@ -143,6 +146,8 @@ export const productionBriefs = mysqlTable(
     id: int("id").autoincrement().primaryKey(),
     requestType: varchar("requestType", { length: 120 }).notNull(),
     market: mysqlEnum("market", ["GLOBAL", "FR", "IT", "US", "CA"]).default("GLOBAL").notNull(),
+    source: mysqlEnum("source", ["direct", "referral"]).default("direct").notNull(),
+    referrerName: varchar("referrerName", { length: 180 }),
     contactName: varchar("contactName", { length: 180 }).notNull(),
     email: varchar("email", { length: 320 }).notNull(),
     company: varchar("company", { length: 180 }),
@@ -153,10 +158,17 @@ export const productionBriefs = mysqlTable(
     alertStatus: mysqlEnum("alertStatus", ["pending", "sent", "failed"]).default("pending").notNull(),
     alertError: text("alertError"),
     alertMessageId: varchar("alertMessageId", { length: 160 }),
-    followUpStatus: mysqlEnum("followUpStatus", ["new", "reviewing", "quoted", "on_hold", "closed"]).default("new").notNull(),
+    followUpStatus: mysqlEnum("followUpStatus", ["new", "reviewing", "shortlist_sent", "quoted", "on_hold", "closed"]).default("new").notNull(),
     ownerName: varchar("ownerName", { length: 120 }),
     internalNote: text("internalNote"),
     lastActionAt: timestamp("lastActionAt"),
+    acknowledgementStatus: mysqlEnum("acknowledgementStatus", ["pending", "sent", "failed"]).default("pending").notNull(),
+    acknowledgementMessageId: varchar("acknowledgementMessageId", { length: 160 }),
+    acknowledgementError: text("acknowledgementError"),
+    qualifierFollowUpStatus: mysqlEnum("qualifierFollowUpStatus", ["pending", "processing", "sent", "paused", "failed"]).default("pending").notNull(),
+    qualifierFollowUpMessageId: varchar("qualifierFollowUpMessageId", { length: 160 }),
+    qualifierFollowUpError: text("qualifierFollowUpError"),
+    qualifierFollowUpSentAt: timestamp("qualifierFollowUpSentAt"),
     createdAt: timestamp("createdAt").defaultNow().notNull(),
     updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
   },
@@ -164,6 +176,46 @@ export const productionBriefs = mysqlTable(
     index("production_briefs_created_idx").on(table.createdAt),
     index("production_briefs_alert_idx").on(table.alertStatus),
     index("production_briefs_follow_up_idx").on(table.followUpStatus, table.createdAt),
+    index("production_briefs_qualifier_follow_up_idx").on(table.qualifierFollowUpStatus, table.createdAt),
+  ],
+);
+
+/** A durable singleton configuration record for the project-level hourly qualifier follow-up job. */
+export const qualifierFollowUpSchedules = mysqlTable(
+  "qualifier_follow_up_schedules",
+  {
+    id: int("id").autoincrement().primaryKey(),
+    scheduleCronTaskUid: varchar("scheduleCronTaskUid", { length: 65 }).unique(),
+    isEnabled: boolean("isEnabled").default(false).notNull(),
+    lastRunAt: timestamp("lastRunAt"),
+    lastRunError: text("lastRunError"),
+    createdAt: timestamp("createdAt").defaultNow().notNull(),
+    updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+  },
+  (table) => [index("qualifier_follow_up_schedules_enabled_idx").on(table.isEnabled)],
+);
+
+/** Account-only trade introductions are retained before their internal alert is attempted. */
+export const tradeIntroductions = mysqlTable(
+  "trade_introductions",
+  {
+    id: int("id").autoincrement().primaryKey(),
+    introducerBuyerAccountId: int("introducerBuyerAccountId").notNull(),
+    introducedByUserId: int("introducedByUserId").notNull(),
+    jewellerName: varchar("jewellerName", { length: 180 }).notNull(),
+    company: varchar("company", { length: 180 }),
+    workEmail: varchar("workEmail", { length: 320 }),
+    market: mysqlEnum("market", ["GLOBAL", "FR", "IT", "US", "CA"]).default("GLOBAL").notNull(),
+    note: text("note"),
+    alertStatus: mysqlEnum("alertStatus", ["pending", "sent", "failed"]).default("pending").notNull(),
+    alertError: text("alertError"),
+    alertMessageId: varchar("alertMessageId", { length: 160 }),
+    createdAt: timestamp("createdAt").defaultNow().notNull(),
+    updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+  },
+  (table) => [
+    index("trade_introductions_buyer_idx").on(table.introducerBuyerAccountId),
+    index("trade_introductions_alert_idx").on(table.alertStatus),
   ],
 );
 

@@ -9,6 +9,8 @@ import {
   privateListRequests,
   type ProductionBrief,
   productionBriefs,
+  qualifierFollowUpSchedules,
+  tradeIntroductions,
   users,
 } from "../drizzle/schema";
 import { ENV } from "./_core/env";
@@ -165,7 +167,8 @@ export async function getLatestLineSheet(buyerAccountId: number) {
 export async function createEmailLog(input: {
   buyerAccountId?: number;
   requestId?: number;
-  emailType: "approved_buyer_welcome" | "private_list_request_alert";
+  productionBriefId?: number;
+  emailType: "approved_buyer_welcome" | "private_list_request_alert" | "public_brief_acknowledgement" | "public_brief_qualifier_follow_up";
   recipient: string;
   subject: string;
   metadata?: Record<string, unknown>;
@@ -218,6 +221,7 @@ export type ProductionBriefInput = {
   yearsTrading: string;
   tradeReferencesAvailable: string;
   preferredPaymentApproach: string;
+  referrerName?: string;
   brief: string;
 };
 
@@ -228,6 +232,8 @@ export async function createProductionBrief(input: ProductionBriefInput) {
     contactName: input.contactName.trim(),
     email: input.email.trim().toLowerCase(),
     company: input.company?.trim() || null,
+    source: input.referrerName?.trim() ? "referral" : "direct",
+    referrerName: input.referrerName?.trim() || null,
     brief: input.brief.trim(),
   });
   return (await db.select().from(productionBriefs).where(eq(productionBriefs.id, Number(result[0].insertId))).limit(1))[0];
@@ -243,6 +249,30 @@ export async function markProductionBriefAlert(id: number, status: "sent" | "fai
   await db.update(productionBriefs).set({ alertStatus: status, alertMessageId: details.alertMessageId ?? null, alertError: details.alertError ?? null }).where(eq(productionBriefs.id, id));
 }
 
+export async function markProductionBriefAcknowledgement(id: number, status: "sent" | "failed", details: { messageId?: string; error?: string }) {
+  const db = await requireDb();
+  await db.update(productionBriefs).set({ acknowledgementStatus: status, acknowledgementMessageId: details.messageId ?? null, acknowledgementError: details.error ?? null }).where(eq(productionBriefs.id, id));
+}
+
+export async function markProductionBriefQualifierFollowUp(id: number, status: "sent" | "paused" | "failed", details: { messageId?: string; error?: string } = {}) {
+  const db = await requireDb();
+  await db.update(productionBriefs).set({
+    qualifierFollowUpStatus: status,
+    qualifierFollowUpMessageId: details.messageId ?? null,
+    qualifierFollowUpError: details.error ?? null,
+    qualifierFollowUpSentAt: status === "sent" ? new Date() : null,
+  }).where(eq(productionBriefs.id, id));
+}
+
+export async function claimProductionBriefQualifierFollowUp(id: number) {
+  const db = await requireDb();
+  const result = await db.update(productionBriefs).set({ qualifierFollowUpStatus: "processing", qualifierFollowUpError: null }).where(and(
+    eq(productionBriefs.id, id),
+    eq(productionBriefs.qualifierFollowUpStatus, "pending"),
+  ));
+  return Number(result[0].affectedRows) === 1;
+}
+
 export async function listProductionBriefs() {
   const db = await requireDb();
   return db.select().from(productionBriefs).orderBy(desc(productionBriefs.createdAt));
@@ -250,7 +280,7 @@ export async function listProductionBriefs() {
 
 export async function updateProductionBriefFollowUp(input: {
   id: number;
-  followUpStatus: "new" | "reviewing" | "quoted" | "on_hold" | "closed";
+  followUpStatus: "new" | "reviewing" | "shortlist_sent" | "quoted" | "on_hold" | "closed";
   ownerName?: string;
   internalNote?: string;
 }) {
@@ -260,8 +290,73 @@ export async function updateProductionBriefFollowUp(input: {
     ownerName: input.ownerName?.trim() || null,
     internalNote: input.internalNote?.trim() || null,
     lastActionAt: new Date(),
+    ...(input.followUpStatus === "shortlist_sent" ? { qualifierFollowUpStatus: "paused" as const, qualifierFollowUpError: null } : {}),
   }).where(eq(productionBriefs.id, input.id));
   return (await db.select().from(productionBriefs).where(eq(productionBriefs.id, input.id)).limit(1))[0];
+}
+
+export async function getDueQualifierFollowUps(dueBefore: Date) {
+  const db = await requireDb();
+  return db.select().from(productionBriefs).where(and(
+    eq(productionBriefs.qualifierFollowUpStatus, "pending"),
+    lte(productionBriefs.createdAt, dueBefore),
+  ));
+}
+
+export async function getQualifierFollowUpScheduleByTaskUid(taskUid: string) {
+  const db = await requireDb();
+  return (await db.select().from(qualifierFollowUpSchedules).where(eq(qualifierFollowUpSchedules.scheduleCronTaskUid, taskUid)).limit(1))[0];
+}
+
+export async function getQualifierFollowUpSchedule() {
+  const db = await requireDb();
+  return (await db.select().from(qualifierFollowUpSchedules).orderBy(asc(qualifierFollowUpSchedules.id)).limit(1))[0];
+}
+
+export async function saveQualifierFollowUpSchedule(input: { taskUid: string; isEnabled: boolean }) {
+  const db = await requireDb();
+  const existing = await getQualifierFollowUpSchedule();
+  if (existing) {
+    await db.update(qualifierFollowUpSchedules).set({ scheduleCronTaskUid: input.taskUid, isEnabled: input.isEnabled, lastRunError: null }).where(eq(qualifierFollowUpSchedules.id, existing.id));
+    return getQualifierFollowUpSchedule();
+  }
+  await db.insert(qualifierFollowUpSchedules).values({ scheduleCronTaskUid: input.taskUid, isEnabled: input.isEnabled });
+  return getQualifierFollowUpSchedule();
+}
+
+export async function recordQualifierFollowUpRun(scheduleId: number, details: { error?: string }) {
+  const db = await requireDb();
+  await db.update(qualifierFollowUpSchedules).set({ lastRunAt: new Date(), lastRunError: details.error ?? null }).where(eq(qualifierFollowUpSchedules.id, scheduleId));
+}
+
+export async function createTradeIntroduction(input: {
+  introducerBuyerAccountId: number;
+  introducedByUserId: number;
+  jewellerName: string;
+  company?: string;
+  workEmail?: string;
+  market: "GLOBAL" | "FR" | "IT" | "US" | "CA";
+  note?: string;
+}) {
+  const db = await requireDb();
+  const result = await db.insert(tradeIntroductions).values({
+    ...input,
+    jewellerName: input.jewellerName.trim(),
+    company: input.company?.trim() || null,
+    workEmail: input.workEmail?.trim().toLowerCase() || null,
+    note: input.note?.trim() || null,
+  });
+  return (await db.select().from(tradeIntroductions).where(eq(tradeIntroductions.id, Number(result[0].insertId))).limit(1))[0];
+}
+
+export async function markTradeIntroductionAlert(id: number, status: "sent" | "failed", details: { messageId?: string; error?: string }) {
+  const db = await requireDb();
+  await db.update(tradeIntroductions).set({ alertStatus: status, alertMessageId: details.messageId ?? null, alertError: details.error ?? null }).where(eq(tradeIntroductions.id, id));
+}
+
+export async function listTradeIntroductions() {
+  const db = await requireDb();
+  return db.select().from(tradeIntroductions).orderBy(desc(tradeIntroductions.createdAt));
 }
 
 export async function getOperationsOverview() {

@@ -7,6 +7,9 @@ describe("public maker-positioning language", () => {
       readFileSync("client/src/pages/Home.tsx", "utf8"),
       readFileSync("client/src/pages/MarketLanding.tsx", "utf8"),
       readFileSync("client/src/pages/LegalPage.tsx", "utf8"),
+      readFileSync("client/src/pages/Insights.tsx", "utf8"),
+      readFileSync("client/src/pages/Refer.tsx", "utf8"),
+      readFileSync("client/src/components/WhatsAppQuickContact.tsx", "utf8"),
     ].join("\n").toLowerCase();
 
     for (const prohibited of ["sourcing", "supply", "supplier", "fournisseur", "fornitore", "approvisionnement", "fornitura"]) {

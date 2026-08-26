@@ -59,6 +59,7 @@ export default function Home() {
       yearsTrading: String(values.get("years_trading")) as "Under 2" | "2–5" | "5–10" | "10+",
       tradeReferencesAvailable: String(values.get("trade_references")) as "Yes" | "No",
       preferredPaymentApproach: String(values.get("preferred_payment_approach")) as "Prepaid on proforma" | "Agreed trade terms subject to credit check" | "Open to discussion",
+      referrerName: String(values.get("referrer_name") || "").trim() || undefined,
       brief: String(values.get("brief")).trim(),
     });
   };
@@ -356,6 +357,10 @@ export default function Home() {
                 <option>Open to discussion</option>
               </select>
             </label>
+            <label>
+              <span>Introduced by a trade contact? <em>(optional)</em></span>
+              <input name="referrer_name" type="text" maxLength={180} placeholder="Name of the introducing contact" />
+            </label>
             <p className="form-qualification-note">These details are used only to assess the right account approach for your enquiry.</p>
             <label>
               <span>What needs to be made?</span>
@@ -388,7 +393,7 @@ export default function Home() {
           <span className="brand-name">ALVORA</span>
         </div>
         <p>Lab-grown diamond manufacturing<br />Surat, India</p>
-        <nav className="footer-legal" aria-label="Legal information"><a href="/privacy">Privacy</a><a href="/terms">Terms of trade</a></nav>
+        <nav className="footer-legal" aria-label="Information"><a href="/insights">Trade insights</a><a href="/privacy">Privacy</a><a href="/terms">Terms of trade</a></nav>
         <a href="#top">Back to top <ArrowUpRight size={15} /></a>
       </footer>
     </div>

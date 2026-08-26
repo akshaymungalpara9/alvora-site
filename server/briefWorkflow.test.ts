@@ -3,8 +3,13 @@ import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 const mocks = vi.hoisted(() => ({
   createProductionBrief: vi.fn(),
   getProductionBriefById: vi.fn(),
+  getQualifierFollowUpSchedule: vi.fn(),
   listProductionBriefs: vi.fn(),
+  createEmailLog: vi.fn(),
+  markEmailLog: vi.fn(),
   markProductionBriefAlert: vi.fn(),
+  markProductionBriefAcknowledgement: vi.fn(),
+  saveQualifierFollowUpSchedule: vi.fn(),
   sendTransactionalEmail: vi.fn(),
   updateProductionBriefFollowUp: vi.fn(),
 }));
@@ -41,6 +46,11 @@ const savedBrief = {
   ownerName: null,
   internalNote: null,
   lastActionAt: null,
+  source: "direct" as const,
+  referrerName: null,
+  acknowledgementStatus: "pending" as const,
+  acknowledgementMessageId: null,
+  acknowledgementError: null,
   createdAt: new Date(),
   updatedAt: new Date(),
 };
@@ -68,6 +78,7 @@ describe("public production-brief workflow", () => {
     vi.clearAllMocks();
     ENV.leadAlertTo = "alerts@alvora.example";
     mocks.createProductionBrief.mockResolvedValue(savedBrief);
+    mocks.createEmailLog.mockResolvedValue(91);
     mocks.getProductionBriefById.mockResolvedValue({ ...savedBrief, alertStatus: "failed", alertError: "mail transport unavailable" });
     mocks.updateProductionBriefFollowUp.mockResolvedValue({ ...savedBrief, followUpStatus: "reviewing", ownerName: "AK", internalNote: "Check setting dimensions", lastActionAt: new Date() });
   });

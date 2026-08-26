@@ -1,0 +1,1 @@
+ALTER TABLE `production_briefs` MODIFY COLUMN `qualifierFollowUpStatus` enum('pending','processing','sent','paused','failed') NOT NULL DEFAULT 'pending';

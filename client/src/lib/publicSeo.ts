@@ -1,6 +1,6 @@
 export type PublicSeoLocale = "global" | "fr" | "it" | "us";
 
-export type PublicDocumentMetadata = { lang: string; path: string; title: string; description: string };
+export type PublicDocumentMetadata = { lang: string; path: string; title: string; description: string; robots?: string };
 export const publicSocialImage = "/manus-storage/alvora-hero-qc_9e0d540e.jpg";
 
 export const publicSeo = {
@@ -61,7 +61,7 @@ export function applyDocumentMetadata(current: PublicDocumentMetadata) {
   document.documentElement.lang = current.lang;
   document.title = current.title;
   setMeta("name", "description", current.description);
-  setMeta("name", "robots", "index,follow,max-image-preview:large");
+  setMeta("name", "robots", current.robots ?? "index,follow,max-image-preview:large");
   setMeta("property", "og:type", "website");
   setMeta("property", "og:title", current.title);
   setMeta("property", "og:description", current.description);

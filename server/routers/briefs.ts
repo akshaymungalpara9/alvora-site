@@ -1,9 +1,13 @@
 import { TRPCError } from "@trpc/server";
+import { parse as parseCookie } from "cookie";
 import { z } from "zod";
-import { createProductionBrief, getProductionBriefById, listProductionBriefs, markProductionBriefAlert, updateProductionBriefFollowUp } from "../db";
+import { createProductionBrief, getProductionBriefById, getQualifierFollowUpSchedule, listProductionBriefs, markProductionBriefAlert, saveQualifierFollowUpSchedule, updateProductionBriefFollowUp } from "../db";
 import { escapeHtml, sendTransactionalEmail } from "../email";
 import { ENV } from "../_core/env";
+import { createHeartbeatJob, updateHeartbeatJob } from "../_core/heartbeat";
 import { adminProcedure, publicProcedure, router } from "../_core/trpc";
+import { sendProductionBriefAcknowledgement } from "../qualifierFollowUps";
+import { COOKIE_NAME } from "../../shared/const";
 
 const publicBriefInput = z.object({
   requestType: z.string().trim().min(2).max(120),
@@ -15,6 +19,7 @@ const publicBriefInput = z.object({
   yearsTrading: z.enum(["Under 2", "2–5", "5–10", "10+"]),
   tradeReferencesAvailable: z.enum(["Yes", "No"]),
   preferredPaymentApproach: z.enum(["Prepaid on proforma", "Agreed trade terms subject to credit check", "Open to discussion"]),
+  referrerName: z.string().trim().max(180).optional().transform((value) => value || undefined),
   brief: z.string().trim().min(10).max(5000),
 });
 const marketCode = z.enum(["GLOBAL", "FR", "IT", "US", "CA"]);
@@ -38,14 +43,16 @@ const exportProductionBriefCsv = (briefs: Awaited<ReturnType<typeof listProducti
 async function sendSavedProductionBriefAlert(saved: NonNullable<Awaited<ReturnType<typeof getProductionBriefById>>>) {
   const senderName = alertSubjectSegment(saved.company || saved.contactName);
   const requestType = alertSubjectSegment(saved.requestType);
+  const referralHtml = saved.referrerName ? `<br/><strong>Introduced by:</strong> ${escapeHtml(saved.referrerName)}` : "";
+  const referralText = saved.referrerName ? `\nIntroduced by: ${saved.referrerName}` : "";
   const subject = `[Public brief — ${saved.market} — ${senderName}] ${requestType}`;
   try {
     if (!ENV.leadAlertTo) throw new Error("LEAD_ALERT_TO is not configured");
     const result = await sendTransactionalEmail({
       to: ENV.leadAlertTo,
       subject,
-      html: `<div style="font-family:Arial,sans-serif;line-height:1.6"><p><strong>Public production brief</strong></p><p><strong>Market:</strong> ${escapeHtml(saved.market)}<br/><strong>Contact:</strong> ${escapeHtml(saved.contactName)} (${escapeHtml(saved.email)})<br/><strong>Company:</strong> ${escapeHtml(saved.company || "Not supplied")}<br/><strong>Request:</strong> ${escapeHtml(saved.requestType)}<br/><strong>Years trading:</strong> ${escapeHtml(saved.yearsTrading)}<br/><strong>Trade references:</strong> ${escapeHtml(saved.tradeReferencesAvailable)}<br/><strong>First-order approach:</strong> ${escapeHtml(saved.preferredPaymentApproach)}</p><p><strong>Brief</strong><br/>${escapeHtml(saved.brief).replaceAll("\n", "<br/>")}</p><p>Brief ID: ${saved.id}</p></div>`,
-      text: `Public production brief\nMarket: ${saved.market}\nContact: ${saved.contactName} (${saved.email})\nCompany: ${saved.company || "Not supplied"}\nRequest: ${saved.requestType}\nYears trading: ${saved.yearsTrading}\nTrade references: ${saved.tradeReferencesAvailable}\nFirst-order approach: ${saved.preferredPaymentApproach}\n\nBrief:\n${saved.brief}\n\nBrief ID: ${saved.id}`,
+      html: `<div style="font-family:Arial,sans-serif;line-height:1.6"><p><strong>Public production brief</strong></p><p><strong>Market:</strong> ${escapeHtml(saved.market)}<br/><strong>Source:</strong> ${escapeHtml(saved.source)}${referralHtml}<br/><strong>Contact:</strong> ${escapeHtml(saved.contactName)} (${escapeHtml(saved.email)})<br/><strong>Company:</strong> ${escapeHtml(saved.company || "Not supplied")}<br/><strong>Request:</strong> ${escapeHtml(saved.requestType)}<br/><strong>Years trading:</strong> ${escapeHtml(saved.yearsTrading)}<br/><strong>Trade references:</strong> ${escapeHtml(saved.tradeReferencesAvailable)}<br/><strong>First-order approach:</strong> ${escapeHtml(saved.preferredPaymentApproach)}</p><p><strong>Brief</strong><br/>${escapeHtml(saved.brief).replaceAll("\n", "<br/>")}</p><p>Brief ID: ${saved.id}</p></div>`,
+      text: `Public production brief\nMarket: ${saved.market}\nSource: ${saved.source}${referralText}\nContact: ${saved.contactName} (${saved.email})\nCompany: ${saved.company || "Not supplied"}\nRequest: ${saved.requestType}\nYears trading: ${saved.yearsTrading}\nTrade references: ${saved.tradeReferencesAvailable}\nFirst-order approach: ${saved.preferredPaymentApproach}\n\nBrief:\n${saved.brief}\n\nBrief ID: ${saved.id}`,
       tags: [{ name: "workflow", value: "public_production_brief" }, { name: "brief_id", value: String(saved.id) }, { name: "market", value: saved.market }],
     });
     await markProductionBriefAlert(saved.id, "sent", { alertMessageId: result.id });
@@ -64,12 +71,39 @@ export const publicProductionBriefRouter = router({
     const saved = await createProductionBrief(briefInput);
     if (!saved) throw new TRPCError({ code: "INTERNAL_SERVER_ERROR", message: "Production brief could not be saved" });
 
-    return sendSavedProductionBriefAlert(saved);
+    const [alert] = await Promise.all([
+      sendSavedProductionBriefAlert(saved),
+      sendProductionBriefAcknowledgement(saved),
+    ]);
+    return alert;
   }),
 });
 
 export const adminProductionBriefRouter = router({
   list: adminProcedure.query(() => listProductionBriefs()),
+  qualifierFollowUpSchedule: adminProcedure.query(() => getQualifierFollowUpSchedule()),
+  enableQualifierFollowUps: adminProcedure.mutation(async ({ ctx }) => {
+    const sessionToken = parseCookie(ctx.req.headers.cookie ?? "")[COOKIE_NAME] ?? "";
+    const existing = await getQualifierFollowUpSchedule();
+    let taskUid: string;
+    let nextExecutionAt: string | null | undefined;
+    if (existing?.scheduleCronTaskUid) {
+      const updated = await updateHeartbeatJob(existing.scheduleCronTaskUid, { cron: "0 0 * * * *", path: "/api/scheduled/qualifier-follow-ups", enable: true }, sessionToken);
+      taskUid = existing.scheduleCronTaskUid;
+      nextExecutionAt = updated.nextExecutionAt;
+    } else {
+      const created = await createHeartbeatJob({
+        name: "alvora-hourly-qualifier-follow-ups",
+        cron: "0 0 * * * *",
+        path: "/api/scheduled/qualifier-follow-ups",
+        description: "Checks saved production briefs hourly and sends one qualifier follow-up after 24 hours unless an admin has marked a shortlist sent.",
+      }, sessionToken);
+      taskUid = created.taskUid;
+      nextExecutionAt = created.nextExecutionAt;
+    }
+    const saved = await saveQualifierFollowUpSchedule({ taskUid, isEnabled: true });
+    return { schedule: saved, nextExecutionAt: nextExecutionAt ?? null };
+  }),
   exportCsv: adminProcedure.input(z.object({ market: marketCode.optional() }).optional()).query(async ({ input }) => {
     const briefs = await listProductionBriefs();
     const scopedBriefs = input?.market ? briefs.filter((brief) => brief.market === input.market) : briefs;
@@ -85,7 +119,7 @@ export const adminProductionBriefRouter = router({
   }),
   updateFollowUp: adminProcedure.input(z.object({
     briefId: z.number().int().positive(),
-    followUpStatus: z.enum(["new", "reviewing", "quoted", "on_hold", "closed"]),
+    followUpStatus: z.enum(["new", "reviewing", "shortlist_sent", "quoted", "on_hold", "closed"]),
     ownerName: z.string().max(120).optional(),
     internalNote: z.string().max(3000).optional(),
   })).mutation(async ({ input }) => {

@@ -99,3 +99,12 @@
 - [x] Capture browser evidence that the current public route has no consent UI and no public tracker cookies before the legal-and-SEO checkpoint.
 - [x] Add an automated rendered-page test that verifies no consent banner or additional non-essential tracker scripts load on a public route.
 - [x] Add an automated browser/runtime check that a loaded public route does not set public tracker cookies under the current configuration.
+- [x] Audit the existing public-form, Resend, analytics, scheduler, and routing foundations for the trade-insights, WhatsApp, qualifier-sequence, and introducer requirements.
+- [x] Build an editorial `/insights` index and three draft article routes with route-specific SEO/social metadata and clear owner-copy replacement points.
+- [x] Add a premium configurable WhatsApp quick-contact control with privacy-aware `whatsapp_click` measurement and a documented number requirement.
+- [x] Add database-first referral/introducer capture, internal alert context, and a private `/refer` intake page without public commission language.
+- [x] Complete the resilient 24-hour brief-detail follow-up sequence that pauses once an authorised admin marks a shortlist as sent, including scheduler documentation and callback-control tests.
+- [ ] Publish this checkpoint, then enable and observe the protected hourly qualifier-follow-up schedule in production.
+- [x] Document the protected hourly qualifier-follow-up workflow, including publication prerequisite, enable action, callback path, shortlist-sent pause, and failure investigation.
+- [x] Add regression coverage for the admin scheduler-enable procedure and scheduled callback authentication, orphan, and disabled paths.
+- [x] Add an explicit scheduled-callback regression for a persisted disabled schedule that returns safely without sending follow-ups.

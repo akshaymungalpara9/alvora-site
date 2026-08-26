@@ -7,15 +7,15 @@
 
 | Area | Observed implementation | Privacy consequence |
 | --- | --- | --- |
-| Production briefs | Public forms submit contact name, work email, optional company, qualification responses, request description, and market/country context to the database-first brief workflow. | The privacy page must explain the commercial-enquiry purpose, internal recipients, response handling, and access/right-to-request channel. |
-| Email delivery | Internal brief alerts use Resend through server-side configuration; saved records retain alert status and error metadata. | Resend must be named as an email-delivery processor in the policy. |
-| Analytics | `client/index.html` loads the configured Umami tracker. No explicit client `track(...)` calls or custom event names were found in the public React route source. | The policy should name page views and the standard tracker attributes, not invent conversion-event names. |
+| Production briefs | Public forms submit contact name, work email, optional company, optional trade-contact introduction name, qualification responses, request description, and market/country context to the database-first brief workflow. | The privacy page must explain the commercial-enquiry purpose, internal recipients, response handling, and access/right-to-request channel. |
+| Email delivery | Internal brief alerts and customer acknowledgement/follow-up delivery use Resend through server-side configuration; saved records retain delivery status and error metadata. | Resend must be named as an email-delivery processor in the policy, alongside the single due follow-up that can be stopped by an administrator’s shortlist-sent action. |
+| Analytics | `client/index.html` loads the configured Umami tracker. The public WhatsApp control uses the documented `data-umami-event` pattern to record the event name `whatsapp_click` without custom event data. | The policy should name the event and say that it does not carry a visitor name, email, trade details, or phone number. [7] |
 | Public browser storage | No Alvora-created public cookie, local-storage, or session-storage feature was found in public route code. The authentication fallback reads `sessionStorage` only for protected-session handling. | No consent banner is added for the present public implementation. |
 | Protected access | Manus OAuth/session handling supports authenticated buyer and administrator areas. | Authentication/session storage is necessary for protected access and is outside the public analytics decision. |
 
 ## Current consent-banner decision
 
-No consent banner is included in this release. The sole public tracker is configured as Umami, whose official FAQ states that its tracking code does not use cookies; its documentation describes anonymised, cookie-free analytics. [1] [2] The current source contains no custom analytics event calls.
+No consent banner is included in this release. The sole public tracker is configured as Umami, whose official FAQ states that its tracking code does not use cookies; its documentation describes anonymised, cookie-free analytics. [1] [2] The current source records only the privacy-disclosed `whatsapp_click` event beyond standard page measurement.
 
 > This decision applies only while the public site keeps this cookie-free Umami configuration and does not add advertising pixels, session replay, cross-site tracking, non-essential A/B testing, or another non-essential storage technology.
 
@@ -41,6 +41,8 @@ At a 375 × 812 mobile viewport, both legal pages retained readable headline hie
 
 On the live development `/us` route, browser inspection found an empty `document.cookie` value, no visible or hidden elements with cookie- or consent-related identifiers/classes, and one Umami analytics script. This evidence matches the documented no-banner posture for the present configuration; it is not a substitute for re-auditing any future tracker or consent change.
 
+The live private `/refer` route was checked without an authenticated account. It displayed an account-only sign-in gate and no public commission statement. The `/insights/how-we-cut-to-specification` draft rendered its route title and canonical path with the configured Open Graph and Twitter metadata; its `noindex,follow` directive is intentional until the owner replaces the structured prompt with approved 400–700 word copy.
+
 ## References
 
 [1]: https://docs.umami.is/docs/faq "Umami FAQ"
@@ -49,3 +51,4 @@ On the live development `/us` route, browser inspection found an empty `document
 [4]: https://ico.org.uk/for-the-public/online/cookies/ "ICO — Cookies"
 [5]: https://commission.europa.eu/privacy-policy-websites-managed-european-commission_en "European Commission — Privacy policy for websites managed by the European Commission"
 [6]: https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/individual-rights/the-right-to-be-informed/how-should-we-draft-our-privacy-information/ "ICO — How should we draft our privacy information?"
+[7]: https://umami.is/docs/track-events "Umami — Track events"

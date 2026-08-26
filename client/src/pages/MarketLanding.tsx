@@ -31,6 +31,12 @@ type MarketContent = {
   northAmerica?: { eyebrow: string; title: string; copy: string; items: [string, string][]; note: string; countries: [string, string][] };
 };
 
+const referralLabelByVariant: Record<Variant, { label: string; placeholder: string }> = {
+  fr: { label: "Introduit par un contact professionnel ? (facultatif)", placeholder: "Nom du contact qui vous a présenté" },
+  it: { label: "Presentato da un contatto commerciale? (facoltativo)", placeholder: "Nome del contatto che vi ha presentato" },
+  us: { label: "Introduced by a trade contact? (optional)", placeholder: "Name of the introducing contact" },
+};
+
 export const marketLandingContent: Record<Variant, MarketContent> = {
   fr: {
     market: "FR", lang: "fr",
@@ -83,6 +89,7 @@ function LanguageSwitcher({ current, label }: { current: Variant; label: string 
 
 export default function MarketLanding({ variant }: { variant: Variant }) {
   const content = marketLandingContent[variant];
+  const referralLabel = referralLabelByVariant[variant];
   const [menuOpen, setMenuOpen] = useState(false);
   const [requestType, setRequestType] = useState(content.brief.requestTypes[0]);
   const [submitted, setSubmitted] = useState(false);
@@ -103,7 +110,7 @@ export default function MarketLanding({ variant }: { variant: Variant }) {
     setSubmitted(false); setAlertStatus(null);
     submitProductionBrief.mutate({
       requestType: String(values.get("request_type")), market: countryMarket, website: String(values.get("_website") || ""), contactName: String(values.get("name")).trim(), email: String(values.get("email")).trim(), company: String(values.get("company") || "").trim() || undefined,
-      yearsTrading: yearsValues[Number(values.get("years_trading"))] ?? "2–5", tradeReferencesAvailable: String(values.get("trade_references")) === "No" ? "No" : "Yes", preferredPaymentApproach: paymentValues[Number(values.get("preferred_payment_approach"))] ?? "Open to discussion", brief: String(values.get("brief")).trim(),
+      yearsTrading: yearsValues[Number(values.get("years_trading"))] ?? "2–5", tradeReferencesAvailable: String(values.get("trade_references")) === "No" ? "No" : "Yes", preferredPaymentApproach: paymentValues[Number(values.get("preferred_payment_approach"))] ?? "Open to discussion", referrerName: String(values.get("referrer_name") || "").trim() || undefined, brief: String(values.get("brief")).trim(),
     });
   };
 
@@ -142,6 +149,7 @@ export default function MarketLanding({ variant }: { variant: Variant }) {
           {content.northAmerica && <label><span>{content.brief.labels.country}</span><select name="country" autoComplete="country" defaultValue="US">{content.northAmerica.countries.map(([label, value]) => <option key={value} value={value}>{label}</option>)}</select></label>}
           <div className="form-qualification-grid"><label><span>{content.brief.labels.years}</span><select name="years_trading" defaultValue="1">{content.brief.years.map((label, index) => <option key={label} value={index}>{label}</option>)}</select></label><label><span>{content.brief.labels.references}</span><select name="trade_references" defaultValue="Yes">{content.brief.references.map((label, index) => <option key={label} value={index === 0 ? "Yes" : "No"}>{label}</option>)}</select></label></div>
           <label><span>{content.brief.labels.payment}</span><select name="preferred_payment_approach" defaultValue="1">{content.brief.payment.map((label, index) => <option key={label} value={index}>{label}</option>)}</select></label>
+          <label><span>{referralLabel.label}</span><input name="referrer_name" type="text" maxLength={180} placeholder={referralLabel.placeholder} /></label>
           <p className="form-qualification-note">{content.brief.labels.note}</p>
           <label><span>{content.brief.labels.requirements}</span><textarea name="brief" minLength={10} maxLength={5000} required rows={5} placeholder={content.brief.requirementPlaceholder} /></label>
           <div className="form-submit-row"><button className="button button-signal" type="submit" disabled={submitProductionBrief.isPending}>{submitProductionBrief.isPending ? content.brief.submitting : <>{content.brief.submit}<ArrowUpRight size={18} /></>}</button><p>{content.brief.privacy}</p></div>
@@ -152,6 +160,6 @@ export default function MarketLanding({ variant }: { variant: Variant }) {
     </main>
 
     <section className="credentials-strip" aria-label={content.credentials.title}><p className="credentials-title">{content.credentials.title}<span>{content.credentials.detail}</span></p><div className="credentials-list">{content.credentials.items.map(([mark, detail]) => <p key={mark}><b>{mark}</b><span>{detail}</span></p>)}</div></section>
-    <footer className="site-footer"><div className="footer-brand"><img className="brand-mark" src={markImage} alt="" /><span className="brand-name">ALVORA</span></div><p>{content.footer.line}</p><nav className="footer-legal" aria-label="Legal information"><a href="/privacy">{content.footer.privacy}</a><a href="/terms">{content.footer.terms}</a></nav><a href="#top">{content.footer.back}<ArrowUpRight size={15} /></a></footer>
+    <footer className="site-footer"><div className="footer-brand"><img className="brand-mark" src={markImage} alt="" /><span className="brand-name">ALVORA</span></div><p>{content.footer.line}</p><nav className="footer-legal" aria-label="Information"><a href="/insights">Trade insights</a><a href="/privacy">{content.footer.privacy}</a><a href="/terms">{content.footer.terms}</a></nav><a href="#top">{content.footer.back}<ArrowUpRight size={15} /></a></footer>
   </div>;
 }

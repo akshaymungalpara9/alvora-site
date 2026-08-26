@@ -7,6 +7,7 @@ export async function sendTransactionalEmail(input: {
   subject: string;
   html: string;
   text: string;
+  replyTo?: string;
   attachments?: Attachment[];
   tags?: { name: string; value: string }[];
 }) {
@@ -23,6 +24,7 @@ export async function sendTransactionalEmail(input: {
       subject: input.subject,
       html: input.html,
       text: input.text,
+      reply_to: input.replyTo,
       attachments: input.attachments,
       tags: input.tags,
     }),
