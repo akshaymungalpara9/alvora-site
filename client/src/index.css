@@ -290,6 +290,11 @@ h1 { margin-bottom: 24px; color: var(--paper); font-family: var(--serif); font-s
 .operations-recent article { display: flex; justify-content: space-between; gap: 14px; padding: 13px 0; border-top: 1px solid rgba(235,233,224,0.12); }
 .operations-recent strong { display: block; color: #e9e7de; font-size: 0.82rem; }
 .operations-recent span, .operations-recent time { display: block; margin-top: 4px; color: #9fa29a; font-family: var(--mono); font-size: 0.56rem; letter-spacing: 0.035em; }
+.operations-market-grid { display: grid; grid-template-columns: repeat(5, 1fr); border-top: 1px solid rgba(235, 233, 224, 0.12); border-left: 1px solid rgba(235, 233, 224, 0.12); }
+.operations-market-grid article { display: grid; gap: 8px; min-height: 122px; padding: 14px 12px; border-right: 1px solid rgba(235, 233, 224, 0.12); border-bottom: 1px solid rgba(235, 233, 224, 0.12); }
+.operations-market-grid strong { color: var(--signal); font-family: var(--mono); font-size: 0.67rem; letter-spacing: 0.07em; }
+.operations-market-grid span, .operations-market-grid small { color: #c6c7bf; font-family: var(--mono); font-size: 0.56rem; letter-spacing: 0.02em; line-height: 1.5; }
+.operations-market-grid small { color: #858a80; }
 .operations-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
 .operations-actions p { display: flex; align-items: flex-start; gap: 9px; margin: 0; padding: 14px; color: #aeb0a8; border-left: 1px solid rgba(208,164,154,0.65); background: rgba(208,164,154,0.045); font-size: 0.76rem; line-height: 1.6; }
 .operations-actions svg { flex: 0 0 auto; margin-top: 2px; color: #d9aca2; }
@@ -342,6 +347,7 @@ h1 { margin-bottom: 24px; color: var(--paper); font-family: var(--serif); font-s
   .brief-aside { padding-top: 35px; }
   .market-panel-section { grid-template-columns: 1fr; gap: 45px; }
   .market-panel-note { grid-column: auto; margin: -25px 0 0; }
+  .operations-market-grid { grid-template-columns: repeat(3, 1fr); }
 }
 
 @media (max-width: 640px) {
@@ -398,6 +404,7 @@ h1 { margin-bottom: 24px; color: var(--paper); font-family: var(--serif); font-s
   .credentials-list { display: grid; grid-template-columns: 1fr; gap: 13px; }
   .credentials-list p { max-width: 100%; }
   .brief-triage-form { grid-template-columns: 1fr; }
+  .operations-market-grid { grid-template-columns: repeat(2, 1fr); }
   .brief-triage-form button { width: 100%; }
   .operations-metrics, .operations-grid, .operations-actions { grid-template-columns: 1fr; }
   .operations-panel-wide { grid-column: auto; }

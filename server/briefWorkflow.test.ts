@@ -131,8 +131,11 @@ describe("public production-brief workflow", () => {
     await expect(userCaller.updateFollowUp({ briefId: 31, followUpStatus: "closed" })).rejects.toMatchObject({ code: "FORBIDDEN" });
   });
 
-  it("exports production briefs with operational fields only for administrators", async () => {
-    mocks.listProductionBriefs.mockResolvedValue([{ ...savedBrief, ownerName: "AK", internalNote: "Quote after calibration check" }]);
+  it("exports all or a server-filtered market subset with operational fields only for administrators", async () => {
+    mocks.listProductionBriefs.mockResolvedValue([
+      { ...savedBrief, ownerName: "AK", internalNote: "Quote after calibration check" },
+      { ...savedBrief, id: 32, market: "US", contactName: "Morgan Lee", company: "New York Atelier" },
+    ]);
     const adminCaller = adminProductionBriefRouter.createCaller(makeContext("admin") as any);
     const userCaller = adminProductionBriefRouter.createCaller(makeContext("user") as any);
 
@@ -143,6 +146,12 @@ describe("public production-brief workflow", () => {
     expect(exported.content).toContain("\"FR\"");
     expect(exported.content).toContain("\"AK\"");
     expect(exported.content).toContain("\"Quote after calibration check\"");
-    await expect(userCaller.exportCsv()).rejects.toMatchObject({ code: "FORBIDDEN" });
+    expect(exported.content).toContain("\"New York Atelier\"");
+
+    const frenchOnly = await adminCaller.exportCsv({ market: "FR" });
+    expect(frenchOnly.filename).toMatch(/^alvora-production-briefs-fr-\d{4}-\d{2}-\d{2}\.csv$/);
+    expect(frenchOnly.content).toContain("\"Atelier North\"");
+    expect(frenchOnly.content).not.toContain("\"New York Atelier\"");
+    await expect(userCaller.exportCsv({ market: "FR" })).rejects.toMatchObject({ code: "FORBIDDEN" });
   });
 });

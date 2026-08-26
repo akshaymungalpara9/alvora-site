@@ -16,6 +16,7 @@ const publicBriefInput = z.object({
   preferredPaymentApproach: z.enum(["Prepaid on proforma", "Agreed trade terms subject to credit check", "Open to discussion"]),
   brief: z.string().min(10).max(5000),
 });
+const marketCode = z.enum(["GLOBAL", "FR", "IT", "US", "CA"]);
 
 const csvCell = (value: unknown) => `"${String(value ?? "").replaceAll("\"", "\"\"")}"`;
 const exportProductionBriefCsv = (briefs: Awaited<ReturnType<typeof listProductionBriefs>>) => {
@@ -56,10 +57,12 @@ export const publicProductionBriefRouter = router({
 
 export const adminProductionBriefRouter = router({
   list: adminProcedure.query(() => listProductionBriefs()),
-  exportCsv: adminProcedure.query(async () => {
+  exportCsv: adminProcedure.input(z.object({ market: marketCode.optional() }).optional()).query(async ({ input }) => {
     const briefs = await listProductionBriefs();
+    const scopedBriefs = input?.market ? briefs.filter((brief) => brief.market === input.market) : briefs;
     const stamp = new Date().toISOString().slice(0, 10);
-    return { filename: `alvora-production-briefs-${stamp}.csv`, content: exportProductionBriefCsv(briefs) };
+    const scope = input?.market ? `-${input.market.toLowerCase()}` : "";
+    return { filename: `alvora-production-briefs${scope}-${stamp}.csv`, content: exportProductionBriefCsv(scopedBriefs) };
   }),
   updateFollowUp: adminProcedure.input(z.object({
     briefId: z.number().int().positive(),

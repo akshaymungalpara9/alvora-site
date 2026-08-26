@@ -47,3 +47,9 @@
 - [x] Add a working EN / FR / IT language switcher across public landing routes.
 - [x] Add automated coverage and responsive validation for market tagging, localized routes, and French terminology compliance.
 - [x] Add automated French terminology content-guard coverage for the localized landing data.
+- [x] Add market-aware filtering to the protected production-brief queue.
+- [x] Add per-market lead and alert-health metrics to the protected operations overview.
+- [x] Add automated coverage for market-aware operations tooling.
+- [ ] Validate the authenticated Operations and Production Briefs market-aware screens on desktop and mobile.
+- [x] Add a protected market-scoped Production Brief CSV export that reduces unnecessary data handling.
+- [x] Verify market-scoped CSV permissions, filename, and row filtering with automated coverage.

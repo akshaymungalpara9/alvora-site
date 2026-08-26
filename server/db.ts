@@ -7,6 +7,7 @@ import {
   type InsertUser,
   lineSheets,
   privateListRequests,
+  type ProductionBrief,
   productionBriefs,
   users,
 } from "../drizzle/schema";
@@ -40,6 +41,19 @@ async function requireDb() {
 
 const compactBand = (items: string[]) => items.map((item) => item.trim().toUpperCase()).filter(Boolean).join(",");
 export const expandBand = (value: string) => value.split(",").map((item) => item.trim()).filter(Boolean);
+export const productionBriefMarketCodes = ["GLOBAL", "FR", "IT", "US", "CA"] as const;
+
+export function summarizeProductionBriefMarkets(briefRows: Pick<ProductionBrief, "market" | "followUpStatus" | "alertStatus">[]) {
+  return Object.fromEntries(productionBriefMarketCodes.map((market) => {
+    const marketBriefs = briefRows.filter((brief) => brief.market === market);
+    return [market, {
+      total: marketBriefs.length,
+      new: marketBriefs.filter((brief) => brief.followUpStatus === "new").length,
+      active: marketBriefs.filter((brief) => ["new", "reviewing", "quoted", "on_hold"].includes(brief.followUpStatus)).length,
+      failedAlerts: marketBriefs.filter((brief) => brief.alertStatus === "failed").length,
+    }];
+  })) as Record<(typeof productionBriefMarketCodes)[number], { total: number; new: number; active: number; failedAlerts: number }>;
+}
 
 export async function upsertUser(user: InsertUser): Promise<void> {
   if (!user.openId) throw new Error("User openId is required for upsert");
@@ -257,6 +271,7 @@ export async function getOperationsOverview() {
   const newBriefs = briefRows.filter((brief) => brief.followUpStatus === "new");
   const activeBriefs = briefRows.filter((brief) => ["new", "reviewing", "quoted", "on_hold"].includes(brief.followUpStatus));
   const incompleteInventory = inventoryRows.filter((stone) => !stone.reportNumber || stone.price === null);
+  const marketBreakdown = summarizeProductionBriefMarkets(briefRows);
 
   return {
     productionBriefs: {
@@ -264,6 +279,7 @@ export async function getOperationsOverview() {
       new: newBriefs.length,
       active: activeBriefs.length,
       failedAlerts: briefRows.filter((brief) => brief.alertStatus === "failed").length,
+      marketBreakdown,
       recent: briefRows.sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime()).slice(0, 5),
     },
     privateRequests: {
