@@ -34,6 +34,7 @@ describe("buyer line-sheet PDF", () => {
         reportNumber: null,
         price: null,
         location: "India",
+        originPartner: "Partner Private — do not disclose",
         importedAt: new Date(),
       }],
       validUntil: new Date("2026-09-01T00:00:00.000Z"),
@@ -41,5 +42,6 @@ describe("buyer line-sheet PDF", () => {
 
     expect(pdf.subarray(0, 4).toString()).toBe("%PDF");
     expect(pdf.length).toBeGreaterThan(1000);
+    expect(pdf.toString("utf8")).not.toContain("Partner Private — do not disclose");
   });
 });

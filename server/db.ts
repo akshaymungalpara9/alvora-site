@@ -1,6 +1,7 @@
 import { and, asc, desc, eq, gte, inArray, lte } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/mysql2";
 import {
+  availabilityImports,
   availabilityStones,
   buyerAccounts,
   emailLogs,
@@ -13,6 +14,7 @@ import {
   tradeIntroductions,
   users,
 } from "../drizzle/schema";
+import type { AvailabilityImportRecord } from "./availabilityImport";
 import { ENV } from "./_core/env";
 
 let _db: ReturnType<typeof drizzle> | null = null;
@@ -121,6 +123,8 @@ export async function resolveBuyerAccountForUser(user: { id: number; email: stri
 }
 
 export async function getStonesForBuyer(account: NonNullable<Awaited<ReturnType<typeof getBuyerAccountById>>>) {
+  const activeImport = await getActiveAvailabilityImport();
+  if (!activeImport) return [];
   const db = await requireDb();
   const shapes = expandBand(account.shapes);
   const colors = expandBand(account.colors);
@@ -132,6 +136,8 @@ export async function getStonesForBuyer(account: NonNullable<Awaited<ReturnType<
     .where(
       and(
         eq(availabilityStones.availability, "Available"),
+        eq(availabilityStones.importId, activeImport.id),
+        eq(availabilityStones.isStandardMenu, true),
         inArray(availabilityStones.shape, shapes),
         gte(availabilityStones.carat, account.caratMin),
         lte(availabilityStones.carat, account.caratMax),
@@ -145,6 +151,122 @@ export async function getStonesForBuyer(account: NonNullable<Awaited<ReturnType<
 export async function getBuyerStone(account: NonNullable<Awaited<ReturnType<typeof getBuyerAccountById>>>, stoneId: number) {
   const stones = await getStonesForBuyer(account);
   return stones.find((stone) => stone.id === stoneId);
+}
+
+export type SafeAvailabilityStone = Pick<typeof availabilityStones.$inferSelect, "id" | "stockNumber" | "shape" | "carat" | "color" | "clarity" | "cut" | "polish" | "fluorescence" | "measurements" | "reportNumber" | "videoUrl" | "price" | "bandTag" | "importedAt">;
+
+export function safeAvailabilityStone(stone: typeof availabilityStones.$inferSelect): SafeAvailabilityStone {
+  const { originPartner: _originPartner, standardsFlags: _standardsFlags, importId: _importId, availability: _availability, lab: _lab, location: _location, ...safeStone } = stone;
+  return safeStone;
+}
+
+export type PublicAvailabilityProfile = Pick<SafeAvailabilityStone, "id" | "shape" | "carat" | "color" | "clarity" | "cut" | "fluorescence" | "measurements" | "importedAt">;
+
+export function publicAvailabilityProfile(stone: typeof availabilityStones.$inferSelect): PublicAvailabilityProfile {
+  const { id, shape, carat, color, clarity, cut, fluorescence, measurements, importedAt } = safeAvailabilityStone(stone);
+  return { id, shape, carat, color, clarity, cut, fluorescence, measurements, importedAt };
+}
+
+export async function getActiveAvailabilityImport() {
+  const db = await requireDb();
+  return (await db.select().from(availabilityImports).where(eq(availabilityImports.status, "active")).orderBy(desc(availabilityImports.activatedAt)).limit(1))[0];
+}
+
+export async function listPublicAvailabilityProfiles(input: { shapes?: string[]; caratMin?: number; caratMax?: number } = {}) {
+  const activeImport = await getActiveAvailabilityImport();
+  if (!activeImport) return { import: null, profiles: [] as SafeAvailabilityStone[] };
+  const db = await requireDb();
+  const where = [
+    eq(availabilityStones.importId, activeImport.id),
+    eq(availabilityStones.availability, "Available"),
+    eq(availabilityStones.isStandardMenu, true),
+  ];
+  if (input.shapes?.length) where.push(inArray(availabilityStones.shape, input.shapes.map((shape) => shape.trim().toUpperCase())));
+  if (input.caratMin !== undefined) where.push(gte(availabilityStones.carat, input.caratMin));
+  if (input.caratMax !== undefined) where.push(lte(availabilityStones.carat, input.caratMax));
+  const rows = await db.select().from(availabilityStones).where(and(...where)).orderBy(asc(availabilityStones.shape), asc(availabilityStones.carat), asc(availabilityStones.color));
+  return { import: activeImport, profiles: rows.map(publicAvailabilityProfile) };
+}
+
+export async function createAvailabilityImport(input: { sourceFilename: string; importedByUserId: number; records: AvailabilityImportRecord[] }) {
+  const db = await requireDb();
+  const standardRowCount = input.records.filter((record) => record.standardsFlags.length === 0).length;
+  const flaggedRowCount = input.records.length - standardRowCount;
+  return db.transaction(async (tx) => {
+    await tx.update(availabilityImports).set({ status: "archived", archivedAt: new Date() }).where(eq(availabilityImports.status, "active"));
+    const result = await tx.insert(availabilityImports).values({
+      sourceFilename: input.sourceFilename,
+      rowCount: input.records.length,
+      standardRowCount,
+      flaggedRowCount,
+      status: "active",
+      importedByUserId: input.importedByUserId,
+    });
+    const importId = Number(result[0].insertId);
+    await tx.insert(availabilityStones).values(input.records.map((record) => ({
+      importId,
+      stockNumber: record.sku,
+      availability: "Available",
+      shape: record.shape,
+      carat: record.carat,
+      color: record.color,
+      clarity: record.clarity,
+      cut: record.cut,
+      polish: null,
+      lab: "IGI",
+      reportNumber: record.igiCertNumber,
+      price: record.priceUsd,
+      location: null,
+      fluorescence: record.fluorescence,
+      measurements: record.measurements,
+      videoUrl: record.videoUrl,
+      bandTag: record.bandTag,
+      originPartner: record.originPartner,
+      standardsFlags: record.standardsFlags,
+      isStandardMenu: record.standardsFlags.length === 0,
+      importedAt: new Date(),
+    })));
+    return (await tx.select().from(availabilityImports).where(eq(availabilityImports.id, importId)).limit(1))[0];
+  });
+}
+
+export async function listAvailabilityImports() {
+  const db = await requireDb();
+  return db.select().from(availabilityImports).orderBy(desc(availabilityImports.activatedAt));
+}
+
+export async function restoreAvailabilityImport(importId: number) {
+  const db = await requireDb();
+  return db.transaction(async (tx) => {
+    const target = (await tx.select().from(availabilityImports).where(eq(availabilityImports.id, importId)).limit(1))[0];
+    if (!target) return undefined;
+    await tx.update(availabilityImports).set({ status: "archived", archivedAt: new Date() }).where(eq(availabilityImports.status, "active"));
+    await tx.update(availabilityImports).set({ status: "active", activatedAt: new Date(), archivedAt: null }).where(eq(availabilityImports.id, importId));
+    return (await tx.select().from(availabilityImports).where(eq(availabilityImports.id, importId)).limit(1))[0];
+  });
+}
+
+export async function getAvailabilityAdminSummary() {
+  const activeImport = await getActiveAvailabilityImport();
+  if (!activeImport) return { activeImport: null, totals: { live: 0, standard: 0, flagged: 0 }, byShape: [] as { shape: string; count: number }[], byCaratBand: [] as { band: string; count: number }[], flaggedRows: [] as (typeof availabilityStones.$inferSelect)[] };
+  const db = await requireDb();
+  const rows = await db.select().from(availabilityStones).where(eq(availabilityStones.importId, activeImport.id)).orderBy(asc(availabilityStones.shape), asc(availabilityStones.carat));
+  const byShape = Array.from(new Set(rows.map((row) => row.shape))).map((shape) => ({ shape, count: rows.filter((row) => row.shape === shape).length }));
+  const bands = [
+    { band: "Under 1.00 ct", test: (carat: number) => carat < 1 },
+    { band: "1.00–1.49 ct", test: (carat: number) => carat >= 1 && carat < 1.5 },
+    { band: "1.50–1.99 ct", test: (carat: number) => carat >= 1.5 && carat < 2 },
+    { band: "2.00–2.99 ct", test: (carat: number) => carat >= 2 && carat < 3 },
+    { band: "3.00–4.19 ct", test: (carat: number) => carat >= 3 && carat <= 4.19 },
+    { band: "4.20 ct and above", test: (carat: number) => carat > 4.19 },
+  ];
+  return {
+    activeImport,
+    totals: { live: rows.length, standard: rows.filter((row) => row.isStandardMenu).length, flagged: rows.filter((row) => !row.isStandardMenu).length },
+    byShape,
+    byCaratBand: bands.map(({ band, test }) => ({ band, count: rows.filter((row) => test(row.carat)).length })),
+    flaggedRows: rows.filter((row) => !row.isStandardMenu),
+  };
 }
 
 export async function createLineSheetRecord(input: {

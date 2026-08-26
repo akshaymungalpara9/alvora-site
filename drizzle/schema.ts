@@ -51,10 +51,31 @@ export const buyerAccounts = mysqlTable(
 );
 
 /** The current availability import. Data derives from the supplied availability CSV. */
+export const availabilityImports = mysqlTable(
+  "availability_imports",
+  {
+    id: int("id").autoincrement().primaryKey(),
+    sourceFilename: varchar("sourceFilename", { length: 255 }).notNull(),
+    rowCount: int("rowCount").notNull(),
+    standardRowCount: int("standardRowCount").notNull(),
+    flaggedRowCount: int("flaggedRowCount").notNull(),
+    status: mysqlEnum("status", ["active", "archived"]).default("archived").notNull(),
+    importedByUserId: int("importedByUserId").notNull(),
+    activatedAt: timestamp("activatedAt").defaultNow().notNull(),
+    archivedAt: timestamp("archivedAt"),
+    createdAt: timestamp("createdAt").defaultNow().notNull(),
+  },
+  (table) => [
+    index("availability_imports_status_idx").on(table.status, table.activatedAt),
+  ],
+);
+
+/** A versioned availability row. Partner-origin and standards-review data remain admin-only. */
 export const availabilityStones = mysqlTable(
   "availability_stones",
   {
     id: int("id").autoincrement().primaryKey(),
+    importId: int("importId"),
     stockNumber: varchar("stockNumber", { length: 100 }).notNull(),
     availability: varchar("availability", { length: 40 }).notNull(),
     shape: varchar("shape", { length: 40 }).notNull(),
@@ -67,11 +88,19 @@ export const availabilityStones = mysqlTable(
     reportNumber: varchar("reportNumber", { length: 120 }),
     price: double("price"),
     location: varchar("location", { length: 90 }),
+    fluorescence: varchar("fluorescence", { length: 40 }),
+    measurements: varchar("measurements", { length: 180 }),
+    videoUrl: varchar("videoUrl", { length: 1024 }),
+    bandTag: varchar("bandTag", { length: 80 }),
+    originPartner: varchar("originPartner", { length: 180 }),
+    standardsFlags: json("standardsFlags"),
+    isStandardMenu: boolean("isStandardMenu").default(false).notNull(),
     importedAt: timestamp("importedAt").defaultNow().notNull(),
   },
   (table) => [
-    uniqueIndex("availability_stones_stock_number_unique").on(table.stockNumber),
+    uniqueIndex("availability_stones_import_stock_unique").on(table.importId, table.stockNumber),
     index("availability_stones_band_idx").on(table.shape, table.carat, table.color, table.clarity),
+    index("availability_stones_import_menu_idx").on(table.importId, table.isStandardMenu),
   ],
 );
 
@@ -223,4 +252,5 @@ export type User = typeof users.$inferSelect;
 export type InsertUser = typeof users.$inferInsert;
 export type BuyerAccount = typeof buyerAccounts.$inferSelect;
 export type AvailabilityStone = typeof availabilityStones.$inferSelect;
+export type AvailabilityImport = typeof availabilityImports.$inferSelect;
 export type ProductionBrief = typeof productionBriefs.$inferSelect;

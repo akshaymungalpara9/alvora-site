@@ -3,6 +3,7 @@ import { getSessionCookieOptions } from "./_core/cookies";
 import { systemRouter } from "./_core/systemRouter";
 import { publicProcedure, router } from "./_core/trpc";
 import { adminBuyerRouter, buyerPortalRouter } from "./routers/buyers";
+import { adminAvailabilityRouter, publicAvailabilityRouter } from "./routers/availability";
 import { adminProductionBriefRouter, publicProductionBriefRouter } from "./routers/briefs";
 import { adminTradeIntroducerRouter, tradeIntroducerRouter } from "./routers/introductions";
 import { adminOperationsRouter } from "./routers/operations";
@@ -18,10 +19,12 @@ export const appRouter = router({
     }),
   }),
   admin: adminBuyerRouter,
+  adminAvailability: adminAvailabilityRouter,
   adminBriefs: adminProductionBriefRouter,
   adminIntroductions: adminTradeIntroducerRouter,
   adminOperations: adminOperationsRouter,
   buyer: buyerPortalRouter,
+  availability: publicAvailabilityRouter,
   productionBrief: publicProductionBriefRouter,
   introductions: tradeIntroducerRouter,
 });

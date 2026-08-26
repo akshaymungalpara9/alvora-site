@@ -7,6 +7,7 @@ import {
   createLineSheetRecord,
   createPrivateListRequest,
   getBuyerAccountById,
+  getActiveAvailabilityImport,
   getBuyerStone,
   getLatestLineSheet,
   getStonesForBuyer,
@@ -16,6 +17,7 @@ import {
   markEmailLog,
   markPrivateRequestEmail,
   resolveBuyerAccountForUser,
+  safeAvailabilityStone,
 } from "../db";
 import { escapeHtml, sendTransactionalEmail } from "../email";
 import { buildLineSheetPdf } from "../lineSheets";
@@ -130,7 +132,8 @@ export const buyerPortalRouter = router({
     return {
       status: "approved" as const,
       buyer,
-      stones: await getStonesForBuyer(buyer),
+      stones: (await getStonesForBuyer(buyer)).map(safeAvailabilityStone),
+      activeImport: await getActiveAvailabilityImport(),
       latestLineSheet: await getLatestLineSheet(buyer.id),
     };
   }),

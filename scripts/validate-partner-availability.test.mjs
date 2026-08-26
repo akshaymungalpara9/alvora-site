@@ -3,7 +3,7 @@ import test from "node:test";
 import { requiredHeaders, validatePartnerAvailabilityCsv } from "./validate-partner-availability.mjs";
 
 const header = requiredHeaders.join(",");
-const validRow = "TEST-STOCK-001,IGI-TEST001,ROUND,1.25,F,VS1,EX,EX,IGI,1250.00,India,Available";
+const validRow = "TEST-STOCK-001,ROUND,1.25,F,VS1,EX,None,6.90 x 6.92 x 4.25,IGI-TEST001,https://video.example/TEST-STOCK-001,1250.00,Core,Partner A";
 
 test("accepts a complete contract-compliant CSV without importing it", () => {
   const result = validatePartnerAvailabilityCsv(`${header}\n${validRow}\n`);
@@ -12,18 +12,26 @@ test("accepts a complete contract-compliant CSV without importing it", () => {
   assert.deepEqual(result.issues, []);
 });
 
-test("reports duplicate stock, missing IGI format, non-numeric price, and invalid availability", () => {
-  const invalidRow = "TEST-STOCK-001,UNKNOWN,ROUND,1.25,F,VS1,EX,EX,IGI,price,India,Held";
+test("reports duplicate SKU, missing IGI, malformed media URL, and non-positive price", () => {
+  const invalidRow = "TEST-STOCK-001,ROUND,1.25,F,VS1,EX,None,, ,not-a-url,0,Core,Partner B";
   const result = validatePartnerAvailabilityCsv(`${header}\n${validRow}\n${invalidRow}\n`);
   assert.equal(result.valid, false);
-  assert.ok(result.issues.some((issue) => issue.includes("duplicate Stock #")));
-  assert.ok(result.issues.some((issue) => issue.includes("Report # must be a plausible IGI")));
-  assert.ok(result.issues.some((issue) => issue.includes("Final Price must be a positive decimal")));
-  assert.ok(result.issues.some((issue) => issue.includes("Availability must be exactly")));
+  assert.ok(result.issues.some((issue) => issue.includes("duplicate sku")));
+  assert.ok(result.issues.some((issue) => issue.includes("missing igi_cert_number")));
+  assert.ok(result.issues.some((issue) => issue.includes("video_url must be an http or https URL")));
+  assert.ok(result.issues.some((issue) => issue.includes("price_usd must be a positive number")));
 });
 
 test("rejects a header that does not match the agreed import contract exactly", () => {
-  const result = validatePartnerAvailabilityCsv(`Stock #,Report #,Carat\nTEST-STOCK-001,IGI-TEST001,1.25\n`);
+  const result = validatePartnerAvailabilityCsv(`sku,shape,price_usd\nTEST-STOCK-001,ROUND,1250\n`);
   assert.equal(result.valid, false);
   assert.ok(result.issues[0].startsWith("Header must exactly match:"));
+});
+
+test("reports non-standard but structurally valid rows for review without blocking the import", () => {
+  const flaggedRow = "TEST-FLAG-001,CUSHION,0.90,I,SI1,VG,Faint,6.00 x 6.00 x 4.00,IGI-FLAG001,https://video.example/TEST-FLAG-001,980,High,Partner B";
+  const result = validatePartnerAvailabilityCsv(`${header}\n${flaggedRow}\n`);
+  assert.equal(result.valid, true);
+  assert.ok(result.flags.some((flag) => flag.includes("shape outside Round / Oval / Emerald / Pear")));
+  assert.ok(result.flags.some((flag) => flag.includes("fluorescence is not None")));
 });

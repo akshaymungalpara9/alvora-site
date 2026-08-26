@@ -129,6 +129,20 @@ h1 { margin-bottom: 24px; color: var(--paper); font-family: var(--serif); font-s
 .list-index { color: #777a72; font-family: var(--mono); font-size: 0.62rem; }
 .production-list h3, .spec-grid h3 { margin: 0 0 8px; font-family: var(--serif); font-size: 1.8rem; font-weight: 600; letter-spacing: -0.035em; line-height: 1; }
 .production-list p { max-width: 440px; margin: 0; color: #555750; font-size: 0.83rem; line-height: 1.7; }
+.production-live { margin-top: 74px; padding-top: 26px; border-top: 1px solid rgba(12, 13, 13, 0.23); }
+.production-live-heading { display: flex; align-items: end; justify-content: space-between; gap: 34px; }
+.production-live-heading h3 { margin: 0 0 10px; font-family: var(--serif); font-size: clamp(2.35rem, 3.2vw, 3.65rem); font-weight: 500; letter-spacing: -0.05em; line-height: .9; }
+.production-live-heading > div > p:not(.eyebrow) { max-width: 570px; margin: 0; color: #555750; font-size: .8rem; line-height: 1.72; }
+.production-live-heading label { display: grid; gap: 8px; min-width: 190px; color: #666960; font-family: var(--mono); font-size: .56rem; letter-spacing: .08em; text-transform: uppercase; }
+.production-live-heading select { min-height: 39px; border: 1px solid rgba(12,13,13,.3); border-radius: 0; background: transparent; color: var(--ink); padding: 0 10px; font-family: var(--mono); font-size: .62rem; }
+.production-live-heading option { color: var(--ink); background: var(--paper); }
+.production-live-freshness { margin: 22px 0 0; color: #5e645a; font-family: var(--mono); font-size: .57rem; letter-spacing: .04em; }
+.production-live-empty { margin: 29px 0 0; padding: 17px 0; border-bottom: 1px solid rgba(12,13,13,.23); color: #5b5d56; font-family: var(--mono); font-size: .64rem; line-height: 1.7; }
+.production-profile-grid { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 27px; border-top: 1px solid rgba(12,13,13,.23); border-left: 1px solid rgba(12,13,13,.23); }
+.production-profile-grid article { display: grid; gap: 9px; min-height: 142px; padding: 17px; border-right: 1px solid rgba(12,13,13,.23); border-bottom: 1px solid rgba(12,13,13,.23); }
+.production-profile-grid span, .production-profile-grid small { color: #68705f; font-family: var(--mono); font-size: .55rem; letter-spacing: .08em; text-transform: uppercase; }
+.production-profile-grid strong { color: #2d342a; font-family: var(--serif); font-size: 1.8rem; font-weight: 500; line-height: .9; }
+.production-profile-grid p { margin: 0; color: #484c45; font-family: var(--mono); font-size: .57rem; letter-spacing: .02em; line-height: 1.55; }
 
 .spec-section { position: relative; padding: 104px 5.45vw 0; color: var(--paper); background: var(--ink-soft); }
 .spec-section::before { content: ""; position: absolute; inset: 0 0 auto; height: 1px; background: var(--signal); }
@@ -345,6 +359,50 @@ h1 { margin-bottom: 24px; color: var(--paper); font-family: var(--serif); font-s
 .admin-activity, .admin-requests { margin-top: 35px; padding: 22px 0; border-top: 1px solid var(--rule); }
 .admin-activity > p:not(.portal-kicker), .admin-requests > p:not(.portal-kicker), .admin-activity div p, .admin-requests div p { margin: 0 0 9px; color: #aeb1a9; font-family: var(--mono); font-size: 0.62rem; line-height: 1.6; }
 .admin-activity a { color: var(--signal); text-decoration: underline; text-underline-offset: 4px; }
+.availability-import-panel, .availability-admin-card { margin-bottom: 14px; padding: 21px; border: 1px solid rgba(235,233,224,.14); background: rgba(255,255,255,.02); }
+.availability-import-panel > header, .availability-admin-card > header { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; color: var(--signal); }
+.availability-import-panel h2, .availability-admin-card h2 { margin: 7px 0 0; color: var(--paper); font-family: var(--serif); font-size: 2.1rem; font-weight: 500; letter-spacing: -.04em; line-height: .92; }
+.availability-import-panel > p { max-width: 830px; margin: 21px 0; color: #afb1aa; font-size: .75rem; line-height: 1.7; }
+.availability-import-panel code { display: inline-block; overflow-wrap: anywhere; color: var(--signal); font-family: var(--mono); font-size: .59rem; }
+.availability-file-field { display: grid; gap: 9px; max-width: 560px; margin-bottom: 17px; color: #b7b9b1; font-family: var(--mono); font-size: .58rem; letter-spacing: .06em; text-transform: uppercase; }
+.availability-file-field input { max-width: 100%; padding: 10px; border: 1px dashed rgba(201,255,99,.35); color: #b7b9b1; background: rgba(255,255,255,.025); font-family: var(--mono); font-size: .62rem; }
+.availability-file-field small { color: #8e9288; font-size: .56rem; letter-spacing: .04em; text-transform: none; }
+.availability-preview { display: grid; gap: 16px; margin-top: 22px; padding: 16px; border-left: 2px solid #9c7560; background: rgba(156,117,96,.07); }
+.availability-preview-valid { border-left-color: var(--signal); background: rgba(201,255,99,.06); }
+.availability-preview > div:first-child { display: flex; align-items: baseline; flex-wrap: wrap; gap: 10px; }
+.availability-preview strong { color: var(--paper); font-family: var(--serif); font-size: 1.5rem; font-weight: 500; }
+.availability-preview > div:first-child span, .availability-report p, .availability-report article, .availability-activate label { color: #aeb0a9; font-family: var(--mono); font-size: .59rem; letter-spacing: .025em; line-height: 1.6; }
+.availability-report { border-top: 1px solid rgba(235,233,224,.13); }
+.availability-report p { margin: 12px 0 5px; color: var(--signal); text-transform: uppercase; }
+.availability-report article { display: grid; grid-template-columns: 150px 1fr; gap: 12px; padding: 8px 0; border-top: 1px solid rgba(235,233,224,.1); }
+.availability-report article strong { color: #ece9df; font-family: var(--mono); font-size: .6rem; }
+.availability-activate { display: flex; align-items: center; flex-wrap: wrap; gap: 16px; padding-top: 4px; }
+.availability-activate label { display: flex; align-items: flex-start; gap: 8px; max-width: 580px; }
+.availability-activate input { accent-color: var(--signal); margin-top: 2px; }
+.availability-error { margin: 12px 0 0; color: #e0aaa0; font-family: var(--mono); font-size: .61rem; line-height: 1.6; }
+.availability-summary-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 14px 0; }
+.availability-summary-grid article { min-height: 136px; display: flex; flex-direction: column; justify-content: space-between; padding: 17px; border: 1px solid rgba(235,233,224,.14); background: rgba(255,255,255,.02); }
+.availability-summary-grid span { color: #a4a79e; font-family: var(--mono); font-size: .57rem; letter-spacing: .06em; text-transform: uppercase; }
+.availability-summary-grid strong { color: var(--signal); font-family: var(--serif); font-size: 2.6rem; font-weight: 500; letter-spacing: -.05em; line-height: .82; }
+.availability-summary-grid .availability-summary-date { color: #e3e1d9; font-family: var(--mono); font-size: .67rem; letter-spacing: .025em; line-height: 1.5; }
+.availability-summary-warning { border-top-color: #c69183 !important; }
+.availability-summary-warning strong { color: #dca79d; }
+.availability-admin-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.availability-breakdown { border-top: 1px solid rgba(235,233,224,.13); }
+.availability-breakdown p, .availability-version-list article { display: flex; align-items: center; justify-content: space-between; gap: 15px; margin: 0; padding: 12px 0; border-bottom: 1px solid rgba(235,233,224,.13); }
+.availability-breakdown span, .availability-version-list span { color: #aaaDA5; font-family: var(--mono); font-size: .59rem; letter-spacing: .035em; }
+.availability-breakdown strong { color: var(--paper); font-family: var(--serif); font-size: 1.5rem; font-weight: 500; }
+.availability-flagged-list, .availability-version-list { border-top: 1px solid rgba(235,233,224,.13); }
+.availability-flagged-list article { display: flex; align-items: flex-start; justify-content: space-between; gap: 25px; padding: 15px 0; border-bottom: 1px solid rgba(235,233,224,.13); }
+.availability-flagged-list strong, .availability-version-list strong { display: block; color: var(--paper); font-size: .83rem; }
+.availability-flagged-list span, .availability-flagged-list small, .availability-flagged-list p { display: block; margin: 5px 0 0; color: #a8aaa1; font-family: var(--mono); font-size: .57rem; letter-spacing: .025em; line-height: 1.55; }
+.availability-flagged-list small { color: #d7a99f; }
+.availability-flagged-list p { min-width: 185px; color: #81857c; }
+.availability-flagged-list b { display: block; margin-bottom: 3px; color: var(--signal); font-weight: 500; text-transform: uppercase; }
+.availability-version-list article > div { min-width: 0; }
+.availability-version-list span { display: block; margin-top: 5px; line-height: 1.55; }
+.availability-version-list em { padding: 5px 7px; border: 1px solid rgba(201,255,99,.45); color: var(--signal); font-family: var(--mono); font-size: .55rem; font-style: normal; letter-spacing: .07em; text-transform: uppercase; }
+.availability-version-list button { border: 1px solid rgba(201,255,99,.45); background: transparent; color: var(--signal); padding: 7px 9px; font-family: var(--mono); font-size: .55rem; letter-spacing: .04em; }
 
 @media (prefers-reduced-motion: no-preference) {
   .hero-content, .heritage-content, .section-heading, .spec-lead, .process-content, .faq-heading, .faq-content, .brief-intro, .brief-form { animation: editorial-enter 650ms var(--ease-out) both; }
@@ -366,6 +424,7 @@ h1 { margin-bottom: 24px; color: var(--paper); font-family: var(--serif); font-s
   .faq-section { gap: 48px; }
   .production-list { max-width: none; }
   .production-image-card, .production-image-card img { min-height: 450px; height: 450px; }
+  .production-profile-grid { grid-template-columns: repeat(2, 1fr); }
   .spec-lead { margin-left: 0; margin-right: 0; }
   .process-section { grid-template-columns: 1fr; }
   .process-image-wrap { min-height: 500px; }
@@ -406,6 +465,10 @@ h1 { margin-bottom: 24px; color: var(--paper); font-family: var(--serif); font-s
   .production-image-card, .production-image-card img { min-height: 390px; height: 390px; }
   .production-list article { min-height: 136px; gap: 14px; }
   .production-list h3 { font-size: 1.6rem; }
+  .production-live { margin-top: 56px; }
+  .production-live-heading { align-items: flex-start; flex-direction: column; gap: 22px; }
+  .production-live-heading label { width: 100%; }
+  .production-profile-grid { grid-template-columns: 1fr 1fr; }
   .spec-section { padding: 74px 20px 0; }
   .spec-masthead { align-items: flex-start; }
   .spec-stamp { white-space: nowrap; font-size: 0.5rem; }
@@ -435,6 +498,10 @@ h1 { margin-bottom: 24px; color: var(--paper); font-family: var(--serif); font-s
   .operations-market-grid { grid-template-columns: repeat(2, 1fr); }
   .brief-triage-form button { width: 100%; }
   .operations-metrics, .operations-grid, .operations-actions { grid-template-columns: 1fr; }
+  .availability-summary-grid, .availability-admin-grid { grid-template-columns: 1fr; }
+  .availability-report article, .availability-flagged-list article { grid-template-columns: 1fr; }
+  .availability-flagged-list article { flex-direction: column; gap: 5px; }
+  .availability-flagged-list p { min-width: 0; }
   .operations-panel-wide { grid-column: auto; }
   .site-footer { padding: 30px 20px; }
   .portal-header { height: auto; align-items: flex-start; flex-direction: column; gap: 9px; padding: 18px 20px; }

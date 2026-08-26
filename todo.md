@@ -109,3 +109,11 @@
 - [x] Add regression coverage for the admin scheduler-enable procedure and scheduled callback authentication, orphan, and disabled paths.
 - [x] Add an explicit scheduled-callback regression for a persisted disabled schedule that returns safely without sending follow-ups.
 - [x] Replace editable public heritage proof points with the owner-provided 25+ years of experience and 10,000+ stones dispatched figures across public market routes.
+- [x] Audit the attached availability CSV and existing buyer, public-production, line-sheet, and protected-admin paths against the requested import contract.
+- [x] Implement a protected replace-not-append availability import with validation rejection reports, standards flags, version recovery, and origin-partner privacy boundaries.
+- [ ] Make real approved availability profiles available to the public production matcher and approved buyers, with buyer-band filtering and non-sensitive freshness indicators.
+- [x] Add protected availability administration showing live totals, shape and carat-band summaries, and flagged-row review without exposing partner origin beyond admin access.
+- [ ] Add complete regression, browser, privacy-boundary, recovery, and responsive validation before any owner-approved live import.
+- [ ] Receive a normalized live availability CSV and obtain explicit owner approval before activating the first availability snapshot.
+- [ ] Validate the protected `/admin/availability` review, replacement, flagged-row, and restore flows in an authenticated browser session.
+- [ ] After owner-approved activation, validate public production cards, buyer-band filtering, freshness timestamps, and the absence of `origin_partner` from public/buyer outputs.

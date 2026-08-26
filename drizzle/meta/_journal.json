@@ -43,6 +43,13 @@
       "when": 1787747793036,
       "tag": "0005_blue_retro_girl",
       "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "5",
+      "when": 1787755786710,
+      "tag": "0006_fine_kang",
+      "breakpoints": true
     }
   ]
 }

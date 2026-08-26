@@ -24,6 +24,8 @@ export default function Home() {
   const [requestType, setRequestType] = useState("Production run");
   const [submitted, setSubmitted] = useState(false);
   const [alertStatus, setAlertStatus] = useState<"sent" | "failed" | null>(null);
+  const [productionShape, setProductionShape] = useState("ALL");
+  const publicProfiles = trpc.availability.profiles.useQuery({ shapes: productionShape === "ALL" ? undefined : [productionShape] });
   const submitProductionBrief = trpc.productionBrief.submit.useMutation({
     onSuccess: (result) => {
       setSubmitted(true);
@@ -205,6 +207,11 @@ export default function Home() {
               </article>
             </div>
           </div>
+          <section className="production-live" aria-labelledby="production-live-title">
+            <div className="production-live-heading"><div><p className="eyebrow"><span /> LIVE PRODUCTION PROFILES</p><h3 id="production-live-title">Match the profile.</h3><p>Current standard-menu profiles are shown here when availability is refreshed. Detailed certificates, video and trade pricing remain within the approved buyer area.</p></div><label>Shape<select value={productionShape} onChange={(event) => setProductionShape(event.target.value)}><option value="ALL">All standard shapes</option><option value="ROUND">Round</option><option value="OVAL">Oval</option><option value="EMERALD">Emerald</option><option value="PEAR">Pear</option></select></label></div>
+            {publicProfiles.data?.import && <p className="production-live-freshness">Last refreshed: {new Date(publicProfiles.data.import.activatedAt).toLocaleString()}</p>}
+            {publicProfiles.isLoading ? <p className="production-live-empty">Checking current production profiles…</p> : publicProfiles.data?.profiles.length ? <div className="production-profile-grid">{publicProfiles.data.profiles.map((profile) => <article key={profile.id}><span>{profile.shape}</span><strong>{profile.carat.toFixed(profile.carat % 1 === 0 ? 0 : 2)} ct</strong><p>{profile.color} · {profile.clarity} · {profile.cut || "EX"}</p>{profile.measurements && <small>{profile.measurements}</small>}</article>)}</div> : <p className="production-live-empty">Current standard-menu profiles will appear here after the first reviewed availability refresh.</p>}
+          </section>
         </section>
 
         <section className="spec-section" id="made-to-spec" aria-labelledby="spec-title">
