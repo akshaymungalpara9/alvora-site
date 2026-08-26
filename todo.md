@@ -91,3 +91,11 @@
 - [x] Verify the deferred French and North American public market routes after the bundle split.
 - [x] Verify the deferred Italian public market route directly after the bundle split.
 - [x] Document the resulting public market-route bundle split in the project validation record.
+- [x] Audit public data collection, email delivery, analytics configuration, and browser storage before deciding whether consent UI is required.
+- [x] Add footer-linked `/privacy` and `/terms` pages with plain-language privacy and trade engagement drafts, preserving jurisdiction as owner-confirmation text.
+- [x] Add a public sitemap, hardened robots directives, canonical/hreflang coverage, and Open Graph/Twitter metadata across all public market routes.
+- [x] Complete automated and browser validation for public legal pages, privacy-first cookie posture, and route-specific SEO/social metadata.
+- [x] Add automated validation that the public routes render no consent banner and configure no non-essential cookie-based tracking beyond the documented Umami script path.
+- [x] Capture browser evidence that the current public route has no consent UI and no public tracker cookies before the legal-and-SEO checkpoint.
+- [x] Add an automated rendered-page test that verifies no consent banner or additional non-essential tracker scripts load on a public route.
+- [x] Add an automated browser/runtime check that a loaded public route does not set public tracker cookies under the current configuration.

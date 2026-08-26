@@ -13,13 +13,14 @@ const AdminOperations = lazy(() => import("./pages/AdminOperations"));
 const AdminProductionBriefs = lazy(() => import("./pages/AdminProductionBriefs"));
 const BuyerAvailability = lazy(() => import("./pages/BuyerAvailability"));
 const MarketLanding = lazy(() => import("./pages/MarketLanding"));
+const LegalPage = lazy(() => import("./pages/LegalPage"));
 
 function RouteLoadingFallback() {
   return <main className="route-loading" role="status" aria-live="polite"><p>Loading Alvora…</p></main>;
 }
 
 function Router() {
-  return <Suspense fallback={<RouteLoadingFallback />}><Switch><Route path="/" component={Home} /><Route path="/fr">{() => <MarketLanding variant="fr" />}</Route><Route path="/it">{() => <MarketLanding variant="it" />}</Route><Route path="/us">{() => <MarketLanding variant="us" />}</Route><Route path="/availability" component={BuyerAvailability} /><Route path="/admin" component={AdminOperations} /><Route path="/admin/buyers" component={AdminBuyers} /><Route path="/admin/briefs" component={AdminProductionBriefs} /><Route path="/404" component={NotFound} /><Route component={NotFound} /></Switch></Suspense>;
+  return <Suspense fallback={<RouteLoadingFallback />}><Switch><Route path="/" component={Home} /><Route path="/fr">{() => <MarketLanding variant="fr" />}</Route><Route path="/it">{() => <MarketLanding variant="it" />}</Route><Route path="/us">{() => <MarketLanding variant="us" />}</Route><Route path="/privacy">{() => <LegalPage page="privacy" />}</Route><Route path="/terms">{() => <LegalPage page="terms" />}</Route><Route path="/availability" component={BuyerAvailability} /><Route path="/admin" component={AdminOperations} /><Route path="/admin/buyers" component={AdminBuyers} /><Route path="/admin/briefs" component={AdminProductionBriefs} /><Route path="/404" component={NotFound} /><Route component={NotFound} /></Switch></Suspense>;
 }
 
 function App() {

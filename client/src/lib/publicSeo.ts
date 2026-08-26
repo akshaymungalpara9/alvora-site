@@ -1,5 +1,8 @@
 export type PublicSeoLocale = "global" | "fr" | "it" | "us";
 
+export type PublicDocumentMetadata = { lang: string; path: string; title: string; description: string };
+export const publicSocialImage = "/manus-storage/alvora-hero-qc_9e0d540e.jpg";
+
 export const publicSeo = {
   global: {
     lang: "en",
@@ -25,15 +28,15 @@ export const publicSeo = {
     title: "Alvora — Lab-Grown Diamond Manufacturing for US & Canada",
     description: "Alvora makes certified, calibrated lab-grown diamonds in Surat for North American jewellery teams, with clear US and Canada delivery guidance.",
   },
-} satisfies Record<PublicSeoLocale, { lang: string; path: string; title: string; description: string }>;
+} satisfies Record<PublicSeoLocale, PublicDocumentMetadata>;
 
 const alternateLanguage = { global: "en", fr: "fr", it: "it", us: "en-US" } satisfies Record<PublicSeoLocale, string>;
 
-function setMeta(name: string, content: string) {
-  let element = document.querySelector<HTMLMetaElement>(`meta[name="${name}"]`);
+function setMeta(attribute: "name" | "property", key: string, content: string) {
+  let element = document.querySelector<HTMLMetaElement>(`meta[${attribute}="${key}"]`);
   if (!element) {
     element = document.createElement("meta");
-    element.name = name;
+    element.setAttribute(attribute, key);
     document.head.appendChild(element);
   }
   element.content = content;
@@ -51,14 +54,30 @@ function setLink(rel: string, href: string, hrefLang?: string) {
   element.href = href;
 }
 
+export function applyDocumentMetadata(current: PublicDocumentMetadata) {
+  const origin = window.location.origin;
+  const url = `${origin}${current.path}`;
+  const image = `${origin}${publicSocialImage}`;
+  document.documentElement.lang = current.lang;
+  document.title = current.title;
+  setMeta("name", "description", current.description);
+  setMeta("name", "robots", "index,follow,max-image-preview:large");
+  setMeta("property", "og:type", "website");
+  setMeta("property", "og:title", current.title);
+  setMeta("property", "og:description", current.description);
+  setMeta("property", "og:url", url);
+  setMeta("property", "og:image", image);
+  setMeta("name", "twitter:card", "summary_large_image");
+  setMeta("name", "twitter:title", current.title);
+  setMeta("name", "twitter:description", current.description);
+  setMeta("name", "twitter:image", image);
+  setLink("canonical", url);
+}
+
 export function applyPublicSeo(locale: PublicSeoLocale) {
   const current = publicSeo[locale];
   const origin = window.location.origin;
-  document.documentElement.lang = current.lang;
-  document.title = current.title;
-  setMeta("description", current.description);
-  setMeta("robots", "index,follow,max-image-preview:large");
-  setLink("canonical", `${origin}${current.path}`);
+  applyDocumentMetadata(current);
   (Object.keys(publicSeo) as PublicSeoLocale[]).forEach((key) => {
     setLink("alternate", `${origin}${publicSeo[key].path}`, alternateLanguage[key]);
   });

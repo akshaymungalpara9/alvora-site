@@ -11,6 +11,7 @@
     "format": "prettier --write .",
     "test": "vitest run && node --test scripts/validate-partner-availability.test.mjs",
     "test:mobile-a11y": "node --test scripts/mobile-public-accessibility.test.mjs",
+    "test:public-cookie-posture": "node --test scripts/public-cookie-posture.test.mjs",
     "db:push": "drizzle-kit generate && drizzle-kit migrate"
   },
   "dependencies": {

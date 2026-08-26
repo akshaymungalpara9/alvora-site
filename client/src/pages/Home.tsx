@@ -388,6 +388,7 @@ export default function Home() {
           <span className="brand-name">ALVORA</span>
         </div>
         <p>Lab-grown diamond manufacturing<br />Surat, India</p>
+        <nav className="footer-legal" aria-label="Legal information"><a href="/privacy">Privacy</a><a href="/terms">Terms of trade</a></nav>
         <a href="#top">Back to top <ArrowUpRight size={15} /></a>
       </footer>
     </div>
