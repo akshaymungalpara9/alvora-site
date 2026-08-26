@@ -32,7 +32,7 @@ const menuItems = [
   { icon: Users, label: "Buyer accounts", path: "/admin/buyers" },
   { icon: Database, label: "Availability import", path: "/admin/availability" },
   { icon: ClipboardList, label: "Production briefs", path: "/admin/briefs" },
-  { icon: FileStack, label: "Private availability", path: "/availability" },
+  { icon: FileStack, label: "Private availability", path: "/buyer-availability" },
 ];
 
 const SIDEBAR_WIDTH_KEY = "sidebar-width";

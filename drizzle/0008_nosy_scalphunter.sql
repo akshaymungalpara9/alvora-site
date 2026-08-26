@@ -1,0 +1,1 @@
+ALTER TABLE `private_list_requests` ADD `requestIntent` enum('request','hold') DEFAULT 'request' NOT NULL;

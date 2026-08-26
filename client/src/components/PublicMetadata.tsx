@@ -1,9 +1,10 @@
 import { useEffect } from "react";
-import { applyPublicSeo, type PublicSeoLocale } from "@/lib/publicSeo";
+import { applyAvailabilitySeo, applyPublicSeo, type PublicSeoLocale } from "@/lib/publicSeo";
 
-export default function PublicMetadata({ locale }: { locale: PublicSeoLocale }) {
+export default function PublicMetadata({ locale, page = "landing" }: { locale: PublicSeoLocale; page?: "landing" | "availability" }) {
   useEffect(() => {
-    applyPublicSeo(locale);
-  }, [locale]);
+    if (page === "availability") applyAvailabilitySeo(locale);
+    else applyPublicSeo(locale);
+  }, [locale, page]);
   return null;
 }

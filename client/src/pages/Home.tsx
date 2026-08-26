@@ -2,7 +2,7 @@
  * Alvora — The Precision House: dark editorial craftsmanship built from graphite fields,
  * calibration rules, restrained signal-lime accents, and direct production language.
  */
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import {
   ArrowDownRight,
   ArrowUpRight,
@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import { trpc } from "@/lib/trpc";
 import PublicMetadata from "@/components/PublicMetadata";
+import { useLocation } from "wouter";
 
 const heroImage = "/manus-storage/alvora-hero-qc_9e0d540e.jpg";
 const facetingImage = "/manus-storage/alvora-cutting-faceting_9e45364b.jpg";
@@ -22,10 +23,11 @@ const markImage = "/manus-storage/alvora-faceted-a_2ef055e2.png";
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [requestType, setRequestType] = useState("Production run");
+  const [briefText, setBriefText] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [alertStatus, setAlertStatus] = useState<"sent" | "failed" | null>(null);
-  const [productionShape, setProductionShape] = useState("ALL");
-  const publicProfiles = trpc.availability.profiles.useQuery({ shapes: productionShape === "ALL" ? undefined : [productionShape] });
+  const [location] = useLocation();
+  const availabilitySummary = trpc.availability.summary.useQuery();
   const submitProductionBrief = trpc.productionBrief.submit.useMutation({
     onSuccess: (result) => {
       setSubmitted(true);
@@ -45,6 +47,14 @@ export default function Home() {
       });
     }, 0);
   };
+
+  useEffect(() => {
+    const availability = new URLSearchParams(window.location.search).get("availability");
+    if (!availability) return;
+    setRequestType("Production run");
+    setBriefText(`Current production availability enquiry\n${availability}\n\nPlease confirm this make and current availability.`);
+    window.setTimeout(() => document.getElementById("production-brief")?.scrollIntoView({ behavior: "smooth", block: "start" }), 0);
+  }, [location]);
 
   const submitBrief = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -78,7 +88,7 @@ export default function Home() {
           <a href="#production">Our production</a>
           <a href="#made-to-spec">Made to specification</a>
           <a href="#how-we-work">How we work</a>
-          <a href="/availability">Buyer list</a>
+          <a href="/availability">Availability</a>
         </nav>
 
         <nav className="language-switcher" aria-label="Language selection"><a href="/" className="is-active">EN</a><a href="/fr" lang="fr">FR</a><a href="/it" lang="it">IT</a></nav>
@@ -106,7 +116,7 @@ export default function Home() {
             <a href="#production" onClick={() => setMenuOpen(false)}>Our production</a>
             <a href="#made-to-spec" onClick={() => setMenuOpen(false)}>Made to specification</a>
             <a href="#how-we-work" onClick={() => setMenuOpen(false)}>How we work</a>
-            <a href="/availability" onClick={() => setMenuOpen(false)}>Buyer list</a>
+            <a href="/availability" onClick={() => setMenuOpen(false)}>Availability</a>
             <nav className="language-switcher" aria-label="Language selection"><a href="/" className="is-active">EN</a><a href="/fr" lang="fr">FR</a><a href="/it" lang="it">IT</a></nav>
             <button type="button" onClick={() => openBrief()}>Commission a make <ArrowUpRight size={16} /></button>
           </div>
@@ -208,9 +218,9 @@ export default function Home() {
             </div>
           </div>
           <section className="production-live" aria-labelledby="production-live-title">
-            <div className="production-live-heading"><div><p className="eyebrow"><span /> LIVE PRODUCTION PROFILES</p><h3 id="production-live-title">Match the profile.</h3><p>Current standard-menu profiles are shown here when availability is refreshed. Detailed certificates, video and trade pricing remain within the approved buyer area.</p></div><label>Shape<select value={productionShape} onChange={(event) => setProductionShape(event.target.value)}><option value="ALL">All standard shapes</option><option value="ROUND">Round</option><option value="OVAL">Oval</option><option value="EMERALD">Emerald</option><option value="PEAR">Pear</option></select></label></div>
-            {publicProfiles.data?.import && <p className="production-live-freshness">Last refreshed: {new Date(publicProfiles.data.import.activatedAt).toLocaleString()}</p>}
-            {publicProfiles.isLoading ? <p className="production-live-empty">Checking current production profiles…</p> : publicProfiles.data?.profiles.length ? <div className="production-profile-grid">{publicProfiles.data.profiles.map((profile) => <article key={profile.id}><span>{profile.shape}</span><strong>{profile.carat.toFixed(profile.carat % 1 === 0 ? 0 : 2)} ct</strong><p>{profile.color} · {profile.clarity} · {profile.cut || "EX"}</p>{profile.measurements && <small>{profile.measurements}</small>}</article>)}</div> : <p className="production-live-empty">Current standard-menu profiles will appear here after the first reviewed availability refresh.</p>}
+            <div className="production-live-heading"><div><p className="eyebrow"><span /> LIVE PRODUCTION PROFILES</p><h3 id="production-live-title">Current availability.</h3><p>Fancy Colour and White production, cut and calibrated at our benches. Browse the current menu, verify each IGI report, then make an enquiry from the stone page.</p></div><a className="production-live-link" href="/availability">View current availability <MoveRight size={16} /></a></div>
+            {availabilitySummary.data?.import && <p className="production-live-freshness">Last refreshed: {new Date(availabilitySummary.data.import.activatedAt).toLocaleString()}</p>}
+            {availabilitySummary.isLoading ? <p className="production-live-empty">Checking current production availability…</p> : availabilitySummary.data?.total ? <div className="production-profile-grid">{["Fancy Colour", "White"].map((category) => availabilitySummary.data.byCategory.find((collection) => collection.category === category)).filter((collection): collection is NonNullable<typeof collection> => Boolean(collection)).map((collection) => <article key={collection.category}><span>{collection.category}</span><strong>{collection.count}</strong><p>{collection.category === "Fancy Colour" ? "current differentiator profiles" : "current white profiles"}</p></article>)}{availabilitySummary.data.byShape.slice(0, 4).map((shape) => <article key={shape.shape}><span>{shape.shape}</span><strong>{shape.count}</strong><p>available now</p></article>)}</div> : <p className="production-live-empty">Current availability will appear here after the first reviewed catalog refresh.</p>}
           </section>
         </section>
 
@@ -371,7 +381,7 @@ export default function Home() {
             <p className="form-qualification-note">These details are used only to assess the right account approach for your enquiry.</p>
             <label>
               <span>What needs to be made?</span>
-              <textarea name="brief" minLength={10} maxLength={5000} required rows={5} placeholder="Shape, dimensions, ratios, finish, quantity, timing or anything already decided at your bench." />
+              <textarea name="brief" value={briefText} onChange={(event) => setBriefText(event.target.value)} minLength={10} maxLength={5000} required rows={5} placeholder="Shape, dimensions, ratios, finish, quantity, timing or anything already decided at your bench." />
             </label>
             <div className="form-submit-row">
               <button className="button button-signal" type="submit" disabled={submitProductionBrief.isPending}>{submitProductionBrief.isPending ? "Recording brief…" : <>Send production brief <ArrowUpRight size={18} /></>}</button>

@@ -27,3 +27,5 @@ The attached `Alvora_Nivoda_Upload_100SKU.csv` was checked only with the offline
 The public English and French routes retain their premium production presentation and display the new matched-profile area only after an active reviewed import exists. The protected Availability import screen renders the validation and recovery controls inside the existing Alvora admin shell.
 
 At a 375×812 viewport, the English and French public routes retain readable live-profile empty states and shape controls without horizontal overflow. The protected Availability import screen presents its upload, validation, summary, standards-review, and recovery areas as a single-column administrative workflow. No availability data was created during visual verification.
+
+The protected Operations and Production Briefs screens were also rechecked at a 375×812 viewport after their administrator-query gates were tightened. Both screens load their authorised zero-data states, preserve market-aware controls, and keep the early-access warning visible without blank-page failures.

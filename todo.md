@@ -16,7 +16,7 @@
 - [x] Verify permissions, document delivery, email logging, and request routing.
 - [x] Configure a swappable approved-buyer email sender, initially using Alvora Diamonds <onboarding@resend.dev>.
 - [x] Persist private-list requests before attempting tagged LEAD_ALERT_TO delivery, with delivery status visible to admins.
-- [ ] Populate the availability import with confirmed IGI certificate numbers and prices before treating generated line sheets as final collateral.
+- [x] Superseded the legacy price-based collateral requirement with the active no-price catalog, populated with confirmed IGI certificate numbers and no permitted price field.
 - [ ] Populate private-list requests and alert subjects with confirmed IGI certificate numbers from a completed availability source.
 - [x] Add focused automated coverage for approval, email-log, permission, and database-first private-request workflows.
 - [x] Add a temporary admin-only early-access inventory-population notice while preserving public homepage and brief-form availability.
@@ -111,9 +111,17 @@
 - [x] Replace editable public heritage proof points with the owner-provided 25+ years of experience and 10,000+ stones dispatched figures across public market routes.
 - [x] Audit the attached availability CSV and existing buyer, public-production, line-sheet, and protected-admin paths against the requested import contract.
 - [x] Implement a protected replace-not-append availability import with validation rejection reports, standards flags, version recovery, and origin-partner privacy boundaries.
-- [ ] Make real approved availability profiles available to the public production matcher and approved buyers, with buyer-band filtering and non-sensitive freshness indicators.
+- [ ] Validate active catalog buyer-band filtering in an approved authenticated account; public browsing and freshness indicators are live.
 - [x] Add protected availability administration showing live totals, shape and carat-band summaries, and flagged-row review without exposing partner origin beyond admin access.
-- [ ] Add complete regression, browser, privacy-boundary, recovery, and responsive validation before any owner-approved live import.
-- [ ] Receive a normalized live availability CSV and obtain explicit owner approval before activating the first availability snapshot.
+- [ ] Complete authenticated recovery/restore and responsive browser validation for the owner-approved no-price catalog activation; public browser and source-level privacy checks have passed.
+- [x] Receive and activate the owner-provided normalized no-price live availability CSV as a recoverable first snapshot.
 - [ ] Validate the protected `/admin/availability` review, replacement, flagged-row, and restore flows in an authenticated browser session.
-- [ ] After owner-approved activation, validate public production cards, buyer-band filtering, freshness timestamps, and the absence of `origin_partner` from public/buyer outputs.
+- [ ] Validate approved-buyer runtime output after owner-approved activation; public catalog cards, freshness timestamps, and source-level absence of partner metadata have passed.
+- [ ] Sign in with an administrator account and capture desktop and mobile evidence for authorised Operations metrics and Production Briefs market-filter and triage controls.
+- [x] Audit the supplied combined, White, and Fancy Colour CSVs against the owner-specified no-price public-catalog contract.
+- [x] Rework availability persistence, import validation, recovery, and safeguards for the `stock_no`/`cert_no` no-price source contract.
+- [x] Build a public, paginated Current Production Availability catalog with Fancy Colour first, White second, maker-led cards/list mode, filters, certification links, and no price computation or display.
+- [x] Wire public homepage and navigation availability entry points to real teaser counts and the public catalog, with EN/FR/IT localisation.
+- [x] Add approved-buyer-only video, current-line-sheet, and Request/Hold actions while preserving public browsing and no-price rules.
+- [ ] Validate owner-approved catalog activation, public/buyer entitlement boundaries, mobile performance, localisation, and no-price enforcement.
+- [ ] Run authenticated browser QA for protected buyer current-view PDF, optional video, Request/Hold, and admin import/recovery screens without changing the early-access lock.

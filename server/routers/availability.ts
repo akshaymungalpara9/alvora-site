@@ -3,6 +3,7 @@ import { z } from "zod";
 import {
   createAvailabilityImport,
   getAvailabilityAdminSummary,
+  getPublicAvailabilitySummary,
   listAvailabilityImports,
   listPublicAvailabilityProfiles,
   restoreAvailabilityImport,
@@ -16,13 +17,18 @@ const csvInput = z.object({
 });
 
 const profileFilters = z.object({
-  shapes: z.array(z.string().min(1).max(40)).max(4).optional(),
-  caratMin: z.number().positive().max(25).optional(),
-  caratMax: z.number().positive().max(25).optional(),
-}).refine((value) => value.caratMin === undefined || value.caratMax === undefined || value.caratMax >= value.caratMin, { message: "Maximum carat must be at least the minimum" });
+  category: z.enum(["White", "Fancy Colour"]).optional(),
+  shapes: z.array(z.string().min(1).max(40)).max(20).optional(),
+  caratBands: z.array(z.string().min(1).max(40)).max(8).optional(),
+  colours: z.array(z.string().min(1).max(80)).max(30).optional(),
+  clarities: z.array(z.string().min(1).max(30)).max(12).optional(),
+  page: z.number().int().min(0).max(1_000).optional(),
+  pageSize: z.number().int().min(12).max(96).optional(),
+});
 
 export const publicAvailabilityRouter = router({
   profiles: publicProcedure.input(profileFilters.optional()).query(({ input }) => listPublicAvailabilityProfiles(input ?? {})),
+  summary: publicProcedure.input(z.object({ category: z.enum(["White", "Fancy Colour"]).optional() }).optional()).query(({ input }) => getPublicAvailabilitySummary(input ?? {})),
 });
 
 export const adminAvailabilityRouter = router({
@@ -33,8 +39,9 @@ export const adminAvailabilityRouter = router({
       valid: result.valid,
       rowCount: result.rowCount,
       rejectionReport: result.rejections,
-      standardRowCount: result.records.filter((record) => record.standardsFlags.length === 0).length,
-      flaggedRows: result.records.filter((record) => record.standardsFlags.length > 0).map((record) => ({ sku: record.sku, flags: record.standardsFlags })),
+      whiteRowCount: result.records.filter((record) => record.category === "White").length,
+      fancyRowCount: result.records.filter((record) => record.category === "Fancy Colour").length,
+      flaggedRows: [],
     };
   }),
   replaceImport: adminProcedure.input(csvInput).mutation(async ({ ctx, input }) => {
@@ -50,8 +57,9 @@ export const adminAvailabilityRouter = router({
     return {
       import: imported,
       rowCount: result.rowCount,
-      standardRowCount: result.records.filter((record) => record.standardsFlags.length === 0).length,
-      flaggedRows: result.records.filter((record) => record.standardsFlags.length > 0).map((record) => ({ sku: record.sku, flags: record.standardsFlags })),
+      whiteRowCount: result.records.filter((record) => record.category === "White").length,
+      fancyRowCount: result.records.filter((record) => record.category === "Fancy Colour").length,
+      flaggedRows: [],
     };
   }),
   summary: adminProcedure.query(() => getAvailabilityAdminSummary()),

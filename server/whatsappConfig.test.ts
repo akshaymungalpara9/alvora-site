@@ -6,5 +6,5 @@ describe("WhatsApp Business configuration", () => {
     expect(number).toMatch(/^\d{8,15}$/);
     const response = await fetch(`https://wa.me/${number}`, { method: "HEAD", redirect: "manual" });
     expect([200, 301, 302, 303, 307, 308]).toContain(response.status);
-  });
+  }, 10_000);
 });

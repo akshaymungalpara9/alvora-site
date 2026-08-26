@@ -45,12 +45,12 @@ const originFor = (ctx: { req: { protocol: string; get: (name: string) => string
 const displayBands = (buyer: NonNullable<Awaited<ReturnType<typeof getBuyerAccountById>>>) =>
   `${buyer.shapes.replaceAll(",", " / ")} · ${buyer.caratMin}–${buyer.caratMax} ct · ${buyer.colors.replaceAll(",", " / ")} · ${buyer.clarities.replaceAll(",", " / ")}`;
 
-async function createStoredLineSheet(buyer: NonNullable<Awaited<ReturnType<typeof getBuyerAccountById>>>, userId: number) {
-  const stones = await getStonesForBuyer(buyer);
+async function createStoredLineSheet(buyer: NonNullable<Awaited<ReturnType<typeof getBuyerAccountById>>>, userId: number, selectedStones?: Awaited<ReturnType<typeof getStonesForBuyer>>) {
+  const stones = selectedStones ?? await getStonesForBuyer(buyer);
   const validUntil = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000);
   const pdf = await buildLineSheetPdf({ buyer, stones, validUntil });
   const safeName = buyer.accountName.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "") || `buyer-${buyer.id}`;
-  const filename = `alvora-${safeName}-line-sheet.pdf`;
+  const filename = `alvora-${safeName}-line-sheet-${Date.now()}.pdf`;
   const stored = await storagePut(`line-sheets/${buyer.id}/${filename}`, pdf, "application/pdf");
   const lineSheet = await createLineSheetRecord({
     buyerAccountId: buyer.id,
@@ -69,7 +69,7 @@ async function sendWelcomeKit(input: {
   pdf: Buffer;
   filename: string;
 }) {
-  const privateListUrl = `${originFor(input.ctx)}/availability`;
+  const privateListUrl = `${originFor(input.ctx)}/buyer-availability`;
   const subject = "Your Alvora buyer account is approved";
   const logId = await createEmailLog({
     buyerAccountId: input.buyer.id,
@@ -137,7 +137,18 @@ export const buyerPortalRouter = router({
       latestLineSheet: await getLatestLineSheet(buyer.id),
     };
   }),
-  requestStone: protectedProcedure.input(z.object({ stoneId: z.number().int().positive(), note: z.string().max(1000).optional() })).mutation(async ({ ctx, input }) => {
+  generateCurrentLineSheet: protectedProcedure.input(z.object({ stoneIds: z.array(z.number().int().positive()).min(1).max(64) })).mutation(async ({ ctx, input }) => {
+    if (!ENV.alvoraEarlyAccessEnabled) throw new TRPCError({ code: "PRECONDITION_FAILED", message: "Private line sheets are not active during controlled early access." });
+    const buyer = await resolveBuyerAccountForUser(ctx.user);
+    if (!buyer || buyer.status !== "approved") throw new TRPCError({ code: "FORBIDDEN", message: "This account is not approved for private availability" });
+    const permittedStones = await getStonesForBuyer(buyer);
+    const permittedById = new Map(permittedStones.map((stone) => [stone.id, stone]));
+    const selected = input.stoneIds.map((id) => permittedById.get(id)).filter((stone): stone is NonNullable<typeof stone> => Boolean(stone));
+    if (selected.length !== input.stoneIds.length) throw new TRPCError({ code: "FORBIDDEN", message: "The requested line-sheet view contains a stone outside your approved current availability." });
+    const generated = await createStoredLineSheet(buyer, ctx.user.id, selected);
+    return { lineSheet: generated.lineSheet, stoneCount: selected.length };
+  }),
+  requestStone: protectedProcedure.input(z.object({ stoneId: z.number().int().positive(), requestIntent: z.enum(["request", "hold"]).default("request"), note: z.string().max(1000).optional() })).mutation(async ({ ctx, input }) => {
     if (!ENV.alvoraEarlyAccessEnabled) throw new TRPCError({ code: "PRECONDITION_FAILED", message: "Private-list requests are not active during controlled early access." });
     const buyer = await resolveBuyerAccountForUser(ctx.user);
     if (!buyer || buyer.status !== "approved") throw new TRPCError({ code: "FORBIDDEN", message: "This account is not approved for private availability" });
@@ -151,25 +162,27 @@ export const buyerPortalRouter = router({
       certificateNumber,
       buyerAccountName: buyer.accountName,
       buyerEmail: buyer.email,
+      requestIntent: input.requestIntent,
       note: input.note,
     });
-    const subject = `[Private list — ${buyer.accountName}] Stone request: IGI ${certificateNumber}`;
+    const intentLabel = input.requestIntent === "hold" ? "Hold request" : "Stone request";
+    const subject = `[Private list — ${buyer.accountName}] ${intentLabel}: IGI ${certificateNumber}`;
     const emailLogId = await createEmailLog({
       buyerAccountId: buyer.id,
       requestId,
       emailType: "private_list_request_alert",
       recipient: ENV.leadAlertTo,
       subject,
-      metadata: { stoneId: stone.id, stockNumber: stone.stockNumber, certificateNumber },
+      metadata: { stoneId: stone.id, stockNumber: stone.stockNumber, certificateNumber, requestIntent: input.requestIntent },
     });
     try {
       if (!ENV.leadAlertTo) throw new Error("LEAD_ALERT_TO is not configured");
       const result = await sendTransactionalEmail({
         to: ENV.leadAlertTo,
         subject,
-        html: `<div style="font-family:Arial,sans-serif;line-height:1.6"><p><strong>Private-list stone request</strong></p><p><strong>Buyer:</strong> ${escapeHtml(buyer.accountName)}<br/><strong>Contact:</strong> ${escapeHtml(buyer.contactName)} (${escapeHtml(buyer.email)})<br/><strong>IGI reference:</strong> ${escapeHtml(certificateNumber)}<br/><strong>Alvora stock #:</strong> ${escapeHtml(stone.stockNumber)}<br/><strong>Stone:</strong> ${escapeHtml(stone.shape)} ${stone.carat} ct ${escapeHtml(stone.color)} ${escapeHtml(stone.clarity)}<br/><strong>Buyer note:</strong> ${escapeHtml(input.note || "None")}</p><p>Request ID: ${requestId}</p></div>`,
-        text: `Private-list stone request\nBuyer: ${buyer.accountName}\nContact: ${buyer.contactName} (${buyer.email})\nIGI reference: ${certificateNumber}\nAlvora stock #: ${stone.stockNumber}\nStone: ${stone.shape} ${stone.carat} ct ${stone.color} ${stone.clarity}\nBuyer note: ${input.note || "None"}\nRequest ID: ${requestId}`,
-        tags: [{ name: "workflow", value: "private_list_request" }, { name: "request_id", value: String(requestId) }],
+        html: `<div style="font-family:Arial,sans-serif;line-height:1.6"><p><strong>Private-list ${escapeHtml(intentLabel.toLowerCase())}</strong></p><p><strong>Buyer:</strong> ${escapeHtml(buyer.accountName)}<br/><strong>Contact:</strong> ${escapeHtml(buyer.contactName)} (${escapeHtml(buyer.email)})<br/><strong>IGI reference:</strong> ${escapeHtml(certificateNumber)}<br/><strong>Alvora stock #:</strong> ${escapeHtml(stone.stockNumber)}<br/><strong>Stone:</strong> ${stone.carat} ct ${escapeHtml(stone.shape)} ${escapeHtml(stone.color)} ${escapeHtml(stone.clarity)}<br/><strong>Buyer note:</strong> ${escapeHtml(input.note || "None")}</p><p>Request ID: ${requestId}</p></div>`,
+        text: `Private-list ${intentLabel.toLowerCase()}\nBuyer: ${buyer.accountName}\nContact: ${buyer.contactName} (${buyer.email})\nIGI reference: ${certificateNumber}\nAlvora stock #: ${stone.stockNumber}\nStone: ${stone.carat} ct ${stone.shape} ${stone.color} ${stone.clarity}\nBuyer note: ${input.note || "None"}\nRequest ID: ${requestId}`,
+        tags: [{ name: "workflow", value: "private_list_request" }, { name: "request_intent", value: input.requestIntent }, { name: "request_id", value: String(requestId) }],
       });
       await markEmailLog(emailLogId, "sent", { providerMessageId: result.id });
       await markPrivateRequestEmail(requestId, "sent");

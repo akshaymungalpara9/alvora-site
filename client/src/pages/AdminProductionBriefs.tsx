@@ -11,8 +11,9 @@ type MarketCode = (typeof marketOptions)[number];
 
 export default function AdminProductionBriefs() {
   const { user, loading } = useAuth();
-  const briefs = trpc.adminBriefs.list.useQuery();
-  const qualifierSchedule = trpc.adminBriefs.qualifierFollowUpSchedule.useQuery();
+  const canLoadAdminData = !loading && user?.role === "admin";
+  const briefs = trpc.adminBriefs.list.useQuery(undefined, { enabled: canLoadAdminData });
+  const qualifierSchedule = trpc.adminBriefs.qualifierFollowUpSchedule.useQuery(undefined, { enabled: canLoadAdminData });
   const utils = trpc.useUtils();
   const [statusFilter, setStatusFilter] = useState<"all" | FollowUpStatus>("all");
   const [marketFilter, setMarketFilter] = useState<"all" | MarketCode>("all");

@@ -102,17 +102,18 @@ describe("approved-buyer workflow", () => {
     mocks.sendTransactionalEmail.mockRejectedValueOnce(new Error("delivery unavailable"));
     const caller = buyerPortalRouter.createCaller(makeContext("user") as any);
 
-    const result = await caller.requestStone({ stoneId: 8, note: "Please confirm dispatch timing." });
+    const result = await caller.requestStone({ stoneId: 8, requestIntent: "hold", note: "Please confirm dispatch timing." });
 
     expect(result).toMatchObject({ requestId: 91, alertStatus: "failed" });
     expect(mocks.createPrivateListRequest).toHaveBeenCalledWith(expect.objectContaining({
       certificateNumber: "IGI-TEST-123",
       buyerAccountName: "Atelier North",
+      requestIntent: "hold",
     }));
     expect(mocks.createPrivateListRequest.mock.invocationCallOrder[0]).toBeLessThan(mocks.sendTransactionalEmail.mock.invocationCallOrder[0]);
     expect(mocks.createEmailLog).toHaveBeenCalledWith(expect.objectContaining({
       emailType: "private_list_request_alert",
-      subject: "[Private list — Atelier North] Stone request: IGI IGI-TEST-123",
+      subject: "[Private list — Atelier North] Hold request: IGI IGI-TEST-123",
     }));
     expect(mocks.markEmailLog).toHaveBeenCalledWith(62, "failed", expect.objectContaining({ errorMessage: "delivery unavailable" }));
     expect(mocks.markPrivateRequestEmail).toHaveBeenCalledWith(91, "failed", "delivery unavailable");
@@ -134,6 +135,18 @@ describe("approved-buyer workflow", () => {
     }));
     expect(mocks.markEmailLog).toHaveBeenCalledWith(62, "sent", { providerMessageId: "resend-welcome-1" });
     expect(result.welcome.status).toBe("sent");
+  });
+
+  it("generates a current filtered line sheet only from the buyer's permitted active stones", async () => {
+    ENV.alvoraEarlyAccessEnabled = true;
+    const caller = buyerPortalRouter.createCaller(makeContext("user") as any);
+
+    const result = await caller.generateCurrentLineSheet({ stoneIds: [8] });
+
+    expect(result).toMatchObject({ stoneCount: 1 });
+    expect(mocks.getStonesForBuyer).toHaveBeenCalledWith(buyer);
+    expect(mocks.buildLineSheetPdf).toHaveBeenCalledWith(expect.objectContaining({ buyer, stones: [stone] }));
+    expect(mocks.createLineSheetRecord).toHaveBeenCalledWith(expect.objectContaining({ buyerAccountId: buyer.id, createdByUserId: 2 }));
   });
 
   it("blocks approval, welcome-email sending, buyer visibility, and requests while early access is locked", async () => {

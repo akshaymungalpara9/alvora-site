@@ -9,15 +9,13 @@ const muted = rgb(0.61, 0.61, 0.57);
 const signal = rgb(0.788, 1, 0.388);
 
 const columnLayout = [
-  ["SHAPE", 62], ["CT", 31], ["COLOUR", 44], ["CLARITY", 48], ["CUT", 32], ["IGI CERT #", 126], ["PRICE", 60],
+  ["SHAPE", 58], ["CT", 31], ["COLOUR", 56], ["CLARITY", 48], ["CUT", 32], ["IGI CERT #", 120], ["STOCK NO", 64],
 ] as const;
 
 const compact = (value?: string | null, max = 22) => {
   if (!value) return "—";
   return value.length > max ? `${value.slice(0, max - 1)}…` : value;
 };
-
-const priceLabel = (price?: number | null) => (price === null || price === undefined ? "On request" : `$${price.toLocaleString("en-US")}`);
 
 export async function buildLineSheetPdf(input: { buyer: BuyerAccount; stones: AvailabilityStone[]; validUntil: Date }) {
   const pdf = await PDFDocument.create();
@@ -45,7 +43,6 @@ export async function buildLineSheetPdf(input: { buyer: BuyerAccount; stones: Av
   const maximumRows = 64;
   const rows = input.stones.slice(0, maximumRows);
   const hasMissingCertificates = rows.some((stone) => !stone.reportNumber);
-  const hasMissingPrices = rows.some((stone) => stone.price === null || stone.price === undefined);
   const rowHeight = Math.min(8.8, Math.max(7.2, 460 / Math.max(rows.length, 1)));
   const fontSize = Math.min(6.6, Math.max(5.2, rowHeight - 1.35));
   let y = 615;
@@ -54,7 +51,7 @@ export async function buildLineSheetPdf(input: { buyer: BuyerAccount; stones: Av
     if (index % 2 === 0) page.drawRectangle({ x: 48, y: y - rowHeight + 2, width: 499, height: rowHeight, color: rgb(0.072, 0.077, 0.076) });
     x = 48;
     const cells = [
-      compact(stone.shape, 12), `${stone.carat.toFixed(stone.carat % 1 === 0 ? 0 : 2)}`, compact(stone.color, 8), compact(stone.clarity, 10), compact(stone.cut || stone.polish, 6), compact(stone.reportNumber, 28), compact(priceLabel(stone.price), 14),
+      compact(stone.shape, 12), `${stone.carat.toFixed(stone.carat % 1 === 0 ? 0 : 2)}`, compact(stone.color, 12), compact(stone.clarity, 10), compact(stone.cut || stone.polish, 6), compact(stone.reportNumber, 28), compact(stone.stockNumber, 16),
     ];
     cells.forEach((cell, cellIndex) => {
       page.drawText(cell, { x, y: y - 2, size: fontSize, font: sans, color: paper });
@@ -69,8 +66,8 @@ export async function buildLineSheetPdf(input: { buyer: BuyerAccount; stones: Av
   page.drawText(validText, { x: 48, y: footerY + 7, size: 6.2, font: sansBold, color: signal });
   page.drawText(rows.length < input.stones.length ? `${rows.length} OF ${input.stones.length} MATCHING STONES SHOWN` : `${input.stones.length} MATCHING STONES`, { x: 262, y: footerY + 7, size: 6.2, font: sans, color: muted });
   page.drawText("ALVORA DIAMONDS — MADE IN SURAT", { x: 390, y: footerY + 7, size: 5.8, font: sans, color: paper });
-  if (hasMissingCertificates || hasMissingPrices) {
-    const disclosure = `DATA NOTE: ${hasMissingCertificates ? "CERTIFICATE NUMBERS" : ""}${hasMissingCertificates && hasMissingPrices ? " AND " : ""}${hasMissingPrices ? "PRICES" : ""} ARE NOT PRESENT IN THE CURRENT AVAILABILITY IMPORT; CONFIRM BEFORE COMMITTING.`;
+  if (hasMissingCertificates) {
+    const disclosure = "DATA NOTE: CERTIFICATE NUMBERS ARE NOT PRESENT IN THE CURRENT AVAILABILITY IMPORT; CONFIRM BEFORE COMMITTING.";
     page.drawText(compact(disclosure, 135), { x: 48, y: 33, size: 5.1, font: sans, color: muted });
   }
   return Buffer.from(await pdf.save());

@@ -30,6 +30,13 @@ export const publicSeo = {
   },
 } satisfies Record<PublicSeoLocale, PublicDocumentMetadata>;
 
+export const availabilitySeo = {
+  global: { lang: "en", path: "/availability", title: "Current Production Availability — Alvora", description: "Browse Alvora’s current Fancy Colour and White diamond production. View IGI-certified make details and request price or a hold directly from the stone." },
+  fr: { lang: "fr", path: "/fr/availability", title: "Disponibilités de production — Alvora", description: "Découvrez la production actuelle de diamants synthétiques Alvora, en couleurs fantaisie et blancs, avec détails de fabrication et vérification IGI." },
+  it: { lang: "it", path: "/it/availability", title: "Disponibilità di produzione — Alvora", description: "Consulta la produzione attuale di diamanti sintetici Alvora, colori Fancy e bianchi, con dettagli di lavorazione e verifica IGI." },
+  us: { lang: "en-US", path: "/availability", title: "Current Production Availability — Alvora", description: "Browse Alvora’s current Fancy Colour and White diamond production with IGI-certified make details." },
+} satisfies Record<PublicSeoLocale, PublicDocumentMetadata>;
+
 const alternateLanguage = { global: "en", fr: "fr", it: "it", us: "en-US" } satisfies Record<PublicSeoLocale, string>;
 
 function setMeta(attribute: "name" | "property", key: string, content: string) {
@@ -82,4 +89,14 @@ export function applyPublicSeo(locale: PublicSeoLocale) {
     setLink("alternate", `${origin}${publicSeo[key].path}`, alternateLanguage[key]);
   });
   setLink("alternate", `${origin}/`, "x-default");
+}
+
+export function applyAvailabilitySeo(locale: PublicSeoLocale) {
+  const current = availabilitySeo[locale];
+  const origin = window.location.origin;
+  applyDocumentMetadata(current);
+  (Object.keys(availabilitySeo) as PublicSeoLocale[]).forEach((key) => {
+    setLink("alternate", `${origin}${availabilitySeo[key].path}`, alternateLanguage[key]);
+  });
+  setLink("alternate", `${origin}/availability`, "x-default");
 }
