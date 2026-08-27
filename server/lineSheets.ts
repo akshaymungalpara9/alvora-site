@@ -17,7 +17,7 @@ const compact = (value?: string | null, max = 22) => {
   return value.length > max ? `${value.slice(0, max - 1)}…` : value;
 };
 
-export async function buildLineSheetPdf(input: { buyer: BuyerAccount; stones: AvailabilityStone[]; validUntil: Date }) {
+export async function buildLineSheetPdf(input: { buyer?: BuyerAccount; title?: string; stones: AvailabilityStone[]; validUntil: Date }) {
   const pdf = await PDFDocument.create();
   const page = pdf.addPage([pageWidth, pageHeight]);
   const serif = await pdf.embedFont(StandardFonts.TimesRoman);
@@ -28,9 +28,11 @@ export async function buildLineSheetPdf(input: { buyer: BuyerAccount; stones: Av
 
   page.drawText("A L V O R A", { x: 48, y: 781, size: 12, font: sansBold, color: paper });
   page.drawText("M A D E   I N   S U R A T", { x: 48, y: 762, size: 6.4, font: sans, color: signal });
-  page.drawText("Approved buyer line sheet", { x: 48, y: 714, size: 27, font: serif, color: paper });
-  page.drawText(input.buyer.accountName.toUpperCase(), { x: 48, y: 692, size: 7.2, font: sansBold, color: signal });
-  const bands = `${input.buyer.shapes.replaceAll(",", " / ")}  ·  ${input.buyer.caratMin}–${input.buyer.caratMax} CT  ·  ${input.buyer.colors.replaceAll(",", " / ")}  ·  ${input.buyer.clarities.replaceAll(",", " / ")}`;
+  page.drawText(input.title || (input.buyer ? "Approved buyer line sheet" : "Current production view"), { x: 48, y: 714, size: 27, font: serif, color: paper });
+  const bands = input.buyer
+    ? `${input.buyer.shapes.replaceAll(",", " / ")}  ·  ${input.buyer.caratMin}–${input.buyer.caratMax} CT  ·  ${input.buyer.colors.replaceAll(",", " / ")}  ·  ${input.buyer.clarities.replaceAll(",", " / ")}`
+    : "CURRENT PUBLIC AVAILABILITY · CUT, CALIBRATED AND CERTIFIED AT OUR BENCHES";
+  page.drawText(input.buyer ? input.buyer.accountName.toUpperCase() : "ALVORA / MADE IN SURAT", { x: 48, y: 692, size: 7.2, font: sansBold, color: signal });
   page.drawText(compact(bands, 110), { x: 48, y: 674, size: 6.5, font: sans, color: muted });
   page.drawLine({ start: { x: 48, y: 649 }, end: { x: 547, y: 649 }, thickness: 0.5, color: rgb(0.3, 0.31, 0.29) });
 

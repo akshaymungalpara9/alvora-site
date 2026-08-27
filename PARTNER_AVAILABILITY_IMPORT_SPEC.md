@@ -8,7 +8,7 @@ stock_no,category,colour,shape,carat,carat_band,clarity,cut,polish,symmetry,meas
 
 | Header | Required | Expected value | Public handling and validation |
 | --- | --- | --- | --- |
-| `stock_no` | Yes | Unique stable stock identifier | A blank or duplicate value rejects the row. It is shown in the public catalog and buyer view. |
+| `stock_no` | Yes | Unique stable stock identifier | A blank or duplicate value rejects the row. It is shown in the public catalog. |
 | `category` | Yes | Exactly `Fancy Colour` or `White` | Determines the public collection; Fancy Colour is presented first. |
 | `colour` | Yes | The supplied colour or Fancy Colour expression | Shown verbatim as a catalog specification. |
 | `shape` | Yes | Stone shape | No prescribed menu applies; structurally valid supplied shapes remain in the catalog. |
@@ -25,11 +25,11 @@ stock_no,category,colour,shape,carat,carat_band,clarity,cut,polish,symmetry,meas
 | `lab` | Yes | Laboratory name, such as `IGI` | Shown as certification context. |
 | `cert_no` | Yes | Real certificate/report number | A blank value rejects the row. |
 | `verify_url` | Yes | Valid `https://` or `http://` report-verification URL | A malformed URL rejects the row. For IGI report pages, the active catalog stores `https://api.igi.org/viewpdf.php?r=<cert_no>`. |
-| `video_url` | No | Valid `https://` or `http://` video URL when present | Blank is accepted. A populated malformed URL rejects the row. A valid URL is visible only to approved buyers; no empty video placeholder is shown. |
+| `video_url` | No | Valid `https://` or `http://` video URL when present | Blank is accepted. A populated malformed URL rejects the row. A valid URL is publicly visible; no empty video placeholder is shown. |
 
 ## Non-negotiable no-price rule
 
-This contract has **no price column**. Price data must not be included, displayed, calculated, inferred, filtered, sorted, exported, or added to buyer collateral. Public visitors may submit a request about a specific stone; approved buyers may place a request or request a hold. Neither action presents a price.
+This contract has **no price column**. Price data must not be included, displayed, calculated, inferred, filtered, sorted, exported, or added to catalog collateral. Public visitors may submit a request about a specific stone. That action does not present a price.
 
 ## Import outcomes
 
@@ -53,6 +53,6 @@ The STATEMENT card uses `cert_pdf_url` exactly as supplied, so IGI and GIA certi
 
 Each successful upload creates a new catalog snapshot and makes it active in one database transaction. The prior active snapshot **for the same collection** is archived rather than deleted, allowing an administrator to restore it if a replacement is wrong. Historic buyer requests and line sheets retain their original references.
 
-`/availability` is public and paginated. It exposes every supplied non-price catalog specification and the report verification link, with filters for Shape, Carat band, Colour, and Clarity. Approved buyers receive the same current eligible stones plus any populated video link, a matching current line sheet, and Request or Hold actions. The existing server-enforced buyer early-access lock is unaffected by importing a catalog.
+`/availability` is public and paginated. It exposes every supplied non-price catalog specification, populated media link, and supplied report verification link, with filters for Shape, Carat band, Colour, and Clarity. Specific-stone enquiries prefill the public production brief; they do not reveal a price. Catalog imports never alter protected administrator access.
 
-> Validating or importing a CSV does not approve a buyer, release protected buyer access, or change the controlled rollout setting.
+> Validating or importing a CSV does not create customer identities, change public catalog visibility, or alter protected administrator access.

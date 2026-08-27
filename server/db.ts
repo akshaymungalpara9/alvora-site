@@ -156,7 +156,7 @@ export async function getBuyerStone(account: NonNullable<Awaited<ReturnType<type
 export type SafeAvailabilityStone = Pick<typeof availabilityStones.$inferSelect, "id" | "stockNumber" | "category" | "shape" | "carat" | "caratBand" | "color" | "clarity" | "cut" | "polish" | "symmetry" | "fluorescence" | "measurements" | "depthPct" | "tablePct" | "ratio" | "crownHeight" | "pavilionDepth" | "crownAngle" | "pavilionAngle" | "girdlePct" | "statementType" | "lab" | "reportNumber" | "verifyUrl" | "videoUrl" | "imageUrl" | "importedAt">;
 
 export function safeAvailabilityStone(stone: typeof availabilityStones.$inferSelect): SafeAvailabilityStone {
-  const { originPartner: _originPartner, standardsFlags: _standardsFlags, importId: _importId, availability: _availability, location: _location, price: _price, bandTag: _bandTag, ...safeStone } = stone;
+  const { originPartner: _originPartner, standardsFlags: _standardsFlags, importId: _importId, availability: _availability, location: _location, price: _price, bandTag: _bandTag, isStandardMenu: _isStandardMenu, ...safeStone } = stone;
   return safeStone;
 }
 
@@ -198,7 +198,23 @@ export async function listPublicAvailabilityProfiles(input: CatalogFilters = {})
     db.select().from(availabilityStones).where(and(...where)).orderBy(asc(availabilityStones.carat), asc(availabilityStones.shape), asc(availabilityStones.stockNumber)).limit(pageSize).offset(page * pageSize),
     db.select({ total: sql<number>`count(*)` }).from(availabilityStones).where(and(...where)),
   ]);
-  return { import: activeImport, profiles: rows.map((row) => publicAvailabilityProfile(row, collection === "statement")), total: Number(totalRow[0]?.total ?? 0), page, pageSize };
+  return { import: activeImport, profiles: rows.map((row) => publicAvailabilityProfile(row, true)), total: Number(totalRow[0]?.total ?? 0), page, pageSize };
+}
+
+export async function getPublicAvailabilityRowsByIds(input: { collection: AvailabilityCollection; stoneIds: number[] }) {
+  const activeImport = await getActiveAvailabilityImport(input.collection);
+  if (!activeImport || !input.stoneIds.length) return [];
+  const db = await requireDb();
+  const rows = await db
+    .select()
+    .from(availabilityStones)
+    .where(and(
+      eq(availabilityStones.importId, activeImport.id),
+      eq(availabilityStones.availability, "Available"),
+      inArray(availabilityStones.id, input.stoneIds),
+    ));
+  const byId = new Map(rows.map((row) => [row.id, row]));
+  return input.stoneIds.map((id) => byId.get(id)).filter((row): row is typeof rows[number] => Boolean(row));
 }
 
 export async function getPublicAvailabilitySummary(input: { collection?: AvailabilityCollection; category?: "White" | "Fancy Colour" } = {}) {

@@ -29,14 +29,16 @@ describe("current production catalog privacy and activation", () => {
     expect(safe).not.toHaveProperty("originPartner");
     expect(safe).not.toHaveProperty("price");
     expect(safe).not.toHaveProperty("standardsFlags");
+    expect(safe).not.toHaveProperty("isStandardMenu");
   });
 
-  it("keeps public certification and full non-price catalog fields while withholding buyer-only video", () => {
-    const profile = publicAvailabilityProfile(rawStone);
+  it("keeps public certification, supplied video, and full non-price catalog fields without partner metadata", () => {
+    const profile = publicAvailabilityProfile(rawStone, true);
     expect(profile).toMatchObject({ stockNumber: "ALV-001", reportNumber: "819696674", category: "White" });
     expect(profile).not.toHaveProperty("price");
-    expect(profile).not.toHaveProperty("videoUrl");
+    expect(profile).toHaveProperty("videoUrl", "https://video.example/ALV-001");
     expect(profile).not.toHaveProperty("originPartner");
+    expect(profile).not.toHaveProperty("isStandardMenu");
   });
 
   it("returns a stock-number rejection report and never calls replacement for invalid catalog rows", async () => {
@@ -59,11 +61,12 @@ describe("current production catalog privacy and activation", () => {
   });
 
   it("returns only the public catalog helper response to anonymous callers", async () => {
-    mocks.listPublicAvailabilityProfiles.mockResolvedValue({ import: { id: 5, activatedAt: new Date() }, profiles: [publicAvailabilityProfile(rawStone)], total: 1, page: 0, pageSize: 48 });
+    mocks.listPublicAvailabilityProfiles.mockResolvedValue({ import: { id: 5, activatedAt: new Date() }, profiles: [publicAvailabilityProfile(rawStone, true)], total: 1, page: 0, pageSize: 48 });
     const caller = publicAvailabilityRouter.createCaller({ req: {}, res: {}, user: null } as any);
     const result = await caller.profiles();
     expect(result.profiles[0]).not.toHaveProperty("originPartner");
     expect(result.profiles[0]).not.toHaveProperty("price");
-    expect(result.profiles[0]).not.toHaveProperty("videoUrl");
+    expect(result.profiles[0]).not.toHaveProperty("isStandardMenu");
+    expect(result.profiles[0]).toHaveProperty("videoUrl", "https://video.example/ALV-001");
   });
 });

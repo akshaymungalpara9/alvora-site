@@ -4,6 +4,7 @@ import {
   createAvailabilityImport,
   createStatementAvailabilityImport,
   getAvailabilityAdminSummary,
+  getPublicAvailabilityRowsByIds,
   getPublicAvailabilitySummary,
   listAvailabilityImports,
   listPublicAvailabilityProfiles,
@@ -12,6 +13,8 @@ import {
 import { validateAvailabilityImportCsv } from "../availabilityImport";
 import { validateStatementAvailabilityImportCsv } from "../statementAvailabilityImport";
 import { adminProcedure, publicProcedure, router } from "../_core/trpc";
+import { buildLineSheetPdf } from "../lineSheets";
+import { storagePut } from "../storage";
 
 const csvInput = z.object({
   filename: z.string().min(1).max(255),
@@ -32,9 +35,24 @@ const profileFilters = z.object({
   pageSize: z.number().int().min(12).max(96).optional(),
 });
 
+const publicCurrentViewInput = z.object({
+  collection: z.enum(["core", "statement"]),
+  stoneIds: z.array(z.number().int().positive()).min(1).max(48),
+});
+
 export const publicAvailabilityRouter = router({
   profiles: publicProcedure.input(profileFilters.optional()).query(({ input }) => listPublicAvailabilityProfiles(input ?? {})),
   summary: publicProcedure.input(z.object({ collection: z.enum(["core", "statement"]).optional(), category: z.enum(["White", "Fancy Colour"]).optional() }).optional()).query(({ input }) => getPublicAvailabilitySummary(input ?? {})),
+  downloadCurrentView: publicProcedure.input(publicCurrentViewInput).mutation(async ({ input }) => {
+    const stones = await getPublicAvailabilityRowsByIds(input);
+    if (stones.length !== input.stoneIds.length) {
+      throw new TRPCError({ code: "BAD_REQUEST", message: "The requested current view contains a stone that is no longer publicly available." });
+    }
+    const validUntil = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000);
+    const pdf = await buildLineSheetPdf({ title: "Current production view", stones, validUntil });
+    const stored = await storagePut(`public-current-views/${input.collection}/alvora-current-production-${Date.now()}.pdf`, pdf, "application/pdf");
+    return { storageUrl: stored.url, stoneCount: stones.length, validUntil };
+  }),
 });
 
 export const adminAvailabilityRouter = router({

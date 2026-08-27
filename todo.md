@@ -111,23 +111,31 @@
 - [x] Replace editable public heritage proof points with the owner-provided 25+ years of experience and 10,000+ stones dispatched figures across public market routes.
 - [x] Audit the attached availability CSV and existing buyer, public-production, line-sheet, and protected-admin paths against the requested import contract.
 - [x] Implement a protected replace-not-append availability import with validation rejection reports, standards flags, version recovery, and origin-partner privacy boundaries.
-- [ ] Validate active catalog buyer-band filtering in an approved authenticated account; public browsing and freshness indicators are live.
+- [x] Superseded approved-buyer filtering validation with the owner-approved public catalog model; public browsing and freshness indicators are live.
 - [x] Add protected availability administration showing live totals, shape and carat-band summaries, and flagged-row review without exposing partner origin beyond admin access.
-- [ ] Complete authenticated recovery/restore and responsive browser validation for the owner-approved no-price catalog activation; public browser and source-level privacy checks have passed.
+- [x] Complete public responsive browser and no-price/privacy validation for the owner-approved catalog activation; administration remains protected for future recovery checks.
 - [x] Receive and activate the owner-provided normalized no-price live availability CSV as a recoverable first snapshot.
 - [ ] Validate the protected `/admin/availability` review, replacement, flagged-row, and restore flows in an authenticated browser session.
-- [ ] Validate approved-buyer runtime output after owner-approved activation; public catalog cards, freshness timestamps, and source-level absence of partner metadata have passed.
+- [x] Superseded approved-buyer runtime validation with anonymous public catalog and PDF validation after the owner-approved public-access change.
 - [ ] Sign in with an administrator account and capture desktop and mobile evidence for authorised Operations metrics and Production Briefs market-filter and triage controls.
 - [x] Audit the supplied combined, White, and Fancy Colour CSVs against the owner-specified no-price public-catalog contract.
 - [x] Rework availability persistence, import validation, recovery, and safeguards for the `stock_no`/`cert_no` no-price source contract.
 - [x] Build a public, paginated Current Production Availability catalog with Fancy Colour first, White second, maker-led cards/list mode, filters, certification links, and no price computation or display.
 - [x] Wire public homepage and navigation availability entry points to real teaser counts and the public catalog, with EN/FR/IT localisation.
-- [x] Add approved-buyer-only video, current-line-sheet, and Request/Hold actions while preserving public browsing and no-price rules.
-- [ ] Validate owner-approved catalog activation, public/buyer entitlement boundaries, mobile performance, localisation, and no-price enforcement.
-- [ ] Run authenticated browser QA for protected buyer current-view PDF, optional video, Request/Hold, and admin import/recovery screens without changing the early-access lock.
+- [x] Supersede buyer-only video, current-line-sheet, and Request/Hold presentation with public supplied media, public current-view PDFs, and public production-brief enquiries under the no-price rule.
+- [x] Complete post-style browser QA and mobile performance validation for owner-approved public catalog access, localised current-view PDFs, and no-price enforcement.
+- [x] Re-run desktop and mobile QA for `/availability`, `/buyer-availability`, `/fr/availability`, and `/it/availability` after the catalog-control styling change.
+- [x] Verify anonymous current-view PDF generation on `/fr/availability` and `/it/availability` without a sign-in redirect.
+- [x] Re-run the complete test, mobile accessibility, privacy-posture, and production-build suite after adding public catalog route and performance coverage.
+- [x] Superseded buyer-only browser QA with anonymous public catalog, supplied-media, and current-view PDF QA; administrator import and recovery remain protected.
 - [x] Change public and buyer-visible IGI report links to direct `https://pdf.igi.org/ID{cert_no}.pdf` certificate PDFs while preserving labels and new-tab behaviour.
 - [x] Audit and validate the supplied no-price STATEMENT CSV feed, including stock, certificate, image, video, and 593-row availability expectations.
 - [x] Add an independently refreshable STATEMENT catalog snapshot with safe public/buyer fields, supplied certificate URLs, media URLs, and no price data.
 - [x] Extend public catalog and homepage teaser with the localized STATEMENT collection, dedicated filters, supplied-media cards, richer list fields, and certificate action labeling.
 - [x] Apply the confirmed direct `https://api.igi.org/viewpdf.php?r={cert_no}` IGI PDF target to future Fancy Colour and White imports while preserving supplied STATEMENT certificate URLs.
-- [ ] Complete authenticated buyer current-list verification across core and STATEMENT records; import isolation, no-price/privacy safeguards, and public EN/FR/IT behavior have passed.
+- [x] Superseded authenticated buyer current-list verification with public core and STATEMENT catalog availability; import isolation, no-price/privacy safeguards, and public EN/FR/IT behavior have passed.
+- [x] Audit the current buyer identity design and confirm Manus OAuth is a permanent application dependency, not preview-only behavior.
+- [x] Supersede the pending Alvora buyer magic-link migration at the owner’s direction; no buyer identity layer will be added.
+- [x] Confirm that Resend’s pre-domain-verification delivery restriction would block buyer magic links, then retire that dependency with the login approach.
+- [x] Make the catalog, visual media, downloadable current views, and enquiry actions public without buyer authentication while retaining no-price safeguards.
+- [x] Remove buyer early-access gating from public availability use at the owner’s direction and validate public flows.

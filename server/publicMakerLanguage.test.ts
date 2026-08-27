@@ -44,4 +44,15 @@ describe("public maker-positioning language", () => {
     expect(statementImporter).toContain("image_url");
     expect(statementImporter).toContain("video_url");
   });
+
+  it("keeps the live catalog independent of buyer authentication and exposes only public enquiry and supplied-media actions", () => {
+    const catalog = readFileSync("client/src/pages/PublicAvailability.tsx", "utf8");
+    const app = readFileSync("client/src/App.tsx", "utf8");
+
+    expect(catalog).not.toContain("useAuth");
+    expect(catalog).not.toContain("buyer.myAvailability");
+    expect(catalog).not.toContain("/buyer-availability");
+    expect(catalog).toContain("stone.videoUrl &&");
+    expect(app).toContain('<Route path="/buyer-availability">{() => <PublicAvailability />}</Route>');
+  });
 });
