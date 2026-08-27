@@ -55,4 +55,19 @@ describe("public maker-positioning language", () => {
     expect(catalog).toContain("stone.videoUrl &&");
     expect(app).toContain('<Route path="/buyer-availability">{() => <PublicAvailability />}</Route>');
   });
+
+  it("renders every permitted populated SKU specification in an anonymous full-detail disclosure without internal or commercial fields", () => {
+    const catalog = readFileSync("client/src/pages/PublicAvailability.tsx", "utf8");
+    const db = readFileSync("server/db.ts", "utf8");
+
+    expect(catalog).toContain('className="catalog-stone-details"');
+    for (const field of ["stockNumber", "category", "shape", "caratBand", "color", "clarity", "cut", "polish", "symmetry", "fluorescence", "measurements", "depthPct", "tablePct", "ratio", "lab", "reportNumber", "statementType", "crownHeight", "pavilionDepth", "crownAngle", "pavilionAngle", "girdlePct"]) {
+      expect(catalog).toContain(field);
+    }
+    expect(catalog).not.toContain("originPartner");
+    expect(catalog).not.toContain("isStandardMenu");
+    expect(db).toContain("price: _price");
+    expect(db).toContain("originPartner: _originPartner");
+    expect(db).toContain("isStandardMenu: _isStandardMenu");
+  });
 });

@@ -6,6 +6,37 @@ import { Link } from "wouter";
 
 type Locale = "global" | "fr" | "it";
 type CollectionTab = "Fancy Colour" | "White" | "statement";
+type DetailKey = "stock" | "collection" | "shape" | "carat" | "caratBand" | "colour" | "clarity" | "cut" | "polish" | "symmetry" | "fluorescence" | "measurements" | "depth" | "table" | "ratio" | "lab" | "certificate" | "type" | "crownHeight" | "pavilionDepth" | "crownAngle" | "pavilionAngle" | "girdle";
+
+type CatalogStone = {
+  id: number;
+  stockNumber: string;
+  category: string | null;
+  shape: string | null;
+  carat: number;
+  caratBand: string | null;
+  color: string | null;
+  clarity: string | null;
+  cut: string | null;
+  polish: string | null;
+  symmetry: string | null;
+  fluorescence: string | null;
+  measurements: string | null;
+  depthPct: number | null;
+  tablePct: number | null;
+  ratio: number | null;
+  crownHeight: number | null;
+  pavilionDepth: number | null;
+  crownAngle: number | null;
+  pavilionAngle: number | null;
+  girdlePct: number | null;
+  statementType: string | null;
+  lab: string | null;
+  reportNumber: string | null;
+  verifyUrl: string | null;
+  videoUrl?: string | null;
+  imageUrl: string | null;
+};
 
 const copy = {
   global: { kicker: "ALVORA / CURRENT PRODUCTION", title: "Current production availability.", intro: "Cut, calibrated and IGI-certified at our own benches in Surat. Ready now.", fancy: "Fancy Colour", white: "White", statement: "Statement", statementIntro: "Signature cuts, rare colours and larger makes. Each with a 360° viewer, still image and its own IGI or GIA certificate PDF.", filter: "Refine the menu", shape: "Shape", carat: "Carat band", colour: "Colour", clarity: "Clarity", type: "Type", lab: "Lab", all: "All", rows: "stones shown", request: "Request price", certificate: "View certificate", video: "View 360°", download: "Download current view", preparing: "Preparing current view…", commission: "Commission a make", commissionKicker: "ALVORA / MADE TO SPECIFICATION", commissionCopy: "For a profile not in the current menu, send the make your jewellery programme requires.", empty: "No current profiles match these filters.", page: "Page", prev: "Previous", next: "Next", refreshed: "Last refreshed", details: "View full details", made: "Made at our benches in Surat.", fluo: "Fluo", listType: "Type", listFluo: "Fluorescence", crownAngle: "Crown angle", pavilionAngle: "Pavilion angle", girdle: "Girdle" },
@@ -13,10 +44,41 @@ const copy = {
   it: { kicker: "ALVORA / PRODUZIONE ATTUALE", title: "Disponibilità di produzione attuale.", intro: "Diamanti sintetici tagliati, calibrati e certificati IGI dai nostri banchi a Surat. Pronti ora.", fancy: "Colori Fancy", white: "Bianchi", statement: "Statement", statementIntro: "Tagli distintivi, colori rari e lavorazioni di dimensioni maggiori. Ognuno con visualizzatore a 360°, immagine e PDF del proprio certificato IGI o GIA.", filter: "Affina il menu", shape: "Forma", carat: "Fascia carati", colour: "Colore", clarity: "Purezza", type: "Tipo", lab: "Laboratorio", all: "Tutti", rows: "pietre visualizzate", request: "Richiedi il prezzo", certificate: "Vedi certificato", video: "Vedi a 360°", download: "Scarica la vista attuale", preparing: "Preparazione della vista attuale…", commission: "Commissiona una produzione", commissionKicker: "ALVORA / SU SPECIFICA", commissionCopy: "Per un profilo non presente nella selezione attuale, inviate la lavorazione richiesta dal vostro programma di gioielleria.", empty: "Nessun profilo attuale corrisponde a questi filtri.", page: "Pagina", prev: "Precedente", next: "Successiva", refreshed: "Ultimo aggiornamento", details: "Vedi dettagli", made: "Realizzato ai nostri banchi a Surat.", fluo: "Fluo", listType: "Tipo", listFluo: "Fluorescenza", crownAngle: "Angolo corona", pavilionAngle: "Angolo padiglione", girdle: "Cintura" },
 } as const;
 
+const detailLabels: Record<Locale, Record<DetailKey, string>> = {
+  global: { stock: "Stock no.", collection: "Collection", shape: "Shape", carat: "Carat", caratBand: "Carat band", colour: "Colour", clarity: "Clarity", cut: "Cut", polish: "Polish", symmetry: "Symmetry", fluorescence: "Fluorescence", measurements: "Measurements", depth: "Depth", table: "Table", ratio: "Ratio", lab: "Laboratory", certificate: "Certificate no.", type: "Type", crownHeight: "Crown height", pavilionDepth: "Pavilion depth", crownAngle: "Crown angle", pavilionAngle: "Pavilion angle", girdle: "Girdle" },
+  fr: { stock: "N° de stock", collection: "Collection", shape: "Forme", carat: "Carat", caratBand: "Plage de carats", colour: "Couleur", clarity: "Pureté", cut: "Taille", polish: "Polissage", symmetry: "Symétrie", fluorescence: "Fluorescence", measurements: "Dimensions", depth: "Profondeur", table: "Table", ratio: "Ratio", lab: "Laboratoire", certificate: "N° de certificat", type: "Type", crownHeight: "Hauteur de couronne", pavilionDepth: "Profondeur du pavillon", crownAngle: "Angle de couronne", pavilionAngle: "Angle de pavillon", girdle: "Rondiste" },
+  it: { stock: "N. stock", collection: "Collezione", shape: "Forma", carat: "Carati", caratBand: "Fascia carati", colour: "Colore", clarity: "Purezza", cut: "Taglio", polish: "Lucidatura", symmetry: "Simmetria", fluorescence: "Fluorescenza", measurements: "Misure", depth: "Profondità", table: "Tavola", ratio: "Rapporto", lab: "Laboratorio", certificate: "N. certificato", type: "Tipo", crownHeight: "Altezza corona", pavilionDepth: "Profondità padiglione", crownAngle: "Angolo corona", pavilionAngle: "Angolo padiglione", girdle: "Cintura" },
+};
+
 const menuLinks: Record<Locale, string> = { global: "/", fr: "/fr", it: "/it" };
 
 function SelectField({ label, values, value, onChange, all }: { label: string; values: string[]; value: string; onChange: (value: string) => void; all: string }) {
   return <label className="catalog-filter"><span>{label}</span><select value={value} onChange={(event) => onChange(event.target.value)}><option value="">{all}</option>{values.map((item) => <option key={item} value={item}>{item}</option>)}</select></label>;
+}
+
+function CatalogStoneCard({ stone, isStatement, tab, locale, view }: { stone: CatalogStone; isStatement: boolean; tab: CollectionTab; locale: Locale; view: "grid" | "list" }) {
+  const text = copy[locale];
+  const labels = detailLabels[locale];
+  const certText = [stone.lab, stone.reportNumber].filter(Boolean).join(" ");
+  const gradeDetails = [stone.cut && `Cut ${stone.cut}`, stone.polish && `Polish ${stone.polish}`, stone.symmetry && `Symmetry ${stone.symmetry}`].filter(Boolean).join(" · ");
+  const measurements = [stone.measurements, stone.depthPct !== null && `Depth ${stone.depthPct}%`, stone.tablePct !== null && `Table ${stone.tablePct}%`, stone.ratio !== null && `Ratio ${stone.ratio}`].filter(Boolean).join(" · ");
+  const label = isStatement ? (stone.category === "Fancy Colour" ? stone.color : stone.shape) : (tab === "Fancy Colour" ? stone.color : stone.shape);
+  const rawDetails: Array<[DetailKey, string | null]> = [
+    ["stock", stone.stockNumber], ["collection", stone.category], ["shape", stone.shape], ["carat", `${stone.carat} ct`], ["caratBand", stone.caratBand], ["colour", stone.color], ["clarity", stone.clarity], ["cut", stone.cut], ["polish", stone.polish], ["symmetry", stone.symmetry], ["fluorescence", stone.fluorescence], ["measurements", stone.measurements], ["depth", stone.depthPct === null ? null : `${stone.depthPct}%`], ["table", stone.tablePct === null ? null : `${stone.tablePct}%`], ["ratio", stone.ratio === null ? null : String(stone.ratio)], ["lab", stone.lab], ["certificate", certText || null], ["type", stone.statementType], ["crownHeight", stone.crownHeight === null ? null : `${stone.crownHeight}%`], ["pavilionDepth", stone.pavilionDepth === null ? null : `${stone.pavilionDepth}%`], ["crownAngle", stone.crownAngle === null ? null : `${stone.crownAngle}°`], ["pavilionAngle", stone.pavilionAngle === null ? null : `${stone.pavilionAngle}°`], ["girdle", stone.girdlePct === null ? null : `${stone.girdlePct}%`],
+  ];
+  const details = rawDetails.filter((entry): entry is [DetailKey, string] => Boolean(entry[1]));
+  const briefDetails = [`${stone.stockNumber} — ${stone.shape}`, `${stone.carat} ct`, stone.color, stone.clarity, certText].filter(Boolean).join(", ");
+  const requestHref = `${menuLinks[locale]}?availability=${encodeURIComponent(briefDetails)}#production-brief`;
+
+  return <article className={`catalog-stone${isStatement ? " catalog-statement-stone" : ""}`}>
+    {isStatement && stone.imageUrl && <img className="catalog-statement-image" src={stone.imageUrl} alt="" loading="lazy" />}
+    <div className="catalog-stone-top"><span>{label}</span><strong>{stone.shape} · {stone.carat.toFixed(stone.carat % 1 === 0 ? 0 : 2)} ct</strong></div>
+    <div className="catalog-stone-grades"><p>{[stone.color, stone.clarity].filter(Boolean).join(" · ")}</p>{gradeDetails && <p>{gradeDetails}</p>}{measurements && <p>{measurements}</p>}{isStatement && (stone.statementType || stone.fluorescence) && <p className="catalog-statement-badges">{stone.statementType && <span>{stone.statementType}</span>}{stone.fluorescence && <span>{text.fluo} {stone.fluorescence}</span>}</p>}{isStatement && view === "list" && <p className="catalog-statement-list-details">{[stone.statementType && `${text.listType} ${stone.statementType}`, stone.fluorescence && `${text.listFluo} ${stone.fluorescence}`, stone.crownAngle !== null && `${text.crownAngle} ${stone.crownAngle}°`, stone.pavilionAngle !== null && `${text.pavilionAngle} ${stone.pavilionAngle}°`, stone.girdlePct !== null && `${text.girdle} ${stone.girdlePct}%`].filter(Boolean).join(" · ")}</p>}</div>
+    {(certText || stone.verifyUrl) && <div className="catalog-cert"><span>{certText}</span>{stone.verifyUrl ? <a href={stone.verifyUrl} target="_blank" rel="noreferrer">{text.certificate} <ExternalLink size={13} /></a> : null}</div>}
+    <div className="catalog-stone-actions"><a href={requestHref}>{text.request} <Send size={14} /></a>{stone.videoUrl && <a className="catalog-video" href={stone.videoUrl} target="_blank" rel="noreferrer"><Play size={13} /> {text.video}</a>}</div>
+    <details className="catalog-stone-details"><summary>{text.details}</summary><dl>{details.map(([key, value]) => <div key={key}><dt>{labels[key]}</dt><dd>{value}</dd></div>)}</dl></details>
+    <small>{stone.stockNumber}</small>
+  </article>;
 }
 
 export default function PublicAvailability({ locale = "global" }: { locale?: Locale }) {
@@ -40,21 +102,10 @@ export default function PublicAvailability({ locale = "global" }: { locale?: Loc
   const statementSummary = trpc.availability.summary.useQuery(statementSummaryInput);
   const activeSummary = trpc.availability.summary.useQuery(activeSummaryInput);
   const downloadCurrentView = trpc.availability.downloadCurrentView.useMutation({ onSuccess: (result) => window.open(result.storageUrl, "_blank", "noopener,noreferrer") });
-  const filters = useMemo(() => ({
-    shapes: activeSummary.data?.byShape.map((entry) => entry.shape).sort() ?? [],
-    caratBands: activeSummary.data?.byCaratBand.map((entry) => entry.caratBand) ?? [],
-    colours: activeSummary.data?.byColour.map((entry) => entry.colour).sort() ?? [],
-    clarities: activeSummary.data?.byClarity.map((entry) => entry.clarity).sort() ?? [],
-    types: activeSummary.data?.byStatementType.map((entry) => entry.statementType).sort() ?? [],
-    labs: activeSummary.data?.byLab.map((entry) => entry.lab).sort() ?? [],
-  }), [activeSummary.data]);
+  const filters = useMemo(() => ({ shapes: activeSummary.data?.byShape.map((entry) => entry.shape).sort() ?? [], caratBands: activeSummary.data?.byCaratBand.map((entry) => entry.caratBand) ?? [], colours: activeSummary.data?.byColour.map((entry) => entry.colour).sort() ?? [], clarities: activeSummary.data?.byClarity.map((entry) => entry.clarity).sort() ?? [], types: activeSummary.data?.byStatementType.map((entry) => entry.statementType).sort() ?? [], labs: activeSummary.data?.byLab.map((entry) => entry.lab).sort() ?? [] }), [activeSummary.data]);
   const totalPages = Math.max(1, Math.ceil((catalog.data?.total ?? 0) / (catalog.data?.pageSize ?? 48)));
   const resetPage = (set: (value: string) => void) => (value: string) => { set(value); setPage(0); };
   const setCollection = (next: CollectionTab) => { setTab(next); setPage(0); setShape(""); setCaratBand(""); setColour(""); setClarity(""); setStatementType(""); setLab(""); };
-  const openBrief = (stone: { stockNumber: string; shape: string; carat: number; color: string; clarity: string; lab: string | null; reportNumber: string | null }) => {
-    const details = [`${stone.stockNumber} — ${stone.shape}`, `${stone.carat} ct`, stone.color, stone.clarity, [stone.lab, stone.reportNumber].filter(Boolean).join(" ")].filter(Boolean).join(", ");
-    return `${menuLinks[locale]}?availability=${encodeURIComponent(details)}#production-brief`;
-  };
 
   return <div className="catalog-shell"><PublicMetadata locale={locale} page="availability" /><header className="catalog-header"><Link href={menuLinks[locale]} className="brand"><span className="brand-name">ALVORA</span></Link><nav><a href={menuLinks[locale]}>{text.made}</a><a href="#catalog-filter">{text.filter}</a><a href="#catalog-collections">{text.fancy} / {text.white} / {text.statement}</a></nav><Link href={menuLinks[locale]} className="catalog-back">← Alvora</Link></header>
     <main>
@@ -62,13 +113,7 @@ export default function PublicAvailability({ locale = "global" }: { locale?: Loc
       <section className="catalog-collection-tabs" aria-label="Collection selection"><button className={tab === "Fancy Colour" ? "is-active" : ""} onClick={() => setCollection("Fancy Colour")}>{text.fancy}<span>{coreSummary.data?.byCategory.find((entry) => entry.category === "Fancy Colour")?.count ?? 0}</span></button><button className={tab === "White" ? "is-active" : ""} onClick={() => setCollection("White")}>{text.white}<span>{coreSummary.data?.byCategory.find((entry) => entry.category === "White")?.count ?? 0}</span></button><button className={isStatement ? "is-active" : ""} onClick={() => setCollection("statement")}>{text.statement}<span>{statementSummary.data?.total ?? 0}</span></button></section>
       {isStatement && <p className="catalog-statement-intro">{text.statementIntro}</p>}
       <section className="catalog-controls" id="catalog-filter"><div className="catalog-filter-title"><SlidersHorizontal size={16} /><span>{text.filter}</span></div><div className="catalog-filter-fields"><SelectField label={text.shape} values={filters.shapes} value={shape} onChange={resetPage(setShape)} all={text.all} /><SelectField label={text.carat} values={filters.caratBands} value={caratBand} onChange={resetPage(setCaratBand)} all={text.all} /><SelectField label={text.colour} values={filters.colours} value={colour} onChange={resetPage(setColour)} all={text.all} /><SelectField label={text.clarity} values={filters.clarities} value={clarity} onChange={resetPage(setClarity)} all={text.all} />{isStatement && <><SelectField label={text.type} values={filters.types} value={statementType} onChange={resetPage(setStatementType)} all={text.all} /><SelectField label={text.lab} values={filters.labs} value={lab} onChange={resetPage(setLab)} all={text.all} /></>}</div><div className="catalog-view-toggle"><button className={view === "grid" ? "is-active" : ""} onClick={() => setView("grid")} aria-label="Grid view"><Grid2X2 size={16} /></button><button className={view === "list" ? "is-active" : ""} onClick={() => setView("list")} aria-label="List view"><List size={16} /></button></div><button className="catalog-download" type="button" disabled={!catalog.data?.profiles.length || downloadCurrentView.isPending} onClick={() => downloadCurrentView.mutate({ collection: isStatement ? "statement" : "core", stoneIds: catalog.data?.profiles.map((stone) => stone.id) ?? [] })}><Download size={14} /> {downloadCurrentView.isPending ? text.preparing : text.download}</button>{downloadCurrentView.error && <p className="catalog-download-error">{downloadCurrentView.error.message}</p>}</section>
-      <section id="catalog-collections" className={view === "grid" ? "catalog-grid" : "catalog-list"} aria-live="polite">{catalog.isLoading ? <p className="catalog-loading"><Loader2 className="animate-spin" /> Loading current production…</p> : catalog.data?.profiles.length ? catalog.data.profiles.map((stone) => {
-        const certText = [stone.lab, stone.reportNumber].filter(Boolean).join(" ");
-        const gradeDetails = [stone.cut && `Cut ${stone.cut}`, stone.polish && `Polish ${stone.polish}`, stone.symmetry && `Symmetry ${stone.symmetry}`].filter(Boolean).join(" · ");
-        const measurements = [stone.measurements, stone.depthPct !== null && `Depth ${stone.depthPct}%`, stone.tablePct !== null && `Table ${stone.tablePct}%`, stone.ratio !== null && `Ratio ${stone.ratio}`].filter(Boolean).join(" · ");
-        const label = isStatement ? (stone.category === "Fancy Colour" ? stone.color : stone.shape) : (tab === "Fancy Colour" ? stone.color : stone.shape);
-        return <article className={`catalog-stone${isStatement ? " catalog-statement-stone" : ""}`} key={stone.id}>{isStatement && stone.imageUrl && <img className="catalog-statement-image" src={stone.imageUrl} alt="" loading="lazy" />}<div className="catalog-stone-top"><span>{label}</span><strong>{stone.shape} · {stone.carat.toFixed(stone.carat % 1 === 0 ? 0 : 2)} ct</strong></div><div className="catalog-stone-grades"><p>{[stone.color, stone.clarity].filter(Boolean).join(" · ")}</p>{gradeDetails && <p>{gradeDetails}</p>}{measurements && <p>{measurements}</p>}{isStatement && (stone.statementType || stone.fluorescence) && <p className="catalog-statement-badges">{stone.statementType && <span>{stone.statementType}</span>}{stone.fluorescence && <span>{text.fluo} {stone.fluorescence}</span>}</p>}{isStatement && view === "list" && <p className="catalog-statement-list-details">{[stone.statementType && `${text.listType} ${stone.statementType}`, stone.fluorescence && `${text.listFluo} ${stone.fluorescence}`, stone.crownAngle !== null && `${text.crownAngle} ${stone.crownAngle}°`, stone.pavilionAngle !== null && `${text.pavilionAngle} ${stone.pavilionAngle}°`, stone.girdlePct !== null && `${text.girdle} ${stone.girdlePct}%`].filter(Boolean).join(" · ")}</p>}</div>{(certText || stone.verifyUrl) && <div className="catalog-cert"><span>{certText}</span>{stone.verifyUrl ? <a href={stone.verifyUrl} target="_blank" rel="noreferrer">{text.certificate} <ExternalLink size={13} /></a> : null}</div>}<div className="catalog-stone-actions"><a href={openBrief(stone)}>{text.request} <Send size={14} /></a>{stone.videoUrl && <a className="catalog-video" href={stone.videoUrl} target="_blank" rel="noreferrer"><Play size={13} /> {text.video}</a>}</div><small>{stone.stockNumber}</small></article>;
-      }) : <p className="catalog-empty">{text.empty}</p>}</section>
+      <section id="catalog-collections" className={view === "grid" ? "catalog-grid" : "catalog-list"} aria-live="polite">{catalog.isLoading ? <p className="catalog-loading"><Loader2 className="animate-spin" /> Loading current production…</p> : catalog.data?.profiles.length ? catalog.data.profiles.map((stone) => <CatalogStoneCard key={stone.id} stone={stone} isStatement={isStatement} tab={tab} locale={locale} view={view} />) : <p className="catalog-empty">{text.empty}</p>}</section>
       {(catalog.data?.total ?? 0) > 0 && <nav className="catalog-pagination" aria-label="Catalog pages"><button disabled={page === 0} onClick={() => setPage((current) => Math.max(0, current - 1))}><ChevronLeft size={16} /> {text.prev}</button><span>{text.page} {page + 1} / {totalPages} · {catalog.data?.total} {text.rows}</span><button disabled={page + 1 >= totalPages} onClick={() => setPage((current) => current + 1)}>{text.next} <ChevronRight size={16} /></button></nav>}
       <section className="catalog-commission"><p className="eyebrow"><span /> {text.commissionKicker}</p><h2>{text.commission}</h2><p>{text.commissionCopy}</p><a href={`${menuLinks[locale]}#production-brief`}>{text.commission} <Send size={15} /></a></section>
     </main>

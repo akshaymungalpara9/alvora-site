@@ -628,6 +628,17 @@ h1 { margin-bottom: 24px; color: var(--paper); font-family: var(--serif); font-s
 .catalog-stone-actions a { display: inline-flex; align-items: center; gap: .35rem; border: 1px solid rgba(201,255,99,.58); color: var(--signal); padding: .55rem .6rem; text-decoration: none; font: .57rem/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; }
 .catalog-stone-actions a:first-child { background: var(--signal); color: var(--ink); }
 .catalog-stone-actions .catalog-video { border-color: var(--rule); background: transparent; color: var(--paper); }
+.catalog-stone-details { margin-top: .1rem; border-top: 1px solid var(--rule); }
+.catalog-stone-details summary { display: flex; align-items: center; justify-content: space-between; gap: .75rem; padding: .78rem 0; color: var(--paper-dim); cursor: pointer; font: .56rem/1.3 var(--mono); letter-spacing: .08em; text-transform: uppercase; }
+.catalog-stone-details summary::after { content: "+"; color: var(--signal); font-size: .9rem; line-height: 1; }
+.catalog-stone-details[open] summary { color: var(--signal); }
+.catalog-stone-details[open] summary::after { content: "−"; }
+.catalog-stone-details dl { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0; margin: 0 0 .9rem; border: 1px solid var(--rule); }
+.catalog-stone-details dl > div { min-width: 0; padding: .54rem .6rem; border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+.catalog-stone-details dl > div:nth-child(2n) { border-right: 0; }
+.catalog-stone-details dl > div:nth-last-child(-n + 2) { border-bottom: 0; }
+.catalog-stone-details dt { margin: 0 0 .28rem; color: #858a80; font: .48rem/1.25 var(--mono); letter-spacing: .08em; text-transform: uppercase; }
+.catalog-stone-details dd { margin: 0; overflow-wrap: anywhere; color: var(--paper); font: .58rem/1.4 var(--mono); letter-spacing: .025em; }
 .catalog-list .catalog-stone { display: grid; min-height: auto; grid-template-columns: minmax(180px,.9fr) minmax(250px,1.4fr) minmax(220px,1fr) minmax(160px,auto); align-items: center; }
 .catalog-list .catalog-statement-stone:has(.catalog-statement-image) { grid-template-columns: 150px minmax(150px,.75fr) minmax(235px,1.2fr) minmax(200px,.85fr) minmax(150px,auto); }
 .catalog-list .catalog-statement-image { max-height: 112px; }
@@ -643,4 +654,4 @@ h1 { margin-bottom: 24px; color: var(--paper); font-family: var(--serif); font-s
 .catalog-commission > p:not(.eyebrow) { max-width: 520px; color: var(--paper-dim); line-height: 1.6; }
 .catalog-commission > a { display: inline-flex; align-items: center; gap: .5rem; margin-top: 1rem; padding: .8rem 1rem; background: var(--signal); color: var(--ink); font: .64rem/1 var(--mono); letter-spacing: .1em; text-decoration: none; text-transform: uppercase; }
 @media (max-width: 900px) { .catalog-header nav { display: none; } .catalog-grid { grid-template-columns: repeat(2,minmax(0,1fr)); } .catalog-controls { flex-wrap: wrap; align-items: stretch; } .catalog-filter-title { width: 100%; padding-bottom: 0; } .catalog-filter-fields { grid-template-columns: repeat(2,minmax(0,1fr)); } .catalog-list .catalog-stone, .catalog-list .catalog-statement-stone:has(.catalog-statement-image) { display: flex; } .catalog-list .catalog-cert { display: flex; margin-top: auto; padding-top: .75rem; border-top: 1px solid var(--rule); } }
-@media (max-width: 560px) { .catalog-header { height: 60px; padding: 0 1rem; } .catalog-back { font-size: .52rem; } .catalog-shell main { padding: 0 1rem 4rem; } .catalog-hero { padding: 4.3rem 0 2.3rem; } .catalog-collection-tabs button { min-width: 0; padding: 1rem .65rem; font-size: .57rem; letter-spacing: .06em; } .catalog-grid { grid-template-columns: 1fr; } .catalog-stone { min-height: 240px; } .catalog-pagination { gap: .5rem; } .catalog-pagination span { text-align: center; line-height: 1.4; } }
+@media (max-width: 560px) { .catalog-header { height: 60px; padding: 0 1rem; } .catalog-back { font-size: .52rem; } .catalog-shell main { padding: 0 1rem 4rem; } .catalog-hero { padding: 4.3rem 0 2.3rem; } .catalog-collection-tabs button { min-width: 0; padding: 1rem .65rem; font-size: .57rem; letter-spacing: .06em; } .catalog-grid { grid-template-columns: 1fr; } .catalog-stone { min-height: 240px; } .catalog-stone-details dl { grid-template-columns: 1fr; } .catalog-stone-details dl > div, .catalog-stone-details dl > div:nth-child(2n) { border-right: 0; } .catalog-stone-details dl > div:nth-last-child(-n + 2) { border-bottom: 1px solid var(--rule); } .catalog-stone-details dl > div:last-child { border-bottom: 0; } .catalog-pagination { gap: .5rem; } .catalog-pagination span { text-align: center; line-height: 1.4; } }

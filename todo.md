@@ -139,3 +139,7 @@
 - [x] Confirm that Resend’s pre-domain-verification delivery restriction would block buyer magic links, then retire that dependency with the login approach.
 - [x] Make the catalog, visual media, downloadable current views, and enquiry actions public without buyer authentication while retaining no-price safeguards.
 - [x] Remove buyer early-access gating from public availability use at the owner’s direction and validate public flows.
+- [x] Audit and expose every permitted active SKU detail, media link, and certificate action on public catalog routes without customer authentication.
+- [x] Validate anonymous detail access across Fancy Colour, White, and STATEMENT records without price or internal metadata exposure.
+- [x] Review the Alvora main-site catalogue handoff and reconcile its priority guidance with the current public no-price catalog model.
+- [x] Reconcile the handoff’s public-contact and catalogue-release priorities with the current Alvora site; configured WhatsApp, supplied STATEMENT media, and protected import curation already cover the applicable items.
