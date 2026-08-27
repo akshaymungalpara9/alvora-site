@@ -796,3 +796,76 @@ body { color: var(--ink); }
 .whatsapp-quick-contact:hover { border-color: var(--signal-hover); background: #34312c; }
 .whatsapp-quick-contact:focus-visible { outline-color: var(--signal-hover); }
 .whatsapp-monogram { border-color: var(--signal-hover); color: var(--signal-hover); }
+
+/* Readability refinement: preserve the editorial faces while making trade information practical to scan. */
+:root {
+  --text-body: 1rem;
+  --text-support: .92rem;
+  --text-control: .82rem;
+  --text-utility: .72rem;
+  --text-detail-label: .69rem;
+  --text-detail-value: .82rem;
+}
+
+.eyebrow, .section-number, .list-index, .spec-number, .production-profile-grid span, .production-profile-grid small, .credentials-title, .credentials-title span, .site-footer p, .site-footer a, .insight-list p, .insight-list span, .insight-author, .insight-outline span, .legal-content h2, .portal-kicker, .portal-header, .catalog-header nav a, .catalog-back { font-size: var(--text-utility); letter-spacing: .11em; }
+.hero-copy, .market-panel-section > div:first-child > p:not(.eyebrow), .heritage-prose > p:not(.heritage-maker-line), .section-heading > p, .production-list p, .production-live-heading > div > p:not(.eyebrow), .spec-lead p, .spec-grid p, .process-content > p:not(.eyebrow), .commercial-panels p, .faq-content details > p, .brief-intro > p:not(.eyebrow), .legal-intro, .legal-content p, .insight-intro > p:not(.eyebrow):not(.insight-draft-note), .insight-dek, .insight-outline p, .refer-page > section > p:not(.eyebrow):not(.refer-confirmation) { font-size: var(--text-support); line-height: 1.78; }
+.hero-maker-line, .heritage-maker-line, .faq-maker-line, .spec-action-row p, .brief-aside, .form-qualification-note, .form-submit-row p, .credentials-list p, .insight-draft-note, .refer-form label { font-size: var(--text-utility); line-height: 1.7; }
+
+/* Public availability: expand functional text before decorative display text. */
+.catalog-header nav a, .catalog-back { font-size: .7rem; }
+.catalog-hero > p:not(.eyebrow):not(.catalog-freshness) { font-size: 1.06rem; line-height: 1.72; }
+.catalog-freshness { font-size: .7rem; line-height: 1.55; }
+.catalog-collection-tabs button { min-height: 58px; padding-block: 1.1rem; font-size: .76rem; line-height: 1.28; letter-spacing: .1em; }
+.catalog-filter-title { font-size: .7rem; letter-spacing: .11em; }
+.catalog-filter { gap: .5rem; font-size: .68rem; line-height: 1.25; letter-spacing: .085em; }
+.catalog-filter select { min-height: 46px; padding: .74rem .85rem; font-size: var(--text-control); line-height: 1.35; }
+.catalog-view-toggle button { min-width: 44px; min-height: 44px; }
+.catalog-download { min-height: 44px; padding-inline: .9rem; font-size: .68rem; letter-spacing: .07em; }
+.catalog-stone { gap: 1.1rem; padding: 1.4rem; }
+.catalog-stone-top span, .catalog-stone small { font-size: .68rem; line-height: 1.4; letter-spacing: .1em; }
+.catalog-stone-top strong { font-size: 1.85rem; line-height: .98; }
+.catalog-stone-grades { min-height: 0; gap: .42rem; }
+.catalog-stone-grades p { font-size: .88rem; line-height: 1.58; }
+.catalog-statement-badges span { padding: .38rem .46rem; font-size: .62rem; line-height: 1.2; }
+.catalog-statement-list-details { font-size: .72rem !important; line-height: 1.55 !important; }
+.catalog-cert { gap: 1rem; padding-top: .9rem; }
+.catalog-cert span { font-size: .72rem; line-height: 1.45; letter-spacing: .065em; }
+.catalog-cert a { min-height: 34px; font-size: .68rem; line-height: 1.35; letter-spacing: .065em; }
+.catalog-stone-actions { gap: .65rem; }
+.catalog-stone-actions a { min-height: 42px; padding: .7rem .78rem; font-size: .68rem; line-height: 1.25; letter-spacing: .065em; }
+.catalog-stone-details summary { min-height: 44px; padding-block: .9rem; font-size: .7rem; line-height: 1.45; letter-spacing: .075em; }
+.catalog-stone-details dl { margin-bottom: 1rem; }
+.catalog-stone-details dl > div { padding: .72rem .76rem; }
+.catalog-stone-details dt { margin-bottom: .38rem; font-size: var(--text-detail-label); line-height: 1.4; letter-spacing: .07em; }
+.catalog-stone-details dd { font-size: var(--text-detail-value); line-height: 1.55; letter-spacing: .015em; }
+.catalog-pagination { font-size: .7rem; line-height: 1.45; letter-spacing: .07em; }
+.catalog-pagination button { min-height: 42px; padding: .7rem .85rem; }
+.catalog-commission > p:not(.eyebrow) { font-size: var(--text-support); line-height: 1.75; }
+.catalog-commission > a { min-height: 46px; font-size: .72rem; line-height: 1.25; letter-spacing: .09em; }
+
+/* Forms and secondary surfaces: readable labels and values, with the same quiet editorial voice. */
+.brief-form label > span, .production-live-heading label, .availability-file-field { font-size: .7rem; line-height: 1.4; letter-spacing: .08em; }
+.brief-form input, .brief-form textarea, .brief-form select { min-height: 43px; font-size: .96rem; line-height: 1.55; }
+.brief-form textarea { min-height: 132px; }
+.production-live-heading select { min-height: 43px; font-size: .76rem; }
+.credentials-list p { font-size: .66rem; line-height: 1.65; }
+.footer-legal { gap: 18px; }
+.whatsapp-quick-contact { min-height: 44px; font-size: .7rem; letter-spacing: .075em; }
+
+@media (max-width: 560px) {
+  .catalog-hero > p:not(.eyebrow):not(.catalog-freshness) { font-size: 1rem; }
+  .catalog-collection-tabs button { min-height: 62px; padding: .9rem .7rem; font-size: .68rem; letter-spacing: .07em; }
+  .catalog-filter { font-size: .66rem; }
+  .catalog-filter select { min-height: 48px; padding-inline: .75rem; font-size: .82rem; }
+  .catalog-download { min-height: 48px; font-size: .66rem; }
+  .catalog-stone { padding: 1.25rem; }
+  .catalog-stone-top strong { font-size: 1.72rem; }
+  .catalog-stone-grades p { font-size: .86rem; }
+  .catalog-cert { align-items: flex-start; flex-direction: column; gap: .35rem; }
+  .catalog-cert a { min-height: 38px; }
+  .catalog-stone-actions a { flex: 1 1 auto; justify-content: center; min-height: 44px; }
+  .catalog-stone-details dt { font-size: .68rem; }
+  .catalog-stone-details dd { font-size: .82rem; }
+  .catalog-pagination { align-items: stretch; }
+  .catalog-pagination button { min-height: 46px; }
+}

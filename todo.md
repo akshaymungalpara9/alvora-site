@@ -154,3 +154,6 @@
 - [x] Audit global visual tokens, public page components, and image references for the requested light ivory editorial reskin without content or asset changes.
 - [x] Apply the warm ivory, charcoal, and antique-gold palette across homepage, public catalogue, forms, footer, responsive states, and EN/FR/IT routes.
 - [x] Validate preserved image assets and unchanged public catalogue, certificate, request, navigation, and protected-admin behavior after the reskin.
+- [x] Audit public typography scale, contrast, and information density with particular attention to Current Production Availability; undersized mono labels, filters, actions, and technical details were the primary usability issue.
+- [x] Improve readable type scale, contrast hierarchy, control labels, technical card details, and responsive catalogue layout without changing content, assets, or behavior.
+- [x] Validate accessibility, mobile and desktop legibility, all public catalogue flows, and the presentation-only change boundary.
