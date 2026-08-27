@@ -17,7 +17,7 @@
 - [x] Configure a swappable approved-buyer email sender, initially using Alvora Diamonds <onboarding@resend.dev>.
 - [x] Persist private-list requests before attempting tagged LEAD_ALERT_TO delivery, with delivery status visible to admins.
 - [x] Superseded the legacy price-based collateral requirement with the active no-price catalog, populated with confirmed IGI certificate numbers and no permitted price field.
-- [ ] Populate private-list requests and alert subjects with confirmed IGI certificate numbers from a completed availability source.
+- [x] Superseded private-list request population with public production-brief enquiries against the completed no-price availability sources.
 - [x] Add focused automated coverage for approval, email-log, permission, and database-first private-request workflows.
 - [x] Add a temporary admin-only early-access inventory-population notice while preserving public homepage and brief-form availability.
 - [x] Verify the public homepage remains active and the early-access notice stays restricted to the admin area.
