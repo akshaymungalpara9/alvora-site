@@ -170,3 +170,8 @@
 - [x] Replace inconsistent homepage availability teaser labels with current data-driven counts for every displayed shape.
 - [x] Investigate the fixed builder badge overlay; it is platform-injected outside the application DOM and cannot be removed or repositioned safely by project code.
 - [x] Validate all remediation on public EN/FR/IT routes, mobile layouts, public catalogue behavior, and no-price privacy.
+- [x] Audit and reinforce production-brief feedback, hash navigation, direct-anchor rendering, and how-we-work targeting; all direct and clicked target paths now have resilient post-render alignment coverage.
+- [x] Verify and correct remaining STATEMENT record eligibility, rich-detail field visibility, filtered tab-count, interactive-media, and loading-state issues; active-tab counts follow filters, verified source media opens in-page, and blank supplied technical fields remain intentionally omitted.
+- [x] Reconcile reported stale draft, compliance-placeholder, locale-footer, and buyer-login findings with the latest published release; corrected the Italian privacy label and retained the owner-approved public no-login model.
+- [x] Improve remaining public micro-label contrast and technical-card scanability with separated measurement chips and the existing readable-detail scale.
+- [x] Validate confirmed fixes across EN/FR/IT, desktop/mobile, direct anchors, public production brief submission, no-price catalogue privacy, and protected administration.

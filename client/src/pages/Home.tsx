@@ -2,7 +2,7 @@
  * Alvora — The Precision House: dark editorial craftsmanship built from graphite fields,
  * calibration rules, restrained signal-lime accents, and direct production language.
  */
-import { FormEvent, useEffect, useState } from "react";
+import { FormEvent, MouseEvent, useEffect, useRef, useState } from "react";
 import {
   ArrowDownRight,
   ArrowUpRight,
@@ -14,6 +14,7 @@ import {
 import { trpc } from "@/lib/trpc";
 import PublicMetadata from "@/components/PublicMetadata";
 import { useLocation } from "wouter";
+import { navigateToPublicAnchor, scrollToPublicAnchor, usePublicHashNavigation } from "@/lib/hashNavigation";
 
 const heroImage = "/manus-storage/alvora-hero-qc_9e0d540e.jpg";
 const facetingImage = "/manus-storage/alvora-cutting-faceting_9e45364b.jpg";
@@ -24,29 +25,28 @@ export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [requestType, setRequestType] = useState("Production run");
   const [briefText, setBriefText] = useState("");
-  const [submitted, setSubmitted] = useState(false);
-  const [alertStatus, setAlertStatus] = useState<"sent" | "failed" | null>(null);
+  const [submissionState, setSubmissionState] = useState<"idle" | "sending" | "sent" | "saved" | "error">("idle");
+  const formRef = useRef<HTMLFormElement>(null);
   const [location] = useLocation();
+  usePublicHashNavigation();
   const availabilitySummary = trpc.availability.summary.useQuery();
   const statementSummary = trpc.availability.summary.useQuery({ collection: "statement" });
   const submitProductionBrief = trpc.productionBrief.submit.useMutation({
+    onMutate: () => setSubmissionState("sending"),
     onSuccess: (result) => {
-      setSubmitted(true);
-      setAlertStatus(result.alertStatus);
+      setSubmissionState(result.alertStatus === "sent" ? "sent" : "saved");
+      formRef.current?.reset();
+      setRequestType("Production run");
+      setBriefText("");
     },
+    onError: () => setSubmissionState("error"),
   });
 
   const openBrief = (type = "Production run") => {
     setRequestType(type);
-    setSubmitted(false);
-    setAlertStatus(null);
+    setSubmissionState("idle");
     setMenuOpen(false);
-    window.setTimeout(() => {
-      document.getElementById("production-brief")?.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    }, 0);
+    window.requestAnimationFrame(() => scrollToPublicAnchor("#production-brief"));
   };
 
   useEffect(() => {
@@ -54,14 +54,20 @@ export default function Home() {
     if (!availability) return;
     setRequestType("Production run");
     setBriefText(`Current production availability enquiry\n${availability}\n\nPlease confirm this make and current availability.`);
-    window.setTimeout(() => document.getElementById("production-brief")?.scrollIntoView({ behavior: "smooth", block: "start" }), 0);
+    window.requestAnimationFrame(() => scrollToPublicAnchor("#production-brief"));
   }, [location]);
+
+  const handlePublicAnchor = (event: MouseEvent<HTMLDivElement>) => {
+    const link = (event.target as Element | null)?.closest<HTMLAnchorElement>('a[href^="#"]');
+    const hash = link?.getAttribute("href");
+    if (!link || !hash || link.classList.contains("skip-link") || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    if (navigateToPublicAnchor(hash)) event.preventDefault();
+  };
 
   const submitBrief = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const values = new FormData(event.currentTarget);
-    setSubmitted(false);
-    setAlertStatus(null);
+    setSubmissionState("idle");
     submitProductionBrief.mutate({
       requestType: String(values.get("request_type")),
       market: "GLOBAL",
@@ -78,7 +84,7 @@ export default function Home() {
   };
 
   return (
-    <div className="site-shell"><PublicMetadata locale="global" /><a className="skip-link" href="#main-content">Skip to main content</a>
+    <div id="top" className="site-shell" onClickCapture={handlePublicAnchor}><PublicMetadata locale="global" /><a className="skip-link" href="#main-content">Skip to main content</a>
       <header className="site-header" aria-label="Primary navigation">
         <a className="brand" href="#top" aria-label="Alvora home">
           <img className="brand-mark" src={markImage} alt="" />
@@ -271,7 +277,7 @@ export default function Home() {
               <article>
                 <span>Payment</span>
                 <h3>Built for working jewellers.</h3>
-                <p>We work with established jewellers and ateliers on flexible, negotiated trade terms. First orders confirm the make; ongoing accounts move to agreed terms after credit and reference checks. We are not a prepaid-only exporter.</p>
+                <p>We work with established jewellers and ateliers on flexible, negotiated trade terms. First orders confirm the make; ongoing accounts move to agreed terms after credit and reference checks. We work beyond a prepaid model.</p>
               </article>
               <article>
                 <span>Assured make</span>
@@ -324,7 +330,7 @@ export default function Home() {
             </div>
           </div>
 
-          <form className="brief-form" onSubmit={submitBrief}>
+          <form ref={formRef} className="brief-form" onSubmit={submitBrief}>
             <div className="honeypot-field" aria-hidden="true"><label>Website<input name="_website" type="text" tabIndex={-1} autoComplete="off" /></label></div>
             <label>
               <span>Request type</span>
@@ -388,8 +394,7 @@ export default function Home() {
               <button className="button button-signal" type="submit" disabled={submitProductionBrief.isPending}>{submitProductionBrief.isPending ? "Recording brief…" : <>Send production brief <ArrowUpRight size={18} /></>}</button>
               <p>We use this information only to understand the make you require.</p>
             </div>
-            {submitProductionBrief.error && <p className="form-confirmation form-confirmation-error" role="alert">Your brief could not be recorded. Please try again, or contact Alvora directly.</p>}
-            {submitted && <p className="form-confirmation" role="status">{alertStatus === "sent" ? "Thank you. Your production brief has been recorded and sent to the Alvora team." : "Thank you. Your production brief has been safely recorded for the Alvora team."}</p>}
+            {submissionState !== "idle" && <p className={`form-confirmation form-confirmation-${submissionState}`} role={submissionState === "error" ? "alert" : "status"} aria-live="polite">{submissionState === "sending" ? "Recording your production brief…" : submissionState === "sent" ? "Thank you. Your production brief has been recorded and sent to the Alvora team." : submissionState === "saved" ? "Thank you. Your production brief has been safely recorded for the Alvora team." : "Your brief could not be recorded. Please try again, or contact Alvora directly."}</p>}
           </form>
         </section>
       </main>

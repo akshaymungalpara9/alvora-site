@@ -92,4 +92,15 @@ describe("public maker-positioning language", () => {
     expect(insights).not.toContain("Open draft");
     expect(insights).toContain("Manufacturing notes are in preparation.");
   });
+
+  it("keeps prohibited commercial literals out of public copy while retaining clear trade-term explanations", () => {
+    const publicSources = [
+      readFileSync("client/src/pages/Home.tsx", "utf8"),
+      readFileSync("client/src/pages/MarketLanding.tsx", "utf8"),
+      readFileSync("client/src/pages/LegalPage.tsx", "utf8"),
+    ].join("\n").toLowerCase();
+
+    expect(publicSources).not.toContain("prepaid-only");
+    expect(publicSources).not.toContain("refund");
+  });
 });
