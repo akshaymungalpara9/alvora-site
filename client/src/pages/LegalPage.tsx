@@ -8,7 +8,7 @@ const legalCopy = {
   privacy: {
     eyebrow: "LEGAL / PUBLIC INFORMATION",
     title: "Privacy, in plain trade language.",
-    description: "Alvora’s privacy policy explains the information collected through production briefs, internal email delivery, privacy-first analytics, and available contact routes.",
+    description: "Alvora’s privacy notice explains the information collected through production briefs, internal email delivery, privacy-first analytics, and available contact routes.",
     label: "Privacy policy",
     sections: [
       ["The information this covers", "This policy applies to Alvora’s public website, including production-brief forms. It does not replace account-specific arrangements that may apply if an approved buyer relationship is later established."],
@@ -16,15 +16,15 @@ const legalCopy = {
       ["Why we use it", "We use this information to understand and respond to a requested make, assess whether an account conversation is appropriate, prepare a quote or production discussion, maintain an internal enquiry record, and protect the security and operation of the service. A saved production brief may receive an immediate acknowledgement and, if no administrator has marked a shortlist as sent, one concise follow-up after at least 24 hours asking for any missing target market, timeline, quantity, or certification detail. Depending on the context, this may involve taking steps you request before a trade relationship and our legitimate interest in operating a secure business-to-business enquiry process."],
       ["Who receives it", "Authorised Alvora staff can access production briefs and private account introductions. We use Resend to deliver internal alerts and customer acknowledgement or qualifier emails; it acts as an email-delivery service provider. We also use hosting, database, storage, and authentication providers to operate the site. We do not sell production-brief information or use it for advertising audiences."],
       ["Analytics and cookies", "The current public site uses Umami for privacy-first, cookie-free analytics. The configured tracker records standard page-view and in-app navigation measurement, and records the custom event name whatsapp_click when a visitor chooses the WhatsApp quick-contact control. We do not attach a visitor name, email, trade details, or phone number to that event. We do not load advertising pixels, session replay, or cross-site tracking on the public site, so there is no consent banner in the current release. If non-essential cookies or similar tracking are added, this page and the consent experience will be updated before that technology loads."],
-      ["Retention and protection", "We keep production-brief information only for as long as needed to respond, manage the trade discussion, protect legal rights, and meet applicable record-keeping obligations. Access is restricted to authorised operational use, and the service uses protected server-side handling for form data and internal alerts. The final retention schedule is an operational policy item still to be confirmed."],
-      ["Your choices and contact", "You may ask to access, correct, erase, restrict, or object to the handling of your personal information where applicable. To make a request, contact Alvora through the trade contact details supplied in your correspondence. The legal controller identity, privacy contact address, and applicable supervisory-authority contact are to be confirmed before commercial launch; this public draft will be updated with those details."],
-      ["Updates", "We will update this page when our data practices, processors, public tracking, or contact details change. The effective date shown below identifies the current draft."],
+      ["Retention and protection", "We keep production-brief information only for as long as needed to respond, manage the trade discussion, protect legal rights, and meet applicable record-keeping obligations. Access is restricted to authorised operational use, and the service uses protected server-side handling for form data and internal alerts. We review retention when the operating process changes."],
+      ["Your choices and contact", "You may ask to access, correct, erase, restrict, or object to the handling of your personal information where applicable. To make a request, reply through an Alvora trade correspondence or use the production-brief form and state that your message is a privacy request. We will route it to the appropriate operational contact."],
+      ["Updates", "We will update this page when our data practices, processors, public tracking, or contact routes change. The effective date shown below identifies the current public notice."],
     ],
   },
   terms: {
     eyebrow: "LEGAL / TRADE ENGAGEMENT",
     title: "Clear terms for a confirmed make.",
-    description: "Alvora’s draft trade terms explain quote validity, account-confirmed payment terms, dispatch, and the repair-or-replace scope for stones made by Alvora.",
+    description: "Alvora’s trade information explains quote validity, account-confirmed payment terms, dispatch, and the repair-or-replace scope for stones made by Alvora.",
     label: "Terms of trade",
     sections: [
       ["Scope", "These short terms describe the usual basis on which Alvora discusses and confirms business-to-business production. They apply alongside a confirmed quote, order confirmation, account arrangement, or other written agreement. A written agreement that states otherwise takes priority."],
@@ -34,7 +34,7 @@ const legalCopy = {
       ["Specification and certificates", "The buyer is responsible for checking that the confirmed specification, certificate reference, delivery location, and quotation detail meet its requirements before order confirmation. Availability, certificate references, and commercial details are confirmed for the relevant order rather than assumed from general website information."],
       ["Assured make: repair or replace", "For a stone made by Alvora, the assurance covers the rare case of a verified specification mismatch, chip, or make issue. Alvora will assess the piece and, where the issue falls within this scope, repair or replace it and arrange its return. This is a correction process for Alvora-made stones; it is not described as a general return window and does not publish a refund commitment."],
       ["Changes and exclusions", "Any timing, logistics, insurance, customs, tax, regulatory-documentation, or account-specific condition that materially affects an order is confirmed in the relevant written quote or order confirmation. Nothing on this public page overrides mandatory law or a written agreement signed by the parties."],
-      ["Governing law and jurisdiction", "Governing law and jurisdiction are intentionally left for confirmation in the final written trade terms. They are not stated or implied by this public draft."],
+      ["Governing law and jurisdiction", "Governing law and jurisdiction, where relevant, are stated in the written agreement, confirmed quote, or order confirmation governing the trade relationship."],
     ],
   },
 } satisfies Record<LegalPageKind, { eyebrow: string; title: string; description: string; label: string; sections: [string, string][] }>;
@@ -52,7 +52,7 @@ export default function LegalPage({ page }: { page: LegalPageKind }) {
     <main id="main-content" className="legal-main" tabIndex={-1}>
       <p className="eyebrow eyebrow-bright"><span />{content.eyebrow}</p>
       <h1>{content.title}</h1>
-      <p className="legal-intro">Effective draft: 26 August 2026. This page is written for clear trade communication and should be reviewed with qualified counsel before commercial reliance.</p>
+      <p className="legal-intro">Effective: 27 August 2026. This page sets out Alvora’s current public privacy and trade information. Confirmed orders remain governed by their written terms.</p>
       <div className="legal-rule" />
       <div className="legal-content">{content.sections.map(([heading, body]) => <section key={heading}><h2>{heading}</h2><p>{body}</p></section>)}</div>
     </main>

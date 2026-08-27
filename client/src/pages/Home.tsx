@@ -221,7 +221,7 @@ export default function Home() {
           <section className="production-live" aria-labelledby="production-live-title">
             <div className="production-live-heading"><div><p className="eyebrow"><span /> LIVE PRODUCTION PROFILES</p><h3 id="production-live-title">Current availability.</h3><p>Fancy Colour and White production, cut and calibrated at our benches. Browse the current menu, verify each IGI report, then make an enquiry from the stone page.</p></div><a className="production-live-link" href="/availability">View current availability <MoveRight size={16} /></a></div>
             {availabilitySummary.data?.import && <p className="production-live-freshness">Last refreshed: {new Date(availabilitySummary.data.import.activatedAt).toLocaleString()}</p>}
-            {availabilitySummary.isLoading ? <p className="production-live-empty">Checking current production availability…</p> : availabilitySummary.data?.total ? <div className="production-profile-grid">{["Fancy Colour", "White"].map((category) => availabilitySummary.data.byCategory.find((collection) => collection.category === category)).filter((collection): collection is NonNullable<typeof collection> => Boolean(collection)).map((collection) => <article key={collection.category}><span>{collection.category}</span><strong>{collection.count}</strong><p>{collection.category === "Fancy Colour" ? "current differentiator profiles" : "current white profiles"}</p></article>)}<article><span>Statement</span><strong>{statementSummary.data?.total ?? 0}</strong><p>signature-cut &amp; rare-colour stones</p></article>{availabilitySummary.data.byShape.slice(0, 4).map((shape) => <article key={shape.shape}><span>{shape.shape}</span><strong>{shape.count}</strong><p>available now</p></article>)}</div> : <p className="production-live-empty">Current availability will appear here after the first reviewed catalog refresh.</p>}
+            {availabilitySummary.isLoading ? <p className="production-live-empty">Checking current production availability…</p> : availabilitySummary.data?.total ? <div className="production-profile-grid">{["Fancy Colour", "White"].map((category) => availabilitySummary.data.byCategory.find((collection) => collection.category === category)).filter((collection): collection is NonNullable<typeof collection> => Boolean(collection)).map((collection) => <article key={collection.category}><span>{collection.category}</span><strong>{collection.count}</strong><p>{collection.category === "Fancy Colour" ? "current differentiator profiles" : "current white profiles"}</p></article>)}<article><span>Statement</span><strong>{statementSummary.data?.total ?? 0}</strong><p>signature-cut &amp; rare-colour stones</p></article>{availabilitySummary.data.byShape.slice(0, 4).map((shape) => <article key={shape.shape}><span>{shape.shape}</span><strong>{shape.count}</strong><p>{shape.count} current {shape.count === 1 ? "profile" : "profiles"}</p></article>)}</div> : <p className="production-live-empty">Current availability will appear here after the first reviewed catalog refresh.</p>}
           </section>
         </section>
 
@@ -395,13 +395,13 @@ export default function Home() {
       </main>
 
       <section className="credentials-strip" aria-label="Credentials and compliance">
-        <p className="credentials-title">Credentials &amp; compliance <span>details to confirm</span></p>
+        <p className="credentials-title">Documentation &amp; verification <span>for each confirmed order</span></p>
         <div className="credentials-list">
-          <p><b>IEC</b><span>India IEC-registered exporter <em>[IEC no. to confirm]</em></span></p>
-          <p><b>GJ</b><span>GJEPC member <em>[membership no. to confirm]</em></span></p>
-          <p><b>IGI</b><span>IGI laboratory authorisation <em>[authorisation to confirm]</em></span></p>
-          <p><b>INS</b><span>Shipments fully insured via <em>[insurer / DHL / FedEx to confirm]</em></span></p>
-          <p><b>FR</b><span>France-market documentation compliant with Décret n°2002-65 <em>[document reference to confirm]</em></span></p>
+          <p><b>CERT</b><span>Certificate links appear only where a matching official IGI or GIA destination is present.</span></p>
+          <p><b>SPEC</b><span>Specification, certificate reference and dispatch details are confirmed in writing for each order.</span></p>
+          <p><b>DOC</b><span>Shipment documentation is prepared against the confirmed destination and delivery arrangement.</span></p>
+          <p><b>INS</b><span>Dispatch route and insurance confirmation are provided with the confirmed shipment.</span></p>
+          <p><b>FR</b><span>French-market public terminology uses the required <em>diamant de synthèse</em> convention.</span></p>
         </div>
       </section>
 
@@ -411,7 +411,7 @@ export default function Home() {
           <span className="brand-name">ALVORA</span>
         </div>
         <p>Lab-grown diamond manufacturing<br />Surat, India</p>
-        <nav className="footer-legal" aria-label="Information"><a href="/insights">Trade insights</a><a href="/privacy">Privacy</a><a href="/terms">Terms of trade</a></nav>
+        <nav className="footer-legal" aria-label="Information"><a href="/privacy">Privacy</a><a href="/terms">Terms of trade</a></nav>
         <a href="#top">Back to top <ArrowUpRight size={15} /></a>
       </footer>
     </div>

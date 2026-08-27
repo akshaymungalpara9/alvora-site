@@ -163,3 +163,10 @@
 - [x] Add protected Availability controls for per-SKU pins and optional hero notes, preserving pin metadata across collection refreshes by stock number.
 - [x] Validate public filters, deterministic ranking, private curation controls, no-price privacy, EN/FR/IT behaviour, and first-screen top-eight results.
 - [x] Keep the floating WhatsApp quick-contact control from obscuring mobile availability filter, view, sort, or download controls at initial viewport height.
+- [x] Audit and resolve publicly visible placeholder compliance details without fabricating unverified credentials.
+- [x] Remove unapproved editorial drafts from public navigation and replace legal draft wording with the current public privacy and trade-information presentation pending written-order terms.
+- [x] Verify and correct the configured WhatsApp international contact link without guessing a business telephone number.
+- [x] Repair the incomplete maker-heritage section composition without fabricating or replacing site imagery.
+- [x] Replace inconsistent homepage availability teaser labels with current data-driven counts for every displayed shape.
+- [x] Investigate the fixed builder badge overlay; it is platform-injected outside the application DOM and cannot be removed or repositioned safely by project code.
+- [x] Validate all remediation on public EN/FR/IT routes, mobile layouts, public catalogue behavior, and no-price privacy.

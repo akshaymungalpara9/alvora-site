@@ -14,7 +14,7 @@ describe("public legal and SEO surfaces", () => {
     expect(market).toContain('href="/terms"');
     expect(legal).toContain("Resend");
     expect(legal).toContain("Umami");
-    expect(legal).toContain("Governing law and jurisdiction are intentionally left for confirmation");
+    expect(legal).toContain("Governing law and jurisdiction, where relevant, are stated in the written agreement");
   });
 
   it("returns a host-aware sitemap and crawler rules limited to public routes", () => {

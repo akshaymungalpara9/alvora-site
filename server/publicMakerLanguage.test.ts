@@ -70,4 +70,26 @@ describe("public maker-positioning language", () => {
     expect(db).toContain("originPartner: _originPartner");
     expect(db).toContain("isStandardMenu: _isStandardMenu");
   });
+
+  it("keeps unverified credentials and unfinished editorial drafts out of public buyer-facing navigation", () => {
+    const home = readFileSync("client/src/pages/Home.tsx", "utf8");
+    const market = readFileSync("client/src/pages/MarketLanding.tsx", "utf8");
+    const legal = readFileSync("client/src/pages/LegalPage.tsx", "utf8");
+    const insights = readFileSync("client/src/pages/Insights.tsx", "utf8");
+
+    for (const publicSource of [home, market]) {
+      expect(publicSource.toLowerCase()).not.toContain("details to confirm");
+      expect(publicSource.toLowerCase()).not.toContain("owner draft");
+      expect(publicSource).not.toContain('href="/insights"');
+    }
+    expect(home).toContain('"profiles"');
+    expect(home).not.toContain('>available now<');
+    expect(market).toContain("availabilityCountLabelByVariant");
+    expect(market).toContain("diamant de synthèse");
+    expect(legal).not.toContain("Effective draft:");
+    expect(legal).not.toContain("public draft");
+    expect(insights).not.toContain("Owner draft");
+    expect(insights).not.toContain("Open draft");
+    expect(insights).toContain("Manufacturing notes are in preparation.");
+  });
 });

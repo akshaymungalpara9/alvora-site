@@ -15,17 +15,17 @@ describe("trade engagement public surfaces", () => {
 
   it("uses the requested anonymous WhatsApp event name without attaching buyer data", () => {
     const component = read("client/src/components/WhatsAppQuickContact.tsx");
+    const helper = read("client/src/lib/whatsapp.ts");
     expect(component).toContain('data-umami-event="whatsapp_click"');
-    expect(component).toContain("Hello Alvora, I'd like to enquire about production availability.");
+    expect(helper).toContain("Hello Alvora, I'd like to enquire about production availability.");
     expect(component).not.toContain("data-umami-event-email");
   });
 
-  it("ships three owner-copy insight drafts with per-route metadata held out of indexing until the copy is approved", () => {
+  it("keeps unreviewed Insights notes out of buyer navigation while retaining a noindex preparation page", () => {
     const insights = read("client/src/pages/Insights.tsx");
-    expect(insights).toContain("how-we-cut-to-specification");
-    expect(insights).toContain("reading-an-igi-report");
-    expect(insights).toContain("denomination-rules-france-italy-belgium");
-    expect(insights).toContain("Alvora Manufacturing Notes");
+    expect(insights).toContain("Manufacturing notes are in preparation.");
+    expect(insights).not.toContain("Owner draft");
+    expect(insights).not.toContain("Open draft");
     expect(insights).toContain('robots: "noindex,follow,max-image-preview:large"');
   });
 
