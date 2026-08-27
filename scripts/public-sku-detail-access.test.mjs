@@ -6,7 +6,7 @@ const pageUrl = process.env.PUBLIC_CATALOG_TEST_URL || "http://localhost:3000/av
 const collections = [
   { button: /^Fancy Colour/, count: "684" },
   { button: /^White/, count: "1155" },
-  { button: /^Statement/, count: "593" },
+  { button: /^Statement/, count: "551" },
 ];
 
 test("every active public collection card exposes a no-login full SKU detail disclosure", async () => {
@@ -30,6 +30,7 @@ test("every active public collection card exposes a no-login full SKU detail dis
       }
       assert.doesNotMatch(visibleDetail, /price|origin partner|standard menu|import id/i);
       assert.doesNotMatch(await page.locator("body").innerText(), /Sign in to view availability/i);
+      if (collection.count === "551") assert.equal(await page.locator('a[href*="workshop.360view.link"]').count(), 0, "STATEMENT suppresses workshop 360° links from the public catalogue");
     }
   } finally {
     await browser.close();

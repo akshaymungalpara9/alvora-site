@@ -16,6 +16,7 @@ import {
 } from "../drizzle/schema";
 import type { AvailabilityImportRecord } from "./availabilityImport";
 import type { StatementAvailabilityImportRecord } from "./statementAvailabilityImport";
+import { hasTrustedCertificateLink, isWorkshopViewerUrl } from "./catalogCertification";
 import { ENV } from "./_core/env";
 
 let _db: ReturnType<typeof drizzle> | null = null;
@@ -137,6 +138,7 @@ export async function getStonesForBuyer(account: NonNullable<Awaited<ReturnType<
     .where(
       and(
         eq(availabilityStones.availability, "Available"),
+        ...trustedCertificateConditions(),
         inArray(availabilityStones.importId, activeImports.map((entry) => entry.id)),
         inArray(availabilityStones.shape, shapes),
         gte(availabilityStones.carat, account.caratMin),
@@ -156,18 +158,37 @@ export async function getBuyerStone(account: NonNullable<Awaited<ReturnType<type
 export type SafeAvailabilityStone = Pick<typeof availabilityStones.$inferSelect, "id" | "stockNumber" | "category" | "shape" | "carat" | "caratBand" | "color" | "clarity" | "cut" | "polish" | "symmetry" | "fluorescence" | "measurements" | "depthPct" | "tablePct" | "ratio" | "crownHeight" | "pavilionDepth" | "crownAngle" | "pavilionAngle" | "girdlePct" | "statementType" | "lab" | "reportNumber" | "verifyUrl" | "videoUrl" | "imageUrl" | "importedAt">;
 
 export function safeAvailabilityStone(stone: typeof availabilityStones.$inferSelect): SafeAvailabilityStone {
-  const { originPartner: _originPartner, standardsFlags: _standardsFlags, importId: _importId, availability: _availability, location: _location, price: _price, bandTag: _bandTag, isStandardMenu: _isStandardMenu, ...safeStone } = stone;
-  return safeStone;
+  const { originPartner: _originPartner, standardsFlags: _standardsFlags, importId: _importId, availability: _availability, location: _location, price: _price, bandTag: _bandTag, isStandardMenu: _isStandardMenu, verifyUrl, videoUrl, ...safeStone } = stone;
+  return {
+    ...safeStone,
+    verifyUrl: hasTrustedCertificateLink({ lab: stone.lab, reportNumber: stone.reportNumber, verifyUrl }) ? verifyUrl : null,
+    videoUrl: isWorkshopViewerUrl(videoUrl) ? null : videoUrl,
+  };
 }
 
 export type PublicAvailabilityProfile = Omit<SafeAvailabilityStone, "videoUrl"> & { videoUrl?: string | null };
 
 export function publicAvailabilityProfile(stone: typeof availabilityStones.$inferSelect, includeVideo = false): PublicAvailabilityProfile {
-  const { videoUrl: _videoUrl, ...profile } = safeAvailabilityStone(stone);
-  return includeVideo ? { ...profile, videoUrl: stone.videoUrl } : profile;
+  const { videoUrl, ...profile } = safeAvailabilityStone(stone);
+  return includeVideo ? { ...profile, videoUrl } : profile;
 }
 
 export type AvailabilityCollection = "core" | "statement";
+
+/** SQL counterpart to `hasTrustedCertificateLink`; keeps unverified source rows out of every public or buyer-facing query. */
+function trustedCertificateConditions() {
+  return [
+    sql`TRIM(COALESCE(${availabilityStones.lab}, '')) <> ''`,
+    sql`TRIM(COALESCE(${availabilityStones.reportNumber}, '')) <> ''`,
+    sql`TRIM(COALESCE(${availabilityStones.verifyUrl}, '')) <> ''`,
+    sql`(
+      (UPPER(TRIM(${availabilityStones.lab})) = 'IGI' AND LOWER(${availabilityStones.verifyUrl}) REGEXP '(^|//)([a-z0-9-]+\\.)*igi\\.org([/:?]|$)')
+      OR
+      (UPPER(TRIM(${availabilityStones.lab})) = 'GIA' AND LOWER(${availabilityStones.verifyUrl}) REGEXP '(^|//)([a-z0-9-]+\\.)*gia\\.edu([/:?]|$)')
+    )`,
+    sql`${availabilityStones.verifyUrl} LIKE CONCAT('%', ${availabilityStones.reportNumber}, '%')`,
+  ];
+}
 
 export async function getActiveAvailabilityImport(collection: AvailabilityCollection = "core") {
   const db = await requireDb();
@@ -184,6 +205,7 @@ export async function listPublicAvailabilityProfiles(input: CatalogFilters = {})
   const where = [
     eq(availabilityStones.importId, activeImport.id),
     eq(availabilityStones.availability, "Available"),
+    ...trustedCertificateConditions(),
   ];
   if (input.category) where.push(eq(availabilityStones.category, input.category));
   if (input.shapes?.length) where.push(inArray(availabilityStones.shape, input.shapes));
@@ -211,6 +233,7 @@ export async function getPublicAvailabilityRowsByIds(input: { collection: Availa
     .where(and(
       eq(availabilityStones.importId, activeImport.id),
       eq(availabilityStones.availability, "Available"),
+      ...trustedCertificateConditions(),
       inArray(availabilityStones.id, input.stoneIds),
     ));
   const byId = new Map(rows.map((row) => [row.id, row]));
@@ -221,7 +244,7 @@ export async function getPublicAvailabilitySummary(input: { collection?: Availab
   const activeImport = await getActiveAvailabilityImport(input.collection ?? "core");
   if (!activeImport) return { import: null, total: 0, byCategory: [] as { category: string; count: number }[], byShape: [] as { shape: string; count: number }[], byColour: [] as { colour: string; count: number }[], byCaratBand: [] as { caratBand: string; count: number }[], byClarity: [] as { clarity: string; count: number }[], byStatementType: [] as { statementType: string; count: number }[], byLab: [] as { lab: string; count: number }[] };
   const db = await requireDb();
-  const where = [eq(availabilityStones.importId, activeImport.id), eq(availabilityStones.availability, "Available")];
+  const where = [eq(availabilityStones.importId, activeImport.id), eq(availabilityStones.availability, "Available"), ...trustedCertificateConditions()];
   if (input.category) where.push(eq(availabilityStones.category, input.category));
   const rows = await db.select({ category: availabilityStones.category, shape: availabilityStones.shape, colour: availabilityStones.color, caratBand: availabilityStones.caratBand, clarity: availabilityStones.clarity, statementType: availabilityStones.statementType, lab: availabilityStones.lab }).from(availabilityStones).where(and(...where));
   const summarize = <K extends string>(values: (K | null)[]) => Array.from(new Set(values.filter((value): value is K => Boolean(value)))).map((value) => ({ [typeof value === "string" ? "value" : "value"]: value, count: values.filter((entry) => entry === value).length }));

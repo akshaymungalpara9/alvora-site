@@ -24,8 +24,8 @@ stock_no,category,colour,shape,carat,carat_band,clarity,cut,polish,symmetry,meas
 | `ratio` | No | Positive numeric ratio | Shown only when populated. |
 | `lab` | Yes | Laboratory name, such as `IGI` | Shown as certification context. |
 | `cert_no` | Yes | Real certificate/report number | A blank value rejects the row. |
-| `verify_url` | Yes | Valid `https://` or `http://` report-verification URL | A malformed URL rejects the row. For IGI report pages, the active catalog stores `https://api.igi.org/viewpdf.php?r=<cert_no>`. |
-| `video_url` | No | Valid `https://` or `http://` video URL when present | Blank is accepted. A populated malformed URL rejects the row. A valid URL is publicly visible; no empty video placeholder is shown. |
+| `verify_url` | Yes | Valid `https://` or `http://` report-verification URL | It must resolve to an official `igi.org` or `gia.edu` host appropriate for the named lab and contain the supplied `cert_no`. A malformed, generic, mismatched, or non-official URL rejects the row. For IGI report pages, the active catalog stores `https://api.igi.org/viewpdf.php?r=<cert_no>`. |
+| `video_url` | No | Valid `https://` or `http://` video URL when present | Blank is accepted. A populated malformed URL rejects the row. Source-held `workshop.360view.link` URLs are retained in protected import history but are not published as public 360° actions. |
 
 ## Non-negotiable no-price rule
 
@@ -33,7 +33,7 @@ This contract has **no price column**. Price data must not be included, displaye
 
 ## Import outcomes
 
-The protected importer validates every row before replacing the current snapshot. If any row is rejected, activation does not run and the administrator receives a report containing its **line number, stock number, and reason**. Rejected conditions include a non-exact header, blank or duplicate `stock_no`, invalid category, non-positive or non-numeric carat, missing `cert_no`, malformed `verify_url`, malformed populated `video_url`, and malformed populated numeric specification fields.
+The protected importer validates every row before replacing the current snapshot. If any row is rejected, activation does not run and the administrator receives a report containing its **line number, stock number, and reason**. Rejected conditions include a non-exact header, blank or duplicate `stock_no`, invalid category, non-positive or non-numeric carat, missing laboratory or `cert_no`, malformed/generic/mismatched/non-official `verify_url`, malformed populated `video_url`, and malformed populated numeric specification fields.
 
 All structurally valid `White` and `Fancy Colour` rows are catalog rows. There is no legacy standard-menu or partner-origin review path in this contract.
 
@@ -45,14 +45,14 @@ All structurally valid `White` and `Fancy Colour` rows are catalog rows. There i
 stock_no,category,type,colour,shape,carat,carat_band,clarity,cut,polish,symmetry,fluorescence,measurements,ratio,depth_pct,table_pct,crown_height,pavilion_depth,crown_angle,pavilion_angle,girdle_pct,lab,cert_no,cert_pdf_url,video_url,image_url
 ```
 
-`stock_no`, `category` (`White` or `Fancy Colour`), `type`, `colour`, `shape`, positive `carat`, `carat_band`, and `clarity` are required. The supplied `cert_pdf_url`, `video_url`, and `image_url` must be valid `http` or `https` URLs when populated. Blank `cert_no`, `lab`, `cert_pdf_url`, or `video_url` values are retained as blank data: the catalog does not fabricate a certificate link or a media placeholder. Literal `null` in optional source fields is treated as blank.
+`stock_no`, `category` (`White` or `Fancy Colour`), `type`, `colour`, `shape`, positive `carat`, `carat_band`, `clarity`, `lab`, `cert_no`, and `cert_pdf_url` are required. The certificate URL must resolve to the named laboratory’s official `igi.org` or `gia.edu` host and contain the listed certificate number. The supplied `video_url` and `image_url` must be valid `http` or `https` URLs when populated. Literal `null` is accepted only for optional technical and media fields, where it is treated as blank.
 
-The STATEMENT card uses `cert_pdf_url` exactly as supplied, so IGI and GIA certificate destinations remain source-accurate. It may show its supplied 360° viewer and still image publicly. A successful STATEMENT refresh archives and replaces **only** the prior STATEMENT snapshot; it does not alter the active core Fancy Colour or White snapshot.
+The STATEMENT card uses its verified `cert_pdf_url` exactly as supplied, so IGI and GIA certificate destinations remain source-accurate. It may show a supplied still image and a verified non-workshop 360° viewer publicly; no placeholder is fabricated. A successful STATEMENT refresh archives and replaces **only** the prior STATEMENT snapshot; it does not alter the active core Fancy Colour or White snapshot.
 
 ## Replace, recovery, visibility, and freshness
 
 Each successful upload creates a new catalog snapshot and makes it active in one database transaction. The prior active snapshot **for the same collection** is archived rather than deleted, allowing an administrator to restore it if a replacement is wrong. Historic buyer requests and line sheets retain their original references.
 
-`/availability` is public and paginated. It exposes every supplied non-price catalog specification, populated media link, and supplied report verification link, with filters for Shape, Carat band, Colour, and Clarity. Specific-stone enquiries prefill the public production brief; they do not reveal a price. Catalog imports never alter protected administrator access.
+`/availability` is public and paginated. It exposes every supplied non-price catalog specification for records with an official matching certificate action, plus populated still images and verified non-workshop media links. Specific-stone enquiries prefill the public production brief; they do not reveal a price. Catalog imports never alter protected administrator access.
 
 > Validating or importing a CSV does not create customer identities, change public catalog visibility, or alter protected administrator access.

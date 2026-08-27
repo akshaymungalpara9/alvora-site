@@ -35,6 +35,14 @@ describe("current production catalog import validation", () => {
     expect(result.records[0]?.verifyUrl).toBe("https://api.igi.org/viewpdf.php?r=819696674");
   });
 
+  it("requires a laboratory and a matching official IGI or GIA certificate URL", () => {
+    const missingLab = validRow.replace(",IGI,819696674,", ",,819696674,");
+    const untrustedUrl = validRow.replace("https://www.igi.org/API-IGI/report-diagnosis.php?r=819696674", "https://example.org/report/819696674");
+
+    expect(validateAvailabilityImportCsv(`${header}\n${missingLab}\n`).rejections[0]?.reason).toContain("missing lab");
+    expect(validateAvailabilityImportCsv(`${header}\n${untrustedUrl}\n`).rejections[0]?.reason).toContain("listed IGI or GIA certificate number");
+  });
+
   it("rejects legacy, price-bearing, and reordered headers rather than guessing a mapping", () => {
     const result = validateAvailabilityImportCsv("sku,shape,price_usd\nALV-001,Round,1250\n");
     expect(result.valid).toBe(false);

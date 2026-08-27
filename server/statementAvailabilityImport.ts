@@ -1,4 +1,6 @@
 /** Owner-supplied STATEMENT collection contract. Every row is catalog availability; price is prohibited. */
+import { hasTrustedCertificateLink } from "./catalogCertification";
+
 export const statementAvailabilityImportHeaders = [
   "stock_no", "category", "type", "colour", "shape", "carat", "carat_band", "clarity", "cut", "polish", "symmetry", "fluorescence", "measurements", "ratio", "depth_pct", "table_pct", "crown_height", "pavilion_depth", "crown_angle", "pavilion_angle", "girdle_pct", "lab", "cert_no", "cert_pdf_url", "video_url", "image_url",
 ] as const;
@@ -110,7 +112,11 @@ export function validateStatementAvailabilityImportCsv(source: string) {
     if (!Number.isFinite(carat) || carat <= 0) reasons.push("carat must be a positive number");
     if (!valueAt(row, "carat_band", headers)) reasons.push("missing carat_band");
     if (!valueAt(row, "clarity", headers)) reasons.push("missing clarity");
+    if (!valueAt(row, "lab", headers)) reasons.push("missing lab");
+    if (!valueAt(row, "cert_no", headers)) reasons.push("missing cert_no");
+    if (!certPdfUrl) reasons.push("missing cert_pdf_url");
     if (certPdfUrl && !isHttpUrl(certPdfUrl)) reasons.push("cert_pdf_url must be an http or https URL when provided");
+    if (certPdfUrl && isHttpUrl(certPdfUrl) && !hasTrustedCertificateLink({ lab: valueAt(row, "lab", headers), reportNumber: valueAt(row, "cert_no", headers), verifyUrl: certPdfUrl })) reasons.push("cert_pdf_url must resolve to the listed IGI or GIA certificate number");
     if (videoUrl && !isHttpUrl(videoUrl)) reasons.push("video_url must be an http or https URL when provided");
     if (imageUrl && !isHttpUrl(imageUrl)) reasons.push("image_url must be an http or https URL when provided");
     const ratio = optionalNumber(valueAt(row, "ratio", headers), "ratio", reasons);

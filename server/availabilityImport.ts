@@ -1,4 +1,6 @@
 /** The owner-approved no-price current-production catalog contract. */
+import { hasTrustedCertificateLink } from "./catalogCertification";
+
 export const availabilityImportHeaders = [
   "stock_no", "category", "colour", "shape", "carat", "carat_band", "clarity", "cut", "polish", "symmetry", "measurements", "depth_pct", "table_pct", "ratio", "lab", "cert_no", "verify_url", "video_url",
 ] as const;
@@ -71,7 +73,8 @@ function httpUrl(value: string) {
 
 function normalizedVerifyUrl(value: string, lab: string, certNo: string) {
   const parsed = new URL(value);
-  const isIgi = lab.trim().toUpperCase() === "IGI" || parsed.hostname.toLowerCase().endsWith("igi.org");
+  const hostname = parsed.hostname.toLowerCase();
+  const isIgi = hostname === "igi.org" || hostname.endsWith(".igi.org");
   if (!isIgi) return value;
   return `https://api.igi.org/viewpdf.php?r=${encodeURIComponent(certNo)}`;
 }
@@ -107,8 +110,11 @@ export function validateAvailabilityImportCsv(source: string) {
     if (!Number.isFinite(carat) || carat <= 0) reasons.push("carat must be a positive number");
     if (!valueAt(row, "carat_band", headers)) reasons.push("missing carat_band");
     if (!valueAt(row, "clarity", headers)) reasons.push("missing clarity");
+    const normalizedUrl = httpUrl(verifyUrl) ? normalizedVerifyUrl(verifyUrl, valueAt(row, "lab", headers), valueAt(row, "cert_no", headers)) : verifyUrl;
+    if (!valueAt(row, "lab", headers)) reasons.push("missing lab");
     if (!valueAt(row, "cert_no", headers)) reasons.push("missing cert_no");
     if (!httpUrl(verifyUrl)) reasons.push("verify_url must be an http or https URL");
+    if (httpUrl(verifyUrl) && !hasTrustedCertificateLink({ lab: valueAt(row, "lab", headers), reportNumber: valueAt(row, "cert_no", headers), verifyUrl: normalizedUrl })) reasons.push("verify_url must resolve to the listed IGI or GIA certificate number");
     if (videoUrl && !httpUrl(videoUrl)) reasons.push("video_url must be an http or https URL when provided");
     const depthPct = parsedOptionalNumber(valueAt(row, "depth_pct", headers), "depth_pct", reasons);
     const tablePct = parsedOptionalNumber(valueAt(row, "table_pct", headers), "table_pct", reasons);
@@ -132,7 +138,7 @@ export function validateAvailabilityImportCsv(source: string) {
       ratio,
       lab: valueAt(row, "lab", headers) || null,
       certNo: valueAt(row, "cert_no", headers),
-      verifyUrl: normalizedVerifyUrl(verifyUrl, valueAt(row, "lab", headers), valueAt(row, "cert_no", headers)),
+      verifyUrl: normalizedUrl,
       videoUrl: videoUrl || null,
     });
   });

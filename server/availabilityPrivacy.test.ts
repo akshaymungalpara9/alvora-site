@@ -41,6 +41,13 @@ describe("current production catalog privacy and activation", () => {
     expect(profile).not.toHaveProperty("isStandardMenu");
   });
 
+  it("withholds untrusted certificate actions and workshop 360° links from the safe public profile", () => {
+    const unverifiedSource = { ...rawStone, verifyUrl: "https://www.igi.org/", videoUrl: "https://workshop.360view.link/360viewer/360view.html?d=ALV-001" };
+    const safe = publicAvailabilityProfile(unverifiedSource, true);
+    expect(safe.verifyUrl).toBeNull();
+    expect(safe.videoUrl).toBeNull();
+  });
+
   it("returns a stock-number rejection report and never calls replacement for invalid catalog rows", async () => {
     const caller = adminAvailabilityRouter.createCaller(context as any);
     const invalid = `${header}\nALV-BAD,White,F,Round,1.25,1.00–1.99ct,VS2,IDEAL,EX,EX,6.90 x 6.92 x 4.25,61.5,58,1,IGI,,not-a-url,\n`;

@@ -13,10 +13,13 @@ describe("STATEMENT catalog import validation", () => {
     expect(JSON.stringify(result.records)).not.toContain("price");
   });
 
-  it("keeps supplied available rows with blank certificate fields and omits only unavailable link data", () => {
+  it("rejects rows without a laboratory, certificate number, and trusted certificate link", () => {
     const result = validateStatementAvailabilityImportCsv(`${header}\n${noCertificateRow}\n`);
-    expect(result.valid).toBe(true);
-    expect(result.records[0]).toMatchObject({ stockNo: "ST-002", lab: null, certNo: null, certPdfUrl: null, videoUrl: null, imageUrl: "https://images.example/ST-002.jpg" });
+    expect(result.valid).toBe(false);
+    expect(result.rejections[0]).toMatchObject({ sku: "ST-002" });
+    expect(result.rejections[0]?.reason).toContain("missing lab");
+    expect(result.rejections[0]?.reason).toContain("missing cert_no");
+    expect(result.rejections[0]?.reason).toContain("missing cert_pdf_url");
   });
 
   it("treats a literal null marker in an optional technical field as absent rather than inventing a value", () => {
@@ -32,6 +35,14 @@ describe("STATEMENT catalog import validation", () => {
     expect(result.rejections[0]).toMatchObject({ sku: "ST-001", reason: expect.stringContaining("duplicate stock_no") });
     expect(result.rejections[0]?.reason).toContain("crown_angle must be numeric when provided");
     expect(result.rejections[0]?.reason).toContain("image_url must be an http or https URL when provided");
+  });
+
+  it("rejects generic laboratory pages and certificate URLs that do not identify the listed report", () => {
+    const genericLabPage = richRow.replace("https://api.igi.org/viewpdf.php?r=821663473", "https://www.igi.org/");
+    const mismatchedReport = richRow.replace("https://api.igi.org/viewpdf.php?r=821663473", "https://api.igi.org/viewpdf.php?r=000000000");
+
+    expect(validateStatementAvailabilityImportCsv(`${header}\n${genericLabPage}\n`).rejections[0]?.reason).toContain("listed IGI or GIA certificate number");
+    expect(validateStatementAvailabilityImportCsv(`${header}\n${mismatchedReport}\n`).rejections[0]?.reason).toContain("listed IGI or GIA certificate number");
   });
 
   it("requires the exact STATEMENT header rather than guessing a core catalog mapping", () => {

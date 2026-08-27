@@ -146,3 +146,7 @@
 - [x] Audit the claimed removal of the global unauthenticated-error redirect and verify that public catalog browsing stays open while protected administration remains gated; the claimed source change is not present, while current public routes remain open and admin routes remain gated.
 - [x] Remove the global unauthenticated-error auto-login redirect while retaining protected administrator procedures and route-level sign-in prompts.
 - [x] Add and validate focused regression coverage for anonymous current-production catalogue reads and the absence of global auto-login behavior.
+- [x] Reconcile the uploaded QA remediation handoff with the active public no-price, multilingual Alvora architecture and apply compatible client-trust safeguards.
+- [x] Validate adopted QA remediation against public catalogue access, no-price privacy, localisation, and protected administrator boundaries.
+- [x] Improve public catalogue client conversion by keeping only records with matching official IGI/GIA certificate actions and making supplied-360 actions provenance-aware.
+- [x] Refine the mobile public-catalogue filter controls so labels and native selects remain legible and comfortably tappable at a 375px viewport.
