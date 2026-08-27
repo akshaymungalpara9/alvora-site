@@ -157,3 +157,9 @@
 - [x] Audit public typography scale, contrast, and information density with particular attention to Current Production Availability; undersized mono labels, filters, actions, and technical details were the primary usability issue.
 - [x] Improve readable type scale, contrast hierarchy, control labels, technical card details, and responsive catalogue layout without changing content, assets, or behavior.
 - [x] Validate accessibility, mobile and desktop legibility, all public catalogue flows, and the presentation-only change boundary.
+- [x] Audit existing catalogue schema, imports, public profile data, analytics hooks, and protected availability controls for curated ordering compatibility.
+- [x] Persist protected pin rank, optional hero note, and first-seen metadata per SKU without changing the partner CSV contract.
+- [x] Add deterministic no-price Curated, carat, and new-arrivals ordering with collection-specific score profiles and public first-screen analytics.
+- [x] Add protected Availability controls for per-SKU pins and optional hero notes, preserving pin metadata across collection refreshes by stock number.
+- [x] Validate public filters, deterministic ranking, private curation controls, no-price privacy, EN/FR/IT behaviour, and first-screen top-eight results.
+- [x] Keep the floating WhatsApp quick-contact control from obscuring mobile availability filter, view, sort, or download controls at initial viewport height.

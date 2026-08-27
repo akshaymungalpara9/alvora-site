@@ -121,6 +121,27 @@ export const availabilityStones = mysqlTable(
   ],
 );
 
+/** Import-independent catalogue curation. It survives versioned CSV replacements by collection and stock number. */
+export const availabilityCuration = mysqlTable(
+  "availability_curation",
+  {
+    id: int("id").autoincrement().primaryKey(),
+    collection: varchar("collection", { length: 30 }).notNull(),
+    catalogTab: varchar("catalogTab", { length: 30 }).default("").notNull(),
+    stockNumber: varchar("stockNumber", { length: 100 }).notNull(),
+    pinned: boolean("pinned").default(false).notNull(),
+    pinRank: int("pinRank"),
+    heroNote: varchar("heroNote", { length: 120 }),
+    firstSeenAt: timestamp("firstSeenAt").defaultNow().notNull(),
+    updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+  },
+  (table) => [
+    uniqueIndex("availability_curation_collection_tab_stock_unique").on(table.collection, table.catalogTab, table.stockNumber),
+    index("availability_curation_pinned_idx").on(table.collection, table.catalogTab, table.pinned, table.pinRank),
+    index("availability_curation_first_seen_idx").on(table.collection, table.firstSeenAt),
+  ],
+);
+
 /** A stored, buyer-filtered PDF line sheet. File bytes live in S3, not this table. */
 export const lineSheets = mysqlTable(
   "line_sheets",
@@ -271,4 +292,5 @@ export type InsertUser = typeof users.$inferInsert;
 export type BuyerAccount = typeof buyerAccounts.$inferSelect;
 export type AvailabilityStone = typeof availabilityStones.$inferSelect;
 export type AvailabilityImport = typeof availabilityImports.$inferSelect;
+export type AvailabilityCuration = typeof availabilityCuration.$inferSelect;
 export type ProductionBrief = typeof productionBriefs.$inferSelect;

@@ -6,9 +6,11 @@ import {
   getAvailabilityAdminSummary,
   getPublicAvailabilityRowsByIds,
   getPublicAvailabilitySummary,
+  listAvailabilityCuration,
   listAvailabilityImports,
   listPublicAvailabilityProfiles,
   restoreAvailabilityImport,
+  updateAvailabilityCuration,
 } from "../db";
 import { validateAvailabilityImportCsv } from "../availabilityImport";
 import { validateStatementAvailabilityImportCsv } from "../statementAvailabilityImport";
@@ -31,6 +33,7 @@ const profileFilters = z.object({
   clarities: z.array(z.string().min(1).max(30)).max(12).optional(),
   statementTypes: z.array(z.string().min(1).max(40)).max(12).optional(),
   labs: z.array(z.string().min(1).max(30)).max(8).optional(),
+  sort: z.enum(["curated", "carat_desc", "carat_asc", "new_arrivals"]).optional(),
   page: z.number().int().min(0).max(1_000).optional(),
   pageSize: z.number().int().min(12).max(96).optional(),
 });
@@ -38,6 +41,15 @@ const profileFilters = z.object({
 const publicCurrentViewInput = z.object({
   collection: z.enum(["core", "statement"]),
   stoneIds: z.array(z.number().int().positive()).min(1).max(48),
+});
+
+const curationInput = z.object({
+  collection: z.enum(["core", "statement"]),
+  catalogTab: z.enum(["Fancy Colour", "White", "statement"]),
+  stockNumber: z.string().trim().min(1).max(100),
+  pinned: z.boolean(),
+  pinRank: z.number().int().min(1).max(999).optional(),
+  heroNote: z.string().trim().max(120).optional(),
 });
 
 export const publicAvailabilityRouter = router({
@@ -89,6 +101,14 @@ export const adminAvailabilityRouter = router({
     };
   }),
   summary: adminProcedure.input(z.object({ collection: z.enum(["core", "statement"]).default("core") }).optional()).query(({ input }) => getAvailabilityAdminSummary(input?.collection ?? "core")),
+  curation: adminProcedure.input(z.object({ collection: z.enum(["core", "statement"]).default("core") })).query(({ input }) => listAvailabilityCuration(input.collection)),
+  updateCuration: adminProcedure.input(curationInput).mutation(async ({ input }) => {
+    try {
+      return await updateAvailabilityCuration(input);
+    } catch (error) {
+      throw new TRPCError({ code: "BAD_REQUEST", message: error instanceof Error ? error.message : "Curation settings could not be saved." });
+    }
+  }),
   versions: adminProcedure.query(() => listAvailabilityImports()),
   restoreVersion: adminProcedure.input(z.object({ importId: z.number().int().positive() })).mutation(async ({ input }) => {
     const restored = await restoreAvailabilityImport(input.importId);

@@ -4,9 +4,11 @@ const mocks = vi.hoisted(() => ({
   createAvailabilityImport: vi.fn(),
   getAvailabilityAdminSummary: vi.fn(),
   getPublicAvailabilitySummary: vi.fn(),
+  listAvailabilityCuration: vi.fn(),
   listAvailabilityImports: vi.fn(),
   listPublicAvailabilityProfiles: vi.fn(),
   restoreAvailabilityImport: vi.fn(),
+  updateAvailabilityCuration: vi.fn(),
 }));
 
 vi.mock("./db", async (importOriginal) => ({ ...(await importOriginal<typeof import("./db")>()), ...mocks }));
@@ -33,12 +35,14 @@ describe("current production catalog privacy and activation", () => {
   });
 
   it("keeps public certification, supplied video, and full non-price catalog fields without partner metadata", () => {
-    const profile = publicAvailabilityProfile(rawStone, true);
-    expect(profile).toMatchObject({ stockNumber: "ALV-001", reportNumber: "819696674", category: "White" });
+    const profile = publicAvailabilityProfile(rawStone, true, { pinned: true, heroNote: "House selection" });
+    expect(profile).toMatchObject({ stockNumber: "ALV-001", reportNumber: "819696674", category: "White", isPinned: true, heroNote: "House selection" });
     expect(profile).not.toHaveProperty("price");
     expect(profile).toHaveProperty("videoUrl", "https://video.example/ALV-001");
     expect(profile).not.toHaveProperty("originPartner");
     expect(profile).not.toHaveProperty("isStandardMenu");
+    expect(profile).not.toHaveProperty("pinRank");
+    expect(profile).not.toHaveProperty("firstSeenAt");
   });
 
   it("withholds untrusted certificate actions and workshop 360° links from the safe public profile", () => {
@@ -75,5 +79,23 @@ describe("current production catalog privacy and activation", () => {
     expect(result.profiles[0]).not.toHaveProperty("price");
     expect(result.profiles[0]).not.toHaveProperty("isStandardMenu");
     expect(result.profiles[0]).toHaveProperty("videoUrl", "https://video.example/ALV-001");
+  });
+
+  it("accepts only the public no-price catalogue sort options", async () => {
+    mocks.listPublicAvailabilityProfiles.mockResolvedValue({ import: { id: 5, activatedAt: new Date() }, profiles: [publicAvailabilityProfile(rawStone, true)], total: 1, page: 0, pageSize: 48 });
+    const caller = publicAvailabilityRouter.createCaller({ req: {}, res: {}, user: null } as any);
+    await expect(caller.profiles({ sort: "curated" })).resolves.toMatchObject({ total: 1 });
+    await expect(caller.profiles({ sort: "price_desc" as any })).rejects.toThrow();
+  });
+
+  it("keeps stock pinning and hero notes behind the administrator router and scopes the update to a public tab", async () => {
+    mocks.listAvailabilityCuration.mockResolvedValue([{ catalogTab: "White", stockNumber: "ALV-001", pinned: false }]);
+    mocks.updateAvailabilityCuration.mockResolvedValue({ catalogTab: "White", stockNumber: "ALV-001", pinned: true, pinRank: 1, heroNote: "House selection" });
+    const admin = adminAvailabilityRouter.createCaller(context as any);
+    await expect(admin.curation({ collection: "core" })).resolves.toEqual([{ catalogTab: "White", stockNumber: "ALV-001", pinned: false }]);
+    await expect(admin.updateCuration({ collection: "core", catalogTab: "White", stockNumber: "ALV-001", pinned: true, pinRank: 1, heroNote: "House selection" })).resolves.toMatchObject({ pinned: true, catalogTab: "White" });
+    expect(mocks.updateAvailabilityCuration).toHaveBeenCalledWith(expect.objectContaining({ collection: "core", catalogTab: "White", stockNumber: "ALV-001" }));
+    const anonymous = adminAvailabilityRouter.createCaller({ req: {}, res: {}, user: null } as any);
+    await expect(anonymous.curation({ collection: "core" })).rejects.toThrow();
   });
 });

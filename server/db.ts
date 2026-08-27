@@ -1,6 +1,7 @@
-import { and, asc, desc, eq, gte, inArray, lte, sql } from "drizzle-orm";
+import { and, asc, desc, eq, gte, inArray, lte, notInArray, sql } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/mysql2";
 import {
+  availabilityCuration,
   availabilityImports,
   availabilityStones,
   buyerAccounts,
@@ -17,6 +18,7 @@ import {
 import type { AvailabilityImportRecord } from "./availabilityImport";
 import type { StatementAvailabilityImportRecord } from "./statementAvailabilityImport";
 import { hasTrustedCertificateLink, isWorkshopViewerUrl } from "./catalogCertification";
+import { type CatalogSort, orderCatalogRows } from "./catalogCuration";
 import { ENV } from "./_core/env";
 
 let _db: ReturnType<typeof drizzle> | null = null;
@@ -166,11 +168,15 @@ export function safeAvailabilityStone(stone: typeof availabilityStones.$inferSel
   };
 }
 
-export type PublicAvailabilityProfile = Omit<SafeAvailabilityStone, "videoUrl"> & { videoUrl?: string | null };
+export type PublicAvailabilityProfile = Omit<SafeAvailabilityStone, "videoUrl"> & { videoUrl?: string | null; isPinned: boolean; heroNote: string | null };
 
-export function publicAvailabilityProfile(stone: typeof availabilityStones.$inferSelect, includeVideo = false): PublicAvailabilityProfile {
+export function catalogTabForStone(collection: AvailabilityCollection, category: string | null) {
+  return collection === "statement" ? "statement" : category === "White" ? "White" : "Fancy Colour";
+}
+
+export function publicAvailabilityProfile(stone: typeof availabilityStones.$inferSelect, includeVideo = false, curation?: Pick<typeof availabilityCuration.$inferSelect, "pinned" | "heroNote"> | null): PublicAvailabilityProfile {
   const { videoUrl, ...profile } = safeAvailabilityStone(stone);
-  return includeVideo ? { ...profile, videoUrl } : profile;
+  return { ...profile, ...(includeVideo ? { videoUrl } : {}), isPinned: Boolean(curation?.pinned), heroNote: curation?.pinned ? curation.heroNote : null };
 }
 
 export type AvailabilityCollection = "core" | "statement";
@@ -195,7 +201,7 @@ export async function getActiveAvailabilityImport(collection: AvailabilityCollec
   return (await db.select().from(availabilityImports).where(and(eq(availabilityImports.collection, collection), eq(availabilityImports.status, "active"))).orderBy(desc(availabilityImports.activatedAt)).limit(1))[0];
 }
 
-export type CatalogFilters = { collection?: AvailabilityCollection; category?: "White" | "Fancy Colour"; shapes?: string[]; caratBands?: string[]; colours?: string[]; clarities?: string[]; statementTypes?: string[]; labs?: string[]; page?: number; pageSize?: number };
+export type CatalogFilters = { collection?: AvailabilityCollection; category?: "White" | "Fancy Colour"; shapes?: string[]; caratBands?: string[]; colours?: string[]; clarities?: string[]; statementTypes?: string[]; labs?: string[]; sort?: CatalogSort; page?: number; pageSize?: number };
 
 export async function listPublicAvailabilityProfiles(input: CatalogFilters = {}) {
   const collection = input.collection ?? "core";
@@ -217,10 +223,14 @@ export async function listPublicAvailabilityProfiles(input: CatalogFilters = {})
   const pageSize = Math.min(Math.max(input.pageSize ?? 48, 12), 96);
   const page = Math.max(input.page ?? 0, 0);
   const [rows, totalRow] = await Promise.all([
-    db.select().from(availabilityStones).where(and(...where)).orderBy(asc(availabilityStones.carat), asc(availabilityStones.shape), asc(availabilityStones.stockNumber)).limit(pageSize).offset(page * pageSize),
+    db.select().from(availabilityStones).where(and(...where)),
     db.select({ total: sql<number>`count(*)` }).from(availabilityStones).where(and(...where)),
   ]);
-  return { import: activeImport, profiles: rows.map((row) => publicAvailabilityProfile(row, true)), total: Number(totalRow[0]?.total ?? 0), page, pageSize };
+  const curationRows = rows.length ? await db.select().from(availabilityCuration).where(and(eq(availabilityCuration.collection, collection), inArray(availabilityCuration.stockNumber, rows.map((row) => row.stockNumber)))) : [];
+  const curationByKey = new Map(curationRows.map((entry) => [`${entry.catalogTab}:${entry.stockNumber}`, entry]));
+  const orderedRows = orderCatalogRows(rows.map((stone) => ({ stone, curation: curationByKey.get(`${catalogTabForStone(collection, stone.category)}:${stone.stockNumber}`) ?? null })), collection, input.sort ?? "curated");
+  const visibleRows = orderedRows.slice(page * pageSize, (page + 1) * pageSize);
+  return { import: activeImport, profiles: visibleRows.map(({ stone, curation }) => publicAvailabilityProfile(stone, true, curation)), total: Number(totalRow[0]?.total ?? 0), page, pageSize };
 }
 
 export async function getPublicAvailabilityRowsByIds(input: { collection: AvailabilityCollection; stoneIds: number[] }) {
@@ -309,6 +319,12 @@ export async function createAvailabilityImport(input: { sourceFilename: string; 
       isStandardMenu: true,
       importedAt: new Date(),
     })));
+    const stockNumbers = Array.from(new Set(input.records.map((record) => record.stockNo)));
+    const existing = await tx.select({ stockNumber: availabilityCuration.stockNumber, catalogTab: availabilityCuration.catalogTab }).from(availabilityCuration).where(and(eq(availabilityCuration.collection, "core"), inArray(availabilityCuration.stockNumber, stockNumbers)));
+    const existingKeys = new Set(existing.map((entry) => `${entry.catalogTab}:${entry.stockNumber}`));
+    const newRows = input.records.filter((record) => !existingKeys.has(`${record.category}:${record.stockNo}`)).map((record) => ({ collection: "core", catalogTab: record.category, stockNumber: record.stockNo, firstSeenAt: new Date() }));
+    if (newRows.length) await tx.insert(availabilityCuration).values(newRows);
+    await tx.delete(availabilityCuration).where(and(eq(availabilityCuration.collection, "core"), notInArray(availabilityCuration.stockNumber, stockNumbers)));
     return (await tx.select().from(availabilityImports).where(eq(availabilityImports.id, importId)).limit(1))[0];
   });
 }
@@ -324,6 +340,12 @@ export async function createStatementAvailabilityImport(input: { sourceFilename:
     await tx.insert(availabilityStones).values(input.records.map((record) => ({
       importId, stockNumber: record.stockNo, availability: "Available", category: record.category, shape: record.shape, carat: record.carat, color: record.colour, caratBand: record.caratBand, clarity: record.clarity, cut: record.cut, polish: record.polish, symmetry: record.symmetry, fluorescence: record.fluorescence, measurements: record.measurements, ratio: record.ratio, depthPct: record.depthPct, tablePct: record.tablePct, crownHeight: record.crownHeight, pavilionDepth: record.pavilionDepth, crownAngle: record.crownAngle, pavilionAngle: record.pavilionAngle, girdlePct: record.girdlePct, statementType: record.statementType, lab: record.lab, reportNumber: record.certNo, verifyUrl: record.certPdfUrl, videoUrl: record.videoUrl, imageUrl: record.imageUrl, price: null, location: null, bandTag: record.caratBand, originPartner: null, standardsFlags: [], isStandardMenu: true, importedAt: new Date(),
     })));
+    const stockNumbers = Array.from(new Set(input.records.map((record) => record.stockNo)));
+    const existing = await tx.select({ stockNumber: availabilityCuration.stockNumber, catalogTab: availabilityCuration.catalogTab }).from(availabilityCuration).where(and(eq(availabilityCuration.collection, "statement"), inArray(availabilityCuration.stockNumber, stockNumbers)));
+    const existingKeys = new Set(existing.map((entry) => `${entry.catalogTab}:${entry.stockNumber}`));
+    const newRows = input.records.filter((record) => !existingKeys.has(`statement:${record.stockNo}`)).map((record) => ({ collection: "statement", catalogTab: "statement", stockNumber: record.stockNo, firstSeenAt: new Date() }));
+    if (newRows.length) await tx.insert(availabilityCuration).values(newRows);
+    await tx.delete(availabilityCuration).where(and(eq(availabilityCuration.collection, "statement"), notInArray(availabilityCuration.stockNumber, stockNumbers)));
     return (await tx.select().from(availabilityImports).where(eq(availabilityImports.id, importId)).limit(1))[0];
   });
 }
@@ -365,6 +387,53 @@ export async function getAvailabilityAdminSummary(collection: AvailabilityCollec
     byCaratBand: bands.map(({ band, test }) => ({ band, count: rows.filter((row) => test(row.carat)).length })),
     flaggedRows: rows.filter((row) => !row.isStandardMenu),
   };
+}
+
+export type AvailabilityCurationRow = {
+  catalogTab: string;
+  stockNumber: string;
+  category: string | null;
+  shape: string;
+  carat: number;
+  color: string;
+  clarity: string;
+  pinned: boolean;
+  pinRank: number | null;
+  heroNote: string | null;
+  firstSeenAt: Date;
+};
+
+export async function listAvailabilityCuration(collection: AvailabilityCollection): Promise<AvailabilityCurationRow[]> {
+  const activeImport = await getActiveAvailabilityImport(collection);
+  if (!activeImport) return [];
+  const db = await requireDb();
+  const stones = await db.select().from(availabilityStones).where(and(eq(availabilityStones.importId, activeImport.id), eq(availabilityStones.availability, "Available"), ...trustedCertificateConditions()));
+  if (!stones.length) return [];
+  const curation = await db.select().from(availabilityCuration).where(and(eq(availabilityCuration.collection, collection), inArray(availabilityCuration.stockNumber, stones.map((stone) => stone.stockNumber))));
+  const curationByKey = new Map(curation.map((entry) => [`${entry.catalogTab}:${entry.stockNumber}`, entry]));
+  return stones.map((stone) => {
+    const catalogTab = catalogTabForStone(collection, stone.category);
+    const entry = curationByKey.get(`${catalogTab}:${stone.stockNumber}`);
+    return { catalogTab, stockNumber: stone.stockNumber, category: stone.category, shape: stone.shape, carat: stone.carat, color: stone.color, clarity: stone.clarity, pinned: Boolean(entry?.pinned), pinRank: entry?.pinRank ?? null, heroNote: entry?.heroNote ?? null, firstSeenAt: entry?.firstSeenAt ?? stone.importedAt };
+  }).sort((a, b) => Number(b.pinned) - Number(a.pinned) || (a.pinRank ?? Number.MAX_SAFE_INTEGER) - (b.pinRank ?? Number.MAX_SAFE_INTEGER) || b.carat - a.carat || a.stockNumber.localeCompare(b.stockNumber));
+}
+
+export async function updateAvailabilityCuration(input: { collection: AvailabilityCollection; catalogTab: string; stockNumber: string; pinned: boolean; pinRank?: number; heroNote?: string }) {
+  const activeImport = await getActiveAvailabilityImport(input.collection);
+  if (!activeImport) throw new Error("There is no active availability snapshot for this collection.");
+  const db = await requireDb();
+  const stone = (await db.select({ stockNumber: availabilityStones.stockNumber, category: availabilityStones.category }).from(availabilityStones).where(and(eq(availabilityStones.importId, activeImport.id), eq(availabilityStones.stockNumber, input.stockNumber), eq(availabilityStones.availability, "Available"), ...trustedCertificateConditions())).limit(1))[0];
+  if (!stone) throw new Error("This stock number is not part of the current public catalogue.");
+  if (catalogTabForStone(input.collection, stone.category) !== input.catalogTab) throw new Error("This stock number does not belong to the selected public collection tab.");
+  const current = (await db.select().from(availabilityCuration).where(and(eq(availabilityCuration.collection, input.collection), eq(availabilityCuration.catalogTab, input.catalogTab), eq(availabilityCuration.stockNumber, input.stockNumber))).limit(1))[0];
+  if (input.pinned && !current?.pinned) {
+    const count = await db.select({ total: sql<number>`count(*)` }).from(availabilityCuration).where(and(eq(availabilityCuration.collection, input.collection), eq(availabilityCuration.catalogTab, input.catalogTab), eq(availabilityCuration.pinned, true)));
+    if (Number(count[0]?.total ?? 0) >= 8) throw new Error("A public collection tab can have at most eight pinned stones. Unpin one before adding another.");
+  }
+  const heroNote = input.pinned ? input.heroNote?.trim().slice(0, 120) || null : null;
+  const pinRank = input.pinned ? input.pinRank ?? null : null;
+  await db.insert(availabilityCuration).values({ collection: input.collection, catalogTab: input.catalogTab, stockNumber: input.stockNumber, pinned: input.pinned, pinRank, heroNote, firstSeenAt: current?.firstSeenAt ?? new Date() }).onDuplicateKeyUpdate({ set: { pinned: input.pinned, pinRank, heroNote } });
+  return { collection: input.collection, catalogTab: input.catalogTab, stockNumber: input.stockNumber, pinned: input.pinned, pinRank, heroNote };
 }
 
 export async function createLineSheetRecord(input: {
