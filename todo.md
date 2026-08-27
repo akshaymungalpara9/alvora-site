@@ -150,3 +150,7 @@
 - [x] Validate adopted QA remediation against public catalogue access, no-price privacy, localisation, and protected administrator boundaries.
 - [x] Improve public catalogue client conversion by keeping only records with matching official IGI/GIA certificate actions and making supplied-360 actions provenance-aware.
 - [x] Refine the mobile public-catalogue filter controls so labels and native selects remain legible and comfortably tappable at a 375px viewport.
+- [x] Verify this task’s Alvora workspace attachment and current published feature state before scoping any future visual reskin; the attached Alvora project publishes alvoradiamon-eyqxwkpm.manus.space and contains the reported public routes and protected buyer-management module.
+- [x] Audit global visual tokens, public page components, and image references for the requested light ivory editorial reskin without content or asset changes.
+- [x] Apply the warm ivory, charcoal, and antique-gold palette across homepage, public catalogue, forms, footer, responsive states, and EN/FR/IT routes.
+- [x] Validate preserved image assets and unchanged public catalogue, certificate, request, navigation, and protected-admin behavior after the reskin.

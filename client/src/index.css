@@ -1,20 +1,26 @@
 /**
- * Alvora — The Precision House: a low-key graphite atelier with editorial cadence,
- * warm ivory type, hairline calibration marks, and Alvora Signal Lime used sparingly.
+ * Alvora — a warm-ivory European editorial house with charcoal type, hairline rules,
+ * antique-brass accents, and preserved maker photography.
  */
 @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600&display=swap");
 @import "tailwindcss";
 @import "tw-animate-css";
 
 :root {
-  --ink: #0c0d0d;
-  --ink-soft: #161818;
-  --ink-lift: #202323;
-  --paper: #f0eee7;
-  --paper-dim: #b6b5af;
-  --rule: rgba(240, 238, 231, 0.17);
-  --signal: #c9ff63;
-  --signal-ink: #171b10;
+  --canvas: #f7f4ef;
+  --surface: #fdfcfa;
+  --ink: #1b1a18;
+  --ink-soft: #f3ecdb;
+  --ink-lift: #ebe4d8;
+  --paper: #fdfcfa;
+  --paper-dim: #6b6459;
+  --rule: #e4dfd6;
+  --signal: #9c7a32;
+  --signal-text: #765516;
+  --signal-hover: #c7a75a;
+  --signal-tint: #f3ecdb;
+  --signal-ink: #f7f4ef;
+  --shadow-editorial: 0 18px 42px rgba(58, 49, 37, 0.08);
   --serif: "Cormorant Garamond", Georgia, serif;
   --sans: "Manrope", Arial, sans-serif;
   --mono: "DM Mono", monospace;
@@ -656,3 +662,137 @@ h1 { margin-bottom: 24px; color: var(--paper); font-family: var(--serif); font-s
 @media (max-width: 900px) { .catalog-header nav { display: none; } .catalog-grid { grid-template-columns: repeat(2,minmax(0,1fr)); } .catalog-controls { flex-wrap: wrap; align-items: stretch; } .catalog-filter-title { width: 100%; padding-bottom: 0; } .catalog-filter-fields { grid-template-columns: repeat(2,minmax(0,1fr)); } .catalog-list .catalog-stone, .catalog-list .catalog-statement-stone:has(.catalog-statement-image) { display: flex; } .catalog-list .catalog-cert { display: flex; margin-top: auto; padding-top: .75rem; border-top: 1px solid var(--rule); } }
 @media (max-width: 560px) { .catalog-header { height: 60px; padding: 0 1rem; } .catalog-back { font-size: .52rem; } .catalog-shell main { padding: 0 1rem 4rem; } .catalog-hero { padding: 4.3rem 0 2.3rem; } .catalog-collection-tabs button { min-width: 0; padding: 1rem .65rem; font-size: .57rem; letter-spacing: .06em; } .catalog-controls { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: end; gap: .85rem; } .catalog-filter-title, .catalog-filter-fields { grid-column: 1 / -1; width: 100%; } .catalog-filter-fields { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .8rem .65rem; } .catalog-filter { min-width: 0; gap: .45rem; font-size: .52rem; letter-spacing: .075em; } .catalog-filter > span { min-height: 1.35em; } .catalog-filter select { min-height: 46px; padding: .72rem .65rem; font-size: .68rem; } .catalog-view-toggle { grid-column: 1; justify-self: start; } .catalog-view-toggle button { min-height: 46px; min-width: 46px; padding: .8rem; } .catalog-download { grid-column: 2; min-height: 46px; padding-inline: .85rem; white-space: nowrap; } .catalog-grid { grid-template-columns: 1fr; } .catalog-stone { min-height: 240px; } .catalog-stone-details dl { grid-template-columns: 1fr; } .catalog-stone-details dl > div, .catalog-stone-details dl > div:nth-child(2n) { border-right: 0; } .catalog-stone-details dl > div:nth-last-child(-n + 2) { border-bottom: 1px solid var(--rule); } .catalog-stone-details dl > div:last-child { border-bottom: 0; } .catalog-pagination { gap: .5rem; } .catalog-pagination span { text-align: center; line-height: 1.4; } }
 @media (max-width: 380px) { .catalog-download { grid-column: 1 / -1; width: 100%; } }
+
+/* Light European-editorial reskin. This layer deliberately changes chrome only: no image selector,
+   source URL, content binding, control behavior, or route is altered here. */
+html, body { background: var(--canvas); color: var(--ink); }
+body { color: var(--ink); }
+:focus-visible { outline-color: var(--signal-text); }
+.skip-link { background: var(--ink); color: var(--paper); }
+.route-loading { background: var(--canvas); color: var(--ink); }
+
+/* Shared site framing and navigation. */
+.site-shell, .catalog-shell, .legal-shell, .insight-page, .refer-page, .portal-shell { background: var(--canvas); color: var(--ink); }
+.site-header, .catalog-header { border-color: var(--rule); background: rgba(253, 252, 250, .94); }
+.site-header .brand-name, .catalog-header .brand-name, .catalog-header .brand, .catalog-header a { color: var(--ink); }
+.desktop-nav a, .catalog-header nav a, .catalog-back, .language-switcher a { color: var(--paper-dim); }
+.desktop-nav a:hover, .catalog-header nav a:hover, .catalog-back:hover, .language-switcher a:hover, .language-switcher a.is-active { color: var(--signal-text); border-color: var(--signal); }
+.header-cta { color: var(--signal-text); }
+.header-cta:hover { color: var(--ink); }
+.mobile-nav { background: var(--surface); border-color: var(--rule); box-shadow: var(--shadow-editorial); }
+.mobile-nav a { color: var(--ink); border-color: var(--rule); }
+.mobile-nav button, .menu-toggle { color: var(--signal-text); }
+
+/* The full-bleed hero remains intentionally dark and photographic. */
+.hero { border-color: rgba(253, 252, 250, .2); }
+.hero h1 { color: var(--paper); }
+.hero-rule { background: rgba(253, 252, 250, .18); }
+.eyebrow { color: var(--paper-dim); }
+.hero .eyebrow-bright, .eyebrow-bright { color: var(--signal-hover); }
+.hero-maker-line { border-color: var(--signal-hover); color: #e6e0d5; }
+.hero-index p, .hero-footer { color: #e7e1d7; }
+.hero-index span { color: var(--signal-hover); }
+
+/* Buttons, links, and shared paper surfaces. */
+.button-signal, .portal-button, .admin-primary, .catalog-stone-actions a:first-child, .admin-export-button, .brief-triage-form button { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.button-signal:hover, .portal-button:hover, .admin-primary:hover, .catalog-stone-actions a:first-child:hover, .admin-export-button:hover, .brief-triage-form button:hover:not(:disabled) { background: #34312c; color: var(--paper); }
+.button-outline, .catalog-stone-actions .catalog-video, .catalog-download, .availability-table button, .admin-actions button, .brief-retry-button { border-color: var(--signal); color: var(--signal-text); background: transparent; }
+.button-outline:hover, .catalog-stone-actions .catalog-video:hover, .catalog-download:hover:not(:disabled), .availability-table button:hover, .admin-actions button:hover, .brief-retry-button:hover:not(:disabled) { background: var(--signal-tint); color: var(--ink); border-color: var(--signal-text); }
+.text-link, .text-link-light, .legal-back, .insight-back, .portal-download, .site-footer a { color: var(--signal-text); }
+.text-link:hover, .insight-back:hover, .site-footer a:hover { color: var(--signal); }
+
+/* Homepage editorial sections. */
+.market-panel-section, .heritage-section, .production-section, .spec-section, .process-section, .faq-section, .brief-section { background: var(--canvas); color: var(--ink); border-color: var(--rule); }
+.market-panel-section h2, .heritage-content h2, .section-heading h2, .process-content h2, .faq-heading h2, .brief-intro h2, .spec-lead h2, .production-live-heading h3, .catalog-hero h1, .catalog-commission h2, .legal-main h1, .insight-intro h1, .insight-article h1 { color: var(--ink); }
+.market-panel-section > div:first-child > p:not(.eyebrow), .market-panel-list p, .market-panel-note, .heritage-prose > p:not(.heritage-maker-line), .section-heading > p, .production-list p, .production-live-heading > div > p:not(.eyebrow), .spec-lead p, .spec-grid p, .process-content > p:not(.eyebrow), .commercial-panels p, .faq-content details > p, .brief-intro > p:not(.eyebrow), .brief-aside { color: var(--paper-dim); }
+.market-panel-list, .market-panel-list article, .heritage-maker-line, .by-numbers, .numbers-strip, .numbers-strip article, .production-list, .production-list article, .production-live, .production-profile-grid, .production-profile-grid article, .spec-grid, .spec-grid article, .commercial-panels, .commercial-panels article, .faq-section, .faq-content, .faq-content details { border-color: var(--rule); }
+.market-panel-list span, .section-number, .list-index, .production-profile-grid span, .production-profile-grid small, .spec-number, .spec-lead em, .spec-stamp, .commercial-panels article > span, .faq-content summary span, .production-live-freshness { color: var(--signal-text); }
+.heritage-content h2 em, .heritage-prose strong, .heritage-maker-line, .numbers-strip strong, .production-list h3, .production-live-heading h3, .production-profile-grid strong, .spec-grid h3, .commercial-panels h3, .faq-content summary, .faq-maker-line { color: var(--ink); }
+.production-list article > svg { color: var(--signal-text); }
+.production-list article:hover > svg { color: var(--signal); }
+.production-image-card { background: var(--surface); border: 1px solid var(--rule); outline: 12px solid var(--surface); outline-offset: 0; box-shadow: var(--shadow-editorial); }
+.process-image-wrap { border: 1px solid var(--rule); outline: 12px solid var(--surface); outline-offset: 0; box-shadow: var(--shadow-editorial); }
+.spec-section::before { background: var(--signal); }
+.spec-stamp { border-color: var(--signal); background: var(--signal-tint); }
+.spec-action-row { background: var(--ink-soft); }
+.spec-action-row p, .spec-action-row strong { color: var(--ink); }
+.status-dot { background: var(--signal); box-shadow: 0 0 0 4px rgba(156, 122, 50, .12); }
+.process-image-label, .image-caption { color: var(--paper); }
+.faq-maker-line { border-color: var(--rule); border-left-color: var(--signal); }
+
+/* Production brief and trust/footer chrome. */
+.brief-section { border-top-color: var(--rule); }
+.brief-form label > span, .form-qualification-note, .form-submit-row p, .brief-intro > p:not(.eyebrow), .brief-aside { color: var(--paper-dim); }
+.brief-form input, .brief-form textarea, .brief-form select { border-color: var(--rule); color: var(--ink); background: transparent; }
+.brief-form select { background-image: linear-gradient(45deg, transparent 50%, var(--signal-text) 50%), linear-gradient(135deg, var(--signal-text) 50%, transparent 50%); }
+.brief-form select option { color: var(--ink); background: var(--surface); }
+.brief-form input::placeholder, .brief-form textarea::placeholder { color: #81786a; }
+.brief-form input:focus, .brief-form textarea:focus, .brief-form select:focus { border-color: var(--signal-text); }
+.form-confirmation { border-color: rgba(118, 85, 22, .45); color: var(--signal-text); background: var(--signal-tint); }
+.credentials-strip, .site-footer { color: var(--paper-dim); background: var(--ink-soft); border-color: var(--rule); }
+.credentials-title, .site-footer .footer-brand .brand-name { color: var(--ink); }
+.credentials-title span, .credentials-list em, .site-footer p, .footer-legal a { color: var(--paper-dim); }
+.credentials-list p { color: var(--paper-dim); }
+.credentials-list b { border-color: var(--signal); color: var(--signal-text); background: var(--surface); }
+
+/* Public catalogue: paper cards, brass selection cues, and clear certificate actions. */
+.catalog-hero > p:not(.eyebrow):not(.catalog-freshness), .catalog-statement-intro, .catalog-empty, .catalog-loading, .catalog-pagination { color: var(--paper-dim); }
+.catalog-freshness, .catalog-filter-title, .catalog-stone-top span, .catalog-stone small, .catalog-stone-details[open] summary { color: var(--signal-text); }
+.catalog-collection-tabs, .catalog-collection-tabs button, .catalog-controls, .catalog-grid, .catalog-list, .catalog-stone-details, .catalog-stone-details dl, .catalog-stone-details dl > div, .catalog-pagination, .catalog-commission { border-color: var(--rule); }
+.catalog-collection-tabs button { background: transparent; color: var(--paper-dim); }
+.catalog-collection-tabs button.is-active { color: var(--ink); background: var(--surface); box-shadow: inset 0 -3px 0 var(--signal); }
+.catalog-filter { color: var(--paper-dim); }
+.catalog-filter select { border-color: var(--rule); background: var(--surface); color: var(--ink); }
+.catalog-view-toggle { border-color: var(--rule); background: var(--surface); }
+.catalog-view-toggle button { color: var(--paper-dim); border-color: var(--rule); }
+.catalog-view-toggle button.is-active { color: var(--ink); background: var(--signal-tint); box-shadow: inset 0 -2px 0 var(--signal); }
+.catalog-grid, .catalog-list { background: var(--rule); box-shadow: var(--shadow-editorial); }
+.catalog-stone { background: var(--surface); }
+.catalog-stone:hover { background: #f8f4ed; }
+.catalog-statement-image { border-color: var(--rule); background: var(--surface); box-shadow: 0 8px 20px rgba(58, 49, 37, .08); }
+.catalog-stone-top strong, .catalog-cert span, .catalog-stone-details dd { color: var(--ink); }
+.catalog-stone-grades p, .catalog-stone-details summary, .catalog-stone-details dt { color: var(--paper-dim); }
+.catalog-statement-list-details { color: var(--ink) !important; }
+.catalog-statement-badges span { border-color: var(--signal); color: var(--signal-text); background: var(--signal-tint); }
+.catalog-cert { border-color: var(--rule); }
+.catalog-cert a { color: var(--signal-text); }
+.catalog-stone-details summary::after { color: var(--signal-text); }
+.catalog-commission { background: var(--surface); box-shadow: var(--shadow-editorial); }
+.catalog-commission > p:not(.eyebrow) { color: var(--paper-dim); }
+.catalog-commission > a { color: var(--paper); background: var(--ink); }
+
+/* Legal, insights, referral, and protected portal surfaces inherit the same quiet system. */
+.legal-header, .insight-header, .portal-header { border-color: var(--rule); color: var(--paper-dim); }
+.legal-header .brand-name, .insight-header .brand-name { color: var(--ink); }
+.legal-intro, .legal-content p, .insight-intro > p:not(.eyebrow):not(.insight-draft-note), .insight-dek, .insight-outline p, .refer-page > section > p:not(.eyebrow):not(.refer-confirmation), .refer-form label, .refer-form label em { color: var(--paper-dim); }
+.legal-rule, .legal-content h2, .legal-content p, .insight-list, .insight-list a, .insight-outline, .insight-outline section, .refer-form { border-color: var(--rule); }
+.legal-content h2, .insight-author, .insight-outline span { color: var(--signal-text); }
+.insight-list p, .insight-list span { color: var(--paper-dim); }
+.insight-list a:hover { color: var(--signal-text); }
+.insight-draft-note, .refer-confirmation { border-color: var(--signal); color: var(--paper-dim); background: var(--signal-tint); }
+.insight-draft-note span { color: var(--signal-text); }
+.refer-page { background: radial-gradient(circle at 87% 18%, rgba(156, 122, 50, .1), transparent 25rem), var(--canvas); }
+.refer-form input, .refer-form textarea, .refer-form select { border-color: var(--rule); background: var(--surface); color: var(--ink); }
+
+/* Administrator screens retain their access rules but receive the same non-functional palette treatment. */
+.portal-shell, .admin-shell { color: var(--ink); background: var(--canvas); }
+.portal-wordmark, .portal-gate h1, .portal-intro h1, .admin-topline h1, .availability-import-panel h2, .availability-admin-card h2 { color: var(--ink); }
+.portal-gate p:not(.portal-kicker), .portal-intro > p:not(.portal-kicker), .admin-topline p:not(.portal-kicker) { color: var(--paper-dim); }
+.portal-kicker, .portal-gate > svg, .availability-import-panel > header, .availability-admin-card > header { color: var(--signal-text); }
+.admin-message, .admin-early-access { border-color: var(--signal); color: var(--ink); background: var(--signal-tint); }
+.availability-import-panel, .availability-admin-card, .admin-brief, .operations-metric, .operations-panel, .buyer-form, .availability-summary-grid article { border-color: var(--rule); background: var(--surface); box-shadow: 0 10px 28px rgba(58, 49, 37, .045); }
+.availability-import-panel > p, .availability-file-field, .availability-preview > div:first-child span, .availability-report article, .availability-activate label, .availability-summary-grid span, .availability-breakdown span, .availability-version-list span, .availability-flagged-list span, .availability-flagged-list p, .availability-flagged-list small { color: var(--paper-dim); }
+.availability-import-panel code, .availability-report p, .availability-summary-grid strong, .operations-metric-signal strong, .operations-panel > header, .operations-market-grid strong, .admin-brief header a, .admin-activity a, .availability-flagged-list b { color: var(--signal-text); }
+.availability-file-field input, .brief-filter select, .brief-triage-form input, .brief-triage-form select, .brief-triage-form textarea, .buyer-form input { border-color: var(--rule); color: var(--ink); background: var(--surface); }
+.availability-preview { border-left-color: var(--signal-text); background: var(--signal-tint); }
+.availability-preview-valid { border-left-color: var(--signal); }
+.availability-preview strong, .availability-summary-grid .availability-summary-date, .availability-breakdown strong, .availability-flagged-list strong, .availability-version-list strong, .admin-brief-body, .operations-metric strong, .operations-panel h2, .operations-check strong, .operations-recent strong, .admin-account .admin-account-name { color: var(--ink); }
+.availability-report, .availability-report article, .availability-breakdown, .availability-flagged-list, .availability-version-list, .availability-flagged-list article, .availability-version-list article, .brief-triage-form, .operations-check, .operations-recent article, .operations-market-grid, .operations-market-grid article, .admin-account-list, .admin-account, .admin-activity, .admin-requests { border-color: var(--rule); }
+.operations-metric p, .operations-metric span, .operations-check p, .operations-empty, .operations-recent span, .operations-recent time, .operations-market-grid span, .operations-market-grid small, .admin-account p, .admin-account .admin-bands, .admin-activity > p:not(.portal-kicker), .admin-requests > p:not(.portal-kicker), .admin-activity div p, .admin-requests div p { color: var(--paper-dim); }
+.operations-icon-good { color: var(--signal-text); border-color: var(--rule); }
+.admin-status { color: var(--paper-dim); border-color: var(--rule); }
+.admin-status-approved, .availability-version-list em { color: var(--signal-text); border-color: var(--signal); background: var(--signal-tint); }
+.whatsapp-quick-contact { border-color: var(--signal); background: var(--ink); color: var(--paper); box-shadow: 0 14px 38px rgba(58, 49, 37, .22); }
+.whatsapp-quick-contact:hover { border-color: var(--signal-hover); background: #34312c; }
+.whatsapp-quick-contact:focus-visible { outline-color: var(--signal-hover); }
+.whatsapp-monogram { border-color: var(--signal-hover); color: var(--signal-hover); }
