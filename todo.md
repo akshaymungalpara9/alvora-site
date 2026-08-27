@@ -143,3 +143,6 @@
 - [x] Validate anonymous detail access across Fancy Colour, White, and STATEMENT records without price or internal metadata exposure.
 - [x] Review the Alvora main-site catalogue handoff and reconcile its priority guidance with the current public no-price catalog model.
 - [x] Reconcile the handoff’s public-contact and catalogue-release priorities with the current Alvora site; configured WhatsApp, supplied STATEMENT media, and protected import curation already cover the applicable items.
+- [x] Audit the claimed removal of the global unauthenticated-error redirect and verify that public catalog browsing stays open while protected administration remains gated; the claimed source change is not present, while current public routes remain open and admin routes remain gated.
+- [x] Remove the global unauthenticated-error auto-login redirect while retaining protected administrator procedures and route-level sign-in prompts.
+- [x] Add and validate focused regression coverage for anonymous current-production catalogue reads and the absence of global auto-login behavior.
