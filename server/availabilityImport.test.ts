@@ -28,11 +28,11 @@ describe("current production catalog import validation", () => {
     expect(result.records.map((record) => record.category)).toEqual(["White", "Fancy Colour"]);
   });
 
-  it("normalizes an IGI verification page to the confirmed report-diagnosis URL using the real certificate number", () => {
+  it("normalizes an IGI verification page to the direct certificate PDF using the real certificate number", () => {
     const sourcePageRow = "ALV-IGI,White,F,Round,1.25,1.00–1.99ct,VS2,IDEAL,EX,EX,6.90 x 6.92 x 4.25,61.5,58,1.00,IGI,819696674,https://www.igi.org/reports/verify-your-report/,";
     const result = validateAvailabilityImportCsv(`${header}\n${sourcePageRow}\n`);
     expect(result.valid).toBe(true);
-    expect(result.records[0]?.verifyUrl).toBe("https://www.igi.org/API-IGI/report-diagnosis.php?r=819696674");
+    expect(result.records[0]?.verifyUrl).toBe("https://pdf.igi.org/ID819696674.pdf");
   });
 
   it("rejects legacy, price-bearing, and reordered headers rather than guessing a mapping", () => {

@@ -125,3 +125,4 @@
 - [x] Add approved-buyer-only video, current-line-sheet, and Request/Hold actions while preserving public browsing and no-price rules.
 - [ ] Validate owner-approved catalog activation, public/buyer entitlement boundaries, mobile performance, localisation, and no-price enforcement.
 - [ ] Run authenticated browser QA for protected buyer current-view PDF, optional video, Request/Hold, and admin import/recovery screens without changing the early-access lock.
+- [x] Change public and buyer-visible IGI report links to direct `https://pdf.igi.org/ID{cert_no}.pdf` certificate PDFs while preserving labels and new-tab behaviour.

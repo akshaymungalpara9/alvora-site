@@ -19,13 +19,13 @@ const header = "stock_no,category,colour,shape,carat,carat_band,clarity,cut,poli
 const whiteRow = "ALV-001,White,F,Round,1.25,1.00–1.99ct,VS2,IDEAL,EX,EX,6.90 x 6.92 x 4.25,61.5,58,1,IGI,819696674,https://www.igi.org/API-IGI/report-diagnosis.php?r=819696674,";
 const fancyRow = "D-5,Fancy Colour,Fancy Vivid Pink,Pear,25.03,10ct +,VS1,,EX,EX,22.71 x 14.64 x 9.44,64.5,64,1.55,IGI,788606730,https://www.igi.org/API-IGI/report-diagnosis.php?r=788606730,";
 const rawStone = {
-  id: 1, importId: 2, stockNumber: "ALV-001", availability: "Available", category: "White", shape: "ROUND", carat: 1.25, color: "F", caratBand: "1.00–1.99ct", clarity: "VS2", cut: "IDEAL", polish: "EX", symmetry: "EX", depthPct: 61.5, tablePct: 58, ratio: 1, lab: "IGI", reportNumber: "819696674", verifyUrl: "https://www.igi.org/API-IGI/report-diagnosis.php?r=819696674", price: 1250, location: null, fluorescence: null, measurements: "6.90 x 6.92", videoUrl: "https://video.example/ALV-001", bandTag: "1.00–1.99ct", originPartner: "Partner Private", standardsFlags: [], isStandardMenu: true, importedAt: new Date(),
+  id: 1, importId: 2, stockNumber: "ALV-001", availability: "Available", category: "White", shape: "ROUND", carat: 1.25, color: "F", caratBand: "1.00–1.99ct", clarity: "VS2", cut: "IDEAL", polish: "EX", symmetry: "EX", depthPct: 61.5, tablePct: 58, ratio: 1, lab: "IGI", reportNumber: "819696674", verifyUrl: "https://pdf.igi.org/ID819696674.pdf", price: 1250, location: null, fluorescence: null, measurements: "6.90 x 6.92", videoUrl: "https://video.example/ALV-001", bandTag: "1.00–1.99ct", originPartner: "Partner Private", standardsFlags: [], isStandardMenu: true, importedAt: new Date(),
 };
 
 describe("current production catalog privacy and activation", () => {
   it("removes partner metadata and legacy price data from safe buyer responses", () => {
     const safe = safeAvailabilityStone(rawStone);
-    expect(safe).toMatchObject({ stockNumber: "ALV-001", reportNumber: "819696674", verifyUrl: expect.stringContaining("r=819696674") });
+    expect(safe).toMatchObject({ stockNumber: "ALV-001", reportNumber: "819696674", verifyUrl: "https://pdf.igi.org/ID819696674.pdf" });
     expect(safe).not.toHaveProperty("originPartner");
     expect(safe).not.toHaveProperty("price");
     expect(safe).not.toHaveProperty("standardsFlags");
@@ -67,4 +67,3 @@ describe("current production catalog privacy and activation", () => {
     expect(result.profiles[0]).not.toHaveProperty("videoUrl");
   });
 });
-

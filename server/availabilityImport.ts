@@ -73,9 +73,7 @@ function normalizedVerifyUrl(value: string, lab: string, certNo: string) {
   const parsed = new URL(value);
   const isIgi = lab.trim().toUpperCase() === "IGI" || parsed.hostname.toLowerCase().endsWith("igi.org");
   if (!isIgi) return value;
-  const pathname = parsed.pathname.toLowerCase();
-  const isIgiVerificationPage = parsed.hostname.toLowerCase().endsWith("igi.org") && (pathname.includes("verify-your-report") || pathname.includes("report-diagnosis.php"));
-  return isIgiVerificationPage ? `https://www.igi.org/API-IGI/report-diagnosis.php?r=${encodeURIComponent(certNo)}` : value;
+  return `https://pdf.igi.org/ID${encodeURIComponent(certNo)}.pdf`;
 }
 
 export function validateAvailabilityImportCsv(source: string) {
