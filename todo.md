@@ -126,3 +126,8 @@
 - [ ] Validate owner-approved catalog activation, public/buyer entitlement boundaries, mobile performance, localisation, and no-price enforcement.
 - [ ] Run authenticated browser QA for protected buyer current-view PDF, optional video, Request/Hold, and admin import/recovery screens without changing the early-access lock.
 - [x] Change public and buyer-visible IGI report links to direct `https://pdf.igi.org/ID{cert_no}.pdf` certificate PDFs while preserving labels and new-tab behaviour.
+- [x] Audit and validate the supplied no-price STATEMENT CSV feed, including stock, certificate, image, video, and 593-row availability expectations.
+- [x] Add an independently refreshable STATEMENT catalog snapshot with safe public/buyer fields, supplied certificate URLs, media URLs, and no price data.
+- [x] Extend public catalog and homepage teaser with the localized STATEMENT collection, dedicated filters, supplied-media cards, richer list fields, and certificate action labeling.
+- [x] Apply the confirmed direct `https://api.igi.org/viewpdf.php?r={cert_no}` IGI PDF target to future Fancy Colour and White imports while preserving supplied STATEMENT certificate URLs.
+- [ ] Complete authenticated buyer current-list verification across core and STATEMENT records; import isolation, no-price/privacy safeguards, and public EN/FR/IT behavior have passed.

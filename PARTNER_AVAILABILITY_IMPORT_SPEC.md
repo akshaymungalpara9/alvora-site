@@ -24,7 +24,7 @@ stock_no,category,colour,shape,carat,carat_band,clarity,cut,polish,symmetry,meas
 | `ratio` | No | Positive numeric ratio | Shown only when populated. |
 | `lab` | Yes | Laboratory name, such as `IGI` | Shown as certification context. |
 | `cert_no` | Yes | Real certificate/report number | A blank value rejects the row. |
-| `verify_url` | Yes | Valid `https://` or `http://` report-verification URL | A malformed URL rejects the row. For IGI report pages, the active catalog stores the confirmed report-diagnosis URL using the `r=<cert_no>` parameter. |
+| `verify_url` | Yes | Valid `https://` or `http://` report-verification URL | A malformed URL rejects the row. For IGI report pages, the active catalog stores `https://api.igi.org/viewpdf.php?r=<cert_no>`. |
 | `video_url` | No | Valid `https://` or `http://` video URL when present | Blank is accepted. A populated malformed URL rejects the row. A valid URL is visible only to approved buyers; no empty video placeholder is shown. |
 
 ## Non-negotiable no-price rule
@@ -37,9 +37,21 @@ The protected importer validates every row before replacing the current snapshot
 
 All structurally valid `White` and `Fancy Colour` rows are catalog rows. There is no legacy standard-menu or partner-origin review path in this contract.
 
+## STATEMENT collection contract
+
+`STATEMENT` is a **separate, independently replaceable** collection. Its rows never route into the Fancy Colour or White tabs; the supplied `category` remains a stone specification for grouping and filtering only. The exact UTF-8 CSV header is:
+
+```csv
+stock_no,category,type,colour,shape,carat,carat_band,clarity,cut,polish,symmetry,fluorescence,measurements,ratio,depth_pct,table_pct,crown_height,pavilion_depth,crown_angle,pavilion_angle,girdle_pct,lab,cert_no,cert_pdf_url,video_url,image_url
+```
+
+`stock_no`, `category` (`White` or `Fancy Colour`), `type`, `colour`, `shape`, positive `carat`, `carat_band`, and `clarity` are required. The supplied `cert_pdf_url`, `video_url`, and `image_url` must be valid `http` or `https` URLs when populated. Blank `cert_no`, `lab`, `cert_pdf_url`, or `video_url` values are retained as blank data: the catalog does not fabricate a certificate link or a media placeholder. Literal `null` in optional source fields is treated as blank.
+
+The STATEMENT card uses `cert_pdf_url` exactly as supplied, so IGI and GIA certificate destinations remain source-accurate. It may show its supplied 360° viewer and still image publicly. A successful STATEMENT refresh archives and replaces **only** the prior STATEMENT snapshot; it does not alter the active core Fancy Colour or White snapshot.
+
 ## Replace, recovery, visibility, and freshness
 
-Each successful upload creates a new catalog snapshot and makes it active in one database transaction. The prior active snapshot is archived rather than deleted, allowing an administrator to restore it if a replacement is wrong. Historic buyer requests and line sheets retain their original references.
+Each successful upload creates a new catalog snapshot and makes it active in one database transaction. The prior active snapshot **for the same collection** is archived rather than deleted, allowing an administrator to restore it if a replacement is wrong. Historic buyer requests and line sheets retain their original references.
 
 `/availability` is public and paginated. It exposes every supplied non-price catalog specification and the report verification link, with filters for Shape, Carat band, Colour, and Clarity. Approved buyers receive the same current eligible stones plus any populated video link, a matching current line sheet, and Request or Hold actions. The existing server-enforced buyer early-access lock is unaffected by importing a catalog.
 

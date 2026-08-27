@@ -61,6 +61,7 @@ export const availabilityImports = mysqlTable(
     flaggedRowCount: int("flaggedRowCount").notNull(),
     whiteRowCount: int("whiteRowCount").default(0).notNull(),
     fancyRowCount: int("fancyRowCount").default(0).notNull(),
+    collection: varchar("collection", { length: 30 }).default("core").notNull(),
     status: mysqlEnum("status", ["active", "archived"]).default("archived").notNull(),
     importedByUserId: int("importedByUserId").notNull(),
     activatedAt: timestamp("activatedAt").defaultNow().notNull(),
@@ -68,7 +69,7 @@ export const availabilityImports = mysqlTable(
     createdAt: timestamp("createdAt").defaultNow().notNull(),
   },
   (table) => [
-    index("availability_imports_status_idx").on(table.status, table.activatedAt),
+    index("availability_imports_status_idx").on(table.collection, table.status, table.activatedAt),
   ],
 );
 
@@ -100,6 +101,13 @@ export const availabilityStones = mysqlTable(
     fluorescence: varchar("fluorescence", { length: 40 }),
     measurements: varchar("measurements", { length: 180 }),
     videoUrl: varchar("videoUrl", { length: 1024 }),
+    imageUrl: varchar("imageUrl", { length: 1024 }),
+    statementType: varchar("statementType", { length: 40 }),
+    crownHeight: double("crownHeight"),
+    pavilionDepth: double("pavilionDepth"),
+    crownAngle: double("crownAngle"),
+    pavilionAngle: double("pavilionAngle"),
+    girdlePct: double("girdlePct"),
     bandTag: varchar("bandTag", { length: 80 }),
     originPartner: varchar("originPartner", { length: 180 }),
     standardsFlags: json("standardsFlags"),

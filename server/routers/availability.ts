@@ -2,6 +2,7 @@ import { TRPCError } from "@trpc/server";
 import { z } from "zod";
 import {
   createAvailabilityImport,
+  createStatementAvailabilityImport,
   getAvailabilityAdminSummary,
   getPublicAvailabilitySummary,
   listAvailabilityImports,
@@ -9,33 +10,39 @@ import {
   restoreAvailabilityImport,
 } from "../db";
 import { validateAvailabilityImportCsv } from "../availabilityImport";
+import { validateStatementAvailabilityImportCsv } from "../statementAvailabilityImport";
 import { adminProcedure, publicProcedure, router } from "../_core/trpc";
 
 const csvInput = z.object({
   filename: z.string().min(1).max(255),
   csv: z.string().min(1).max(1_500_000),
+  collection: z.enum(["core", "statement"]).default("core"),
 });
 
 const profileFilters = z.object({
+  collection: z.enum(["core", "statement"]).optional(),
   category: z.enum(["White", "Fancy Colour"]).optional(),
   shapes: z.array(z.string().min(1).max(40)).max(20).optional(),
   caratBands: z.array(z.string().min(1).max(40)).max(8).optional(),
   colours: z.array(z.string().min(1).max(80)).max(30).optional(),
   clarities: z.array(z.string().min(1).max(30)).max(12).optional(),
+  statementTypes: z.array(z.string().min(1).max(40)).max(12).optional(),
+  labs: z.array(z.string().min(1).max(30)).max(8).optional(),
   page: z.number().int().min(0).max(1_000).optional(),
   pageSize: z.number().int().min(12).max(96).optional(),
 });
 
 export const publicAvailabilityRouter = router({
   profiles: publicProcedure.input(profileFilters.optional()).query(({ input }) => listPublicAvailabilityProfiles(input ?? {})),
-  summary: publicProcedure.input(z.object({ category: z.enum(["White", "Fancy Colour"]).optional() }).optional()).query(({ input }) => getPublicAvailabilitySummary(input ?? {})),
+  summary: publicProcedure.input(z.object({ collection: z.enum(["core", "statement"]).optional(), category: z.enum(["White", "Fancy Colour"]).optional() }).optional()).query(({ input }) => getPublicAvailabilitySummary(input ?? {})),
 });
 
 export const adminAvailabilityRouter = router({
   validateImport: adminProcedure.input(csvInput).mutation(({ input }) => {
-    const result = validateAvailabilityImportCsv(input.csv);
+    const result = input.collection === "statement" ? validateStatementAvailabilityImportCsv(input.csv) : validateAvailabilityImportCsv(input.csv);
     return {
       filename: input.filename,
+      collection: input.collection,
       valid: result.valid,
       rowCount: result.rowCount,
       rejectionReport: result.rejections,
@@ -45,24 +52,25 @@ export const adminAvailabilityRouter = router({
     };
   }),
   replaceImport: adminProcedure.input(csvInput).mutation(async ({ ctx, input }) => {
-    const result = validateAvailabilityImportCsv(input.csv);
-    if (!result.valid) {
-      throw new TRPCError({
-        code: "BAD_REQUEST",
-        message: "Availability import was not applied because the validation report contains rejected rows.",
-        cause: { rejectionReport: result.rejections },
-      });
+    if (input.collection === "statement") {
+      const result = validateStatementAvailabilityImportCsv(input.csv);
+      if (!result.valid) throw new TRPCError({ code: "BAD_REQUEST", message: "Availability import was not applied because the validation report contains rejected rows.", cause: { rejectionReport: result.rejections } });
+      const imported = await createStatementAvailabilityImport({ sourceFilename: input.filename, importedByUserId: ctx.user.id, records: result.records });
+      return { import: imported, collection: input.collection, rowCount: result.rowCount, whiteRowCount: result.records.filter((record) => record.category === "White").length, fancyRowCount: result.records.filter((record) => record.category === "Fancy Colour").length, flaggedRows: [] };
     }
+    const result = validateAvailabilityImportCsv(input.csv);
+    if (!result.valid) throw new TRPCError({ code: "BAD_REQUEST", message: "Availability import was not applied because the validation report contains rejected rows.", cause: { rejectionReport: result.rejections } });
     const imported = await createAvailabilityImport({ sourceFilename: input.filename, importedByUserId: ctx.user.id, records: result.records });
     return {
       import: imported,
+      collection: input.collection,
       rowCount: result.rowCount,
       whiteRowCount: result.records.filter((record) => record.category === "White").length,
       fancyRowCount: result.records.filter((record) => record.category === "Fancy Colour").length,
       flaggedRows: [],
     };
   }),
-  summary: adminProcedure.query(() => getAvailabilityAdminSummary()),
+  summary: adminProcedure.input(z.object({ collection: z.enum(["core", "statement"]).default("core") }).optional()).query(({ input }) => getAvailabilityAdminSummary(input?.collection ?? "core")),
   versions: adminProcedure.query(() => listAvailabilityImports()),
   restoreVersion: adminProcedure.input(z.object({ importId: z.number().int().positive() })).mutation(async ({ input }) => {
     const restored = await restoreAvailabilityImport(input.importId);

@@ -29,4 +29,19 @@ describe("public maker-positioning language", () => {
       expect(catalogAndCollateral).not.toContain(prohibited);
     }
   });
+
+  it("keeps STATEMENT catalog media and certificate behavior explicit without restoring an IGI-only label", () => {
+    const catalog = readFileSync("client/src/pages/PublicAvailability.tsx", "utf8");
+    const coreImporter = readFileSync("server/availabilityImport.ts", "utf8");
+    const statementImporter = readFileSync("server/statementAvailabilityImport.ts", "utf8");
+
+    expect(catalog).toContain('statement: "Statement"');
+    expect(catalog).toContain("catalog-statement-image");
+    expect(catalog).toContain("View certificate");
+    expect(catalog).not.toContain("Verify on IGI");
+    expect(coreImporter).toContain("https://api.igi.org/viewpdf.php?r=");
+    expect(statementImporter).toContain("cert_pdf_url");
+    expect(statementImporter).toContain("image_url");
+    expect(statementImporter).toContain("video_url");
+  });
 });

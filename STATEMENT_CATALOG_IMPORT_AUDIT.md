@@ -1,0 +1,15 @@
+# STATEMENT Catalog Import Audit
+
+The owner-supplied `alvora_availability_statement.csv` was preflighted against the dedicated 26-column, no-price STATEMENT contract and activated as isolated snapshot **30001** on 27 August 2026. The feed contained **593** available rows: **389 Fancy Colour** and **204 White**. It replaced no core data; the active core snapshot remains import **1** with **1,839** records.
+
+The parser treats literal `null` values in optional source fields as blank. The active STATEMENT snapshot has **561** supplied images, **573** supplied 360° viewers, and **562** supplied certificate destinations. Blank source certificate and media fields remain absent in the catalog; no link, placeholder, or specification is fabricated.
+
+All active records have a null stored price. Active core records use `https://api.igi.org/viewpdf.php?r={cert_no}`. STATEMENT records preserve each supplied certificate destination exactly, including its GIA report URLs. Public browser review confirmed the three collection tabs, STATEMENT’s six filters, its image card presentation, generic **View certificate** action, and 360° action for populated viewer URLs.
+
+French browser review confirmed the localized STATEMENT introduction, Type and Laboratory filters, **Voir le certificat** / **Voir à 360°** actions, live count of 593, and visible loaded supplied still images. The French catalog retains the required `diamants de synthèse` terminology.
+
+Italian browser review confirmed the localized third tab, live collection count, standard catalog filters, certificate action, and the retained `diamanti sintetici` terminology. The STATEMENT tab uses the same locale-aware request-prefill route as its core collections.
+
+Mobile capture at 375 px confirmed the three-tab control, four standard filters, readable mono labels, and grid/list controls fit the public catalog header. Core availability resolved with the live counts; localized requests resolve after their independent catalog queries complete.
+
+Homepage review confirmed the **STATEMENT — 593 signature-cut & rare-colour stones** tile appears in Live production profiles beside the existing core collection and shape tiles. The public Availability entry point remains `/availability`.
