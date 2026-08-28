@@ -175,3 +175,7 @@
 - [x] Reconcile reported stale draft, compliance-placeholder, locale-footer, and buyer-login findings with the latest published release; corrected the Italian privacy label and retained the owner-approved public no-login model.
 - [x] Improve remaining public micro-label contrast and technical-card scanability with separated measurement chips and the existing readable-detail scale.
 - [x] Validate confirmed fixes across EN/FR/IT, desktop/mobile, direct anchors, public production brief submission, no-price catalogue privacy, and protected administration.
+- [ ] Safely inspect and update `LBG/website/.env.railway.txt` with a locally available Resend key only if present, preserving all other values and not exposing secrets.
+- [x] Create and deliver a secret-free ZIP archive of the authoritative `/home/ubuntu/alvora-site` source project.
+- [x] Diagnose and fix Railway deployment rendering for bundled hero/supporting imagery and the standalone SPA `/availability` route in the exported project.
+- [ ] Configure and verify Railway runtime access to the active Alvora database so live availability records and counts load at `/availability`.

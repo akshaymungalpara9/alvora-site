@@ -1,7 +1,7 @@
 export type PublicSeoLocale = "global" | "fr" | "it" | "us";
 
 export type PublicDocumentMetadata = { lang: string; path: string; title: string; description: string; robots?: string };
-export const publicSocialImage = "/manus-storage/alvora-hero-qc_9e0d540e.jpg";
+export const publicSocialImage = "/assets/alvora-hero-qc.webp";
 
 export const publicSeo = {
   global: {

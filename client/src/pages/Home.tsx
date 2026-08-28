@@ -16,10 +16,10 @@ import PublicMetadata from "@/components/PublicMetadata";
 import { useLocation } from "wouter";
 import { navigateToPublicAnchor, scrollToPublicAnchor, usePublicHashNavigation } from "@/lib/hashNavigation";
 
-const heroImage = "/manus-storage/alvora-hero-qc_9e0d540e.jpg";
-const facetingImage = "/manus-storage/alvora-cutting-faceting_9e45364b.jpg";
-const laserImage = "/manus-storage/alvora-laser-calibration_fe325862.jpg";
-const markImage = "/manus-storage/alvora-faceted-a_2ef055e2.png";
+const heroImage = "/assets/alvora-hero-qc.webp";
+const facetingImage = "/assets/alvora-cutting-faceting.webp";
+const laserImage = "/assets/alvora-laser-calibration.webp";
+const markImage = "/assets/alvora-faceted-a.webp";
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
