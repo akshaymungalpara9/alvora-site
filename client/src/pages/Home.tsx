@@ -273,6 +273,23 @@ export default function Home() {
           </div>
         </section>
 
+        <section className="buyer-first-strip" aria-label="B2B buyer summary">
+          <div className="buyer-first-intro">
+            <p className="eyebrow"><span /> ALVORA / B2B MANUFACTURING</p>
+            <h2>For brands, retailers, and jewellers who need the make to hold.</h2>
+            <p>Start with a specification, a matched layout, or a production requirement. We return with the practical next step.</p>
+          </div>
+          <div className="buyer-first-proof">
+            <article><Check size={16} /><div><strong>Certified and calibrated</strong><span>IGI-verified production details where a matching report is supplied.</span></div></article>
+            <article><Check size={16} /><div><strong>Made in Surat</strong><span>Cut, calibrated, and finished by Alvora’s own bench-led team.</span></div></article>
+            <article><Check size={16} /><div><strong>Specification-led</strong><span>Typical spec-make timing is presented as 5–10 working days.</span></div></article>
+          </div>
+          <div className="buyer-first-actions">
+            <button className="button button-signal" type="button" onClick={() => openBrief("Production run")} data-umami-event="phase1_buyer_brief_cta">Start a production brief <ArrowUpRight size={16} /></button>
+            <a className="text-link" href="/availability" data-umami-event="phase1_buyer_availability_cta">Browse current availability <MoveRight size={16} /></a>
+          </div>
+        </section>
+
         <section
           className="heritage-section"
           id="heritage"
