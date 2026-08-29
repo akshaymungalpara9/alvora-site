@@ -659,8 +659,15 @@ h1 { margin-bottom: 24px; color: var(--paper); font-family: var(--serif); font-s
 .catalog-list .catalog-statement-image { max-height: 112px; }
 .catalog-list .catalog-cert { display: grid; gap: .55rem; margin: 0; padding-top: 0; border-top: 0; }
 .catalog-list .catalog-stone small { display: none; }
-.catalog-empty, .catalog-loading { grid-column: 1 / -1; margin: 0; padding: 4rem 1rem; color: var(--paper-dim); text-align: center; }
-.catalog-loading { display: flex; align-items: center; justify-content: center; gap: .65rem; }
+.catalog-empty, .catalog-loading, .catalog-state { grid-column: 1 / -1; margin: 0; padding: 4rem 1rem; color: var(--paper-dim); text-align: center; }
+.catalog-loading { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: .65rem; }
+.catalog-loading-note { flex-basis: 100%; margin: .25rem 0 0; color: var(--paper-dim); font: .62rem/1.5 var(--mono); }
+.catalog-loading-note button, .catalog-error-state button { border: 1px solid var(--signal); background: transparent; color: var(--signal); padding: .65rem .85rem; font: .6rem/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; cursor: pointer; }
+.catalog-loading-note button:hover, .catalog-error-state button:hover { background: var(--signal); color: var(--ink); }
+.catalog-error-state { display: grid; place-items: center; gap: .9rem; min-height: 240px; border: 1px solid var(--rule); background: rgba(240,238,231,.035); }
+.catalog-error-state p { max-width: 460px; margin: 0; color: var(--paper-dim); font-size: 1rem; line-height: 1.6; }
+.catalog-filter-note { width: 100%; margin: 0; color: var(--paper-dim); font: .58rem/1.4 var(--mono); letter-spacing: .04em; }
+.catalog-filter select:disabled { cursor: not-allowed; opacity: .55; }
 .catalog-pagination { display: flex; align-items: center; justify-content: space-between; padding: 1.5rem 0; color: var(--paper-dim); font: .62rem/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; }
 .catalog-pagination button { display: inline-flex; align-items: center; gap: .4rem; border: 1px solid var(--rule); background: transparent; color: var(--paper); padding: .65rem .75rem; font: inherit; cursor: pointer; }
 .catalog-pagination button:disabled { opacity: .35; cursor: not-allowed; }
@@ -745,7 +752,7 @@ body { color: var(--ink); }
 .credentials-list b { border-color: var(--signal); color: var(--signal-text); background: var(--surface); }
 
 /* Public catalogue: paper cards, brass selection cues, and clear certificate actions. */
-.catalog-hero > p:not(.eyebrow):not(.catalog-freshness), .catalog-statement-intro, .catalog-empty, .catalog-loading, .catalog-pagination { color: var(--paper-dim); }
+.catalog-hero > p:not(.eyebrow):not(.catalog-freshness), .catalog-statement-intro, .catalog-empty, .catalog-loading, .catalog-state, .catalog-filter-note, .catalog-pagination { color: var(--paper-dim); }
 .catalog-freshness, .catalog-filter-title, .catalog-stone-top span, .catalog-stone small, .catalog-stone-details[open] summary { color: var(--signal-text); }
 .catalog-collection-tabs, .catalog-collection-tabs button, .catalog-controls, .catalog-grid, .catalog-list, .catalog-stone-details, .catalog-stone-details dl, .catalog-stone-details dl > div, .catalog-pagination, .catalog-commission { border-color: var(--rule); }
 .catalog-collection-tabs button { background: transparent; color: var(--paper-dim); }

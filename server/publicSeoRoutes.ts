@@ -7,6 +7,8 @@ export const PUBLIC_SITEMAP_PATHS = [
   "/us",
   "/insights",
   "/availability",
+  "/fr/availability",
+  "/it/availability",
   "/insights/choose-lab-grown-diamond-manufacturer-india",
   "/insights/oem-odm-private-label-jewellery",
   "/insights/cad-to-certified-sample-qc-process",
@@ -66,7 +68,7 @@ export function renderSitemap(origin: string) {
 }
 
 export function renderRobots(origin: string) {
-  return `User-agent: *\nAllow: /\nDisallow: /admin\nDisallow: /admin/\n\nDisallow: /api/\n\nSitemap: ${origin}/sitemap.xml\n`;
+  return `User-agent: *\nAllow: /\nDisallow: /admin\nDisallow: /admin/\nDisallow: /api/\n\nSitemap: ${origin}/sitemap.xml\n`;
 }
 
 export function registerPublicSeoRoutes(app: Express) {
