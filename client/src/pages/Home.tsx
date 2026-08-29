@@ -309,16 +309,18 @@ export default function Home() {
                 understand the make.
               </p>
               <p>
-                Every stone we ship is calibrated to our standard make:{" "}
+                Alvora’s stated standard make is{" "}
                 <strong>Excellent/Ideal cut, no fluorescence, no BGM.</strong>{" "}
-                It is IGI laser-inscribed and validated against the IGI database
-                before dispatch.
+                For each order, confirm the applicable specification and IGI
+                report destination before dispatch.
               </p>
               <p>
-                We make to a specification, and we can rework what we have made.
+                We make to a specification, and qualifying Alvora-made stones can
+                be assessed for recut, repolish, or rework.
               </p>
               <p className="heritage-maker-line">
-                Cut, calibrated and IGI-certified by our own team.
+                Cut and calibrated by the Alvora team; report details confirmed
+                per order.
               </p>
             </div>
           </div>
@@ -326,23 +328,23 @@ export default function Home() {
             className="by-numbers"
             aria-label="Alvora production proof points"
           >
-            <p>By the numbers</p>
+            <p>What a buyer can verify</p>
             <div className="numbers-strip">
               <article>
-                <strong>25+</strong>
-                <span>years of experience</span>
+                <strong>SPEC</strong>
+                <span>brief and accepted profile recorded</span>
               </article>
               <article>
-                <strong>10,000+</strong>
-                <span>stones dispatched</span>
+                <strong>IGI</strong>
+                <span>report destination shown where supplied</span>
               </article>
               <article>
-                <strong>100%</strong>
-                <span>IGI standard on every stone</span>
+                <strong>QC</strong>
+                <span>technical details reviewed before enquiry</span>
               </article>
               <article>
-                <strong>DIRECT</strong>
-                <span>from-bench pricing</span>
+                <strong>ORDER</strong>
+                <span>commercial and dispatch terms confirmed in writing</span>
               </article>
             </div>
           </div>
@@ -602,11 +604,10 @@ export default function Home() {
                 <span>Assured make</span>
                 <h3>Repair or replace.</h3>
                 <p>
-                  Every stone is verified against its certificate before
-                  dispatch. In the rare case a piece needs correction — a spec
-                  mismatch, a chip, a make issue — it goes back to our benches.
-                  We repair or replace and return it. You are never left with a
-                  stone you cannot sell.
+                  The stated handling for an Alvora-made stone that needs
+                  correction is assessment for repair, recut, repolish, or
+                  replacement. Confirm the applicable correction path and written
+                  order terms before dispatch.
                 </p>
               </article>
             </div>
@@ -646,10 +647,9 @@ export default function Home() {
                 What if a stone needs correction?<span>+</span>
               </summary>
               <p>
-                Every stone is verified against its certificate before dispatch.
-                If a piece needs correction — a spec mismatch, a chip, or a make
-                issue — it goes back to our benches. We repair or replace and
-                return it, so you are never left with a stone you cannot sell.
+                An Alvora-made stone that needs correction can be assessed for
+                repair, recut, repolish, or replacement. Confirm the applicable
+                correction path and written order terms for the specific order.
               </p>
             </details>
             <details open>
@@ -682,7 +682,7 @@ export default function Home() {
               </p>
             </details>
             <p className="faq-maker-line">
-              Every stone we ship is one we made.
+              Every shipped stone is checked against the agreed production record.
             </p>
           </div>
         </section>
