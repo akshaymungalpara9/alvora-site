@@ -926,3 +926,28 @@ body { color: var(--ink); }
 .buyer-first-actions { display: grid; gap: .9rem; justify-items: start; }
 @media (max-width: 980px) { .buyer-first-strip { grid-template-columns: 1fr 1fr; } .buyer-first-actions { grid-column: 1 / -1; display: flex; align-items: center; flex-wrap: wrap; } }
 @media (max-width: 700px) { .buyer-first-strip { grid-template-columns: 1fr; gap: 2rem; padding: 3rem 20px; } .buyer-first-actions { grid-column: auto; align-items: flex-start; flex-direction: column; } }
+
+.b2b-page { min-height: 100vh; background: var(--ink); color: var(--paper); }
+.b2b-header { min-height: 76px; display: flex; align-items: center; justify-content: space-between; padding: 0 5.45vw; border-bottom: 1px solid var(--rule); }
+.b2b-hero { max-width: 980px; padding: clamp(6rem, 13vw, 11rem) 5.45vw 6rem; }
+.b2b-hero h1 { max-width: 880px; margin: 1rem 0 1.7rem; font: clamp(3.4rem, 7.5vw, 7.5rem)/.9 var(--serif); font-weight: 500; letter-spacing: -.065em; }
+.b2b-dek { max-width: 650px; color: var(--paper-dim); font-size: 1.08rem; line-height: 1.8; }
+.b2b-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 1.3rem; margin-top: 2.2rem; }
+.b2b-grid, .b2b-steps { display: grid; grid-template-columns: minmax(260px, .9fr) minmax(0, 1.1fr); gap: 4rem; padding: 4rem 5.45vw; border-top: 1px solid var(--rule); }
+.b2b-grid h2, .b2b-steps h2, .b2b-footer-cta h2 { max-width: 620px; margin: .8rem 0 0; font: clamp(2.6rem, 5vw, 5rem)/.95 var(--serif); font-weight: 500; letter-spacing: -.055em; }
+.b2b-proof-list { display: grid; gap: .8rem; }
+.b2b-proof-list p { display: flex; align-items: flex-start; gap: .8rem; margin: 0; padding: 1rem 0; border-bottom: 1px solid var(--rule); color: var(--paper-dim); font-size: .95rem; line-height: 1.5; }
+.b2b-proof-list svg { flex: 0 0 auto; margin-top: .15rem; color: var(--signal); }
+.b2b-step-list { border-top: 1px solid var(--rule); }
+.b2b-step-list article { display: grid; grid-template-columns: 60px minmax(0, 1fr); gap: 1rem; padding: 1.5rem 0; border-bottom: 1px solid var(--rule); }
+.b2b-step-list span { color: var(--signal); font: .68rem var(--mono); letter-spacing: .1em; }
+.b2b-step-list p { margin: 0; color: var(--paper); font-size: 1.15rem; line-height: 1.45; }
+.b2b-faq { max-width: 980px; padding: 4rem 5.45vw; border-top: 1px solid var(--rule); }
+.b2b-faq details { border-bottom: 1px solid var(--rule); }
+.b2b-faq summary { display: flex; justify-content: space-between; gap: 1rem; padding: 1.3rem 0; color: var(--paper); font: 1.15rem var(--serif); cursor: pointer; list-style: none; }
+.b2b-faq summary::-webkit-details-marker { display: none; }
+.b2b-faq summary span { color: var(--signal); font-family: var(--mono); }
+.b2b-faq details p { max-width: 620px; margin: 0 0 1.4rem; color: var(--paper-dim); line-height: 1.7; }
+.b2b-footer-cta { margin: 2rem 5.45vw 0; padding: 4rem 0 7rem; border-top: 1px solid var(--rule); }
+.b2b-footer-cta h2 { margin-bottom: 2rem; }
+@media (max-width: 760px) { .b2b-header { min-height: 66px; padding: 0 20px; } .b2b-hero { padding: 5rem 20px 4rem; } .b2b-hero h1 { font-size: clamp(3.1rem, 14vw, 5rem); } .b2b-grid, .b2b-steps { grid-template-columns: 1fr; gap: 2rem; padding: 3rem 20px; } .b2b-faq { padding: 3rem 20px; } .b2b-footer-cta { margin-left: 20px; margin-right: 20px; padding-bottom: 5rem; } }

@@ -11,6 +11,13 @@ export const PUBLIC_SITEMAP_PATHS = [
   "/insights/cad-to-certified-sample-qc-process",
   "/insights/lab-grown-diamond-moq-sampling-lead-time",
   "/insights/export-jewellery-manufacturer-due-diligence",
+  "/oem-private-label-lab-grown-diamond-jewellery",
+  "/wholesale-lab-grown-diamond-jewellery",
+  "/export-lab-grown-diamond-jewellery",
+  "/custom-jewellery-manufacturing",
+  "/lab-grown-diamond-rings-wholesale",
+  "/trade-catalogue",
+  "/process-and-documentation",
   "/privacy",
   "/terms",
 ] as const;
