@@ -18,6 +18,10 @@ export const PUBLIC_SITEMAP_PATHS = [
   "/lab-grown-diamond-rings-wholesale",
   "/trade-catalogue",
   "/process-and-documentation",
+  "/wholesale-cvd-diamonds-surat",
+  "/hpht-fancy-color-lab-grown",
+  "/bulk-melee-parcels",
+  "/trade-registration",
   "/privacy",
   "/terms",
 ] as const;
