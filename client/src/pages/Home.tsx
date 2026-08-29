@@ -14,7 +14,12 @@ import {
 import { trpc } from "@/lib/trpc";
 import PublicMetadata from "@/components/PublicMetadata";
 import { useLocation } from "wouter";
-import { navigateToPublicAnchor, scrollToPublicAnchor, usePublicHashNavigation } from "@/lib/hashNavigation";
+import {
+  navigateToPublicAnchor,
+  scrollToPublicAnchor,
+  usePublicHashNavigation,
+} from "@/lib/hashNavigation";
+import { trackLeadEvent } from "@/lib/leadAttribution";
 
 const heroImage = "/assets/alvora-hero-qc.webp";
 const facetingImage = "/assets/alvora-cutting-faceting.webp";
@@ -25,42 +30,73 @@ export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [requestType, setRequestType] = useState("Production run");
   const [briefText, setBriefText] = useState("");
-  const [submissionState, setSubmissionState] = useState<"idle" | "sending" | "sent" | "saved" | "error">("idle");
+  const [submissionState, setSubmissionState] = useState<
+    "idle" | "sending" | "sent" | "saved" | "error"
+  >("idle");
   const formRef = useRef<HTMLFormElement>(null);
   const [location] = useLocation();
   usePublicHashNavigation();
   const availabilitySummary = trpc.availability.summary.useQuery();
-  const statementSummary = trpc.availability.summary.useQuery({ collection: "statement" });
+  const statementSummary = trpc.availability.summary.useQuery({
+    collection: "statement",
+  });
   const submitProductionBrief = trpc.productionBrief.submit.useMutation({
     onMutate: () => setSubmissionState("sending"),
-    onSuccess: (result) => {
+    onSuccess: result => {
+      trackLeadEvent("production_brief_recorded", {
+        delivery:
+          result.alertStatus === "sent" ? "alert_sent" : "saved_for_review",
+      });
       setSubmissionState(result.alertStatus === "sent" ? "sent" : "saved");
       formRef.current?.reset();
       setRequestType("Production run");
       setBriefText("");
     },
-    onError: () => setSubmissionState("error"),
+    onError: () => {
+      trackLeadEvent("production_brief_error");
+      setSubmissionState("error");
+    },
   });
 
   const openBrief = (type = "Production run") => {
     setRequestType(type);
     setSubmissionState("idle");
+    trackLeadEvent("production_brief_open", { request_type: type });
     setMenuOpen(false);
-    window.requestAnimationFrame(() => scrollToPublicAnchor("#production-brief"));
+    window.requestAnimationFrame(() =>
+      scrollToPublicAnchor("#production-brief")
+    );
   };
 
   useEffect(() => {
-    const availability = new URLSearchParams(window.location.search).get("availability");
+    const availability = new URLSearchParams(window.location.search).get(
+      "availability"
+    );
     if (!availability) return;
     setRequestType("Production run");
-    setBriefText(`Current production availability enquiry\n${availability}\n\nPlease confirm this make and current availability.`);
-    window.requestAnimationFrame(() => scrollToPublicAnchor("#production-brief"));
+    setBriefText(
+      `Current production availability enquiry\n${availability}\n\nPlease confirm this make and current availability.`
+    );
+    window.requestAnimationFrame(() =>
+      scrollToPublicAnchor("#production-brief")
+    );
   }, [location]);
 
   const handlePublicAnchor = (event: MouseEvent<HTMLDivElement>) => {
-    const link = (event.target as Element | null)?.closest<HTMLAnchorElement>('a[href^="#"]');
+    const link = (event.target as Element | null)?.closest<HTMLAnchorElement>(
+      'a[href^="#"]'
+    );
     const hash = link?.getAttribute("href");
-    if (!link || !hash || link.classList.contains("skip-link") || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    if (
+      !link ||
+      !hash ||
+      link.classList.contains("skip-link") ||
+      event.metaKey ||
+      event.ctrlKey ||
+      event.shiftKey ||
+      event.altKey
+    )
+      return;
     if (navigateToPublicAnchor(hash)) event.preventDefault();
   };
 
@@ -68,6 +104,10 @@ export default function Home() {
     event.preventDefault();
     const values = new FormData(event.currentTarget);
     setSubmissionState("idle");
+    trackLeadEvent("production_brief_submit", {
+      request_type: String(values.get("request_type")),
+      has_company: Boolean(String(values.get("company") || "").trim()),
+    });
     submitProductionBrief.mutate({
       requestType: String(values.get("request_type")),
       market: "GLOBAL",
@@ -75,16 +115,32 @@ export default function Home() {
       contactName: String(values.get("name")).trim(),
       email: String(values.get("email")).trim(),
       company: String(values.get("company") || "").trim() || undefined,
-      yearsTrading: String(values.get("years_trading")) as "Under 2" | "2–5" | "5–10" | "10+",
-      tradeReferencesAvailable: String(values.get("trade_references")) as "Yes" | "No",
-      preferredPaymentApproach: String(values.get("preferred_payment_approach")) as "Prepaid on proforma" | "Agreed trade terms subject to credit check" | "Open to discussion",
-      referrerName: String(values.get("referrer_name") || "").trim() || undefined,
+      yearsTrading: String(values.get("years_trading")) as
+        | "Under 2"
+        | "2–5"
+        | "5–10"
+        | "10+",
+      tradeReferencesAvailable: String(values.get("trade_references")) as
+        | "Yes"
+        | "No",
+      preferredPaymentApproach: String(
+        values.get("preferred_payment_approach")
+      ) as
+        | "Prepaid on proforma"
+        | "Agreed trade terms subject to credit check"
+        | "Open to discussion",
+      referrerName:
+        String(values.get("referrer_name") || "").trim() || undefined,
       brief: String(values.get("brief")).trim(),
     });
   };
 
   return (
-    <div id="top" className="site-shell" onClickCapture={handlePublicAnchor}><PublicMetadata locale="global" /><a className="skip-link" href="#main-content">Skip to main content</a>
+    <div id="top" className="site-shell" onClickCapture={handlePublicAnchor}>
+      <PublicMetadata locale="global" />
+      <a className="skip-link" href="#main-content">
+        Skip to main content
+      </a>
       <header className="site-header" aria-label="Primary navigation">
         <a className="brand" href="#top" aria-label="Alvora home">
           <img className="brand-mark" src={markImage} alt="" />
@@ -98,7 +154,17 @@ export default function Home() {
           <a href="/availability">Availability</a>
         </nav>
 
-        <nav className="language-switcher" aria-label="Language selection"><a href="/" className="is-active">EN</a><a href="/fr" lang="fr">FR</a><a href="/it" lang="it">IT</a></nav>
+        <nav className="language-switcher" aria-label="Language selection">
+          <a href="/" className="is-active">
+            EN
+          </a>
+          <a href="/fr" lang="fr">
+            FR
+          </a>
+          <a href="/it" lang="it">
+            IT
+          </a>
+        </nav>
 
         <button
           className="header-cta"
@@ -113,85 +179,182 @@ export default function Home() {
           type="button"
           aria-label={menuOpen ? "Close navigation" : "Open navigation"}
           aria-expanded={menuOpen}
-          onClick={() => setMenuOpen((open) => !open)}
+          onClick={() => setMenuOpen(open => !open)}
         >
           {menuOpen ? <X size={22} /> : <Menu size={22} />}
         </button>
 
         {menuOpen && (
           <div className="mobile-nav">
-            <a href="#production" onClick={() => setMenuOpen(false)}>Our production</a>
-            <a href="#made-to-spec" onClick={() => setMenuOpen(false)}>Made to specification</a>
-            <a href="#how-we-work" onClick={() => setMenuOpen(false)}>How we work</a>
-            <a href="/availability" onClick={() => setMenuOpen(false)}>Availability</a>
-            <nav className="language-switcher" aria-label="Language selection"><a href="/" className="is-active">EN</a><a href="/fr" lang="fr">FR</a><a href="/it" lang="it">IT</a></nav>
-            <button type="button" onClick={() => openBrief()}>Commission a make <ArrowUpRight size={16} /></button>
+            <a href="#production" onClick={() => setMenuOpen(false)}>
+              Our production
+            </a>
+            <a href="#made-to-spec" onClick={() => setMenuOpen(false)}>
+              Made to specification
+            </a>
+            <a href="#how-we-work" onClick={() => setMenuOpen(false)}>
+              How we work
+            </a>
+            <a href="/availability" onClick={() => setMenuOpen(false)}>
+              Availability
+            </a>
+            <nav className="language-switcher" aria-label="Language selection">
+              <a href="/" className="is-active">
+                EN
+              </a>
+              <a href="/fr" lang="fr">
+                FR
+              </a>
+              <a href="/it" lang="it">
+                IT
+              </a>
+            </nav>
+            <button type="button" onClick={() => openBrief()}>
+              Commission a make <ArrowUpRight size={16} />
+            </button>
           </div>
         )}
       </header>
 
       <main id="main-content" tabIndex={-1}>
         <section className="hero" aria-labelledby="hero-title">
-          <img className="hero-image" src={heroImage} alt="A diamond being inspected through a jeweller's loupe during quality control." />
+          <img
+            className="hero-image"
+            src={heroImage}
+            alt="A diamond being inspected through a jeweller's loupe during quality control."
+          />
           <div className="hero-scrim" />
           <div className="hero-rule hero-rule-a" />
           <div className="hero-rule hero-rule-b" />
           <div className="hero-content">
-            <p className="eyebrow eyebrow-bright"><span /> Lab-Grown Diamond Manufacturers, Surat</p>
-            <h1 id="hero-title">Diamonds made to a standard exacting buyers can rely on.</h1>
-            <p className="hero-copy">Alvora manufactures certified, calibrated lab-grown diamonds for jewellery teams that need control in every dimension.</p>
-            <p className="hero-maker-line">You’re buying from the bench — there’s no factory behind us to go around.</p>
+            <p className="eyebrow eyebrow-bright">
+              <span /> Lab-Grown Diamond Manufacturers, Surat
+            </p>
+            <h1 id="hero-title">
+              Diamonds made to a standard exacting buyers can rely on.
+            </h1>
+            <p className="hero-copy">
+              Alvora manufactures certified, calibrated lab-grown diamonds for
+              jewellery teams that need control in every dimension.
+            </p>
+            <p className="hero-maker-line">
+              You’re buying from the bench — there’s no factory behind us to go
+              around.
+            </p>
             <div className="hero-actions">
-              <button className="button button-signal" type="button" onClick={() => openBrief()}>
+              <button
+                className="button button-signal"
+                type="button"
+                onClick={() => openBrief()}
+              >
                 Commission a make <ArrowDownRight size={18} strokeWidth={1.6} />
               </button>
-              <a className="text-link text-link-light" href="#production">See our production <MoveRight size={17} strokeWidth={1.5} /></a>
+              <a className="text-link text-link-light" href="#production">
+                See our production <MoveRight size={17} strokeWidth={1.5} />
+              </a>
             </div>
           </div>
-          <div className="hero-index" aria-label="Alvora manufacturing location">
+          <div
+            className="hero-index"
+            aria-label="Alvora manufacturing location"
+          >
             <span>01</span>
-            <p>Surat manufacturing,<br />direct to your bench</p>
+            <p>
+              Surat manufacturing,
+              <br />
+              direct to your bench
+            </p>
           </div>
           <div className="hero-footer">
             <span>Certified / Calibrated / Made in Surat</span>
-            <span className="scroll-note">Scroll to inspect <ArrowDownRight size={14} /></span>
+            <span className="scroll-note">
+              Scroll to inspect <ArrowDownRight size={14} />
+            </span>
           </div>
         </section>
 
-        <section className="heritage-section" id="heritage" aria-labelledby="heritage-title">
+        <section
+          className="heritage-section"
+          id="heritage"
+          aria-labelledby="heritage-title"
+        >
           <p className="section-number">02 — MADE IN SURAT</p>
           <div className="heritage-content">
-            <h2 id="heritage-title">Made in Surat,<br /><em>by our benches.</em></h2>
+            <h2 id="heritage-title">
+              Made in Surat,
+              <br />
+              <em>by our benches.</em>
+            </h2>
             <div className="heritage-prose">
-              <p>Alvora is built inside Surat’s lab-grown cutting-and-polishing cluster: close to the work, the tools and the people who understand the make.</p>
-              <p>Every stone we ship is calibrated to our standard make: <strong>Excellent/Ideal cut, no fluorescence, no BGM.</strong> It is IGI laser-inscribed and validated against the IGI database before dispatch.</p>
-              <p>We make to a specification, and we can rework what we have made.</p>
-              <p className="heritage-maker-line">Cut, calibrated and IGI-certified by our own team.</p>
+              <p>
+                Alvora is built inside Surat’s lab-grown cutting-and-polishing
+                cluster: close to the work, the tools and the people who
+                understand the make.
+              </p>
+              <p>
+                Every stone we ship is calibrated to our standard make:{" "}
+                <strong>Excellent/Ideal cut, no fluorescence, no BGM.</strong>{" "}
+                It is IGI laser-inscribed and validated against the IGI database
+                before dispatch.
+              </p>
+              <p>
+                We make to a specification, and we can rework what we have made.
+              </p>
+              <p className="heritage-maker-line">
+                Cut, calibrated and IGI-certified by our own team.
+              </p>
             </div>
           </div>
-          <div className="by-numbers" aria-label="Alvora production proof points">
+          <div
+            className="by-numbers"
+            aria-label="Alvora production proof points"
+          >
             <p>By the numbers</p>
             <div className="numbers-strip">
-              <article><strong>25+</strong><span>years of experience</span></article>
-              <article><strong>10,000+</strong><span>stones dispatched</span></article>
-              <article><strong>100%</strong><span>IGI standard on every stone</span></article>
-              <article><strong>DIRECT</strong><span>from-bench pricing</span></article>
+              <article>
+                <strong>25+</strong>
+                <span>years of experience</span>
+              </article>
+              <article>
+                <strong>10,000+</strong>
+                <span>stones dispatched</span>
+              </article>
+              <article>
+                <strong>100%</strong>
+                <span>IGI standard on every stone</span>
+              </article>
+              <article>
+                <strong>DIRECT</strong>
+                <span>from-bench pricing</span>
+              </article>
             </div>
           </div>
         </section>
 
-        <section className="production-section" id="production" aria-labelledby="production-title">
+        <section
+          className="production-section"
+          id="production"
+          aria-labelledby="production-title"
+        >
           <div className="section-heading production-heading">
             <div>
-              <p className="eyebrow"><span /> 03 — OUR PRODUCTION</p>
+              <p className="eyebrow">
+                <span /> 03 — OUR PRODUCTION
+              </p>
               <h2 id="production-title">What we make.</h2>
             </div>
-            <p>Certified lab-grown diamonds, cut, calibrated and finished for reliable work at the bench.</p>
+            <p>
+              Certified lab-grown diamonds, cut, calibrated and finished for
+              reliable work at the bench.
+            </p>
           </div>
 
           <div className="production-grid">
             <article className="production-image-card">
-              <img src={facetingImage} alt="A diamond is cut and faceted on a professional workshop tool." />
+              <img
+                src={facetingImage}
+                alt="A diamond is cut and faceted on a professional workshop tool."
+              />
               <div className="image-caption">
                 <span>FACETING / IN PROCESS</span>
                 <span>SURAT / IND</span>
@@ -202,7 +365,10 @@ export default function Home() {
                 <span className="list-index">01</span>
                 <div>
                   <h3>Certified stones</h3>
-                  <p>Production with certification handled as part of the make, not as an afterthought.</p>
+                  <p>
+                    Production with certification handled as part of the make,
+                    not as an afterthought.
+                  </p>
                 </div>
                 <ArrowUpRight size={18} strokeWidth={1.4} />
               </article>
@@ -210,7 +376,10 @@ export default function Home() {
                 <span className="list-index">02</span>
                 <div>
                   <h3>Calibrated profiles</h3>
-                  <p>Repeatable dimensions and ratios for programmes where the setting already sets the terms.</p>
+                  <p>
+                    Repeatable dimensions and ratios for programmes where the
+                    setting already sets the terms.
+                  </p>
                 </div>
                 <ArrowUpRight size={18} strokeWidth={1.4} />
               </article>
@@ -218,112 +387,303 @@ export default function Home() {
                 <span className="list-index">03</span>
                 <div>
                   <h3>Matched parcels</h3>
-                  <p>Layouts matched for tonal consistency, proportion, and the way a finished piece must read.</p>
+                  <p>
+                    Layouts matched for tonal consistency, proportion, and the
+                    way a finished piece must read.
+                  </p>
                 </div>
                 <ArrowUpRight size={18} strokeWidth={1.4} />
               </article>
             </div>
           </div>
-          <section className="production-live" aria-labelledby="production-live-title">
-            <div className="production-live-heading"><div><p className="eyebrow"><span /> LIVE PRODUCTION PROFILES</p><h3 id="production-live-title">Current availability.</h3><p>Fancy Colour and White production, cut and calibrated at our benches. Browse the current menu, verify each IGI report, then make an enquiry from the stone page.</p></div><a className="production-live-link" href="/availability">View current availability <MoveRight size={16} /></a></div>
-            {availabilitySummary.data?.import && <p className="production-live-freshness">Last refreshed: {new Date(availabilitySummary.data.import.activatedAt).toLocaleString()}</p>}
-            {availabilitySummary.isLoading ? <p className="production-live-empty">Checking current production availability…</p> : availabilitySummary.data?.total ? <div className="production-profile-grid">{["Fancy Colour", "White"].map((category) => availabilitySummary.data.byCategory.find((collection) => collection.category === category)).filter((collection): collection is NonNullable<typeof collection> => Boolean(collection)).map((collection) => <article key={collection.category}><span>{collection.category}</span><strong>{collection.count}</strong><p>{collection.category === "Fancy Colour" ? "current differentiator profiles" : "current white profiles"}</p></article>)}<article><span>Statement</span><strong>{statementSummary.data?.total ?? 0}</strong><p>signature-cut &amp; rare-colour stones</p></article>{availabilitySummary.data.byShape.slice(0, 4).map((shape) => <article key={shape.shape}><span>{shape.shape}</span><strong>{shape.count}</strong><p>{shape.count} current {shape.count === 1 ? "profile" : "profiles"}</p></article>)}</div> : <p className="production-live-empty">Current availability will appear here after the first reviewed catalog refresh.</p>}
+          <section
+            className="production-live"
+            aria-labelledby="production-live-title"
+          >
+            <div className="production-live-heading">
+              <div>
+                <p className="eyebrow">
+                  <span /> LIVE PRODUCTION PROFILES
+                </p>
+                <h3 id="production-live-title">Current availability.</h3>
+                <p>
+                  Fancy Colour and White production, cut and calibrated at our
+                  benches. Browse the current menu, verify each IGI report, then
+                  make an enquiry from the stone page.
+                </p>
+              </div>
+              <a className="production-live-link" href="/availability">
+                View current availability <MoveRight size={16} />
+              </a>
+            </div>
+            {availabilitySummary.data?.import && (
+              <p className="production-live-freshness">
+                Last refreshed:{" "}
+                {new Date(
+                  availabilitySummary.data.import.activatedAt
+                ).toLocaleString()}
+              </p>
+            )}
+            {availabilitySummary.isLoading ? (
+              <p className="production-live-empty">
+                Checking current production availability…
+              </p>
+            ) : availabilitySummary.data?.total ? (
+              <div className="production-profile-grid">
+                {["Fancy Colour", "White"]
+                  .map(category =>
+                    availabilitySummary.data.byCategory.find(
+                      collection => collection.category === category
+                    )
+                  )
+                  .filter(
+                    (
+                      collection
+                    ): collection is NonNullable<typeof collection> =>
+                      Boolean(collection)
+                  )
+                  .map(collection => (
+                    <article key={collection.category}>
+                      <span>{collection.category}</span>
+                      <strong>{collection.count}</strong>
+                      <p>
+                        {collection.category === "Fancy Colour"
+                          ? "current differentiator profiles"
+                          : "current white profiles"}
+                      </p>
+                    </article>
+                  ))}
+                <article>
+                  <span>Statement</span>
+                  <strong>{statementSummary.data?.total ?? 0}</strong>
+                  <p>signature-cut &amp; rare-colour stones</p>
+                </article>
+                {availabilitySummary.data.byShape.slice(0, 4).map(shape => (
+                  <article key={shape.shape}>
+                    <span>{shape.shape}</span>
+                    <strong>{shape.count}</strong>
+                    <p>
+                      {shape.count} current{" "}
+                      {shape.count === 1 ? "profile" : "profiles"}
+                    </p>
+                  </article>
+                ))}
+              </div>
+            ) : (
+              <p className="production-live-empty">
+                Current availability will appear here after the first reviewed
+                catalog refresh.
+              </p>
+            )}
           </section>
         </section>
 
-        <section className="spec-section" id="made-to-spec" aria-labelledby="spec-title">
+        <section
+          className="spec-section"
+          id="made-to-spec"
+          aria-labelledby="spec-title"
+        >
           <div className="spec-masthead">
-            <p className="eyebrow eyebrow-bright"><span /> 04 — MADE TO SPECIFICATION</p>
+            <p className="eyebrow eyebrow-bright">
+              <span /> 04 — MADE TO SPECIFICATION
+            </p>
             <p className="spec-stamp">SPEC 05–10 DAYS</p>
           </div>
           <div className="spec-lead">
-            <h2 id="spec-title">Made to<br /><em>your</em> specification.</h2>
-            <p>A broker can match a requirement. A manufacturer can cut to it. Send the specification your jewellery programme needs, and we make the diamond to meet it.</p>
+            <h2 id="spec-title">
+              Made to
+              <br />
+              <em>your</em> specification.
+            </h2>
+            <p>
+              A broker can match a requirement. A manufacturer can cut to it.
+              Send the specification your jewellery programme needs, and we make
+              the diamond to meet it.
+            </p>
           </div>
           <div className="spec-grid">
             <article>
               <span className="spec-number">A</span>
               <h3>Custom cut &amp; calibration</h3>
-              <p>Shape, exact dimensions, ratios and finish are worked to the buyer’s specification sheet.</p>
+              <p>
+                Shape, exact dimensions, ratios and finish are worked to the
+                buyer’s specification sheet.
+              </p>
             </article>
             <article>
               <span className="spec-number">B</span>
               <h3>Layouts made for manufacture</h3>
-              <p>Matched layouts and calibrated parcels for manufacturing jewellers and repeatable settings.</p>
+              <p>
+                Matched layouts and calibrated parcels for manufacturing
+                jewellers and repeatable settings.
+              </p>
             </article>
             <article>
               <span className="spec-number">C</span>
               <h3>Rework within the house</h3>
-              <p>Recut, repolish and rework of stones we have made, with continuity of production knowledge.</p>
+              <p>
+                Recut, repolish and rework of stones we have made, with
+                continuity of production knowledge.
+              </p>
             </article>
           </div>
           <div className="spec-action-row">
-            <p><span className="status-dot" /> Typical lead time for a spec make: <strong>5–10 working days</strong></p>
-            <button className="button button-outline" type="button" onClick={() => openBrief("Custom / made-to-spec.")}>Commission a spec make <ArrowDownRight size={18} /></button>
+            <p>
+              <span className="status-dot" /> Typical lead time for a spec make:{" "}
+              <strong>5–10 working days</strong>
+            </p>
+            <button
+              className="button button-outline"
+              type="button"
+              onClick={() => openBrief("Custom / made-to-spec.")}
+            >
+              Commission a spec make <ArrowDownRight size={18} />
+            </button>
           </div>
         </section>
 
-        <section className="process-section" id="how-we-work" aria-labelledby="process-title">
+        <section
+          className="process-section"
+          id="how-we-work"
+          aria-labelledby="process-title"
+        >
           <div className="process-image-wrap">
-            <img src={laserImage} alt="A laser station inscribes a finished diamond while a calibrated parcel rests at the bench." />
+            <img
+              src={laserImage}
+              alt="A laser station inscribes a finished diamond while a calibrated parcel rests at the bench."
+            />
             <div className="process-image-overlay" />
-            <p className="process-image-label">Laser inscription / identification / final check</p>
+            <p className="process-image-label">
+              Laser inscription / identification / final check
+            </p>
           </div>
           <div className="process-content">
-            <p className="eyebrow"><span /> 05 — HOW WE WORK</p>
-            <h2 id="process-title">A clear make.<br />Practical terms.</h2>
-            <p>We begin with the specification and stay accountable to the stone after the finished make leaves our benches.</p>
+            <p className="eyebrow">
+              <span /> 05 — HOW WE WORK
+            </p>
+            <h2 id="process-title">
+              A clear make.
+              <br />
+              Practical terms.
+            </h2>
+            <p>
+              We begin with the specification and stay accountable to the stone
+              after the finished make leaves our benches.
+            </p>
             <div className="commercial-panels">
               <article>
                 <span>Payment</span>
                 <h3>Built for working jewellers.</h3>
-                <p>We work with established jewellers and ateliers on flexible, negotiated trade terms. First orders confirm the make; ongoing accounts move to agreed terms after credit and reference checks. We work beyond a prepaid model.</p>
+                <p>
+                  We work with established jewellers and ateliers on flexible,
+                  negotiated trade terms. First orders confirm the make; ongoing
+                  accounts move to agreed terms after credit and reference
+                  checks. We work beyond a prepaid model.
+                </p>
               </article>
               <article>
                 <span>Assured make</span>
                 <h3>Repair or replace.</h3>
-                <p>Every stone is verified against its certificate before dispatch. In the rare case a piece needs correction — a spec mismatch, a chip, a make issue — it goes back to our benches. We repair or replace and return it. You are never left with a stone you cannot sell.</p>
+                <p>
+                  Every stone is verified against its certificate before
+                  dispatch. In the rare case a piece needs correction — a spec
+                  mismatch, a chip, a make issue — it goes back to our benches.
+                  We repair or replace and return it. You are never left with a
+                  stone you cannot sell.
+                </p>
               </article>
             </div>
-            <a className="text-link" href="#production-brief">Start a production brief <MoveRight size={17} strokeWidth={1.5} /></a>
+            <a
+              className="text-link"
+              href="#production-brief"
+              data-umami-event="production_brief_cta_click"
+              data-umami-event-data={JSON.stringify({
+                placement: "how_we_work",
+              })}
+            >
+              Start a production brief <MoveRight size={17} strokeWidth={1.5} />
+            </a>
           </div>
         </section>
 
         <section className="faq-section" id="faq" aria-labelledby="faq-title">
           <div className="faq-heading">
-            <p className="eyebrow"><span /> 06 — FAQ</p>
+            <p className="eyebrow">
+              <span /> 06 — FAQ
+            </p>
             <h2 id="faq-title">The useful questions.</h2>
           </div>
           <div className="faq-content">
             <details open>
-              <summary>What are your payment terms?<span>+</span></summary>
-              <p>We work with established jewellers and ateliers on flexible, negotiated trade terms. A first order confirms the make; ongoing accounts move to agreed terms after credit and reference checks.</p>
+              <summary>
+                What are your payment terms?<span>+</span>
+              </summary>
+              <p>
+                We work with established jewellers and ateliers on flexible,
+                negotiated trade terms. A first order confirms the make; ongoing
+                accounts move to agreed terms after credit and reference checks.
+              </p>
             </details>
             <details>
-              <summary>What if a stone needs correction?<span>+</span></summary>
-              <p>Every stone is verified against its certificate before dispatch. If a piece needs correction — a spec mismatch, a chip, or a make issue — it goes back to our benches. We repair or replace and return it, so you are never left with a stone you cannot sell.</p>
+              <summary>
+                What if a stone needs correction?<span>+</span>
+              </summary>
+              <p>
+                Every stone is verified against its certificate before dispatch.
+                If a piece needs correction — a spec mismatch, a chip, or a make
+                issue — it goes back to our benches. We repair or replace and
+                return it, so you are never left with a stone you cannot sell.
+              </p>
             </details>
             <details open>
-              <summary>What can I specify in a custom make?<span>+</span></summary>
-              <p>Shape, exact dimensions, ratios, finish, parcel requirements and timing can all be placed in the production brief.</p>
+              <summary>
+                What can I specify in a custom make?<span>+</span>
+              </summary>
+              <p>
+                Shape, exact dimensions, ratios, finish, parcel requirements and
+                timing can all be placed in the production brief.
+              </p>
             </details>
             <details>
-              <summary>Can you match stones for a manufacturing layout?<span>+</span></summary>
-              <p>Yes. Matched layouts and calibrated parcels are prepared around the proportions and visual consistency your finished piece requires.</p>
+              <summary>
+                Can you match stones for a manufacturing layout?<span>+</span>
+              </summary>
+              <p>
+                Yes. Matched layouts and calibrated parcels are prepared around
+                the proportions and visual consistency your finished piece
+                requires.
+              </p>
             </details>
             <details>
-              <summary>Can a stone be reworked after it is made?<span>+</span></summary>
-              <p>We can assess recut, repolish and rework requirements for stones made by Alvora, with the original production information close at hand.</p>
+              <summary>
+                Can a stone be reworked after it is made?<span>+</span>
+              </summary>
+              <p>
+                We can assess recut, repolish and rework requirements for stones
+                made by Alvora, with the original production information close
+                at hand.
+              </p>
             </details>
-            <p className="faq-maker-line">Every stone we ship is one we made.</p>
+            <p className="faq-maker-line">
+              Every stone we ship is one we made.
+            </p>
           </div>
         </section>
 
-        <section className="brief-section" id="production-brief" aria-labelledby="brief-title">
+        <section
+          className="brief-section"
+          id="production-brief"
+          aria-labelledby="brief-title"
+        >
           <div className="brief-intro">
-            <p className="eyebrow eyebrow-bright"><span /> 07 — PRODUCTION BRIEF</p>
+            <p className="eyebrow eyebrow-bright">
+              <span /> 07 — PRODUCTION BRIEF
+            </p>
             <h2 id="brief-title">Commission a make.</h2>
-            <p>Tell us the programme, profile, or specification you need. We will return with the practical production detail.</p>
+            <p>
+              Tell us the programme, profile, or specification you need. We will
+              return with the practical production detail.
+            </p>
             <div className="brief-aside">
               <span>ALVORA / SURAT</span>
               <span>MANUFACTURING ENQUIRY</span>
@@ -331,10 +691,24 @@ export default function Home() {
           </div>
 
           <form ref={formRef} className="brief-form" onSubmit={submitBrief}>
-            <div className="honeypot-field" aria-hidden="true"><label>Website<input name="_website" type="text" tabIndex={-1} autoComplete="off" /></label></div>
+            <div className="honeypot-field" aria-hidden="true">
+              <label>
+                Website
+                <input
+                  name="_website"
+                  type="text"
+                  tabIndex={-1}
+                  autoComplete="off"
+                />
+              </label>
+            </div>
             <label>
               <span>Request type</span>
-              <select name="request_type" value={requestType} onChange={(event) => setRequestType(event.target.value)}>
+              <select
+                name="request_type"
+                value={requestType}
+                onChange={event => setRequestType(event.target.value)}
+              >
                 <option>Production run</option>
                 <option>Custom / made-to-spec.</option>
                 <option>Matched layout / calibrated parcel</option>
@@ -344,16 +718,40 @@ export default function Home() {
             <div className="form-row">
               <label>
                 <span>Your name</span>
-                <input name="name" type="text" autoComplete="name" minLength={2} maxLength={180} required placeholder="Name" />
+                <input
+                  name="name"
+                  type="text"
+                  autoComplete="name"
+                  minLength={2}
+                  maxLength={180}
+                  required
+                  placeholder="Name"
+                />
               </label>
               <label>
                 <span>Work email</span>
-                <input name="email" type="email" autoComplete="email" inputMode="email" autoCapitalize="none" spellCheck={false} maxLength={320} required placeholder="name@company.com" />
+                <input
+                  name="email"
+                  type="email"
+                  autoComplete="email"
+                  inputMode="email"
+                  autoCapitalize="none"
+                  spellCheck={false}
+                  maxLength={320}
+                  required
+                  placeholder="name@company.com"
+                />
               </label>
             </div>
             <label>
               <span>Company / workshop</span>
-              <input name="company" type="text" autoComplete="organization" maxLength={180} placeholder="Company name" />
+              <input
+                name="company"
+                type="text"
+                autoComplete="organization"
+                maxLength={180}
+                placeholder="Company name"
+              />
             </label>
             <div className="form-qualification-grid">
               <label>
@@ -375,38 +773,124 @@ export default function Home() {
             </div>
             <label>
               <span>Preferred payment approach for a first order</span>
-              <select name="preferred_payment_approach" defaultValue="Agreed trade terms subject to credit check">
+              <select
+                name="preferred_payment_approach"
+                defaultValue="Agreed trade terms subject to credit check"
+              >
                 <option>Prepaid on proforma</option>
                 <option>Agreed trade terms subject to credit check</option>
                 <option>Open to discussion</option>
               </select>
             </label>
             <label>
-              <span>Introduced by a trade contact? <em>(optional)</em></span>
-              <input name="referrer_name" type="text" maxLength={180} placeholder="Name of the introducing contact" />
+              <span>
+                Introduced by a trade contact? <em>(optional)</em>
+              </span>
+              <input
+                name="referrer_name"
+                type="text"
+                maxLength={180}
+                placeholder="Name of the introducing contact"
+              />
             </label>
-            <p className="form-qualification-note">These details are used only to assess the right account approach for your enquiry.</p>
+            <p className="form-qualification-note">
+              These details are used only to assess the right account approach
+              for your enquiry.
+            </p>
             <label>
               <span>What needs to be made?</span>
-              <textarea name="brief" value={briefText} onChange={(event) => setBriefText(event.target.value)} minLength={10} maxLength={5000} required rows={5} placeholder="Shape, dimensions, ratios, finish, quantity, timing or anything already decided at your bench." />
+              <textarea
+                name="brief"
+                value={briefText}
+                onChange={event => setBriefText(event.target.value)}
+                minLength={10}
+                maxLength={5000}
+                required
+                rows={5}
+                placeholder="Shape, dimensions, ratios, finish, quantity, timing or anything already decided at your bench."
+              />
             </label>
             <div className="form-submit-row">
-              <button className="button button-signal" type="submit" disabled={submitProductionBrief.isPending}>{submitProductionBrief.isPending ? "Recording brief…" : <>Send production brief <ArrowUpRight size={18} /></>}</button>
-              <p>We use this information only to understand the make you require.</p>
+              <button
+                className="button button-signal"
+                type="submit"
+                disabled={submitProductionBrief.isPending}
+                data-umami-event="production_brief_submit_button"
+              >
+                {submitProductionBrief.isPending ? (
+                  "Recording brief…"
+                ) : (
+                  <>
+                    Send production brief <ArrowUpRight size={18} />
+                  </>
+                )}
+              </button>
+              <p>
+                We use this information only to understand the make you require.
+              </p>
             </div>
-            {submissionState !== "idle" && <p className={`form-confirmation form-confirmation-${submissionState}`} role={submissionState === "error" ? "alert" : "status"} aria-live="polite">{submissionState === "sending" ? "Recording your production brief…" : submissionState === "sent" ? "Thank you. Your production brief has been recorded and sent to the Alvora team." : submissionState === "saved" ? "Thank you. Your production brief has been safely recorded for the Alvora team." : "Your brief could not be recorded. Please try again, or contact Alvora directly."}</p>}
+            {submissionState !== "idle" && (
+              <p
+                className={`form-confirmation form-confirmation-${submissionState}`}
+                role={submissionState === "error" ? "alert" : "status"}
+                aria-live="polite"
+              >
+                {submissionState === "sending"
+                  ? "Recording your production brief…"
+                  : submissionState === "sent"
+                    ? "Thank you. Your production brief has been recorded and sent to the Alvora team."
+                    : submissionState === "saved"
+                      ? "Thank you. Your production brief has been safely recorded for the Alvora team."
+                      : "Your brief could not be recorded. Please try again, or contact Alvora directly."}
+              </p>
+            )}
           </form>
         </section>
       </main>
 
-      <section className="credentials-strip" aria-label="Credentials and compliance">
-        <p className="credentials-title">Documentation &amp; verification <span>for each confirmed order</span></p>
+      <section
+        className="credentials-strip"
+        aria-label="Credentials and compliance"
+      >
+        <p className="credentials-title">
+          Documentation &amp; verification <span>for each confirmed order</span>
+        </p>
         <div className="credentials-list">
-          <p><b>CERT</b><span>Certificate links appear only where a matching official IGI or GIA destination is present.</span></p>
-          <p><b>SPEC</b><span>Specification, certificate reference and dispatch details are confirmed in writing for each order.</span></p>
-          <p><b>DOC</b><span>Shipment documentation is prepared against the confirmed destination and delivery arrangement.</span></p>
-          <p><b>INS</b><span>Dispatch route and insurance confirmation are provided with the confirmed shipment.</span></p>
-          <p><b>FR</b><span>French-market public terminology uses the required <em>diamant de synthèse</em> convention.</span></p>
+          <p>
+            <b>CERT</b>
+            <span>
+              Certificate links appear only where a matching official IGI or GIA
+              destination is present.
+            </span>
+          </p>
+          <p>
+            <b>SPEC</b>
+            <span>
+              Specification, certificate reference and dispatch details are
+              confirmed in writing for each order.
+            </span>
+          </p>
+          <p>
+            <b>DOC</b>
+            <span>
+              Shipment documentation is prepared against the confirmed
+              destination and delivery arrangement.
+            </span>
+          </p>
+          <p>
+            <b>INS</b>
+            <span>
+              Dispatch route and insurance confirmation are provided with the
+              confirmed shipment.
+            </span>
+          </p>
+          <p>
+            <b>FR</b>
+            <span>
+              French-market public terminology uses the required{" "}
+              <em>diamant de synthèse</em> convention.
+            </span>
+          </p>
         </div>
       </section>
 
@@ -415,9 +899,18 @@ export default function Home() {
           <img className="brand-mark" src={markImage} alt="" />
           <span className="brand-name">ALVORA</span>
         </div>
-        <p>Lab-grown diamond manufacturing<br />Surat, India</p>
-        <nav className="footer-legal" aria-label="Information"><a href="/privacy">Privacy</a><a href="/terms">Terms of trade</a></nav>
-        <a href="#top">Back to top <ArrowUpRight size={15} /></a>
+        <p>
+          Lab-grown diamond manufacturing
+          <br />
+          Surat, India
+        </p>
+        <nav className="footer-legal" aria-label="Information">
+          <a href="/privacy">Privacy</a>
+          <a href="/terms">Terms of trade</a>
+        </nav>
+        <a href="#top">
+          Back to top <ArrowUpRight size={15} />
+        </a>
       </footer>
     </div>
   );

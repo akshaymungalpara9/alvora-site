@@ -902,3 +902,14 @@ body { color: var(--ink); }
   .catalog-pagination { align-items: stretch; }
   .catalog-pagination button { min-height: 46px; }
 }
+
+.insight-intro-actions, .insight-article-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 1.2rem; margin-top: 2rem; }
+.insight-article-actions { margin: 2.4rem 0 1rem; }
+.insight-proof-callout { max-width: 760px; margin-top: 4rem; padding: 2rem; border: 1px solid rgba(201,255,99,.35); background: linear-gradient(135deg, rgba(201,255,99,.08), rgba(240,238,231,.025)); }
+.insight-proof-callout h2 { max-width: 580px; margin: .8rem 0 1rem; font-family: var(--serif); font-size: clamp(2rem, 4vw, 3.6rem); font-weight: 500; letter-spacing: -.045em; line-height: .98; }
+.insight-proof-callout p:not(.eyebrow) { max-width: 600px; color: var(--paper-dim); line-height: 1.75; }
+.insight-proof-library { margin-top: 5rem; margin-bottom: 2rem; }
+@media (max-width: 700px) {
+  .insight-intro-actions, .insight-article-actions { align-items: flex-start; flex-direction: column; }
+  .insight-proof-callout { padding: 1.25rem; }
+}
