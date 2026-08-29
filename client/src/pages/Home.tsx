@@ -234,12 +234,11 @@ export default function Home() {
               Diamonds made to a standard exacting buyers can rely on.
             </h1>
             <p className="hero-copy">
-              Alvora manufactures certified, calibrated lab-grown diamonds for
-              jewellery teams that need control in every dimension.
+              Alvora manufactures lab-grown diamond profiles to documented
+              specifications, with report destinations shown where supplied.
             </p>
             <p className="hero-maker-line">
-              You’re buying from the bench — there’s no factory behind us to go
-              around.
+              You work directly with the production team in Surat.
             </p>
             <div className="hero-actions">
               <button
@@ -266,7 +265,7 @@ export default function Home() {
             </p>
           </div>
           <div className="hero-footer">
-            <span>Certified / Calibrated / Made in Surat</span>
+            <span>Calibrated profiles / Reports shown where supplied / Made in Surat</span>
             <span className="scroll-note">
               Scroll to inspect <ArrowDownRight size={14} />
             </span>
@@ -280,9 +279,9 @@ export default function Home() {
             <p>Start with a specification, a matched layout, or a production requirement. We return with the practical next step.</p>
           </div>
           <div className="buyer-first-proof">
-            <article><Check size={16} /><div><strong>Certified and calibrated</strong><span>IGI-verified production details where a matching report is supplied.</span></div></article>
+            <article><Check size={16} /><div><strong>Report-linked profiles</strong><span>IGI details shown where a matching report is supplied.</span></div></article>
             <article><Check size={16} /><div><strong>Made in Surat</strong><span>Cut, calibrated, and finished by Alvora’s own bench-led team.</span></div></article>
-            <article><Check size={16} /><div><strong>Specification-led</strong><span>Typical spec-make timing is presented as 5–10 working days.</span></div></article>
+            <article><Check size={16} /><div><strong>Specification-led</strong><span>Indicative timing is presented as 5–10 working days, subject to current capacity.</span></div></article>
           </div>
           <div className="buyer-first-actions">
             <button className="button button-signal" type="button" onClick={() => openBrief("Production run")} data-umami-event="phase1_buyer_brief_cta">Start a production brief <ArrowUpRight size={16} /></button>
@@ -363,8 +362,8 @@ export default function Home() {
               <h2 id="production-title">What we make.</h2>
             </div>
             <p>
-              Certified lab-grown diamonds, cut, calibrated and finished for
-              reliable work at the bench.
+              Lab-grown diamond profiles, cut, calibrated and finished for
+              documented work at the bench.
             </p>
           </div>
 
@@ -383,10 +382,10 @@ export default function Home() {
               <article>
                 <span className="list-index">01</span>
                 <div>
-                  <h3>Certified stones</h3>
+                  <h3>Report-linked stones</h3>
                   <p>
-                    Production with certification handled as part of the make,
-                    not as an afterthought.
+                    Available report destinations are handled as part of the make,
+                    not added as an afterthought.
                   </p>
                 </div>
                 <ArrowUpRight size={18} strokeWidth={1.4} />
@@ -506,7 +505,7 @@ export default function Home() {
             <p className="eyebrow eyebrow-bright">
               <span /> 04 — MADE TO SPECIFICATION
             </p>
-            <p className="spec-stamp">SPEC 05–10 DAYS</p>
+            <p className="spec-stamp">TIMING TO CONFIRM</p>
           </div>
           <div className="spec-lead">
             <h2 id="spec-title">
@@ -548,8 +547,8 @@ export default function Home() {
           </div>
           <div className="spec-action-row">
             <p>
-              <span className="status-dot" /> Typical lead time for a spec make:{" "}
-              <strong>5–10 working days</strong>
+              <span className="status-dot" /> Indicative timing for a spec make:{" "}
+              <strong>5–10 working days, subject to current capacity</strong>
             </p>
             <button
               className="button button-outline"
@@ -601,8 +600,8 @@ export default function Home() {
                 </p>
               </article>
               <article>
-                <span>Assured make</span>
-                <h3>Repair or replace.</h3>
+                <span>After the make</span>
+                <h3>Assess a correction.</h3>
                 <p>
                   The stated handling for an Alvora-made stone that needs
                   correction is assessment for repair, recut, repolish, or
