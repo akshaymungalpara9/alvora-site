@@ -2,7 +2,6 @@ User-agent: *
 Allow: /
 Disallow: /admin
 Disallow: /admin/
-Disallow: /availability
 Disallow: /api/
 
 # The application serves a host-aware sitemap reference at runtime.
