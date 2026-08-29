@@ -8,10 +8,11 @@ describe("public production-brief client field bounds", () => {
       readFileSync("client/src/pages/MarketLanding.tsx", "utf8"),
     ];
     for (const page of pages) {
-      expect(page).toContain('name="name" type="text" autoComplete="name" minLength={2} maxLength={180}');
-      expect(page).toContain('name="email" type="email" autoComplete="email" inputMode="email" autoCapitalize="none" spellCheck={false} maxLength={320}');
-      expect(page).toContain('name="company" type="text" autoComplete="organization" maxLength={180}');
-      expect(page).toContain("minLength={10} maxLength={5000}");
+      const normalized = page.replace(/\s+/g, " ");
+      expect(normalized).toContain('name="name" type="text" autoComplete="name" minLength={2} maxLength={180}');
+      expect(normalized).toContain('name="email" type="email" autoComplete="email" inputMode="email" autoCapitalize="none" spellCheck={false} maxLength={320}');
+      expect(normalized).toContain('name="company" type="text" autoComplete="organization" maxLength={180}');
+      expect(normalized).toContain("minLength={10} maxLength={5000}");
     }
   });
 });

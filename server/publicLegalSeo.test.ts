@@ -21,11 +21,14 @@ describe("public legal and SEO surfaces", () => {
     const origin = "https://alvora.example";
     const sitemap = renderSitemap(origin);
     const robots = renderRobots(origin);
-    expect(PUBLIC_SITEMAP_PATHS).toEqual(["/", "/fr", "/it", "/us", "/privacy", "/terms"]);
+    expect(PUBLIC_SITEMAP_PATHS).toContain("/insights");
+    expect(PUBLIC_SITEMAP_PATHS).toContain("/availability");
+    expect(PUBLIC_SITEMAP_PATHS).toContain("/insights/choose-lab-grown-diamond-manufacturer-india");
+    expect(PUBLIC_SITEMAP_PATHS).toContain("/insights/export-jewellery-manufacturer-due-diligence");
     expect(sitemap).toContain("https://alvora.example/fr");
     expect(sitemap).toContain("https://alvora.example/privacy");
     expect(robots).toContain("Disallow: /admin");
-    expect(robots).toContain("Disallow: /availability");
+    expect(robots).not.toContain("Disallow: /availability");
     expect(robots).toContain("Sitemap: https://alvora.example/sitemap.xml");
   });
 

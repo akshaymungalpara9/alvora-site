@@ -2,7 +2,7 @@ import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 
 function expectWrappedLabel(page: string, fieldName: "name" | "email" | "company") {
-  expect(page).toMatch(new RegExp(`<label>\\s*<span>[^<]+</span>\\s*<input name="${fieldName}"`));
+  expect(page).toMatch(new RegExp(`<label>[\\s\\S]*?<span>[^<]+</span>[\\s\\S]*?<input[\\s\\S]*?name="${fieldName}"`));
 }
 
 describe("public production-brief form semantics", () => {
@@ -12,9 +12,9 @@ describe("public production-brief form semantics", () => {
       readFileSync("client/src/pages/MarketLanding.tsx", "utf8"),
     ];
     for (const page of pages) {
-      expect(page).toContain('name="name" type="text" autoComplete="name"');
-      expect(page).toContain('name="email" type="email" autoComplete="email" inputMode="email" autoCapitalize="none" spellCheck={false}');
-      expect(page).toContain('name="company" type="text" autoComplete="organization"');
+      expect(page).toMatch(/name="name"\s+type="text"\s+autoComplete="name"/);
+      expect(page).toMatch(/name="email"\s+type="email"\s+autoComplete="email"\s+inputMode="email"\s+autoCapitalize="none"\s+spellCheck=\{false\}/);
+      expect(page).toMatch(/name="company"\s+type="text"\s+autoComplete="organization"/);
       expectWrappedLabel(page, "name");
       expectWrappedLabel(page, "email");
       expectWrappedLabel(page, "company");

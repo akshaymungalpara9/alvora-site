@@ -90,7 +90,7 @@ describe("public maker-positioning language", () => {
     expect(legal).not.toContain("public draft");
     expect(insights).not.toContain("Owner draft");
     expect(insights).not.toContain("Open draft");
-    expect(insights).toContain("Manufacturing notes are in preparation.");
+    expect(insights).toContain("Useful notes for the buying side of the bench.");
   });
 
   it("keeps prohibited commercial literals out of public copy while retaining clear trade-term explanations", () => {

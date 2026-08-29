@@ -79,6 +79,21 @@ export function applyDocumentMetadata(current: PublicDocumentMetadata) {
   setMeta("name", "twitter:description", current.description);
   setMeta("name", "twitter:image", image);
   setLink("canonical", url);
+  const schemaId = "alvora-public-schema";
+  let schema = document.getElementById(schemaId) as HTMLScriptElement | null;
+  if (!schema) {
+    schema = document.createElement("script");
+    schema.id = schemaId;
+    schema.type = "application/ld+json";
+    document.head.appendChild(schema);
+  }
+  schema.textContent = JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": [
+      { "@type": "Organization", "@id": `${origin}/#organization`, name: "Alvora Diamonds", url: origin, logo: image, address: { "@type": "PostalAddress", addressLocality: "Surat", addressCountry: "IN" } },
+      { "@type": "WebSite", "@id": `${origin}/#website`, url: origin, name: "Alvora Diamonds", publisher: { "@id": `${origin}/#organization` } },
+    ],
+  });
 }
 
 export function applyPublicSeo(locale: PublicSeoLocale) {

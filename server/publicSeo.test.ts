@@ -28,7 +28,7 @@ describe("public locale metadata", () => {
     const robots = readFileSync("client/public/robots.txt", "utf8");
     expect(robots).toContain("Allow: /");
     expect(robots).toContain("Disallow: /admin");
-    expect(robots).toContain("Disallow: /availability");
+    expect(robots).not.toContain("Disallow: /availability");
     expect(robots).toContain("Disallow: /api/");
     expect(robots).not.toContain("Sitemap: http");
   });

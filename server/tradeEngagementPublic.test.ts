@@ -21,12 +21,14 @@ describe("trade engagement public surfaces", () => {
     expect(component).not.toContain("data-umami-event-email");
   });
 
-  it("keeps unreviewed Insights notes out of buyer navigation while retaining a noindex preparation page", () => {
+  it("publishes buyer-intent Insights notes with indexable metadata and an honest case-study pathway", () => {
     const insights = read("client/src/pages/Insights.tsx");
-    expect(insights).toContain("Manufacturing notes are in preparation.");
+    expect(insights).toContain("Useful notes for the buying side of the bench.");
+    expect(insights).toContain("choose-lab-grown-diamond-manufacturer-india");
+    expect(insights).toContain("Case studies should show the work, not just the result.");
     expect(insights).not.toContain("Owner draft");
     expect(insights).not.toContain("Open draft");
-    expect(insights).toContain('robots: "noindex,follow,max-image-preview:large"');
+    expect(insights).toContain('robots: "index,follow,max-image-preview:large"');
   });
 
   it("discloses the new WhatsApp event and qualifier email sequence in the public privacy draft", () => {
