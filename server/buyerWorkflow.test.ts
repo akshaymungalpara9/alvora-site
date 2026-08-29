@@ -86,6 +86,7 @@ describe("approved-buyer workflow", () => {
   beforeEach(() => {
     vi.clearAllMocks();
     ENV.alvoraEarlyAccessEnabled = false;
+    ENV.leadAlertTo = "ops@alvora.example";
     mocks.resolveBuyerAccountForUser.mockResolvedValue(buyer);
     mocks.getBuyerStone.mockResolvedValue(stone);
     mocks.createPrivateListRequest.mockResolvedValue(91);
