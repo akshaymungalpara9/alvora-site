@@ -45,6 +45,21 @@ export default function AdminProductionBriefs() {
     ) ?? [],
     [briefs.data, statusFilter, marketFilter],
   );
+  const pipelineSummary = useMemo(() => {
+    const rows = briefs.data ?? [];
+    const count = (states: FollowUpStatus[]) => rows.filter(row => states.includes(row.followUpStatus)).length;
+    const withCompany = rows.filter(row => Boolean(row.company?.trim())).length;
+    const referrals = rows.filter(row => row.source === "referral").length;
+    return {
+      total: rows.length,
+      new: count(["new"]),
+      active: count(["reviewing", "shortlist_sent", "on_hold"]),
+      quoted: count(["quoted"]),
+      closed: count(["closed"]),
+      withCompany,
+      referrals,
+    };
+  }, [briefs.data]);
 
   const saveFollowUp = (event: FormEvent<HTMLFormElement>, briefId: number) => {
     event.preventDefault();
@@ -85,6 +100,17 @@ export default function AdminProductionBriefs() {
     </header>
     <p className="brief-export-note">Internal use only. The export includes buyer contact details, credit-qualification responses, market origin, and follow-up notes; store it only in Alvora-approved systems. Select a market before export when a regional team does not require the wider lead file.</p>
     <p className="brief-export-note">When a shortlist is sent, set the follow-up state to <strong>shortlist sent</strong>. This pauses the 24-hour qualifier email. Enable the hourly control only after this checkpoint is published; the schedule is managed from the project’s protected operations area.</p>
+    <section className="phase4-funnel" aria-label="Lead pipeline summary">
+      <div className="phase4-funnel-heading"><div><p className="portal-kicker">PHASE 4 / PIPELINE</p><h2>Lead quality at a glance.</h2></div><p>Operational proxy from the persisted production-brief workflow. Add quote, sample, won, lost, and reorder outcomes to the internal note until dedicated outcome fields are approved.</p></div>
+      <div className="phase4-funnel-grid">
+        <article><span>All briefs</span><strong>{pipelineSummary.total}</strong><small>recorded enquiries</small></article>
+        <article><span>New</span><strong>{pipelineSummary.new}</strong><small>awaiting first review</small></article>
+        <article><span>Active</span><strong>{pipelineSummary.active}</strong><small>reviewing or shortlist</small></article>
+        <article><span>Quoted</span><strong>{pipelineSummary.quoted}</strong><small>commercial next step</small></article>
+        <article><span>Closed</span><strong>{pipelineSummary.closed}</strong><small>requires outcome note</small></article>
+      </div>
+      <div className="phase4-quality-line"><span>{pipelineSummary.withCompany} with company context</span><span>{pipelineSummary.referrals} referral-sourced</span><span>Source and market are retained for monthly review</span></div>
+    </section>
     <div className="brief-filter">
       <span>Show</span>
       <select value={statusFilter} onChange={(event) => setStatusFilter(event.target.value as "all" | FollowUpStatus)}><option value="all">All follow-up states</option>{statusOptions.map((status) => <option value={status} key={status}>{status.replaceAll("_", " ")}</option>)}</select>
