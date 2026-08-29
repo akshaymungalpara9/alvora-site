@@ -135,6 +135,30 @@ const articles: Article[] = [
       },
     ],
   },
+  {
+    slug: "importing-lab-grown-diamonds-from-india",
+    label: "Import guide / 06",
+    title: "Importing lab-grown diamond jewellery from India: questions to resolve early",
+    dek: "A buyer-side checklist for separating product, customs, freight, and market-disclosure questions before an international order.",
+    sections: [
+      { heading: "Start with the actual product", body: "The correct classification and document set depend on what is being shipped: loose stones, parcels, finished jewellery, samples, or another product form. Confirm the product description, stone type, metal, quantity, and report references before discussing duties or delivery." },
+      { heading: "Ask the destination adviser", body: "HS classification, customs treatment, taxes, marking, and importer obligations are destination-specific. Alvora can provide the commercial and shipment information it confirms for an order, while the buyer’s customs adviser should confirm the treatment that applies in the receiving market." },
+      { heading: "Keep the document chain together", body: "The quotation, invoice, packing information, certificate references, consignee details, and dispatch confirmation should describe the same order. A written pre-shipment check reduces the risk of a mismatch between the product and its paperwork." },
+      { heading: "Treat market claims carefully", body: "If the product will be marketed to consumers, the buyer should review the applicable local jewellery and advertising rules. Public content can explain the questions to ask, but it should not replace customs, tax, or legal advice." },
+    ],
+  },
+  {
+    slug: "b2b-diamond-manufacturer-case-study-checklist",
+    label: "Proof framework / 07",
+    title: "What a useful B2B diamond manufacturing case study should prove",
+    dek: "A case study should document a real production problem and outcome—not replace evidence with adjectives.",
+    sections: [
+      { heading: "Name the starting brief", body: "State the buyer type, category, product format, technical requirement, and commercial context. If the work is confidential, anonymize the customer and remove identifying design information." },
+      { heading: "Show the decision points", body: "Explain how the specification was clarified, how a sample or reference was approved, and which quality checkpoints mattered. This is more useful than simply showing a finished product image." },
+      { heading: "Separate verified results from opinion", body: "Use documented lead time, accepted dimensions, matching result, report reference, or reorder outcome only when Alvora can substantiate it. Do not publish savings, volumes, names, or performance claims without permission." },
+      { heading: "End with a buyer action", body: "A credible case study should let a similar buyer understand what to include in a production brief and what evidence will be available at the next step." },
+    ],
+  },
 ];
 
 const metadata = (article?: Article) =>
@@ -161,7 +185,27 @@ export default function Insights({ articleSlug }: { articleSlug?: string }) {
       ...current,
       robots: "index,follow,max-image-preview:large",
     });
-  }, [current]);
+    const schemaId = "alvora-insight-schema";
+    const existing = document.getElementById(schemaId);
+    existing?.remove();
+    if (article) {
+      const schema = document.createElement("script");
+      schema.id = schemaId;
+      schema.type = "application/ld+json";
+      schema.textContent = JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Article",
+        headline: article.title,
+        description: article.dek,
+        mainEntityOfPage: `${window.location.origin}/insights/${article.slug}`,
+        image: `${window.location.origin}/assets/alvora-hero-qc.webp`,
+        author: { "@type": "Organization", name: "Alvora Diamonds" },
+        publisher: { "@type": "Organization", name: "Alvora Diamonds" },
+      });
+      document.head.appendChild(schema);
+    }
+    return () => document.getElementById(schemaId)?.remove();
+  }, [article, current]);
 
   return (
     <main className="insight-page">

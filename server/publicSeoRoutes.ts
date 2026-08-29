@@ -11,6 +11,8 @@ export const PUBLIC_SITEMAP_PATHS = [
   "/insights/cad-to-certified-sample-qc-process",
   "/insights/lab-grown-diamond-moq-sampling-lead-time",
   "/insights/export-jewellery-manufacturer-due-diligence",
+  "/insights/importing-lab-grown-diamonds-from-india",
+  "/insights/b2b-diamond-manufacturer-case-study-checklist",
   "/oem-private-label-lab-grown-diamond-jewellery",
   "/wholesale-lab-grown-diamond-jewellery",
   "/export-lab-grown-diamond-jewellery",
