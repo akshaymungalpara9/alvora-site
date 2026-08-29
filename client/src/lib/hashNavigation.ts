@@ -10,8 +10,16 @@ export function scrollToPublicAnchor(hash: string, behavior: ScrollBehavior = "s
   if (!target) return false;
   const header = document.querySelector<HTMLElement>(".site-header");
   const offset = (header?.offsetHeight ?? 0) + 18;
-  const top = Math.max(0, target.getBoundingClientRect().top + window.scrollY - offset);
-  window.scrollTo({ top, behavior });
+
+  // Use scrollIntoView so the scroll works regardless of which element is the
+  // actual scroll container (window or an inner node). Setting scroll-margin-top
+  // on the target before the call makes the browser account for the header
+  // clearance; the value is captured synchronously at call time so we can
+  // restore it immediately without affecting the ongoing animation.
+  const prev = target.style.scrollMarginTop;
+  target.style.scrollMarginTop = `${offset}px`;
+  target.scrollIntoView({ behavior, block: "start" });
+  target.style.scrollMarginTop = prev;
   return true;
 }
 
