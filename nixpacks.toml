@@ -1,0 +1,6 @@
+# Railway build configuration.
+# Installs chromium-browser so scripts/prerender.mjs can snapshot public
+# marketing routes at build time. The prerender step is non-blocking —
+# if Chromium is unavailable it warns and exits 0.
+[phases.setup]
+aptPkgs = ["chromium-browser"]

@@ -140,6 +140,16 @@ function resolveRouteMeta(pathname: string, origin: string): RouteMeta | null {
   }
 }
 
+/**
+ * Replaces the empty React root placeholder with prerendered body content so
+ * crawlers see real H1/copy without waiting for JavaScript.
+ * Must be called AFTER injectSeoIntoHtml (order doesn't matter functionally,
+ * but keeping SEO first makes diffs easier to read).
+ */
+export function injectPrerenderedBody(html: string, rootContent: string): string {
+  return html.replace('<div id="root"></div>', `<div id="root">${rootContent}</div>`);
+}
+
 function esc(s: string) {
   return s.replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 }

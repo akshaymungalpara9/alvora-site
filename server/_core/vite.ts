@@ -6,7 +6,7 @@ import path from "path";
 import { createServer as createViteServer } from "vite";
 import viteConfig from "../../vite.config";
 import { getPublicOrigin } from "../publicSeoRoutes";
-import { injectSeoIntoHtml } from "../seoInjection";
+import { injectPrerenderedBody, injectSeoIntoHtml } from "../seoInjection";
 
 export async function setupVite(app: Express, server: Server) {
   const serverOptions = {
@@ -67,11 +67,34 @@ export function serveStatic(app: Express) {
   const indexPath = path.resolve(distPath, "index.html");
   const baseHtml = fs.existsSync(indexPath) ? fs.readFileSync(indexPath, "utf-8") : "";
 
+  // Load prerendered body snapshots produced by scripts/prerender.mjs.
+  // Each entry maps an exact pathname to the #root innerHTML snapshot.
+  const prerendered = new Map<string, string>();
+  const manifestPath = path.resolve(import.meta.dirname, "prerendered", "manifest.json");
+  if (fs.existsSync(manifestPath)) {
+    const manifest: Record<string, string> = JSON.parse(fs.readFileSync(manifestPath, "utf-8"));
+    const snapshotDir = path.dirname(manifestPath);
+    for (const [route, filename] of Object.entries(manifest)) {
+      const filePath = path.join(snapshotDir, filename);
+      if (fs.existsSync(filePath)) {
+        prerendered.set(route, fs.readFileSync(filePath, "utf-8"));
+      }
+    }
+    if (prerendered.size > 0) {
+      console.log(`Loaded ${prerendered.size} prerendered snapshot(s): ${[...prerendered.keys()].join(", ")}`);
+    }
+  }
+
   app.use("*", (req, res) => {
     if (!baseHtml) {
       res.status(500).send("Internal Server Error: build not found");
       return;
     }
-    res.status(200).set("Content-Type", "text/html").send(injectSeoIntoHtml(baseHtml, req.originalUrl.split("?")[0], getPublicOrigin(req)));
+    const pathname = req.originalUrl.split("?")[0];
+    const origin = getPublicOrigin(req);
+    let html = injectSeoIntoHtml(baseHtml, pathname, origin);
+    const snapshot = prerendered.get(pathname);
+    if (snapshot) html = injectPrerenderedBody(html, snapshot);
+    res.status(200).set("Content-Type", "text/html").send(html);
   });
 }
