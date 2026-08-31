@@ -5,6 +5,8 @@ import { nanoid } from "nanoid";
 import path from "path";
 import { createServer as createViteServer } from "vite";
 import viteConfig from "../../vite.config";
+import { getPublicOrigin } from "../publicSeoRoutes";
+import { injectSeoIntoHtml } from "../seoInjection";
 
 export async function setupVite(app: Express, server: Server) {
   const serverOptions = {
@@ -38,7 +40,8 @@ export async function setupVite(app: Express, server: Server) {
         `src="/src/main.tsx"`,
         `src="/src/main.tsx?v=${nanoid()}"`
       );
-      const page = await vite.transformIndexHtml(url, template);
+      let page = await vite.transformIndexHtml(url, template);
+      page = injectSeoIntoHtml(page, req.originalUrl.split("?")[0], getPublicOrigin(req));
       res.status(200).set({ "Content-Type": "text/html" }).end(page);
     } catch (e) {
       vite.ssrFixStacktrace(e as Error);
@@ -58,10 +61,17 @@ export function serveStatic(app: Express) {
     );
   }
 
-  app.use(express.static(distPath));
+  app.use(express.static(distPath, { index: false }));
 
-  // fall through to index.html if the file doesn't exist
-  app.use("*", (_req, res) => {
-    res.sendFile(path.resolve(distPath, "index.html"));
+  // Cache the base HTML at startup; inject SEO tags per-request before sending.
+  const indexPath = path.resolve(distPath, "index.html");
+  const baseHtml = fs.existsSync(indexPath) ? fs.readFileSync(indexPath, "utf-8") : "";
+
+  app.use("*", (req, res) => {
+    if (!baseHtml) {
+      res.status(500).send("Internal Server Error: build not found");
+      return;
+    }
+    res.status(200).set("Content-Type", "text/html").send(injectSeoIntoHtml(baseHtml, req.originalUrl.split("?")[0], getPublicOrigin(req)));
   });
 }

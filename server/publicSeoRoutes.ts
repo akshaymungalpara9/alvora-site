@@ -1,6 +1,6 @@
 import type { Express, Request } from "express";
 
-export const PUBLIC_SITEMAP_PATHS = ["/", "/fr", "/it", "/us", "/privacy", "/terms"] as const;
+export const PUBLIC_SITEMAP_PATHS = ["/", "/fr", "/it", "/us", "/insights", "/privacy", "/terms"] as const;
 
 function escapeXml(value: string) {
   return value.replace(/[<>&"']/g, (character) => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;", '"': "&quot;", "'": "&apos;" })[character]!);
