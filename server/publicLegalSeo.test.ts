@@ -21,7 +21,20 @@ describe("public legal and SEO surfaces", () => {
     const origin = "https://alvora.example";
     const sitemap = renderSitemap(origin);
     const robots = renderRobots(origin);
-    expect(PUBLIC_SITEMAP_PATHS).toEqual(["/", "/fr", "/it", "/us", "/privacy", "/terms"]);
+    expect(PUBLIC_SITEMAP_PATHS).toEqual([
+      "/", "/fr", "/it", "/us",
+      "/calibrated-diamond-layouts",
+      "/matched-pair-diamonds",
+      "/custom-cut-diamonds",
+      "/melee-diamonds",
+      "/certifications",
+      "/about",
+      "/for-jewelry-brands",
+      "/request-a-quote",
+      "/insights",
+      "/privacy",
+      "/terms",
+    ]);
     expect(sitemap).toContain("https://alvora.example/fr");
     expect(sitemap).toContain("https://alvora.example/privacy");
     expect(robots).toContain("Disallow: /admin");

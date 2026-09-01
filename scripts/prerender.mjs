@@ -24,7 +24,23 @@ const outDir = path.resolve(__dirname, "../dist/prerendered");
 
 // Routes whose #root content we want to prerender. Must match the route keys
 // that serveStatic checks in vite.ts.
-const ROUTES = ["/", "/fr", "/it", "/us", "/insights", "/privacy", "/terms"];
+const ROUTES = [
+  "/",
+  "/fr",
+  "/it",
+  "/us",
+  "/calibrated-diamond-layouts",
+  "/matched-pair-diamonds",
+  "/custom-cut-diamonds",
+  "/melee-diamonds",
+  "/certifications",
+  "/about",
+  "/for-jewelry-brands",
+  "/request-a-quote",
+  "/insights",
+  "/privacy",
+  "/terms",
+];
 const PORT = 4173;
 
 function routeKey(route) {

@@ -418,6 +418,16 @@ export default function Home() {
         <p>Lab-grown diamond manufacturing<br />Surat, India</p>
         <nav className="footer-legal" aria-label="Information"><a href="/privacy">Privacy</a><a href="/terms">Terms of trade</a></nav>
         <a href="#top">Back to top <ArrowUpRight size={15} /></a>
+        <nav className="footer-specialty" aria-label="Products and services">
+          <a href="/calibrated-diamond-layouts">Calibrated Layouts</a>
+          <a href="/matched-pair-diamonds">Matched Pairs</a>
+          <a href="/custom-cut-diamonds">Custom Cut</a>
+          <a href="/melee-diamonds">Melee Diamonds</a>
+          <a href="/certifications">Certifications</a>
+          <a href="/about">About</a>
+          <a href="/for-jewelry-brands">For Jewellery Brands</a>
+          <a href="/request-a-quote">Request a Quote</a>
+        </nav>
       </footer>
     </div>
   );

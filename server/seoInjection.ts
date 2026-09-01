@@ -7,6 +7,7 @@ interface RouteMeta {
   canonical: string;
   robots?: string;
   alternates?: Array<{ lang: string; href: string }>;
+  serviceJsonLd?: object;
 }
 
 // TODO: Replace every "TODO:" value below with real production values before go-live.
@@ -127,6 +128,70 @@ function resolveRouteMeta(pathname: string, origin: string): RouteMeta | null {
         canonical: url("/terms"),
         robots: "noindex,follow",
       };
+    case "/calibrated-diamond-layouts":
+      return {
+        lang: "en",
+        title: "Calibrated Lab-Grown Diamond Layouts | Alvora Diamonds, Surat",
+        description: "Alvora makes calibrated lab-grown diamond layouts from Surat to exact repeatable dimensions — same girdle, same depth, same seat. Built for manufacturing jewellers who need every stone to hold position.",
+        canonical: url("/calibrated-diamond-layouts"),
+        serviceJsonLd: { "@context": "https://schema.org", "@type": "Service", name: "Calibrated Lab-Grown Diamond Layouts", serviceType: "Diamond Manufacturing", provider: { "@type": "Organization", name: "Alvora", address: { "@type": "PostalAddress", addressLocality: "Surat", addressCountry: "IN" } }, description: "Calibrated lab-grown diamond layouts cut to exact repeatable dimensions for pave, channel, and bezel setting programmes.", areaServed: "Worldwide" },
+      };
+    case "/matched-pair-diamonds":
+      return {
+        lang: "en",
+        title: "Matched Pair Lab-Grown Diamonds, Made to Tolerance | Alvora",
+        description: "Alvora makes matched pairs of lab-grown diamonds — matched for colour, dimensions, and cut grade so they read as one stone in the finished piece. Direct from our benches in Surat.",
+        canonical: url("/matched-pair-diamonds"),
+        serviceJsonLd: { "@context": "https://schema.org", "@type": "Service", name: "Matched Pair Lab-Grown Diamonds", serviceType: "Diamond Manufacturing", provider: { "@type": "Organization", name: "Alvora", address: { "@type": "PostalAddress", addressLocality: "Surat", addressCountry: "IN" } }, description: "Matched pair lab-grown diamonds matched for colour, dimensions, cut grade, and proportions.", areaServed: "Worldwide" },
+      };
+    case "/custom-cut-diamonds":
+      return {
+        lang: "en",
+        title: "Custom-Cut Lab-Grown Diamonds to Exact Specification",
+        description: "Send your specification sheet — shape, exact diameter, depth ratio, table, finish — and Alvora cuts the diamond to meet it. Precision manufacturing from Surat, 5–10 working day lead time.",
+        canonical: url("/custom-cut-diamonds"),
+        serviceJsonLd: { "@context": "https://schema.org", "@type": "Service", name: "Custom-Cut Lab-Grown Diamonds", serviceType: "Diamond Manufacturing", provider: { "@type": "Organization", name: "Alvora", address: { "@type": "PostalAddress", addressLocality: "Surat", addressCountry: "IN" } }, description: "Custom-cut lab-grown diamonds made to exact buyer specification — shape, diameter, depth, table, and finish.", areaServed: "Worldwide" },
+      };
+    case "/melee-diamonds":
+      return {
+        lang: "en",
+        title: "Wholesale Lab-Grown Melee Diamonds | Alvora Diamonds",
+        description: "Alvora supplies wholesale lab-grown melee diamonds calibrated to consistent diameter ranges. Excellent cut, no fluorescence, no BGM — the same standard applied to every stone regardless of size.",
+        canonical: url("/melee-diamonds"),
+        serviceJsonLd: { "@context": "https://schema.org", "@type": "Service", name: "Wholesale Lab-Grown Melee Diamonds", serviceType: "Diamond Manufacturing", provider: { "@type": "Organization", name: "Alvora", address: { "@type": "PostalAddress", addressLocality: "Surat", addressCountry: "IN" } }, description: "Wholesale lab-grown melee diamonds calibrated to consistent diameter ranges, Excellent cut, no fluorescence.", areaServed: "Worldwide" },
+      };
+    case "/certifications":
+      return {
+        lang: "en",
+        title: "IGI-Certified Lab-Grown Diamonds — What Our Certificates Cover",
+        description: "Every Alvora diamond ships IGI laser-inscribed and database-verified. Understand what each certificate covers — 4Cs, cut quality, laser inscription, and how to verify any report number directly with IGI.",
+        canonical: url("/certifications"),
+        serviceJsonLd: { "@context": "https://schema.org", "@type": "Service", name: "IGI-Certified Lab-Grown Diamonds", serviceType: "Diamond Manufacturing and Certification", provider: { "@type": "Organization", name: "Alvora", address: { "@type": "PostalAddress", addressLocality: "Surat", addressCountry: "IN" } }, description: "Every Alvora lab-grown diamond is IGI laser-inscribed and verified against the IGI database before dispatch.", areaServed: "Worldwide" },
+      };
+    case "/about":
+      return {
+        lang: "en",
+        title: "About Alvora — Surat Lab-Grown Diamond Manufacturer",
+        description: "Alvora is a Surat-based lab-grown diamond manufacturer specialising in precision cutting, calibration, and IGI certification. Learn about our factory, process, and the bench-to-buyer approach.",
+        canonical: url("/about"),
+        serviceJsonLd: { "@context": "https://schema.org", "@type": "Organization", name: "Alvora", description: "Alvora is a Surat-based lab-grown diamond manufacturer specialising in precision cutting, calibration, and IGI certification.", address: { "@type": "PostalAddress", addressLocality: "Surat", addressRegion: "Gujarat", addressCountry: "IN" } },
+      };
+    case "/for-jewelry-brands":
+      return {
+        lang: "en",
+        title: "Lab-Grown Diamonds for Jewellery Brands — Alvora",
+        description: "Alvora supplies manufacturing jewellers, DTC brands, and private-label operations with certified, calibrated lab-grown diamonds. Spec-based ordering, matched parcels, direct manufacturer pricing.",
+        canonical: url("/for-jewelry-brands"),
+        serviceJsonLd: { "@context": "https://schema.org", "@type": "Service", name: "Lab-Grown Diamonds for Jewellery Brands", serviceType: "Diamond Manufacturing", provider: { "@type": "Organization", name: "Alvora", address: { "@type": "PostalAddress", addressLocality: "Surat", addressCountry: "IN" } }, description: "Certified, calibrated lab-grown diamonds for manufacturing jewellers, DTC brands, and private-label operations.", areaServed: "Worldwide" },
+      };
+    case "/request-a-quote":
+      return {
+        lang: "en",
+        title: "Request a Quote — Alvora Lab-Grown Diamonds",
+        description: "Submit a production enquiry to Alvora — describe the specification, quantity, certification requirement, and timeline. We respond with practical production detail and pricing.",
+        canonical: url("/request-a-quote"),
+        serviceJsonLd: { "@context": "https://schema.org", "@type": "Service", name: "Request a Quote — Alvora Lab-Grown Diamonds", serviceType: "Diamond Manufacturing", provider: { "@type": "Organization", name: "Alvora", address: { "@type": "PostalAddress", addressLocality: "Surat", addressCountry: "IN" } }, description: "Submit a production enquiry to Alvora for certified, calibrated lab-grown diamonds.", areaServed: "Worldwide" },
+      };
     default:
       if (pathname.startsWith("/insights/")) {
         return {
@@ -179,6 +244,7 @@ export function injectSeoIntoHtml(html: string, pathname: string, origin: string
     `<link rel="canonical" href="${esc(meta.canonical)}" />`,
     ...(meta.alternates ?? []).map(({ lang, href }) => `<link rel="alternate" hreflang="${esc(lang)}" href="${esc(href)}" />`),
     `<script type="application/ld+json">${JSON.stringify(ORG_JSON_LD)}</script>`,
+    ...(meta.serviceJsonLd ? [`<script type="application/ld+json">${JSON.stringify(meta.serviceJsonLd)}</script>`] : []),
   ].join("\n  ");
 
   return html
