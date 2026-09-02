@@ -3,6 +3,7 @@
  * calibration rules, restrained signal-lime accents, and direct production language.
  */
 import { FormEvent, MouseEvent, useEffect, useRef, useState } from "react";
+import * as Accordion from "@radix-ui/react-accordion";
 import {
   ArrowDownRight,
   ArrowUpRight,
@@ -144,7 +145,7 @@ export default function Home() {
           <div className="hero-rule hero-rule-b" />
           <div className="hero-content">
             <p className="eyebrow eyebrow-bright"><span /> Lab-Grown Diamond Manufacturers, Surat</p>
-            <h1 id="hero-title">Diamonds made to a standard exacting buyers can rely on.</h1>
+            <h1 id="hero-title">Surat lab-grown diamond manufacturer — calibrated diamonds, matched layouts, custom cuts to exact spec.</h1>
             <p className="hero-copy">Alvora manufactures certified, calibrated lab-grown diamonds for jewellery teams that need control in every dimension.</p>
             <p className="hero-maker-line">You’re buying from the bench — there’s no factory behind us to go around.</p>
             <div className="hero-actions">
@@ -164,8 +165,26 @@ export default function Home() {
           </div>
         </section>
 
+        <section className="trust-section" id="trust" aria-labelledby="trust-title">
+          <div className="trust-heading">
+            <p className="eyebrow"><span /> 02 — WHY BUYERS WORK WITH ALVORA</p>
+            <h2 id="trust-title">A registered trade business,<br /><em>built in Surat.</em></h2>
+          </div>
+          <div className="trust-body">
+            <ul className="trust-list">
+              <li><strong>Certification:</strong> IGI documentation is available where applicable; GIA and GCAL can be requested when the buyer's channel or product brief requires them.</li>
+              <li><strong>Registered trade business:</strong> GST number: <Todo /> · IEC code: <Todo />.</li>
+              <li><strong>Physical Surat operation:</strong> Address: <Todo />{isDev && <> · <a href="#" data-alvora-todo>View the location on a map</a></>}.</li>
+              <li><strong>Established supplier:</strong> Years in business: <Todo /> · GJEPC membership status: <Todo />.</li>
+              <li><strong>Buyer-focused manufacturing:</strong> Specification-led supply for calibrated diamonds, matched layouts, melee, and custom-cut requirements.</li>
+            </ul>
+            <p className="trust-response">We reply to every trade enquiry within 24 hours.</p>
+            <p className="trust-tagline">Surat lab-grown diamond manufacturer — calibrated diamonds, matched layouts, custom cuts to exact spec.</p>
+          </div>
+        </section>
+
         <section className="heritage-section" id="heritage" aria-labelledby="heritage-title">
-          <p className="section-number">02 — MADE IN SURAT</p>
+          <p className="section-number">03 — MADE IN SURAT</p>
           <div className="heritage-content">
             <h2 id="heritage-title">Made in Surat,<br /><em>by our benches.</em></h2>
             <div className="heritage-prose">
@@ -189,7 +208,7 @@ export default function Home() {
         <section className="production-section" id="production" aria-labelledby="production-title">
           <div className="section-heading production-heading">
             <div>
-              <p className="eyebrow"><span /> 03 — OUR PRODUCTION</p>
+              <p className="eyebrow"><span /> 04 — OUR PRODUCTION</p>
               <h2 id="production-title">What we make.</h2>
             </div>
             <p>Certified lab-grown diamonds, cut, calibrated and finished for reliable work at the bench.</p>
@@ -239,7 +258,7 @@ export default function Home() {
 
         <section className="spec-section" id="made-to-spec" aria-labelledby="spec-title">
           <div className="spec-masthead">
-            <p className="eyebrow eyebrow-bright"><span /> 04 — MADE TO SPECIFICATION</p>
+            <p className="eyebrow eyebrow-bright"><span /> 05 — MADE TO SPECIFICATION</p>
             <p className="spec-stamp">SPEC 05–10 DAYS</p>
           </div>
           <div className="spec-lead">
@@ -276,7 +295,7 @@ export default function Home() {
             <p className="process-image-label">Laser inscription / identification / final check</p>
           </div>
           <div className="process-content">
-            <p className="eyebrow"><span /> 05 — HOW WE WORK</p>
+            <p className="eyebrow"><span /> 06 — HOW WE WORK</p>
             <h2 id="process-title">A clear make.<br />Practical terms.</h2>
             <p>We begin with the specification and stay accountable to the stone after the finished make leaves our benches.</p>
             <div className="commercial-panels">
@@ -295,60 +314,70 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="trust-section" id="trust" aria-labelledby="trust-title">
-          <div className="trust-heading">
-            <p className="eyebrow"><span /> 06 — WHY BUYERS WORK WITH ALVORA</p>
-            <h2 id="trust-title">A registered trade business,<br /><em>built in Surat.</em></h2>
-          </div>
-          <div className="trust-body">
-            <ul className="trust-list">
-              <li><strong>Certification:</strong> IGI documentation is available where applicable; GIA and GCAL can be requested when the buyer's channel or product brief requires them.</li>
-              <li><strong>Registered trade business:</strong> GST number: <Todo /> · IEC code: <Todo />.</li>
-              <li><strong>Physical Surat operation:</strong> Address: <Todo />{isDev && <> · <a href="#" data-alvora-todo>View the location on a map</a></>}.</li>
-              <li><strong>Established supplier:</strong> Years in business: <Todo /> · GJEPC membership status: <Todo />.</li>
-              <li><strong>Buyer-focused manufacturing:</strong> Specification-led supply for calibrated diamonds, matched layouts, melee, and custom-cut requirements.</li>
-            </ul>
-            <p className="trust-response">We reply to every trade enquiry within 24 hours.</p>
-            <p className="trust-tagline">Surat lab-grown diamond manufacturer — calibrated diamonds, matched layouts, custom cuts to exact spec.</p>
-          </div>
-        </section>
-
         <section className="faq-section" id="faq" aria-labelledby="faq-title">
           <div className="faq-heading">
             <p className="eyebrow"><span /> 07 — FAQ</p>
             <h2 id="faq-title">The useful questions.</h2>
           </div>
-          <div className="faq-content">
-            <details open>
-              <summary>Is there a minimum order?<span>+</span></summary>
-              <p>The minimum order depends on the product, size, shape, certification, and whether the request is stock, a sample, a layout, or custom production. Category-specific minimums are <Todo /> and confirmed in the quotation before approval. Buyers should include the expected quantity and repeat-order plan so the applicable minimum can be discussed clearly.</p>
-            </details>
-            <details>
-              <summary>Are your stones IGI or GIA certified?<span>+</span></summary>
-              <p>Alvora can supply IGI-certified laboratory-grown diamonds where applicable, with report-linked identity and familiar 4Cs information. IGI is generally the practical wholesale baseline for comparison and inventory workflows. GIA can be requested when a retailer or destination channel requires its name; buyers should confirm the report format needed for colourless or coloured laboratory-grown diamonds before ordering.</p>
-            </details>
-            <details>
-              <summary>Can I request a sample or memo?<span>+</span></summary>
-              <p>A sample or memo request can be discussed before the first production order, subject to the goods and commercial terms. Availability, return conditions, shipping, insurance, and any charges should be confirmed in writing. Alvora's memo terms are <Todo />, and custom-cut or specially produced goods may require separate treatment from standard stock.</p>
-            </details>
-            <details open>
-              <summary>How fast do you respond to a quote request?<span>+</span></summary>
-              <p>Within 24 hours during business days. Same-day on WhatsApp during Surat hours (IST 09:00–19:00). A complete brief — shape, measurements, quality, quantity, certification, destination, and any CAD or reference file — helps Alvora respond with a useful quotation rather than a generic initial indication.</p>
-            </details>
-            <details>
-              <summary>What are your lead times?<span>+</span></summary>
-              <p>Lead time depends on whether the requirement is available stock, a selected layout or pair, melee sorting, certification, or custom cutting. Alvora's confirmed timing is <Todo />, with actual days by product stated in the quotation. The schedule distinguishes feasibility review, production, grading, buyer approval, packing, and dispatch.</p>
-            </details>
-            <details>
-              <summary>Do you ship to the US, Canada, EU, or GCC?<span>+</span></summary>
-              <p>Alvora can discuss courier shipment to the US, Canada, EU, and GCC, with insurance and applicable IGI paperwork arranged according to the order. The buyer is responsible for destination-country duties, taxes, and import clearance. For reference: US 25% duty, Canada 0%, EU standard, GCC standard — confirm current rates with the relevant customs authority before shipment.</p>
-            </details>
-            <details>
-              <summary>How do I place my first order?<span>+</span></summary>
-              <p>Start with WhatsApp or an RFQ containing the design and stone specification. Alvora reviews the requirement and sends a quote, then the buyer can discuss a memo or sample where available before issuing a PO. After approval: production, documentation and QC, buyer confirmation where applicable, packing, and dispatch.</p>
-            </details>
-            <p className="faq-maker-line">Every stone we ship is one we made.</p>
-          </div>
+          <Accordion.Root type="multiple" defaultValue={["q1", "q4"]} className="faq-content">
+            <Accordion.Item value="q1" className="faq-item">
+              <Accordion.Header className="faq-header">
+                <Accordion.Trigger className="faq-trigger">Is there a minimum order?<span aria-hidden="true">+</span></Accordion.Trigger>
+              </Accordion.Header>
+              <Accordion.Content forceMount className="faq-answer">
+                <p>The minimum order depends on the product, size, shape, certification, and whether the request is stock, a sample, a layout, or custom production. Category-specific minimums are <Todo /> and confirmed in the quotation before approval. Buyers should include the expected quantity and repeat-order plan so the applicable minimum can be discussed clearly.</p>
+              </Accordion.Content>
+            </Accordion.Item>
+            <Accordion.Item value="q2" className="faq-item">
+              <Accordion.Header className="faq-header">
+                <Accordion.Trigger className="faq-trigger">Are your stones IGI or GIA certified?<span aria-hidden="true">+</span></Accordion.Trigger>
+              </Accordion.Header>
+              <Accordion.Content forceMount className="faq-answer">
+                <p>Alvora can supply IGI-certified laboratory-grown diamonds where applicable, with report-linked identity and familiar 4Cs information. IGI is generally the practical wholesale baseline for comparison and inventory workflows. GIA can be requested when a retailer or destination channel requires its name; buyers should confirm the report format needed for colourless or coloured laboratory-grown diamonds before ordering.</p>
+              </Accordion.Content>
+            </Accordion.Item>
+            <Accordion.Item value="q3" className="faq-item">
+              <Accordion.Header className="faq-header">
+                <Accordion.Trigger className="faq-trigger">Can I request a sample or memo?<span aria-hidden="true">+</span></Accordion.Trigger>
+              </Accordion.Header>
+              <Accordion.Content forceMount className="faq-answer">
+                <p>A sample or memo request can be discussed before the first production order, subject to the goods and commercial terms. Availability, return conditions, shipping, insurance, and any charges should be confirmed in writing. Alvora's memo terms are <Todo />, and custom-cut or specially produced goods may require separate treatment from standard stock.</p>
+              </Accordion.Content>
+            </Accordion.Item>
+            <Accordion.Item value="q4" className="faq-item">
+              <Accordion.Header className="faq-header">
+                <Accordion.Trigger className="faq-trigger">How fast do you respond to a quote request?<span aria-hidden="true">+</span></Accordion.Trigger>
+              </Accordion.Header>
+              <Accordion.Content forceMount className="faq-answer">
+                <p>Within 24 hours during business days. Same-day on WhatsApp during Surat hours (IST 09:00–19:00). A complete brief — shape, measurements, quality, quantity, certification, destination, and any CAD or reference file — helps Alvora respond with a useful quotation rather than a generic initial indication.</p>
+              </Accordion.Content>
+            </Accordion.Item>
+            <Accordion.Item value="q5" className="faq-item">
+              <Accordion.Header className="faq-header">
+                <Accordion.Trigger className="faq-trigger">What are your lead times?<span aria-hidden="true">+</span></Accordion.Trigger>
+              </Accordion.Header>
+              <Accordion.Content forceMount className="faq-answer">
+                <p>Lead time depends on whether the requirement is available stock, a selected layout or pair, melee sorting, certification, or custom cutting. Alvora's confirmed timing is <Todo />, with actual days by product stated in the quotation. The schedule distinguishes feasibility review, production, grading, buyer approval, packing, and dispatch.</p>
+              </Accordion.Content>
+            </Accordion.Item>
+            <Accordion.Item value="q6" className="faq-item">
+              <Accordion.Header className="faq-header">
+                <Accordion.Trigger className="faq-trigger">Do you ship to the US, Canada, EU, or GCC?<span aria-hidden="true">+</span></Accordion.Trigger>
+              </Accordion.Header>
+              <Accordion.Content forceMount className="faq-answer">
+                <p>Alvora can discuss courier shipment to the US, Canada, EU, and GCC, with insurance and applicable IGI paperwork arranged according to the order. The buyer is responsible for destination-country duties, taxes, and import clearance. For reference: US 25% duty, Canada 0%, EU standard, GCC standard — confirm current rates with the relevant customs authority before shipment.</p>
+              </Accordion.Content>
+            </Accordion.Item>
+            <Accordion.Item value="q7" className="faq-item">
+              <Accordion.Header className="faq-header">
+                <Accordion.Trigger className="faq-trigger">How do I place my first order?<span aria-hidden="true">+</span></Accordion.Trigger>
+              </Accordion.Header>
+              <Accordion.Content forceMount className="faq-answer">
+                <p>Start with WhatsApp or an RFQ containing the design and stone specification. Alvora reviews the requirement and sends a quote, then the buyer can discuss a memo or sample where available before issuing a PO. After approval: production, documentation and QC, buyer confirmation where applicable, packing, and dispatch.</p>
+              </Accordion.Content>
+            </Accordion.Item>
+          </Accordion.Root>
+          <p className="faq-maker-line">Every stone we ship is one we made.</p>
         </section>
 
         <section className="brief-section" id="production-brief" aria-labelledby="brief-title">
