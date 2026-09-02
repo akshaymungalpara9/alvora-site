@@ -619,6 +619,29 @@ h1 { margin-bottom: 24px; color: var(--paper); font-family: var(--serif); font-s
 .insight-outline h2 { margin: 0; font-family: var(--serif); font-size: 2rem; font-weight: 500; letter-spacing: -.035em; }
 .insight-outline p { max-width: 540px; margin: 0; color: var(--paper-dim); line-height: 1.75; }
 
+/* ── Insight article markdown body ─────────────────────────────────────────── */
+.insight-body { max-width: 720px; margin-top: 3rem; }
+.insight-body p { margin: 0 0 1.4rem; line-height: 1.82; }
+.insight-body h2 { margin: 3rem 0 1rem; font-family: var(--serif); font-size: clamp(1.8rem, 2.6vw, 2.5rem); font-weight: 500; letter-spacing: -.04em; line-height: .92; }
+.insight-body h3 { margin: 2.2rem 0 .7rem; font-size: 1rem; font-weight: 600; letter-spacing: .01em; }
+.insight-body ul, .insight-body ol { margin: 0 0 1.4rem 1.4rem; }
+.insight-body li { margin-bottom: .5rem; line-height: 1.75; }
+.insight-body a { color: var(--signal-text); text-decoration: underline; text-underline-offset: 2px; }
+.insight-body a:hover { color: var(--signal); }
+.insight-body strong { font-weight: 600; }
+.insight-body code { padding: .1em .35em; border-radius: 3px; background: rgba(0,0,0,.06); font-family: var(--mono); font-size: .82em; }
+.insight-body table { width: 100%; margin: 1.6rem 0 2rem; border-collapse: collapse; font-size: .85rem; overflow-x: auto; display: block; }
+.insight-body th { padding: .55rem .8rem; border-bottom: 2px solid var(--rule); text-align: left; font-family: var(--mono); font-size: .62rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--paper-dim); white-space: nowrap; }
+.insight-body td { padding: .6rem .8rem; border-bottom: 1px solid var(--rule); vertical-align: top; line-height: 1.6; }
+.insight-body tr:last-child td { border-bottom: none; }
+.insight-body blockquote { margin: 0 0 1.4rem; padding-left: 1rem; border-left: 2px solid var(--signal); color: var(--paper-dim); }
+
+/* Article CTA block */
+.insight-cta-block { margin-top: 4rem; padding-top: 2.4rem; border-top: 1px solid var(--rule); }
+.insight-cta-block p { margin: 0 0 1rem; color: var(--paper-dim); font-size: .9rem; }
+.insight-cta-link { display: inline-flex; align-items: center; gap: .4rem; color: var(--signal-text); font-family: var(--mono); font-size: .68rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; transition: color 150ms; }
+.insight-cta-link:hover { color: var(--signal); }
+
 @media (max-width: 700px) {
   .insight-page { padding: 0 20px 5rem; }
   .insight-header { min-height: 66px; }
