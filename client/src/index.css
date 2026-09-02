@@ -642,6 +642,16 @@ h1 { margin-bottom: 24px; color: var(--paper); font-family: var(--serif); font-s
 .insight-cta-link { display: inline-flex; align-items: center; gap: .4rem; color: var(--signal-text); font-family: var(--mono); font-size: .68rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; transition: color 150ms; }
 .insight-cta-link:hover { color: var(--signal); }
 
+/* ── Product page markdown body ───────────────────────────────── */
+.product-body { max-width: 760px; }
+.product-body p { margin: 0 0 1.4rem; line-height: 1.82; }
+.product-body h2 { margin: 3rem 0 1rem; font-family: var(--serif); font-size: clamp(1.6rem, 2.2vw, 2.2rem); font-weight: 500; letter-spacing: -.04em; line-height: .95; }
+.product-body h3 { margin: 2rem 0 .6rem; font-size: .9rem; font-weight: 600; letter-spacing: .01em; }
+.product-body ul { margin: 0 0 1.4rem 1.2rem; padding: 0; }
+.product-body li { margin: 0 0 .6rem; line-height: 1.7; list-style: disc; }
+.product-body a { color: var(--signal-text, #e8c87a); text-decoration: underline; text-underline-offset: 3px; }
+.product-body code { padding: .1em .35em; border-radius: 3px; background: rgba(255,255,255,.08); font-family: var(--mono); font-size: .82em; }
+
 @media (max-width: 700px) {
   .insight-page { padding: 0 20px 5rem; }
   .insight-header { min-height: 66px; }

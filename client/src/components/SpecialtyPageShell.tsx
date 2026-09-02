@@ -6,6 +6,13 @@ const markImage = "/assets/alvora-faceted-a.webp";
 
 const SPECIALTY_LINKS = [
   { label: "Calibrated Layouts", href: "/calibrated-diamond-layouts" },
+  { label: "LGD Pairs", href: "/matched-lab-grown-diamond-pairs" },
+  { label: "Custom Cut LGD", href: "/custom-cut-lab-grown-diamonds" },
+  { label: "IGI Certified", href: "/igi-certified-lab-grown-diamonds" },
+  { label: "CVD Diamonds", href: "/cvd-lab-grown-diamonds" },
+  { label: "HPHT Diamonds", href: "/hpht-lab-grown-diamonds" },
+  { label: "Fancy Diamonds", href: "/fancy-shape-colour-lab-grown-diamonds" },
+  { label: "Wholesale Supply", href: "/precision-lab-grown-diamond-wholesale" },
   { label: "Matched Pairs", href: "/matched-pair-diamonds" },
   { label: "Custom Cut", href: "/custom-cut-diamonds" },
   { label: "Melee Diamonds", href: "/melee-diamonds" },

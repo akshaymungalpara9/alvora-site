@@ -43,6 +43,13 @@ describe("public legal and SEO surfaces", () => {
       "/insights/cvd-vs-hpht-lab-grown-diamonds",
       "/insights/matched-pairs-vs-melee-vs-layouts",
       "/insights/sourcing-lab-grown-diamonds-from-surat",
+      "/matched-lab-grown-diamond-pairs",
+      "/custom-cut-lab-grown-diamonds",
+      "/igi-certified-lab-grown-diamonds",
+      "/cvd-lab-grown-diamonds",
+      "/hpht-lab-grown-diamonds",
+      "/fancy-shape-colour-lab-grown-diamonds",
+      "/precision-lab-grown-diamond-wholesale",
       "/privacy",
       "/terms",
     ]);

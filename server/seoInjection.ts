@@ -156,9 +156,65 @@ function resolveRouteMeta(pathname: string, origin: string): RouteMeta | null {
       return {
         lang: "en",
         title: "Calibrated Lab-Grown Diamond Layouts | Alvora Diamonds, Surat",
-        description: "Alvora makes calibrated lab-grown diamond layouts from Surat to exact repeatable dimensions — same girdle, same depth, same seat. Built for manufacturing jewellers who need every stone to hold position.",
+        description: "Source calibrated lab-grown diamond layouts with specification-led selection, documented tolerances, and IGI certification for jewellery production.",
         canonical: url("/calibrated-diamond-layouts"),
-        serviceJsonLd: { "@context": "https://schema.org", "@type": "Service", name: "Calibrated Lab-Grown Diamond Layouts", serviceType: "Diamond Manufacturing", provider: { "@type": "Organization", name: "Alvora", address: { "@type": "PostalAddress", addressLocality: "Surat", addressCountry: "IN" } }, description: "Calibrated lab-grown diamond layouts cut to exact repeatable dimensions for pave, channel, and bezel setting programmes.", areaServed: "Worldwide" },
+        serviceJsonLd: { "@context": "https://schema.org", "@type": "Service", name: "Calibrated Lab-Grown Diamond Layouts", serviceType: "Calibrated laboratory-grown diamond layouts", provider: { "@type": "Organization", name: "Alvora Diamonds", address: { "@type": "PostalAddress", addressLocality: "Surat", addressCountry: "IN" } }, areaServed: "Worldwide" },
+      };
+    case "/matched-lab-grown-diamond-pairs":
+      return {
+        lang: "en",
+        title: "Matched Lab-Grown Diamond Pairs | Alvora Diamonds, Surat",
+        description: "Order matched lab-grown diamond pairs selected for consistent dimensions, outline, colour, clarity, and appearance in jewellery production.",
+        canonical: url("/matched-lab-grown-diamond-pairs"),
+        serviceJsonLd: { "@context": "https://schema.org", "@type": "Service", name: "Matched Lab-Grown Diamond Pairs", serviceType: "Matched laboratory-grown diamond pairs", provider: { "@type": "Organization", name: "Alvora Diamonds", address: { "@type": "PostalAddress", addressLocality: "Surat", addressCountry: "IN" } }, areaServed: "Worldwide" },
+      };
+    case "/custom-cut-lab-grown-diamonds":
+      return {
+        lang: "en",
+        title: "Custom-Cut Lab-Grown Diamonds to Specification | Alvora Diamonds, Surat",
+        description: "Develop custom-cut lab-grown diamonds from a CAD or design brief, with feasibility review, method disclosure, and documented specifications.",
+        canonical: url("/custom-cut-lab-grown-diamonds"),
+        serviceJsonLd: { "@context": "https://schema.org", "@type": "Service", name: "Custom-Cut Lab-Grown Diamonds to Specification", serviceType: "Custom-cut laboratory-grown diamonds", provider: { "@type": "Organization", name: "Alvora Diamonds", address: { "@type": "PostalAddress", addressLocality: "Surat", addressCountry: "IN" } }, areaServed: "Worldwide" },
+      };
+    case "/igi-certified-lab-grown-diamonds":
+      return {
+        lang: "en",
+        title: "IGI-Certified Lab-Grown Diamonds for Wholesale | Alvora Diamonds, Surat",
+        description: "Source IGI-certified lab-grown diamonds for wholesale with familiar 4Cs reporting, method disclosure, and specification-led supplier QC.",
+        canonical: url("/igi-certified-lab-grown-diamonds"),
+        serviceJsonLd: { "@context": "https://schema.org", "@type": "Product", name: "IGI-Certified Lab-Grown Diamonds", description: "Laboratory-grown diamonds supplied with IGI documentation where applicable.", brand: { "@type": "Brand", name: "Alvora Diamonds" }, manufacturer: { "@type": "Organization", name: "Alvora Diamonds", address: { "@type": "PostalAddress", addressLocality: "Surat", addressCountry: "IN" } } },
+      };
+    case "/cvd-lab-grown-diamonds":
+      return {
+        lang: "en",
+        title: "CVD Lab-Grown Diamonds for Wholesale | Alvora Diamonds, Surat",
+        description: "Explore CVD lab-grown diamonds from Surat for wholesale and design-led supply, with method disclosure and specification-focused selection.",
+        canonical: url("/cvd-lab-grown-diamonds"),
+        serviceJsonLd: { "@context": "https://schema.org", "@type": "Product", name: "CVD Lab-Grown Diamonds", description: "CVD laboratory-grown diamonds supplied with transparent method and treatment information.", brand: { "@type": "Brand", name: "Alvora Diamonds" }, material: "Laboratory-grown diamond" },
+      };
+    case "/hpht-lab-grown-diamonds":
+      return {
+        lang: "en",
+        title: "HPHT Lab-Grown Diamonds for Wholesale | Alvora Diamonds, Surat",
+        description: "Source HPHT lab-grown diamonds with transparent method and treatment disclosure, finished-stone review, and specification-led wholesale selection.",
+        canonical: url("/hpht-lab-grown-diamonds"),
+        serviceJsonLd: { "@context": "https://schema.org", "@type": "AboutPage", name: "HPHT Lab-Grown Diamonds for Wholesale", description: "Information about HPHT laboratory-grown diamonds and specification-led sourcing.", about: { "@type": "Product", name: "HPHT laboratory-grown diamonds", material: "Laboratory-grown diamond" }, publisher: { "@type": "Organization", name: "Alvora Diamonds" } },
+      };
+    case "/fancy-shape-colour-lab-grown-diamonds":
+      return {
+        lang: "en",
+        title: "Fancy-Shape and Fancy-Colour Lab-Grown Diamonds | Alvora Diamonds, Surat",
+        description: "Source fancy-shape and fancy-colour lab-grown diamonds for design-led jewellery with transparent treatment disclosure and wholesale support.",
+        canonical: url("/fancy-shape-colour-lab-grown-diamonds"),
+        serviceJsonLd: { "@context": "https://schema.org", "@type": "Service", name: "Fancy-Shape and Fancy-Colour Lab-Grown Diamonds", serviceType: "Fancy-shape and fancy-colour laboratory-grown diamond sourcing", provider: { "@type": "Organization", name: "Alvora Diamonds", address: { "@type": "PostalAddress", addressLocality: "Surat", addressCountry: "IN" } }, areaServed: "Worldwide" },
+      };
+    case "/precision-lab-grown-diamond-wholesale":
+      return {
+        lang: "en",
+        title: "Precision Lab-Grown Diamond Wholesale Supply | Alvora Diamonds, Surat",
+        description: "Work with a Surat manufacturer for precision lab-grown diamond wholesale, including layouts, pairs, custom cuts, and repeat specifications.",
+        canonical: url("/precision-lab-grown-diamond-wholesale"),
+        serviceJsonLd: { "@context": "https://schema.org", "@type": "ContactPage", name: "Precision Lab-Grown Diamond Wholesale Supply", description: "Contact Alvora Diamonds about specification-led laboratory-grown diamond wholesale supply.", about: { "@type": "Service", name: "Precision lab-grown diamond wholesale supply" }, publisher: { "@type": "Organization", name: "Alvora Diamonds", address: { "@type": "PostalAddress", addressLocality: "Surat", addressCountry: "IN" } } },
       };
     case "/matched-pair-diamonds":
       return {

@@ -103,6 +103,13 @@ const ROUTE_META: Record<string, RouteMetadata> = {
   "/insights/cvd-vs-hpht-lab-grown-diamonds":               { changefreq: "monthly", priority: "0.6" },
   "/insights/matched-pairs-vs-melee-vs-layouts":            { changefreq: "monthly", priority: "0.6" },
   "/insights/sourcing-lab-grown-diamonds-from-surat":       { changefreq: "monthly", priority: "0.6" },
+  "/matched-lab-grown-diamond-pairs":         { changefreq: "monthly", priority: "0.7" },
+  "/custom-cut-lab-grown-diamonds":            { changefreq: "monthly", priority: "0.7" },
+  "/igi-certified-lab-grown-diamonds":         { changefreq: "monthly", priority: "0.7" },
+  "/cvd-lab-grown-diamonds":                   { changefreq: "monthly", priority: "0.6" },
+  "/hpht-lab-grown-diamonds":                  { changefreq: "monthly", priority: "0.6" },
+  "/fancy-shape-colour-lab-grown-diamonds":    { changefreq: "monthly", priority: "0.6" },
+  "/precision-lab-grown-diamond-wholesale":    { changefreq: "monthly", priority: "0.7" },
   "/privacy": { changefreq: "yearly",  priority: "0.3" },
   "/terms":   { changefreq: "yearly",  priority: "0.3" },
 };

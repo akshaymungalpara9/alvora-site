@@ -1,6 +1,7 @@
 import { jsxLocPlugin } from "@builder.io/vite-plugin-jsx-loc";
 import tailwindcss from "@tailwindcss/vite";
 import react from "@vitejs/plugin-react";
+import matter from "gray-matter";
 import fs from "node:fs";
 import path from "node:path";
 import { defineConfig, type Plugin, type ViteDevServer } from "vite";
@@ -150,7 +151,74 @@ function vitePluginManusDebugCollector(): Plugin {
   };
 }
 
-const plugins = [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime(), vitePluginManusDebugCollector()];
+// =============================================================================
+// Alvora Markdown Plugin — transforms .md files into ES modules
+// Parses frontmatter with gray-matter, extracts JSON-LD from ```json blocks,
+// cleans CTA lines and References section from body, strips TODO values.
+// =============================================================================
+
+// Strip TODO values recursively — replace "TODO(alvora): ______" with null, then remove null keys
+function stripTodos(val: unknown): unknown {
+  if (typeof val === "string" && /TODO\(alvora\)/.test(val)) return null;
+  if (Array.isArray(val)) {
+    const arr = val.map(stripTodos).filter((v) => v !== null);
+    return arr.length ? arr : null;
+  }
+  if (val !== null && typeof val === "object") {
+    const out: Record<string, unknown> = {};
+    for (const [k, v] of Object.entries(val as Record<string, unknown>)) {
+      const cleaned = stripTodos(v);
+      if (cleaned !== null) out[k] = cleaned;
+    }
+    return Object.keys(out).length ? out : null;
+  }
+  return val;
+}
+
+function alvoraMarkdownPlugin(): Plugin {
+  return {
+    name: "alvora-markdown",
+    transform(code, id) {
+      if (!id.endsWith(".md")) return null;
+
+      const { data: frontmatter, content } = matter(code);
+
+      // Extract JSON-LD from ```json ... ``` code fence
+      let jsonLd: object | null = null;
+      const jsonFenceRe = /```json\s*([\s\S]*?)```/;
+      const jsonMatch = content.match(jsonFenceRe);
+      if (jsonMatch) {
+        try {
+          const rawObj = JSON.parse(jsonMatch[1]);
+          const cleaned = stripTodos(rawObj);
+          jsonLd = cleaned as object | null;
+        } catch {
+          jsonLd = null;
+        }
+      }
+
+      // Clean body: strip ```json...``` blocks, CTA lines, References section, normalize blanks
+      let body = content;
+      body = body.replace(/```json[\s\S]*?```/g, "");
+      body = body.replace(/^WhatsApp:.*$/gm, "");
+      body = body.replace(/^Request a quote:.*$/gm, "");
+      const refIdx = body.search(/^## References$/m);
+      if (refIdx !== -1) body = body.slice(0, refIdx);
+      body = body.replace(/\n{3,}/g, "\n\n").trim();
+
+      const fm = JSON.stringify(frontmatter);
+      const bodyStr = JSON.stringify(body);
+      const jsonLdStr = JSON.stringify(jsonLd);
+
+      return {
+        code: `export const frontmatter = ${fm};\nexport const body = ${bodyStr};\nexport const jsonLd = ${jsonLdStr};\n`,
+        map: null,
+      };
+    },
+  };
+}
+
+const plugins = [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime(), vitePluginManusDebugCollector(), alvoraMarkdownPlugin()];
 
 export default defineConfig({
   plugins,
@@ -182,6 +250,11 @@ export default defineConfig({
     fs: {
       strict: true,
       deny: ["**/.*"],
+      allow: [
+        path.resolve(import.meta.dirname, "client"),
+        path.resolve(import.meta.dirname, "content"),
+        path.resolve(import.meta.dirname, "node_modules"),
+      ],
     },
   },
 });
