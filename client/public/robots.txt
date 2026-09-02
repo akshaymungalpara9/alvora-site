@@ -5,5 +5,3 @@ Disallow: /admin/
 Disallow: /availability
 Disallow: /buyer-availability
 Disallow: /api/
-
-Sitemap: https://www.alvoradiamonds.com/sitemap.xml

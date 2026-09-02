@@ -22,36 +22,11 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const distPublic = path.resolve(__dirname, "../dist/public");
 const outDir = path.resolve(__dirname, "../dist/prerendered");
 
-// Routes whose #root content we want to prerender. Must match the route keys
-// that serveStatic checks in vite.ts.
-const ROUTES = [
-  "/",
-  "/fr",
-  "/it",
-  "/us",
-  "/calibrated-diamond-layouts",
-  "/matched-pair-diamonds",
-  "/custom-cut-diamonds",
-  "/melee-diamonds",
-  "/certifications",
-  "/about",
-  "/for-jewelry-brands",
-  "/request-a-quote",
-  "/insights",
-  "/insights/are-lab-grown-diamonds-real-diamonds",
-  "/insights/best-lab-grown-diamond-manufacturer-for-your-need",
-  "/insights/is-a-lab-grown-diamond-worth-it",
-  "/insights/lab-grown-diamond-price-per-carat",
-  "/insights/lab-grown-diamond-wholesale-how-to-buy",
-  "/insights/largest-lab-grown-diamond-manufacturers-india",
-  "/insights/12-questions-to-ask-a-manufacturer",
-  "/insights/calibrated-diamond-layouts-explained",
-  "/insights/cvd-vs-hpht-lab-grown-diamonds",
-  "/insights/matched-pairs-vs-melee-vs-layouts",
-  "/insights/sourcing-lab-grown-diamonds-from-surat",
-  "/privacy",
-  "/terms",
-];
+// Routes are sourced from scripts/publicRoutes.json — the single source of truth
+// shared with server/publicSeoRoutes.ts. Do not add routes here directly.
+const ROUTES = JSON.parse(
+  fs.readFileSync(path.resolve(__dirname, "publicRoutes.json"), "utf-8")
+);
 const PORT = 4173;
 
 function routeKey(route) {

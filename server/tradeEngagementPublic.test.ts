@@ -21,12 +21,20 @@ describe("trade engagement public surfaces", () => {
     expect(component).not.toContain("data-umami-event-email");
   });
 
-  it("keeps unreviewed Insights notes out of buyer navigation while retaining a noindex preparation page", () => {
+  it("publishes the Insights hub with real article links and no draft content", () => {
     const insights = read("client/src/pages/Insights.tsx");
-    expect(insights).toContain("Manufacturing notes are in preparation.");
+    const content = read("client/src/lib/insightsContent.ts");
+    // Real articles are in the published INSIGHTS array
+    expect(content).toContain("export const INSIGHTS");
+    expect(content).toContain("are-lab-grown-diamonds-real-diamonds");
+    expect(content).toContain("cvd-vs-hpht-lab-grown-diamonds");
+    // No draft labels in the hub or article renderer
     expect(insights).not.toContain("Owner draft");
     expect(insights).not.toContain("Open draft");
-    expect(insights).toContain('robots: "noindex,follow,max-image-preview:large"');
+    // Hub renders article list; articles render with ReactMarkdown
+    expect(insights).toContain("InsightHub");
+    expect(insights).toContain("InsightArticlePage");
+    expect(insights).toContain("ReactMarkdown");
   });
 
   it("discloses the new WhatsApp event and qualifier email sequence in the public privacy draft", () => {

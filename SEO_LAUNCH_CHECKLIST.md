@@ -49,13 +49,38 @@ Without this, canonical tags and the sitemap will reflect the Railway host heade
 
 ### 1c. Request indexing of priority pages
 
-For each URL below, paste it into the **URL Inspection** tool (top search bar) and click **Request Indexing**:
+For each URL below, paste it into the **URL Inspection** tool (top search bar) and click **Request Indexing**. Google allows ~12 manual requests per day — start with these:
 
 ```
 https://www.alvoradiamonds.com/
+https://www.alvoradiamonds.com/calibrated-diamond-layouts
+https://www.alvoradiamonds.com/matched-pair-diamonds
+https://www.alvoradiamonds.com/for-jewelry-brands
+https://www.alvoradiamonds.com/request-a-quote
+https://www.alvoradiamonds.com/insights
+```
+
+Then queue the remaining product pages and insight articles over the following days:
+
+```
 https://www.alvoradiamonds.com/fr
 https://www.alvoradiamonds.com/it
 https://www.alvoradiamonds.com/us
+https://www.alvoradiamonds.com/custom-cut-diamonds
+https://www.alvoradiamonds.com/melee-diamonds
+https://www.alvoradiamonds.com/certifications
+https://www.alvoradiamonds.com/about
+https://www.alvoradiamonds.com/insights/are-lab-grown-diamonds-real-diamonds
+https://www.alvoradiamonds.com/insights/best-lab-grown-diamond-manufacturer-for-your-need
+https://www.alvoradiamonds.com/insights/is-a-lab-grown-diamond-worth-it
+https://www.alvoradiamonds.com/insights/lab-grown-diamond-price-per-carat
+https://www.alvoradiamonds.com/insights/lab-grown-diamond-wholesale-how-to-buy
+https://www.alvoradiamonds.com/insights/largest-lab-grown-diamond-manufacturers-india
+https://www.alvoradiamonds.com/insights/12-questions-to-ask-a-manufacturer
+https://www.alvoradiamonds.com/insights/calibrated-diamond-layouts-explained
+https://www.alvoradiamonds.com/insights/cvd-vs-hpht-lab-grown-diamonds
+https://www.alvoradiamonds.com/insights/matched-pairs-vs-melee-vs-layouts
+https://www.alvoradiamonds.com/insights/sourcing-lab-grown-diamonds-from-surat
 ```
 
 > Google typically processes indexing requests within 24–72 hours.
@@ -104,18 +129,28 @@ Bing processes manual submissions faster than Google — often same day.
 
 ---
 
-## 3. Future sitemap maintenance
+## 3. Link GSC to GA4
 
-| Trigger | Action |
-|---|---|
-| First insights article published | Remove `noindex` from `/insights` route in `server/seoInjection.ts`; add the article slug to `SITEMAP_ENTRIES` in `server/publicSeoRoutes.ts` |
-| New locale (e.g. `/de`) added | Add to `HOME_ALTERNATES` and `SITEMAP_ENTRIES` in `publicSeoRoutes.ts`; add metadata to `publicSeo.ts` and `seoInjection.ts` |
-| Product/category pages added | Add their paths to `SITEMAP_ENTRIES` with appropriate `changefreq` and `priority` |
-| Major content rewrite | `lastmod` updates automatically from `new Date()` at request time — no action needed |
+1. In GSC → **Settings** → **Associations** → Link Google Analytics property
+2. In GA4 → **Admin** → **Product links** → Search Console → New link → select Alvora property
+3. After 48 h, organic search data appears in GA4 under **Acquisition → Search Console**
 
 ---
 
-## 4. Optional — structured data testing
+## 4. Future sitemap maintenance
+
+The canonical route list lives in **`scripts/publicRoutes.json`** — the single source of truth used by both the sitemap generator (`server/publicSeoRoutes.ts`) and the prerender script (`scripts/prerender.mjs`).
+
+| Trigger | Action |
+|---|---|
+| New indexable page added | Add the path to `scripts/publicRoutes.json`; add per-route metadata to `ROUTE_META` in `server/publicSeoRoutes.ts`; add SEO head injection to `server/seoInjection.ts` |
+| New locale (e.g. `/de`) added | Add path to `publicRoutes.json`; add to `HOME_ALTERNATES` and `ROUTE_META` in `publicSeoRoutes.ts`; add locale metadata to `publicSeo.ts` and `seoInjection.ts` |
+| Page removed or moved | Remove path from `publicRoutes.json`; add a 301 redirect in the Express server |
+| Major content rewrite | `lastmod` is set to the build date automatically — redeploy to update it |
+
+---
+
+## 5. Optional — structured data testing
 
 After deployment, test these URLs in Google's Rich Results Test:
 
