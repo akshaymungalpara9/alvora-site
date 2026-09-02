@@ -100,7 +100,15 @@ function resolveRouteMeta(pathname: string, origin: string): RouteMeta | null {
   const url = (p: string) => `${origin}${p}`;
   switch (pathname) {
     case "/":
-      return { ...publicSeo.global, canonical: url("/"), alternates: publicHreflangAlternates(origin) };
+      return { ...publicSeo.global, canonical: url("/"), alternates: publicHreflangAlternates(origin), serviceJsonLd: mkFaqPage([
+        { q: "Is there a minimum order?", a: "The minimum order depends on the product, size, shape, certification, and whether the request is stock, a sample, a layout, or custom production. Category-specific minimums are confirmed in the quotation before approval. Buyers should include the expected quantity and repeat-order plan so the applicable minimum can be discussed clearly." },
+        { q: "Are your stones IGI or GIA certified?", a: "Alvora can supply IGI-certified laboratory-grown diamonds where applicable, with report-linked identity and familiar 4Cs information. IGI is generally the practical wholesale baseline for comparison and inventory workflows. GIA can be requested when a retailer or destination channel requires its name; buyers should confirm the report format needed before ordering." },
+        { q: "Can I request a sample or memo?", a: "A sample or memo request can be discussed before the first production order, subject to the goods and commercial terms. Availability, return conditions, shipping, insurance, and any charges should be confirmed in writing. Custom-cut or specially produced goods may require separate treatment from standard stock." },
+        { q: "How fast do you respond to a quote request?", a: "Within 24 hours during business days. Same-day on WhatsApp during Surat hours (IST 09:00–19:00). A complete brief — shape, measurements, quality, quantity, certification, destination, and any CAD or reference file — helps Alvora respond with a useful quotation." },
+        { q: "What are your lead times?", a: "Lead time depends on whether the requirement is available stock, a selected layout or pair, melee sorting, certification, or custom cutting. Actual days by product are stated in the quotation. The schedule distinguishes feasibility review, production, grading, buyer approval, packing, and dispatch." },
+        { q: "Do you ship to the US, Canada, EU, or GCC?", a: "Alvora can discuss courier shipment to the US, Canada, EU, and GCC, with insurance and applicable IGI paperwork arranged according to the order. The buyer is responsible for destination-country duties, taxes, and import clearance. US 25% duty, Canada 0%, EU standard, GCC standard — confirm current rates with the relevant customs authority before shipment." },
+        { q: "How do I place my first order?", a: "Start with WhatsApp or an RFQ containing the design and stone specification. Alvora reviews the requirement and sends a quote, then the buyer can discuss a memo or sample where available before issuing a PO. After approval: production, documentation and QC, buyer confirmation where applicable, packing, and dispatch." },
+      ]) };
     case "/fr":
       return { ...publicSeo.fr, canonical: url("/fr"), alternates: publicHreflangAlternates(origin) };
     case "/it":

@@ -16,6 +16,12 @@ import PublicMetadata from "@/components/PublicMetadata";
 import { useLocation } from "wouter";
 import { navigateToPublicAnchor, scrollToPublicAnchor, usePublicHashNavigation } from "@/lib/hashNavigation";
 
+const isDev = import.meta.env.DEV;
+function Todo() {
+  if (isDev) return <mark data-alvora-todo style={{ background: "rgba(255,180,0,.28)", padding: "0 .3em", fontFamily: "var(--mono)", fontSize: ".82em" }}>TODO</mark>;
+  return <span data-alvora-todo aria-hidden="true" />;
+}
+
 const heroImage = "/assets/alvora-hero-qc.webp";
 const facetingImage = "/assets/alvora-cutting-faceting.webp";
 const laserImage = "/assets/alvora-laser-calibration.webp";
@@ -289,31 +295,57 @@ export default function Home() {
           </div>
         </section>
 
+        <section className="trust-section" id="trust" aria-labelledby="trust-title">
+          <div className="trust-heading">
+            <p className="eyebrow"><span /> 06 — WHY BUYERS WORK WITH ALVORA</p>
+            <h2 id="trust-title">A registered trade business,<br /><em>built in Surat.</em></h2>
+          </div>
+          <div className="trust-body">
+            <ul className="trust-list">
+              <li><strong>Certification:</strong> IGI documentation is available where applicable; GIA and GCAL can be requested when the buyer's channel or product brief requires them.</li>
+              <li><strong>Registered trade business:</strong> GST number: <Todo /> · IEC code: <Todo />.</li>
+              <li><strong>Physical Surat operation:</strong> Address: <Todo />{isDev && <> · <a href="#" data-alvora-todo>View the location on a map</a></>}.</li>
+              <li><strong>Established supplier:</strong> Years in business: <Todo /> · GJEPC membership status: <Todo />.</li>
+              <li><strong>Buyer-focused manufacturing:</strong> Specification-led supply for calibrated diamonds, matched layouts, melee, and custom-cut requirements.</li>
+            </ul>
+            <p className="trust-response">We reply to every trade enquiry within 24 hours.</p>
+            <p className="trust-tagline">Surat lab-grown diamond manufacturer — calibrated diamonds, matched layouts, custom cuts to exact spec.</p>
+          </div>
+        </section>
+
         <section className="faq-section" id="faq" aria-labelledby="faq-title">
           <div className="faq-heading">
-            <p className="eyebrow"><span /> 06 — FAQ</p>
+            <p className="eyebrow"><span /> 07 — FAQ</p>
             <h2 id="faq-title">The useful questions.</h2>
           </div>
           <div className="faq-content">
             <details open>
-              <summary>What are your payment terms?<span>+</span></summary>
-              <p>We work with established jewellers and ateliers on flexible, negotiated trade terms. A first order confirms the make; ongoing accounts move to agreed terms after credit and reference checks.</p>
+              <summary>Is there a minimum order?<span>+</span></summary>
+              <p>The minimum order depends on the product, size, shape, certification, and whether the request is stock, a sample, a layout, or custom production. Category-specific minimums are <Todo /> and confirmed in the quotation before approval. Buyers should include the expected quantity and repeat-order plan so the applicable minimum can be discussed clearly.</p>
             </details>
             <details>
-              <summary>What if a stone needs correction?<span>+</span></summary>
-              <p>Every stone is verified against its certificate before dispatch. If a piece needs correction — a spec mismatch, a chip, or a make issue — it goes back to our benches. We repair or replace and return it, so you are never left with a stone you cannot sell.</p>
+              <summary>Are your stones IGI or GIA certified?<span>+</span></summary>
+              <p>Alvora can supply IGI-certified laboratory-grown diamonds where applicable, with report-linked identity and familiar 4Cs information. IGI is generally the practical wholesale baseline for comparison and inventory workflows. GIA can be requested when a retailer or destination channel requires its name; buyers should confirm the report format needed for colourless or coloured laboratory-grown diamonds before ordering.</p>
+            </details>
+            <details>
+              <summary>Can I request a sample or memo?<span>+</span></summary>
+              <p>A sample or memo request can be discussed before the first production order, subject to the goods and commercial terms. Availability, return conditions, shipping, insurance, and any charges should be confirmed in writing. Alvora's memo terms are <Todo />, and custom-cut or specially produced goods may require separate treatment from standard stock.</p>
             </details>
             <details open>
-              <summary>What can I specify in a custom make?<span>+</span></summary>
-              <p>Shape, exact dimensions, ratios, finish, parcel requirements and timing can all be placed in the production brief.</p>
+              <summary>How fast do you respond to a quote request?<span>+</span></summary>
+              <p>Within 24 hours during business days. Same-day on WhatsApp during Surat hours (IST 09:00–19:00). A complete brief — shape, measurements, quality, quantity, certification, destination, and any CAD or reference file — helps Alvora respond with a useful quotation rather than a generic initial indication.</p>
             </details>
             <details>
-              <summary>Can you match stones for a manufacturing layout?<span>+</span></summary>
-              <p>Yes. Matched layouts and calibrated parcels are prepared around the proportions and visual consistency your finished piece requires.</p>
+              <summary>What are your lead times?<span>+</span></summary>
+              <p>Lead time depends on whether the requirement is available stock, a selected layout or pair, melee sorting, certification, or custom cutting. Alvora's confirmed timing is <Todo />, with actual days by product stated in the quotation. The schedule distinguishes feasibility review, production, grading, buyer approval, packing, and dispatch.</p>
             </details>
             <details>
-              <summary>Can a stone be reworked after it is made?<span>+</span></summary>
-              <p>We can assess recut, repolish and rework requirements for stones made by Alvora, with the original production information close at hand.</p>
+              <summary>Do you ship to the US, Canada, EU, or GCC?<span>+</span></summary>
+              <p>Alvora can discuss courier shipment to the US, Canada, EU, and GCC, with insurance and applicable IGI paperwork arranged according to the order. The buyer is responsible for destination-country duties, taxes, and import clearance. For reference: US 25% duty, Canada 0%, EU standard, GCC standard — confirm current rates with the relevant customs authority before shipment.</p>
+            </details>
+            <details>
+              <summary>How do I place my first order?<span>+</span></summary>
+              <p>Start with WhatsApp or an RFQ containing the design and stone specification. Alvora reviews the requirement and sends a quote, then the buyer can discuss a memo or sample where available before issuing a PO. After approval: production, documentation and QC, buyer confirmation where applicable, packing, and dispatch.</p>
             </details>
             <p className="faq-maker-line">Every stone we ship is one we made.</p>
           </div>
@@ -321,7 +353,7 @@ export default function Home() {
 
         <section className="brief-section" id="production-brief" aria-labelledby="brief-title">
           <div className="brief-intro">
-            <p className="eyebrow eyebrow-bright"><span /> 07 — PRODUCTION BRIEF</p>
+            <p className="eyebrow eyebrow-bright"><span /> 08 — PRODUCTION BRIEF</p>
             <h2 id="brief-title">Commission a make.</h2>
             <p>Tell us the programme, profile, or specification you need. We will return with the practical production detail.</p>
             <div className="brief-aside">
