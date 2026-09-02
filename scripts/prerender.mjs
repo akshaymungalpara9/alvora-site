@@ -67,11 +67,27 @@ console.log(`[prerender] Static server ready on http://localhost:${PORT}`);
 // Try env override first, then the paths used by every other script in this
 // repo, then a snap path. Exit 0 (non-blocking) if nothing is found.
 
+// Playwright installs its own Chromium under the user cache dir on macOS.
+// The glob-like paths below cover headless-shell (preferred, smaller) and
+// the full "Google Chrome for Testing" variant across version bumps.
+const playwrightCache = `${process.env.HOME}/Library/Caches/ms-playwright`;
+const macCandidates = fs.existsSync(playwrightCache)
+  ? fs
+      .readdirSync(playwrightCache)
+      .flatMap((dir) => [
+        `${playwrightCache}/${dir}/chrome-headless-shell-mac-arm64/chrome-headless-shell`,
+        `${playwrightCache}/${dir}/chrome-headless-shell-mac-x64/chrome-headless-shell`,
+        `${playwrightCache}/${dir}/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing`,
+        `${playwrightCache}/${dir}/chrome-mac-x64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing`,
+      ])
+  : [];
+
 const candidates = [
   process.env.CHROMIUM_PATH,
   "/usr/bin/chromium",
   "/usr/bin/chromium-browser",
   "/snap/bin/chromium",
+  ...macCandidates,
 ].filter(Boolean);
 
 const executablePath = candidates.find((p) => fs.existsSync(p));
