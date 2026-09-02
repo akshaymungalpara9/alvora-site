@@ -7,51 +7,75 @@ interface RouteMeta {
   canonical: string;
   robots?: string;
   alternates?: Array<{ lang: string; href: string }>;
-  serviceJsonLd?: object;
+  serviceJsonLd?: object | object[];
 }
 
-// TODO: Replace every "TODO:" value below with real production values before go-live.
-const ORG_JSON_LD = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Organization",
-      "@id": "TODO: https://yourdomain.com/#organization",
-      name: "Alvora",
-      url: "TODO: https://yourdomain.com/",
-      logo: "TODO: https://yourdomain.com/assets/alvora-logo.png",
-      description:
-        "Alvora is a Surat lab-grown diamond manufacturer making certified, calibrated diamonds, matched layouts, and custom cuts to exact specification.",
-      sameAs: [
-        // TODO: add LinkedIn, Instagram, and other social profile URLs
-      ],
-    },
-    {
-      "@type": "LocalBusiness",
-      "@id": "TODO: https://yourdomain.com/#business",
-      name: "Alvora",
-      url: "TODO: https://yourdomain.com/",
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: "TODO: street address",
-        addressLocality: "Surat",
-        addressRegion: "Gujarat",
-        postalCode: "TODO: postal code",
-        addressCountry: "IN",
+function buildOrgJsonLd(origin: string) {
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": `${origin}/#organization`,
+        name: "Alvora",
+        url: `${origin}/`,
+        logo: `${origin}/assets/alvora-faceted-a.webp`,
+        description:
+          "Alvora is a Surat lab-grown diamond manufacturer making certified, calibrated diamonds, matched layouts, and custom cuts to exact specification.",
+        sameAs: [],
       },
-      telephone: "TODO: +91-XXX-XXX-XXXX",
-      email: "TODO: contact@yourdomain.com",
-      openingHoursSpecification: {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-        opens: "09:00",
-        closes: "18:00",
+      {
+        "@type": "LocalBusiness",
+        "@id": `${origin}/#business`,
+        name: "Alvora",
+        url: `${origin}/`,
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: "TODO(alvora): street address",
+          addressLocality: "Surat",
+          addressRegion: "Gujarat",
+          postalCode: "TODO(alvora): postal code",
+          addressCountry: "IN",
+        },
+        telephone: "TODO(alvora): +91-XXX-XXX-XXXX",
+        email: "TODO(alvora): contact@alvoradiamonds.com",
+        openingHoursSpecification: {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          opens: "09:00",
+          closes: "18:00",
+        },
+        priceRange: "$$$$",
+        currenciesAccepted: "USD, EUR, INR",
       },
-      priceRange: "$$$$",
-      currenciesAccepted: "USD, EUR, INR",
-    },
-  ],
-};
+    ],
+  };
+}
+
+function mkArticle(origin: string, path: string, headline: string, description: string) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline,
+    description,
+    datePublished: "2026-09-01",
+    author: { "@type": "Organization", name: "Alvora Diamonds" },
+    publisher: { "@type": "Organization", name: "Alvora Diamonds" },
+    mainEntityOfPage: { "@type": "WebPage", "@id": `${origin}${path}` },
+  };
+}
+
+function mkFaqPage(questions: Array<{ q: string; a: string }>) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: questions.map(({ q, a }) => ({
+      "@type": "Question",
+      name: q,
+      acceptedAnswer: { "@type": "Answer", text: a },
+    })),
+  };
+}
 
 function publicHreflangAlternates(origin: string) {
   return [
@@ -192,6 +216,129 @@ function resolveRouteMeta(pathname: string, origin: string): RouteMeta | null {
         canonical: url("/request-a-quote"),
         serviceJsonLd: { "@context": "https://schema.org", "@type": "Service", name: "Request a Quote — Alvora Lab-Grown Diamonds", serviceType: "Diamond Manufacturing", provider: { "@type": "Organization", name: "Alvora", address: { "@type": "PostalAddress", addressLocality: "Surat", addressCountry: "IN" } }, description: "Submit a production enquiry to Alvora for certified, calibrated lab-grown diamonds.", areaServed: "Worldwide" },
       };
+    // PAA pages — Article + FAQPage JSON-LD pair
+    case "/insights/are-lab-grown-diamonds-real-diamonds":
+      return {
+        lang: "en",
+        title: "Are Lab-Grown Diamonds Real Diamonds? | Alvora",
+        description: "Lab-grown diamonds are chemically, physically, and optically identical to mined diamonds, recognised by the FTC in 2018. This page explains IGI and GIA documentation and how to verify a stone matches its certificate.",
+        canonical: url("/insights/are-lab-grown-diamonds-real-diamonds"),
+        serviceJsonLd: [
+          mkArticle(origin, "/insights/are-lab-grown-diamonds-real-diamonds", "Are Lab-Grown Diamonds Real Diamonds?", "Lab-grown diamonds share the chemical, physical, and optical properties of mined diamonds and are recognised by the FTC as diamonds with required origin disclosure."),
+          mkFaqPage([
+            { q: "Are lab-grown diamonds real diamonds?", a: "Yes. Lab-grown diamonds are diamonds with the same fundamental chemical, physical, and optical properties as mined diamonds; the distinction is their origin. The US FTC recognized this in its 2018 Jewelry Guides while retaining a requirement to disclose laboratory-grown origin clearly. IGI and GIA provide laboratory-grown reports or assessments, and buyers can verify report numbers and laser inscriptions online." },
+          ]),
+        ],
+      };
+    case "/insights/best-lab-grown-diamond-manufacturer-for-your-need":
+      return {
+        lang: "en",
+        title: "Which Lab-Grown Diamond Manufacturer Is Best? | Alvora",
+        description: "There is no single best lab-grown diamond manufacturer — the right choice depends on volume, format, certification, and delivery region. A buyer-focused rubric for evaluating suppliers.",
+        canonical: url("/insights/best-lab-grown-diamond-manufacturer-for-your-need"),
+        serviceJsonLd: [
+          mkArticle(origin, "/insights/best-lab-grown-diamond-manufacturer-for-your-need", "Which Lab-Grown Diamond Manufacturer Is Best? (It Depends What You're Buying)", "A buyer-focused rubric for choosing a laboratory-grown diamond manufacturer by need."),
+          mkFaqPage([
+            { q: "Which company is the best for lab-grown diamonds?", a: "There is no single best company for every lab-grown diamond purchase. KIRA has the clearest public scale evidence, Guru Diam emphasizes US-facing trade convenience, and specialist suppliers may be more suitable for calibrated layouts, matched pairs, custom cuts, fancy colour, or large stones. Compare each supplier against the exact design, volume, certification, and delivery requirement." },
+          ]),
+        ],
+      };
+    case "/insights/is-a-lab-grown-diamond-worth-it":
+      return {
+        lang: "en",
+        title: "Is a Lab-Grown Diamond Worth Buying? | Alvora",
+        description: "Whether a lab-grown diamond is worth buying depends on who is buying. For B2B retailers and designers the case is strong; end consumers should factor in the low secondary-market resale value.",
+        canonical: url("/insights/is-a-lab-grown-diamond-worth-it"),
+        serviceJsonLd: [
+          mkArticle(origin, "/insights/is-a-lab-grown-diamond-worth-it", "Is a Lab-Grown Diamond Worth Buying? (For Retailers, Designers, and End Buyers)", "A balanced B2B and consumer analysis of laboratory-grown diamond value, cost, and resale considerations."),
+          mkFaqPage([
+            { q: "Is it worth buying a lab-grown diamond?", a: "It can be worth buying if you value the jewellery, size, design, laboratory-grown origin, and current price more than future resale. Retailers and designers should assess landed cost, certification, inventory risk, and repeatability. End consumers should assume secondary-market value may be low and should not buy a lab-grown diamond as a short-term investment." },
+          ]),
+        ],
+      };
+    case "/insights/lab-grown-diamond-price-per-carat":
+      return {
+        lang: "en",
+        title: "Lab-Grown Diamond Price Per Carat (Wholesale, 2026) | Alvora",
+        description: "A sourced explanation of public wholesale lab-grown diamond price data for 2026 and its limitations. A real quote requires the exact stone specification, report, method, and delivery terms.",
+        canonical: url("/insights/lab-grown-diamond-price-per-carat"),
+        serviceJsonLd: [
+          mkArticle(origin, "/insights/lab-grown-diamond-price-per-carat", "Lab-Grown Diamond Price Per Carat (Wholesale, 2026)", "An evidence-led explanation of public wholesale lab-grown diamond price data and its limitations."),
+          mkFaqPage([
+            { q: "How much is 1 carat lab grown diamond in India?", a: "There is no reliable single public 2026 India wholesale price for a 1ct lab-grown diamond. The price depends on shape, colour, clarity, cut, CVD or HPHT method, treatment, certification, quantity, and delivery terms. A Q2 2025 US retailer acquisition average of USD $191/ct for 1ct IGI-certified rounds is a stale benchmark, not an India factory quote." },
+            { q: "How much should I pay for a 1 carat lab grown diamond?", a: "Pay only after comparing like-for-like current quotes. Ask for the exact report, method, treatment, measurements, cut, return terms, certification, freight, insurance, duties, and taxes. Public data show continuing wholesale price declines but do not support a complete current 1ct price range by colour, clarity, and certificate." },
+          ]),
+        ],
+      };
+    case "/insights/lab-grown-diamond-wholesale-how-to-buy":
+      return {
+        lang: "en",
+        title: "Where to Buy Lab-Grown Diamonds Wholesale | Alvora",
+        description: "Lab-grown diamonds are sold wholesale through four channels: direct from manufacturers, online marketplaces, local wholesalers, and trade shows. A practical guide to choosing the right channel.",
+        canonical: url("/insights/lab-grown-diamond-wholesale-how-to-buy"),
+        serviceJsonLd: [
+          mkArticle(origin, "/insights/lab-grown-diamond-wholesale-how-to-buy", "Where to Buy Lab-Grown Diamonds Wholesale (A Buyer's Guide)", "A comparison of four wholesale channels for laboratory-grown diamonds."),
+          mkFaqPage([
+            { q: "Where can I buy lab-grown diamonds wholesale?", a: "Wholesale lab-grown diamonds are available direct from manufacturers, through online marketplaces such as Nivoda and VDB, from local wholesalers, and at trade shows such as IIJS, JCK, and Jewellery & Gem WORLD Hong Kong. Choose the channel according to your need for breadth, technical specification, physical inspection, urgency, and repeat supply." },
+          ]),
+        ],
+      };
+    case "/insights/largest-lab-grown-diamond-manufacturers-india":
+      return {
+        lang: "en",
+        title: "The Largest Lab-Grown Diamond Manufacturers in India (2026) | Alvora",
+        description: "A sourced comparison of Indian lab-grown diamond manufacturers by public capacity evidence. Based on 2026 public figures, KIRA has the strongest scale evidence, with over 250,000 polished carats per month.",
+        canonical: url("/insights/largest-lab-grown-diamond-manufacturers-india"),
+        serviceJsonLd: [
+          mkArticle(origin, "/insights/largest-lab-grown-diamond-manufacturers-india", "The Largest Lab-Grown Diamond Manufacturers in India (2026)", "A sourced comparison of Indian lab-grown diamond manufacturers by publicly stated production evidence."),
+          mkFaqPage([
+            { q: "Who is the largest producer of lab-grown diamonds in India?", a: "Based on publicly stated production figures in 2026, KIRA / Kira Jewels is India's largest lab-grown diamond producer on the evidence reviewed, with more than 250,000 polished carats per month reported by GJEPC. Current reported output and planned capacity should be kept separate." },
+            { q: "Who is the biggest producer of lab-grown diamonds?", a: "For India, KIRA / Kira Jewels has the strongest public scale evidence in the reviewed 2026 source set, with more than 250,000 polished carats per month reported by GJEPC. Public figures from other producers use different units and are not directly comparable." },
+            { q: "Who is the leading lab-grown diamond supplier in India?", a: "There is no single objective definition of leading. KIRA has the clearest public scale evidence, while other suppliers may fit better for specialty stones, service, calibrated layouts, matched pairs, or custom cuts. Buyers should compare the supplier against the exact requirement." },
+          ]),
+        ],
+      };
+    // Insight articles — Article JSON-LD only
+    case "/insights/12-questions-to-ask-a-manufacturer":
+      return {
+        lang: "en",
+        title: "12 Questions to Ask a Lab-Grown Diamond Manufacturer | Alvora",
+        description: "A practical due-diligence checklist covering specification control, growth method, treatment, certification, QC rules, dimensional tolerances, MOQ, sample terms, lead times, landed cost, and repeat-order capability.",
+        canonical: url("/insights/12-questions-to-ask-a-manufacturer"),
+        serviceJsonLd: mkArticle(origin, "/insights/12-questions-to-ask-a-manufacturer", "12 Questions to Ask a Lab-Grown Diamond Manufacturer Before You Order", "A due-diligence checklist for evaluating a laboratory-grown diamond manufacturer before placing an order."),
+      };
+    case "/insights/calibrated-diamond-layouts-explained":
+      return {
+        lang: "en",
+        title: "Calibrated Diamond Layouts, Explained: Tolerances, Grading, and How to Order | Alvora",
+        description: "A practical explanation of what calibrated really means, how tolerance and grading work, what belongs in the order brief, and how to avoid ambiguity when ordering a design-specific diamond layout.",
+        canonical: url("/insights/calibrated-diamond-layouts-explained"),
+        serviceJsonLd: mkArticle(origin, "/insights/calibrated-diamond-layouts-explained", "Calibrated Diamond Layouts, Explained: Tolerances, Grading, and How to Order", "A practical explanation of calibrated diamond layouts covering tolerance, grading, and order brief requirements."),
+      };
+    case "/insights/cvd-vs-hpht-lab-grown-diamonds":
+      return {
+        lang: "en",
+        title: "CVD vs HPHT Lab-Grown Diamonds: What Wholesale Buyers Need to Know | Alvora",
+        description: "CVD and HPHT are different laboratory-grown diamond production methods. Wholesale buyers should choose by the finished specification, treatment disclosure, and supply requirement — not by method alone.",
+        canonical: url("/insights/cvd-vs-hpht-lab-grown-diamonds"),
+        serviceJsonLd: mkArticle(origin, "/insights/cvd-vs-hpht-lab-grown-diamonds", "CVD vs HPHT Lab-Grown Diamonds: What Wholesale Buyers Need to Know", "A comparison of CVD and HPHT laboratory-grown diamond production methods for wholesale buyers."),
+      };
+    case "/insights/matched-pairs-vs-melee-vs-layouts":
+      return {
+        lang: "en",
+        title: "Matched Pairs vs. Melee vs. Layouts: Which Format Does Your Design Need? | Alvora",
+        description: "Matched pairs coordinate two stones, melee supplies small stones by lot, and layouts coordinate a larger design-specific group. A practical guide to choosing the right wholesale format for your design.",
+        canonical: url("/insights/matched-pairs-vs-melee-vs-layouts"),
+        serviceJsonLd: mkArticle(origin, "/insights/matched-pairs-vs-melee-vs-layouts", "Matched Pairs vs. Melee vs. Layouts: Which Format Does Your Design Need?", "A practical guide to choosing between matched pairs, melee lots, and calibrated layouts for wholesale diamond procurement."),
+      };
+    case "/insights/sourcing-lab-grown-diamonds-from-surat":
+      return {
+        lang: "en",
+        title: "Lab-Grown Diamond Manufacturers in Surat: A Buyer's Guide to Sourcing Direct | Alvora",
+        description: "A practical guide to sourcing laboratory-grown diamonds direct from Surat manufacturers, covering what direct means, CVD and HPHT disclosure, certification layers, and due diligence before payment.",
+        canonical: url("/insights/sourcing-lab-grown-diamonds-from-surat"),
+        serviceJsonLd: mkArticle(origin, "/insights/sourcing-lab-grown-diamonds-from-surat", "Lab-Grown Diamond Manufacturers in Surat: A Buyer's Guide to Sourcing Direct", "A practical guide to sourcing laboratory-grown diamonds direct from Surat manufacturers."),
+      };
     default:
       if (pathname.startsWith("/insights/")) {
         return {
@@ -230,6 +377,12 @@ export function injectSeoIntoHtml(html: string, pathname: string, origin: string
   const image = `${origin}${publicSocialImage}`;
   const robots = meta.robots ?? "index,follow,max-image-preview:large";
 
+  const serviceJsonLdTags = meta.serviceJsonLd
+    ? Array.isArray(meta.serviceJsonLd)
+      ? meta.serviceJsonLd.map((ld) => `<script type="application/ld+json">${JSON.stringify(ld)}</script>`)
+      : [`<script type="application/ld+json">${JSON.stringify(meta.serviceJsonLd)}</script>`]
+    : [];
+
   const tags = [
     `<meta name="robots" content="${esc(robots)}" />`,
     `<meta property="og:type" content="website" />`,
@@ -243,8 +396,8 @@ export function injectSeoIntoHtml(html: string, pathname: string, origin: string
     `<meta name="twitter:image" content="${esc(image)}" />`,
     `<link rel="canonical" href="${esc(meta.canonical)}" />`,
     ...(meta.alternates ?? []).map(({ lang, href }) => `<link rel="alternate" hreflang="${esc(lang)}" href="${esc(href)}" />`),
-    `<script type="application/ld+json">${JSON.stringify(ORG_JSON_LD)}</script>`,
-    ...(meta.serviceJsonLd ? [`<script type="application/ld+json">${JSON.stringify(meta.serviceJsonLd)}</script>`] : []),
+    `<script type="application/ld+json">${JSON.stringify(buildOrgJsonLd(origin))}</script>`,
+    ...serviceJsonLdTags,
   ].join("\n  ");
 
   return html
