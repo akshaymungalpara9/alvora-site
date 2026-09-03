@@ -135,6 +135,19 @@ function resolveRouteMeta(pathname: string, origin: string): RouteMeta | null {
         title: "Diamond Industry Insights — Alvora",
         description: "Analysis, reports, and market commentary from Alvora's diamond manufacturing team in Surat.",
         canonical: url("/insights"),
+        serviceJsonLd: {
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          name: "Diamond Industry Insights — Alvora",
+          description: "Practical guides, Q&A, and sourcing notes from Alvora's team in Surat on certification, specification, pricing, and choosing the right wholesale format.",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, url: url("/insights/12-questions-to-ask-a-manufacturer"), name: "12 Questions to Ask a Lab-Grown Diamond Manufacturer Before You Order" },
+            { "@type": "ListItem", position: 2, url: url("/insights/calibrated-diamond-layouts-explained"), name: "Calibrated Diamond Layouts, Explained: Tolerances, Grading, and How to Order" },
+            { "@type": "ListItem", position: 3, url: url("/insights/cvd-vs-hpht-lab-grown-diamonds"), name: "CVD vs HPHT Lab-Grown Diamonds: What Wholesale Buyers Actually Need to Know" },
+            { "@type": "ListItem", position: 4, url: url("/insights/matched-pairs-vs-melee-vs-layouts"), name: "Matched Pairs vs. Melee vs. Layouts: Which Format Does Your Design Need?" },
+            { "@type": "ListItem", position: 5, url: url("/insights/sourcing-lab-grown-diamonds-from-surat"), name: "Lab-Grown Diamond Manufacturers in Surat: A Buyer's Guide to Sourcing Direct" },
+          ],
+        },
       };
     case "/refer":
       return {

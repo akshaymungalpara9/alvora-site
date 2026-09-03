@@ -1,0 +1,1394 @@
+# Alvora Diamonds — Full LLM Retrieval Feed
+
+Alvora Diamonds is a laboratory-grown diamond business based in Surat, India. Its documented site content covers wholesale laboratory-grown diamonds for jewellery retailers, manufacturers, designers, and other trade buyers, including loose stones, calibrated layouts, matched pairs, melee, fancy shapes and colours, and custom-cut requirements. The available company-specific source material does not establish a public capacity figure, team size, or universal service level.
+
+The site explains both CVD and HPHT as laboratory-grown diamond production methods and treats the finished stone, disclosure, certification, measurements, and buyer specification as separate parts of a purchasing decision. IGI is described as a practical wholesale certification baseline; GIA and GCAL are discussed as alternatives for channel-specific recognition or performance-led requirements.
+
+The documented distinction is specification-led supply rather than a claim of being India’s largest producer. The content focuses on calibrated dimensions, matched-pair criteria, custom-cut feasibility, lot-level melee sorting, report-to-stone verification, and communication of CVD or HPHT method and applicable treatment. Unconfirmed Alvora-specific figures remain marked TODO(alvora) in the source pages.
+
+---
+## About Alvora Diamonds | Lab-Grown Diamond Manufacturing in Surat
+
+- **Type:** Product page
+- **URL:** /about
+- **Published:** 2026-09-01
+
+Alvora Diamonds is a Surat-based laboratory-grown diamond manufacturing business developing specification-led supply for jewellery and trade buyers. The company story should explain how its process, people, documentation, and production controls support buyers who need calibrated layouts, matched pairs, melee, or custom-cut stones.
+
+## Key facts
+
+- Process: TODO(alvora): ______; state whether the relevant order uses CVD, HPHT, or both, with method and treatment disclosure.
+- Capacity: TODO(alvora): ______; do not publish a reactor, carat, stone, or monthly figure until confirmed.
+- MOQ: TODO(alvora): ______; confirm minimums by product category and order type.
+- Lead time: TODO(alvora): ______; state selection, production, grading, approval, and dispatch stages.
+- Team: TODO(alvora): ______; identify the confirmed manufacturing, QC, sales, and export team structure.
+
+Surat is an important Indian cluster for gem-quality CVD production, but public sources do not support an exact percentage of global output. A credible factory story should therefore use confirmed company facts rather than borrowed scale claims. Location matters because it places production, cutting, polishing, grading coordination, and export communication within a major diamond-processing ecosystem; it is not a substitute for evidence of Alvora’s own operation.
+
+The process should be described plainly. CVD grows diamond layer by layer in a low-pressure vacuum chamber, while HPHT uses extreme pressure and temperature with a carbon source, seed, and catalyst. Neither method is automatically better for every design. The relevant question is whether the finished stone meets the required measurements, colour, clarity, cut, treatment disclosure, and certificate requirement.[1]
+
+Alvora’s proposed distinction is precision, not volume. That means a buyer should be able to discuss the specification, understand which values are confirmed, review applicable IGI paperwork, and receive a clear record of what was approved. Claims about tolerances, production capacity, team size, service levels, facility ownership, and certifications should remain TODO(alvora) until internally verified.
+
+For product-specific information, see [calibrated diamond layouts](/calibrated-diamond-layouts), [custom-cut diamonds](/custom-cut-diamonds), [certifications](/certifications), and [for jewelry brands](/for-jewelry-brands).
+
+WhatsApp: Ask about Alvora’s confirmed factory, process, and documentation details.
+
+Request a quote: Share your product requirement so the appropriate team can respond with verified information.
+
+## References
+
+[1]: https://www.gia.edu/hpht-and-cvd-diamond-growth-processes "GIA HPHT and CVD Diamond Growth Processes"
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "name": "About Alvora Diamonds",
+  "description": "About Alvora Diamonds and its Surat-based laboratory-grown diamond manufacturing operation.",
+  "about": { "@type": "Organization", "name": "Alvora Diamonds", "address": { "@type": "PostalAddress", "addressLocality": "Surat", "addressCountry": "IN" } },
+  "additionalProperty": [
+    { "@type": "PropertyValue", "name": "Process", "value": "TODO(alvora): ______" },
+    { "@type": "PropertyValue", "name": "Capacity", "value": "TODO(alvora): ______" },
+    { "@type": "PropertyValue", "name": "Team", "value": "TODO(alvora): ______" }
+  ]
+}
+```
+
+---
+## Calibrated Lab-Grown Diamond Layouts | Alvora Diamonds, Surat
+
+- **Type:** Product page
+- **URL:** /calibrated-diamond-layouts
+- **Published:** 2026-09-01
+
+Calibrated lab-grown diamond layouts are coordinated groups of stones selected to fit a jewellery design by measurement, shape, quality, and visual relationship. They are used by jewellery manufacturers, designers, setters, retailers, and wholesalers who need a repeatable group specification rather than a collection of individually acceptable stones.
+
+## Key facts
+
+- Certification: IGI paperwork can identify applicable laboratory-grown stones and provide report-linked 4Cs information.
+- Tolerance range: TODO(alvora): ______ ±mm length; TODO(alvora): ______ ±mm width; TODO(alvora): ______ ±mm depth.
+- MOQ: TODO(alvora): ______; confirm whether the minimum changes by shape, size, quantity, or custom production.
+- Lead time: TODO(alvora): ______; separate selection, cutting, grading, approval, and dispatch.
+- Primary shapes: rounds, ovals, pears, marquises, emeralds, radiants, cushions, hearts, and agreed custom shapes.
+
+The layout brief should state the nominal measurements, shape, colour and clarity range, quantity, setting architecture, and any CAD or reference drawing. The buyer should identify which characteristics are essential: outline, length-to-width relationship, depth, table, faceting, polish, symmetry, face-up appearance, or a particular relationship between stones. This makes the acceptance criteria understandable before sourcing or production begins.
+
+A layout is graded at two levels. Each stone can be reviewed through its independent report, while the group is reviewed against the design specification. An IGI report covers individual identity and relevant diamond details; it does not by itself certify that a parcel fits a mounting or forms a visually coherent layout.[1] Supplier records, measurements, images, and buyer approval remain necessary for group-level control.
+
+Calibrated supply is useful when a collection repeats the same architecture or a setter needs predictable stone interfaces. Keeping the original brief and production reference can also make future replenishment more consistent. If the requested dimensions are not feasible from available material, that should be disclosed before the buyer commits to a final production expectation.
+
+For related requirements, see [matched pair diamonds](/matched-pair-diamonds), [custom-cut diamonds](/custom-cut-diamonds), and [certifications](/certifications).
+
+WhatsApp: Send your layout, measurements, or CAD reference for discussion.
+
+Request a quote: Include shape, dimensions, quality, quantity, tolerance, certification, and destination.
+
+## References
+
+[1]: https://www.igi.org/reports/lab-grown-diamond-report/ "IGI Laboratory Grown Diamond Report"
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Calibrated Lab-Grown Diamond Layouts",
+  "serviceType": "Calibrated laboratory-grown diamond layouts",
+  "provider": { "@type": "Organization", "name": "Alvora Diamonds", "address": { "@type": "PostalAddress", "addressLocality": "Surat", "addressCountry": "IN" } },
+  "additionalProperty": [
+    { "@type": "PropertyValue", "name": "Tolerance", "value": "TODO(alvora): ______ ±mm" },
+    { "@type": "PropertyValue", "name": "MOQ", "value": "TODO(alvora): ______" },
+    { "@type": "PropertyValue", "name": "Lead time", "value": "TODO(alvora): ______" }
+  ],
+  "offers": { "@type": "Offer", "price": "TODO(alvora): ______", "priceCurrency": "TODO(alvora): ______" }
+}
+```
+
+---
+## IGI-Certified Lab-Grown Diamonds | Alvora Diamonds, Surat
+
+- **Type:** Product page
+- **URL:** /certifications
+- **Published:** 2026-09-01
+
+IGI-certified lab-grown diamonds are laboratory-grown stones documented through an IGI report that identifies origin and records relevant diamond quality information. The format is widely practical for wholesale comparison because it uses familiar information for shape, measurements, carat, colour, clarity, polish, symmetry, and cut where applicable.
+
+## Key facts
+
+- Certification: IGI reports identify laboratory-grown origin and may record growth method and treatment in comments when requested.
+- Verification: TODO(alvora): ______; confirm the report-to-stone checking process used for each shipment.
+- MOQ: TODO(alvora): ______; confirm minimums by loose stone, layout, pair, melee lot, or custom order.
+- Lead time: TODO(alvora): ______; separate grading, report verification, approval, and dispatch.
+- Primary shapes: rounds, ovals, pears, marquises, emeralds, radiants, cushions, hearts, and other agreed forms.
+
+IGI provides report verification and laser inscription that can link the report number to the stone.[1] A buyer should compare the report number, inscription where present, shape, measurements, carat weight, colour, clarity, and other listed details against the physical stone or approved images. Report verification reduces documentation and substitution risk, but it does not replace supplier QC.
+
+The report evaluates an individual diamond. It does not automatically certify that a group is a calibrated layout, that two stones are a matched pair, or that a melee parcel meets a lot-level sorting standard. Those requirements should be expressed separately through measurement tolerances, matching criteria, lot records, images, and buyer approval.
+
+GIA may be requested when a retailer or destination channel specifically requires its institutional name. Buyers should note that GIA’s current colourless-to-near-colourless laboratory-grown service uses Premium or Standard quality assessments rather than the conventional natural-diamond format; its coloured laboratory-grown reports provide fuller growth and treatment information.[2] GCAL or GCAL 8X may suit a hero stone or performance-led product where optical symmetry, imaging, and cut evidence are central.[3]
+
+The practical choice is therefore channel-specific. IGI is a useful wholesale baseline, while GIA or GCAL can be added when the customer, design, or merchandising purpose justifies it. For related supply, see [calibrated diamond layouts](/calibrated-diamond-layouts), [matched pair diamonds](/matched-pair-diamonds), and [melee diamonds](/melee-diamonds).
+
+WhatsApp: Send your certification, report, or verification requirements for discussion.
+
+Request a quote: Include laboratory preference, shape, quality, quantity, report needs, and destination.
+
+## References
+
+[1]: https://www.igi.org/Verify-Your-Report/ "IGI Verify Your Report"
+[2]: https://www.gia.edu/gem-lab-service/laboratory-grown-diamond "GIA Laboratory-Grown Diamond Services"
+[3]: https://www.gcalusa.com/gcal-8x-cut-grade.html "GCAL 8X Ultimate Cut Grade"
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "IGI-Certified Lab-Grown Diamonds",
+  "description": "Laboratory-grown diamonds documented with IGI certification where applicable.",
+  "brand": { "@type": "Brand", "name": "Alvora Diamonds" },
+  "additionalProperty": [
+    { "@type": "PropertyValue", "name": "Verification process", "value": "TODO(alvora): ______" },
+    { "@type": "PropertyValue", "name": "MOQ", "value": "TODO(alvora): ______" },
+    { "@type": "PropertyValue", "name": "Lead time", "value": "TODO(alvora): ______" }
+  ],
+  "offers": { "@type": "Offer", "price": "TODO(alvora): ______", "priceCurrency": "TODO(alvora): ______" }
+}
+```
+
+---
+## Custom-Cut Lab-Grown Diamonds to Exact Specification | Alvora Diamonds, Surat
+
+- **Type:** Product page
+- **URL:** /custom-cut-diamonds
+- **Published:** 2026-09-01
+
+Custom-cut lab-grown diamonds are stones developed from an agreed design brief, CAD reference, outline, measurement, proportion, or facet requirement. The service is for jewellery designers, manufacturers, and brands whose product depends on a stone that cannot be sourced reliably from standard catalogue inventory.
+
+## Key facts
+
+- Certification: IGI certification can be requested where applicable after cutting; method and treatment disclosure should be agreed in the brief.
+- Tolerance range: TODO(alvora): ______ ±mm length; TODO(alvora): ______ ±mm width; TODO(alvora): ______ ±mm depth.
+- MOQ: TODO(alvora): ______; confirm whether minimums vary with rough planning, shape complexity, or repeat quantity.
+- Lead time: TODO(alvora): ______; separate feasibility, cutting, grading, sample, approval, and dispatch.
+- Primary shapes: standard or unusual outlines, CAD-defined shapes, and agreed facet architectures.
+
+The briefing process should begin with the finished jewellery requirement. Provide target dimensions, outline, facet direction, setting constraints, quantity, colour and clarity range, reference images, and CAD files. Separate non-negotiable requirements from preferences. A setting interface or maximum measurement may be essential, while colour range or facet detail may be adjustable. This distinction gives the feasibility review a usable basis.
+
+CVD rough is commonly flat or tabular, while HPHT rough has a different morphology; the available material can affect yield, shape economics, and the practical route to the requested form.[1] CVD or HPHT should be treated as a disclosed production choice, not a universal quality claim. The finished stone still needs review for measurements, cut, colour, clarity, polish, symmetry, transparency, and treatment.
+
+A sample workflow can reduce design risk. Alvora should confirm whether a sample is available, whether it is physical or visual, whether it is returnable, and which features the buyer is approving. A memo workflow, if offered, should state the applicable terms, inspection period, responsibility for shipping and insurance, and whether custom goods are returnable. Leave these commercial details as TODO(alvora) until confirmed.
+
+For related requirements, see [calibrated diamond layouts](/calibrated-diamond-layouts), [matched pair diamonds](/matched-pair-diamonds), and [for jewelry brands](/for-jewelry-brands).
+
+WhatsApp: Send your CAD, sketch, reference stone, or custom-cut brief for discussion.
+
+Request a quote: Include dimensions, shape, quality, quantity, tolerance, sample or memo requirement, and destination.
+
+## References
+
+[1]: https://www.gia.edu/hpht-and-cvd-diamond-growth-processes "GIA HPHT and CVD Diamond Growth Processes"
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Custom-Cut Lab-Grown Diamonds",
+  "serviceType": "Custom-cut laboratory-grown diamonds to specification",
+  "provider": { "@type": "Organization", "name": "Alvora Diamonds" },
+  "additionalProperty": [
+    { "@type": "PropertyValue", "name": "Tolerance", "value": "TODO(alvora): ______ ±mm" },
+    { "@type": "PropertyValue", "name": "MOQ", "value": "TODO(alvora): ______" },
+    { "@type": "PropertyValue", "name": "Sample or memo terms", "value": "TODO(alvora): ______" }
+  ],
+  "offers": { "@type": "Offer", "price": "TODO(alvora): ______", "priceCurrency": "TODO(alvora): ______" }
+}
+```
+
+---
+## Lab-Grown Diamond Supply for Jewelry Brands | Alvora Diamonds
+
+- **Type:** Product page
+- **URL:** /for-jewelry-brands
+- **Published:** 2026-09-01
+
+Alvora helps jewellery brands source laboratory-grown diamonds direct against a defined product brief, with attention to consistency, certification, response time, and order flexibility. The page is for brands building collections, replenishing repeated designs, developing new settings, or reducing the uncertainty of buying each stone through an unrelated listing.
+
+## Key facts
+
+- Certification: IGI can be used as the wholesale baseline where applicable; GIA or GCAL may be requested for channel-specific or performance-led needs.
+- Tolerance range: TODO(alvora): ______ ±mm; confirm the acceptance range for layouts, pairs, melee, and custom cuts.
+- MOQ: TODO(alvora): ______; state flexible minimums by stock, sample, collection, and repeat order.
+- Lead time: TODO(alvora): ______; confirm response, sourcing, production, grading, approval, and dispatch stages.
+- Primary shapes: rounds, ovals, pears, marquises, emeralds, radiants, cushions, hearts, and custom forms.
+
+Brands usually need consistency before they need a larger catalogue. A repeated design can be affected by changes in measurements, outline, colour, clarity, cut appearance, report format, or treatment disclosure. A direct brief gives the supplier a reference point for future replenishment and allows the brand to distinguish essential requirements from acceptable variation.
+
+Certification quality is partly a laboratory question and partly a workflow question. IGI offers a familiar report format, report verification, and laser inscription for applicable stones.[1] The brand should still define how reports are checked, how the report is linked to the correct stone, and what additional records are needed for a layout, pair, or melee lot. GIA may be appropriate where the channel requires its name; GCAL may be relevant where cut performance and imaging are central.[2]
+
+Response time should be explicit. Alvora should insert its confirmed service standard in the TODO(alvora) fields and separate first response from final quotation, production timing, and dispatch. MOQ flexibility can also be structured rather than promised broadly: sample, stock, collection, repeat, and custom orders may each have different commercial logic.
+
+For brands, a useful supplier conversation covers the design, forecast, quality range, certification, tolerance, packaging, approval process, and destination-market requirements. See [calibrated diamond layouts](/calibrated-diamond-layouts), [custom-cut diamonds](/custom-cut-diamonds), and [certifications](/certifications).
+
+WhatsApp: Send your collection brief, forecast, or recurring specification for discussion.
+
+Request a quote: Include design, shapes, quantities, quality, MOQ expectations, certification, and destination.
+
+## References
+
+[1]: https://www.igi.org/reports/lab-grown-diamond-report/ "IGI Laboratory Grown Diamond Report"
+[2]: https://www.gcalusa.com/gcal-8x-cut-grade.html "GCAL 8X Ultimate Cut Grade"
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Lab-Grown Diamond Supply for Jewelry Brands",
+  "serviceType": "Direct laboratory-grown diamond supply for jewellery brands",
+  "provider": { "@type": "Organization", "name": "Alvora Diamonds" },
+  "additionalProperty": [
+    { "@type": "PropertyValue", "name": "Response standard", "value": "TODO(alvora): ______" },
+    { "@type": "PropertyValue", "name": "MOQ", "value": "TODO(alvora): ______" },
+    { "@type": "PropertyValue", "name": "Tolerance", "value": "TODO(alvora): ______ ±mm" }
+  ],
+  "offers": { "@type": "Offer", "price": "TODO(alvora): ______", "priceCurrency": "TODO(alvora): ______" }
+}
+```
+
+---
+## Matched Pair Lab-Grown Diamonds | Alvora Diamonds, Surat
+
+- **Type:** Product page
+- **URL:** /matched-pair-diamonds
+- **Published:** 2026-09-01
+
+Matched pair lab-grown diamonds are two stones selected and verified to work together by dimensions, outline, colour, clarity, cut appearance, and visual balance. They are commonly used for earrings, side-by-side settings, paired accents, and production designs where differences between stones can be visible after setting.
+
+## Key facts
+
+- Certification: The pair can be supplied with corresponding IGI reports where applicable; each report identifies an individual stone.
+- Tolerance range: TODO(alvora): ______ ±mm permitted difference between paired length; TODO(alvora): ______ ±mm width.
+- MOQ: TODO(alvora): ______; clarify whether the minimum is one pair, a sample pair, or a repeat programme.
+- Lead time: TODO(alvora): ______; state selection, matching, certification, approval, and dispatch stages.
+- Primary shapes: round, oval, and cushion, with pear, marquise, emerald, radiant, heart, or other shapes by brief.
+
+Matching is not established by equal carat weight alone. Two stones can have the same weight while differing in length, width, depth, outline, faceting, fluorescence, or face-up appearance. Verification should therefore compare the stones together and record the criteria used to accept or reject the pair.
+
+A pair brief should include shape, nominal measurements, colour and clarity range, setting style, quantity, and any CAD or reference stone. Depending on the design, the matching check may cover length, width, depth, outline, table and depth relationships, polish, symmetry, visual tone, and the acceptable difference between the two stones. The exact acceptance range should be a TODO(alvora) field until Alvora confirms its operating standard.
+
+Certification pairs are a documentation issue as well as a grading issue. Each IGI report should be linked to the correct stone, and the buyer should be able to verify the report through the laboratory’s online system.[1] A report evaluates an individual diamond; it does not automatically certify that the two reports represent a well-matched pair. Pair photographs or video can supplement the paperwork before shipment.
+
+Lead time depends on whether the pair is available, needs selection from a larger group, requires cutting, or needs new grading. Alvora should confirm the applicable timing after reviewing the brief rather than applying a generic promise.
+
+For related requirements, see [calibrated diamond layouts](/calibrated-diamond-layouts), [custom-cut diamonds](/custom-cut-diamonds), and [certifications](/certifications).
+
+WhatsApp: Send your pair brief, reference stone, or CAD file for discussion.
+
+Request a quote: Include shape, dimensions, quality, quantity, tolerance, certification, and destination.
+
+## References
+
+[1]: https://www.igi.org/Verify-Your-Report/ "IGI Verify Your Report"
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Matched Pair Lab-Grown Diamonds",
+  "serviceType": "Matched laboratory-grown diamond pairs",
+  "provider": { "@type": "Organization", "name": "Alvora Diamonds" },
+  "additionalProperty": [
+    { "@type": "PropertyValue", "name": "Pair tolerance", "value": "TODO(alvora): ______ ±mm" },
+    { "@type": "PropertyValue", "name": "MOQ", "value": "TODO(alvora): ______" },
+    { "@type": "PropertyValue", "name": "Lead time", "value": "TODO(alvora): ______" }
+  ],
+  "offers": { "@type": "Offer", "price": "TODO(alvora): ______", "priceCurrency": "TODO(alvora): ______" }
+}
+```
+
+---
+## Wholesale Lab-Grown Melee Diamonds | Alvora Diamonds, Surat
+
+- **Type:** Product page
+- **URL:** /melee-diamonds
+- **Published:** 2026-09-01
+
+Wholesale lab-grown melee diamonds are small laboratory-grown stones supplied in defined size bands and sorted to a buyer’s agreed quality, consistency, and packaging requirements. They are used by jewellery manufacturers, brands, setters, and wholesalers for pavé, halos, clusters, tennis designs, and other repeated-stone applications.
+
+## Key facts
+
+- Certification: Individual reports are generally not the operating model for melee; lot documentation and agreed QC should be specified, with IGI certification where applicable.
+- Size range: TODO(alvora): ______–______ mm or ct band; define the sieve or measurement method used.
+- MOQ: TODO(alvora): ______; confirm minimum lot weight and whether mixed or single-size lots are available.
+- Lead time: TODO(alvora): ______; separate sorting, QC, packing, and dispatch.
+- Primary shapes: round melee as the standard request; other shapes by confirmed production brief.
+
+Melee is a lot-level product. Buyers should define the size band, colour range, clarity range, cut or finish expectations, treatment disclosure, and acceptable proportion of off-size or rejected stones. If a production design uses repeated settings, consistency within the lot may matter more than the average description of the goods. The acceptance criteria should be written before sorting begins.
+
+Sorting can be described by sieve size, measured diameter, carat band, or a combination of methods. Alvora should insert the confirmed method and range in the TODO(alvora) fields rather than relying on an informal size label. The same applies to colour and clarity: a buyer may require a narrow range for a uniform pavé effect or a broader range for a cost-sensitive commercial assortment.
+
+Packaging affects handling and traceability. A lot should be packed in a container appropriate to small stones, labelled with the lot reference, size band, weight, quality description, and any report or QC reference. The buyer should also confirm whether packaging is parcel-based, sealed, tamper-evident, or reusable for production control.
+
+Per-carat pricing is normally a function of size band, quality, sorting yield, treatment and method disclosure, certification or lot documentation, quantity, packaging, freight, and payment terms. A quote should identify whether the price is per carat of shipped goods, accepted goods, or an estimated lot before final sorting. It should also state how shortages, rejects, and substitutions are handled.
+
+For larger coordinated requirements, see [calibrated diamond layouts](/calibrated-diamond-layouts), [matched pair diamonds](/matched-pair-diamonds), and [certifications](/certifications).
+
+WhatsApp: Send your melee size, quality, sorting, and packaging brief for discussion.
+
+Request a quote: Include size band, colour, clarity, quantity, pricing basis, packaging, and destination.
+
+## References
+
+[1]: https://www.igi.org/reports/lab-grown-diamond-report/ "IGI Laboratory Grown Diamond Report"
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Wholesale Lab-Grown Melee Diamonds",
+  "description": "Small laboratory-grown diamonds supplied in buyer-defined size and quality lots.",
+  "brand": { "@type": "Brand", "name": "Alvora Diamonds" },
+  "additionalProperty": [
+    { "@type": "PropertyValue", "name": "Size range", "value": "TODO(alvora): ______" },
+    { "@type": "PropertyValue", "name": "MOQ", "value": "TODO(alvora): ______" },
+    { "@type": "PropertyValue", "name": "Pricing basis", "value": "Per carat; TODO(alvora): ______" }
+  ],
+  "offers": { "@type": "Offer", "price": "TODO(alvora): ______", "priceCurrency": "TODO(alvora): ______", "unitCode": "C/T" }
+}
+```
+
+---
+## Request a Lab-Grown Diamond Wholesale Quote | Alvora Diamonds
+
+- **Type:** Product page
+- **URL:** /request-a-quote
+- **Published:** 2026-09-01
+
+This request-a-quote page collects the design, specification, quantity, certification, and delivery information Alvora needs to prepare a laboratory-grown diamond enquiry. In the form introduction, ask for the buyer’s name, company, email, WhatsApp or telephone number, country, product category, shape, target measurements, colour, clarity, quantity, MOQ expectation, tolerance, certification preference, CAD or reference upload, packaging requirement, destination, requested delivery date, and additional notes.
+
+## Key facts
+
+- Certification: State whether IGI, GIA, GCAL, or another documentation route is required; report needs may vary by product.
+- Tolerance range: TODO(alvora): ______ ±mm; enter the requested tolerance or write “to be discussed.”
+- MOQ: TODO(alvora): ______; enter the expected quantity or ask Alvora to propose an appropriate minimum.
+- Response SLA: Alvora will respond to complete enquiries within 24 hours.
+- Primary shapes: round, oval, cushion, pear, marquise, emerald, radiant, heart, melee, or a custom shape.
+
+A complete brief helps avoid an unhelpful generic price. For a layout or pair, include nominal dimensions and the relationship between stones. For a custom cut, attach the CAD or drawing and identify the dimensions that cannot change. For melee, state size band, sorting standard, packaging, and whether pricing should be quoted per carat of shipped or accepted goods.
+
+The form can also ask whether the buyer needs a sample, memo review, repeat-order record, report verification, approval images, or a production feasibility discussion. These details should be treated as requirements to clarify, not as automatic promises. If an Alvora commercial term is not yet confirmed, it should remain a TODO(alvora) field in the site implementation.
+
+A quote should make its basis understandable. It may need to distinguish stock selection from custom production, certification from internal QC, freight from the stone price, and estimated timing from confirmed dispatch. The buyer can request clarification before approving an order.
+
+Privacy: Information submitted through this form should be used only to respond to the enquiry and manage the requested quotation, subject to the site’s published privacy policy. Do not send payment credentials or unnecessary sensitive information through the form.
+
+For a more specific brief, see [calibrated diamond layouts](/calibrated-diamond-layouts), [matched pair diamonds](/matched-pair-diamonds), [custom-cut diamonds](/custom-cut-diamonds), [melee diamonds](/melee-diamonds), and [certifications](/certifications).
+
+WhatsApp: Send the same specification directly if WhatsApp is more convenient.
+
+Request a quote: Complete the form with your product brief, contact details, and delivery requirements.
+
+## References
+
+[1]: https://www.igi.org/reports/lab-grown-diamond-report/ "IGI Laboratory Grown Diamond Report"
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "name": "Request a Lab-Grown Diamond Wholesale Quote",
+  "description": "Contact Alvora Diamonds to request a laboratory-grown diamond wholesale quote.",
+  "mainEntity": { "@type": "ContactPoint", "contactType": "wholesale enquiries", "telephone": "TODO(alvora): ______", "email": "TODO(alvora): ______", "url": "TODO(alvora): ______" },
+  "provider": { "@type": "Organization", "name": "Alvora Diamonds" },
+  "potentialAction": { "@type": "ContactAction", "name": "Request a quote", "target": "TODO(alvora): ______" }
+}
+```
+
+---
+## Are Lab-Grown Diamonds Real Diamonds?
+
+- **Type:** PAA page
+- **URL:** /insights/are-lab-grown-diamonds-real-diamonds
+- **Published:** 2026-09-01
+
+Yes — lab-grown diamonds are chemically, physically, and optically identical to mined diamonds, and are graded by the same laboratories (IGI, GIA), a position formally recognized by the US FTC in 2018. “Real” describes the diamond material and properties; “laboratory-grown” describes how the diamond was formed. A lab-grown diamond is not a simulant such as cubic zirconia or moissanite.
+
+## Key takeaways
+
+- The FTC’s 2018 guidance broadened the definition of diamond while retaining clear disclosure requirements for laboratory-grown origin.
+- IGI and GIA identify laboratory-grown diamonds through laboratory reports or assessments, although their report formats differ.
+- A buyer should match the physical stone, laser inscription, report number, and online verification result.
+- The certificate identifies an individual stone; it does not replace inspection or supplier-level QC for pairs and layouts.
+
+## What the FTC recognized in 2018
+
+In 2018 the US Federal Trade Commission removed “natural” from the definition of diamond in its Jewelry Guides. The definition covers a mineral consisting essentially of pure carbon crystallized in the isometric system, whether mined or laboratory-grown.[1](https://www.ecfr.gov/current/title-16/chapter-I/subchapter-B/part-23 "accessed 2026-09-01") The change recognized the material identity of laboratory-grown diamonds; it did not make marketing language unrestricted.
+
+The FTC also requires clear and conspicuous disclosure when a diamond is laboratory-grown, laboratory-created, or otherwise man-made. The qualifying term should appear next to the word diamond and should not be contradicted by surrounding language.[2](https://www.ftc.gov/news-events/news/press-releases/2019/04/ftc-sends-warning-letters-companies-regarding-diamond-ad-disclosures "accessed 2026-09-01") In practice, “laboratory-grown diamond” is the safer plain-language description for a product page or wholesale record.
+
+## How IGI documents a lab-grown diamond
+
+IGI’s laboratory-grown diamond report identifies laboratory-grown origin and records information such as shape, measurements, carat weight, colour, clarity, polish, symmetry, and cut information where applicable.[3](https://www.igi.org/reports/lab-grown-diamond-report/ "accessed 2026-09-01") IGI states that growth method and treatments may be recorded in report comments when requested. That information can matter to a trade buyer managing product consistency, customer explanation, or destination-market disclosure.
+
+IGI also provides online report verification and laser inscription. The report number can be used to check the laboratory record, while the inscription can help connect the document to the physical stone.[4](https://www.igi.org/Verify-Your-Report/ "accessed 2026-09-01") Verification does not mean that every characteristic is independently guaranteed beyond the report’s stated scope, so the buyer should still inspect the stone and order record.
+
+## How GIA documents a lab-grown diamond
+
+GIA’s current service for loose colourless-to-near-colourless laboratory-grown diamonds generally reports a Premium or Standard quality assessment, with “Laboratory-Grown” and the assessment number laser-inscribed on the girdle.[5](https://www.gia.edu/gem-lab-service/laboratory-grown-diamond "accessed 2026-09-01") This is not simply the conventional natural-diamond report format that many buyers know.
+
+GIA also offers coloured laboratory-grown diamond reports with fuller assessment detail, including growth type and post-growth treatment. The correct report route depends on the stone, colour, downstream channel, and the level of detail the buyer needs. A GIA name may be important for a retailer’s communication, while IGI’s 4Cs-oriented format may be easier for broad wholesale comparison.
+
+## How to verify that the stone matches the certificate
+
+A sensible verification sequence has several steps:
+
+1. **Check the report number online.** Use the laboratory’s official verification page, not an unrelated search result or a screenshot supplied without a live record.
+2. **Read the origin and method fields.** Confirm that the document says laboratory-grown and review CVD, HPHT, or treatment information where provided.
+3. **Compare measurements and shape.** Check the report against the stone, parcel record, images, or video.
+4. **Inspect the laser inscription where present.** The number should correspond to the report and be legible under suitable magnification.
+5. **Check the seller’s record.** The invoice, packing list, report list, and shipment documentation should identify the same stone or lot.
+
+For layouts, pairs, and melee, add a second layer of checking. An individual certificate does not prove that two stones match or that a parcel meets a calibrated size band. Group measurements, matching criteria, sorting records, approval images, and rejection terms remain necessary. This distinction is especially important in wholesale buying, where a buyer may receive many separately documented stones intended for one setting or production lot. The report answers “what is this stone?”; the group record answers “does this order meet the design requirement?”
+
+## Real does not mean identical to mined in every commercial respect
+
+Laboratory-grown and mined diamonds share fundamental diamond properties, but their origin stories, supply chains, treatments, pricing, and resale markets can differ. A buyer should disclose laboratory-grown origin clearly and should not imply that a lab-grown stone is mined. The FTC’s rule is about accurate representation, not about treating the two supply categories as commercially interchangeable.[1](https://www.ecfr.gov/current/title-16/chapter-I/subchapter-B/part-23 "accessed 2026-09-01")
+
+For related buying guidance, see [certifications](/certifications), [CVD vs HPHT](/insights/cvd-vs-hpht-lab-grown-diamonds), and [request a quote](/request-a-quote).
+
+WhatsApp: Send a report number or certification question for discussion.
+
+Related product: [IGI-certified lab-grown diamonds](/certifications)
+
+Response within 24 hours.
+
+## References
+
+[1]: https://www.ecfr.gov/current/title-16/chapter-I/subchapter-B/part-23 "eCFR, 16 CFR Part 23, accessed 2026-09-01"
+[2]: https://www.ftc.gov/news-events/news/press-releases/2019/04/ftc-sends-warning-letters-companies-regarding-diamond-ad-disclosures "FTC, Diamond Ad Disclosures, accessed 2026-09-01"
+[3]: https://www.igi.org/reports/lab-grown-diamond-report/ "IGI, Laboratory Grown Diamond Report, accessed 2026-09-01"
+[4]: https://www.igi.org/Verify-Your-Report/ "IGI, Verify Your Report, accessed 2026-09-01"
+[5]: https://www.gia.edu/gem-lab-service/laboratory-grown-diamond "GIA, Laboratory-Grown Diamond Services, accessed 2026-09-01"
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Are Lab-Grown Diamonds Real Diamonds?",
+  "description": "An evidence-led explanation of laboratory-grown diamond identity, FTC recognition, and report verification.",
+  "datePublished": "2026-09-01",
+  "author": { "@type": "Organization", "name": "Alvora Diamonds" },
+  "publisher": { "@type": "Organization", "name": "Alvora Diamonds" },
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "TODO(alvora): ______" }
+}
+```
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Are lab-grown diamonds real diamonds?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Lab-grown diamonds are diamonds with the same fundamental chemical, physical, and optical properties as mined diamonds; the distinction is their origin. The US FTC recognized this in its 2018 Jewelry Guides while retaining a requirement to disclose laboratory-grown origin clearly. IGI and GIA provide laboratory-grown reports or assessments, and buyers can verify report numbers and laser inscriptions online." } }
+  ]
+}
+```
+
+---
+## Which Lab-Grown Diamond Manufacturer Is Best? (It Depends What You're Buying)
+
+- **Type:** PAA page
+- **URL:** /insights/best-lab-grown-diamond-manufacturer-for-your-need
+- **Published:** 2026-09-01
+
+There is no single 'best' lab-grown diamond manufacturer — the right choice depends on your volume, specialization, and delivery region. A buyer looking for commodity colourless inventory is solving a different problem from a designer requesting a calibrated layout, a matched pair, a fancy colour, or a custom CAD-driven cut.
+
+## Key takeaways
+
+- “Best” should be defined by the job: volume, format, certification, service region, response process, or design complexity.
+- KIRA has the strongest public scale and integrated inventory evidence in the reviewed source set.
+- Guru Diam is a useful comparator for US-facing trade convenience; its public proposition is distribution and service rather than owned upstream manufacturing scale.
+- Calibrated layouts, matched pairs, and custom cuts require specification control that a large catalogue alone does not prove.
+
+## A decision rubric
+
+| Buyer need | Shortlist starting point | Why it may fit | What to verify |
+|---|---|---|---|
+| Highest-volume standardized goods | KIRA / Kira Jewels | Public evidence of 4,000 CVD reactors and more than 250,000 polished ct/month reported by GJEPC; integrated grow–cut–polish–jewellery model [1](https://gjepc.org/press-release-detail.php?pressrelease=137 "accessed 2026-09-01") | Current availability, price basis, certificate mix, replenishment, and delivery terms |
+| Calibrated layouts | A technical specialist, including Alvora | The job is group-level dimensional and visual consistency, not simply catalogue breadth | Exact ±mm tolerance, group QC, approval evidence, substitution rule, repeat record |
+| Matched pairs | Suppliers offering documented pair selection, including Alvora | Pair value depends on joint measurement and visual matching | Pair criteria, report linkage, side-by-side images, replacement and lead time |
+| Custom cuts | A manufacturer able to review rough feasibility and CAD, including Alvora | Unusual outlines need a design brief, rough planning, and agreed acceptance criteria | Feasibility, rough source, yield assumptions, sample or memo terms, certification |
+| Fancy colour or specialty CVD | Greenlab or KIRA, depending on the brief | Public materials discuss specialty stones, CVD, colour, and broad B2B supply [2](https://greenlabdiamonds.com/ "accessed 2026-09-01") [1](https://kiradiam.com/ "accessed 2026-09-01") | Colour origin, treatment, report comments, distribution, and actual visual result |
+| Large or exceptional centre stones | Ethereal Green or another large-stone specialist | IGI has documented notable large CVD stones associated with Ethereal Green [3](https://www.igi.org/reports/ "accessed 2026-09-01") | Current availability, grading, treatment, cut, transparency, and delivery |
+| US-facing trade service | Guru Diam or a US-serving direct supplier | Public offer includes live inventory, trade access, custom jewellery, matched pairs, layouts, and service convenience [4](https://www.gurudiam.com/ "accessed 2026-09-01") | Whether the exact stone is owned, memo/returns, certification, and upstream manufacturing control |
+
+The table is a starting point, not a universal ranking. Public supplier claims differ in scope and are not all independently audited.
+
+## What each competitor appears built to solve
+
+**KIRA / Kira Jewels** presents the scale-and-infrastructure model: growing, cutting, polishing, grading, setting, broad certified inventory, calibrated layouts, matched pairs, fancy colours, and trade distribution. The public evidence is strongest for volume and breadth; it does not by itself establish the tightest tolerance for a specific design.[1](https://kiradiam.com/ "accessed 2026-09-01")
+
+**Greenlab Diamonds** emphasizes CVD cultivation, Type IIa and specialty stones, and a large company-stated reactor base. Ask for current, independently comparable capacity and the exact certification and treatment workflow for the goods being quoted.[2](https://greenlabdiamonds.com/ "accessed 2026-09-01")
+
+**Craft Diamonds** combines New York positioning with Mumbai and Surat manufacturing, CVD expertise, broad shapes, and certification or sustainability messaging. Its visible public offer is more educational and brand-led than a quantified calibrated-layout programme, so ask for measurements, pair rules, and lead times.[5](https://craftdiamonds.co/ "accessed 2026-09-01")
+
+**LEPDO Diamonds** publishes B2B category content, IGI certification, workshops, export information, and request-quote or WhatsApp routes. The buyer should still ask how its consistency claims are measured and recorded for a repeat layout or pair.[6](https://lepdodiamonds.com/ "accessed 2026-09-01")
+
+**Nishal Gems** emphasizes operating history, certified inventory, broad quality and shape coverage, and trade access. The public material is credibility- and inventory-led; a buyer needing a calibrated or custom workflow should ask for the technical process explicitly.[7](https://www.nishalgems.com/ "accessed 2026-09-01")
+
+**Guru Diam** is a direct comparator for practical trade convenience, with live inventory, US-facing access, matched pairs, layouts, custom jewellery, and digital tools. Its public differentiation is service and distribution; buyers seeking upstream manufacturing authority should verify who produces the stone.[4](https://www.gurudiam.com/ "accessed 2026-09-01")
+
+**RMP Diamond** presents a broad Surat manufacturer/exporter proposition across natural and laboratory-grown categories. Its breadth may suit general sourcing, but buyers should verify the specific lab-grown QC, certification, capacity, and repeat-order process.[8](https://www.rmpdiamond.com/ "accessed 2026-09-01")
+
+**Ajahara Diamonds** appears primarily as a marketplace-style Surat manufacturer and supplier profile with many product categories. It may be useful for transactional enquiries, but public technical specificity around calibrated layouts, matched pairs, and international workflow is limited.[9](https://www.ajaharadiamonds.com/ "accessed 2026-09-01")
+
+## Certification changes the comparison
+
+IGI is generally the practical wholesale baseline because its laboratory-grown report uses familiar 4Cs information, identifies origin, and supports online verification.[10](https://www.igi.org/reports/lab-grown-diamond-report/ "accessed 2026-09-01") GIA may matter when a downstream channel requires its institutional name, but its current colourless laboratory-grown service uses Premium or Standard assessments rather than the conventional natural-diamond format.[11](https://www.gia.edu/gem-lab-service/laboratory-grown-diamond "accessed 2026-09-01") GCAL or GCAL 8X may fit a performance-led centre stone where imaging, optical symmetry, and cut evidence are central.[12](https://www.gcalusa.com/gcal-8x-cut-grade.html "accessed 2026-09-01")
+
+For layouts, pairs, and melee, certification does not replace supplier QC. The buyer still needs group measurements, sorting or matching criteria, report-to-stone linkage, approval evidence, and a clear treatment and method record.
+
+## The honest answer to “which company is best?”
+
+The best manufacturer is the one whose operating process matches the design and commercial risk. Use scale evidence for scale questions. Use service evidence for service questions. Use technical records for calibrated, matched, and custom work. Request the same information from each shortlisted supplier and compare the completed specification, not the adjectives on the homepage.
+
+See [calibrated diamond layouts](/calibrated-diamond-layouts), [matched pair diamonds](/matched-pair-diamonds), [custom-cut diamonds](/custom-cut-diamonds), and [certifications](/certifications).
+
+WhatsApp: Send your design, volume, destination, and certification brief for a supplier-fit discussion.
+
+Related product: [Precision lab-grown diamond wholesale supply](/precision-lab-grown-diamond-wholesale)
+
+Response within 24 hours.
+
+## References
+
+[1]: https://kiradiam.com/ "KIRA official website and trade inventory positioning, accessed 2026-09-01"
+[2]: https://greenlabdiamonds.com/ "Greenlab Diamonds company materials, accessed 2026-09-01"
+[3]: https://www.igi.org/reports/ "IGI laboratory-grown diamond reports, accessed 2026-09-01"
+[4]: https://www.gurudiam.com/ "Guru Diam wholesale website, accessed 2026-09-01"
+[5]: https://craftdiamonds.co/ "Craft Diamonds official website, accessed 2026-09-01"
+[6]: https://lepdodiamonds.com/ "LEPDO Diamonds official website, accessed 2026-09-01"
+[7]: https://www.nishalgems.com/ "Nishal Gems official website, accessed 2026-09-01"
+[8]: https://www.rmpdiamond.com/ "RMP Diamond official website, accessed 2026-09-01"
+[9]: https://www.ajaharadiamonds.com/ "Ajahara Diamonds profile, accessed 2026-09-01"
+[10]: https://www.igi.org/reports/lab-grown-diamond-report/ "IGI Laboratory Grown Diamond Report, accessed 2026-09-01"
+[11]: https://www.gia.edu/gem-lab-service/laboratory-grown-diamond "GIA Laboratory-Grown Diamond Services, accessed 2026-09-01"
+[12]: https://www.gcalusa.com/gcal-8x-cut-grade.html "GCAL 8X Ultimate Cut Grade, accessed 2026-09-01"
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Which Lab-Grown Diamond Manufacturer Is Best? (It Depends What You're Buying)",
+  "description": "A buyer-focused rubric for choosing a laboratory-grown diamond manufacturer by need.",
+  "datePublished": "2026-09-01",
+  "author": { "@type": "Organization", "name": "Alvora Diamonds" },
+  "publisher": { "@type": "Organization", "name": "Alvora Diamonds" },
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "TODO(alvora): ______" }
+}
+```
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Which company is the best for lab-grown diamonds?", "acceptedAnswer": { "@type": "Answer", "text": "There is no single best company for every lab-grown diamond purchase. KIRA has the clearest public scale evidence, Guru Diam emphasizes US-facing trade convenience, and specialist suppliers may be more suitable for calibrated layouts, matched pairs, custom cuts, fancy colour, or large stones. Compare each supplier against the exact design, volume, certification, and delivery requirement." } }
+  ]
+}
+```
+
+---
+## Is a Lab-Grown Diamond Worth Buying? (For Retailers, Designers, and End Buyers)
+
+- **Type:** PAA page
+- **URL:** /insights/is-a-lab-grown-diamond-worth-it
+- **Published:** 2026-09-01
+
+Whether a lab-grown diamond is worth buying depends on who's buying — for B2B jewellery retailers and designers the case is straightforward (lower cost, faster turnaround, identical grading), but end consumers should factor in the low secondary-market resale value of lab-grown vs. mined stones. “Worth it” is therefore a business-model question for a retailer and a use-and-value question for an end buyer.
+
+## Key takeaways
+
+- B2B buyers may value lower acquisition cost, design flexibility, quick sourcing, and repeatable specifications.
+- End consumers should not treat a laboratory-grown diamond as a short-term investment or assume a strong resale market.
+- Laboratory-grown and mined diamonds share fundamental diamond properties, but origin, supply, pricing, and resale economics differ.
+- The right purchase depends on the intended use, budget, disclosure preference, design, and time horizon.
+
+## Track one: the B2B case
+
+For a jewellery retailer or designer, the commercial case can be straightforward when the product is sold as jewellery rather than as an appreciating asset. A laboratory-grown diamond can provide a lower acquisition cost than a comparable mined stone, allowing a brand to offer a larger centre stone, a broader assortment, or more design experimentation within a target retail price. The actual margin still depends on sourcing, certification, freight, duties, returns, marketing, labour, and inventory risk.
+
+Design flexibility is another consideration. A supplier may be able to discuss calibrated layouts, matched pairs, melee, fancy shapes, or custom cuts against a design brief. That can help a brand build a collection around a repeatable setting rather than choose the nearest available stone. It is not automatic: the buyer must define dimensions, tolerance, certification, treatment, approval, and repeat-order requirements.
+
+The faster-turnaround claim also needs precision. A standard in-stock stone can move faster than a custom cut, new grading request, or international shipment. Ask the supplier to separate response time, stock selection, cutting, certification, approval, packing, and dispatch. “Available” should mean available for the specific destination and terms, not merely visible in a catalogue.
+
+Certification supports communication and comparison. IGI’s laboratory-grown report uses familiar 4Cs information and identifies laboratory-grown origin; GIA offers a different Premium or Standard format for many colourless laboratory-grown stones; GCAL can be relevant for performance-led goods.[1](https://www.igi.org/reports/lab-grown-diamond-report/ "accessed 2026-09-01") [2](https://www.gia.edu/gem-lab-service/laboratory-grown-diamond "accessed 2026-09-01") [3](https://www.gcalusa.com/gcal-8x-cut-grade.html "accessed 2026-09-01") Choose the report route according to the downstream customer and the product, not because one laboratory is universally best.
+
+## Track two: the end-consumer case
+
+For an end consumer, the core value may be size, design, budget, origin preference, or the desire to avoid mined extraction. A laboratory-grown diamond is a real diamond, and the FTC recognizes laboratory-grown origin within its diamond definition while requiring clear disclosure.[4](https://www.ecfr.gov/current/title-16/chapter-I/subchapter-B/part-23 "accessed 2026-09-01") That makes it a legitimate product choice when the buyer understands what is being purchased.
+
+The main caution is resale. Laboratory-grown diamonds have faced continuing wholesale price declines as production and supply have expanded. JCK, citing transaction-based market data, reported substantial declines through 2025 and Q2 2026, alongside shrinking resale values and rising retail inventory-to-sales ratios.[5](https://www.jckonline.com/editorial-article/lab-grown-wholesale-freefall/ "accessed 2026-09-01") A market shorthand sometimes places laboratory-grown resale at roughly 20–30% of the equivalent mined-diamond retail value, but that is not a universal appraisal rule or guaranteed offer. Actual outcomes vary by stone, report, retailer, condition, design, and buyer demand; ask for a current written offer if resale matters.
+
+The consequence is practical: buy a laboratory-grown diamond because you value the finished jewellery and price today, not because you expect the stone to preserve its purchase price. If preserving a higher proportion of original value is a primary objective, compare mined and laboratory-grown options with that objective stated openly.
+
+## A simple decision table
+
+| Buyer | Potential reason it is worth considering | Main caution |
+|---|---|---|
+| Jewellery retailer | Lower acquisition cost and broader assortment | Margin is exposed to falling replacement prices |
+| Designer | More room for unusual shapes, pairs, layouts, and custom work | Custom production still needs feasibility and QC |
+| End consumer prioritizing size or budget | More finished-stone size within a budget | Low and changing secondary-market value |
+| End consumer prioritizing resale | May not fit the objective | Compare current resale evidence before buying |
+
+## The honest conclusion
+
+A laboratory-grown diamond can be worth buying when the buyer values the design, material identity, disclosure, and current price more than future resale. For B2B, evaluate landed cost, inventory turns, certification, repeatability, and customer acceptance. For consumers, evaluate the jewellery itself and assume resale may be weak. Neither buyer should rely on a generic claim that laboratory-grown diamonds are automatically the better financial choice.
+
+For sourcing, see [certifications](/certifications), [precision wholesale supply](/precision-lab-grown-diamond-wholesale), and [request a quote](/request-a-quote).
+
+WhatsApp: Send your B2B or design brief for a practical sourcing discussion.
+
+Related product: [Request a wholesale quote](/request-a-quote)
+
+Response within 24 hours.
+
+## References
+
+[1]: https://www.igi.org/reports/lab-grown-diamond-report/ "IGI, Laboratory Grown Diamond Report, accessed 2026-09-01"
+[2]: https://www.gia.edu/gem-lab-service/laboratory-grown-diamond "GIA, Laboratory-Grown Diamond Services, accessed 2026-09-01"
+[3]: https://www.gcalusa.com/gcal-8x-cut-grade.html "GCAL, 8X Ultimate Cut Grade, accessed 2026-09-01"
+[4]: https://www.ecfr.gov/current/title-16/chapter-I/subchapter-B/part-23 "eCFR, 16 CFR Part 23, accessed 2026-09-01"
+[5]: https://www.jckonline.com/editorial-article/lab-grown-wholesale-freefall/ "JCK, Lab-Grown Diamond Wholesale Prices, accessed 2026-09-01"
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Is a Lab-Grown Diamond Worth Buying? (For Retailers, Designers, and End Buyers)",
+  "description": "A balanced B2B and consumer analysis of laboratory-grown diamond value, cost, and resale considerations.",
+  "datePublished": "2026-09-01",
+  "author": { "@type": "Organization", "name": "Alvora Diamonds" },
+  "publisher": { "@type": "Organization", "name": "Alvora Diamonds" },
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "TODO(alvora): ______" }
+}
+```
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Is it worth buying a lab-grown diamond?", "acceptedAnswer": { "@type": "Answer", "text": "It can be worth buying if you value the jewellery, size, design, laboratory-grown origin, and current price more than future resale. Retailers and designers should assess landed cost, certification, inventory risk, and repeatability. End consumers should assume secondary-market value may be low and should not buy a lab-grown diamond as a short-term investment." } }
+  ]
+}
+```
+
+---
+## Lab-Grown Diamond Price Per Carat (Wholesale, 2026)
+
+- **Type:** PAA page
+- **URL:** /insights/lab-grown-diamond-price-per-carat
+- **Published:** 2026-09-01
+
+There is no defensible single 2026 public wholesale range for a 1ct lab-grown diamond because open data do not publish a complete current matrix by method, colour, clarity, cut, and certificate. The fact base records a **USD $191/ct average acquisition cost paid by US retailers for 1ct IGI-certified rounds in Q2 2025**, but that is retailer cost, not a current India wholesale quote, and it should be treated as a stale benchmark rather than a live price.[1](https://www.jckonline.com/editorial-article/lab-grown-wholesale-freefall/ "accessed 2026-09-01")
+
+## Key takeaways
+
+- A public, current 1ct wholesale range by colour, clarity, method, cut, and certificate is not available in the reviewed evidence.
+- The USD $191/ct figure is a Q2 2025 US retailer acquisition average for 1ct IGI-certified rounds, not an India factory price.
+- Wholesale prices continued to fall through 2025 and Q2 2026, so old screenshots and generic price tables age quickly.
+- A real quote needs the exact stone specification, report, method, treatment, delivery terms, and quantity.
+
+## What can be stated responsibly?
+
+The public record supports a direction, not a neat price card. Edahn Golan data cited by JCK showed major declines in popular goods: 1–3ct goods were down 42% year over year in Q2 2025; the full-year 2025 wholesale decline was reported at 26%; Q1 2026 was down 14% year over year; and Q2 2026 was down 13% year over year.[1](https://www.jckonline.com/editorial-article/lab-grown-wholesale-freefall/ "accessed 2026-09-01") The rate of decline moderated, but prices remained far below the index’s historical starting point.
+
+India’s official export evidence points in the same direction. GJEPC reported polished laboratory-grown diamond exports of USD $1.13bn in FY2025–26, down 10.55% year over year while volumes increased.[2](https://gjepc.org/ "accessed 2026-09-01") More volume with lower export value is consistent with price compression, but it does not provide a buyer-specific per-carat quote.
+
+## Public price evidence by requested category
+
+| Size | Colour / clarity | Certification | Public evidence | How to use it |
+|---|---|---|---|---|
+| 1ct | D–J, VS–VVS | Mixed / specified lab | No complete current open matrix located | Request a live quote for the exact report and make |
+| 1ct | Round, IGI-certified | IGI | USD $191/ct average US retailer acquisition cost in Q2 2025 | Stale retail-side benchmark; not India wholesale |
+| 1–3ct | Mixed qualities | Mixed | Down 42% year over year in Q2 2025 | Indicates severe repricing in standardized goods |
+| 3ct | VVS D round | Not stated in the cited summary | USD $126/ct in Q1 2026, about 30% below its 2025 level | Larger-stone public reference, not a 1ct quote |
+| Any size | CVD vs HPHT | Mixed | No complete current like-for-like matrix | Method direction is visible; exact price is not |
+
+The matrix is intentionally incomplete. Filling the blank cells with invented numbers would make the article look more useful while making it less reliable.
+
+## Why colour, clarity, cut, and certificate matter
+
+A quote is not determined by carat weight alone. Colour and clarity affect the commercial grade, while cut, polish, symmetry, transparency, fluorescence, and shape affect visual and setting suitability. CVD and HPHT goods can also price differently; public trade commentary has reported HPHT discounting in some sub-two-carat categories because of a lower cost base, but there is no universal percentage applicable to every stone.[3](https://www.jckonline.com/editorial-article/lab-grown-wholesale-freefall/ "accessed 2026-09-01")
+
+Certification adds cost and comparability, but the laboratory format matters. IGI is commonly used for wholesale comparison and can identify laboratory-grown origin and core 4Cs details. GIA’s current colourless laboratory-grown service uses Premium or Standard assessments, while GCAL 8X is differentiated by performance-oriented evidence and imaging.[4](https://www.igi.org/reports/lab-grown-diamond-report/ "accessed 2026-09-01") [5](https://www.gia.edu/gem-lab-service/laboratory-grown-diamond "accessed 2026-09-01") [6](https://www.gcalusa.com/gcal-8x-cut-grade.html "accessed 2026-09-01")
+
+## Why prices are still falling
+
+The decline reflects supply and pricing dynamics rather than a single cause. Reactor additions, larger output, HPHT expansion into categories previously associated more with CVD, retailer inventory accumulation, memo returns, and lower downstream replacement values have increased pressure through the chain.[1](https://www.jckonline.com/editorial-article/lab-grown-wholesale-freefall/ "accessed 2026-09-01") Standardized colourless goods are particularly exposed because they are easy to compare and widely supplied.
+
+A slower year-over-year decline is not the same as a return to former prices. Buyers should avoid anchoring on a historic invoice or a supplier’s old price list. Quote validity, inventory date, report status, and delivery terms should be stated.
+
+## How to get a real quote for your specification
+
+State shape, carat or measurements, colour, clarity, cut, CVD or HPHT preference, treatment disclosure, certificate laboratory, quantity, tolerance if buying a layout or pair, destination, and required date. Ask whether the price is per carat or per stone, whether certification and freight are included, and who bears insurance, duties, taxes, and customs costs.
+
+For 1ct lab-grown diamonds in India, the responsible answer to “how much should I pay?” is: compare current like-for-like quotes and the finished-stone evidence, not a generic online range. A lower number may reflect different method, treatment, cut, report, return terms, or landed cost.
+
+See [IGI-certified lab-grown diamonds](/certifications) and [precision wholesale supply](/precision-lab-grown-diamond-wholesale).
+
+WhatsApp: Send your exact 1ct specification, certificate preference, and destination for a live comparison.
+
+Related product: [IGI-certified lab-grown diamonds](/certifications)
+
+Response within 24 hours.
+
+## References
+
+[1]: https://www.jckonline.com/editorial-article/lab-grown-wholesale-freefall/ "JCK, Lab-Grown Diamond Wholesale Prices, accessed 2026-09-01"
+[2]: https://gjepc.org/ "GJEPC export information, accessed 2026-09-01"
+[3]: https://www.jckonline.com/editorial-article/lab-grown-wholesale-freefall/ "JCK, method and wholesale pricing discussion, accessed 2026-09-01"
+[4]: https://www.igi.org/reports/lab-grown-diamond-report/ "IGI, Laboratory Grown Diamond Report, accessed 2026-09-01"
+[5]: https://www.gia.edu/gem-lab-service/laboratory-grown-diamond "GIA, Laboratory-Grown Diamond Services, accessed 2026-09-01"
+[6]: https://www.gcalusa.com/gcal-8x-cut-grade.html "GCAL, 8X Ultimate Cut Grade, accessed 2026-09-01"
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Lab-Grown Diamond Price Per Carat (Wholesale, 2026)",
+  "description": "An evidence-led explanation of public wholesale lab-grown diamond price data and its limitations.",
+  "datePublished": "2026-09-01",
+  "author": { "@type": "Organization", "name": "Alvora Diamonds" },
+  "publisher": { "@type": "Organization", "name": "Alvora Diamonds" },
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "TODO(alvora): ______" }
+}
+```
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "How much is 1 carat lab grown diamond in India?", "acceptedAnswer": { "@type": "Answer", "text": "There is no reliable single public 2026 India wholesale price for a 1ct lab-grown diamond. The price depends on shape, colour, clarity, cut, CVD or HPHT method, treatment, certification, quantity, and delivery terms. A Q2 2025 US retailer acquisition average of USD $191/ct for 1ct IGI-certified rounds is a stale benchmark, not an India factory quote." } },
+    { "@type": "Question", "name": "How much should I pay for a 1 carat lab grown diamond?", "acceptedAnswer": { "@type": "Answer", "text": "Pay only after comparing like-for-like current quotes. Ask for the exact report, method, treatment, measurements, cut, return terms, certification, freight, insurance, duties, and taxes. Public data show continuing wholesale price declines but do not support a complete current 1ct price range by colour, clarity, and certificate." } }
+  ]
+}
+```
+
+---
+## Where to Buy Lab-Grown Diamonds Wholesale (A Buyer's Guide)
+
+- **Type:** PAA page
+- **URL:** /insights/lab-grown-diamond-wholesale-how-to-buy
+- **Published:** 2026-09-01
+
+Lab-grown diamonds are sold wholesale through four channels: direct from manufacturers (mostly India, China, US), online marketplaces (Nivoda, VDB, RapNet), local wholesalers, and trade shows (IIJS, JCK, Hong Kong Jewellery & Gem Fair). The right channel depends on whether you need a rare stone quickly, a repeat specification, memo terms, physical inspection, or a low-inventory digital selling model.
+
+## Key takeaways
+
+- Direct manufacturers are generally strongest for calibrated layouts, matched pairs, custom cuts, and repeat production briefs.
+- Nivoda and VDB offer catalogue breadth and digital workflow tools, but the buyer still needs transaction-level QC.
+- Local wholesalers add speed, physical comparison, and relationship-based exceptions, often at a higher spread.
+- Trade shows are useful for supplier discovery and trust formation, not as a substitute for post-show diligence.
+
+## 1. Direct from manufacturers
+
+A direct purchase is made from a grower, cutter, polisher, integrated manufacturer, or factory-supported sales office. India, China, and the United States are visible production or commercial centres, but the label “manufacturer” should be tested: ask where growth, cutting, polishing, and grading occur, which functions are outsourced, and who owns the goods.
+
+The advantage is technical dialogue. A buyer can discuss measurements, pair tolerance, layout architecture, cut proportions, colour and clarity, treatment disclosure, certification, rough feasibility, and replenishment. A direct relationship is therefore often the best fit for a designer or manufacturer with a CAD reference or a recurring setting requirement. The trade-off is responsibility for supplier diligence, international shipping, customs, payment exposure, insurance, returns, and internal QC.
+
+Alvora is one direct-from-manufacturer option for buyers seeking a specification-led discussion around calibrated layouts, matched pairs, or custom cuts. The relevant question is not whether a supplier claims the largest inventory; it is whether it can document the agreed requirement, certificate, approval, and commercial terms. See [precision lab-grown diamond wholesale supply](/precision-lab-grown-diamond-wholesale) for an RFQ route.
+
+## 2. Online marketplaces
+
+Nivoda positions itself as a B2B marketplace with natural and lab-grown inventory, consolidated logistics and invoicing, quality-control services, returns, and digital selling tools.[1](https://www.nivoda.net/ "accessed 2026-09-01") VDB describes a multi-supplier trade platform with search, pair matching, images, videos, reports, messaging, buy, memo, and hold requests.[2](https://www.vdbapp.com/ "accessed 2026-09-01") RapNet’s successor, Rapaport Trade, is currently presented primarily around natural-diamond sourcing and price tools, so its lab-grown utility should be tested rather than assumed.[3](https://trade.rapaport.com/ "accessed 2026-09-01")
+
+The advantage is breadth without owning every stone. A retailer can quote quickly, show virtual inventory, and order after a sale. The disadvantages are platform dependence, variable supplier service, and less direct manufacturing control. A platform promise about returns, credit, or QC should be checked against the actual terms for lab-grown goods, custom orders, and cross-border transactions.
+
+## 3. Local wholesalers
+
+Local wholesalers and diamond districts are useful when speed or physical inspection matters. A buyer may compare stones under the same lighting, negotiate a hold or memo, collect urgently, and use an established relationship to resolve an exception. New York, Los Angeles, Antwerp, and other trade centres can provide local knowledge and settlement convenience.
+
+The costs are higher overhead, narrower selection, and possible dependence on one salesperson’s inventory. A local supplier adds value when it prevents a missed sale, solves an urgent replacement, or lets a buyer compare stones physically. It is less compelling when it merely resells an easily available stone without adding inspection, credit, or service.
+
+## 4. Trade shows
+
+IIJS, JCK Las Vegas, and Jewellery & Gem WORLD Hong Kong concentrate manufacturers, wholesalers, designers, and service providers in one place. JCK reported more than 30,000 industry professionals and 1,800 exhibiting brands for its 2026 event; JGW reported more than 55,000 unique buyers and over 3,000 exhibitors for its 2025 edition.[4](https://lasvegas.jckonline.com/ "accessed 2026-09-01") [5](https://www.jewellerynet.com/en/jgw-hong-kong "accessed 2026-09-01")
+
+A show is good for comparing cuts, discovering suppliers, and testing technical conversation. It is not proof of delivery performance. After the show, request a formal specification, pro forma invoice, report list, sample or memo terms, return policy, shipping responsibility, and a small test order before committing to a programme.
+
+## Which channel should you use?
+
+| Need | Best starting channel | Main risk to manage |
+|---|---|---|
+| Broad online assortment | Marketplace | Variable supplier quality and platform terms |
+| Calibrated or repeat specification | Direct manufacturer | Due diligence and international logistics |
+| Urgent physical comparison | Local wholesaler | Higher spread and narrower range |
+| Supplier discovery | Trade show | Follow-up execution and sample bias |
+
+A hybrid model is usually more resilient: marketplace breadth, direct manufacturing for exact work, local service for urgent exceptions, and trade shows for discovery. Compare total workflow cost, not only per-carat price.
+
+WhatsApp: Send your wholesale requirement and preferred buying channel for discussion.
+
+Related product: [Precision lab-grown diamond wholesale supply](/precision-lab-grown-diamond-wholesale)
+
+Response within 24 hours.
+
+## References
+
+[1]: https://www.nivoda.net/ "Nivoda, B2B diamond marketplace, accessed 2026-09-01"
+[2]: https://www.vdbapp.com/ "VDB, B2B trade marketplace, accessed 2026-09-01"
+[3]: https://trade.rapaport.com/ "Rapaport Trade, accessed 2026-09-01"
+[4]: https://lasvegas.jckonline.com/ "JCK Las Vegas, accessed 2026-09-01"
+[5]: https://www.jewellerynet.com/en/jgw-hong-kong "Jewellery & Gem WORLD Hong Kong, accessed 2026-09-01"
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Where to Buy Lab-Grown Diamonds Wholesale (A Buyer's Guide)",
+  "description": "A comparison of four wholesale channels for laboratory-grown diamonds.",
+  "datePublished": "2026-09-01",
+  "author": { "@type": "Organization", "name": "Alvora Diamonds" },
+  "publisher": { "@type": "Organization", "name": "Alvora Diamonds" },
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "TODO(alvora): ______" }
+}
+```
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Where can I buy lab-grown diamonds wholesale?", "acceptedAnswer": { "@type": "Answer", "text": "Wholesale lab-grown diamonds are available direct from manufacturers, through online marketplaces such as Nivoda and VDB, from local wholesalers, and at trade shows such as IIJS, JCK, and Jewellery & Gem WORLD Hong Kong. Choose the channel according to your need for breadth, technical specification, physical inspection, urgency, and repeat supply." } }
+  ]
+}
+```
+
+---
+## The Largest Lab-Grown Diamond Manufacturers in India (2026)
+
+- **Type:** PAA page
+- **URL:** /insights/largest-lab-grown-diamond-manufacturers-india
+- **Published:** 2026-09-01
+
+Based on publicly stated production figures in 2026, KIRA / Kira Jewels is India’s largest lab-grown diamond producer on the evidence reviewed, with more than 250,000 polished carats per month reported by GJEPC. JCK separately reported planned capacity of 350,000 polished carats per month, so current reported output and future capacity should not be presented as the same number.[1](https://gjepc.org/press-release-detail.php?pressrelease=137 "accessed 2026-09-01") [2](https://www.jckonline.com/editorial-article/kira-expands-lgd-production/ "accessed 2026-09-01")
+
+## Key takeaways
+
+- KIRA has the strongest public scale evidence in the reviewed Indian manufacturer set: 4,000 CVD reactors and more than 250,000 polished carats per month reported by GJEPC.
+- Public producer figures use incompatible units—reactors, polished carats, polished stones, or a single large-stone record—so this is an evidence-ranked comparison, not an audited league table.
+- Greenlab also makes a large CVD claim, but its public 1,000-reactor figure is a company disclosure rather than an independently comparable production measure.
+- For calibrated layouts, matched pairs, and custom cuts, technical fit and repeatability can matter more than maximum factory volume.
+
+## How to read “largest”
+
+There is no complete public census of Indian gem-quality laboratory-grown production. A reactor count is not the same as polished carats per month, and polished-stone capacity cannot be compared directly with carat capacity. A responsible ranking therefore reports what each producer has publicly disclosed, labels the unit, and avoids converting unlike measures into a false precision.
+
+The table below uses the strongest public evidence located in the fact base. “Not disclosed” means that a comparable current number was not established in the reviewed sources; it does not mean the producer has no capacity.
+
+## Public-evidence comparison
+
+| Producer | Public capacity evidence | Certification or quality evidence | Specialization | HQ / production | Source |
+|---|---|---|---|---|---|
+| **KIRA / Kira Jewels** | 4,000 CVD reactors; over 250,000 polished ct/month reported by GJEPC; 350,000 polished ct/month described by JCK as planned capacity | SMETA and SEDEX reported by GJEPC; certified inventory emphasized | Integrated grow–cut–polish–jewellery; broad inventory, larger sizes, fancy shapes | Surat, India | GJEPC; JCK [1] [2] |
+| **Greenlab Diamonds** | 1,000 reactors and 2,000 employees in company LinkedIn materials | Company materials cite IGI and GIA certification; Type IIa positioning | CVD cultivation, colourless and specialty stones, B2B supply | Surat, India; Belgium described as head office | Company materials [3](https://greenlabdiamonds.com/ "accessed 2026-09-01") |
+| **Diamond Foundry** | Spain expansion expected to reach 4–5 million carats/year as reactors are commissioned | Producer positioning; exact certification mix not established in the reviewed evidence | Large-scale CVD; jewellery and technology applications | United States; Spain expansion | Spain investment agency [4](https://www.investinspain.org/en/news/2023/diamond-foundry "accessed 2026-09-01") |
+| **IIa Technologies** | Historical disclosure of 50+ MPCVD reactors; earlier trade reporting cited more than 300,000 ct/year | Type IIa specialization associated with the company | CVD, Type IIa, large and high-quality diamonds | Singapore | Trade reports [5](https://www.jckonline.com/editorial-article/iia-technologies-lab-grown-diamonds/ "accessed 2026-09-01") |
+| **Bhanderi Lab Grown Diamonds** | 2M+ diamond polishing capacity; unit is individual stones, not carats/year | Company emphasizes Type IIa and CVD; current certification mix not independently established | CVD, Type IIa, large-scale polishing and export | Surat, India | Company materials [6](https://bhanderidiamonds.com/ "accessed 2026-09-01") |
+| **Ethereal Green Diamond** | Current public capacity not disclosed | IGI-graded 75.33 ct “Celebration of India” and 30.69 ct “Infinity Ring” | Large, high-quality CVD, large stones, specialty cuts | Surat, India | IGI [7](https://www.igi.org/reports/ "accessed 2026-09-01") |
+
+## Who is the biggest producer?
+
+If “biggest” means the strongest publicly stated current Indian production figure, KIRA is the defensible answer in this source set. GJEPC reported expansion from 2,600 to 4,000 CVD reactors and over 250,000 polished carats per month. JCK’s 350,000 polished-carat figure should be labelled planned capacity, not current output.[1](https://gjepc.org/press-release-detail.php?pressrelease=137 "accessed 2026-09-01") [2](https://www.jckonline.com/editorial-article/kira-expands-lgd-production/ "accessed 2026-09-01")
+
+That answer is narrower than saying KIRA is best for every buyer. A factory built for scale may be appropriate for standardized volume, broad inventory, or large recurring programmes. It does not automatically establish the tightest dimensional tolerance, the best matched-pair process, or the fastest response to an unusual CAD-driven cut. Those are different buying questions.
+
+## Who is the leading supplier?
+
+“Leading” is not a single measurable category. KIRA has the clearest public scale and integrated inventory story. Greenlab has a large company-stated CVD platform. Ethereal Green has public evidence around exceptional large stones rather than overall production scale. Other Surat suppliers, including Lepdo, Nishal, RMP, and Craft, emphasize certification, broad shape coverage, manufacturing, sustainability, or B2B service, but the reviewed public pages do not provide a comparable audited capacity table.[8](https://lepdodiamonds.com/ "accessed 2026-09-01") [9](https://www.nishalgems.com/ "accessed 2026-09-01") [10](https://www.rmpdiamond.com/ "accessed 2026-09-01") [11](https://craftdiamonds.co/ "accessed 2026-09-01")
+
+## Where Alvora fits
+
+Alvora should not be described as India’s largest producer; the public evidence does not support that claim. Its credible product position is narrower: specification-led work for calibrated layouts, matched pairs, and custom cuts where the buyer needs the design requirement translated into a clear sourcing and QC brief. Alvora-specific capacity, tolerance, MOQ, and lead-time figures remain `TODO(alvora)` until verified.
+
+## A buyer’s ranking method
+
+Before selecting a manufacturer, decide whether the requirement is commodity volume, an unusual shape, a matched pair, a calibrated layout, a specialty colour, a large centre stone, or a repeat collection. Then compare suppliers on the unit that matters: polished carats, individual stones, available inventory, dimensional tolerance, report format, lead time, or service region. This prevents a large reactor count from answering a question it was never designed to answer.
+
+For calibrated and design-specific requirements, see [calibrated diamond layouts](/calibrated-diamond-layouts), [matched pair diamonds](/matched-pair-diamonds), and [custom-cut diamonds](/custom-cut-diamonds).
+
+WhatsApp: Send your volume, design, or specification brief for a source-fit discussion.
+
+Related product: [Precision lab-grown diamond wholesale supply](/precision-lab-grown-diamond-wholesale)
+
+Response within 24 hours.
+
+## References
+
+[1]: https://gjepc.org/press-release-detail.php?pressrelease=137 "GJEPC producer and export information, accessed 2026-09-01"
+[2]: https://www.jckonline.com/editorial-article/kira-expands-lgd-production/ "JCK KIRA production expansion, accessed 2026-09-01"
+[3]: https://greenlabdiamonds.com/ "Greenlab Diamonds company materials, accessed 2026-09-01"
+[4]: https://www.investinspain.org/en/news/2023/diamond-foundry "Invest in Spain Diamond Foundry expansion, accessed 2026-09-01"
+[5]: https://www.jckonline.com/editorial-article/iia-technologies-lab-grown-diamonds/ "JCK IIa Technologies coverage, accessed 2026-09-01"
+[6]: https://bhanderidiamonds.com/ "Bhanderi Lab Grown Diamonds company materials, accessed 2026-09-01"
+[7]: https://www.igi.org/reports/ "IGI laboratory-grown diamond reports, accessed 2026-09-01"
+[8]: https://lepdodiamonds.com/ "LEPDO Diamonds, accessed 2026-09-01"
+[9]: https://www.nishalgems.com/ "Nishal Gems, accessed 2026-09-01"
+[10]: https://www.rmpdiamond.com/ "RMP Diamond, accessed 2026-09-01"
+[11]: https://craftdiamonds.co/ "Craft Diamonds, accessed 2026-09-01"
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "The Largest Lab-Grown Diamond Manufacturers in India (2026)",
+  "description": "A sourced comparison of Indian lab-grown diamond manufacturers and their public capacity evidence.",
+  "datePublished": "2026-09-01",
+  "author": { "@type": "Organization", "name": "Alvora Diamonds" },
+  "publisher": { "@type": "Organization", "name": "Alvora Diamonds" },
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "TODO(alvora): ______" }
+}
+```
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Who is the largest producer of lab-grown diamonds in India?", "acceptedAnswer": { "@type": "Answer", "text": "Based on publicly stated production figures in 2026, KIRA / Kira Jewels is India’s largest lab-grown diamond producer on the evidence reviewed, with more than 250,000 polished carats per month reported by GJEPC. Current reported output and planned capacity should be kept separate." } },
+    { "@type": "Question", "name": "Who is the biggest producer of lab-grown diamonds?", "acceptedAnswer": { "@type": "Answer", "text": "For India, KIRA / Kira Jewels has the strongest public scale evidence in the reviewed 2026 source set, with more than 250,000 polished carats per month reported by GJEPC. Public figures from other producers use different units and are not directly comparable." } },
+    { "@type": "Question", "name": "Who is the leading lab-grown diamond supplier in India?", "acceptedAnswer": { "@type": "Answer", "text": "There is no single objective definition of leading. KIRA has the clearest public scale evidence, while other suppliers may fit better for specialty stones, service, calibrated layouts, matched pairs, or custom cuts. Buyers should compare the supplier against the exact requirement." } }
+  ]
+}
+```
+
+---
+## 12 Questions to Ask a Lab-Grown Diamond Manufacturer Before You Order
+
+- **Type:** Insight article
+- **URL:** /request-a-quote
+- **Published:** 2026-09-01
+
+Before ordering laboratory-grown diamonds, ask the manufacturer about specification control, growth method, treatment, certification, commercial terms, logistics, and repeat-order capability. A supplier’s catalogue, factory photograph, or low quoted price cannot answer these questions on its own.
+
+## Key takeaways
+
+- Verify the contracting seller, production location, method, treatment, and laboratory paperwork.
+- Ask for the actual QC rule, dimensional tolerances, MOQ, sample or memo terms, and lead-time stages.
+- Separate stone price from certification, freight, insurance, duties, taxes, and customs responsibility.
+- Retain the accepted specification and approval record if repeat supply matters.
+
+## The 12-question checklist
+
+### 1. Who is the contracting seller?
+
+Ask for the legal entity, registered address, invoice details, bank-account name, and the role of any sales office or intermediary. Confirm who owns the goods and who is responsible for a discrepancy or return.
+
+### 2. Where are growth, cutting, polishing, and grading performed?
+
+A company may combine some functions and outsource others. Ask which steps occur in Surat or another location, who controls the production record, and whether the same specification can be followed across suppliers or facilities.
+
+### 3. What growth method and treatment apply?
+
+CVD and HPHT are different growth routes. CVD material may be HPHT-annealed after growth, and HPHT stones can have method-specific inclusions or fluorescence features.[1](https://www.gia.edu/hpht-and-cvd-diamond-growth-processes) Require method and treatment disclosure in the report or product record where relevant.
+
+### 4. Which laboratory will issue the paperwork?
+
+Ask whether the stones are IGI, GIA, GCAL, or another laboratory’s reports, and whether the format suits your downstream channel. IGI’s laboratory-grown report uses familiar 4Cs information; GIA’s current colourless service uses Premium or Standard assessments; GCAL 8X adds performance-oriented evidence.[2](https://www.igi.org/reports/lab-grown-diamond-report/) [3](https://www.gia.edu/gem-lab-service/laboratory-grown-diamond) [4](https://www.gcalusa.com/gcal-8x-cut-grade.html)
+
+### 5. How do you verify report-to-stone identity?
+
+Ask how report numbers, laser inscriptions, photographs, and shipment records are checked. IGI provides online report verification and laser inscription linkage, but the buyer should still confirm the actual stone against the report.[5](https://www.igi.org/Verify-Your-Report/)
+
+### 6. What exactly is your QC acceptance rule?
+
+Ask for the fields checked before shipment: measurements, colour, clarity, cut, polish, symmetry, fluorescence, treatment, transparency, and visual appearance. For groups, ask for the matching or sorting rule rather than accepting “well matched” as a sufficient description.
+
+### 7. What are the dimensional tolerances?
+
+For a layout, pair, or custom cut, request the permitted range by measurement. Alvora-specific tolerance values should be recorded as `TODO(alvora)` until confirmed. Clarify whether the range applies to every stone, a sample, or an average, and what happens to an outlier.
+
+### 8. What is the MOQ?
+
+Ask for the minimum by product type: loose stones, matched pairs, calibrated layouts, melee lots, samples, and custom cuts. Record the actual range as `TODO(alvora)` until the quotation confirms it.
+
+### 9. Can I see a sample or use memo terms?
+
+Confirm whether a sample is physical or visual, whether memo is available, the inspection period, return conditions, insurance, shipping responsibility, and exclusions for custom goods. Do not treat “sample available” as a complete commercial term.
+
+### 10. What is the lead time and what does it include?
+
+Separate feasibility, sourcing, cutting, grading, approval, packing, and dispatch. Actual Alvora timing should be recorded as `TODO(alvora)` until confirmed. Ask what can delay the schedule and how the buyer is notified.
+
+### 11. What are the landed-cost and delivery terms?
+
+Ask for the Incoterm or equivalent responsibility split, courier, insurance, export documents, certificate charges, freight, destination duties, taxes, and customs clearance. A per-carat quote without these fields is not a reliable landed-cost comparison.
+
+### 12. Can the specification be repeated?
+
+Ask whether the accepted brief, production lot, report list, images, and QC results are retained for replenishment. Repeatability is not a promise of identical future availability; it is a process for reproducing the agreed requirement and documenting any necessary change.
+
+## How to use the answers
+
+Put the answers into a first-order checklist and compare suppliers on the same basis. A direct manufacturer may be more useful than a marketplace for custom cuts or calibrated layouts, while a marketplace may provide more breadth for one-off searches. The right choice depends on the design, urgency, order size, and internal QC capability.
+
+For a first transaction, the most useful evidence is a completed record: the agreed specification, report or lot documentation, approval trail, invoice terms, and delivery outcome. Keep that record so the next order can be compared with the first rather than restarted from an unstructured enquiry.
+
+For a structured first enquiry, use the [request-a-quote page](/request-a-quote) and include the product specification, certification need, tolerance, quantity, destination, and required date.
+
+WhatsApp: Send this checklist with your product brief for a structured response.
+
+Related product: [Request a wholesale quote](/request-a-quote)
+
+Response within 24 hours.
+
+## References
+
+[1]: https://www.gia.edu/hpht-and-cvd-diamond-growth-processes "GIA, HPHT and CVD Diamond Growth Processes, accessed 2026-09-01"
+[2]: https://www.igi.org/reports/lab-grown-diamond-report/ "IGI, Laboratory Grown Diamond Report, accessed 2026-09-01"
+[3]: https://www.gia.edu/gem-lab-service/laboratory-grown-diamond "GIA, Laboratory-Grown Diamond Services, accessed 2026-09-01"
+[4]: https://www.gcalusa.com/gcal-8x-cut-grade.html "GCAL, 8X Ultimate Cut Grade, accessed 2026-09-01"
+[5]: https://www.igi.org/Verify-Your-Report/ "IGI, Verify Your Report, accessed 2026-09-01"
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "12 Questions to Ask a Lab-Grown Diamond Manufacturer Before You Order",
+  "description": "A practical due-diligence checklist for evaluating a laboratory-grown diamond manufacturer.",
+  "datePublished": "2026-09-01",
+  "author": { "@type": "Organization", "name": "Alvora Diamonds" },
+  "publisher": { "@type": "Organization", "name": "Alvora Diamonds" },
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "TODO(alvora): ______" }
+}
+```
+
+---
+## Calibrated Diamond Layouts, Explained: Tolerances, Grading, and How to Order
+
+- **Type:** Insight article
+- **URL:** /calibrated-diamond-layouts
+- **Published:** 2026-09-01
+
+A calibrated diamond layout is a coordinated group of stones selected or produced to fit a design within agreed dimensional, visual, and documentation criteria. The term is often used loosely, so buyers should ask what is actually calibrated, how the tolerance is measured, and whether the supplier is describing a stock parcel or a design-specific layout.
+
+## Key takeaways
+
+- “Calibrated” should mean an agreed dimensional and visual acceptance rule, not merely a nominal size label.
+- Individual laboratory reports and group-level supplier QC answer different questions.
+- Buyers should define tolerances, substitutions, approval evidence, and repeat-order records before ordering.
+- IGI paperwork can support stone identity and comparison, but it does not certify a layout as a group.
+
+## Calibrated does not mean identical
+
+A layout can contain stones with the same nominal size while their length, width, depth, outline, table, faceting, polish, symmetry, or face-up appearance differs. Jewellery settings may expose those differences, particularly in repeated pavé, halos, bracelets, earrings, and architectural designs. The relevant question is not whether every value is mathematically identical; it is whether the permitted variation is suitable for the design and consistently checked.
+
+A useful order brief names the nominal size and the allowed deviation. Alvora’s exact dimensional tolerances should be inserted as `TODO(alvora)` until confirmed. Do not publish a ±mm range merely because a stone is sold under a familiar size label.
+
+## What should be in the specification
+
+The brief should include the shape, nominal length and width, acceptable depth, colour and clarity range, quantity, cut expectations, treatment disclosure, certification preference, and setting application. If a CAD file or setter drawing exists, attach it. Identify which requirements are fixed and which are negotiable. For example, a maximum width may be essential to a channel while a broader colour range may be acceptable.
+
+The buyer should also define the acceptance rule. Will the stones be accepted by caliper measurement, report data, image review, physical inspection, or a combination? Will visual matching be assessed under specified lighting? Will a substitution require approval? These questions belong in the order record, not only in a WhatsApp conversation.
+
+## How grading works
+
+There are two separate levels of review. An independent laboratory report evaluates an individual diamond. IGI’s laboratory-grown report can identify origin and record shape, measurements, carat weight, colour, clarity, polish, symmetry, and cut information where applicable.[1](https://www.igi.org/reports/lab-grown-diamond-report/) Report verification and laser inscription can link a report number to the stone.[2](https://www.igi.org/Verify-Your-Report/)
+
+The layout itself needs supplier QC. A report does not certify that a set of stones fits a mounting or that the group is visually coherent. A sensible layout record connects each stone to its report number, measurements, production or lot reference, approval image, and buyer decision. The group can then be evaluated against the design requirement rather than treated as a series of unrelated certificates.
+
+## Common tolerance questions
+
+| Question | Why it matters |
+|---|---|
+| Is the tolerance for length, width, depth, or all three? | Different settings may be sensitive to different dimensions. |
+| Is it a maximum range or an average? | An average can hide outliers that affect assembly. |
+| Is the range measured before or after final grading? | Measurement records and reports may be produced at different stages. |
+| Does it apply to every stone or a sample? | A sample standard is not the same as lot-wide control. |
+| What happens when a stone falls outside it? | Rejection, substitution, rework, or buyer approval should be defined. |
+
+## IGI paperwork and layout approval
+
+IGI is useful because a buyer can compare individual stones in familiar 4Cs language. For layouts, however, the paperwork should be supplemented by a group sheet showing the requested dimensions, actual measurements, matching criteria, report numbers, and approval status. If the destination market or retailer requires GIA or GCAL, specify that before selection; the laboratory format and cost may affect the workflow.[3](https://www.gia.edu/gem-lab-service/laboratory-grown-diamond) [4](https://www.gcalusa.com/gcal-8x-cut-grade.html)
+
+## How to order without ambiguity
+
+Send the design application first, then the stone requirements. Ask the supplier to confirm feasibility, MOQ, tolerance, lead time, certification route, sample or memo availability, and the treatment and growth-method fields that will be disclosed. Request an approval image or video showing the group together. For a repeat programme, keep the accepted layout sheet as the reference for future replenishment.
+
+This is the point of [calibrated diamond layouts](/calibrated-diamond-layouts): not a label, but a documented relationship between the design and the stones. Related formats include [matched pair diamonds](/matched-pair-diamonds) and [custom-cut diamonds](/custom-cut-diamonds).
+
+WhatsApp: Send your layout drawing, CAD file, or measurement brief for discussion.
+
+Related product: [Calibrated lab-grown diamond layouts](/calibrated-diamond-layouts)
+
+Response within 24 hours.
+
+## References
+
+[1]: https://www.igi.org/reports/lab-grown-diamond-report/ "IGI, Laboratory Grown Diamond Report, accessed 2026-09-01"
+[2]: https://www.igi.org/Verify-Your-Report/ "IGI, Verify Your Report, accessed 2026-09-01"
+[3]: https://www.gia.edu/gem-lab-service/laboratory-grown-diamond "GIA, Laboratory-Grown Diamond Services, accessed 2026-09-01"
+[4]: https://www.gcalusa.com/gcal-8x-cut-grade.html "GCAL, 8X Ultimate Cut Grade, accessed 2026-09-01"
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Calibrated Diamond Layouts, Explained: Tolerances, Grading, and How to Order",
+  "description": "A practical explanation of calibrated diamond layouts, tolerances, grading, and ordering.",
+  "datePublished": "2026-09-01",
+  "author": { "@type": "Organization", "name": "Alvora Diamonds" },
+  "publisher": { "@type": "Organization", "name": "Alvora Diamonds" },
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "TODO(alvora): ______" }
+}
+```
+
+---
+## CVD vs HPHT Lab-Grown Diamonds: What Wholesale Buyers Actually Need to Know
+
+- **Type:** Insight article
+- **URL:** /cvd-lab-grown-diamonds
+- **Published:** 2026-09-01
+
+CVD and HPHT are different laboratory-grown diamond production methods, and wholesale buyers should choose between them by the finished specification, disclosure, and supply requirement rather than method alone. Both methods can produce jewellery-grade diamonds; neither method is a complete quality grade.
+
+## Key takeaways
+
+- CVD and HPHT are production methods, not complete quality grades.
+- CVD may involve brown as-grown colour and post-growth annealing; HPHT may show flux-related or fluorescence features.
+- Method, treatment, finished-stone quality, certificate, and design suitability should be reviewed together.
+- For pairs and layouts, dimensional and visual matching often matters more than method preference.
+
+## How the methods differ
+
+CVD, or chemical vapour deposition, grows diamond layer by layer on a seed in a low-pressure vacuum chamber. HPHT, or high-pressure high-temperature growth, uses extreme pressure and heat, a carbon source, a seed, and a metal flux or catalyst.[1](https://www.gia.edu/hpht-and-cvd-diamond-growth-processes) CVD rough is commonly flat or tabular; HPHT rough has a different crystal morphology. Rough form can affect yield, shape planning, and custom-cut economics.
+
+## Buyer-relevant comparison
+
+| Attribute | CVD | HPHT |
+|---|---|---|
+| Growth environment | Low-pressure vacuum chamber with activated carbon-containing gas | High pressure and temperature with carbon, seed, and metal flux |
+| Common commercial association | Low-nitrogen, Type IIa-oriented material and Surat production | Cost-competitive production and colourless or specialty output |
+| Possible features to review | Brown as-grown colour, strain, layered growth, post-growth annealing | Metallic flux inclusions, zoning, fluorescence patterns, phosphorescence |
+| Treatment question | Was brown colour removed or modified after growth? | Is any post-growth treatment disclosed? |
+| Best buying rule | Verify the finished stone and documentation | Verify the finished stone and documentation |
+
+## CVD: useful, but not self-explanatory
+
+CVD can produce low-nitrogen material and is strategically important in India and Surat. GIA’s technical material explains that some CVD crystals are brown as grown and may be HPHT-annealed to improve colour.[2](https://www.gia.edu/gems-gemology/fall-2016-observations-cvd-grown-synthetic-diamonds-review) A CVD label therefore does not tell the buyer whether the stone is untreated, annealed, Type IIa, strained, or visually suitable for a particular setting.
+
+Type IIa is a chemical classification, not a growth method and not a complete quality grade. It can be a useful material attribute, but it does not guarantee excellent cut, high clarity, absence of treatment, or superior appearance. Ask for the report, method, treatment, measurements, colour, clarity, cut, polish, symmetry, and relevant visual evidence.
+
+## HPHT: cost and features need context
+
+HPHT can produce high-quality and large colourless stones, and public trade commentary has reported a lower cost base for some HPHT goods under two carats.[3](https://www.jckonline.com/editorial-article/lab-grown-wholesale-freefall/) That is directional evidence, not a universal price discount. The quote still depends on size, shape, quality, cut, treatment, certification, supply, and delivery terms.
+
+A buyer should not reject HPHT merely because the method is unfamiliar, nor accept it merely because the price is lower. Review the actual stone for transparency, inclusions, fluorescence or phosphorescence where relevant, and the requirements of the downstream customer.
+
+## Method matters less for pairs and layouts
+
+For a matched pair or calibrated layout, the key issue is often dimensional and visual consistency. Two CVD stones may not match each other; two HPHT stones may not match each other. The buyer should specify measurement tolerances, outline, colour and clarity range, polish, symmetry, visual balance, and approval images. Certification identifies individual stones but does not certify the group as a pair or layout.[4](https://www.igi.org/reports/lab-grown-diamond-report/)
+
+For custom cuts, discuss rough feasibility before promising a shape, size, yield, or price. CVD and HPHT morphologies can lead to different cutting plans. The best method is the one that can deliver the finished design with the required disclosure and repeatability.
+
+## Certification and disclosure
+
+IGI is commonly used for wholesale comparison and can record laboratory-grown origin, core 4Cs information, and, where requested, growth method and treatment comments.[4](https://www.igi.org/reports/lab-grown-diamond-report/) GIA may be requested when a channel needs its institutional name, although its colourless laboratory-grown service uses Premium or Standard assessments.[5](https://www.gia.edu/gem-lab-service/laboratory-grown-diamond) GCAL or GCAL 8X may be relevant for performance-led goods where optical symmetry, imaging, and cut evidence are part of the product proposition.[6](https://www.gcalusa.com/gcal-8x-cut-grade.html)
+
+The practical procurement rule is simple: require method and treatment disclosure, then judge the finished stone against the design and commercial brief. Do not use CVD or HPHT as a shortcut for quality. For a recurring programme, also record the accepted method, treatment language, report format, and inspection criteria so a later shipment can be compared on the same basis. That record is more useful than a general preference for one production route.
+
+WhatsApp: Send a CVD or HPHT requirement, report, or comparison brief for discussion.
+
+Related product: [CVD lab-grown diamonds](/cvd-lab-grown-diamonds)
+
+Response within 24 hours.
+
+## References
+
+[1]: https://www.gia.edu/hpht-and-cvd-diamond-growth-processes "GIA, HPHT and CVD Diamond Growth Processes, accessed 2026-09-01"
+[2]: https://www.gia.edu/gems-gemology/fall-2016-observations-cvd-grown-synthetic-diamonds-review "GIA, Observations on CVD-Grown Synthetic Diamonds, accessed 2026-09-01"
+[3]: https://www.jckonline.com/editorial-article/lab-grown-wholesale-freefall/ "JCK, Lab-Grown Diamond Wholesale Prices, accessed 2026-09-01"
+[4]: https://www.igi.org/reports/lab-grown-diamond-report/ "IGI, Laboratory Grown Diamond Report, accessed 2026-09-01"
+[5]: https://www.gia.edu/gem-lab-service/laboratory-grown-diamond "GIA, Laboratory-Grown Diamond Services, accessed 2026-09-01"
+[6]: https://www.gcalusa.com/gcal-8x-cut-grade.html "GCAL, 8X Ultimate Cut Grade, accessed 2026-09-01"
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "CVD vs HPHT Lab-Grown Diamonds: What Wholesale Buyers Actually Need to Know",
+  "description": "A buyer-focused comparison of CVD and HPHT laboratory-grown diamond production methods.",
+  "datePublished": "2026-09-01",
+  "author": { "@type": "Organization", "name": "Alvora Diamonds" },
+  "publisher": { "@type": "Organization", "name": "Alvora Diamonds" },
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "TODO(alvora): ______" }
+}
+```
+
+---
+## Matched Pairs vs. Melee vs. Layouts: Which Format Does Your Design Need?
+
+- **Type:** Insight article
+- **URL:** /matched-pair-diamonds
+- **Published:** 2026-09-01
+
+Matched pairs, melee, and calibrated layouts are different wholesale formats: pairs coordinate two stones, melee supplies small stones by lot, and layouts coordinate a larger design-specific group. Choosing the right format starts with the jewellery design, not with the supplier’s product menu.
+
+## Key takeaways
+
+- A matched pair coordinates two stones; melee is a sorted lot; a layout coordinates a larger design-specific group.
+- Pairs need joint visual and dimensional review, while melee needs lot-level sorting and packaging rules.
+- Calibrated layouts should connect actual measurements and reports to the design or CAD requirement.
+- The correct format depends on the setting, quantity, acceptance rule, and repeat-order need.
+
+## The short distinction
+
+A matched pair is usually two stones intended to work together, such as earrings or side-by-side accents. Melee is a lot of small stones sorted into a defined size and quality range for pavé, halos, clusters, or repeated settings. A calibrated layout is a coordinated group whose measurements and visual relationships are intended to fit a particular design or production architecture.
+
+## Comparison table
+
+| Format | Typical design use | Main QC question | Documentation focus | Ordering brief |
+|---|---|---|---|---|
+| Matched pair | Earrings, paired accents, symmetrical settings | Do the two stones work together visually and dimensionally? | Individual reports where applicable, pair measurements, joint images | Shape, pair tolerance, colour, clarity, setting, approval |
+| Melee | Pavé, halos, clusters, repeated small-stone work | Does the lot stay within the requested size and quality band? | Lot reference, sorting record, weight, packaging, rejects | Size band, colour, clarity, sorting, pack, price basis |
+| Calibrated layout | Repeated design, bracelet, collection, complex setting | Does the group fit the design and remain coherent? | Individual reports where applicable plus layout sheet and approval | Nominal dimensions, group tolerance, quantity, CAD, substitutions |
+
+## Matched pairs: compare the stones together
+
+Equal carat weight is not enough. Length, width, depth, outline, faceting, fluorescence, polish, symmetry, and face-up appearance can differ between stones with similar weights. A pair request should define the acceptable difference and explain which features matter to the mounting. IGI reports can identify the individual laboratory-grown stones, but a report does not certify the pair as a visual unit.[1](https://www.igi.org/reports/lab-grown-diamond-report/)
+
+Ask for report numbers linked to each stone, a measurement comparison, and an image or video showing the pair together. For rounds, ovals, and cushions, the matching rule may need to address outline and proportions differently. A pair selected for earrings may need closer visual balance than a pair used as independent side stones.
+
+## Melee: buy the lot, not the promise
+
+Melee is evaluated at lot level. Define the size band by sieve, diameter, carat range, or the supplier’s agreed method. Also state colour, clarity, cut or finish expectations, treatment disclosure, minimum lot weight, and the acceptable proportion of off-size or rejected stones. Packaging should identify the lot, size band, weight, quality description, and any QC reference.
+
+Per-carat pricing needs a clear basis. Is the price for shipped goods, accepted goods, or an estimate before final sorting? Are shortages, rejects, substitutions, certification, packing, freight, and insurance included? A low nominal price can be difficult to compare if suppliers use different yield and acceptance conventions.
+
+## Calibrated layouts: connect stones to the design
+
+A layout begins with nominal measurements, shape, quality, quantity, and setting architecture. It may include a CAD file or setter drawing. The buyer should state the permitted ±mm range for the relevant dimensions; the exact supplier range should remain `TODO(alvora)` until confirmed. An independent laboratory report can document individual stones, but group-level QC requires a layout sheet, actual measurements, and buyer approval.
+
+For collection work, the most valuable record is often the accepted specification. It allows a future request to refer back to the same dimensions, quality logic, matching rule, and documentation standard. That does not guarantee identical future supply; rough availability and market conditions can change. It does make the request more precise.
+
+## Which format should you choose?
+
+Choose a **matched pair** when the design needs two coordinated stones. Choose **melee** when the setter needs many small stones and can work from a lot-level sorting standard. Choose a **calibrated layout** when multiple stones must fit a defined design or repeat programme. Some projects need more than one format: a halo may combine a centre stone, a calibrated layout, and melee accents.
+
+For a supplier enquiry, describe the setting, not only the product name. See [matched pair diamonds](/matched-pair-diamonds), [melee diamonds](/melee-diamonds), and [calibrated diamond layouts](/calibrated-diamond-layouts).
+
+WhatsApp: Send a setting drawing, stone list, or reference image for format guidance.
+
+Related product: [Matched pair lab-grown diamonds](/matched-pair-diamonds)
+
+Response within 24 hours.
+
+## References
+
+[1]: https://www.igi.org/reports/lab-grown-diamond-report/ "IGI, Laboratory Grown Diamond Report, accessed 2026-09-01"
+[2]: https://www.igi.org/Verify-Your-Report/ "IGI, Verify Your Report, accessed 2026-09-01"
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Matched Pairs vs. Melee vs. Layouts: Which Format Does Your Design Need?",
+  "description": "A comparison of matched pairs, lab-grown melee, and calibrated layouts for jewellery design and production.",
+  "datePublished": "2026-09-01",
+  "author": { "@type": "Organization", "name": "Alvora Diamonds" },
+  "publisher": { "@type": "Organization", "name": "Alvora Diamonds" },
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "TODO(alvora): ______" }
+}
+```
+
+---
+## Lab-Grown Diamond Manufacturers in Surat: A Buyer's Guide to Sourcing Direct
+
+- **Type:** Insight article
+- **URL:** /precision-lab-grown-diamond-wholesale
+- **Published:** 2026-09-01
+
+Sourcing laboratory-grown diamonds direct from Surat can improve technical dialogue and specification control, but buyers still need to verify the manufacturer, documentation, quality process, and landed cost. Surat is an important Indian production and processing cluster, especially for CVD, but a buyer should distinguish a credible factory relationship from a generic catalogue or an intermediary using factory language.
+
+## Key takeaways
+
+- Surat is a major CVD production and processing cluster, but public reactor estimates are not a verified global production share.
+- Direct buying is most useful for repeat specifications, calibrated layouts, matched pairs, and custom cuts.
+- CVD or HPHT should be disclosed and judged by the finished stone, treatment, certificate, and design requirement.
+- Independent certification and supplier-level QC answer different questions; buyers need both for design-specific orders.
+
+## What “direct from Surat” actually means
+
+Direct sourcing may mean buying from a grower, cutter and polisher, integrated manufacturer, exporter, or a sales office representing production. These are not interchangeable. Ask who owns or controls the goods, where growth and cutting occur, which functions are outsourced, and who is responsible if a stone fails the agreed specification.
+
+Public evidence supports Surat’s importance but not a precise global share. GIA reported an estimate of 4,000–6,000 CVD reactors based in Surat in late 2024, while trade reporting cited higher machine counts depending on date and definition.[1](https://www.gia.edu/gia-news-research/gems-gemology-summary-latest-research-lab-grown-diamonds) [2](https://nationaljeweler.com/articles/12390-indias-lab-grown-diamond-industry-has-a-big-future) Those figures should be treated as evidence of cluster scale, not as proof that any individual supplier has a particular capacity.
+
+## Start with the design requirement
+
+A factory-direct conversation is most useful when the buyer brings a technical brief. Include shape, target measurements, colour, clarity, cut expectations, treatment disclosure, quantity, certification laboratory, destination, and whether the goods are stock, a repeat programme, a matched pair, a calibrated layout, melee, or a custom cut. A CAD file or reference stone is often more informative than a broad request for “best price.”
+
+For calibrated goods, specify the permitted dimensional variation rather than assuming that a nominal size means identical dimensions. For pairs, define how outline, visual tone, polish, symmetry, and measurements will be compared. For custom cuts, ask whether the requested outline is feasible from available rough before discussing a final delivery promise.
+
+## CVD and HPHT: ask for the finished-stone result
+
+CVD grows diamond layer by layer in a low-pressure vacuum chamber; HPHT uses extreme pressure and temperature with a carbon source, seed, and metal flux.[3](https://www.gia.edu/hpht-and-cvd-diamond-growth-processes) CVD is strongly associated with Surat, low-nitrogen material, and Type IIa positioning, but it can involve brown as-grown colour and post-growth HPHT annealing. HPHT can produce colourless stones and may be cost-competitive, but buyers should review possible flux inclusions, fluorescence patterns, or phosphorescence.[3](https://www.gia.edu/hpht-and-cvd-diamond-growth-processes)
+
+The method is not a substitute for inspection. Ask for the actual growth method, treatment status, measurements, cut, colour, clarity, polish, symmetry, and certificate. If a marketing or destination-market claim depends on treatment or origin, require it in the report or supplier record rather than relying on verbal assurance.
+
+## Certification and internal QC are different layers
+
+IGI is a practical wholesale baseline because its laboratory-grown report identifies origin and records familiar 4Cs information, with report verification and laser inscription available.[4](https://www.igi.org/reports/lab-grown-diamond-report/) A report evaluates an individual stone. It does not certify that a parcel is a calibrated layout, that two stones are visually matched, or that a melee lot meets a buyer’s sorting standard.
+
+GIA may be appropriate when a downstream channel requires its institutional name, but its current colourless-to-near-colourless laboratory-grown service uses Premium or Standard assessments rather than the conventional natural-diamond format.[5](https://www.gia.edu/gem-lab-service/laboratory-grown-diamond) GCAL can be relevant when a buyer wants additional performance evidence, imaging, or an 8X cut route.[6](https://www.gcalusa.com/gcal-8x-cut-grade.html)
+
+## Due diligence before payment
+
+Verify the legal company name, physical address, bank details, export documentation, report numbers, return rights, insurance, ownership of goods, and the treatment of rejected or mismatched stones. Ask for a pro forma invoice that separates the stone price from certification, freight, insurance, duties, and other charges. International direct buying is not automatically cheaper if the buyer carries more internal QC, customs, or exception-handling work.
+
+### A useful first-order record
+
+| Item | What to record |
+|---|---|
+| Specification | Shape, measurements, quality, treatment and method requirements |
+| Acceptance | Tolerance, matching rule, rejection and substitution process |
+| Documentation | Laboratory, report numbers, report-to-stone check, images |
+| Commercial terms | MOQ, payment, returns, memo or sample terms, insurance |
+| Logistics | Incoterm, courier, destination duties, customs and delivery contact |
+
+## The practical conclusion
+
+Use Surat direct sourcing when the requirement is repeatable, technical, or design-specific—not simply because a supplier claims factory pricing. A marketplace can be useful for breadth and urgent comparison; a direct manufacturer is more useful for calibrated layouts, matched pairs, custom cuts, and repeat specifications. Start with a small, documented test order and expand only after the supplier performs against the agreed brief.
+
+WhatsApp: Send your stone specification, CAD file, or repeat-order brief for discussion.
+
+Related product: [Precision lab-grown diamond wholesale supply](/precision-lab-grown-diamond-wholesale)
+
+Response within 24 hours.
+
+## References
+
+[1]: https://www.gia.edu/gia-news-research/gems-gemology-summary-latest-research-lab-grown-diamonds "GIA Laboratory-Grown Diamond Trends, accessed 2026-09-01"
+[2]: https://nationaljeweler.com/articles/12390-indias-lab-grown-diamond-industry-has-a-big-future "National Jeweler, India’s Lab-Grown Diamond Industry, accessed 2026-09-01"
+[3]: https://www.gia.edu/hpht-and-cvd-diamond-growth-processes "GIA, HPHT and CVD Diamond Growth Processes, accessed 2026-09-01"
+[4]: https://www.igi.org/reports/lab-grown-diamond-report/ "IGI, Laboratory Grown Diamond Report, accessed 2026-09-01"
+[5]: https://www.gia.edu/gem-lab-service/laboratory-grown-diamond "GIA, Laboratory-Grown Diamond Services, accessed 2026-09-01"
+[6]: https://www.gcalusa.com/gcal-8x-cut-grade.html "GCAL, 8X Ultimate Cut Grade, accessed 2026-09-01"
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Lab-Grown Diamond Manufacturers in Surat: A Buyer's Guide to Sourcing Direct",
+  "description": "A practical guide to sourcing laboratory-grown diamonds direct from Surat.",
+  "datePublished": "2026-09-01",
+  "author": { "@type": "Organization", "name": "Alvora Diamonds" },
+  "publisher": { "@type": "Organization", "name": "Alvora Diamonds" },
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "TODO(alvora): ______" }
+}
+```
+
+---
+
+## Sitemap
+
+https://www.alvoradiamonds.com/sitemap.xml

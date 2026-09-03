@@ -167,6 +167,9 @@ export function renderRobots(origin: string): string {
     "",
     `Sitemap: ${sitemapOrigin}/sitemap.xml`,
     "",
+    `# LLM agent index: ${sitemapOrigin}/llms.txt`,
+    `# LLM full feed:   ${sitemapOrigin}/llms-full.txt`,
+    "",
   ].join("\n");
 }
 

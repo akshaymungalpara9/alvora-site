@@ -2,9 +2,10 @@
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import WhatsAppQuickContact from "@/components/WhatsAppQuickContact";
+import { initGA4 } from "@/lib/ga4";
 import { PRODUCT_PAGES } from "@/lib/productPages";
 import NotFound from "@/pages/NotFound";
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
@@ -37,6 +38,7 @@ function Router() {
 }
 
 function App() {
+  useEffect(() => { initGA4(); }, []);
   return <ErrorBoundary><ThemeProvider defaultTheme="dark"><TooltipProvider><Toaster /><Router /><WhatsAppQuickContact /></TooltipProvider></ThemeProvider></ErrorBoundary>;
 }
 

@@ -171,6 +171,14 @@ export default function Home() {
             <h2 id="trust-title">A registered trade business,<br /><em>built in Surat.</em></h2>
           </div>
           <div className="trust-body">
+            <p className="key-facts-label">Key facts</p>
+            <ul className="key-facts">
+              <li>Surat, India — CVD and HPHT lab-grown diamonds, certified and calibrated for trade buyers.</li>
+              <li>Standard make: Excellent/Ideal cut, no fluorescence, no BGM; IGI laser-inscribed and database-validated before dispatch.</li>
+              <li>Specification make lead time: 5–10 working days.</li>
+              <li>24-hour response to trade enquiries; same-day on WhatsApp during Surat hours (IST 09:00–19:00).</li>
+              <li>Ships to US, Canada, EU, and GCC with insurance and applicable IGI documentation.</li>
+            </ul>
             <ul className="trust-list">
               <li><strong>Certification:</strong> IGI documentation is available where applicable; GIA and GCAL can be requested when the buyer's channel or product brief requires them.</li>
               <li><strong>Registered trade business:</strong> GST number: <Todo /> · IEC code: <Todo />.</li>

@@ -1,5 +1,6 @@
 import { FormEvent, useRef, useState } from "react";
 import { ArrowUpRight, MessageCircle } from "lucide-react";
+import { trackRfqSubmit, trackWhatsappClick } from "@/lib/ga4";
 import { trpc } from "@/lib/trpc";
 import { buildWhatsAppHref } from "@/lib/whatsapp";
 import SpecialtyPageMeta from "@/components/SpecialtyPageMeta";
@@ -43,12 +44,17 @@ const PRODUCT_TO_REQUEST_TYPE: Record<string, string> = {
 export default function RequestAQuote() {
   const [submissionState, setSubmissionState] = useState<"idle" | "sending" | "sent" | "saved" | "error">("idle");
   const formRef = useRef<HTMLFormElement>(null);
+  const pendingTracking = useRef<{ productInterest: string; country: string } | null>(null);
   const waHref = buildWhatsAppHref(import.meta.env.VITE_ALVORA_WHATSAPP_NUMBER);
 
   const submitProductionBrief = trpc.productionBrief.submit.useMutation({
     onMutate: () => setSubmissionState("sending"),
     onSuccess: (result) => {
       setSubmissionState(result.alertStatus === "sent" ? "sent" : "saved");
+      if (pendingTracking.current) {
+        trackRfqSubmit(pendingTracking.current.productInterest, pendingTracking.current.country);
+        pendingTracking.current = null;
+      }
       formRef.current?.reset();
     },
     onError: () => setSubmissionState("error"),
@@ -78,6 +84,7 @@ export default function RequestAQuote() {
     const tradeRef = String(values.get("trade_references") || "Yes") as "Yes" | "No";
     const payment = String(values.get("preferred_payment_approach") || "Open to discussion") as "Prepaid on proforma" | "Agreed trade terms subject to credit check" | "Open to discussion";
 
+    pendingTracking.current = { productInterest, country };
     setSubmissionState("idle");
     submitProductionBrief.mutate({
       requestType: PRODUCT_TO_REQUEST_TYPE[productInterest] ?? "Production run",
@@ -150,6 +157,7 @@ export default function RequestAQuote() {
                   rel="noreferrer"
                   data-umami-event="whatsapp_rfq_sidebar"
                   style={{ fontSize: "0.63rem", minHeight: 40 }}
+                  onClick={() => trackWhatsappClick('rfq_sidebar')}
                 >
                   WhatsApp Us <MessageCircle size={15} strokeWidth={1.6} />
                 </a>

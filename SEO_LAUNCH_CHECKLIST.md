@@ -162,4 +162,56 @@ After deployment, test these URLs in Google's Rich Results Test:
 
 ---
 
+---
+
+## 6. GA4 setup and Search Console linking
+
+### 6a. Create the GA4 property
+
+1. Go to **https://analytics.google.com** → Admin (gear icon, bottom left)
+2. Click **Create property** → enter "Alvora Diamonds", timezone = India (IST), currency = USD
+3. Click **Next** → Business size: Small; Industry: Shopping → **Create**
+4. Choose **Web** as the platform → enter `https://www.alvoradiamonds.com` and stream name "Alvora www"
+5. Copy the **Measurement ID** (format: `G-XXXXXXXXXX`)
+
+### 6b. Add VITE_GA4_MEASUREMENT_ID to Railway
+
+In Railway, add the variable:
+```
+VITE_GA4_MEASUREMENT_ID=G-XXXXXXXXXX
+```
+Replace `G-XXXXXXXXXX` with the Measurement ID from step 6a. Redeploy after saving.
+
+> The GA4 script is loaded only when this variable is present. It uses Consent Mode with `analytics_storage: 'denied'`, so no `_ga` / `_ga_*` cookies are set and no consent banner is needed.
+
+### 6c. Verify GA4 is firing (DebugView)
+
+1. In GA4 → Admin → **DebugView**
+2. Open `https://www.alvoradiamonds.com` in a browser
+3. Click the WhatsApp floating button → you should see a `whatsapp_click` event appear in DebugView within a few seconds
+4. Submit the `/request-a-quote` form → `rfq_submit` event should appear
+5. Scroll to >60% of an insights article → `article_read` event should appear
+
+### 6d. Link GA4 to Google Search Console
+
+1. In **Google Search Console** → select the Alvora property → Settings → **Associations**
+2. Click **Associate** → find the GA4 property "Alvora Diamonds" → confirm
+3. In **GA4** → Admin → **Product links** → Search Console → **Link** → select the Alvora GSC property → **Next** → **Submit**
+4. After 48 hours, organic search data appears in GA4 under **Acquisition → Search Console → Queries**
+
+> This linking gives you keyword-level data (impressions, clicks, CTR, position) alongside conversion events (whatsapp_click, rfq_submit) in a single GA4 report.
+
+### 6e. Confirm cookie-free configuration (ongoing)
+
+The GA4 property is initialised with Consent Mode `analytics_storage: 'denied'`. Verify after any GA4 config change:
+
+```bash
+# In a browser DevTools console on the live site:
+document.cookie  # must be empty string ""
+```
+
+If cookies appear, re-check the `initGA4()` call in `client/src/lib/ga4.ts` and redeploy.
+
+---
+
 *This checklist was generated on 2026-09-01 for the initial launch of alvoradiamonds.com.*

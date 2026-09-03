@@ -183,19 +183,23 @@ function alvoraMarkdownPlugin(): Plugin {
 
       const { data: frontmatter, content } = matter(code);
 
-      // Extract JSON-LD from ```json ... ``` code fence
-      let jsonLd: object | null = null;
-      const jsonFenceRe = /```json\s*([\s\S]*?)```/;
-      const jsonMatch = content.match(jsonFenceRe);
-      if (jsonMatch) {
+      // Extract JSON-LD from ALL ```json ... ``` code fences
+      // Single block → object; multiple blocks → array (e.g. Article + FAQPage for PAA pages)
+      let jsonLd: object | object[] | null = null;
+      const jsonFenceRe = /```json\s*([\s\S]*?)```/g;
+      const jsonLdList: object[] = [];
+      let jsonMatch: RegExpExecArray | null;
+      while ((jsonMatch = jsonFenceRe.exec(content)) !== null) {
         try {
           const rawObj = JSON.parse(jsonMatch[1]);
           const cleaned = stripTodos(rawObj);
-          jsonLd = cleaned as object | null;
+          if (cleaned !== null) jsonLdList.push(cleaned as object);
         } catch {
-          jsonLd = null;
+          // skip malformed blocks
         }
       }
+      if (jsonLdList.length === 1) jsonLd = jsonLdList[0];
+      else if (jsonLdList.length > 1) jsonLd = jsonLdList;
 
       // Clean body: strip ```json...``` blocks, CTA lines, References section, normalize blanks
       let body = content;

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ArrowUpRight, Menu, MessageCircle, MoveRight, X } from "lucide-react";
+import { trackWhatsappClick } from "@/lib/ga4";
 import { buildWhatsAppHref } from "@/lib/whatsapp";
 
 const markImage = "/assets/alvora-faceted-a.webp";
@@ -36,7 +37,7 @@ export function SpecialtyCta() {
           Request a Quote <ArrowUpRight size={18} strokeWidth={1.6} />
         </a>
         {waHref && (
-          <a className="button button-outline" href={waHref} target="_blank" rel="noreferrer" data-umami-event="whatsapp_specialty_cta">
+          <a className="button button-outline" href={waHref} target="_blank" rel="noreferrer" data-umami-event="whatsapp_specialty_cta" onClick={() => trackWhatsappClick('specialty_cta')}>
             WhatsApp Us <MessageCircle size={17} strokeWidth={1.6} />
           </a>
         )}

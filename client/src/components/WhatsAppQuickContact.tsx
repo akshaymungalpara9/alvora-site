@@ -1,8 +1,9 @@
 import { MessageCircle } from "lucide-react";
+import { trackWhatsappClick } from "@/lib/ga4";
 import { buildWhatsAppHref } from "@/lib/whatsapp";
 
 export default function WhatsAppQuickContact() {
   const href = buildWhatsAppHref(import.meta.env.VITE_ALVORA_WHATSAPP_NUMBER);
   if (!href) return null;
-  return <a className="whatsapp-quick-contact" href={href} target="_blank" rel="noreferrer" data-umami-event="whatsapp_click" aria-label="Message Alvora on WhatsApp"><span className="whatsapp-monogram">A</span><span>WhatsApp</span><MessageCircle size={15} strokeWidth={1.6} aria-hidden="true" /></a>;
+  return <a className="whatsapp-quick-contact" href={href} target="_blank" rel="noreferrer" data-umami-event="whatsapp_click" aria-label="Message Alvora on WhatsApp" onClick={() => trackWhatsappClick('floating_button')}><span className="whatsapp-monogram">A</span><span>WhatsApp</span><MessageCircle size={15} strokeWidth={1.6} aria-hidden="true" /></a>;
 }
