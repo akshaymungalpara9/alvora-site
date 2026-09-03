@@ -2,6 +2,7 @@ import { useState } from "react";
 import { ArrowUpRight, Menu, MessageCircle, MoveRight, X } from "lucide-react";
 import { trackWhatsappClick } from "@/lib/ga4";
 import { buildWhatsAppHref } from "@/lib/whatsapp";
+import { COMPANY } from "@shared/companyInfo";
 
 const markImage = "/assets/alvora-faceted-a.webp";
 
@@ -24,7 +25,7 @@ const SPECIALTY_LINKS = [
 ];
 
 export function SpecialtyCta() {
-  const waHref = buildWhatsAppHref(import.meta.env.VITE_ALVORA_WHATSAPP_NUMBER);
+  const waHref = buildWhatsAppHref(COMPANY.whatsappNumber);
   return (
     <section className="specialty-cta-section" aria-labelledby="specialty-cta-title">
       <div>

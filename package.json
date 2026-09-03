@@ -8,7 +8,7 @@
     "build": "vite build && cp scripts/publicRoutes.json dist/publicRoutes.json && esbuild server/_core/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist && node scripts/prerender.mjs",
     "prerender": "node scripts/prerender.mjs",
     "start": "NODE_ENV=production node dist/index.js",
-    "check": "tsc --noEmit",
+    "check": "tsc --noEmit && node scripts/check-no-todo.mjs",
     "format": "prettier --write .",
     "test": "vitest run && node --test scripts/validate-partner-availability.test.mjs",
     "test:mobile-a11y": "node --test scripts/mobile-public-accessibility.test.mjs",

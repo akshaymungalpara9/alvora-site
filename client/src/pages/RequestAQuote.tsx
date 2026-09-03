@@ -3,6 +3,7 @@ import { ArrowUpRight, MessageCircle } from "lucide-react";
 import { trackRfqSubmit, trackWhatsappClick } from "@/lib/ga4";
 import { trpc } from "@/lib/trpc";
 import { buildWhatsAppHref } from "@/lib/whatsapp";
+import { COMPANY } from "@shared/companyInfo";
 import SpecialtyPageMeta from "@/components/SpecialtyPageMeta";
 import SpecialtyPageShell from "@/components/SpecialtyPageShell";
 
@@ -45,7 +46,7 @@ export default function RequestAQuote() {
   const [submissionState, setSubmissionState] = useState<"idle" | "sending" | "sent" | "saved" | "error">("idle");
   const formRef = useRef<HTMLFormElement>(null);
   const pendingTracking = useRef<{ productInterest: string; country: string } | null>(null);
-  const waHref = buildWhatsAppHref(import.meta.env.VITE_ALVORA_WHATSAPP_NUMBER);
+  const waHref = buildWhatsAppHref(COMPANY.whatsappNumber);
 
   const submitProductionBrief = trpc.productionBrief.submit.useMutation({
     onMutate: () => setSubmissionState("sending"),

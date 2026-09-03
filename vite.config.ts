@@ -257,6 +257,7 @@ export default defineConfig({
       allow: [
         path.resolve(import.meta.dirname, "client"),
         path.resolve(import.meta.dirname, "content"),
+        path.resolve(import.meta.dirname, "shared"),
         path.resolve(import.meta.dirname, "node_modules"),
       ],
     },

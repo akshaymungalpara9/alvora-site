@@ -1,4 +1,5 @@
 import { availabilitySeo, publicSeo, publicSocialImage } from "../client/src/lib/publicSeo";
+import { COMPANY } from "../shared/companyInfo";
 
 interface RouteMeta {
   lang: string;
@@ -31,14 +32,14 @@ function buildOrgJsonLd(origin: string) {
         url: `${origin}/`,
         address: {
           "@type": "PostalAddress",
-          streetAddress: "TODO(alvora): street address",
-          addressLocality: "Surat",
-          addressRegion: "Gujarat",
-          postalCode: "TODO(alvora): postal code",
+          ...(COMPANY.address.street ? { streetAddress: COMPANY.address.street } : {}),
+          addressLocality: COMPANY.address.city,
+          addressRegion: COMPANY.address.state,
+          ...(COMPANY.address.postalCode ? { postalCode: COMPANY.address.postalCode } : {}),
           addressCountry: "IN",
         },
-        telephone: "TODO(alvora): +91-XXX-XXX-XXXX",
-        email: "TODO(alvora): contact@alvoradiamonds.com",
+        telephone: COMPANY.phone,
+        email: COMPANY.email,
         openingHoursSpecification: {
           "@type": "OpeningHoursSpecification",
           dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],

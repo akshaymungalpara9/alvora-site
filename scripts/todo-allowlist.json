@@ -1,0 +1,7 @@
+{
+  "allowPatterns": [
+    "content/**/*.md",
+    "client/public/llms-full.txt",
+    "client/src/components/pages/MarkdownPage.tsx"
+  ]
+}

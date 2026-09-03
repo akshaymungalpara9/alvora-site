@@ -1,9 +1,10 @@
 import { describe, expect, it } from "vitest";
 import { buildWhatsAppHref, isInternationalWhatsAppNumber, normalizeWhatsAppNumber } from "../client/src/lib/whatsapp";
+import { COMPANY } from "../shared/companyInfo";
 
 describe("WhatsApp Business configuration", () => {
   it("uses an international-digit number accepted by the public WhatsApp click-to-chat endpoint", async () => {
-    const number = normalizeWhatsAppNumber(process.env.VITE_ALVORA_WHATSAPP_NUMBER);
+    const number = normalizeWhatsAppNumber(COMPANY.whatsappNumber);
     expect(isInternationalWhatsAppNumber(number)).toBe(true);
     expect(buildWhatsAppHref(number)).toContain(`https://wa.me/${number}?`);
     expect(buildWhatsAppHref("9924490125")).toBeNull();
