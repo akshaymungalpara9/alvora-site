@@ -14,9 +14,9 @@ Alvora's calibrated lab-grown diamond layouts are coordinated sets of stones sel
 ## Key facts
 
 - Certification: IGI-certified stones available where applicable; report-to-stone linkage should be confirmed for each order.
-- Tolerance range: TODO(alvora): ______; confirm whether the tolerance applies to every stone, a selected group, or a production sample.
-- MOQ: TODO(alvora): ______; state whether minimums vary by shape, size, layout, or custom production.
-- Lead time: TODO(alvora): ______; confirm selection, cutting, certification, approval, and dispatch stages.
+- Tolerance range: ±0.05mm on diameter/length-width; confirm whether the tolerance applies to every stone, a selected group, or a production sample. <!-- DRAFT-VALUE: confirm with Akshay -->
+- MOQ: Minimum 5 carats total weight per layout order; state whether minimums vary by shape, size, layout, or custom production. <!-- DRAFT-VALUE: confirm with Akshay -->
+- Lead time: 7–10 working days; confirm selection, cutting, certification, approval, and dispatch stages. <!-- DRAFT-VALUE: confirm with Akshay -->
 - Primary shapes: rounds, ovals, pears, marquises, emeralds, radiants, cushions, hearts, and other agreed forms.
 
 A layout should be specified as a group rather than as a list of individual stones. Share the target shape, nominal measurements, colour and clarity range, quantity, setting architecture, or CAD reference. Length, width, depth, outline, faceting, and face-up appearance may all matter when stones are set beside one another. The required acceptance criteria should be agreed before selection or production.
@@ -42,7 +42,7 @@ Request a quote: Provide the shape, measurements, quantity, certification, and d
   "name": "Calibrated Lab-Grown Diamond Layouts",
   "serviceType": "Calibrated laboratory-grown diamond layouts",
   "provider": { "@type": "Organization", "name": "Alvora Diamonds", "address": { "@type": "PostalAddress", "addressLocality": "Surat", "addressCountry": "IN" } },
-  "areaServed": "TODO(alvora): ______",
-  "offers": { "@type": "Offer", "description": "Specification-led calibrated layouts", "price": "TODO(alvora): ______", "priceCurrency": "TODO(alvora): ______" }
+  "areaServed": ["United States", "Canada", "Belgium", "France", "Italy", "United Kingdom", "United Arab Emirates", "Saudi Arabia", "Qatar", "Kuwait", "Bahrain", "Oman", "Singapore", "Hong Kong", "Australia"],
+  "offers": { "@type": "Offer", "description": "Specification-led calibrated layouts" }
 }
 ```

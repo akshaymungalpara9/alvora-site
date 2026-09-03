@@ -65,7 +65,7 @@ export const COMPANY: CompanyInfo = Object.freeze({
   }),
   tolerance: Object.freeze({
     calibrated: "±0.05mm on diameter/length-width",
-    pairs: "Matched within 1 color grade, 1 clarity grade, and 2% weight variance between the two stones",
+    pairs: "Matched within 1 colour grade, 1 clarity grade, and 2% weight variance between the two stones",
   }),
   leadTime: Object.freeze({
     stock: "2–3 working days",

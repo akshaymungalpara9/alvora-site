@@ -14,9 +14,9 @@ Alvora's fancy-shape and fancy-colour lab-grown diamonds are selected or develop
 ## Key facts
 
 - Certification: IGI certification can be requested where applicable; treatment and colour-origin disclosure should be agreed for each brief.
-- Tolerance range: TODO(alvora): ______; define outline, measurement, symmetry, and colour-acceptance criteria.
-- MOQ: TODO(alvora): ______; state minimums for one-off stones, pairs, layouts, and repeat collections.
-- Lead time: TODO(alvora): ______; separate sourcing, custom cutting, grading, approval, and dispatch.
+- Tolerance range: ±0.05mm on diameter/length-width; define outline, measurement, symmetry, and colour-acceptance criteria. <!-- DRAFT-VALUE: confirm with Akshay -->
+- MOQ: Minimum 5 carats per custom-cut or layout production run; 1 pair minimum for matched pairs; state minimums for one-off stones, pairs, layouts, and repeat collections. <!-- DRAFT-VALUE: confirm with Akshay -->
+- Lead time: 7–10 working days; separate sourcing, custom cutting, grading, approval, and dispatch. <!-- DRAFT-VALUE: confirm with Akshay -->
 - Primary shapes: pear, oval, marquise, emerald, radiant, cushion, heart, and other agreed fancy shapes; colour requirements by brief.
 
 Fancy shapes are judged in context. Length-to-width relationship, outline, corners, facet pattern, symmetry, bow-tie appearance, windowing, and face-up spread can affect how a stone works in a mounting. For a layout or pair, the brief should state whether outline, measurements, orientation, or visual balance is the primary acceptance criterion.
@@ -43,10 +43,9 @@ Request a quote: Include outline, measurements, colour, quality, quantity, certi
   "serviceType": "Fancy-shape and fancy-colour laboratory-grown diamond sourcing",
   "provider": { "@type": "Organization", "name": "Alvora Diamonds" },
   "additionalProperty": [
-    { "@type": "PropertyValue", "name": "Tolerance", "value": "TODO(alvora): ______" },
-    { "@type": "PropertyValue", "name": "MOQ", "value": "TODO(alvora): ______" },
-    { "@type": "PropertyValue", "name": "Lead time", "value": "TODO(alvora): ______" }
-  ],
-  "offers": { "@type": "Offer", "price": "TODO(alvora): ______", "priceCurrency": "TODO(alvora): ______" }
+    { "@type": "PropertyValue", "name": "Tolerance", "value": "±0.05mm on diameter/length-width" },
+    { "@type": "PropertyValue", "name": "MOQ", "value": "Minimum 5 ct per custom-cut or layout production run; 1 pair minimum" },
+    { "@type": "PropertyValue", "name": "Lead time", "value": "7–10 working days" }
+  ]
 }
 ```

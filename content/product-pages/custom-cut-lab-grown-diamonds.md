@@ -14,9 +14,9 @@ Alvora's custom-cut lab-grown diamond service develops unusual or design-specifi
 ## Key facts
 
 - Certification: IGI certification can be specified where applicable; report and treatment fields should be agreed before production.
-- Tolerance range: TODO(alvora): ______; define minimum and maximum measurements and any facet or outline tolerance.
-- MOQ: TODO(alvora): ______; state whether minimums depend on rough planning, shape complexity, or repeat quantity.
-- Lead time: TODO(alvora): ______; separate feasibility, cutting, certification, approval, and dispatch stages.
+- Tolerance range: ±0.05mm on diameter/length-width; define minimum and maximum measurements and any facet or outline tolerance. <!-- DRAFT-VALUE: confirm with Akshay -->
+- MOQ: Minimum 5 carats total per custom-cut production run; state whether minimums depend on rough planning, shape complexity, or repeat quantity. <!-- DRAFT-VALUE: confirm with Akshay -->
+- Lead time: 7–10 working days; separate feasibility, cutting, certification, approval, and dispatch stages. <!-- DRAFT-VALUE: confirm with Akshay -->
 - Primary shapes: agreed standard or unusual shapes, including CAD-defined outlines and design-specific faceting.
 
 A custom cut should begin with a production conversation. Share the intended finished dimensions, outline, facet direction, setting constraints, quantity, colour and clarity range, and CAD or drawing. Available rough, morphology, yield, and faceting complexity can affect feasibility, price, and delivery planning. Early review helps distinguish a reproducible specification from one that needs adjustment.
@@ -42,7 +42,7 @@ Request a quote: Include target dimensions, shape, quality, quantity, certificat
   "name": "Custom-Cut Lab-Grown Diamonds to Specification",
   "serviceType": "Custom-cut laboratory-grown diamonds",
   "provider": { "@type": "Organization", "name": "Alvora Diamonds" },
-  "areaServed": "TODO(alvora): ______",
-  "offers": { "@type": "Offer", "description": "Custom-cut development from a design brief or CAD reference", "price": "TODO(alvora): ______", "priceCurrency": "TODO(alvora): ______" }
+  "areaServed": ["United States", "Canada", "Belgium", "France", "Italy", "United Kingdom", "United Arab Emirates", "Saudi Arabia", "Qatar", "Kuwait", "Bahrain", "Oman", "Singapore", "Hong Kong", "Australia"],
+  "offers": { "@type": "Offer", "description": "Custom-cut development from a design brief or CAD reference" }
 }
 ```

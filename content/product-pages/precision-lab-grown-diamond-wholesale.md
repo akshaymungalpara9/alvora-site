@@ -14,9 +14,9 @@ Alvora provides precision-led lab-grown diamond wholesale supply for buyers who 
 ## Key facts
 
 - Certification: IGI is the standard route where applicable; other laboratories can be discussed when a buyer or channel requires them.
-- Tolerance range: TODO(alvora): ______; state the accepted measurement and matching ranges for each product programme.
-- MOQ: TODO(alvora): ______; clarify minimums for stock, layouts, pairs, custom cuts, and repeat orders.
-- Lead time: TODO(alvora): ______; identify review, production, certification, approval, and dispatch stages.
+- Tolerance range: ±0.05mm on diameter/length-width (calibrated); matched within 1 colour grade, 1 clarity grade, and 2% weight variance (pairs); state the accepted measurement and matching ranges for each product programme. <!-- DRAFT-VALUE: confirm with Akshay -->
+- MOQ: No minimum (ex-stock loose); 5 ct minimum (layouts and custom cuts); 1 pair minimum (matched pairs); 10 ct minimum (melee); clarify minimums for stock, layouts, pairs, custom cuts, and repeat orders. <!-- DRAFT-VALUE: confirm with Akshay -->
+- Lead time: 2–3 working days (ex-stock); 7–10 working days (bespoke production); identify review, production, certification, approval, and dispatch stages. <!-- DRAFT-VALUE: confirm with Akshay -->
 - Primary shapes: rounds, ovals, pears, marquises, emeralds, radiants, cushions, hearts, and agreed custom forms.
 
 Marketplaces can provide breadth and speed; local wholesalers can help with urgent inspection; trade shows support supplier discovery. Direct manufacturer sourcing is most useful when the buyer needs calibrated layouts, matched pairs, exact custom cuts, or a repeat programme tied to a documented specification.[1]
@@ -43,6 +43,6 @@ Request a quote: Include shape, measurements, quality, quantity, certification, 
   "description": "Contact Alvora Diamonds about specification-led laboratory-grown diamond wholesale supply.",
   "about": { "@type": "Service", "name": "Precision lab-grown diamond wholesale supply" },
   "publisher": { "@type": "Organization", "name": "Alvora Diamonds", "address": { "@type": "PostalAddress", "addressLocality": "Surat", "addressCountry": "IN" } },
-  "contactPoint": { "@type": "ContactPoint", "contactType": "wholesale enquiries", "telephone": "TODO(alvora): ______", "email": "TODO(alvora): ______", "url": "TODO(alvora): ______" }
+  "contactPoint": { "@type": "ContactPoint", "contactType": "wholesale enquiries", "telephone": "+91 99244 90125", "email": "akshaym@alvoradiamonds.com", "url": "https://www.alvoradiamonds.com/precision-lab-grown-diamond-wholesale" }
 }
 ```

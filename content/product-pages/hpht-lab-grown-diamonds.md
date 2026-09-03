@@ -14,9 +14,9 @@ HPHT lab-grown diamonds are real diamonds grown under extreme pressure and tempe
 ## Key facts
 
 - Certification: IGI certification can be requested where applicable, with growth method and treatment disclosure addressed in the product record.
-- Tolerance range: TODO(alvora): ______; state measurement and visual-acceptance criteria for individual stones and groups.
-- MOQ: TODO(alvora): ______; clarify minimums by size, shape, quality, and production route.
-- Lead time: TODO(alvora): ______; separate sourcing, cutting, grading, approval, and dispatch stages.
+- Tolerance range: ±0.05mm on diameter/length-width; state measurement and visual-acceptance criteria for individual stones and groups. <!-- DRAFT-VALUE: confirm with Akshay -->
+- MOQ: No minimum (ex-stock loose); 5 ct minimum (layouts and custom cuts); 1 pair minimum (matched pairs); 10 ct minimum (melee); clarify minimums by size, shape, quality, and production route. <!-- DRAFT-VALUE: confirm with Akshay -->
+- Lead time: 2–3 working days (ex-stock); 7–10 working days (bespoke production); separate sourcing, cutting, grading, approval, and dispatch stages. <!-- DRAFT-VALUE: confirm with Akshay -->
 - Primary shapes: rounds, ovals, pears, marquises, emeralds, radiants, cushions, hearts, and agreed specialty forms.
 
 HPHT is a commercially important route for colourless and specialty laboratory-grown diamonds. It can offer cost advantages in some standard size and quality bands, and modern HPHT technology can produce large colourless stones. Buyers may also encounter metallic flux inclusions, sector-related colour or fluorescence patterns, graining, or phosphorescence. These possibilities do not determine whether a stone is suitable; inspection and documentation do.
@@ -44,7 +44,7 @@ Request a quote: Include shape, measurements, quality, method, treatment, certif
   "name": "HPHT Lab-Grown Diamonds for Wholesale",
   "description": "Information about HPHT laboratory-grown diamonds and specification-led sourcing.",
   "about": { "@type": "Product", "name": "HPHT laboratory-grown diamonds", "material": "Laboratory-grown diamond" },
-  "publisher": { "@type": "Organization", "name": "Alvora Diamonds", "url": "TODO(alvora): ______" },
+  "publisher": { "@type": "Organization", "name": "Alvora Diamonds", "url": "https://www.alvoradiamonds.com" },
   "mainEntity": { "@type": "Thing", "name": "HPHT growth method", "description": "TODO(alvora): ______" }
 }
 ```

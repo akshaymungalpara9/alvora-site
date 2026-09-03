@@ -14,9 +14,9 @@ CVD lab-grown diamonds are real diamonds grown layer by layer in a low-pressure 
 ## Key facts
 
 - Certification: IGI certification can be requested where applicable, with growth method and treatment disclosure addressed in the product record.
-- Tolerance range: TODO(alvora): ______; state the measurement, outline, and matching tolerances offered for each programme.
-- MOQ: TODO(alvora): ______; clarify minimums for loose stones, layouts, pairs, and custom cuts.
-- Lead time: TODO(alvora): ______; separate selection, cutting, grading, approval, and dispatch.
+- Tolerance range: ±0.05mm on diameter/length-width; state the measurement, outline, and matching tolerances offered for each programme. <!-- DRAFT-VALUE: confirm with Akshay -->
+- MOQ: No minimum (ex-stock loose); 5 ct minimum (layouts and custom cuts); 1 pair minimum (matched pairs); 10 ct minimum (melee); clarify minimums for loose stones, layouts, pairs, and custom cuts. <!-- DRAFT-VALUE: confirm with Akshay -->
+- Lead time: 2–3 working days (ex-stock); 7–10 working days (bespoke production); separate selection, cutting, grading, approval, and dispatch. <!-- DRAFT-VALUE: confirm with Akshay -->
 - Primary shapes: rounds, ovals, pears, marquises, emeralds, radiants, cushions, hearts, and agreed custom shapes.
 
 CVD uses a diamond seed in a vacuum chamber. Carbon-containing gas is activated into plasma, and carbon species deposit onto the seed to build a crystal. The rough is commonly flat or tabular, which can influence shape planning, yield, and custom-cut economics. As-grown CVD material can show brown colour, strain, or layered growth features; colour improvement may involve post-growth HPHT annealing.[1] [2]
@@ -46,9 +46,8 @@ Request a quote: Include shape, measurements, quality, quantity, certification, 
   "material": "Laboratory-grown diamond",
   "additionalProperty": [
     { "@type": "PropertyValue", "name": "Growth method", "value": "CVD" },
-    { "@type": "PropertyValue", "name": "Tolerance", "value": "TODO(alvora): ______" },
-    { "@type": "PropertyValue", "name": "MOQ", "value": "TODO(alvora): ______" }
-  ],
-  "offers": { "@type": "Offer", "price": "TODO(alvora): ______", "priceCurrency": "TODO(alvora): ______" }
+    { "@type": "PropertyValue", "name": "Tolerance", "value": "±0.05mm on diameter/length-width" },
+    { "@type": "PropertyValue", "name": "MOQ", "value": "No minimum (ex-stock); 5 ct (layouts and custom cuts); 1 pair (matched pairs); 10 ct (melee)" }
+  ]
 }
 ```

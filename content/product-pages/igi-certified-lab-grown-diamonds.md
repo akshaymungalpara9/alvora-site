@@ -14,9 +14,9 @@ Alvora supplies IGI-certified lab-grown diamonds for professional buyers who nee
 ## Key facts
 
 - Certification: IGI laboratory-grown diamond reports can record origin, measurements, carat, colour, clarity, polish, symmetry, and cut information where applicable.
-- Tolerance range: TODO(alvora): ______; certification does not replace Alvora's stated measurement or matching acceptance criteria.
-- MOQ: TODO(alvora): ______; confirm minimums by shape, size, certification route, and order type.
-- Lead time: TODO(alvora): ______; confirm stock, grading, approval, and dispatch stages.
+- Tolerance range: ±0.05mm on diameter/length-width; certification does not replace Alvora's stated measurement or matching acceptance criteria. <!-- DRAFT-VALUE: confirm with Akshay -->
+- MOQ: No minimum (ex-stock loose); 5 ct minimum (layouts and custom cuts); 1 pair minimum (matched pairs); confirm minimums by shape, size, certification route, and order type. <!-- DRAFT-VALUE: confirm with Akshay -->
+- Lead time: 2–3 working days (ex-stock); 7–10 working days (bespoke production); confirm stock, grading, approval, and dispatch stages. <!-- DRAFT-VALUE: confirm with Akshay -->
 - Primary shapes: rounds, ovals, pears, marquises, emeralds, radiants, cushions, hearts, and other agreed forms.
 
 IGI identifies a stone as laboratory-grown and offers report verification and laser inscription linking the report number to the stone.[1] Its familiar 4Cs-oriented format is practical for comparing trade inventory. The report is an independent grading opinion, not a warranty, appraisal, or substitute for shipment-level QC.
@@ -44,6 +44,6 @@ Request a quote: Include shape, size, quality, quantity, report needs, and desti
   "description": "Laboratory-grown diamonds supplied with IGI documentation where applicable.",
   "brand": { "@type": "Brand", "name": "Alvora Diamonds" },
   "manufacturer": { "@type": "Organization", "name": "Alvora Diamonds", "address": { "@type": "PostalAddress", "addressLocality": "Surat", "addressCountry": "IN" } },
-  "offers": { "@type": "Offer", "availability": "TODO(alvora): ______", "price": "TODO(alvora): ______", "priceCurrency": "TODO(alvora): ______" }
+  "offers": { "@type": "Offer", "availability": "https://schema.org/InStock" }
 }
 ```
