@@ -9,18 +9,27 @@
  * prerendered body alongside the normal server-side SEO tags.
  *
  * Exits 0 on any Chromium/launch failure — prerender is a best-effort build
- * enhancement, not a build blocker.
+ * enhancement, not a build blocker. When Chromium is unavailable the script
+ * falls back to committed snapshots in prerendered/ (project root) if they
+ * exist, so Railway always deploys real body content even when the build
+ * environment has no browser.
+ *
+ * After a successful run the fresh snapshots are mirrored to prerendered/
+ * (project root) so they can be committed and used as the Railway fallback.
+ * Run `pnpm prerender` locally after content changes and commit the result.
  */
 
 import { chromium } from "playwright-core";
+import { execFileSync } from "child_process";
 import express from "express";
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const distPublic = path.resolve(__dirname, "../dist/public");
-const outDir = path.resolve(__dirname, "../dist/prerendered");
+const distPublic   = path.resolve(__dirname, "../dist/public");
+const outDir       = path.resolve(__dirname, "../dist/prerendered");  // gitignored, built each run
+const committedDir = path.resolve(__dirname, "../prerendered");        // tracked in git, Railway fallback
 
 // Routes are sourced from scripts/publicRoutes.json — the single source of truth
 // shared with server/publicSeoRoutes.ts. Do not add routes here directly.
@@ -34,9 +43,6 @@ function routeKey(route) {
 }
 
 // ── 1. Minimal static server ──────────────────────────────────────────────────
-// Serves dist/public/ without SEO injection — React runs in Playwright and
-// calls applyPublicSeo() client-side, so meta tags are set correctly too.
-// We only extract #root innerHTML, so the SEO origin doesn't matter here.
 
 const indexHtml = fs.readFileSync(path.join(distPublic, "index.html"), "utf-8");
 const staticApp = express();
@@ -50,65 +56,82 @@ const staticServer = await new Promise((resolve, reject) => {
 console.log(`[prerender] Static server ready on http://localhost:${PORT}`);
 
 // ── 2. Locate Chromium ────────────────────────────────────────────────────────
-// Try env override first, then the paths used by every other script in this
-// repo, then a snap path. Exit 0 (non-blocking) if nothing is found.
 
-// Playwright installs its own Chromium under a platform-specific user cache dir.
-// The glob-like paths below enumerate every versioned subdirectory so they work
-// across playwright-core version bumps without hard-coding a revision number.
+// Check if a system chromium is available in PATH (covers nixpkgs on Railway).
+let pathChromium = null;
+try {
+  const result = execFileSync("which", ["chromium"], {
+    encoding: "utf-8",
+    stdio: ["ignore", "pipe", "ignore"],
+  }).trim();
+  if (result) pathChromium = result;
+} catch {}
 
 // macOS: ~/Library/Caches/ms-playwright/<revision>/chrome-{mac,headless-shell}-{arm64,x64}/...
 const macCache = `${process.env.HOME}/Library/Caches/ms-playwright`;
 const macCandidates = fs.existsSync(macCache)
-  ? fs
-      .readdirSync(macCache)
-      .flatMap((dir) => [
-        `${macCache}/${dir}/chrome-headless-shell-mac-arm64/chrome-headless-shell`,
-        `${macCache}/${dir}/chrome-headless-shell-mac-x64/chrome-headless-shell`,
-        `${macCache}/${dir}/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing`,
-        `${macCache}/${dir}/chrome-mac-x64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing`,
-      ])
+  ? fs.readdirSync(macCache).flatMap((dir) => [
+      `${macCache}/${dir}/chrome-headless-shell-mac-arm64/chrome-headless-shell`,
+      `${macCache}/${dir}/chrome-headless-shell-mac-x64/chrome-headless-shell`,
+      `${macCache}/${dir}/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing`,
+      `${macCache}/${dir}/chrome-mac-x64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing`,
+    ])
   : [];
 
 // Linux: ~/.cache/ms-playwright/<revision>/chrome-{headless-shell-,}linux{,-x64,-arm64}/...
-// Populated by `npx playwright install chromium` which runs in the Railway build step.
 const linuxCache = `${process.env.HOME}/.cache/ms-playwright`;
 const linuxCandidates = fs.existsSync(linuxCache)
-  ? fs
-      .readdirSync(linuxCache)
-      .flatMap((dir) => [
-        `${linuxCache}/${dir}/chrome-headless-shell-linux-x64/headless_shell`,
-        `${linuxCache}/${dir}/chrome-headless-shell-linux-arm64/headless_shell`,
-        `${linuxCache}/${dir}/chrome-linux-x64/chrome`,
-        `${linuxCache}/${dir}/chrome-linux/chrome`,
-      ])
+  ? fs.readdirSync(linuxCache).flatMap((dir) => [
+      `${linuxCache}/${dir}/chrome-headless-shell-linux-x64/headless_shell`,
+      `${linuxCache}/${dir}/chrome-headless-shell-linux-arm64/headless_shell`,
+      `${linuxCache}/${dir}/chrome-linux-x64/chrome`,
+      `${linuxCache}/${dir}/chrome-linux/chrome`,
+    ])
   : [];
 
 const candidates = [
   process.env.CHROMIUM_PATH,
-  "/usr/bin/chromium",            // Debian package (not the Ubuntu snap wrapper)
+  pathChromium,                    // nixpkgs chromium via PATH
+  "/usr/bin/chromium",             // Debian package (not the Ubuntu snap wrapper)
   "/usr/bin/chromium-browser",
   "/snap/bin/chromium",
-  ...linuxCandidates,             // playwright install chromium on Linux/Railway
-  ...macCandidates,               // playwright install chromium on macOS (local dev)
+  ...linuxCandidates,
+  ...macCandidates,
 ].filter(Boolean);
 
 const executablePath = candidates.find((p) => fs.existsSync(p));
 
+// ── 3. Fallback: use committed snapshots when Chromium is unavailable ─────────
+
 if (!executablePath) {
-  console.warn(
-    "[prerender] Chromium binary not found. Skipping prerender.\n" +
-    "  Tried: " + candidates.join(", ") + "\n" +
-    "  Set CHROMIUM_PATH env var to override, or add chromium-browser to nixpacks.toml.\n" +
-    "  Routes will be served with the SEO-injected HTML shell."
-  );
+  const committedManifest = path.join(committedDir, "manifest.json");
+  if (fs.existsSync(committedManifest)) {
+    console.log(
+      "[prerender] Chromium not found — copying committed snapshots from prerendered/ to dist/prerendered/.\n" +
+      "  Run `pnpm prerender` locally and commit prerendered/ to refresh them."
+    );
+    fs.mkdirSync(outDir, { recursive: true });
+    const files = fs.readdirSync(committedDir);
+    for (const file of files) {
+      fs.copyFileSync(path.join(committedDir, file), path.join(outDir, file));
+    }
+    const manifest = JSON.parse(fs.readFileSync(committedManifest, "utf-8"));
+    console.log(`[prerender] Copied ${Object.keys(manifest).length} committed snapshot(s).`);
+  } else {
+    console.warn(
+      "[prerender] Chromium not found and no committed prerendered/ folder exists.\n" +
+      "  Routes will be served with SEO-injected head tags but no prerendered body.\n" +
+      "  Fix: run `pnpm prerender` locally, commit the prerendered/ folder, and redeploy.\n" +
+      "  Tried: " + candidates.join(", ")
+    );
+  }
   staticServer.close();
   process.exit(0);
 }
 
 console.log(`[prerender] Using Chromium at: ${executablePath}`);
 
-// ── 3. Launch browser ─────────────────────────────────────────────────────────
+// ── 4. Launch browser ─────────────────────────────────────────────────────────
 let browser;
 try {
   browser = await chromium.launch({
@@ -122,7 +145,7 @@ try {
   process.exit(0);
 }
 
-// ── 4. Snapshot each route ────────────────────────────────────────────────────
+// ── 5. Snapshot each route ────────────────────────────────────────────────────
 fs.mkdirSync(outDir, { recursive: true });
 
 const manifest = {};
@@ -137,7 +160,6 @@ for (const route of ROUTES) {
       timeout: 30_000,
     });
 
-    // Wait until React has mounted at least one child inside #root.
     await page.waitForFunction(
       () => (document.getElementById("root")?.children.length ?? 0) > 0,
       { timeout: 15_000 }
@@ -166,7 +188,7 @@ for (const route of ROUTES) {
 await browser.close();
 staticServer.close();
 
-// ── 5. Write manifest ─────────────────────────────────────────────────────────
+// ── 6. Write manifest ─────────────────────────────────────────────────────────
 fs.writeFileSync(
   path.join(outDir, "manifest.json"),
   JSON.stringify(manifest, null, 2) + "\n",
@@ -182,3 +204,12 @@ if (failures.length) {
 } else {
   console.log(`[prerender] All ${ROUTES.length} routes snapshotted.`);
 }
+
+// ── 7. Mirror to committed prerendered/ so Railway always has a fallback ───────
+fs.mkdirSync(committedDir, { recursive: true });
+for (const file of fs.readdirSync(outDir)) {
+  fs.copyFileSync(path.join(outDir, file), path.join(committedDir, file));
+}
+console.log(
+  `[prerender] Mirrored snapshots → prerendered/  (commit this folder; Railway uses it when Chromium is unavailable)`
+);
