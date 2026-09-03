@@ -53,27 +53,44 @@ console.log(`[prerender] Static server ready on http://localhost:${PORT}`);
 // Try env override first, then the paths used by every other script in this
 // repo, then a snap path. Exit 0 (non-blocking) if nothing is found.
 
-// Playwright installs its own Chromium under the user cache dir on macOS.
-// The glob-like paths below cover headless-shell (preferred, smaller) and
-// the full "Google Chrome for Testing" variant across version bumps.
-const playwrightCache = `${process.env.HOME}/Library/Caches/ms-playwright`;
-const macCandidates = fs.existsSync(playwrightCache)
+// Playwright installs its own Chromium under a platform-specific user cache dir.
+// The glob-like paths below enumerate every versioned subdirectory so they work
+// across playwright-core version bumps without hard-coding a revision number.
+
+// macOS: ~/Library/Caches/ms-playwright/<revision>/chrome-{mac,headless-shell}-{arm64,x64}/...
+const macCache = `${process.env.HOME}/Library/Caches/ms-playwright`;
+const macCandidates = fs.existsSync(macCache)
   ? fs
-      .readdirSync(playwrightCache)
+      .readdirSync(macCache)
       .flatMap((dir) => [
-        `${playwrightCache}/${dir}/chrome-headless-shell-mac-arm64/chrome-headless-shell`,
-        `${playwrightCache}/${dir}/chrome-headless-shell-mac-x64/chrome-headless-shell`,
-        `${playwrightCache}/${dir}/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing`,
-        `${playwrightCache}/${dir}/chrome-mac-x64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing`,
+        `${macCache}/${dir}/chrome-headless-shell-mac-arm64/chrome-headless-shell`,
+        `${macCache}/${dir}/chrome-headless-shell-mac-x64/chrome-headless-shell`,
+        `${macCache}/${dir}/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing`,
+        `${macCache}/${dir}/chrome-mac-x64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing`,
+      ])
+  : [];
+
+// Linux: ~/.cache/ms-playwright/<revision>/chrome-{headless-shell-,}linux{,-x64,-arm64}/...
+// Populated by `npx playwright install chromium` which runs in the Railway build step.
+const linuxCache = `${process.env.HOME}/.cache/ms-playwright`;
+const linuxCandidates = fs.existsSync(linuxCache)
+  ? fs
+      .readdirSync(linuxCache)
+      .flatMap((dir) => [
+        `${linuxCache}/${dir}/chrome-headless-shell-linux-x64/headless_shell`,
+        `${linuxCache}/${dir}/chrome-headless-shell-linux-arm64/headless_shell`,
+        `${linuxCache}/${dir}/chrome-linux-x64/chrome`,
+        `${linuxCache}/${dir}/chrome-linux/chrome`,
       ])
   : [];
 
 const candidates = [
   process.env.CHROMIUM_PATH,
-  "/usr/bin/chromium",
+  "/usr/bin/chromium",            // Debian package (not the Ubuntu snap wrapper)
   "/usr/bin/chromium-browser",
   "/snap/bin/chromium",
-  ...macCandidates,
+  ...linuxCandidates,             // playwright install chromium on Linux/Railway
+  ...macCandidates,               // playwright install chromium on macOS (local dev)
 ].filter(Boolean);
 
 const executablePath = candidates.find((p) => fs.existsSync(p));

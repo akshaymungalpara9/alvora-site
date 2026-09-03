@@ -4,38 +4,73 @@ The authoritative source for the deployed Alvora site is the project root contai
 
 ## Build and start
 
-Use the following commands:
+Use the following commands in Railway → Service → Settings → Build & Deploy:
 
 ```text
 Build command: pnpm install --frozen-lockfile && pnpm build
 Start command: pnpm start
 ```
 
-The application listens on Railway's injected `PORT`. The production build creates `dist/public` for the client and `dist/index.js` for the Express server. The standalone catalogue route is part of the SPA and is available at `/availability`, `/fr/availability`, and `/it/availability`.
+`pnpm build` runs these steps in sequence:
+1. `vite build` — compiles the React SPA into `dist/public/`
+2. `cp scripts/publicRoutes.json dist/publicRoutes.json` — copies the route list for the server
+3. `esbuild server/_core/index.ts … --outdir=dist` — compiles the Express server to `dist/index.js`
+4. `npx playwright install --with-deps chromium` — downloads Playwright's pinned Chromium and installs its system libraries via apt. This is required for the prerender step and is more reliable than the `chromium-browser` apt package, which is a non-functional snap meta-package on Ubuntu 22.04.
+5. `node scripts/prerender.mjs` — headlessly renders all public routes into `dist/prerendered/`. The Express server injects the right snapshot into every response at runtime so crawlers see real body content, not an empty `<div id="root"></div>`.
+
+`pnpm start` runs `node dist/index.js`. On startup the server reads `dist/prerendered/manifest.json` and logs how many snapshots were loaded. If zero are loaded, the prerender step failed silently — check the build logs for `[prerender] Chromium binary not found`.
+
+The application listens on Railway's injected `PORT`.
 
 ## Required Railway variables
 
-The public homepage and catalogue API are database-backed. Configure these variables in Railway before expecting live availability data:
+### Critical — set before first deploy
 
 ```text
-DATABASE_URL=<the MySQL/TiDB connection string containing the active Alvora availability snapshot>
-JWT_SECRET=<long random session secret>
 NODE_ENV=production
+CANONICAL_ORIGIN=https://www.alvoradiamonds.com
 ```
 
-The published Manus project also uses the following server-side variables for storage-backed PDFs, uploaded media, and the existing protected administration flows:
+`CANONICAL_ORIGIN` controls what appears in `<link rel="canonical">`, the XML sitemap, and `robots.txt`. Without it those values reflect the Railway-assigned preview hostname (e.g. `alvora-production.up.railway.app`) instead of `www.alvoradiamonds.com`. The server logs a startup warning if this variable is missing in production.
+
+### Database
+
+```text
+DATABASE_URL=<MySQL/TiDB connection string for the active Alvora availability snapshot>
+JWT_SECRET=<long random session secret>
+```
+
+### Email delivery (Resend)
+
+```text
+RESEND_API_KEY=<Resend API key>
+LEAD_ALERT_TO=<internal email address for lead alert notifications>
+ALVORA_EMAIL_FROM=Alvora Diamonds <onboarding@resend.dev>
+```
+
+### WhatsApp
+
+```text
+VITE_ALVORA_WHATSAPP_NUMBER=<international WhatsApp number, e.g. 919876543210>
+```
+
+### Analytics (optional)
+
+```text
+VITE_GA4_MEASUREMENT_ID=G-XXXXXXXXXX
+```
+
+GA4 is loaded only when this variable is set. It uses Consent Mode with `analytics_storage: 'denied'`, so no `_ga` / `_ga_*` cookies are written and no consent banner is required. See SEO_LAUNCH_CHECKLIST.md §6 for setup steps.
+
+### Manus / protected admin (if applicable)
 
 ```text
 BUILT_IN_FORGE_API_URL=<Manus Forge API base URL>
 BUILT_IN_FORGE_API_KEY=<Manus Forge API key>
-VITE_APP_ID=<Manus OAuth application ID, if administrator login is required>
-OAUTH_SERVER_URL=<Manus OAuth server URL, if administrator login is required>
-OWNER_OPEN_ID=<owner identity, if administrator login is required>
-RESEND_API_KEY=<optional until email delivery is enabled>
-LEAD_ALERT_TO=<internal alert destination, if email delivery is enabled>
-ALVORA_EMAIL_FROM=Alvora Diamonds <onboarding@resend.dev>
+VITE_APP_ID=<Manus OAuth application ID>
+OAUTH_SERVER_URL=<Manus OAuth server URL>
+OWNER_OPEN_ID=<owner identity>
 ALVORA_EARLY_ACCESS_ENABLED=false
-VITE_ALVORA_WHATSAPP_NUMBER=<international WhatsApp number>
 ```
 
 Do not copy values from the Manus environment blindly. Use Railway's Variables panel and keep secrets out of GitHub and ZIP archives.
@@ -52,13 +87,19 @@ The four brand and workshop images are now served from `client/public/assets/` a
 
 ## Post-deploy checks
 
-After deployment, verify the following URLs:
+After deployment:
+
+1. Check Railway build logs for `[prerender] All 33 routes snapshotted.` — if you see `Chromium binary not found` instead, the prerender step failed and crawlers will see an empty body.
+2. Check Railway runtime logs for `Loaded 33 prerendered snapshot(s)` on startup.
+3. Run: `curl -A "Googlebot" -s https://www.alvoradiamonds.com/ | grep 'id="root"'` — the root div should contain real HTML content, not be empty.
+4. Verify the following URLs return HTTP 200:
 
 ```text
-/
-/availability
-/fr/availability
-/it/availability
+https://www.alvoradiamonds.com/
+https://www.alvoradiamonds.com/sitemap.xml
+https://www.alvoradiamonds.com/robots.txt
+https://www.alvoradiamonds.com/calibrated-diamond-layouts
 ```
 
-Then check Railway logs for `Server running` and confirm that the browser's Network panel returns `200` for `/assets/alvora-hero-qc.webp` and for `/api/trpc/availability.summary`. A `500` from `/api/trpc/availability.summary` generally means `DATABASE_URL` is missing or points to an unavailable database; a `500` from `/manus-storage/*` means Forge storage variables are absent, but the homepage hero should not depend on that route after this portability fix.
+5. Confirm `robots.txt` contains `Sitemap: https://www.alvoradiamonds.com/sitemap.xml` (not a Railway preview URL) — this requires `CANONICAL_ORIGIN` to be set.
+6. Check that `/api/trpc/availability.summary` returns 200. A 500 generally means `DATABASE_URL` is missing or unavailable.

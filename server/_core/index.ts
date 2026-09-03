@@ -31,6 +31,14 @@ async function findAvailablePort(startPort: number = 3000): Promise<number> {
 }
 
 async function startServer() {
+  if (!process.env.CANONICAL_ORIGIN && process.env.NODE_ENV === "production") {
+    console.warn(
+      "[startup] WARNING: CANONICAL_ORIGIN is not set. Canonical tags, sitemaps, and " +
+      "robots.txt will reflect the incoming Railway host instead of the primary www domain. " +
+      "Add CANONICAL_ORIGIN=https://www.alvoradiamonds.com to Railway Variables."
+    );
+  }
+
   const app = express();
   const server = createServer(app);
   // Configure body parser with larger size limit for file uploads
