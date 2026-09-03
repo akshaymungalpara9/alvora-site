@@ -1,7 +1,7 @@
 /** Alvora combines the public manufacturing site with protected buyer and admin routes. */
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import WhatsAppQuickContact from "@/components/WhatsAppQuickContact";
+import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import { initGA4 } from "@/lib/ga4";
 import { PRODUCT_PAGES } from "@/lib/productPages";
 import NotFound from "@/pages/NotFound";
@@ -39,7 +39,7 @@ function Router() {
 
 function App() {
   useEffect(() => { initGA4(); }, []);
-  return <ErrorBoundary><ThemeProvider defaultTheme="dark"><TooltipProvider><Toaster /><Router /><WhatsAppQuickContact /></TooltipProvider></ThemeProvider></ErrorBoundary>;
+  return <ErrorBoundary><ThemeProvider defaultTheme="dark"><TooltipProvider><Toaster /><Router /><FloatingWhatsApp /></TooltipProvider></ThemeProvider></ErrorBoundary>;
 }
 
 export default App;

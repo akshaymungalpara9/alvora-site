@@ -13,3 +13,9 @@ export function buildWhatsAppHref(value: unknown) {
   if (!isInternationalWhatsAppNumber(number)) return null;
   return `https://wa.me/${number}?text=${encodeURIComponent(WhatsAppInquiry)}`;
 }
+
+export function buildWhatsAppHrefWithMessage(value: unknown, message: string) {
+  const number = normalizeWhatsAppNumber(value);
+  if (!isInternationalWhatsAppNumber(number)) return null;
+  return `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
+}
