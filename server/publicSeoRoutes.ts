@@ -91,6 +91,7 @@ const ROUTE_META: Record<string, RouteMetadata> = {
   "/about":                      { changefreq: "monthly", priority: "0.7" },
   "/for-jewelry-brands":         { changefreq: "monthly", priority: "0.8" },
   "/request-a-quote":            { changefreq: "monthly", priority: "0.9" },
+  "/contact":                    { changefreq: "monthly", priority: "0.8" },
   "/insights":                                              { changefreq: "monthly", priority: "0.7" },
   "/insights/are-lab-grown-diamonds-real-diamonds":         { changefreq: "monthly", priority: "0.7" },
   "/insights/best-lab-grown-diamond-manufacturer-for-your-need": { changefreq: "monthly", priority: "0.7" },

@@ -39,8 +39,8 @@ export function trackWhatsappClick(ctaLocation: string): void {
   send('whatsapp_click', { page_path: window.location.pathname, cta_location: ctaLocation });
 }
 
-export function trackRfqSubmit(productInterest: string, country: string): void {
-  send('rfq_submit', { product_interest: productInterest, country });
+export function trackRfqSubmit(productInterest: string, country: string, leadType?: string): void {
+  send('rfq_submit', { product_interest: productInterest, country, ...(leadType ? { lead_type: leadType } : {}) });
 }
 
 export function trackArticleRead(slug: string): void {

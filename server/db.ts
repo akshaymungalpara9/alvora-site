@@ -513,6 +513,7 @@ export type ProductionBriefInput = {
   preferredPaymentApproach: string;
   referrerName?: string;
   brief: string;
+  leadType?: "fast_rfq" | "qualified_brief";
 };
 
 export async function createProductionBrief(input: ProductionBriefInput) {
@@ -525,6 +526,7 @@ export async function createProductionBrief(input: ProductionBriefInput) {
     source: input.referrerName?.trim() ? "referral" : "direct",
     referrerName: input.referrerName?.trim() || null,
     brief: input.brief.trim(),
+    leadType: input.leadType ?? "qualified_brief",
   });
   return (await db.select().from(productionBriefs).where(eq(productionBriefs.id, Number(result[0].insertId))).limit(1))[0];
 }

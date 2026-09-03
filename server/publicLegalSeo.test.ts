@@ -31,6 +31,7 @@ describe("public legal and SEO surfaces", () => {
       "/about",
       "/for-jewelry-brands",
       "/request-a-quote",
+      "/contact",
       "/insights",
       "/insights/are-lab-grown-diamonds-real-diamonds",
       "/insights/best-lab-grown-diamond-manufacturer-for-your-need",

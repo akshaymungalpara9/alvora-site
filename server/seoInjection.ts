@@ -294,6 +294,35 @@ function resolveRouteMeta(pathname: string, origin: string): RouteMeta | null {
         canonical: url("/request-a-quote"),
         serviceJsonLd: { "@context": "https://schema.org", "@type": "Service", name: "Request a Quote — Alvora Lab-Grown Diamonds", serviceType: "Diamond Manufacturing", provider: { "@type": "Organization", name: "Alvora", address: { "@type": "PostalAddress", addressLocality: "Surat", addressCountry: "IN" } }, description: "Submit a production enquiry to Alvora for certified, calibrated lab-grown diamonds.", areaServed: "Worldwide" },
       };
+    case "/contact":
+      return {
+        lang: "en",
+        title: "Contact Alvora Diamonds — Surat, India",
+        description: "Contact the Alvora Diamonds team in Surat for lab-grown diamond wholesale enquiries, pricing, and specification briefs.",
+        canonical: url("/contact"),
+        serviceJsonLd: {
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          name: COMPANY.legalName,
+          url: url("/contact"),
+          address: {
+            "@type": "PostalAddress",
+            ...(COMPANY.address.street ? { streetAddress: COMPANY.address.street } : {}),
+            addressLocality: COMPANY.address.city,
+            addressRegion: COMPANY.address.state,
+            ...(COMPANY.address.postalCode ? { postalCode: COMPANY.address.postalCode } : {}),
+            addressCountry: "IN",
+          },
+          telephone: COMPANY.phone,
+          email: COMPANY.email,
+          openingHoursSpecification: {
+            "@type": "OpeningHoursSpecification",
+            dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            opens: "09:00",
+            closes: "18:00",
+          },
+        },
+      };
     // PAA pages — Article + FAQPage JSON-LD pair
     case "/insights/are-lab-grown-diamonds-real-diamonds":
       return {

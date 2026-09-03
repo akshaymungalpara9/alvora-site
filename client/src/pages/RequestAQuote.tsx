@@ -4,6 +4,7 @@ import { trackRfqSubmit, trackWhatsappClick } from "@/lib/ga4";
 import { trpc } from "@/lib/trpc";
 import { buildWhatsAppHref } from "@/lib/whatsapp";
 import { COMPANY } from "@shared/companyInfo";
+import FastRfqForm from "@/components/FastRfqForm";
 import SpecialtyPageMeta from "@/components/SpecialtyPageMeta";
 import SpecialtyPageShell from "@/components/SpecialtyPageShell";
 
@@ -42,18 +43,39 @@ const PRODUCT_TO_REQUEST_TYPE: Record<string, string> = {
   "Other / not sure": "Production run",
 };
 
-export default function RequestAQuote() {
-  const [submissionState, setSubmissionState] = useState<"idle" | "sending" | "sent" | "saved" | "error">("idle");
+type SubmissionState = "idle" | "sending" | "sent" | "saved" | "error";
+
+function ConfirmationMessage({ state, onReset }: { state: SubmissionState; onReset: () => void }) {
+  if (state === "idle") return null;
+  return (
+    <p
+      className={`form-confirmation form-confirmation-${state}`}
+      role={state === "error" ? "alert" : "status"}
+      aria-live="polite"
+    >
+      {state === "sending"
+        ? "Recording your enquiry…"
+        : state === "sent"
+        ? "Thank you. Your enquiry has been recorded and sent to the Alvora team. We will respond with production detail and pricing."
+        : state === "saved"
+        ? "Thank you. Your enquiry has been safely recorded for the Alvora team. We will respond shortly."
+        : <>Your enquiry could not be recorded. Please try again, or{" "}
+            <button className="inline-link" onClick={onReset} type="button">reset the form</button>.</>}
+    </p>
+  );
+}
+
+function QualifiedBriefForm({ onSwitchToFast }: { onSwitchToFast: () => void }) {
+  const [submissionState, setSubmissionState] = useState<SubmissionState>("idle");
   const formRef = useRef<HTMLFormElement>(null);
   const pendingTracking = useRef<{ productInterest: string; country: string } | null>(null);
-  const waHref = buildWhatsAppHref(COMPANY.whatsappNumber);
 
   const submitProductionBrief = trpc.productionBrief.submit.useMutation({
     onMutate: () => setSubmissionState("sending"),
     onSuccess: (result) => {
       setSubmissionState(result.alertStatus === "sent" ? "sent" : "saved");
       if (pendingTracking.current) {
-        trackRfqSubmit(pendingTracking.current.productInterest, pendingTracking.current.country);
+        trackRfqSubmit(pendingTracking.current.productInterest, pendingTracking.current.country, "qualified_brief");
         pendingTracking.current = null;
       }
       formRef.current?.reset();
@@ -99,8 +121,207 @@ export default function RequestAQuote() {
       preferredPaymentApproach: payment,
       referrerName: String(values.get("referrer_name") || "").trim() || undefined,
       brief,
+      leadType: "qualified_brief",
     });
   };
+
+  return (
+    <div className="rfq-form-area">
+      <h2>Commission a Specification Make</h2>
+
+      <form ref={formRef} className="brief-form" onSubmit={handleSubmit}>
+        <div className="honeypot-field" aria-hidden="true">
+          <label>
+            Website
+            <input name="_website" type="text" tabIndex={-1} autoComplete="off" />
+          </label>
+        </div>
+
+        <div className="rfq-row">
+          <label>
+            <span>Your name *</span>
+            <input
+              name="name"
+              type="text"
+              autoComplete="name"
+              minLength={2}
+              maxLength={180}
+              required
+              placeholder="Name"
+            />
+          </label>
+          <label>
+            <span>Work email *</span>
+            <input
+              name="email"
+              type="email"
+              autoComplete="email"
+              inputMode="email"
+              autoCapitalize="none"
+              spellCheck={false}
+              maxLength={320}
+              required
+              placeholder="name@company.com"
+            />
+          </label>
+        </div>
+
+        <div className="rfq-row">
+          <label>
+            <span>Company / workshop</span>
+            <input
+              name="company"
+              type="text"
+              autoComplete="organization"
+              maxLength={180}
+              placeholder="Company name"
+            />
+          </label>
+          <label>
+            <span>Country *</span>
+            <select name="country" autoComplete="country" required defaultValue="">
+              <option value="" disabled>Select country…</option>
+              <optgroup label="Key markets">
+                <option value="US">United States</option>
+                <option value="CA">Canada</option>
+                <option value="FR">France</option>
+                <option value="IT">Italy</option>
+                <option value="GB">United Kingdom</option>
+                <option value="AU">Australia</option>
+                <option value="DE">Germany</option>
+                <option value="AE">United Arab Emirates</option>
+                <option value="IN">India</option>
+              </optgroup>
+              <optgroup label="Other">
+                <option value="OTHER">Other</option>
+              </optgroup>
+            </select>
+          </label>
+        </div>
+
+        <label>
+          <span>Product interest *</span>
+          <select name="product_interest" required defaultValue="">
+            <option value="" disabled>Select product type…</option>
+            <option>Loose diamonds (standard)</option>
+            <option>Calibrated diamond layouts</option>
+            <option>Matched pairs</option>
+            <option>Custom-cut (to exact specification)</option>
+            <option>Melee diamonds</option>
+            <option>Other / not sure</option>
+          </select>
+        </label>
+
+        <label>
+          <span>Carat weight / quantity</span>
+          <input
+            name="carat_quantity"
+            type="text"
+            maxLength={300}
+            placeholder="e.g. 1.00 ct round, ×20 pieces — or describe the parcel"
+          />
+        </label>
+
+        <div className="rfq-row">
+          <label>
+            <span>Certification requirement</span>
+            <select name="certification_req" defaultValue="IGI required">
+              <option>IGI required</option>
+              <option>IGI preferred</option>
+              <option>No preference</option>
+            </select>
+          </label>
+          <label>
+            <span>Timeline</span>
+            <select name="timeline" defaultValue="1–2 weeks">
+              <option>Immediate (in stock / urgent)</option>
+              <option>1–2 weeks</option>
+              <option>1 month</option>
+              <option>Flexible</option>
+            </select>
+          </label>
+        </div>
+
+        <div className="rfq-row">
+          <label>
+            <span>Years trading</span>
+            <select name="years_trading" defaultValue="2–5">
+              <option>Under 2</option>
+              <option>2–5</option>
+              <option>5–10</option>
+              <option>10+</option>
+            </select>
+          </label>
+          <label>
+            <span>Trade references available on request</span>
+            <select name="trade_references" defaultValue="Yes">
+              <option>Yes</option>
+              <option>No</option>
+            </select>
+          </label>
+        </div>
+
+        <label>
+          <span>Preferred payment approach for a first order</span>
+          <select name="preferred_payment_approach" defaultValue="Open to discussion">
+            <option>Prepaid on proforma</option>
+            <option>Agreed trade terms subject to credit check</option>
+            <option>Open to discussion</option>
+          </select>
+        </label>
+
+        <label>
+          <span>Introduced by a trade contact? <em>(optional)</em></span>
+          <input
+            name="referrer_name"
+            type="text"
+            maxLength={180}
+            placeholder="Name of the introducing contact"
+          />
+        </label>
+
+        <p className="form-qualification-note">
+          These details are used only to assess the right account approach for your enquiry.
+        </p>
+
+        <label>
+          <span>Message — specification, shape, dimensions, or any context useful to the make</span>
+          <textarea
+            name="message"
+            maxLength={4500}
+            rows={5}
+            placeholder="Shape, dimensions, ratios, finish, colour range, clarity range, or anything already decided at your bench."
+          />
+        </label>
+
+        <div className="form-submit-row">
+          <button
+            className="button button-signal"
+            type="submit"
+            disabled={submitProductionBrief.isPending}
+          >
+            {submitProductionBrief.isPending
+              ? "Sending enquiry…"
+              : <>Commission a Specification Make <ArrowUpRight size={18} /></>}
+          </button>
+          <p>We use this information only to understand the make you require.</p>
+        </div>
+
+        <ConfirmationMessage state={submissionState} onReset={() => setSubmissionState("idle")} />
+      </form>
+
+      <div className="rfq-secondary-link">
+        <button className="inline-link" type="button" onClick={onSwitchToFast}>
+          ← Back to quick price enquiry
+        </button>
+      </div>
+    </div>
+  );
+}
+
+export default function RequestAQuote() {
+  const [view, setView] = useState<"fast_rfq" | "qualified_brief">("fast_rfq");
+  const waHref = buildWhatsAppHref(COMPANY.whatsappNumber);
 
   return (
     <SpecialtyPageShell>
@@ -167,204 +388,13 @@ export default function RequestAQuote() {
           </div>
         </aside>
 
-        <div className="rfq-form-area">
-          <h2>Production enquiry</h2>
-
-          <form ref={formRef} className="brief-form" onSubmit={handleSubmit}>
-            <div className="honeypot-field" aria-hidden="true">
-              <label>
-                Website
-                <input name="_website" type="text" tabIndex={-1} autoComplete="off" />
-              </label>
-            </div>
-
-            <div className="rfq-row">
-              <label>
-                <span>Your name *</span>
-                <input
-                  name="name"
-                  type="text"
-                  autoComplete="name"
-                  minLength={2}
-                  maxLength={180}
-                  required
-                  placeholder="Name"
-                />
-              </label>
-              <label>
-                <span>Work email *</span>
-                <input
-                  name="email"
-                  type="email"
-                  autoComplete="email"
-                  inputMode="email"
-                  autoCapitalize="none"
-                  spellCheck={false}
-                  maxLength={320}
-                  required
-                  placeholder="name@company.com"
-                />
-              </label>
-            </div>
-
-            <div className="rfq-row">
-              <label>
-                <span>Company / workshop</span>
-                <input
-                  name="company"
-                  type="text"
-                  autoComplete="organization"
-                  maxLength={180}
-                  placeholder="Company name"
-                />
-              </label>
-              <label>
-                <span>Country *</span>
-                <select name="country" autoComplete="country" required defaultValue="">
-                  <option value="" disabled>Select country…</option>
-                  <optgroup label="Key markets">
-                    <option value="US">United States</option>
-                    <option value="CA">Canada</option>
-                    <option value="FR">France</option>
-                    <option value="IT">Italy</option>
-                    <option value="GB">United Kingdom</option>
-                    <option value="AU">Australia</option>
-                    <option value="DE">Germany</option>
-                    <option value="AE">United Arab Emirates</option>
-                    <option value="IN">India</option>
-                  </optgroup>
-                  <optgroup label="Other">
-                    <option value="OTHER">Other</option>
-                  </optgroup>
-                </select>
-              </label>
-            </div>
-
-            <label>
-              <span>Product interest *</span>
-              <select name="product_interest" required defaultValue="">
-                <option value="" disabled>Select product type…</option>
-                <option>Loose diamonds (standard)</option>
-                <option>Calibrated diamond layouts</option>
-                <option>Matched pairs</option>
-                <option>Custom-cut (to exact specification)</option>
-                <option>Melee diamonds</option>
-                <option>Other / not sure</option>
-              </select>
-            </label>
-
-            <label>
-              <span>Carat weight / quantity</span>
-              <input
-                name="carat_quantity"
-                type="text"
-                maxLength={300}
-                placeholder="e.g. 1.00 ct round, ×20 pieces — or describe the parcel"
-              />
-            </label>
-
-            <div className="rfq-row">
-              <label>
-                <span>Certification requirement</span>
-                <select name="certification_req" defaultValue="IGI required">
-                  <option>IGI required</option>
-                  <option>IGI preferred</option>
-                  <option>No preference</option>
-                </select>
-              </label>
-              <label>
-                <span>Timeline</span>
-                <select name="timeline" defaultValue="1–2 weeks">
-                  <option>Immediate (in stock / urgent)</option>
-                  <option>1–2 weeks</option>
-                  <option>1 month</option>
-                  <option>Flexible</option>
-                </select>
-              </label>
-            </div>
-
-            <div className="rfq-row">
-              <label>
-                <span>Years trading</span>
-                <select name="years_trading" defaultValue="2–5">
-                  <option>Under 2</option>
-                  <option>2–5</option>
-                  <option>5–10</option>
-                  <option>10+</option>
-                </select>
-              </label>
-              <label>
-                <span>Trade references available on request</span>
-                <select name="trade_references" defaultValue="Yes">
-                  <option>Yes</option>
-                  <option>No</option>
-                </select>
-              </label>
-            </div>
-
-            <label>
-              <span>Preferred payment approach for a first order</span>
-              <select name="preferred_payment_approach" defaultValue="Open to discussion">
-                <option>Prepaid on proforma</option>
-                <option>Agreed trade terms subject to credit check</option>
-                <option>Open to discussion</option>
-              </select>
-            </label>
-
-            <label>
-              <span>Introduced by a trade contact? <em>(optional)</em></span>
-              <input
-                name="referrer_name"
-                type="text"
-                maxLength={180}
-                placeholder="Name of the introducing contact"
-              />
-            </label>
-
-            <p className="form-qualification-note">
-              These details are used only to assess the right account approach for your enquiry.
-            </p>
-
-            <label>
-              <span>Message — specification, shape, dimensions, or any context useful to the make</span>
-              <textarea
-                name="message"
-                maxLength={4500}
-                rows={5}
-                placeholder="Shape, dimensions, ratios, finish, colour range, clarity range, or anything already decided at your bench."
-              />
-            </label>
-
-            <div className="form-submit-row">
-              <button
-                className="button button-signal"
-                type="submit"
-                disabled={submitProductionBrief.isPending}
-              >
-                {submitProductionBrief.isPending
-                  ? "Sending enquiry…"
-                  : <>Send enquiry <ArrowUpRight size={18} /></>}
-              </button>
-              <p>We use this information only to understand the make you require.</p>
-            </div>
-
-            {submissionState !== "idle" && (
-              <p
-                className={`form-confirmation form-confirmation-${submissionState}`}
-                role={submissionState === "error" ? "alert" : "status"}
-                aria-live="polite"
-              >
-                {submissionState === "sending"
-                  ? "Recording your enquiry…"
-                  : submissionState === "sent"
-                  ? "Thank you. Your enquiry has been recorded and sent to the Alvora team. We will respond with production detail and pricing."
-                  : submissionState === "saved"
-                  ? "Thank you. Your enquiry has been safely recorded for the Alvora team. We will respond shortly."
-                  : "Your enquiry could not be recorded. Please try again, or contact Alvora directly on WhatsApp."}
-              </p>
-            )}
-          </form>
-        </div>
+        {view === "fast_rfq" ? (
+          <div className="rfq-form-area">
+            <FastRfqForm onSwitchToQualified={() => setView("qualified_brief")} />
+          </div>
+        ) : (
+          <QualifiedBriefForm onSwitchToFast={() => setView("fast_rfq")} />
+        )}
       </div>
     </SpecialtyPageShell>
   );

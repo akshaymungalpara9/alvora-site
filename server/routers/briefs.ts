@@ -21,6 +21,17 @@ const publicBriefInput = z.object({
   preferredPaymentApproach: z.enum(["Prepaid on proforma", "Agreed trade terms subject to credit check", "Open to discussion"]),
   referrerName: z.string().trim().max(180).optional().transform((value) => value || undefined),
   brief: z.string().trim().min(10).max(5000),
+  leadType: z.enum(["fast_rfq", "qualified_brief"]).default("qualified_brief"),
+});
+
+const fastRfqInput = z.object({
+  market: z.enum(["GLOBAL", "FR", "IT", "US", "CA"]).default("GLOBAL"),
+  website: z.string().trim().max(200).optional().default(""),
+  contactName: z.string().trim().min(2).max(180),
+  email: z.string().trim().email().max(320).transform((value) => value.toLowerCase()),
+  company: z.string().trim().max(180).optional().transform((value) => value || undefined),
+  phone: z.string().trim().min(2).max(80),
+  requirement: z.string().trim().min(2).max(5000),
 });
 const marketCode = z.enum(["GLOBAL", "FR", "IT", "US", "CA"]);
 
@@ -69,6 +80,28 @@ export const publicProductionBriefRouter = router({
     const { website, ...briefInput } = input;
     if (website.trim()) throw new TRPCError({ code: "BAD_REQUEST", message: "Invalid public submission" });
     const saved = await createProductionBrief(briefInput);
+    if (!saved) throw new TRPCError({ code: "INTERNAL_SERVER_ERROR", message: "Production brief could not be saved" });
+
+    const [alert] = await Promise.all([
+      sendSavedProductionBriefAlert(saved),
+      sendProductionBriefAcknowledgement(saved),
+    ]);
+    return alert;
+  }),
+
+  submitFastRfq: publicProcedure.input(fastRfqInput).mutation(async ({ input }) => {
+    const { website, phone, requirement, ...rest } = input;
+    if (website.trim()) throw new TRPCError({ code: "BAD_REQUEST", message: "Invalid public submission" });
+    const brief = `Phone / WhatsApp: ${phone}\n\nRequirement:\n${requirement}`;
+    const saved = await createProductionBrief({
+      ...rest,
+      requestType: "Fast RFQ",
+      yearsTrading: "N/A",
+      tradeReferencesAvailable: "N/A",
+      preferredPaymentApproach: "N/A",
+      brief,
+      leadType: "fast_rfq",
+    });
     if (!saved) throw new TRPCError({ code: "INTERNAL_SERVER_ERROR", message: "Production brief could not be saved" });
 
     const [alert] = await Promise.all([

@@ -33,12 +33,14 @@ const input = {
   tradeReferencesAvailable: "Yes" as const,
   preferredPaymentApproach: "Agreed trade terms subject to credit check" as const,
   brief: "Round calibrated parcel, 1.20–1.35 ct, F–G, VS1–VS2, required for an October setting programme.",
+  leadType: "qualified_brief" as const,
 };
 
 const savedBrief = {
   id: 31,
   ...input,
   company: input.company,
+  leadType: "qualified_brief" as const,
   alertStatus: "pending" as const,
   alertError: null,
   alertMessageId: null,
@@ -256,5 +258,61 @@ describe("public production-brief workflow", () => {
     const exported = await adminCaller.exportCsv();
     expect(exported.content).toContain("\"'=HYPERLINK(\"\"https://unsafe.example\"\",\"\"open\"\")\"");
     expect(exported.content).toContain("\"' +SUM(1,1)\"");
+  });
+
+  it("fast RFQ succeeds with only name, email, phone, and requirement — no trade fields required", async () => {
+    const fastSaved = {
+      ...savedBrief,
+      leadType: "fast_rfq" as const,
+      requestType: "Fast RFQ",
+      yearsTrading: "N/A",
+      tradeReferencesAvailable: "N/A",
+      preferredPaymentApproach: "N/A",
+      brief: "Phone / WhatsApp: +1 212 555 0100\n\nRequirement:\n1.00 ct round, F, VS1.",
+    };
+    mocks.createProductionBrief.mockResolvedValueOnce(fastSaved);
+    mocks.sendTransactionalEmail.mockResolvedValueOnce({ id: "resend-fast-rfq-1" });
+    const caller = publicProductionBriefRouter.createCaller({} as any);
+
+    const result = await caller.submitFastRfq({
+      contactName: "Morgan Lee",
+      email: "morgan@studio.example",
+      phone: "+1 212 555 0100",
+      requirement: "1.00 ct round, F, VS1.",
+    });
+
+    expect(result).toEqual({ briefId: 31, alertStatus: "sent" });
+    expect(mocks.createProductionBrief).toHaveBeenCalledWith(expect.objectContaining({
+      requestType: "Fast RFQ",
+      contactName: "Morgan Lee",
+      email: "morgan@studio.example",
+      yearsTrading: "N/A",
+      tradeReferencesAvailable: "N/A",
+      preferredPaymentApproach: "N/A",
+      leadType: "fast_rfq",
+    }));
+    const briefArg: string = mocks.createProductionBrief.mock.calls[0][0].brief;
+    expect(briefArg).toContain("+1 212 555 0100");
+    expect(briefArg).toContain("1.00 ct round, F, VS1.");
+  });
+
+  it("fast RFQ rejects a filled honeypot", async () => {
+    const caller = publicProductionBriefRouter.createCaller({} as any);
+    await expect(caller.submitFastRfq({
+      contactName: "Bot",
+      email: "bot@example.com",
+      phone: "1234",
+      requirement: "spam",
+      website: "https://bot.example",
+    })).rejects.toMatchObject({ code: "BAD_REQUEST" });
+    expect(mocks.createProductionBrief).not.toHaveBeenCalled();
+  });
+
+  it("qualified brief still requires yearsTrading, tradeReferencesAvailable, and preferredPaymentApproach", async () => {
+    const caller = publicProductionBriefRouter.createCaller({} as any);
+    // @ts-expect-error — intentionally omitting required fields to verify server-side rejection
+    await expect(caller.submit({ contactName: "Test", email: "t@example.com", brief: "A spec brief long enough." }))
+      .rejects.toMatchObject({ code: "BAD_REQUEST" });
+    expect(mocks.createProductionBrief).not.toHaveBeenCalled();
   });
 });

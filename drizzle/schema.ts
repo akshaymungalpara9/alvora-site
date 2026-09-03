@@ -233,6 +233,7 @@ export const productionBriefs = mysqlTable(
     acknowledgementStatus: mysqlEnum("acknowledgementStatus", ["pending", "sent", "failed"]).default("pending").notNull(),
     acknowledgementMessageId: varchar("acknowledgementMessageId", { length: 160 }),
     acknowledgementError: text("acknowledgementError"),
+    leadType: mysqlEnum("leadType", ["fast_rfq", "qualified_brief"]).default("qualified_brief").notNull(),
     qualifierFollowUpStatus: mysqlEnum("qualifierFollowUpStatus", ["pending", "processing", "sent", "paused", "failed"]).default("pending").notNull(),
     qualifierFollowUpMessageId: varchar("qualifierFollowUpMessageId", { length: 160 }),
     qualifierFollowUpError: text("qualifierFollowUpError"),
