@@ -101,30 +101,34 @@ const candidates = [
 
 const executablePath = candidates.find((p) => fs.existsSync(p));
 
-// ── 3. Fallback: use committed snapshots when Chromium is unavailable ─────────
+// ── 3. Committed-snapshot fallback ────────────────────────────────────────────
+// Called from every early-exit path (binary not found, launch failure, etc.)
+// so the server always gets prerendered content even when no browser is available.
 
-if (!executablePath) {
+function useCommittedFallback(reason) {
   const committedManifest = path.join(committedDir, "manifest.json");
   if (fs.existsSync(committedManifest)) {
     console.log(
-      "[prerender] Chromium not found — copying committed snapshots from prerendered/ to dist/prerendered/.\n" +
-      "  Run `pnpm prerender` locally and commit prerendered/ to refresh them."
+      `[prerender] ${reason} — copying committed snapshots from prerendered/ to dist/prerendered/.\n` +
+      "  Run `pnpm prerender` locally and commit prerendered/ to keep them current."
     );
     fs.mkdirSync(outDir, { recursive: true });
-    const files = fs.readdirSync(committedDir);
-    for (const file of files) {
+    for (const file of fs.readdirSync(committedDir)) {
       fs.copyFileSync(path.join(committedDir, file), path.join(outDir, file));
     }
     const manifest = JSON.parse(fs.readFileSync(committedManifest, "utf-8"));
     console.log(`[prerender] Copied ${Object.keys(manifest).length} committed snapshot(s).`);
   } else {
     console.warn(
-      "[prerender] Chromium not found and no committed prerendered/ folder exists.\n" +
+      `[prerender] ${reason} and no committed prerendered/ folder exists.\n` +
       "  Routes will be served with SEO-injected head tags but no prerendered body.\n" +
-      "  Fix: run `pnpm prerender` locally, commit the prerendered/ folder, and redeploy.\n" +
-      "  Tried: " + candidates.join(", ")
+      "  Fix: run `pnpm prerender` locally, commit the prerendered/ folder, and redeploy."
     );
   }
+}
+
+if (!executablePath) {
+  useCommittedFallback("Chromium binary not found");
   staticServer.close();
   process.exit(0);
 }
@@ -140,7 +144,8 @@ try {
     args: ["--no-sandbox", "--disable-dev-shm-usage"],
   });
 } catch (err) {
-  console.warn(`[prerender] Browser launch failed: ${err.message}. Skipping prerender.`);
+  console.warn(`[prerender] Browser launch failed: ${err.message}`);
+  useCommittedFallback("Browser launch failed");
   staticServer.close();
   process.exit(0);
 }
