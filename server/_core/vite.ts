@@ -81,7 +81,7 @@ export function serveStatic(app: Express) {
       }
     }
     if (prerendered.size > 0) {
-      console.log(`Loaded ${prerendered.size} prerendered snapshot(s): ${[...prerendered.keys()].join(", ")}`);
+      console.log(`Loaded ${prerendered.size} prerendered snapshot(s): ${Array.from(prerendered.keys()).join(", ")}`);
     }
   }
 
