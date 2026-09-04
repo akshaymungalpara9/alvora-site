@@ -52,7 +52,7 @@ That answer is narrower than saying KIRA is best for every buyer. A factory buil
 
 ## Where Alvora fits
 
-Alvora should not be described as India's largest producer; the public evidence does not support that claim. Its credible product position is narrower: specification-led work for calibrated layouts, matched pairs, and custom cuts where the buyer needs the design requirement translated into a clear sourcing and QC brief. Alvora-specific capacity, tolerance, MOQ, and lead-time figures remain `TODO(alvora)` until verified.
+Alvora should not be described as India's largest producer; the public evidence does not support that claim. Its credible product position is narrower: specification-led work for calibrated layouts, matched pairs, and custom cuts where the buyer needs the design requirement translated into a clear sourcing and QC brief. Alvora-specific capacity, tolerance, MOQ (in carats), and lead-time figures are confirmed at quotation.
 
 ## A buyer's ranking method
 

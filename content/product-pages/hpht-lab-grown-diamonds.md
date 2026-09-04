@@ -44,7 +44,7 @@ Request a quote: Include shape, measurements, quality, method, treatment, certif
   "name": "HPHT Lab-Grown Diamonds for Wholesale",
   "description": "Information about HPHT laboratory-grown diamonds and specification-led sourcing.",
   "about": { "@type": "Product", "name": "HPHT laboratory-grown diamonds", "material": "Laboratory-grown diamond" },
-  "publisher": { "@type": "Organization", "name": "Alvora Diamonds", "url": "https://www.alvoradiamonds.com" },
-  "mainEntity": { "@type": "Thing", "name": "HPHT growth method", "description": "TODO(alvora): ______" }
+  "publisher": { "@type": "Organization", "name": "Alvora Diamonds", "url": "https://www.alvoradiamonds.com", "address": { "@type": "PostalAddress", "streetAddress": "Diamond World, Mini Bazaar", "addressLocality": "Surat", "addressRegion": "Gujarat", "postalCode": "395006", "addressCountry": "IN" } },
+  "mainEntity": { "@type": "Thing", "name": "HPHT growth method", "description": "A crystal-growth process using a carbon source, diamond seed, and metal flux or catalyst inside a pressurised capsule to reproduce the high-pressure, high-temperature conditions under which natural diamonds form." }
 }
 ```

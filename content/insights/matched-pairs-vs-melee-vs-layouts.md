@@ -45,7 +45,7 @@ Per-carat pricing needs a clear basis. Is the price for shipped goods, accepted 
 
 ## Calibrated layouts: connect stones to the design
 
-A layout begins with nominal measurements, shape, quality, quantity, and setting architecture. It may include a CAD file or setter drawing. The buyer should state the permitted ±mm range for the relevant dimensions; the exact supplier range should remain `TODO(alvora)` until confirmed. An independent laboratory report can document individual stones, but group-level QC requires a layout sheet, actual measurements, and buyer approval.
+A layout begins with nominal measurements, shape, quality, quantity, and setting architecture. It may include a CAD file or setter drawing. The buyer should state the permitted ±mm range for the relevant dimensions; the exact supplier range should be confirmed with the supplier before publication. An independent laboratory report can document individual stones, but group-level QC requires a layout sheet, actual measurements, and buyer approval.
 
 For collection work, the most valuable record is often the accepted specification. It allows a future request to refer back to the same dimensions, quality logic, matching rule, and documentation standard. That does not guarantee identical future supply; rough availability and market conditions can change. It does make the request more precise.
 

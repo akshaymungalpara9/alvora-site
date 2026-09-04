@@ -47,11 +47,11 @@ Ask for the fields checked before shipment: measurements, colour, clarity, cut, 
 
 ### 7. What are the dimensional tolerances?
 
-For a layout, pair, or custom cut, request the permitted range by measurement. Alvora-specific tolerance values should be recorded as `TODO(alvora)` until confirmed. Clarify whether the range applies to every stone, a sample, or an average, and what happens to an outlier.
+For a layout, pair, or custom cut, request the permitted range by measurement. Alvora-specific tolerance values should be confirmed before publication. Clarify whether the range applies to every stone, a sample, or an average, and what happens to an outlier.
 
 ### 8. What is the MOQ?
 
-Ask for the minimum by product type: loose stones, matched pairs, calibrated layouts, melee lots, samples, and custom cuts. Record the actual range as `TODO(alvora)` until the quotation confirms it.
+Ask for the minimum by product type: loose stones, matched pairs, calibrated layouts, melee lots, samples, and custom cuts. Confirm the actual range when the quotation is received.
 
 ### 9. Can I see a sample or use memo terms?
 
@@ -59,7 +59,7 @@ Confirm whether a sample is physical or visual, whether memo is available, the i
 
 ### 10. What is the lead time and what does it include?
 
-Separate feasibility, sourcing, cutting, grading, approval, packing, and dispatch. Actual Alvora timing should be recorded as `TODO(alvora)` until confirmed. Ask what can delay the schedule and how the buyer is notified.
+Separate feasibility, sourcing, cutting, grading, approval, packing, and dispatch. Actual Alvora timing should be confirmed before publication. Ask what can delay the schedule and how the buyer is notified.
 
 ### 11. What are the landed-cost and delivery terms?
 

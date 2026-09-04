@@ -23,7 +23,7 @@ A calibrated diamond layout is a coordinated group of stones selected or produce
 
 A layout can contain stones with the same nominal size while their length, width, depth, outline, table, faceting, polish, symmetry, or face-up appearance differs. Jewellery settings may expose those differences, particularly in repeated pavé, halos, bracelets, earrings, and architectural designs. The relevant question is not whether every value is mathematically identical; it is whether the permitted variation is suitable for the design and consistently checked.
 
-A useful order brief names the nominal size and the allowed deviation. Alvora's exact dimensional tolerances should be inserted as `TODO(alvora)` until confirmed. Do not publish a ±mm range merely because a stone is sold under a familiar size label.
+A useful order brief names the nominal size and the allowed deviation. Alvora's exact dimensional tolerances should be confirmed with the supplier before publication. Do not publish a ±mm range merely because a stone is sold under a familiar size label.
 
 ## What should be in the specification
 

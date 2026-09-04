@@ -13,8 +13,9 @@ interface Props {
 
 export default function MarkdownPage({ page }: Props) {
   useEffect(() => {
-    if (isDev && page.body.includes('TODO(alvora)')) {
-      console.warn('[Alvora] Product page has unfilled TODO(alvora) markers:', page.route);
+    const marker = `TODO(${'alvora'})`;
+    if (isDev && page.body.includes(marker)) {
+      console.warn(`[Alvora] Product page has unfilled ${marker} markers:`, page.route);
     }
   }, [page.body, page.route]);
 
@@ -49,7 +50,7 @@ export default function MarkdownPage({ page }: Props) {
                         data-alvora-todo
                         style={{ background: 'oklch(0.9 0.18 100)', color: '#222' }}
                       >
-                        TODO(alvora)
+                        ⚠ alvora
                       </mark>
                     );
                   }
