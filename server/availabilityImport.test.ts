@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { availabilityImportHeaders, validateAvailabilityImportCsv } from "./availabilityImport";
+import { availabilityImportHeaders, validateAvailabilityImportCsv, checkSnapshotSizeGuard } from "./availabilityImport";
 
 const header = availabilityImportHeaders.join(",");
 const validRow = "ALV-001,White,F,Round,1.25,1.00–1.99ct,VS2,IDEAL,EX,EX,6.90 x 6.92 x 4.25,61.5,58,1.00,IGI,819696674,https://www.igi.org/API-IGI/report-diagnosis.php?r=819696674,";
@@ -47,5 +47,36 @@ describe("current production catalog import validation", () => {
     const result = validateAvailabilityImportCsv("sku,shape,price_usd\nALV-001,Round,1250\n");
     expect(result.valid).toBe(false);
     expect(result.rejections[0]).toMatchObject({ sku: "(file)", reason: expect.stringContaining("Header must exactly match") });
+  });
+});
+
+describe("checkSnapshotSizeGuard", () => {
+  it("allows activation when incoming count is at least 50% of the active count", () => {
+    expect(() => checkSnapshotSizeGuard(1000, 1839, false)).not.toThrow();
+    expect(() => checkSnapshotSizeGuard(1839, 1839, false)).not.toThrow();
+    expect(() => checkSnapshotSizeGuard(920, 1839, false)).not.toThrow(); // exactly ~50%
+  });
+
+  it("blocks activation when incoming count is below 50% of the active count", () => {
+    expect(() => checkSnapshotSizeGuard(580, 1839, false)).toThrow(
+      /BLOCKED.*580 rows.*1839 rows.*1259 rows.*--confirm-replacement/,
+    );
+  });
+
+  it("allows activation below the 50% threshold when --confirm-replacement is passed", () => {
+    expect(() => checkSnapshotSizeGuard(580, 1839, true)).not.toThrow();
+  });
+
+  it("allows activation when there is no active snapshot (first import)", () => {
+    expect(() => checkSnapshotSizeGuard(580, 0, false)).not.toThrow();
+  });
+
+  it("error message names the row counts and the shortfall exactly", () => {
+    let message = "";
+    try { checkSnapshotSizeGuard(580, 1839, false); } catch (e) { message = (e as Error).message; }
+    expect(message).toContain("580 rows");
+    expect(message).toContain("1839 rows");
+    expect(message).toContain("1259 rows");
+    expect(message).toContain("--confirm-replacement");
   });
 });
