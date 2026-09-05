@@ -144,3 +144,18 @@ export function validateAvailabilityImportCsv(source: string) {
   });
   return { valid: rejections.length === 0, rowCount: dataRows.length, records, rejections };
 }
+
+/** Refuses activation when the incoming snapshot is less than 50% the size of the current active
+ *  snapshot, unless the caller explicitly passes confirmReplacement. Catches accidental partial
+ *  imports (a single-supplier file activated as a full replacement) before they reach the DB. */
+export function checkSnapshotSizeGuard(incomingRowCount: number, activeRowCount: number, confirmReplacement: boolean): void {
+  if (activeRowCount === 0) return;
+  const ratio = incomingRowCount / activeRowCount;
+  if (ratio < 0.5 && !confirmReplacement) {
+    throw new Error(
+      `BLOCKED: incoming snapshot has ${incomingRowCount} rows but the active core snapshot has ${activeRowCount} rows — ` +
+      `activating would remove ${activeRowCount - incomingRowCount} rows from the live catalog. ` +
+      `Pass --confirm-replacement to override.`,
+    );
+  }
+}

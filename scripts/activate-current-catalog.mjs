@@ -1,15 +1,17 @@
 import { readFileSync } from "node:fs";
 import { pathToFileURL } from "node:url";
-import { validateAvailabilityImportCsv } from "../server/availabilityImport.ts";
-import { createAvailabilityImport } from "../server/db.ts";
+import { validateAvailabilityImportCsv, checkSnapshotSizeGuard } from "../server/availabilityImport.ts";
+import { createAvailabilityImport, getActiveAvailabilityImport } from "../server/db.ts";
 
-export async function activateCurrentCatalog({ path, adminUserId }) {
+export async function activateCurrentCatalog({ path, adminUserId, confirmReplacement = false }) {
   const source = readFileSync(path, "utf8");
   const result = validateAvailabilityImportCsv(source);
   if (!result.valid) {
     const detail = result.rejections.map((row) => `line ${row.row} (${row.sku}): ${row.reason}`).join("\n");
     throw new Error(`Catalog activation blocked by validation:\n${detail}`);
   }
+  const active = await getActiveAvailabilityImport("core");
+  checkSnapshotSizeGuard(result.rowCount, active?.rowCount ?? 0, confirmReplacement);
   const imported = await createAvailabilityImport({
     sourceFilename: path.split("/").pop() || "current-production.csv",
     importedByUserId: adminUserId,
@@ -19,12 +21,14 @@ export async function activateCurrentCatalog({ path, adminUserId }) {
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
-  const [path, userId] = process.argv.slice(2);
+  const args = process.argv.slice(2).filter((arg) => arg !== "--confirm-replacement");
+  const confirmReplacement = process.argv.includes("--confirm-replacement");
+  const [path, userId] = args;
   if (!path || !userId) {
-    console.error("Usage: pnpm exec tsx scripts/activate-current-catalog.mjs /absolute/path/to/current_production.csv <admin_user_id>");
+    console.error("Usage: pnpm exec tsx scripts/activate-current-catalog.mjs /absolute/path/to/current_production.csv <admin_user_id> [--confirm-replacement]");
     process.exitCode = 64;
   } else {
-    activateCurrentCatalog({ path, adminUserId: Number(userId) })
+    activateCurrentCatalog({ path, adminUserId: Number(userId), confirmReplacement })
       .then((result) => console.log(`Activated import ${result.imported?.id}: ${result.rowCount} rows (${result.fancyRowCount} Fancy Colour, ${result.whiteRowCount} White).`))
       .catch((error) => { console.error(error instanceof Error ? error.message : error); process.exitCode = 1; });
   }
