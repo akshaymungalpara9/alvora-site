@@ -1,0 +1,51 @@
+rank,company,city_state,buyer_type,buyer_fit_score,lab_grown_evidence,volume_potential,status_next_step
+1,Moi Moi Fine Jewellery,Sydney NSW,"Lab-grown brand, custom maker",91,Verified,Medium–High,Contact Managing Directors
+2,Novita Diamonds,National; Sydney HQ route,Lab-grown specialist,90,Verified,High,"Contact founder, then sourcing lead"
+3,Temple & Grace,Sydney / national,Lab-grown wholesaler and maker,88,Verified,High,Ask for production/sourcing lead
+4,Palloys,Sydney / national,B2B manufacturer and wholesaler,87,Verified finished LGD; supply unconfirmed,High,Approach inventory/commercial lead
+5,Fairfax & Roberts,Sydney NSW,Wholesale diamond business,85,Verified,High,Pitch second-source/custom supply
+6,Diamond Story,Melbourne VIC,Diamond wholesaler and custom maker,84,Verified,High,Send sample specification sheet
+7,Australian Diamond Importers,Sydney NSW,Diamond wholesaler/importer,81,Verified,Medium–High,Offer trial parcel
+8,GS Diamonds,National,Lab-grown specialist,79,Verified,Medium–High,Pitch matched/calibrated parcels
+9,Ellendale Diamonds Australia,Perth WA,Trade diamond supplier/stockist,76,Strong inference,Medium,Qualify lab-grown range first
+10,Golden Mile Jewellery Manufacturers,Melbourne VIC,Manufacturer,75,Unconfirmed,Medium,Pilot diamond-set product use
+11,JC Jewels,Melbourne VIC,Diamond wholesaler/distributor,74,Strong inference,High,Craig Miller is public CEO route; qualify current LGD strategy
+12,World Shiner,Melbourne VIC,Diamond wholesaler,73,Strong inference,High,Maulin Shah public director route; test appetite
+13,Saphira Diamonds,Melbourne VIC,Diamond retailer/brand,70,Unconfirmed,Medium,Adriana Traviati public founder/CEO route
+14,Michael Hill,Brisbane QLD / national,Large jewellery chain,69,Verified LGD product,Very High,Central buying is likely; use corporate route
+15,Shiels,Adelaide SA / national,Large jewellery chain,67,Verified LGD brand/range,High,Approach merchandise/procurement route
+16,Secrets by Amaar,Sydney / online,Lab-grown jewellery brand,66,Verified product,Medium,Founder/product route to be verified
+17,The Diamond Port,Sydney / trade event route,Diamond supplier,65,Trade directory verified; product unconfirmed,Medium–High,Qualify via IJF route
+18,J.S. Landau Diamonds,Sydney / trade event route,Diamond wholesaler,64,Trade directory verified,Medium–High,Qualify wholesale and LGD appetite
+19,Prana Diamonds,Australia / trade event route,Diamond company,63,Trade directory verified,Medium,Qualify product and buying role
+20,DJ Diamond Designs,Australia / trade event route,Diamond jewellery/design company,62,Trade directory verified,Medium,Ask about repeat production
+21,RR Diamonds Australia,Australia / trade event route,Diamond supplier,61,Trade directory verified,Medium,Qualify wholesale activity
+22,Blumo​on Diamond,Australia / trade event route,Diamond supplier,60,Trade directory verified,Medium,Qualify lab-grown and B2B offer
+23,Diamond Sensation,Australia / trade event route,Diamond supplier,60,Trade directory verified,Medium,Qualify buyer and product mix
+24,Classic Grown Diamonds,Australia / IJF route,Lab-grown diamond business,60,Trade directory verified,Medium,Strong category fit; identify owner/buyer
+25,Ausgem Labs,Australia / IJF route,Lab-grown/gemstone business,59,Trade directory verified,Medium,Identify Australian buying entity
+26,Rapid Casting,Australia / IJF route,Jewellery casting/manufacturing,58,Trade directory verified,Medium,Test stone-setting supply need
+27,Pure Casting,Australia / AJF route,Jewellery casting/manufacturing,57,Trade directory verified,Medium,Qualify diamond-set production
+28,Worth & Douglas,Australia,Jewellery manufacturer/wholesaler,56,Trade directory verified,Medium,Qualify diamond product share
+29,TWM Consolidated,Australia,Jewellery supplier/trade company,55,Trade directory verified,Medium,Qualify manufacturing and import needs
+30,Global Jewellery Concepts,Australia,Jewellery concepts/wholesale,54,Trade directory verified,Medium,Ask for product and sourcing lead
+31,Gerrim International,Australia,Jewellery supplier/wholesaler,53,Trade directory verified,Medium,Event-led qualification
+32,Unison Jewellery,Australia,Jewellery supplier,52,Trade directory verified,Medium,Qualify diamond usage
+33,Vina Jewellery,Australia,Jewellery supplier/manufacturer,51,Trade directory verified,Medium,Qualify B2B production
+34,Jewelarc International,Australia,Jewellery supplier,50,Trade directory verified,Medium,Qualify diamond categories
+35,World Shiner Pty Ltd,Melbourne VIC,Diamond wholesaler,50,Strong inference,Medium–High,Avoid duplicate if ranked at 12; retain legal-entity check
+36,Temple & Grace workshop route,Sydney NSW,Production house,49,Verified manufacturing,Medium,Use only after corporate contact
+37,Couture Kingdom,Australia,Jewellery wholesaler/brand,48,Trade directory verified,Medium,Qualify product and sourcing
+38,Mark McAskill Jewellery,Australia,Designer/manufacturer,47,Trade directory verified,Low–Medium,"Nurture, custom stones only"
+39,La Couronne Jewellery,Australia,Jewellery brand/supplier,46,Trade directory verified,Low–Medium,Nurture after qualification
+40,Eugene’s Jewellery,Australia,Jewellery supplier,45,Trade directory verified,Low–Medium,Nurture; verify diamond usage
+41,Salt and Pepper Diamonds,Australia,Diamond company,45,AJF directory verified,Medium,Qualify product and sourcing
+42,Gen Z Diamonds,Australia,Diamond company,44,IJF/AJF directory verified,Medium,Strong name fit; verify scale
+43,Ellendale Diamonds Australia,Perth WA,Trade supplier,44,Verified trade route,Medium,Duplicate entity check before CRM import
+44,Autore Pearls,Sydney / national,Jewellery brand,43,Trade participation; diamond fit unconfirmed,Medium,Do not prioritise before product proof
+45,Independent Jewellers Collective,Australia,Retail network,42,Trade participation,"High network reach, uncertain direct buying","Partnership route, not direct stone buyer"
+46,Showcase Jewellers,Australia,Retail network,41,Trade participation,"High network reach, central buying uncertain",Approach network office only after qualification
+47,Nationwide Jewellers,Australia,Retail network,40,Trade participation,"High network reach, central buying uncertain","Channel discovery, not first-wave buyer"
+48,Paterson Fine Jewellery,Australia,Fine jewellery supplier,39,AJF exhibitor,Low–Medium,Nurture; verify production
+49,Cultured Jewellery Designs,Australia,Jewellery designer/supplier,38,AJF exhibitor,Low–Medium,Nurture; name suggests category relevance but is not evidence
+50,Eastern Pearl,Australia,Jewellery supplier,37,Trade directory verified,Low–Medium,Do not prioritise until diamond use is verified
