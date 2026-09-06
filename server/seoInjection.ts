@@ -510,6 +510,94 @@ export function resolveRouteMeta(pathname: string, origin: string): RouteMeta | 
         canonical: url("/insights/sourcing-lab-grown-diamonds-us-retailer"),
         serviceJsonLd: mkArticle(origin, "/insights/sourcing-lab-grown-diamonds-us-retailer", "Sourcing Lab-Grown Diamonds from India: A US Retailer's Guide", "A first-import guide for US retailers sourcing lab-grown diamonds from India covering duty treatment, documentation, vetting and red flags."),
       };
+    case "/singapore":
+      return {
+        lang: "en",
+        title: "Wholesale Lab-Grown Diamonds Singapore | Alvora",
+        description: "Alvora supplies certified lab-grown diamonds wholesale to Singapore jewellers, manufacturers, and wholesalers direct from Surat.",
+        canonical: url("/singapore"),
+        serviceJsonLd: { "@context": "https://schema.org", "@type": "Service", name: "Lab-Grown Diamond Supply for Singapore", serviceType: "Lab-grown diamond wholesale supply", provider: { "@type": "Organization", name: "Alvora Diamonds", address: { "@type": "PostalAddress", addressLocality: "Surat", addressCountry: "IN" } }, areaServed: "Singapore" },
+      };
+    case "/singapore/wholesale-lab-grown-diamonds":
+      return {
+        lang: "en",
+        title: "Wholesale Lab-Grown Diamonds in Singapore | Alvora",
+        description: "Source certified wholesale lab-grown diamonds in Singapore from Alvora, a Surat manufacturer supplying IGI-certified stones direct to trade.",
+        canonical: url("/singapore/wholesale-lab-grown-diamonds"),
+        serviceJsonLd: { "@context": "https://schema.org", "@type": "Service", name: "Wholesale Lab-Grown Diamonds Singapore", serviceType: "Lab-grown diamond wholesale supply", provider: { "@type": "Organization", name: "Alvora Diamonds", address: { "@type": "PostalAddress", addressLocality: "Surat", addressCountry: "IN" } }, areaServed: "Singapore" },
+      };
+    case "/singapore/lab-grown-diamond-wholesaler":
+      return {
+        lang: "en",
+        title: "Lab-Grown Diamond Wholesaler Singapore | Alvora",
+        description: "Alvora is a Surat-based lab-grown diamond wholesaler supplying calibrated and certified stones to Singapore jewellery businesses.",
+        canonical: url("/singapore/lab-grown-diamond-wholesaler"),
+        serviceJsonLd: { "@context": "https://schema.org", "@type": "Service", name: "Lab-Grown Diamond Wholesaler for Singapore", serviceType: "Lab-grown diamond wholesale", provider: { "@type": "Organization", name: "Alvora Diamonds", address: { "@type": "PostalAddress", addressLocality: "Surat", addressCountry: "IN" } }, areaServed: "Singapore" },
+      };
+    case "/singapore/for-jewellers":
+      return {
+        lang: "en",
+        title: "Lab-Grown Diamonds for Singapore Jewellers | Alvora",
+        description: "Certified lab-grown diamonds for Singapore jewellers: calibrated parcels, matched pairs, and made-to-specification supply direct from Surat.",
+        canonical: url("/singapore/for-jewellers"),
+        serviceJsonLd: { "@context": "https://schema.org", "@type": "Service", name: "Lab-Grown Diamonds for Singapore Jewellers", serviceType: "Lab-grown diamond supply for jewellers", provider: { "@type": "Organization", name: "Alvora Diamonds", address: { "@type": "PostalAddress", addressLocality: "Surat", addressCountry: "IN" } }, areaServed: "Singapore" },
+      };
+    case "/singapore/lab-grown-diamond-supplier":
+      return {
+        lang: "en",
+        title: "Lab-Grown Diamond Supplier Singapore | Alvora",
+        description: "Alvora is a certified lab-grown diamond supplier serving Singapore with IGI-graded stones, calibrated parcels, and repeatable trade supply.",
+        canonical: url("/singapore/lab-grown-diamond-supplier"),
+        serviceJsonLd: { "@context": "https://schema.org", "@type": "Service", name: "Lab-Grown Diamond Supplier Singapore", serviceType: "Lab-grown diamond supply", provider: { "@type": "Organization", name: "Alvora Diamonds", address: { "@type": "PostalAddress", addressLocality: "Surat", addressCountry: "IN" } }, areaServed: "Singapore" },
+      };
+    case "/singapore/calibrated-parcels":
+      return {
+        lang: "en",
+        title: "Calibrated Lab-Grown Diamond Parcels for Singapore | Alvora",
+        description: "Calibrated lab-grown diamond parcels for Singapore jewellery manufacturers: consistent millimetre sizes, IGI certification, and repeat-order supply.",
+        canonical: url("/singapore/calibrated-parcels"),
+        serviceJsonLd: { "@context": "https://schema.org", "@type": "Service", name: "Calibrated Lab-Grown Diamond Parcels for Singapore", serviceType: "Calibrated diamond parcel supply", provider: { "@type": "Organization", name: "Alvora Diamonds", address: { "@type": "PostalAddress", addressLocality: "Surat", addressCountry: "IN" } }, areaServed: "Singapore" },
+      };
+    case "/singapore/matched-pairs":
+      return {
+        lang: "en",
+        title: "Matched Lab-Grown Diamond Pairs for Singapore | Alvora",
+        description: "Matched lab-grown diamond pairs for Singapore jewellers and manufacturers: symmetrical cuts, consistent grading, direct from Alvora in Surat.",
+        canonical: url("/singapore/matched-pairs"),
+        serviceJsonLd: { "@context": "https://schema.org", "@type": "Service", name: "Matched Lab-Grown Diamond Pairs for Singapore", serviceType: "Matched diamond pair supply", provider: { "@type": "Organization", name: "Alvora Diamonds", address: { "@type": "PostalAddress", addressLocality: "Surat", addressCountry: "IN" } }, areaServed: "Singapore" },
+      };
+    case "/singapore/melee":
+      return {
+        lang: "en",
+        title: "Wholesale Melee Lab-Grown Diamonds Singapore | Alvora",
+        description: "Wholesale melee lab-grown diamonds for Singapore jewellery production: calibrated sizes, Excellent cut, no fluorescence, direct from Alvora.",
+        canonical: url("/singapore/melee"),
+        serviceJsonLd: { "@context": "https://schema.org", "@type": "Service", name: "Wholesale Melee Lab-Grown Diamonds for Singapore", serviceType: "Melee diamond wholesale supply", provider: { "@type": "Organization", name: "Alvora Diamonds", address: { "@type": "PostalAddress", addressLocality: "Surat", addressCountry: "IN" } }, areaServed: "Singapore" },
+      };
+    case "/singapore/for-manufacturers":
+      return {
+        lang: "en",
+        title: "Lab-Grown Diamonds for Singapore Jewellery Manufacturers | Alvora",
+        description: "Calibrated and matched lab-grown diamond supply for Singapore jewellery manufacturers: production parcels, repeat programmes, IGI-certified direct from Surat.",
+        canonical: url("/singapore/for-manufacturers"),
+        serviceJsonLd: { "@context": "https://schema.org", "@type": "Service", name: "Lab-Grown Diamonds for Singapore Jewellery Manufacturers", serviceType: "Production diamond supply", provider: { "@type": "Organization", name: "Alvora Diamonds", address: { "@type": "PostalAddress", addressLocality: "Surat", addressCountry: "IN" } }, areaServed: "Singapore" },
+      };
+    case "/singapore/surat-to-singapore":
+      return {
+        lang: "en",
+        title: "Surat to Singapore Lab-Grown Diamond Supply | Alvora",
+        description: "Direct lab-grown diamond supply from Surat to Singapore: factory pricing, IGI documentation, insured shipping, and clear landed-cost guidance.",
+        canonical: url("/singapore/surat-to-singapore"),
+        serviceJsonLd: { "@context": "https://schema.org", "@type": "Service", name: "Surat to Singapore Lab-Grown Diamond Supply", serviceType: "Direct international diamond supply", provider: { "@type": "Organization", name: "Alvora Diamonds", address: { "@type": "PostalAddress", addressLocality: "Surat", addressCountry: "IN" } }, areaServed: "Singapore" },
+      };
+    case "/singapore/wholesale-parcels":
+      return {
+        lang: "en",
+        title: "Wholesale Diamond Parcels Singapore | Alvora",
+        description: "Wholesale lab-grown diamond parcels for Singapore trade buyers: calibrated sizes, matched lots, and specification-led supply direct from Alvora in Surat.",
+        canonical: url("/singapore/wholesale-parcels"),
+        serviceJsonLd: { "@context": "https://schema.org", "@type": "Service", name: "Wholesale Lab-Grown Diamond Parcels for Singapore", serviceType: "Wholesale diamond parcel supply", provider: { "@type": "Organization", name: "Alvora Diamonds", address: { "@type": "PostalAddress", addressLocality: "Surat", addressCountry: "IN" } }, areaServed: "Singapore" },
+      };
     default:
       if (pathname.startsWith("/insights/")) {
         return {

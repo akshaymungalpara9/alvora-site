@@ -7,6 +7,7 @@ import { COMPANY } from "@shared/companyInfo";
 const markImage = "/assets/alvora-faceted-a.webp";
 
 const SPECIALTY_LINKS = [
+  { label: "Singapore Supply", href: "/singapore" },
   { label: "Calibrated Layouts", href: "/calibrated-diamond-layouts" },
   { label: "LGD Pairs", href: "/matched-lab-grown-diamond-pairs" },
   { label: "Custom Cut LGD", href: "/custom-cut-lab-grown-diamonds" },
