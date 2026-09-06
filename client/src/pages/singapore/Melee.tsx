@@ -28,22 +28,22 @@ const PAGE_FAQS = [
   {
     question: "Can melee be supplied in calibrated size bands?",
     answer:
-      "Yes. Standard calibrated melee size bands are available from 1.0 mm, 1.2 mm, 1.3 mm, 1.5 mm, 1.7 mm, 1.8 mm, 2.0 mm, 2.5 mm, and 3.0 mm, each held within a defined girdle-diameter tolerance. Custom sizes are available on enquiry — send the required diameter and application and we will advise on production feasibility.",
+      "Yes. Standard calibrated melee size bands are available from 1.0 mm, 1.2 mm, 1.3 mm, 1.5 mm, 1.7 mm, 1.8 mm, 2.0 mm, 2.5 mm, and 3.0 mm, each held within a defined girdle-diameter tolerance. Custom sizes are available on enquiry; send the required diameter and application and we will advise on production feasibility.",
   },
   {
     question: "Is replenishment available for a running melee programme?",
     answer:
-      "Yes. Once a melee specification has been approved — size band, colour, clarity, cut grade, and fluorescence disclosure — it is held on file. Repeat parcels are dispatched on your agreed cadence without requiring a fresh brief. The replenishment workflow is the same used across all Alvora manufacturing programmes.",
+      "Yes. Once a melee specification has been approved (size band, colour, clarity, cut grade, and fluorescence disclosure) it is held on file. Repeat parcels are dispatched on your agreed cadence without requiring a fresh brief. The replenishment workflow is the same used across all Alvora manufacturing programmes.",
   },
   {
     question: "Can I qualify the specification before committing to a standing order?",
     answer:
-      "Yes. A small sample parcel — typically a trial quantity under 15 ct — is available to verify colour consistency, clarity, size tolerance, and cut quality against your specification before a standing order is confirmed. Send your size and grade requirement and we will advise on sample parcel construction and payment terms.",
+      "Yes. A small sample parcel (typically a trial quantity under 15 ct) is available to verify colour consistency, clarity, size tolerance, and cut quality against your specification before a standing order is confirmed. Send your size and grade requirement and we will advise on sample parcel construction and payment terms.",
   },
   {
     question: "Does Singapore levy import duty on melee diamonds?",
     answer:
-      "No. Loose diamonds — including melee — are not a dutiable category under Singapore Customs. The applicable rate is 0% customs duty plus 9% import GST calculated on CIF value. A GST-registered Singapore buyer can typically claim the import GST back as input tax. Confirm your GST registration and HS classification with a Singapore customs broker before the first shipment.",
+      "No. Loose diamonds (including melee) are not a dutiable category under Singapore Customs. The applicable rate is 0% customs duty plus 9% import GST calculated on CIF value. A GST-registered Singapore buyer can typically claim the import GST back as input tax. Confirm your GST registration and HS classification with a Singapore customs broker before the first shipment.",
   },
 ];
 
@@ -51,7 +51,7 @@ export default function SgMelee() {
   return (
     <SpecialtyPageShell>
       <SpecialtyPageMeta
-        title="Lab-Grown Melee Diamonds Singapore — Parcel Supply | Alvora"
+        title="Lab-Grown Melee Diamonds Singapore: Parcel Supply | Alvora"
         description="Lab-grown melee diamonds for Singapore. Parcel supply by colour and clarity band, replenishment cadence, and sample parcel to qualify the specification."
         path="/singapore/melee"
         jsonLd={JSON_LD}
@@ -60,7 +60,7 @@ export default function SgMelee() {
       <section className="specialty-hero" aria-labelledby="sg-melee-h1">
         <p className="eyebrow eyebrow-bright"><span />MELEE DIAMOND SUPPLY · SINGAPORE</p>
         <h1 id="sg-melee-h1">
-          Lab-grown melee diamonds for Singapore — parcel supply, colour and clarity bands, and
+          Lab-grown melee diamonds for Singapore: parcel supply, colour and clarity bands, and
           replenishment cadence.
         </h1>
         <p className="specialty-hero-copy">
@@ -77,7 +77,7 @@ export default function SgMelee() {
         <div className="specialty-section-lead">
           <p className="eyebrow"><span />PARCEL CONSTRUCTION</p>
           <h2 id="sg-melee-construction">
-            Lab-grown melee diamonds for Singapore — parcel construction by colour, clarity, and size band.
+            Lab-grown melee diamonds for Singapore: parcel construction by colour, clarity, and size band.
           </h2>
           <p>
             Melee parcels are built to a combination of size band, colour band, clarity band, and cut
@@ -88,11 +88,11 @@ export default function SgMelee() {
         <div className="specialty-feature-list on-light" style={{ marginTop: 40 }}>
           {([
             [
-              "Colour bands — D–F, G–H, I–J",
+              "Colour bands: D–F, G–H, I–J",
               "Three standard colour bands are available. D–F for premium halo and pavé work. G–H for mid-market setting programmes. I–J for volume tennis and fashion jewellery production. Tighter colour ranges within a band are available on request.",
             ],
             [
-              "Clarity bands — IF to VS and SI",
+              "Clarity bands: IF to VS and SI",
               "Two standard clarity bands: IF through VS for certificate-quality visible settings, and SI1 through SI2 with no eye-visible inclusions confirmed per lot. The clarity band is held consistently across the parcel.",
             ],
             [

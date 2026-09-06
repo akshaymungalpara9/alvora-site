@@ -44,7 +44,7 @@ const PAGE_FAQS = [
   {
     question: "What is the lead time for a matched pair to specification?",
     answer:
-      "Lead time is specification-specific. For pairs available from current production, we can confirm availability and dispatch within the standard Singapore supply window. For pairs cut to a specific brief — unusual proportions or a non-standard shape — send the specification and we will return a cutting schedule and lead time estimate.",
+      "Lead time is specification-specific. For pairs available from current production, we can confirm availability and dispatch within the standard Singapore supply window. For pairs cut to a specific brief (unusual proportions or a non-standard shape), send the specification and we will return a cutting schedule and lead time estimate.",
   },
 ];
 
@@ -53,7 +53,7 @@ export default function SgMatchedPairs() {
     <SpecialtyPageShell>
       <SpecialtyPageMeta
         title="Matched Lab-Grown Diamond Pairs Singapore | Alvora"
-        description="Matched lab-grown diamond pairs for Singapore — oval and round, matched by colour, clarity, and proportions, with hold-until-design-approval workflow."
+        description="Matched lab-grown diamond pairs for Singapore: oval and round, matched by colour, clarity, and proportions, with hold-until-design-approval workflow."
         path="/singapore/matched-pairs"
         jsonLd={JSON_LD}
       />
@@ -61,7 +61,7 @@ export default function SgMatchedPairs() {
       <section className="specialty-hero" aria-labelledby="sg-mp-h1">
         <p className="eyebrow eyebrow-bright"><span />MATCHED-PAIR PROGRAMME · SINGAPORE</p>
         <h1 id="sg-mp-h1">
-          Matched lab-grown diamond pairs for Singapore — oval and round, proportions-matched, with
+          Matched lab-grown diamond pairs for Singapore: oval and round, proportions-matched, with
           hold-until-approval workflow.
         </h1>
         <p className="specialty-hero-copy">
@@ -77,7 +77,7 @@ export default function SgMatchedPairs() {
         <div className="specialty-section-lead">
           <p className="eyebrow"><span />MATCHING STANDARDS</p>
           <h2 id="sg-mp-matching">
-            Matched lab-grown diamond pairs for Singapore jewellers and ateliers — proportions matched,
+            Matched lab-grown diamond pairs for Singapore jewellers and ateliers: proportions matched,
             not just graded.
           </h2>
           <p>
@@ -90,7 +90,7 @@ export default function SgMatchedPairs() {
           {([
             [
               "Colour within one grade step",
-              "Colour is matched within one grade step across both stones — E/F, F/G, G/H, and so on. Grade combinations are confirmed per pair at the time of enquiry.",
+              "Colour is matched within one grade step across both stones: E/F, F/G, G/H, and so on. Grade combinations are confirmed per pair at the time of enquiry.",
             ],
             [
               "Girdle diameter matched to tolerance",
@@ -101,7 +101,7 @@ export default function SgMatchedPairs() {
               "Table percentage, crown height, and pavilion depth are matched so face-up appearance is consistent. A pair that drifts outside tolerance at any measurement point is not shipped as a matched set.",
             ],
             [
-              "Cut grade — Excellent or Very Good",
+              "Cut grade: Excellent or Very Good",
               "Both stones in the pair carry an Excellent or Very Good cut grade. Grade is stated per pair and confirmed on the certificate.",
             ],
             [

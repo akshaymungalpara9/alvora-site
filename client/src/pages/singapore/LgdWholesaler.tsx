@@ -30,12 +30,12 @@ const PAGE_FAQS = [
   {
     question: "How do I open a trade account?",
     answer:
-      "Send an enquiry with your company name, the nature of your business — wholesaler, manufacturer, jeweller, or importer — and a brief description of your requirement including shape, carat range, colour, clarity, and approximate volume. We will respond within the Singapore business day with pricing guidance and the steps for account qualification.",
+      "Send an enquiry with your company name, the nature of your business (wholesaler, manufacturer, jeweller, or importer) and a brief description of your requirement including shape, carat range, colour, clarity, and approximate volume. We will respond within the Singapore business day with pricing guidance and the steps for account qualification.",
   },
   {
     question: "Is Alvora IGI or GIA certified?",
     answer:
-      "IGI is our default certification for lab-grown diamonds and is publicly used by established Singapore market retailers and manufacturers. GIA certification is available as an alternative for accounts that require it — request it at the enquiry stage. Premium and repeat accounts can request an independent verification right before parcel release.",
+      "IGI is our default certification for lab-grown diamonds and is publicly used by established Singapore market retailers and manufacturers. GIA certification is available as an alternative for accounts that require it; request it at the enquiry stage. Premium and repeat accounts can request an independent verification right before parcel release.",
   },
   {
     question: "What payment terms are available for a first wholesale order?",
@@ -53,7 +53,7 @@ export default function SgLgdWholesaler() {
   return (
     <SpecialtyPageShell>
       <SpecialtyPageMeta
-        title="Lab-Grown Diamond Wholesaler Singapore — Trade Accounts | Alvora"
+        title="Lab-Grown Diamond Wholesaler Singapore: Trade Accounts | Alvora"
         description="Trade-only lab-grown diamond wholesaler for Singapore. Surat factory direct, IGI or GIA certified, insured shipping, and CAD or LC terms for first orders."
         path="/singapore/lab-grown-diamond-wholesaler"
         jsonLd={JSON_LD}
@@ -62,7 +62,7 @@ export default function SgLgdWholesaler() {
       <section className="specialty-hero" aria-labelledby="sg-lgdw-h1">
         <p className="eyebrow eyebrow-bright"><span />LAB-GROWN DIAMOND WHOLESALER · SINGAPORE</p>
         <h1 id="sg-lgdw-h1">
-          Direct-factory lab-grown diamond wholesaler for Singapore — IGI and GIA certified, insured
+          Direct-factory lab-grown diamond wholesaler for Singapore: IGI and GIA certified, insured
           from Surat, trade accounts only.
         </h1>
         <p className="specialty-hero-copy">
@@ -79,7 +79,7 @@ export default function SgLgdWholesaler() {
         <div className="specialty-section-lead">
           <p className="eyebrow"><span />SUPPLIER QUALIFICATIONS</p>
           <h2 id="sg-lgdw-credentials">
-            Your lab-grown diamond wholesaler for Singapore — direct factory, no broker layer.
+            Your lab-grown diamond wholesaler for Singapore: direct factory, no broker layer.
           </h2>
           <p>
             Every stone passes from our own production benches in Surat to your parcel. No agent,

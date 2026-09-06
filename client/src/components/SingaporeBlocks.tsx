@@ -393,9 +393,9 @@ export function SgContactBlock({ submitLabel = "Send Enquiry" }: { submitLabel?:
           <span>Do you buy loose LGD for Singapore setting, or for onward export? *</span>
           <select name="buying_for" required defaultValue="">
             <option value="" disabled>Select one…</option>
-            <option value="Singapore setting — retail or bespoke">Singapore setting — retail or bespoke</option>
-            <option value="Singapore setting — manufacturing or trade">Singapore setting — manufacturing or trade</option>
-            <option value="Onward export — regional distribution">Onward export — regional distribution</option>
+            <option value="Singapore setting: retail or bespoke">Singapore setting: retail or bespoke</option>
+            <option value="Singapore setting: manufacturing or trade">Singapore setting: manufacturing or trade</option>
+            <option value="Onward export: regional distribution">Onward export: regional distribution</option>
             <option value="Both setting and export">Both setting and export</option>
             <option value="Not sure yet">Not sure yet</option>
           </select>
@@ -407,7 +407,7 @@ export function SgContactBlock({ submitLabel = "Send Enquiry" }: { submitLabel?:
             name="requirement"
             maxLength={4500}
             rows={5}
-            placeholder="Shape, carat weight, colour, clarity, quantity, certification, timeline — or describe the parcel."
+            placeholder="Shape, carat weight, colour, clarity, quantity, certification, timeline, or describe the parcel."
           />
         </label>
 

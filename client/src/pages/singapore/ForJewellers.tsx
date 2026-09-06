@@ -29,7 +29,7 @@ const PAGE_FAQS = [
   {
     question: "Can you source a specific shape and size for a customer appointment?",
     answer:
-      "Yes. Send the brief — shape, carat weight, colour, clarity, and any proportions or cut-grade preferences — and we return availability and pricing within the Singapore business day. For customer appointments, certificate-matched video and a proportions diagram are included with every stone so you can present the stone accurately before it arrives.",
+      "Yes. Send the brief (shape, carat weight, colour, clarity, and any proportions or cut-grade preferences) and we return availability and pricing within the Singapore business day. For customer appointments, certificate-matched video and a proportions diagram are included with every stone so you can present the stone accurately before it arrives.",
   },
   {
     question: "Does every stone come with a video before purchase?",
@@ -39,12 +39,12 @@ const PAGE_FAQS = [
   {
     question: "What is the minimum order for a jeweller trade account?",
     answer:
-      "We work with three indicative parcel bands — trial under 15 ct, mid 15–50 ct, and bulk above 50 ct. For jewellers sourcing individual stones or small lots for customer appointments, the trial band covers individual stone or small parcel sourcing. Send your specification and we will advise on the practicable order size for your requirement.",
+      "We work with three indicative parcel bands: trial under 15 ct, mid 15–50 ct, and bulk above 50 ct. For jewellers sourcing individual stones or small lots for customer appointments, the trial band covers individual stone or small parcel sourcing. Send your specification and we will advise on the practicable order size for your requirement.",
   },
   {
     question: "Which certificate is standard, and can I request GIA?",
     answer:
-      "IGI certification is standard. Every stone ships laser-inscribed with the report number searchable on the IGI verification platform. GIA certification is available as an alternative for customers or accounts that require it — request it when placing your enquiry. Premium accounts can request an independent verification right before a parcel is released.",
+      "IGI certification is standard. Every stone ships laser-inscribed with the report number searchable on the IGI verification platform. GIA certification is available as an alternative for customers or accounts that require it; request it when placing your enquiry. Premium accounts can request an independent verification right before a parcel is released.",
   },
 ];
 
@@ -53,7 +53,7 @@ export default function SgForJewellers() {
     <SpecialtyPageShell>
       <SpecialtyPageMeta
         title="Lab-Grown Diamonds for Jewellers Singapore | Alvora"
-        description="Lab-grown diamonds for Singapore jewellers — fast quotation, certificate-matched video, and bespoke sourcing from Surat. Round and oval available to spec."
+        description="Lab-grown diamonds for Singapore jewellers: fast quotation, certificate-matched video, and bespoke sourcing from Surat. Round and oval available to spec."
         path="/singapore/for-jewellers"
         jsonLd={JSON_LD}
       />
@@ -61,7 +61,7 @@ export default function SgForJewellers() {
       <section className="specialty-hero" aria-labelledby="sg-fj-h1">
         <p className="eyebrow eyebrow-bright"><span />FOR JEWELLERS · SINGAPORE</p>
         <h1 id="sg-fj-h1">
-          Lab-grown diamonds for Singapore jewellers — fast quotation, certificate-matched video, and
+          Lab-grown diamonds for Singapore jewellers: fast quotation, certificate-matched video, and
           bespoke sourcing.
         </h1>
         <p className="specialty-hero-copy">
@@ -69,7 +69,7 @@ export default function SgForJewellers() {
           production benches. We quote round and oval lab-grown diamonds to your customer brief,
           supply certificate-matched video and proportions with every stone, and hold availability
           until your design is confirmed. IGI or GIA certification is included per stone. Response
-          within the Singapore business day. Trade accounts only — apply with your company name and
+          within the Singapore business day. Trade accounts only; apply with your company name and
           a brief description of your requirement.
         </p>
       </section>
@@ -78,18 +78,18 @@ export default function SgForJewellers() {
         <div className="specialty-section-lead">
           <p className="eyebrow"><span />JEWELLER SUPPLY SERVICE</p>
           <h2 id="sg-fj-service">
-            Lab-grown diamonds sourced for Singapore jewellers — round, oval, and bespoke shapes.
+            Lab-grown diamonds sourced for Singapore jewellers: round, oval, and bespoke shapes.
           </h2>
           <p>
             Your advantage is the design and the customer relationship. Our role is making the centre
-            stone predictable — the right proportions, the right certificate, available when you need it.
+            stone predictable: the right proportions, the right certificate, available when you need it.
           </p>
         </div>
         <div className="specialty-feature-list on-light" style={{ marginTop: 40 }}>
           {([
             [
               "Fast quotation turnaround",
-              "Send a customer brief — shape, carat weight, colour, clarity, cut preference — and we return pricing and availability within the Singapore business day. No standing account required to request a first quote.",
+              "Send a customer brief (shape, carat weight, colour, clarity, cut preference) and we return pricing and availability within the Singapore business day. No standing account required to request a first quote.",
             ],
             [
               "Certificate-matched video",
@@ -97,7 +97,7 @@ export default function SgForJewellers() {
             ],
             [
               "Round and oval emphasis",
-              "Round brilliant and oval are our primary shapes for jeweller supply. Fancy shapes — pear, cushion, emerald, radiant, princess — are available on request and sourced to your specification.",
+              "Round brilliant and oval are our primary shapes for jeweller supply. Fancy shapes (pear, cushion, emerald, radiant, princess) are available on request and sourced to your specification.",
             ],
             [
               "Hold until design approval",

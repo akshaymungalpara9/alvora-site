@@ -35,19 +35,19 @@ const SIZE_BANDS = [
   ["2.0 mm", "Tennis bracelet and graduated halo"],
   ["2.5 mm", "Side stones, three-stone settings, graduated pieces"],
   ["3.0 mm", "Shoulder stones and featured accent positions"],
-  ["Above 3.0 mm", "Larger calibrated sizes available to specification — send the required diameter and we advise on cut and carat weight"],
+  ["Above 3.0 mm", "Larger calibrated sizes available to specification; send the required diameter and we advise on cut and carat weight"],
 ];
 
 const PAGE_FAQS = [
   {
     question: "What does 'calibrated' mean for setting house production?",
     answer:
-      "A calibrated stone is cut and polished so that the girdle diameter falls within a defined tolerance — for example, 1.50 mm ±0.05 mm. When every stone in a halo parcel holds that tolerance, the setter does not spend time sorting or resizing. Bench efficiency improves and rework from inconsistent fit is reduced.",
+      "A calibrated stone is cut and polished so that the girdle diameter falls within a defined tolerance, for example 1.50 mm ±0.05 mm. When every stone in a halo parcel holds that tolerance, the setter does not spend time sorting or resizing. Bench efficiency improves and rework from inconsistent fit is reduced.",
   },
   {
     question: "What colour and clarity bands are available for calibrated melee?",
     answer:
-      "Calibrated parcels are available in three standard colour bands — D–F, G–H, and I–J — and two clarity bands — IF through VS and SI1 through SI2 with no eye-visible inclusions confirmed per stone. Mixed bands are available for specific applications; describe your requirement and we will advise on parcel construction.",
+      "Calibrated parcels are available in three standard colour bands (D–F, G–H, and I–J) and two clarity bands (IF through VS and SI1 through SI2 with no eye-visible inclusions confirmed per stone). Mixed bands are available for specific applications; describe your requirement and we will advise on parcel construction.",
   },
   {
     question: "How tight is the size tolerance held?",
@@ -57,7 +57,7 @@ const PAGE_FAQS = [
   {
     question: "Can a calibrated parcel specification be held for replenishment?",
     answer:
-      "Yes. Once a parcel specification has been approved — size, colour band, clarity band, cut grade, and tolerance — it is held on file and can be dispatched on a regular cadence without re-briefing. The replenishment workflow is described in the section above.",
+      "Yes. Once a parcel specification has been approved (size, colour band, clarity band, cut grade, and tolerance) it is held on file and can be dispatched on a regular cadence without re-briefing. The replenishment workflow is described in the section above.",
   },
 ];
 
@@ -65,8 +65,8 @@ export default function SgCalibratedParcels() {
   return (
     <SpecialtyPageShell>
       <SpecialtyPageMeta
-        title="Calibrated Lab-Grown Diamonds Singapore — Parcel Supply | Alvora"
-        description="Calibrated lab-grown diamond parcels for Singapore — melee to larger stones, held to size and shape tolerance for halo, pavé, and tennis production."
+        title="Calibrated Lab-Grown Diamonds Singapore: Parcel Supply | Alvora"
+        description="Calibrated lab-grown diamond parcels for Singapore: melee to larger stones, held to size and shape tolerance for halo, pavé, and tennis production."
         path="/singapore/calibrated-parcels"
         jsonLd={JSON_LD}
       />
@@ -74,7 +74,7 @@ export default function SgCalibratedParcels() {
       <section className="specialty-hero" aria-labelledby="sg-cp-h1">
         <p className="eyebrow eyebrow-bright"><span />CALIBRATED PARCEL PROGRAMME · SINGAPORE</p>
         <h1 id="sg-cp-h1">
-          Calibrated lab-grown diamond parcels for Singapore — size-held melee and above for halo,
+          Calibrated lab-grown diamond parcels for Singapore: size-held melee and above for halo,
           pavé, and tennis production.
         </h1>
         <p className="specialty-hero-copy">
@@ -90,11 +90,11 @@ export default function SgCalibratedParcels() {
         <div className="specialty-section-lead">
           <p className="eyebrow"><span />STANDARD SIZE BANDS</p>
           <h2 id="sg-cp-sizes">
-            Calibrated lab-grown diamond parcels for Singapore production — melee to larger accent stones.
+            Calibrated lab-grown diamond parcels for Singapore production: melee to larger accent stones.
           </h2>
           <p>
             The table below shows the standard size bands available for Singapore supply. Custom sizes
-            and tolerances are available on enquiry — send your requirement and we will advise on
+            and tolerances are available on enquiry; send your requirement and we will advise on
             production feasibility and lead time.
           </p>
         </div>

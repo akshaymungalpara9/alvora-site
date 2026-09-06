@@ -38,12 +38,12 @@ const PAGE_FAQS = [
   {
     question: "What certification is standard on Surat-manufactured stones?",
     answer:
-      "IGI certification is standard. Every stone ships laser-inscribed with the report number searchable on the IGI verification platform by any buyer in any market in real time. GIA certification is available as an alternative for accounts that require it — request it when placing your enquiry. The report number is reconciled to the per-stone invoice line in the shipment documentation.",
+      "IGI certification is standard. Every stone ships laser-inscribed with the report number searchable on the IGI verification platform by any buyer in any market in real time. GIA certification is available as an alternative for accounts that require it; request it when placing your enquiry. The report number is reconciled to the per-stone invoice line in the shipment documentation.",
   },
   {
     question: "What are the import costs when receiving stones in Singapore?",
     answer:
-      "Loose diamonds are not a dutiable category under Singapore Customs, so the applicable rate is 0% customs duty plus 9% import GST calculated on CIF value — the stone price, freight, and insurance combined. A GST-registered Singapore buyer can typically claim the import GST back as input tax. The illustrative landed-cost model in the section above shows how the figures compose at an assumed stone price; replace all assumptions with live forwarder quotes and confirmed exchange rates before pricing.",
+      "Loose diamonds are not a dutiable category under Singapore Customs, so the applicable rate is 0% customs duty plus 9% import GST calculated on CIF value (the stone price, freight, and insurance combined). A GST-registered Singapore buyer can typically claim the import GST back as input tax. The illustrative landed-cost model in the section above shows how the figures compose at an assumed stone price; replace all assumptions with live forwarder quotes and confirmed exchange rates before pricing.",
   },
 ];
 
@@ -51,8 +51,8 @@ export default function SgSuratToSingapore() {
   return (
     <SpecialtyPageShell>
       <SpecialtyPageMeta
-        title="Surat Lab-Grown Diamonds Singapore — Factory-Direct Supply | Alvora"
-        description="Surat lab-grown diamonds for Singapore — factory-direct, IGI or GIA report per stone, insured shipping, and full export documentation prepared for customs."
+        title="Surat Lab-Grown Diamonds Singapore: Factory-Direct Supply | Alvora"
+        description="Surat lab-grown diamonds for Singapore: factory-direct, IGI or GIA report per stone, insured shipping, and full export documentation prepared for customs."
         path="/singapore/surat-to-singapore"
         jsonLd={JSON_LD}
       />
@@ -60,7 +60,7 @@ export default function SgSuratToSingapore() {
       <section className="specialty-hero" aria-labelledby="sg-s2s-h1">
         <p className="eyebrow eyebrow-bright"><span />SURAT TO SINGAPORE · FACTORY DIRECT</p>
         <h1 id="sg-s2s-h1">
-          Surat lab-grown diamonds for Singapore — factory-direct, IGI or GIA certified, insured and
+          Surat lab-grown diamonds for Singapore: factory-direct, IGI or GIA certified, insured and
           documented for customs.
         </h1>
         <p className="specialty-hero-copy">
@@ -68,7 +68,7 @@ export default function SgSuratToSingapore() {
           Singapore buyers. Every parcel ships IGI laser-inscribed or GIA certified, insured against
           declared CIF value, with a per-stone invoice reconciled to the certificate and full export
           documentation prepared for Singapore Customs permit declaration and import GST accounting.
-          No broker, no intermediary — manufacturer to your receiving address.
+          No broker, no intermediary. Manufacturer to your receiving address.
         </p>
       </section>
 
@@ -76,7 +76,7 @@ export default function SgSuratToSingapore() {
         <div className="specialty-section-lead">
           <p className="eyebrow"><span />THE FACTORY-DIRECT CORRIDOR</p>
           <h2 id="sg-s2s-corridor">
-            Surat lab-grown diamonds to Singapore — factory-direct advantages over broker-supplied supply.
+            Surat lab-grown diamonds to Singapore: factory-direct advantages over broker-supplied supply.
           </h2>
           <p>
             When a manufacturer supplies direct, the stone that leaves the polishing bench is the

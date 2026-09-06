@@ -29,22 +29,22 @@ const PAGE_FAQS = [
   {
     question: "What shapes are available in wholesale parcels?",
     answer:
-      "Wholesale parcels are available in all major shapes — round brilliant, oval, princess, cushion, emerald cut, pear, radiant, marquise, and heart. Mixed-shape parcels are available for buyers who need breadth across a single delivery. Send required shapes and sizes and we will advise on parcel construction and per-carat pricing.",
+      "Wholesale parcels are available in all major shapes: round brilliant, oval, princess, cushion, emerald cut, pear, radiant, marquise, and heart. Mixed-shape parcels are available for buyers who need breadth across a single delivery. Send required shapes and sizes and we will advise on parcel construction and per-carat pricing.",
   },
   {
     question: "Can colour and clarity be held within a band across a parcel?",
     answer:
-      "Yes. Colour bands — D–F, G–H, I–J — and clarity bands — IF through VS and SI1 through SI2 with no eye-visible inclusions confirmed per stone — can be held consistently across a parcel. Mixed bands are available if required; describe your requirement and we will advise on construction.",
+      "Yes. Colour bands (D–F, G–H, I–J) and clarity bands (IF through VS and SI1 through SI2 with no eye-visible inclusions confirmed per stone) can be held consistently across a parcel. Mixed bands are available if required; describe your requirement and we will advise on construction.",
   },
   {
     question: "Is there a fixed minimum quantity?",
     answer:
-      "Alvora works with three indicative parcel bands — trial under 15 ct for account qualification, mid 15–50 ct for established accounts, and bulk above 50 ct for distribution and manufacturing programmes. We do not publish a fixed minimum quantity. Send your required shapes, sizes, and approximate weight and we will advise on the practicable parcel size and per-carat pricing.",
+      "Alvora works with three indicative parcel bands: trial under 15 ct for account qualification, mid 15–50 ct for established accounts, and bulk above 50 ct for distribution and manufacturing programmes. We do not publish a fixed minimum quantity. Send your required shapes, sizes, and approximate weight and we will advise on the practicable parcel size and per-carat pricing.",
   },
   {
     question: "Is a matched-parcel option available?",
     answer:
-      "Yes. Within a wholesale parcel, colour and clarity can be matched within a defined band so that all stones in the lot are consistent. This is the standing filter applied to calibrated melee and matched-pair programmes. For wholesale parcels where matching matters — for example, a tennis bracelet lot or a mixed-shape display set — specify the matching requirement when sending your brief.",
+      "Yes. Within a wholesale parcel, colour and clarity can be matched within a defined band so that all stones in the lot are consistent. This is the standing filter applied to calibrated melee and matched-pair programmes. For wholesale parcels where matching matters (for example, a tennis bracelet lot or a mixed-shape display set), specify the matching requirement when sending your brief.",
   },
 ];
 
@@ -53,7 +53,7 @@ export default function SgWholesaleParcels() {
     <SpecialtyPageShell>
       <SpecialtyPageMeta
         title="Wholesale Diamond Parcels Singapore | Alvora"
-        description="Wholesale diamond parcels for Singapore — shape and size breadth, colour and clarity bands, matched option, and per-carat pricing on enquiry."
+        description="Wholesale diamond parcels for Singapore: shape and size breadth, colour and clarity bands, matched option, and per-carat pricing on enquiry."
         path="/singapore/wholesale-parcels"
         jsonLd={JSON_LD}
       />
@@ -61,7 +61,7 @@ export default function SgWholesaleParcels() {
       <section className="specialty-hero" aria-labelledby="sg-wp-h1">
         <p className="eyebrow eyebrow-bright"><span />WHOLESALE PARCEL SUPPLY · SINGAPORE</p>
         <h1 id="sg-wp-h1">
-          Wholesale diamond parcels for Singapore — shape and size breadth, colour and clarity bands,
+          Wholesale diamond parcels for Singapore: shape and size breadth, colour and clarity bands,
           and matched-parcel option.
         </h1>
         <p className="specialty-hero-copy">
@@ -70,7 +70,7 @@ export default function SgWholesaleParcels() {
           through to 5 ct and above, in standard colour and clarity bands. Parcels can be supplied
           as a single shape or as a mixed-shape lot. A matched-parcel option holds colour and clarity
           within a defined band across the whole parcel. Per-carat pricing is quoted on a per-enquiry
-          basis — no fixed published price list.
+          basis. No fixed published price list.
         </p>
       </section>
 
@@ -78,22 +78,22 @@ export default function SgWholesaleParcels() {
         <div className="specialty-section-lead">
           <p className="eyebrow"><span />PARCEL CONSTRUCTION</p>
           <h2 id="sg-wp-construction">
-            Wholesale diamond parcels for Singapore — built to shape, colour, and clarity specification.
+            Wholesale diamond parcels for Singapore: built to shape, colour, and clarity specification.
           </h2>
           <p>
             Send the required shapes, sizes, colour band, clarity band, and approximate weight.
-            We return a per-carat price and parcel composition. No published price list — every
+            We return a per-carat price and parcel composition. No published price list; every
             parcel is priced to specification.
           </p>
         </div>
         <div className="specialty-feature-list on-light" style={{ marginTop: 40 }}>
           {([
             [
-              "Shape breadth — round to fancy",
+              "Shape breadth: round to fancy",
               "Round brilliant, oval, princess, cushion, emerald cut, pear, radiant, marquise, and heart. Single-shape parcels and mixed-shape lots are both available. Specify required shapes and proportions when sending your brief.",
             ],
             [
-              "Size range — 0.10 ct to 5 ct and above",
+              "Size range: 0.10 ct to 5 ct and above",
               "Melee from 0.10 ct through to larger stones above 5 ct. Size can be specified as a carat weight range or as a girdle diameter for calibrated production. Weight-matched lots are available for consistency within a parcel.",
             ],
             [
@@ -102,7 +102,7 @@ export default function SgWholesaleParcels() {
             ],
             [
               "Matched-parcel option",
-              "For parcels where consistency matters — a tennis bracelet lot, a display set, or a bulk programme requiring grade uniformity — the matched-parcel option holds colour and clarity within the stated band across all stones in the lot.",
+              "For parcels where consistency matters (a tennis bracelet lot, a display set, or a bulk programme requiring grade uniformity), the matched-parcel option holds colour and clarity within the stated band across all stones in the lot.",
             ],
           ] as [string, string][]).map(([k, v]) => (
             <article key={k}>

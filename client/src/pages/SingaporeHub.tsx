@@ -46,12 +46,12 @@ const HUB_FAQS = [
   {
     question: "What import duties apply to lab-grown diamonds entering Singapore?",
     answer:
-      "Loose diamonds are not a dutiable category under Singapore Customs, so the applicable rate is 0% customs duty plus 9% GST calculated on CIF value — the stone price, freight, and insurance combined. A GST-registered Singapore buyer can typically claim the import GST as input tax, so the effective landed cost in most circumstances is the stone price plus logistics and clearance fees only. Confirm your GST registration status and the applicable HS classification with a Singapore customs broker before the first shipment.",
+      "Loose diamonds are not a dutiable category under Singapore Customs, so the applicable rate is 0% customs duty plus 9% GST calculated on CIF value (the stone price, freight, and insurance combined). A GST-registered Singapore buyer can typically claim the import GST as input tax, so the effective landed cost in most circumstances is the stone price plus logistics and clearance fees only. Confirm your GST registration status and the applicable HS classification with a Singapore customs broker before the first shipment.",
   },
   {
-    question: "Which certification is standard — IGI or GIA?",
+    question: "Which certification is standard, IGI or GIA?",
     answer:
-      "IGI is our standard. Every stone ships laser-inscribed with the report number searchable on the IGI verification platform by any buyer in any market in real time without contacting us. GIA certification is available as an alternative — request it when placing your enquiry. Premium and repeat accounts can request an independent verification right before a parcel is released.",
+      "IGI is our standard. Every stone ships laser-inscribed with the report number searchable on the IGI verification platform by any buyer in any market in real time without contacting us. GIA certification is available as an alternative; request it when placing your enquiry. Premium and repeat accounts can request an independent verification right before a parcel is released.",
   },
   {
     question: "What payment terms are available for a first order?",
@@ -61,7 +61,7 @@ const HUB_FAQS = [
   {
     question: "Is there a minimum order quantity?",
     answer:
-      "We work with three indicative parcel bands — trial (under 15 ct), mid (15–50 ct), and bulk (50 ct+), each quoted in USD/ct and SGD/ct. We do not publish a fixed minimum; send your specification and we will advise on the practicable parcel size for your requirement.",
+      "We work with three indicative parcel bands: trial (under 15 ct), mid (15–50 ct), and bulk (50 ct+), each quoted in USD/ct and SGD/ct. We do not publish a fixed minimum; send your specification and we will advise on the practicable parcel size for your requirement.",
   },
 ];
 
@@ -84,7 +84,7 @@ export default function SingaporeHub() {
   return (
     <SpecialtyPageShell>
       <SpecialtyPageMeta
-        title="Lab-Grown Diamonds Singapore — Wholesale, Manufacturing & Trade | Alvora"
+        title="Lab-Grown Diamonds Singapore: Wholesale, Manufacturing and Trade | Alvora"
         description="Alvora supplies Singapore's jewellery trade with IGI or GIA certified lab-grown diamonds from Surat. Calibrated, matched, and made to specification."
         path="/singapore"
         jsonLd={JSON_LD}
@@ -98,7 +98,7 @@ export default function SingaporeHub() {
         </h1>
         <p className="specialty-hero-copy">
           Alvora manufactures lab-grown diamonds at our own benches in Surat and supplies
-          Singapore's jewellery trade direct — wholesalers, manufacturers, jewellers, and importers.
+          Singapore's jewellery trade direct: wholesalers, manufacturers, jewellers, and importers.
           No intermediary, no broker layer. Every stone ships IGI or GIA certified, laser-inscribed,
           and verified against the certificate before dispatch. We quote in USD/ct and SGD/ct, offer
           CAD and letter-of-credit terms for first orders, and respond within the Singapore business day.

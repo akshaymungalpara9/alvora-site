@@ -15,7 +15,7 @@ const JSON_LD = {
   "@context": "https://schema.org",
   "@type": "Service",
   name: "Lab-Grown Diamond Supplier Singapore",
-  serviceType: "Lab-Grown Diamond Supplier — Specification and Catalogue",
+  serviceType: "Lab-Grown Diamond Supplier: Specification and Catalogue",
   provider: {
     "@type": "Organization",
     name: "Alvora",
@@ -33,7 +33,7 @@ const CAPABILITY = [
   ["Clarity", "IF, VVS1, VVS2, VS1, VS2, SI1, SI2; SI2 with no eye-visible inclusions confirmed per stone"],
   ["Cut grades", "Excellent, Very Good; Ideal on round brilliants on request"],
   ["Treatment disclosure", "All treatments disclosed per stone on the certificate and the shipment invoice"],
-  ["Fluorescence", "None, Faint, Medium, Strong — disclosed per stone; None available as a standing specification"],
+  ["Fluorescence", "None, Faint, Medium, Strong (disclosed per stone); None available as a standing specification"],
   ["Certification", "IGI standard (laser-inscribed, searchable in real time); GIA on request"],
 ];
 
@@ -41,7 +41,7 @@ const PAGE_FAQS = [
   {
     question: "What shapes and sizes does Alvora supply?",
     answer:
-      "Alvora supplies all major shapes — round brilliant, oval, princess, cushion, emerald cut, pear, radiant, marquise, and heart — from 0.10 ct melee through to 5 ct and above. Non-standard dimensions or cuts outside standard production can be handled through the Custom Specification Desk; send the specification and we return a cutting schedule and price.",
+      "Alvora supplies all major shapes (round brilliant, oval, princess, cushion, emerald cut, pear, radiant, marquise, and heart) from 0.10 ct melee through to 5 ct and above. Non-standard dimensions or cuts outside standard production can be handled through the Custom Specification Desk; send the specification and we return a cutting schedule and price.",
   },
   {
     question: "How are treatment and fluorescence disclosed?",
@@ -56,7 +56,7 @@ const PAGE_FAQS = [
   {
     question: "Can I request a sample parcel before placing a standing order?",
     answer:
-      "Yes. A trial parcel — under 15 ct — is the standard starting point for new accounts. It lets you verify colour consistency, clarity, cut grade, and certificate accuracy against your specification before committing to a mid or bulk programme. Send your specification and we will advise on parcel composition and payment terms for the trial.",
+      "Yes. A trial parcel (under 15 ct) is the standard starting point for new accounts. It lets you verify colour consistency, clarity, cut grade, and certificate accuracy against your specification before committing to a mid or bulk programme. Send your specification and we will advise on parcel composition and payment terms for the trial.",
   },
 ];
 
@@ -64,7 +64,7 @@ export default function SgLgdSupplier() {
   return (
     <SpecialtyPageShell>
       <SpecialtyPageMeta
-        title="Lab-Grown Diamond Supplier Singapore — Capability & Catalogue | Alvora"
+        title="Lab-Grown Diamond Supplier Singapore: Capability and Catalogue | Alvora"
         description="Surat lab-grown diamond supplier for Singapore. Shapes, sizes 0.10–5 ct+, D–J colour, IF–SI2 clarity, cut grades, IGI or GIA. Trade catalogue on request."
         path="/singapore/lab-grown-diamond-supplier"
         jsonLd={JSON_LD}
@@ -73,7 +73,7 @@ export default function SgLgdSupplier() {
       <section className="specialty-hero" aria-labelledby="sg-lgds-h1">
         <p className="eyebrow eyebrow-bright"><span />LAB-GROWN DIAMOND SUPPLIER · SINGAPORE</p>
         <h1 id="sg-lgds-h1">
-          Lab-grown diamond supplier for Singapore — capability matrix, IGI or GIA certified, direct
+          Lab-grown diamond supplier for Singapore: capability matrix, IGI or GIA certified, direct
           from Surat.
         </h1>
         <p className="specialty-hero-copy">
@@ -90,7 +90,7 @@ export default function SgLgdSupplier() {
         <div className="specialty-section-lead">
           <p className="eyebrow"><span />CAPABILITY MATRIX</p>
           <h2 id="sg-lgds-capability">
-            Singapore's lab-grown diamond supplier — full production range, declared and certified.
+            Singapore's lab-grown diamond supplier: full production range, declared and certified.
           </h2>
           <p>
             The table below summarises the production range available for Singapore supply. All

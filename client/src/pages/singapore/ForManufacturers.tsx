@@ -30,7 +30,7 @@ const PAGE_FAQS = [
   {
     question: "How does the weekly make-list workflow operate in practice?",
     answer:
-      "Send a list of the shapes, sizes, and weights you need for the week's production — a plain-text list or spreadsheet is sufficient. We return a cut, size, and price matrix with matched parcels built against each line. You confirm the parcel, we verify each stone against its certificate before packing, and dispatch follows with a declared per-stone invoice ready for Singapore Customs permit and GST accounting.",
+      "Send a list of the shapes, sizes, and weights you need for the week's production; a plain-text list or spreadsheet is sufficient. We return a cut, size, and price matrix with matched parcels built against each line. You confirm the parcel, we verify each stone against its certificate before packing, and dispatch follows with a declared per-stone invoice ready for Singapore Customs permit and GST accounting.",
   },
   {
     question: "What payment terms apply to a production programme?",
@@ -40,7 +40,7 @@ const PAGE_FAQS = [
   {
     question: "Can a repeat production specification be held on file?",
     answer:
-      "Yes. Once a production specification has been approved — shape, size, colour, clarity, cut grade, and tolerance — it is held on file and the parcel can be dispatched on an agreed weekly, fortnightly, or monthly cadence without requiring a fresh brief. The replenishment workflow runs on that standing specification until you notify us of a change.",
+      "Yes. Once a production specification has been approved (shape, size, colour, clarity, cut grade, and tolerance) it is held on file and the parcel can be dispatched on an agreed weekly, fortnightly, or monthly cadence without requiring a fresh brief. The replenishment workflow runs on that standing specification until you notify us of a change.",
   },
   {
     question: "How is each stone accountable through the production process?",
@@ -62,7 +62,7 @@ export default function SgForManufacturers() {
       <section className="specialty-hero" aria-labelledby="sg-mfr-h1">
         <p className="eyebrow eyebrow-bright"><span />FOR MANUFACTURERS · SINGAPORE</p>
         <h1 id="sg-mfr-h1">
-          Lab-grown diamonds for Singapore jewellery manufacturers — weekly make-list to price matrix,
+          Lab-grown diamonds for Singapore jewellery manufacturers: weekly make-list to price matrix,
           matched parcels, and replenishment.
         </h1>
         <p className="specialty-hero-copy">
@@ -79,11 +79,11 @@ export default function SgForManufacturers() {
         <div className="specialty-section-lead">
           <p className="eyebrow"><span />PRODUCTION PROGRAMME</p>
           <h2 id="sg-mfr-workflow">
-            Lab-grown diamonds for Singapore jewellery manufacturers — make-list to parcel, week on week.
+            Lab-grown diamonds for Singapore jewellery manufacturers: make-list to parcel, week on week.
           </h2>
           <p>
-            The production programme is designed for manufacturers who need upstream consistency —
-            the same stone quality, the same size tolerance, the same documentation — delivered
+            The production programme is designed for manufacturers who need upstream consistency:
+            the same stone quality, the same size tolerance, the same documentation, delivered
             reliably on a cadence that matches your bench schedule.
           </p>
         </div>
@@ -91,7 +91,7 @@ export default function SgForManufacturers() {
           {([
             [
               "Make-list to price matrix",
-              "Submit your week's shape, size, and weight requirements in any format. We return a price and availability matrix with matched parcels against each line — not a quote sheet, a working production input.",
+              "Submit your week's shape, size, and weight requirements in any format. We return a price and availability matrix with matched parcels against each line: not a quote sheet, a working production input.",
             ],
             [
               "Matched parcels, not random lots",
@@ -99,11 +99,11 @@ export default function SgForManufacturers() {
             ],
             [
               "One-stone accountability",
-              "Every stone is laser-inscribed with its IGI or GIA report number. The per-stone invoice reconciles each stone to its certificate. One stone, one report number, one invoice line — auditable through your production process.",
+              "Every stone is laser-inscribed with its IGI or GIA report number. The per-stone invoice reconciles each stone to its certificate. One stone, one report number, one invoice line. Auditable through your production process.",
             ],
             [
               "Replenishment on a standing cadence",
-              "Approved specifications are held on file. Repeat parcels dispatch on your agreed cadence — weekly, fortnightly, or monthly — without requiring a fresh brief each time.",
+              "Approved specifications are held on file. Repeat parcels dispatch on your agreed cadence (weekly, fortnightly, or monthly) without requiring a fresh brief each time.",
             ],
           ] as [string, string][]).map(([k, v]) => (
             <article key={k}>

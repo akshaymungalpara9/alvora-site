@@ -29,7 +29,7 @@ const PAGE_FAQS = [
   {
     question: "What do the trial, mid, and bulk parcel bands mean?",
     answer:
-      "Trial parcels are under 15 ct and are designed for account qualification — a buyer inspects the stones, verifies the certificates, and confirms the specification before committing to a regular programme. Mid parcels of 15–50 ct suit established replenishment accounts. Bulk parcels above 50 ct are for manufacturing programmes and distribution accounts. Send your specification and we will quote the applicable band.",
+      "Trial parcels are under 15 ct and are designed for account qualification: a buyer inspects the stones, verifies the certificates, and confirms the specification before committing to a regular programme. Mid parcels of 15–50 ct suit established replenishment accounts. Bulk parcels above 50 ct are for manufacturing programmes and distribution accounts. Send your specification and we will quote the applicable band.",
   },
   {
     question: "Are parcels quoted in Singapore dollars?",
@@ -39,7 +39,7 @@ const PAGE_FAQS = [
   {
     question: "What certification is included with wholesale parcels?",
     answer:
-      "IGI certification is standard. Every stone ships laser-inscribed with the report number searchable on the IGI verification platform by any buyer in any market in real time. GIA certification is available as an alternative — request it when sending your specifications.",
+      "IGI certification is standard. Every stone ships laser-inscribed with the report number searchable on the IGI verification platform by any buyer in any market in real time. GIA certification is available as an alternative; request it when sending your specifications.",
   },
   {
     question: "Does Singapore charge import duty on lab-grown diamonds?",
@@ -61,7 +61,7 @@ export default function SgWholesaleLgd() {
       <section className="specialty-hero" aria-labelledby="sg-wlgd-h1">
         <p className="eyebrow eyebrow-bright"><span />WHOLESALE SUPPLY · SURAT, INDIA</p>
         <h1 id="sg-wlgd-h1">
-          Wholesale lab-grown diamonds for Singapore — trial, mid, and bulk parcels from direct Surat
+          Wholesale lab-grown diamonds for Singapore: trial, mid, and bulk parcels from direct Surat
           manufacture.
         </h1>
         <p className="specialty-hero-copy">
@@ -77,25 +77,25 @@ export default function SgWholesaleLgd() {
       <section className="specialty-section specialty-section-light" aria-labelledby="sg-wlgd-bands">
         <div className="specialty-section-lead">
           <p className="eyebrow"><span />PARCEL BANDS</p>
-          <h2 id="sg-wlgd-bands">Wholesale lab-grown diamond supply for Singapore — three parcel bands.</h2>
+          <h2 id="sg-wlgd-bands">Wholesale lab-grown diamond supply for Singapore: three parcel bands.</h2>
           <p>
             Each band is priced on a per-carat basis in USD and SGD. Pricing is parcel-specific and
-            communicated on a per-enquiry basis — send your specification and we return a firm quote
+            communicated on a per-enquiry basis; send your specification and we return a firm quote
             with the applicable per-carat rate and total parcel cost.
           </p>
         </div>
         <div className="specialty-feature-list on-light" style={{ marginTop: 40 }}>
           {([
             [
-              "Trial — under 15 ct",
+              "Trial: under 15 ct",
               "Designed for account opening and specification verification. A trial parcel lets you inspect stones against the certificate before committing to a standing programme. CAD and LC at sight are available. Quoted per carat in USD/ct and SGD/ct.",
             ],
             [
-              "Mid — 15 to 50 ct",
-              "For established accounts running a regular replenishment cycle. Parcels are built to specification — shape, colour, clarity, and cut grade — and dispatched on an agreed cadence. Per-carat pricing reflects the mid-band volume.",
+              "Mid: 15 to 50 ct",
+              "For established accounts running a regular replenishment cycle. Parcels are built to specification (shape, colour, clarity, and cut grade) and dispatched on an agreed cadence. Per-carat pricing reflects the mid-band volume.",
             ],
             [
-              "Bulk — 50 ct and above",
+              "Bulk: 50 ct and above",
               "For manufacturing programmes, distribution accounts, and buyers with predictable weekly or monthly volume. Bulk parcels are priced on a per-carat basis specific to the parcel composition. Contact us with the specification to receive a bulk-band quote.",
             ],
           ] as [string, string][]).map(([k, v]) => (
