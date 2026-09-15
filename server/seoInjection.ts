@@ -1,5 +1,10 @@
-import { availabilitySeo, publicSeo, publicSocialImage } from "../client/src/lib/publicSeo";
+import { availabilitySeo, publicSeo, publicSocialImage, publicSocialImageAlt } from "../client/src/lib/publicSeo";
 import { COMPANY } from "../shared/companyInfo";
+
+function langToOgLocale(lang: string): string {
+  const map: Record<string, string> = { en: "en_US", "en-US": "en_US", fr: "fr_FR", it: "it_IT" };
+  return map[lang] ?? "en_US";
+}
 
 interface RouteMeta {
   lang: string;
@@ -635,6 +640,12 @@ export function injectSeoIntoHtml(html: string, pathname: string, origin: string
 
   const image = `${origin}${publicSocialImage}`;
   const robots = meta.robots ?? "index,follow,max-image-preview:large";
+  const ogLocale = langToOgLocale(meta.lang);
+  const ogLocaleAlternates = (meta.alternates ?? [])
+    .map((a) => a.lang)
+    .filter((l) => l !== "x-default")
+    .map(langToOgLocale)
+    .filter((v, i, arr) => arr.indexOf(v) === i && v !== ogLocale);
 
   const serviceJsonLdTags = meta.serviceJsonLd
     ? Array.isArray(meta.serviceJsonLd)
@@ -649,10 +660,18 @@ export function injectSeoIntoHtml(html: string, pathname: string, origin: string
     `<meta property="og:description" content="${esc(meta.description)}" />`,
     `<meta property="og:url" content="${esc(meta.canonical)}" />`,
     `<meta property="og:image" content="${esc(image)}" />`,
+    `<meta property="og:image:width" content="1200" />`,
+    `<meta property="og:image:height" content="630" />`,
+    `<meta property="og:image:type" content="image/jpeg" />`,
+    `<meta property="og:image:alt" content="${esc(publicSocialImageAlt)}" />`,
+    `<meta property="og:site_name" content="Alvora" />`,
+    `<meta property="og:locale" content="${ogLocale}" />`,
+    ...ogLocaleAlternates.map((loc) => `<meta property="og:locale:alternate" content="${loc}" />`),
     `<meta name="twitter:card" content="summary_large_image" />`,
     `<meta name="twitter:title" content="${esc(meta.title)}" />`,
     `<meta name="twitter:description" content="${esc(meta.description)}" />`,
     `<meta name="twitter:image" content="${esc(image)}" />`,
+    `<meta name="twitter:image:alt" content="${esc(publicSocialImageAlt)}" />`,
     `<link rel="canonical" href="${esc(meta.canonical)}" />`,
     ...(meta.alternates ?? []).map(({ lang, href }) => `<link rel="alternate" hreflang="${esc(lang)}" href="${esc(href)}" />`),
     `<script type="application/ld+json">${JSON.stringify(buildOrgJsonLd(origin))}</script>`,
