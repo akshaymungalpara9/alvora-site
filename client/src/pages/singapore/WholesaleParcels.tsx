@@ -1,5 +1,6 @@
 import SpecialtyPageShell from "@/components/SpecialtyPageShell";
 import SpecialtyPageMeta from "@/components/SpecialtyPageMeta";
+import { ROUTE_META } from "@shared/routeMeta";
 import {
   SgTrustPanel,
   SgLandedCostBlock,
@@ -52,8 +53,8 @@ export default function SgWholesaleParcels() {
   return (
     <SpecialtyPageShell>
       <SpecialtyPageMeta
-        title="Wholesale Diamond Parcels Singapore | Alvora"
-        description="Wholesale diamond parcels for Singapore: shape and size breadth, colour and clarity bands, matched option, and per-carat pricing on enquiry."
+        title={ROUTE_META["/singapore/wholesale-parcels"].title}
+        description={ROUTE_META["/singapore/wholesale-parcels"].description}
         path="/singapore/wholesale-parcels"
         jsonLd={JSON_LD}
       />

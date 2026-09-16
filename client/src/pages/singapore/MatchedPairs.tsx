@@ -1,5 +1,6 @@
 import SpecialtyPageShell from "@/components/SpecialtyPageShell";
 import SpecialtyPageMeta from "@/components/SpecialtyPageMeta";
+import { ROUTE_META } from "@shared/routeMeta";
 import {
   SgCertificationNote,
   SgTrustPanel,
@@ -52,8 +53,8 @@ export default function SgMatchedPairs() {
   return (
     <SpecialtyPageShell>
       <SpecialtyPageMeta
-        title="Matched Lab-Grown Diamond Pairs Singapore | Alvora"
-        description="Matched lab-grown diamond pairs for Singapore: oval and round, matched by colour, clarity, and proportions, with hold-until-design-approval workflow."
+        title={ROUTE_META["/singapore/matched-pairs"].title}
+        description={ROUTE_META["/singapore/matched-pairs"].description}
         path="/singapore/matched-pairs"
         jsonLd={JSON_LD}
       />

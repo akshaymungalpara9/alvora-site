@@ -1,5 +1,6 @@
 import SpecialtyPageShell, { SpecialtyCta } from "@/components/SpecialtyPageShell";
 import SpecialtyPageMeta from "@/components/SpecialtyPageMeta";
+import { ROUTE_META } from "@shared/routeMeta";
 
 const JSON_LD = {
   "@context": "https://schema.org",
@@ -20,8 +21,8 @@ export default function Certifications() {
   return (
     <SpecialtyPageShell>
       <SpecialtyPageMeta
-        title="IGI-Certified Lab-Grown Diamonds — What Our Certificates Cover"
-        description="Every Alvora diamond ships IGI laser-inscribed and database-verified. Understand what each certificate covers — 4Cs, cut quality, laser inscription, and how to verify any report number directly with IGI."
+        title={ROUTE_META["/certifications"].title}
+        description={ROUTE_META["/certifications"].description}
         path="/certifications"
         jsonLd={JSON_LD}
       />
@@ -64,7 +65,7 @@ export default function Certifications() {
             ["4Cs", "Colour grade, clarity grade, cut grade (brilliant cuts), and carat weight. Each grade is assigned by IGI laboratory gemologists, not by the manufacturer."],
             ["Laser inscription", "The report number is inscribed on the girdle of the stone by laser. The inscription is visible under magnification and permanently associates the stone with its certificate."],
             ["Cut quality measurements", "Table %, depth %, crown angle, pavilion angle, girdle range, polish, and symmetry grades. These are the measurements that determine how the stone performs optically and how it fits a setting."],
-            ["Growth origin", "Lab-grown origin is stated on the certificate. Growth type — HPHT or CVD — is specified. TODO: confirm Alvora's growth type(s)."],
+            ["Growth origin", "The report identifies the stone as laboratory-grown. The applicable growth method is confirmed in the order documentation where available."],
             ["Fluorescence", "Fluorescence grade (None, Faint, Medium, Strong) is stated. Alvora's standard: None on all shipped stones."],
             ["BGM screening", "Brown, grey, and milky quality issues are screened at production. No BGM stones are included in shipped parcels — this is not stated on the certificate but is an Alvora production standard."],
           ].map(([k, v]) => (
@@ -109,11 +110,11 @@ export default function Certifications() {
             <p className="eyebrow"><span />OUR STANDARD GRADING PARAMETERS</p>
             <div className="specialty-feature-list" style={{ marginTop: 16 }}>
               {[
-                ["Cut grade", "Excellent or Ideal. TODO: confirm — do we ship Very Good on any stones?"],
+                ["Cut grade", "The report states the applicable cut information for the graded stone."],
                 ["Fluorescence", "None. All shipped stones graded None by IGI."],
-                ["Colour", "TODO: confirm colour range — e.g., D–H or D–J."],
-                ["Clarity", "TODO: confirm clarity range — e.g., VVS1–VS2 or VVS1–SI1."],
-                ["Growth type", "TODO: confirm — HPHT, CVD, or both depending on product type."],
+                ["Colour", "Colour is stated on the applicable laboratory report."],
+                ["Clarity", "Clarity is stated on the applicable laboratory report."],
+                ["Growth type", "The growth method is confirmed in the applicable documentation where available."],
               ].map(([k, v]) => (
                 <article key={k}>
                   <span className="feat-mark">—</span>

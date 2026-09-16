@@ -1,5 +1,6 @@
 import SpecialtyPageShell from "@/components/SpecialtyPageShell";
 import SpecialtyPageMeta from "@/components/SpecialtyPageMeta";
+import { ROUTE_META } from "@shared/routeMeta";
 import {
   SgCertificationNote,
   SgTrustPanel,
@@ -52,8 +53,8 @@ export default function SgForJewellers() {
   return (
     <SpecialtyPageShell>
       <SpecialtyPageMeta
-        title="Lab-Grown Diamonds for Jewellers Singapore | Alvora"
-        description="Lab-grown diamonds for Singapore jewellers: fast quotation, certificate-matched video, and bespoke sourcing from Surat. Round and oval available to spec."
+        title={ROUTE_META["/singapore/for-jewellers"].title}
+        description={ROUTE_META["/singapore/for-jewellers"].description}
         path="/singapore/for-jewellers"
         jsonLd={JSON_LD}
       />

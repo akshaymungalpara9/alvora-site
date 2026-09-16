@@ -1,5 +1,6 @@
 import SpecialtyPageShell, { SpecialtyCta } from "@/components/SpecialtyPageShell";
 import SpecialtyPageMeta from "@/components/SpecialtyPageMeta";
+import { ROUTE_META } from "@shared/routeMeta";
 
 const JSON_LD = {
   "@context": "https://schema.org",
@@ -20,8 +21,8 @@ export default function MeleeDiamonds() {
   return (
     <SpecialtyPageShell>
       <SpecialtyPageMeta
-        title="Wholesale Lab-Grown Melee Diamonds | Alvora Diamonds"
-        description="Alvora supplies wholesale lab-grown melee diamonds calibrated to consistent diameter ranges. Excellent cut, no fluorescence, no BGM — the same standard applied to every stone regardless of size."
+        title={ROUTE_META["/melee-diamonds"].title}
+        description={ROUTE_META["/melee-diamonds"].description}
         path="/melee-diamonds"
         jsonLd={JSON_LD}
       />
@@ -69,9 +70,9 @@ export default function MeleeDiamonds() {
             ["Cut grade", "Excellent on every stone. Cut grade is assessed per stone, not per parcel average."],
             ["Fluorescence", "None. Not screened-out-and-replaced — selected to None from production."],
             ["BGM", "None. No brown, grey, or milky inclusions. Consistent face-up appearance across the parcel."],
-            ["Calibration", "Stones selected to consistent diameter ranges so they fit the seat without adjustment at the bench. TODO: confirm specific size ranges — e.g., 1.0 mm, 1.2 mm, 1.5 mm, 1.8 mm, 2.0 mm, 2.3 mm."],
+            ["Calibration", "Stones are selected to consistent diameter ranges so they can be checked against the intended setting."],
             ["Colour and clarity", "To your specified range. We do not mix colour or clarity grades within a parcel without agreement."],
-            ["Certification", "IGI per parcel with a master report. TODO: confirm IGI melee certification scope and process."],
+            ["Certification", "Documentation is confirmed for the parcel before dispatch, including any requested laboratory report or growth-method disclosure."],
           ].map(([k, v]) => (
             <article key={k}>
               <span className="feat-mark">—</span>
@@ -110,9 +111,7 @@ export default function MeleeDiamonds() {
               Specify the size.<br />We hold to it.
             </h2>
             <p>
-              Melee parcels are ordered by diameter range, colour range, and clarity range. Minimum
-              parcel sizes and pricing are confirmed with your quotation.{" "}
-              <span className="specialty-todo">[TODO: confirm minimum order quantities]</span>
+              Melee parcels are ordered by diameter range, colour range, and clarity range. Minimum parcel quantities are confirmed in the quotation for the requested size, shape and specification.
             </p>
             <p>
               Mixed-size parcels for specific setting configurations — where a designer needs two
@@ -120,10 +119,7 @@ export default function MeleeDiamonds() {
               diameter ranges and the split by proportion in your enquiry.
             </p>
             <p>
-              Lead time:{" "}
-              <strong>5–10 working days</strong>{" "}
-              <span className="specialty-todo">[TODO: confirm for melee parcels]</span>{" "}
-              from specification sign-off, depending on parcel size and calibration requirements.
+              Three to five working days from cleared funds for applicable orders.
             </p>
           </div>
         </div>

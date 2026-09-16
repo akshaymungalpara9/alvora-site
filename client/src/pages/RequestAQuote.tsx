@@ -4,6 +4,7 @@ import { trackRfqSubmit, trackWhatsappClick } from "@/lib/ga4";
 import { trpc } from "@/lib/trpc";
 import { buildWhatsAppHref } from "@/lib/whatsapp";
 import { COMPANY } from "@shared/companyInfo";
+import { ROUTE_META } from "@shared/routeMeta";
 import FastRfqForm from "@/components/FastRfqForm";
 import SpecialtyPageMeta from "@/components/SpecialtyPageMeta";
 import SpecialtyPageShell from "@/components/SpecialtyPageShell";
@@ -326,8 +327,8 @@ export default function RequestAQuote() {
   return (
     <SpecialtyPageShell>
       <SpecialtyPageMeta
-        title="Request a Quote — Alvora Lab-Grown Diamonds"
-        description="Submit a production enquiry to Alvora — describe the specification, quantity, certification requirement, and timeline. We respond with practical production detail and pricing."
+        title={ROUTE_META["/request-a-quote"].title}
+        description={ROUTE_META["/request-a-quote"].description}
         path="/request-a-quote"
         jsonLd={JSON_LD}
       />
@@ -345,9 +346,7 @@ export default function RequestAQuote() {
             <article>
               <strong>Lead time</strong>
               <p>
-                Standard production: typically available from bench stock or within 5–10 working
-                days. Custom cuts and matched pairs: 5–14 working days from specification sign-off.{" "}
-                <span className="specialty-todo">[TODO: confirm]</span>
+                Dispatch is three to five working days from cleared funds for applicable orders. Timing is confirmed against the approved specification.
               </p>
             </article>
             <article>

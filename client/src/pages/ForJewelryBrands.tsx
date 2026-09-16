@@ -1,5 +1,6 @@
 import SpecialtyPageShell, { SpecialtyCta } from "@/components/SpecialtyPageShell";
 import SpecialtyPageMeta from "@/components/SpecialtyPageMeta";
+import { ROUTE_META } from "@shared/routeMeta";
 
 const JSON_LD = {
   "@context": "https://schema.org",
@@ -20,8 +21,8 @@ export default function ForJewelryBrands() {
   return (
     <SpecialtyPageShell>
       <SpecialtyPageMeta
-        title="Lab-Grown Diamonds for Jewellery Brands — Alvora"
-        description="Alvora supplies manufacturing jewellers, DTC brands, and private-label operations with certified, calibrated lab-grown diamonds. Spec-based ordering, matched parcels, direct manufacturer pricing."
+        title={ROUTE_META["/for-jewelry-brands"].title}
+        description={ROUTE_META["/for-jewelry-brands"].description}
         path="/for-jewelry-brands"
         jsonLd={JSON_LD}
       />
@@ -113,8 +114,7 @@ export default function ForJewelryBrands() {
               Send us the specification for your programme — shape, dimensions, grade range,
               certification requirement, quantity, and timing. We will return a production schedule
               and quotation. The quotation itemises per-stone pricing against the specified grade,
-              with calibration and layout work stated separately.{" "}
-              <span className="specialty-todo">[TODO: confirm minimum order quantities for brand programmes]</span>
+              with calibration and layout work stated separately. Minimum quantities for brand programmes are confirmed in the quotation for the requested specification and production plan.
             </p>
             <div className="specialty-feature-list" style={{ marginTop: 28 }}>
               {[

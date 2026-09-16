@@ -6,6 +6,7 @@ import { trackArticleRead } from "@/lib/ga4";
 import { applyDocumentMetadata } from "@/lib/publicSeo";
 import { findInsightArticle, INSIGHT_ARTICLES } from "@/lib/insightsArticles";
 import WhatsAppQuickContact from "@/components/WhatsAppQuickContact";
+import { ROUTE_META } from "@shared/routeMeta";
 
 function formatDate(iso: string) {
   return new Date(iso).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
@@ -20,8 +21,8 @@ function InsightHub() {
     applyDocumentMetadata({
       lang: "en",
       path: "/insights",
-      title: "Diamond Industry Insights — Alvora",
-      description: "Analysis, reports, and market commentary from Alvora's diamond manufacturing team in Surat.",
+      title: ROUTE_META["/insights"].title,
+      description: ROUTE_META["/insights"].description,
       robots: "index,follow,max-image-preview:large",
     });
   }, []);
@@ -78,11 +79,12 @@ function InsightArticlePage({ slug }: { slug: string }) {
 
   useEffect(() => {
     if (!article) return;
+    const routeKey = `/insights/${slug}`;
     applyDocumentMetadata({
       lang: "en",
-      path: `/insights/${slug}`,
-      title: `${article.title} | Alvora`,
-      description,
+      path: routeKey,
+      title: ROUTE_META[routeKey]?.title ?? `${article.title} | Alvora`,
+      description: ROUTE_META[routeKey]?.description ?? description,
       robots: "index,follow,max-image-preview:large",
     });
   }, [article, slug, description]);

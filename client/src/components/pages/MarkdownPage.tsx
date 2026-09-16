@@ -4,6 +4,7 @@ import remarkGfm from "remark-gfm";
 import SpecialtyPageShell, { SpecialtyCta } from "@/components/SpecialtyPageShell";
 import SpecialtyPageMeta from "@/components/SpecialtyPageMeta";
 import type { ProductPageData } from "@/lib/productPages";
+import { ROUTE_META } from "@shared/routeMeta";
 
 const isDev = import.meta.env.DEV;
 
@@ -26,8 +27,8 @@ export default function MarkdownPage({ page }: Props) {
   return (
     <SpecialtyPageShell>
       <SpecialtyPageMeta
-        title={page.title}
-        description={page.metaDescription}
+        title={ROUTE_META[page.route]?.title ?? page.title}
+        description={ROUTE_META[page.route]?.description ?? page.metaDescription}
         path={page.route}
         jsonLd={page.jsonLd ?? undefined}
       />

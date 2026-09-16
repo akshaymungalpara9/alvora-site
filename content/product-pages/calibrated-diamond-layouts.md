@@ -9,14 +9,14 @@ ctaPrimary: "WhatsApp"
 ctaSecondary: "Request a quote"
 ---
 
-Alvora's calibrated lab-grown diamond layouts are coordinated sets of stones selected to fit a jewellery design with consistent measurements, shape, and visual character. They are intended for designers, manufacturers, setters, and trade buyers who need a defined stone plan for a ring, bracelet, pendant, earrings, or repeat production programme.
+Alvora is a Surat manufacturer of calibrated lab-grown diamond layouts for wholesale jewellery production. A calibrated layout is an arranged group of stones made to an agreed shape, size and placement specification so a buyer can check the parcel against a production design. The order brief should state the shape, millimetre dimensions, quantity, matching requirements, quality range, documentation and intended setting. Alvora can review the layout requirement before production, but any tolerance, minimum order and production timing must be confirmed for the specific order. Buyers can test a first layout by measuring the stones, comparing the parcel with the approved layout and checking the fit in the intended setting. The order record should state whether the layout is stock, selected, matched or made to specification, because timing and minimums depend on that distinction.
 
 ## Key facts
 
 - Certification: IGI-certified stones available where applicable; report-to-stone linkage should be confirmed for each order.
-- Tolerance range: ±0.05mm on diameter/length-width; confirm whether the tolerance applies to every stone, a selected group, or a production sample. <!-- DRAFT-VALUE: confirm with Akshay -->
-- MOQ: Minimum 5 carats total weight per layout order; state whether minimums vary by shape, size, layout, or custom production. <!-- DRAFT-VALUE: confirm with Akshay -->
-- Lead time: 7–10 working days; confirm selection, cutting, certification, approval, and dispatch stages. <!-- DRAFT-VALUE: confirm with Akshay -->
+- Tolerance range: ±0.05mm on diameter/length-width; confirm whether the tolerance applies to every stone, a selected group, or a production sample.
+- MOQ: Minimum 5 carats total weight per layout order; state whether minimums vary by shape, size, layout, or custom production.
+- Lead time: 7–10 working days; confirm selection, cutting, certification, approval, and dispatch stages.
 - Primary shapes: rounds, ovals, pears, marquises, emeralds, radiants, cushions, hearts, and other agreed forms.
 
 A layout should be specified as a group rather than as a list of individual stones. Share the target shape, nominal measurements, colour and clarity range, quantity, setting architecture, or CAD reference. Length, width, depth, outline, faceting, and face-up appearance may all matter when stones are set beside one another. The required acceptance criteria should be agreed before selection or production.

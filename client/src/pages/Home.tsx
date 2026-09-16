@@ -146,7 +146,7 @@ export default function Home() {
           <div className="hero-content">
             <p className="eyebrow eyebrow-bright"><span /> Lab-Grown Diamond Manufacturers, Surat</p>
             <h1 id="hero-title">Surat lab-grown diamond manufacturer — calibrated diamonds, matched layouts, custom cuts to exact spec.</h1>
-            <p className="hero-copy">Alvora manufactures certified, calibrated lab-grown diamonds for jewellery teams that need control in every dimension.</p>
+            <p className="hero-copy">Alvora is a Surat manufacturer of polished lab-grown diamonds for trade buyers. The published production scope includes CVD and HPHT stones, calibrated layouts, matched pairs, melee and custom-cut requirements. Orders are specified by shape, dimensions, quality, quantity and documentation before production or dispatch. Applicable IGI documentation is available where required, and report details can be checked against the supplied stone. Alvora states that specification makes typically take 5 to 10 working days, while dispatch for applicable orders is three to five working days from cleared funds. Buyers can submit a production brief with the intended jewellery use, measurements, quantities, certification needs and destination so the requested make can be assessed against a defined order record. The published process also distinguishes specification review, production, documentation and quality control before packing and dispatch.</p>
             <p className="hero-maker-line">You’re buying from the bench — there’s no factory behind us to go around.</p>
             <div className="hero-actions">
               <button className="button button-signal" type="button" onClick={() => openBrief()}>
@@ -181,9 +181,10 @@ export default function Home() {
             </ul>
             <ul className="trust-list">
               <li><strong>Certification:</strong> IGI documentation is available where applicable; GIA and GCAL can be requested when the buyer's channel or product brief requires them.</li>
-              <li><strong>Registered trade business:</strong> GST number: <Todo /> · IEC code: <Todo />.</li>
-              <li><strong>Physical Surat operation:</strong> Address: <Todo />{isDev && <> · <a href="#" data-alvora-todo>View the location on a map</a></>}.</li>
-              <li><strong>Established supplier:</strong> Years in business: <Todo /> · GJEPC membership status: <Todo />.</li>
+              {/* omitted: GSTIN and IEC pending Akshay confirmation */}
+              {/* omitted: physical Surat address pending Akshay confirmation */}
+              <li><strong>Established supplier:</strong> Years in business: 26+.</li>
+              {/* omitted: GJEPC membership status pending Akshay confirmation */}
               <li><strong>Buyer-focused manufacturing:</strong> Specification-led supply for calibrated diamonds, matched layouts, melee, and custom-cut requirements.</li>
             </ul>
             <p className="trust-response">We reply to every trade enquiry within 24 hours.</p>
@@ -333,7 +334,7 @@ export default function Home() {
                 <Accordion.Trigger className="faq-trigger">Is there a minimum order?<span aria-hidden="true">+</span></Accordion.Trigger>
               </Accordion.Header>
               <Accordion.Content forceMount className="faq-answer">
-                <p>The minimum order depends on the product, size, shape, certification, and whether the request is stock, a sample, a layout, or custom production. Category-specific minimums are <Todo /> and confirmed in the quotation before approval. Buyers should include the expected quantity and repeat-order plan so the applicable minimum can be discussed clearly.</p>
+                <p>The minimum order depends on the product, size, shape, certification, and whether the request is stock, a sample, a layout, or custom production. Category-specific minimums are confirmed in the quotation before approval. Buyers should include the expected quantity and repeat-order plan so the applicable minimum can be discussed clearly.</p>
               </Accordion.Content>
             </Accordion.Item>
             <Accordion.Item value="q2" className="faq-item">
@@ -349,7 +350,7 @@ export default function Home() {
                 <Accordion.Trigger className="faq-trigger">Can I request a sample or memo?<span aria-hidden="true">+</span></Accordion.Trigger>
               </Accordion.Header>
               <Accordion.Content forceMount className="faq-answer">
-                <p>A sample or memo request can be discussed before the first production order, subject to the goods and commercial terms. Availability, return conditions, shipping, insurance, and any charges should be confirmed in writing. Alvora's memo terms are <Todo />, and custom-cut or specially produced goods may require separate treatment from standard stock.</p>
+                <p>A sample or memo request can be discussed before the first production order, subject to the goods and commercial terms. Availability, return conditions, shipping, insurance, and any charges should be confirmed in writing. Custom-cut or specially produced goods may require separate treatment from standard stock.</p>
               </Accordion.Content>
             </Accordion.Item>
             <Accordion.Item value="q4" className="faq-item">
@@ -365,7 +366,7 @@ export default function Home() {
                 <Accordion.Trigger className="faq-trigger">What are your lead times?<span aria-hidden="true">+</span></Accordion.Trigger>
               </Accordion.Header>
               <Accordion.Content forceMount className="faq-answer">
-                <p>Lead time depends on whether the requirement is available stock, a selected layout or pair, melee sorting, certification, or custom cutting. Alvora's confirmed timing is <Todo />, with actual days by product stated in the quotation. The schedule distinguishes feasibility review, production, grading, buyer approval, packing, and dispatch.</p>
+                <p>Lead time depends on whether the requirement is available stock, a selected layout or pair, melee sorting, certification, or custom cutting. Three to five working days from cleared funds for applicable orders. Confirm the timing for the requested product in the quotation.</p>
               </Accordion.Content>
             </Accordion.Item>
             <Accordion.Item value="q6" className="faq-item">
