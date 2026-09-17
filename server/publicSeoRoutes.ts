@@ -68,6 +68,13 @@ const HOME_ALTERNATES = [
   { hreflang: "x-default", path: "/" },
 ] as const;
 
+const AVAILABILITY_ALTERNATES = [
+  { hreflang: "en",        path: "/availability" },
+  { hreflang: "fr",        path: "/fr/availability" },
+  { hreflang: "it",        path: "/it/availability" },
+  { hreflang: "x-default", path: "/availability" },
+] as const;
+
 type SitemapEntry = {
   path: string;
   changefreq: "always" | "hourly" | "daily" | "weekly" | "monthly" | "yearly" | "never";
@@ -80,6 +87,9 @@ type RouteMetadata = Omit<SitemapEntry, "path">;
 // Per-route sitemap metadata. Paths come from publicRoutes.json; only metadata lives here.
 const ROUTE_META: Record<string, RouteMetadata> = {
   "/":    { changefreq: "weekly",  priority: "1.0", alternates: HOME_ALTERNATES },
+  "/availability":    { changefreq: "daily", priority: "0.9", alternates: AVAILABILITY_ALTERNATES },
+  "/fr/availability": { changefreq: "daily", priority: "0.8", alternates: AVAILABILITY_ALTERNATES },
+  "/it/availability": { changefreq: "daily", priority: "0.8", alternates: AVAILABILITY_ALTERNATES },
   "/fr":  { changefreq: "weekly",  priority: "0.9", alternates: HOME_ALTERNATES },
   "/it":  { changefreq: "weekly",  priority: "0.9", alternates: HOME_ALTERNATES },
   "/us":  { changefreq: "weekly",  priority: "0.9", alternates: HOME_ALTERNATES },
@@ -173,8 +183,6 @@ export function renderRobots(origin: string): string {
     "Allow: /",
     "Disallow: /admin",
     "Disallow: /admin/",
-    "Disallow: /availability",
-    "Disallow: /buyer-availability",
     "Disallow: /api/",
     "",
     `Sitemap: ${sitemapOrigin}/sitemap.xml`,

@@ -65,7 +65,7 @@ describe("public legal and SEO surfaces", () => {
     expect(sitemap).toContain("https://alvora.example/fr");
     expect(sitemap).toContain("https://alvora.example/privacy");
     expect(robots).toContain("Disallow: /admin");
-    expect(robots).toContain("Disallow: /availability");
+    expect(robots).not.toContain("Disallow: /availability");
     expect(robots).toContain("Sitemap: https://alvora.example/sitemap.xml");
   });
 

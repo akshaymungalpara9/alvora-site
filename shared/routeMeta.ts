@@ -1,5 +1,5 @@
 /**
- * Single-source canonical meta (title + description) for all 53 public routes.
+ * Single-source canonical meta (title + description) for all 56 public routes.
  * Imported by both server/seoInjection.ts and client-side components.
  *
  * Flagged descriptions (truncated in source document) use the existing codebase value.
@@ -9,6 +9,21 @@ export const ROUTE_META: Record<string, { title: string; description: string }> 
     title: "lab grown diamond manufacturer wholesale supplier | Alvora",
     description:
       "Alvora is a Surat lab-grown diamond manufacturer for buyers, making certified CVD and HPHT stones, calibrated layouts and matched pairs to specification.",
+  },
+  "/availability": {
+    title: "lab grown diamond stock list live inventory | Alvora",
+    description:
+      "Live Alvora lab-grown diamond availability from Surat: IGI-certified white and fancy colour stones listed by shape, carat, colour and clarity.",
+  },
+  "/fr/availability": {
+    title: "stock diamants de synthese disponible Surat | Alvora",
+    description:
+      "Disponibilite en direct des diamants de synthese Alvora depuis Surat : pierres blanches et de couleur certifiees IGI, par forme, carat et purete.",
+  },
+  "/it/availability": {
+    title: "disponibilita diamanti sintetici stock Surat | Alvora",
+    description:
+      "Disponibilita in tempo reale dei diamanti sintetici Alvora da Surat: pietre bianche e fancy certificate IGI, per forma, carati, colore e purezza.",
   },
   "/fr": {
     title: "fabricant diamants synthetiques Surat trade | Alvora",
