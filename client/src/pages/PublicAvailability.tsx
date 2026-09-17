@@ -1,6 +1,7 @@
 import PublicMetadata from "@/components/PublicMetadata";
 import { trpc } from "@/lib/trpc";
 import { ChevronLeft, ChevronRight, Download, ExternalLink, Grid2X2, List, Loader2, Play, Send, SlidersHorizontal, X } from "lucide-react";
+import type { MouseEvent } from "react";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "wouter";
 
@@ -84,19 +85,91 @@ function CatalogStoneCard({ stone, isStatement, tab, locale, view, onOpenViewer 
   </article>;
 }
 
+type SortValue = "curated" | "carat_desc" | "carat_asc" | "new_arrivals";
+type CatalogUrlState = { tab: CollectionTab; shape: string; caratBand: string; colour: string; clarity: string; statementType: string; lab: string; sort: SortValue; page: number };
+
+const DEFAULT_URL_STATE: CatalogUrlState = { tab: "Fancy Colour", shape: "", caratBand: "", colour: "", clarity: "", statementType: "", lab: "", sort: "curated", page: 0 };
+const VALID_TABS: CollectionTab[] = ["Fancy Colour", "White", "statement"];
+const VALID_SORTS: SortValue[] = ["curated", "carat_desc", "carat_asc", "new_arrivals"];
+
+function parseUrlState(search: string): CatalogUrlState {
+  const p = new URLSearchParams(search);
+  const rawTab = p.get("collection") ?? "";
+  const rawSort = p.get("sort") ?? "";
+  const pageParam = parseInt(p.get("page") ?? "1", 10);
+  return {
+    tab: (VALID_TABS as string[]).includes(rawTab) ? (rawTab as CollectionTab) : DEFAULT_URL_STATE.tab,
+    shape: p.get("shape") ?? "",
+    caratBand: p.get("carat") ?? "",
+    colour: p.get("colour") ?? "",
+    clarity: p.get("clarity") ?? "",
+    statementType: p.get("type") ?? "",
+    lab: p.get("lab") ?? "",
+    sort: (VALID_SORTS as string[]).includes(rawSort) ? (rawSort as SortValue) : DEFAULT_URL_STATE.sort,
+    page: Number.isFinite(pageParam) ? Math.max(0, pageParam - 1) : 0,
+  };
+}
+
+function serializeUrlState(state: CatalogUrlState): string {
+  const p = new URLSearchParams();
+  if (state.tab !== DEFAULT_URL_STATE.tab) p.set("collection", state.tab);
+  if (state.shape) p.set("shape", state.shape);
+  if (state.caratBand) p.set("carat", state.caratBand);
+  if (state.colour) p.set("colour", state.colour);
+  if (state.clarity) p.set("clarity", state.clarity);
+  if (state.statementType) p.set("type", state.statementType);
+  if (state.lab) p.set("lab", state.lab);
+  if (state.sort !== DEFAULT_URL_STATE.sort) p.set("sort", state.sort);
+  if (state.page > 0) p.set("page", String(state.page + 1));
+  return p.toString();
+}
+
+function buildAvailabilityHref(pathname: string, state: CatalogUrlState, overrides: Partial<CatalogUrlState>): string {
+  const merged = { ...state, ...overrides };
+  const search = serializeUrlState(merged);
+  return search ? `${pathname}?${search}` : pathname;
+}
+
+/** Build the visible numbered-page window for crawler discovery + user navigation. */
+function paginationWindow(current: number, total: number, span = 2): number[] {
+  const start = Math.max(0, current - span);
+  const end = Math.min(total - 1, current + span);
+  const window: number[] = [];
+  for (let i = start; i <= end; i += 1) window.push(i);
+  if (!window.includes(0)) window.unshift(0);
+  if (!window.includes(total - 1) && total > 0) window.push(total - 1);
+  return Array.from(new Set(window)).sort((a, b) => a - b);
+}
+
+const AVAILABILITY_PATH_BY_LOCALE: Record<Locale, string> = { global: "/availability", fr: "/fr/availability", it: "/it/availability" };
+
 export default function PublicAvailability({ locale = "global" }: { locale?: Locale }) {
   const text = copy[locale];
-  const [tab, setTab] = useState<CollectionTab>("Fancy Colour");
-  const [shape, setShape] = useState("");
-  const [caratBand, setCaratBand] = useState("");
-  const [colour, setColour] = useState("");
-  const [clarity, setClarity] = useState("");
-  const [statementType, setStatementType] = useState("");
-  const [lab, setLab] = useState("");
-  const [sort, setSort] = useState<"curated" | "carat_desc" | "carat_asc" | "new_arrivals">("curated");
-  const [page, setPage] = useState(0);
+  const availabilityPathname = AVAILABILITY_PATH_BY_LOCALE[locale];
+  const initialState = useMemo(() => parseUrlState(typeof window === "undefined" ? "" : window.location.search), []);
+  const [tab, setTab] = useState<CollectionTab>(initialState.tab);
+  const [shape, setShape] = useState(initialState.shape);
+  const [caratBand, setCaratBand] = useState(initialState.caratBand);
+  const [colour, setColour] = useState(initialState.colour);
+  const [clarity, setClarity] = useState(initialState.clarity);
+  const [statementType, setStatementType] = useState(initialState.statementType);
+  const [lab, setLab] = useState(initialState.lab);
+  const [sort, setSort] = useState<SortValue>(initialState.sort);
+  const [page, setPage] = useState(initialState.page);
   const [view, setView] = useState<"grid" | "list">("grid");
   const [viewer, setViewer] = useState<{ url: string; stockNumber: string } | null>(null);
+  const currentUrlState: CatalogUrlState = { tab, shape, caratBand, colour, clarity, statementType, lab, sort, page };
+
+  // Keep the URL in lockstep with catalogue state so the address bar (and any
+  // link a visitor copies) fully determines what renders. This is what makes
+  // page 2..N discoverable to crawlers via the anchor pagination below.
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const search = serializeUrlState(currentUrlState);
+    const next = search ? `${availabilityPathname}?${search}` : availabilityPathname;
+    if (`${window.location.pathname}${window.location.search}` === next) return;
+    window.history.replaceState(null, "", next);
+  }, [availabilityPathname, tab, shape, caratBand, colour, clarity, statementType, lab, sort, page]);
   const reportedCuratedTabs = useRef(new Set<CollectionTab>());
   const isStatement = tab === "statement";
   const coreCategory = tab === "statement" ? undefined : tab;
@@ -131,11 +204,40 @@ export default function PublicAvailability({ locale = "global" }: { locale?: Loc
   return <div className="catalog-shell"><PublicMetadata locale={locale} page="availability" /><header className="catalog-header"><Link href={menuLinks[locale]} className="brand"><span className="brand-name">ALVORA</span></Link><nav><a href={menuLinks[locale]}>{text.made}</a><a href="#catalog-filter">{text.filter}</a><a href="#catalog-collections">{text.fancy} / {text.white} / {text.statement}</a></nav><Link href={menuLinks[locale]} className="catalog-back">← Alvora</Link></header>
     <main>
       <section className="catalog-hero"><p className="eyebrow eyebrow-bright"><span /> {text.kicker}</p><h1>{text.title}</h1><p>{text.intro}</p>{(isStatement ? statementSummary.data?.import : coreSummary.data?.import) && <p className="catalog-freshness">{text.refreshed}: {new Date((isStatement ? statementSummary.data?.import : coreSummary.data?.import)!.activatedAt).toLocaleString()}</p>}</section>
-      <section className="catalog-collection-tabs" aria-label="Collection selection"><button className={tab === "Fancy Colour" ? "is-active" : ""} onClick={() => setCollection("Fancy Colour")}>{text.fancy}<span>{tabCount("Fancy Colour")}</span></button><button className={tab === "White" ? "is-active" : ""} onClick={() => setCollection("White")}>{text.white}<span>{tabCount("White")}</span></button><button className={isStatement ? "is-active" : ""} onClick={() => setCollection("statement")}>{text.statement}<span>{tabCount("statement")}</span></button></section>
+      <section className="catalog-collection-tabs" aria-label="Collection selection">{(["Fancy Colour", "White", "statement"] as const).map((target) => {
+        const label = target === "Fancy Colour" ? text.fancy : target === "White" ? text.white : text.statement;
+        const href = buildAvailabilityHref(availabilityPathname, currentUrlState, { tab: target, shape: "", caratBand: "", colour: "", clarity: "", statementType: "", lab: "", page: 0 });
+        return (<a key={target} href={href} className={tab === target ? "is-active" : ""} onClick={(event) => { event.preventDefault(); setCollection(target); }}>{label}<span>{tabCount(target)}</span></a>);
+      })}</section>
       {isStatement && <p className="catalog-statement-intro">{text.statementIntro}</p>}
       <section className="catalog-controls" id="catalog-filter"><div className="catalog-filter-title"><SlidersHorizontal size={16} /><span>{text.filter}</span></div><div className="catalog-filter-fields"><SelectField label={text.shape} values={filters.shapes} value={shape} onChange={resetPage(setShape)} all={text.all} /><SelectField label={text.carat} values={filters.caratBands} value={caratBand} onChange={resetPage(setCaratBand)} all={text.all} /><SelectField label={text.colour} values={filters.colours} value={colour} onChange={resetPage(setColour)} all={text.all} /><SelectField label={text.clarity} values={filters.clarities} value={clarity} onChange={resetPage(setClarity)} all={text.all} />{isStatement && <><SelectField label={text.type} values={filters.types} value={statementType} onChange={resetPage(setStatementType)} all={text.all} /><SelectField label={text.lab} values={filters.labs} value={lab} onChange={resetPage(setLab)} all={text.all} /></>}</div><label className="catalog-sort"><span>{text.sort}</span><select value={sort} onChange={(event) => { setSort(event.target.value as typeof sort); setPage(0); }}><option value="curated">{text.curated}</option><option value="carat_desc">{text.caratDesc}</option><option value="carat_asc">{text.caratAsc}</option><option value="new_arrivals">{text.newArrivals}</option></select></label><div className="catalog-view-toggle"><button className={view === "grid" ? "is-active" : ""} onClick={() => setView("grid")} aria-label="Grid view"><Grid2X2 size={16} /></button><button className={view === "list" ? "is-active" : ""} onClick={() => setView("list")} aria-label="List view"><List size={16} /></button></div><button className="catalog-download" type="button" disabled={!catalog.data?.profiles.length || downloadCurrentView.isPending} onClick={() => downloadCurrentView.mutate({ collection: isStatement ? "statement" : "core", stoneIds: catalog.data?.profiles.map((stone) => stone.id) ?? [] })}><Download size={14} /> {downloadCurrentView.isPending ? text.preparing : text.download}</button>{downloadCurrentView.error && <p className="catalog-download-error">{downloadCurrentView.error.message}</p>}</section>
       <div id="catalog-collections" className="catalog-results" aria-live="polite">{catalog.isLoading ? <section className={view === "grid" ? "catalog-grid" : "catalog-list"}><p className="catalog-loading"><Loader2 className="animate-spin" /> Loading current production…</p></section> : visibleStones.length ? <>{pinnedStones.length > 0 && <section className="catalog-curated"><header><p className="eyebrow"><span /> {text.picks}</p></header><div className={view === "grid" ? "catalog-grid catalog-curated-grid" : "catalog-list catalog-curated-list"}>{pinnedStones.map((stone) => <CatalogStoneCard key={stone.id} stone={stone} isStatement={isStatement} tab={tab} locale={locale} view={view} onOpenViewer={(url, stockNumber) => setViewer({ url, stockNumber })} />)}</div></section>}{regularStones.length > 0 && <section className={view === "grid" ? "catalog-grid" : "catalog-list"}>{regularStones.map((stone) => <CatalogStoneCard key={stone.id} stone={stone} isStatement={isStatement} tab={tab} locale={locale} view={view} onOpenViewer={(url, stockNumber) => setViewer({ url, stockNumber })} />)}</section>}</> : <section className={view === "grid" ? "catalog-grid" : "catalog-list"}><p className="catalog-empty">{text.empty}</p></section>}</div>
-      {(catalog.data?.total ?? 0) > 0 && <nav className="catalog-pagination" aria-label="Catalog pages"><button disabled={page === 0} onClick={() => setPage((current) => Math.max(0, current - 1))}><ChevronLeft size={16} /> {text.prev}</button><span>{text.page} {page + 1} / {totalPages} · {catalog.data?.total} {text.rows}</span><button disabled={page + 1 >= totalPages} onClick={() => setPage((current) => current + 1)}>{text.next} <ChevronRight size={16} /></button></nav>}
+      {(catalog.data?.total ?? 0) > 0 && (() => {
+        const pageWindow = paginationWindow(page, totalPages, 2);
+        const goto = (targetPage: number) => (event: MouseEvent) => { event.preventDefault(); setPage(Math.max(0, Math.min(totalPages - 1, targetPage))); };
+        const prevHref = buildAvailabilityHref(availabilityPathname, currentUrlState, { page: Math.max(0, page - 1) });
+        const nextHref = buildAvailabilityHref(availabilityPathname, currentUrlState, { page: Math.min(totalPages - 1, page + 1) });
+        return (<nav className="catalog-pagination" aria-label="Catalog pages">
+          <a href={prevHref} aria-disabled={page === 0} onClick={page === 0 ? (event) => event.preventDefault() : goto(page - 1)}><ChevronLeft size={16} /> {text.prev}</a>
+          <ol className="catalog-pagination-pages" aria-label="Catalog page numbers">
+            {pageWindow.map((targetPage, index) => {
+              const gap = index > 0 && targetPage - pageWindow[index - 1] > 1;
+              return (
+                <li key={targetPage}>
+                  {gap && <span aria-hidden="true">…</span>}
+                  {targetPage === page ? (
+                    <span aria-current="page">{targetPage + 1}</span>
+                  ) : (
+                    <a href={buildAvailabilityHref(availabilityPathname, currentUrlState, { page: targetPage })} onClick={goto(targetPage)}>{targetPage + 1}</a>
+                  )}
+                </li>
+              );
+            })}
+          </ol>
+          <span className="catalog-pagination-meta">{text.page} {page + 1} / {totalPages} · {catalog.data?.total} {text.rows}</span>
+          <a href={nextHref} aria-disabled={page + 1 >= totalPages} onClick={page + 1 >= totalPages ? (event) => event.preventDefault() : goto(page + 1)}>{text.next} <ChevronRight size={16} /></a>
+        </nav>);
+      })()}
       <section className="catalog-commission"><p className="eyebrow"><span /> {text.commissionKicker}</p><h2>{text.commission}</h2><p>{text.commissionCopy}</p><a href={`${menuLinks[locale]}#production-brief`}>{text.commission} <Send size={15} /></a></section>
     </main>{viewer && <div className="catalog-viewer-backdrop" role="presentation" onMouseDown={() => setViewer(null)}><section className="catalog-viewer" role="dialog" aria-modal="true" aria-label={`360° viewer for ${viewer.stockNumber}`} onMouseDown={(event) => event.stopPropagation()}><header><span>{viewer.stockNumber} · {text.video}</span><button type="button" onClick={() => setViewer(null)} aria-label="Close 360 viewer"><X size={18} /></button></header><iframe src={viewer.url} title={`360° viewer for ${viewer.stockNumber}`} allow="fullscreen" /></section></div>}
   </div>;

@@ -702,12 +702,41 @@ function autoBreadcrumbs(pathname: string, origin: string, pageTitle: string): o
 }
 
 /**
+ * Routes that support URL-driven pagination via ?page=N. When N > 1 the
+ * canonical link and the title get a self-referencing suffix so page 2..N are
+ * NOT canonicalised back to page 1.
+ */
+const PAGINATED_ROUTES = new Set(["/availability", "/fr/availability", "/it/availability"]);
+
+/**
+ * Extract a positive integer page number from a search string. Returns 1 for
+ * missing/invalid values so callers can treat "page 1" and "no page param" the
+ * same (both canonicalise to the un-paginated URL).
+ */
+function paginationFromSearch(search: string | null | undefined): number {
+  if (!search) return 1;
+  const raw = new URLSearchParams(search).get("page");
+  if (!raw) return 1;
+  const n = parseInt(raw, 10);
+  return Number.isFinite(n) && n > 0 ? n : 1;
+}
+
+/**
  * Injects SEO tags into the index.html shell for a given pathname.
  * Returns html unchanged for unrecognised paths (admin, api, etc.).
+ *
+ * `search` is the raw URL query string (with or without a leading `?`).
+ * For paginated routes, `?page=N` (N > 1) shifts the canonical and the title
+ * to reference that specific page.
  */
-export function injectSeoIntoHtml(html: string, pathname: string, origin: string): string {
+export function injectSeoIntoHtml(html: string, pathname: string, origin: string, search?: string | null): string {
   const meta = resolveRouteMeta(pathname, origin);
   if (!meta) return html;
+
+  const page = PAGINATED_ROUTES.has(pathname) ? paginationFromSearch(search) : 1;
+  const pageSuffix = page > 1 ? ` — Page ${page}` : "";
+  const canonicalWithPage = page > 1 ? `${meta.canonical}?page=${page}` : meta.canonical;
+  const titleWithPage = `${meta.title}${pageSuffix}`;
 
   const image = `${origin}${publicSocialImage}`;
   const robots = meta.robots ?? "index,follow,max-image-preview:large";
@@ -732,9 +761,9 @@ export function injectSeoIntoHtml(html: string, pathname: string, origin: string
   const tags = [
     `<meta name="robots" content="${esc(robots)}" />`,
     `<meta property="og:type" content="website" />`,
-    `<meta property="og:title" content="${esc(meta.title)}" />`,
+    `<meta property="og:title" content="${esc(titleWithPage)}" />`,
     `<meta property="og:description" content="${esc(meta.description)}" />`,
-    `<meta property="og:url" content="${esc(meta.canonical)}" />`,
+    `<meta property="og:url" content="${esc(canonicalWithPage)}" />`,
     `<meta property="og:image" content="${esc(image)}" />`,
     `<meta property="og:image:width" content="1200" />`,
     `<meta property="og:image:height" content="630" />`,
@@ -744,11 +773,11 @@ export function injectSeoIntoHtml(html: string, pathname: string, origin: string
     `<meta property="og:locale" content="${ogLocale}" />`,
     ...ogLocaleAlternates.map((loc) => `<meta property="og:locale:alternate" content="${loc}" />`),
     `<meta name="twitter:card" content="summary_large_image" />`,
-    `<meta name="twitter:title" content="${esc(meta.title)}" />`,
+    `<meta name="twitter:title" content="${esc(titleWithPage)}" />`,
     `<meta name="twitter:description" content="${esc(meta.description)}" />`,
     `<meta name="twitter:image" content="${esc(image)}" />`,
     `<meta name="twitter:image:alt" content="${esc(publicSocialImageAlt)}" />`,
-    `<link rel="canonical" href="${esc(meta.canonical)}" />`,
+    `<link rel="canonical" href="${esc(canonicalWithPage)}" />`,
     ...(meta.alternates ?? []).map(({ lang, href }) => `<link rel="alternate" hreflang="${esc(lang)}" href="${esc(href)}" />`),
     `<script type="application/ld+json">${JSON.stringify(buildOrgJsonLd(origin))}</script>`,
     ...(breadcrumbTag ? [breadcrumbTag] : []),
@@ -757,7 +786,7 @@ export function injectSeoIntoHtml(html: string, pathname: string, origin: string
 
   return html
     .replace('lang="en"', `lang="${meta.lang}"`)
-    .replace(/<title>[^<]*<\/title>/, `<title>${esc(meta.title)}</title>`)
+    .replace(/<title>[^<]*<\/title>/, `<title>${esc(titleWithPage)}</title>`)
     .replace(
       /<meta\s+name="description"\s+content="[^"]*"\s*\/?>/,
       `<meta name="description" content="${esc(meta.description)}" />`
