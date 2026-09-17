@@ -34,12 +34,14 @@ export default function About() {
         <p className="eyebrow eyebrow-bright"><span />ABOUT ALVORA · SURAT, INDIA</p>
         <h1 id="about-title">The Precision House.</h1>
         <p className="specialty-hero-copy">
-          We are a Surat lab-grown diamond manufacturer. We cut, calibrate, certify, and ship
-          direct to jewellery teams and manufacturing operations worldwide. There is no factory
-          behind us — the bench you are buying from is the bench that made the stone.
+          Alvora is a Surat-based lab-grown diamond supply partner. We hold broad stock across
+          white and fancy colour and we cut to specification at our own benches when a buyer's
+          requirement falls outside standard production. Whether the order ships from stock, is
+          matched from a sourcing network, or is made to specification, it is quoted, produced
+          and documented against the same buyer brief.
         </p>
         <p className="hero-maker-line" style={{ marginTop: 32 }}>
-          Cut, calibrated and IGI-certified by our own team.
+          Standard specs in 1–5 days. Custom cuts in 5–10 days. Documented against the brief either way.
         </p>
       </section>
 
