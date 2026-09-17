@@ -1,6 +1,7 @@
 import fs from "fs";
 import path from "path";
 import type { Express, Request } from "express";
+import { getPublicAvailabilitySummary } from "./db";
 
 // ── Canonical origin ──────────────────────────────────────────────────────────
 // Set CANONICAL_ORIGIN=https://www.alvoradiamonds.com in Railway Variables so
@@ -161,8 +162,74 @@ function buildSitemapEntry(origin: string, entry: SitemapEntry): string {
     .join("\n");
 }
 
-export function renderSitemap(origin: string): string {
-  const entries = SITEMAP_ENTRIES.map((entry) => buildSitemapEntry(origin, entry)).join("\n");
+/**
+ * Client-side pagination on /availability uses pageSize 48. Kept in sync with
+ * PublicAvailability.tsx `pageSize: 48` in filterInput.
+ */
+const AVAILABILITY_PAGE_SIZE = 48;
+
+/**
+ * Availability catalogue paths that support ?page=N pagination. Kept in sync
+ * with PAGINATED_ROUTES in server/seoInjection.ts.
+ */
+const PAGINATED_AVAILABILITY_PATHS: Array<{ path: string; collection: "core" | "statement" | "combined" }> = [
+  { path: "/availability", collection: "combined" },
+  { path: "/fr/availability", collection: "combined" },
+  { path: "/it/availability", collection: "combined" },
+];
+
+/**
+ * Query live totals from the same summary the tRPC catalogue endpoint uses.
+ * Falls back to an empty map when the DB is unreachable (build time on Railway
+ * without DATABASE_URL, or CI). In that case paginated URLs are omitted from
+ * the sitemap — page 1 still ships from the standard PUBLIC_ROUTES entries.
+ */
+async function fetchPaginatedTotals(): Promise<Map<string, number>> {
+  const totals = new Map<string, number>();
+  try {
+    const [core, statement] = await Promise.all([
+      getPublicAvailabilitySummary({ collection: "core" }),
+      getPublicAvailabilitySummary({ collection: "statement" }),
+    ]);
+    const combined = (core.total ?? 0) + (statement.total ?? 0);
+    for (const entry of PAGINATED_AVAILABILITY_PATHS) {
+      if (entry.collection === "core") totals.set(entry.path, core.total ?? 0);
+      else if (entry.collection === "statement") totals.set(entry.path, statement.total ?? 0);
+      else totals.set(entry.path, combined);
+    }
+  } catch {
+    /* DB unavailable — sitemap will omit paginated URLs this build. */
+  }
+  return totals;
+}
+
+function buildPaginatedEntries(origin: string, totals: Map<string, number>): string[] {
+  const rows: string[] = [];
+  for (const { path: base } of PAGINATED_AVAILABILITY_PATHS) {
+    const total = totals.get(base) ?? 0;
+    if (total <= AVAILABILITY_PAGE_SIZE) continue;
+    const totalPages = Math.min(1000, Math.ceil(total / AVAILABILITY_PAGE_SIZE));
+    // Page 1 is emitted from the standard PUBLIC_ROUTES entry; start at page 2.
+    for (let page = 2; page <= totalPages; page += 1) {
+      const loc = esc(`${origin}${base}?page=${page}`);
+      rows.push([
+        "  <url>",
+        `    <loc>${loc}</loc>`,
+        `    <lastmod>${esc(BUILD_DATE)}</lastmod>`,
+        `    <changefreq>weekly</changefreq>`,
+        `    <priority>0.5</priority>`,
+        "  </url>",
+      ].join("\n"));
+    }
+  }
+  return rows;
+}
+
+export async function renderSitemap(origin: string): Promise<string> {
+  const staticEntries = SITEMAP_ENTRIES.map((entry) => buildSitemapEntry(origin, entry));
+  const paginatedTotals = await fetchPaginatedTotals();
+  const paginatedEntries = buildPaginatedEntries(origin, paginatedTotals);
+  const entries = [...staticEntries, ...paginatedEntries].join("\n");
   return [
     '<?xml version="1.0" encoding="UTF-8"?>',
     '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"',
@@ -199,7 +266,8 @@ export function registerPublicSeoRoutes(app: Express) {
   app.get("/robots.txt", (request, response) => {
     response.type("text/plain").set("Cache-Control", "public, max-age=3600").send(renderRobots(getPublicOrigin(request)));
   });
-  app.get("/sitemap.xml", (request, response) => {
-    response.type("application/xml").set("Cache-Control", "public, max-age=3600").send(renderSitemap(getPublicOrigin(request)));
+  app.get("/sitemap.xml", async (request, response) => {
+    const xml = await renderSitemap(getPublicOrigin(request));
+    response.type("application/xml").set("Cache-Control", "public, max-age=3600").send(xml);
   });
 }

@@ -163,13 +163,41 @@ export default function PublicAvailability({ locale = "global" }: { locale?: Loc
   // Keep the URL in lockstep with catalogue state so the address bar (and any
   // link a visitor copies) fully determines what renders. This is what makes
   // page 2..N discoverable to crawlers via the anchor pagination below.
+  //
+  // Page changes use pushState so the browser back button walks pagination
+  // history within the catalogue. Filter/sort/tab changes use replaceState —
+  // rapidly cycling filters shouldn't spam history entries.
+  const previousPageRef = useRef(page);
   useEffect(() => {
     if (typeof window === "undefined") return;
     const search = serializeUrlState(currentUrlState);
     const next = search ? `${availabilityPathname}?${search}` : availabilityPathname;
     if (`${window.location.pathname}${window.location.search}` === next) return;
-    window.history.replaceState(null, "", next);
+    const pageChanged = previousPageRef.current !== page;
+    previousPageRef.current = page;
+    if (pageChanged) window.history.pushState(null, "", next);
+    else window.history.replaceState(null, "", next);
   }, [availabilityPathname, tab, shape, caratBand, colour, clarity, statementType, lab, sort, page]);
+
+  // Handle browser Back/Forward: re-read the URL and sync state.
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const onPopState = () => {
+      const parsed = parseUrlState(window.location.search);
+      setTab(parsed.tab);
+      setShape(parsed.shape);
+      setCaratBand(parsed.caratBand);
+      setColour(parsed.colour);
+      setClarity(parsed.clarity);
+      setStatementType(parsed.statementType);
+      setLab(parsed.lab);
+      setSort(parsed.sort);
+      setPage(parsed.page);
+      previousPageRef.current = parsed.page;
+    };
+    window.addEventListener("popstate", onPopState);
+    return () => window.removeEventListener("popstate", onPopState);
+  }, []);
   const reportedCuratedTabs = useRef(new Set<CollectionTab>());
   const isStatement = tab === "statement";
   const coreCategory = tab === "statement" ? undefined : tab;

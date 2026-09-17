@@ -18,9 +18,9 @@ describe("public legal and SEO surfaces", () => {
     expect(legal).toContain("Governing law and jurisdiction, where relevant, are stated in the written agreement");
   });
 
-  it("returns a host-aware sitemap and crawler rules limited to public routes", () => {
+  it("returns a host-aware sitemap and crawler rules limited to public routes", async () => {
     const origin = "https://alvora.example";
-    const sitemap = renderSitemap(origin);
+    const sitemap = await renderSitemap(origin);
     const robots = renderRobots(origin);
     expect(PUBLIC_SITEMAP_PATHS).toEqual([
       "/", "/fr", "/it", "/us",
