@@ -58,7 +58,7 @@ export const COMPANY: CompanyInfo = Object.freeze({
   email: "akshaym@alvoradiamonds.com",
   growthMethods: ["CVD", "HPHT"],
   certBodies: ["IGI", "GIA"],
-  colourRange: "D–J",
+  colourRange: "D–G",
   clarityRange: "VVS1–SI1",
   moq: Object.freeze({
     stock: "No minimum — single certified stones available ex-stock",

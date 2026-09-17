@@ -34,7 +34,7 @@ India's official export evidence points in the same direction. GJEPC reported po
 
 | Size | Colour / clarity | Certification | Public evidence | How to use it |
 |---|---|---|---|---|
-| 1ct | D–J, VVS1–SI1 | Mixed / specified lab | No complete current open matrix located | Request a live quote for the exact report and make |
+| 1ct | D–G, VVS1–SI1 | Mixed / specified lab | No complete current open matrix located | Request a live quote for the exact report and make |
 | 1ct | Round, IGI-certified | IGI | USD $191/ct average US retailer acquisition cost in Q2 2025 | Stale retail-side benchmark; not India wholesale |
 | 1–3ct | Mixed qualities | Mixed | Down 42% year over year in Q2 2025 | Indicates severe repricing in standardized goods |
 | 3ct | VVS D round | Not stated in the cited summary | USD $126/ct in Q1 2026, about 30% below its 2025 level | Larger-stone public reference, not a 1ct quote |
