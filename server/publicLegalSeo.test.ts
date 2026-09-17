@@ -59,8 +59,22 @@ describe("public legal and SEO surfaces", () => {
       "/hpht-lab-grown-diamonds",
       "/fancy-shape-colour-lab-grown-diamonds",
       "/precision-lab-grown-diamond-wholesale",
+      "/singapore",
+      "/singapore/wholesale-lab-grown-diamonds",
+      "/singapore/lab-grown-diamond-wholesaler",
+      "/singapore/for-jewellers",
+      "/singapore/lab-grown-diamond-supplier",
+      "/singapore/calibrated-parcels",
+      "/singapore/matched-pairs",
+      "/singapore/melee",
+      "/singapore/for-manufacturers",
+      "/singapore/surat-to-singapore",
+      "/singapore/wholesale-parcels",
       "/privacy",
       "/terms",
+      "/availability",
+      "/fr/availability",
+      "/it/availability",
     ]);
     expect(sitemap).toContain("https://alvora.example/fr");
     expect(sitemap).toContain("https://alvora.example/privacy");

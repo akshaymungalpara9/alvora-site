@@ -23,11 +23,14 @@ describe("trade engagement public surfaces", () => {
 
   it("publishes the Insights hub with real article links and no draft content", () => {
     const insights = read("client/src/pages/Insights.tsx");
-    const content = read("client/src/lib/insightsContent.ts");
-    // Real articles are in the published INSIGHTS array
-    expect(content).toContain("export const INSIGHTS");
-    expect(content).toContain("are-lab-grown-diamonds-real-diamonds");
-    expect(content).toContain("cvd-vs-hpht-lab-grown-diamonds");
+    // Articles moved to content/{insights,paa-pages}/*.md, loaded via glob in insightsArticles.ts
+    const articlesLoader = read("client/src/lib/insightsArticles.ts");
+    expect(articlesLoader).toContain("content/insights/*.md");
+    expect(articlesLoader).toContain("content/paa-pages/*.md");
+    expect(articlesLoader).toContain("INSIGHT_ARTICLES");
+    // Two representative articles exist as real markdown files
+    expect(() => read("content/paa-pages/are-lab-grown-diamonds-real-diamonds.md")).not.toThrow();
+    expect(() => read("content/insights/cvd-vs-hpht-lab-grown-diamonds.md")).not.toThrow();
     // No draft labels in the hub or article renderer
     expect(insights).not.toContain("Owner draft");
     expect(insights).not.toContain("Open draft");

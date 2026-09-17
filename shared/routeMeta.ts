@@ -26,9 +26,9 @@ export const ROUTE_META: Record<string, { title: string; description: string }> 
       "Disponibilita in tempo reale dei diamanti sintetici Alvora da Surat: pietre bianche e fancy certificate IGI, per forma, carati, colore e purezza.",
   },
   "/fr": {
-    title: "fabricant diamants synthetiques Surat trade | Alvora",
+    title: "fabricant diamants synthétiques Surat trade | Alvora",
     description:
-      "Alvora fabrique à Surat des diamants de synthese certifiés et calibrés, des assortiments et des fabrications sur mesure pour les équipes joaillières.",
+      "Alvora fabrique à Surat des diamants de synthèse certifiés et calibrés, des assortiments et des fabrications sur mesure pour les équipes joaillières.",
   },
   "/it": {
     // FLAGGED — description kept from existing publicSeo.it.description
