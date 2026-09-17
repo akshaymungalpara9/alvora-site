@@ -135,16 +135,14 @@ export const ROUTE_META: Record<string, { title: string; description: string }> 
       "Alvora explains how buyers can evaluate lab-grown diamond makers in Surat by specification control, documentation, communication and dispatch practice.",
   },
   "/insights/12-questions-to-ask-before-your-first-lab-grown-order": {
-    // FLAGGED — description kept from existing seoInjection.ts value
     title: "lab grown diamond first order checklist guide | Alvora",
     description:
-      "A pre-order checklist for first-time B2B buyers of lab-grown diamonds: payment terms, sample approval, shipping insurance, dispute process and the questions most often skipped.",
+      "A pre-order checklist for B2B lab-grown diamond buyers: payment terms, sample approval, shipping insurance, dispute process and common gaps to check.",
   },
   "/insights/how-to-spec-a-calibrated-parcel": {
-    // FLAGGED — description kept from existing seoInjection.ts value
     title: "calibrated diamond parcel order brief guide | Alvora",
     description:
-      "What jewellery manufacturers must specify before requesting a calibrated lab-grown diamond quote — shape, size range, tolerance, colour band, clarity band, quantity and delivery format.",
+      "What jewellery manufacturers must specify before a calibrated lab-grown diamond quote: shape, size, tolerance, colour, clarity, quantity and delivery.",
   },
   "/insights/igi-vs-gia-vs-sgl-lab-grown-diamonds": {
     title: "IGI vs GIA vs SGL lab grown diamonds guide | Alvora",
@@ -157,10 +155,9 @@ export const ROUTE_META: Record<string, { title: string; description: string }> 
       "Alvora explains the questions importers should ask about duties, customs, payment arrangements and documentation before ordering loose lab-grown diamonds.",
   },
   "/insights/lab-grown-diamond-wholesale-price-trends-2026": {
-    // FLAGGED — description kept from existing seoInjection.ts value
     title: "lab grown diamond wholesale trends 2026 guide | Alvora",
     description:
-      "A dated, factual overview of publicly reported lab-grown diamond wholesale price trends through 2026 — what fell, what stabilised, and what buyers should take from it.",
+      "A dated overview of publicly reported lab-grown diamond wholesale price trends through 2026: what fell, what stabilised, and what buyers should take.",
   },
   "/insights/melee-vs-solitaire-moq-realities": {
     title: "melee vs solitaire minimum orders comparison | Alvora",
@@ -173,10 +170,9 @@ export const ROUTE_META: Record<string, { title: string; description: string }> 
       "Alvora explains how to read a matched-layout tolerance sheet, including dimensions, acceptance criteria, approval images and common ordering gaps.",
   },
   "/insights/sourcing-lab-grown-diamonds-us-retailer": {
-    // FLAGGED — description kept from existing seoInjection.ts value
     title: "lab grown diamonds India US retailer guide | Alvora",
     description:
-      "A first-time guide for US retailers importing lab-grown diamonds from India: import basics, documentation, communication expectations, supplier vetting and red flags.",
+      "A first-time guide for US retailers importing lab-grown diamonds from India: import basics, documentation, supplier vetting and red flags.",
   },
   "/matched-lab-grown-diamond-pairs": {
     title: "matched lab grown diamond pairs wholesale | Alvora",
@@ -254,10 +250,9 @@ export const ROUTE_META: Record<string, { title: string; description: string }> 
       "Alvora makes wholesale lab-grown melee parcels for Singapore jewellery production, with size ranges, sorting requirements and documentation in advance.",
   },
   "/singapore/for-manufacturers": {
-    // FLAGGED — description kept from existing seoInjection.ts value
     title: "lab grown diamonds Singapore manufacturers | Alvora",
     description:
-      "Calibrated and matched lab-grown diamond supply for Singapore jewellery manufacturers: production parcels, repeat programmes, IGI-certified direct from Surat.",
+      "Calibrated and matched lab-grown diamond supply for Singapore jewellery manufacturers: production parcels, repeat programmes, IGI-certified from Surat.",
   },
   "/singapore/surat-to-singapore": {
     title: "lab grown diamonds Surat Singapore supply | Alvora",

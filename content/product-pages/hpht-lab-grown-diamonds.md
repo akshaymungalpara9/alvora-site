@@ -14,9 +14,9 @@ HPHT lab-grown diamonds are real diamonds grown under extreme pressure and tempe
 ## Key facts
 
 - Certification: IGI certification can be requested where applicable, with growth method and treatment disclosure addressed in the product record.
-- Tolerance range: ±0.05mm on diameter/length-width; state measurement and visual-acceptance criteria for individual stones and groups. <!-- DRAFT-VALUE: confirm with Akshay -->
-- MOQ: No minimum (ex-stock loose); 5 ct minimum (layouts and custom cuts); 1 pair minimum (matched pairs); 10 ct minimum (melee); clarify minimums by size, shape, quality, and production route. <!-- DRAFT-VALUE: confirm with Akshay -->
-- Lead time: 2–3 working days (ex-stock); 7–10 working days (bespoke production); separate sourcing, cutting, grading, approval, and dispatch stages. <!-- DRAFT-VALUE: confirm with Akshay -->
+- Tolerance range: ±0.05mm on diameter/length-width; state measurement and visual-acceptance criteria for individual stones and groups.
+- MOQ: No minimum (ex-stock loose); 5 ct minimum (layouts and custom cuts); 1 pair minimum (matched pairs); 10 ct minimum (melee); clarify minimums by size, shape, quality, and production route.
+- Lead time: 2–3 working days (ex-stock); 7–10 working days (bespoke production); separate sourcing, cutting, grading, approval, and dispatch stages.
 - Primary shapes: rounds, ovals, pears, marquises, emeralds, radiants, cushions, hearts, and agreed specialty forms.
 
 HPHT is a commercially important route for colourless and specialty laboratory-grown diamonds. It can offer cost advantages in some standard size and quality bands, and modern HPHT technology can produce large colourless stones. Buyers may also encounter metallic flux inclusions, sector-related colour or fluorescence patterns, graining, or phosphorescence. These possibilities do not determine whether a stone is suitable; inspection and documentation do.

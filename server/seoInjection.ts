@@ -22,9 +22,18 @@ function buildOrgJsonLd(origin: string) {
     "@context": "https://schema.org",
     "@graph": [
       {
+        "@type": "WebSite",
+        "@id": `${origin}/#website`,
+        url: `${origin}/`,
+        name: "Alvora",
+        publisher: { "@id": `${origin}/#organization` },
+        inLanguage: ["en", "fr", "it"],
+      },
+      {
         "@type": "Organization",
         "@id": `${origin}/#organization`,
         name: "Alvora",
+        legalName: COMPANY.legalName,
         url: `${origin}/`,
         logo: `${origin}/assets/alvora-faceted-a.webp`,
         description:
@@ -56,6 +65,19 @@ function buildOrgJsonLd(origin: string) {
         currenciesAccepted: "USD, EUR, INR",
       },
     ],
+  };
+}
+
+function mkBreadcrumbs(origin: string, trail: Array<{ name: string; path: string }>) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: trail.map((crumb, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: crumb.name,
+      item: `${origin}${crumb.path}`,
+    })),
   };
 }
 
@@ -632,6 +654,54 @@ function esc(s: string) {
 }
 
 /**
+ * Auto-derives BreadcrumbList JSON-LD for hierarchical routes.
+ * Returns null for the homepage or paths that have no crawlable parent.
+ */
+function autoBreadcrumbs(pathname: string, origin: string, pageTitle: string): object | null {
+  if (pathname === "/" || !pathname.startsWith("/")) return null;
+
+  const home = { name: "Alvora", path: "/" };
+  const segments = pathname.split("/").filter(Boolean);
+  if (segments.length === 0) return null;
+
+  const titleCase = (slug: string) => slug.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
+
+  // Insights hierarchy: Home → Insights → Article
+  if (segments[0] === "insights" && segments.length === 2) {
+    return mkBreadcrumbs(origin, [
+      home,
+      { name: "Insights", path: "/insights" },
+      { name: pageTitle.split(" | ")[0] || titleCase(segments[1]), path: pathname },
+    ]);
+  }
+  if (segments[0] === "insights" && segments.length === 1) {
+    return mkBreadcrumbs(origin, [home, { name: "Insights", path: "/insights" }]);
+  }
+
+  // Singapore hierarchy: Home → Singapore → Sub-page
+  if (segments[0] === "singapore" && segments.length === 2) {
+    return mkBreadcrumbs(origin, [
+      home,
+      { name: "Singapore", path: "/singapore" },
+      { name: pageTitle.split(" | ")[0] || titleCase(segments[1]), path: pathname },
+    ]);
+  }
+  if (segments[0] === "singapore" && segments.length === 1) {
+    return mkBreadcrumbs(origin, [home, { name: "Singapore", path: "/singapore" }]);
+  }
+
+  // Locale landings and top-level pages: Home → Page
+  if (segments.length === 1) {
+    return mkBreadcrumbs(origin, [
+      home,
+      { name: pageTitle.split(" | ")[0] || titleCase(segments[0]), path: pathname },
+    ]);
+  }
+
+  return null;
+}
+
+/**
  * Injects SEO tags into the index.html shell for a given pathname.
  * Returns html unchanged for unrecognised paths (admin, api, etc.).
  */
@@ -653,6 +723,11 @@ export function injectSeoIntoHtml(html: string, pathname: string, origin: string
       ? meta.serviceJsonLd.map((ld) => `<script type="application/ld+json">${JSON.stringify(ld)}</script>`)
       : [`<script type="application/ld+json">${JSON.stringify(meta.serviceJsonLd)}</script>`]
     : [];
+
+  const breadcrumbs = autoBreadcrumbs(pathname, origin, meta.title);
+  const breadcrumbTag = breadcrumbs
+    ? `<script type="application/ld+json">${JSON.stringify(breadcrumbs)}</script>`
+    : null;
 
   const tags = [
     `<meta name="robots" content="${esc(robots)}" />`,
@@ -676,6 +751,7 @@ export function injectSeoIntoHtml(html: string, pathname: string, origin: string
     `<link rel="canonical" href="${esc(meta.canonical)}" />`,
     ...(meta.alternates ?? []).map(({ lang, href }) => `<link rel="alternate" hreflang="${esc(lang)}" href="${esc(href)}" />`),
     `<script type="application/ld+json">${JSON.stringify(buildOrgJsonLd(origin))}</script>`,
+    ...(breadcrumbTag ? [breadcrumbTag] : []),
     ...serviceJsonLdTags,
   ].join("\n  ");
 

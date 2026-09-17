@@ -16,6 +16,8 @@ export interface CompanyInfo {
   email: string;
   growthMethods: string[];
   certBodies: string[];
+  colourRange: string;
+  clarityRange: string;
   moq: {
     stock: string;
     layouts: string;
@@ -56,6 +58,8 @@ export const COMPANY: CompanyInfo = Object.freeze({
   email: "akshaym@alvoradiamonds.com",
   growthMethods: ["CVD", "HPHT"],
   certBodies: ["IGI", "GIA"],
+  colourRange: "D–J",
+  clarityRange: "VVS1–SI1",
   moq: Object.freeze({
     stock: "No minimum — single certified stones available ex-stock",
     layouts: "Minimum 5 carats total weight per layout order",

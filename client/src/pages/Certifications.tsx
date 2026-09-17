@@ -1,6 +1,7 @@
 import SpecialtyPageShell, { SpecialtyCta } from "@/components/SpecialtyPageShell";
 import SpecialtyPageMeta from "@/components/SpecialtyPageMeta";
 import { ROUTE_META } from "@shared/routeMeta";
+import { COMPANY } from "@shared/companyInfo";
 
 const JSON_LD = {
   "@context": "https://schema.org",
@@ -110,11 +111,11 @@ export default function Certifications() {
             <p className="eyebrow"><span />OUR STANDARD GRADING PARAMETERS</p>
             <div className="specialty-feature-list" style={{ marginTop: 16 }}>
               {[
-                ["Cut grade", "The report states the applicable cut information for the graded stone."],
+                ["Cut grade", "Excellent or Ideal on graded rounds; report states the applicable cut information for other shapes."],
                 ["Fluorescence", "None. All shipped stones graded None by IGI."],
-                ["Colour", "Colour is stated on the applicable laboratory report."],
-                ["Clarity", "Clarity is stated on the applicable laboratory report."],
-                ["Growth type", "The growth method is confirmed in the applicable documentation where available."],
+                ["Colour", `${COMPANY.colourRange}. The exact colour is stated on the applicable IGI report for each stone.`],
+                ["Clarity", `${COMPANY.clarityRange}. The exact clarity is stated on the applicable IGI report for each stone.`],
+                ["Growth type", `${COMPANY.growthMethods.join(" and ")}. Growth method is recorded in the laboratory report where available.`],
               ].map(([k, v]) => (
                 <article key={k}>
                   <span className="feat-mark">—</span>
