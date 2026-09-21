@@ -1,5 +1,40 @@
 import { availabilitySeo, publicSeo, publicSocialImage, publicSocialImageAlt } from "../client/src/lib/publicSeo";
 import { COMPANY } from "../shared/companyInfo";
+import { getStone } from "./stonePassport";
+import { isStonePassportIndexable } from "./_core/env";
+
+const STONE_PASSPORT_ROUTE = /^\/stone\/(\d{6,12})$/;
+
+function formatWeight(weight: number): string {
+  return Number.isFinite(weight) ? weight.toFixed(2) : String(weight);
+}
+
+function stonePassportRouteMeta(report: string, origin: string): RouteMeta {
+  const record = getStone(report);
+  const canonical = `${origin}/stone/${report}`;
+  const robotsWhenBlocked = "noindex,nofollow";
+  const shouldIndex = isStonePassportIndexable();
+  if (!record) {
+    return {
+      lang: "en",
+      title: `Stone ${report} not found · Alvora Diamonds`,
+      description: `No certified stone with report ${report} is in the current lists.`,
+      canonical,
+      robots: "noindex,nofollow",
+    };
+  }
+  const shape = record.shape;
+  const weight = formatWeight(record.weight);
+  const title = `${record.lab} ${record.report} · ${weight} ct ${shape} ${record.color} ${record.clarity} · Alvora Diamonds`;
+  const description = `Lab-grown ${shape.toLowerCase()}, ${weight} ct, ${record.color} ${record.clarity}, ${record.lab} report ${record.report}. Made in Surat by Alvora Diamonds. Open the ${record.lab} report and 360 video.`;
+  return {
+    lang: "en",
+    title,
+    description,
+    canonical,
+    robots: shouldIndex ? undefined : robotsWhenBlocked,
+  };
+}
 
 function langToOgLocale(lang: string): string {
   const map: Record<string, string> = { en: "en_US", "en-US": "en_US", fr: "fr_FR", it: "it_IT" };
@@ -103,6 +138,10 @@ function availabilityHreflangAlternates(origin: string) {
 }
 
 export function resolveRouteMeta(pathname: string, origin: string): RouteMeta | null {
+  const stoneMatch = STONE_PASSPORT_ROUTE.exec(pathname);
+  if (stoneMatch) {
+    return stonePassportRouteMeta(stoneMatch[1], origin);
+  }
   const url = (p: string) => `${origin}${p}`;
   switch (pathname) {
     case "/":
