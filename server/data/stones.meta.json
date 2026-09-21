@@ -1,0 +1,29 @@
+{
+  "generatedAt": "2026-09-21T19:15:39.391Z",
+  "generatedAtLabel": "22 September 2026",
+  "total": 3185,
+  "byLab": {
+    "IGI": 3151,
+    "GIA": 34
+  },
+  "withVideo": 1195,
+  "withEmbeddableVideo": 1191,
+  "byList": {
+    "rounds-under-1ct": 249,
+    "rounds-1-2ct": 392,
+    "rounds-2-3ct": 365,
+    "rounds-3ct-plus": 12,
+    "shapes-ovals-pears": 168,
+    "shapes-cushions-radiants": 186,
+    "shapes-step-cuts": 54,
+    "shapes-other": 117,
+    "fancy-pink": 1138,
+    "fancy-blue": 187,
+    "fancy-yellow": 161,
+    "fancy-other": 156,
+    "premium-pink-5ct": 99,
+    "big-white-3ct": 265,
+    "big-fancy-3ct": 453,
+    "showpiece-10ct": 97
+  }
+}

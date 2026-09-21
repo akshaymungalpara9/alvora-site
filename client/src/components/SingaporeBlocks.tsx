@@ -463,7 +463,7 @@ export function SgProductPanel({ programme = "all", pageSlug }: { programme?: Pr
     "custom-spec": { ...PROGRAMME_DEFS["custom-spec"], href: raqHref },
   } as Record<string, { title: string; href: string; body: string }>;
 
-  const entries =
+  const entries: Array<[string, { title: string; href: string; body: string }]> =
     programme === "all"
       ? Object.entries(programmes)
       : [[programme, programmes[programme]]];
