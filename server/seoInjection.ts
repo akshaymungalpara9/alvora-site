@@ -1,6 +1,7 @@
 import { availabilitySeo, publicSeo, publicSocialImage, publicSocialImageAlt } from "../client/src/lib/publicSeo";
 import { COMPANY } from "../shared/companyInfo";
-import { getStone } from "./stonePassport";
+import { getStone, getStoneOfToday, getStonesMetaSnapshot } from "./stonePassport";
+import { formatInTimeZone } from "date-fns-tz";
 import { isStonePassportIndexable } from "./_core/env";
 
 const STONE_PASSPORT_ROUTE = /^\/stone\/(\d{6,12})$/;
@@ -669,6 +670,30 @@ function esc(s: string) {
   return s.replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 }
 
+/** JSON-escape for embedding a record inside a <script type="application/json"> tag. */
+function jsonForScript(value: unknown): string {
+  return JSON.stringify(value).replace(/</g, "\\u003c").replace(/>/g, "\\u003e");
+}
+
+/**
+ * Builds the hero-stone hydration payload for the "/" route. Returns "" when
+ * no candidates exist so the client-side query falls back to fetching /today.
+ */
+export function heroStoneHydrationTag(): string {
+  const record = getStoneOfToday();
+  if (!record) return "";
+  return `<script type="application/json" id="hero-stone">${jsonForScript(record)}</script>`;
+}
+
+/** Builds the ledger hydration tag so StockLedger has real figures at first paint. */
+export function stockLedgerHydrationTag(): string {
+  const snapshot = getStonesMetaSnapshot();
+  if (!snapshot) return "";
+  const generatedAtLabel = formatInTimeZone(new Date(snapshot.generatedAt), "Asia/Kolkata", "d MMMM yyyy");
+  const payload = { ...snapshot, generatedAtLabel };
+  return `<script type="application/json" id="stock-ledger-data">${jsonForScript(payload)}</script>`;
+}
+
 /**
  * Injects SEO tags into the index.html shell for a given pathname.
  * Returns html unchanged for unrecognised paths (admin, api, etc.).
@@ -715,6 +740,7 @@ export function injectSeoIntoHtml(html: string, pathname: string, origin: string
     ...(meta.alternates ?? []).map(({ lang, href }) => `<link rel="alternate" hreflang="${esc(lang)}" href="${esc(href)}" />`),
     `<script type="application/ld+json">${JSON.stringify(buildOrgJsonLd(origin))}</script>`,
     ...serviceJsonLdTags,
+    ...(pathname === "/" ? [heroStoneHydrationTag(), stockLedgerHydrationTag()].filter(Boolean) : []),
   ].join("\n  ");
 
   return html

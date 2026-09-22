@@ -14,8 +14,13 @@ import {
 } from "lucide-react";
 import { trpc } from "@/lib/trpc";
 import PublicMetadata from "@/components/PublicMetadata";
+import HeroStone from "@/components/HeroStone";
+import StockLedger from "@/components/StockLedger";
+import PlateSpread from "@/components/PlateSpread";
+import { COMPANY } from "@shared/companyInfo";
 import { useLocation } from "wouter";
 import { navigateToPublicAnchor, scrollToPublicAnchor, usePublicHashNavigation } from "@/lib/hashNavigation";
+import "./home-proof.css";
 
 const isDev = import.meta.env.DEV;
 function Todo() {
@@ -23,9 +28,8 @@ function Todo() {
   return <span data-alvora-todo aria-hidden="true" />;
 }
 
-const heroImage = "/assets/alvora-hero-qc.webp";
-const facetingImage = "/assets/alvora-cutting-faceting.webp";
-const laserImage = "/assets/alvora-laser-calibration.webp";
+const facetingImage = "/assets/plates/plate-parcel-spill.webp";
+const laserImage = "/assets/plates/plate-bench-loupe-close.webp";
 const markImage = "/assets/alvora-faceted-a.webp";
 
 export default function Home() {
@@ -36,8 +40,6 @@ export default function Home() {
   const formRef = useRef<HTMLFormElement>(null);
   const [location] = useLocation();
   usePublicHashNavigation();
-  const availabilitySummary = trpc.availability.summary.useQuery();
-  const statementSummary = trpc.availability.summary.useQuery({ collection: "statement" });
   const submitProductionBrief = trpc.productionBrief.submit.useMutation({
     onMutate: () => setSubmissionState("sending"),
     onSuccess: (result) => {
@@ -138,79 +140,21 @@ export default function Home() {
       </header>
 
       <main id="main-content" tabIndex={-1}>
-        <section className="hero" aria-labelledby="hero-title">
-          <img className="hero-image" src={heroImage} alt="A diamond being inspected through a jeweller's loupe during quality control." />
-          <div className="hero-scrim" />
-          <div className="hero-rule hero-rule-a" />
-          <div className="hero-rule hero-rule-b" />
-          <div className="hero-content">
-            <p className="eyebrow eyebrow-bright"><span /> Lab-Grown Diamond Manufacturers, Surat</p>
-            <h1 id="hero-title">Surat lab-grown diamond manufacturer — calibrated diamonds, matched layouts, custom cuts to exact spec.</h1>
-            <p className="hero-copy">Alvora manufactures certified, calibrated lab-grown diamonds for jewellery teams that need control in every dimension.</p>
-            <p className="hero-maker-line">You’re buying from the bench — there’s no factory behind us to go around.</p>
-            <div className="hero-actions">
-              <button className="button button-signal" type="button" onClick={() => openBrief()}>
-                Commission a make <ArrowDownRight size={18} strokeWidth={1.6} />
-              </button>
-              <a className="text-link text-link-light" href="#production">See our production <MoveRight size={17} strokeWidth={1.5} /></a>
-            </div>
-          </div>
-          <div className="hero-index" aria-label="Alvora manufacturing location">
-            <span>01</span>
-            <p>Surat manufacturing,<br />direct to your bench</p>
-          </div>
-          <div className="hero-footer">
-            <span>Certified / Calibrated / Made in Surat</span>
-            <span className="scroll-note">Scroll to inspect <ArrowDownRight size={14} /></span>
-          </div>
-        </section>
+        <HeroStone openBrief={() => openBrief()} leadTimes={{ stockShort: COMPANY.leadTime.stockShort, custom: COMPANY.leadTime.custom }} />
 
-        <section className="trust-section" id="trust" aria-labelledby="trust-title">
-          <div className="trust-heading">
-            <p className="eyebrow"><span /> 02 — WHY BUYERS WORK WITH ALVORA</p>
-            <h2 id="trust-title">A registered trade business,<br /><em>built in Surat.</em></h2>
-          </div>
-          <div className="trust-body">
-            <p className="key-facts-label">Key facts</p>
-            <ul className="key-facts">
-              <li>Surat, India — CVD and HPHT lab-grown diamonds, certified and calibrated for trade buyers.</li>
-              <li>Standard make: Excellent/Ideal cut, no fluorescence, no BGM; IGI laser-inscribed and database-validated before dispatch.</li>
-              <li>Specification make lead time: 5–10 working days.</li>
-              <li>24-hour response to trade enquiries; same-day on WhatsApp during Surat hours (IST 09:00–19:00).</li>
-              <li>Ships to US, Canada, EU, and GCC with insurance and applicable IGI documentation.</li>
-            </ul>
-            <ul className="trust-list">
-              <li><strong>Certification:</strong> IGI documentation is available where applicable; GIA and GCAL can be requested when the buyer's channel or product brief requires them.</li>
-              <li><strong>Registered trade business:</strong> GST number: <Todo /> · IEC code: <Todo />.</li>
-              <li><strong>Physical Surat operation:</strong> Address: <Todo />{isDev && <> · <a href="#" data-alvora-todo>View the location on a map</a></>}.</li>
-              <li><strong>Established supplier:</strong> Years in business: <Todo /> · GJEPC membership status: <Todo />.</li>
-              <li><strong>Buyer-focused manufacturing:</strong> Specification-led supply for calibrated diamonds, matched layouts, melee, and custom-cut requirements.</li>
-            </ul>
-            <p className="trust-response">We reply to every trade enquiry within 24 hours.</p>
-            <p className="trust-tagline">Surat lab-grown diamond manufacturer — calibrated diamonds, matched layouts, custom cuts to exact spec.</p>
-          </div>
-        </section>
+        <StockLedger />
 
         <section className="heritage-section" id="heritage" aria-labelledby="heritage-title">
-          <p className="section-number">03 — MADE IN SURAT</p>
           <div className="heritage-content">
-            <h2 id="heritage-title">Made in Surat,<br /><em>by our benches.</em></h2>
+            <h2 id="heritage-title">Made in Surat, by our benches.</h2>
             <div className="heritage-prose">
-              <p>Alvora is built inside Surat’s lab-grown cutting-and-polishing cluster: close to the work, the tools and the people who understand the make.</p>
+              <p>Alvora is built inside Surat's lab-grown cutting-and-polishing cluster: close to the work, the tools and the people who understand the make.</p>
               <p>Every stone we ship is calibrated to our standard make: <strong>Excellent/Ideal cut, no fluorescence, no BGM.</strong> It is IGI laser-inscribed and validated against the IGI database before dispatch.</p>
               <p>We make to a specification, and we can rework what we have made.</p>
               <p className="heritage-maker-line">Cut, calibrated and IGI-certified by our own team.</p>
             </div>
           </div>
-          <div className="by-numbers" aria-label="Alvora production proof points">
-            <p>By the numbers</p>
-            <div className="numbers-strip">
-              <article><strong>25+</strong><span>years of experience</span></article>
-              <article><strong>10,000+</strong><span>stones dispatched</span></article>
-              <article><strong>100%</strong><span>IGI standard on every stone</span></article>
-              <article><strong>DIRECT</strong><span>from-bench pricing</span></article>
-            </div>
-          </div>
+          <PlateSpread />
         </section>
 
         <section className="production-section" id="production" aria-labelledby="production-title">
@@ -224,7 +168,7 @@ export default function Home() {
 
           <div className="production-grid">
             <article className="production-image-card">
-              <img src={facetingImage} alt="A diamond is cut and faceted on a professional workshop tool." />
+              <img src={facetingImage} alt="Melee parcel opened onto the tray." loading="lazy" />
               <div className="image-caption">
                 <span>FACETING / IN PROCESS</span>
                 <span>SURAT / IND</span>
@@ -257,11 +201,6 @@ export default function Home() {
               </article>
             </div>
           </div>
-          <section className="production-live" aria-labelledby="production-live-title">
-            <div className="production-live-heading"><div><p className="eyebrow"><span /> LIVE PRODUCTION PROFILES</p><h3 id="production-live-title">Current availability.</h3><p>Fancy Colour and White production, cut and calibrated at our benches. Browse the current menu, verify each IGI report, then make an enquiry from the stone page.</p></div><a className="production-live-link" href="/availability">View current availability <MoveRight size={16} /></a></div>
-            {availabilitySummary.data?.import && <p className="production-live-freshness">Last refreshed: {new Date(availabilitySummary.data.import.activatedAt).toLocaleString()}</p>}
-            {availabilitySummary.isLoading ? <p className="production-live-empty">Checking current production availability…</p> : availabilitySummary.data?.total ? <div className="production-profile-grid">{["Fancy Colour", "White"].map((category) => availabilitySummary.data.byCategory.find((collection) => collection.category === category)).filter((collection): collection is NonNullable<typeof collection> => Boolean(collection)).map((collection) => <article key={collection.category}><span>{collection.category}</span><strong>{collection.count}</strong><p>{collection.category === "Fancy Colour" ? "current differentiator profiles" : "current white profiles"}</p></article>)}<article><span>Statement</span><strong>{statementSummary.data?.total ?? 0}</strong><p>signature-cut &amp; rare-colour stones</p></article>{availabilitySummary.data.byShape.slice(0, 4).map((shape) => <article key={shape.shape}><span>{shape.shape}</span><strong>{shape.count}</strong><p>{shape.count} current {shape.count === 1 ? "profile" : "profiles"}</p></article>)}</div> : <p className="production-live-empty">Current availability will appear here after the first reviewed catalog refresh.</p>}
-          </section>
         </section>
 
         <section className="spec-section" id="made-to-spec" aria-labelledby="spec-title">
@@ -298,7 +237,7 @@ export default function Home() {
 
         <section className="process-section" id="how-we-work" aria-labelledby="process-title">
           <div className="process-image-wrap">
-            <img src={laserImage} alt="A laser station inscribes a finished diamond while a calibrated parcel rests at the bench." />
+            <img src={laserImage} alt="Loupe inspection, grading bench, Surat." loading="lazy" />
             <div className="process-image-overlay" />
             <p className="process-image-label">Laser inscription / identification / final check</p>
           </div>
@@ -468,23 +407,13 @@ export default function Home() {
         </section>
       </main>
 
-      <section className="credentials-strip" aria-label="Credentials and compliance">
-        <p className="credentials-title">Documentation &amp; verification <span>for each confirmed order</span></p>
-        <div className="credentials-list">
-          <p><b>CERT</b><span>Certificate links appear only where a matching official IGI or GIA destination is present.</span></p>
-          <p><b>SPEC</b><span>Specification, certificate reference and dispatch details are confirmed in writing for each order.</span></p>
-          <p><b>DOC</b><span>Shipment documentation is prepared against the confirmed destination and delivery arrangement.</span></p>
-          <p><b>INS</b><span>Dispatch route and insurance confirmation are provided with the confirmed shipment.</span></p>
-          <p><b>FR</b><span>French-market public terminology uses the required <em>diamant de synthèse</em> convention.</span></p>
-        </div>
-      </section>
-
       <footer className="site-footer">
         <div className="footer-brand">
           <img className="brand-mark" src={markImage} alt="" />
           <span className="brand-name">ALVORA</span>
         </div>
         <p>Lab-grown diamond manufacturing<br />Surat, India</p>
+        <p className="footer-registrations">{`${COMPANY.legalName} · ${COMPANY.address.city}, ${COMPANY.address.state}, ${COMPANY.address.country} · ${COMPANY.phone} · ${COMPANY.email}`}</p>
         <nav className="footer-legal" aria-label="Information"><a href="/privacy">Privacy</a><a href="/terms">Terms of trade</a></nav>
         <a href="#top">Back to top <ArrowUpRight size={15} /></a>
         <nav className="footer-specialty" aria-label="Products and services">
