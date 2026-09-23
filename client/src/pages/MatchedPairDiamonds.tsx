@@ -1,6 +1,5 @@
 import SpecialtyPageShell, { SpecialtyCta } from "@/components/SpecialtyPageShell";
 import SpecialtyPageMeta from "@/components/SpecialtyPageMeta";
-import { ROUTE_META } from "@shared/routeMeta";
 
 const JSON_LD = {
   "@context": "https://schema.org",
@@ -21,8 +20,8 @@ export default function MatchedPairDiamonds() {
   return (
     <SpecialtyPageShell>
       <SpecialtyPageMeta
-        title={ROUTE_META["/matched-pair-diamonds"].title}
-        description={ROUTE_META["/matched-pair-diamonds"].description}
+        title="Matched Pair Lab-Grown Diamonds, Made to Tolerance | Alvora"
+        description="Alvora makes matched pairs of lab-grown diamonds — matched for colour, dimensions, and cut grade so they read as one stone in the finished piece. Direct from our benches in Surat."
         path="/matched-pair-diamonds"
         jsonLd={JSON_LD}
       />
@@ -31,7 +30,13 @@ export default function MatchedPairDiamonds() {
         <p className="eyebrow eyebrow-bright"><span />MATCHED PAIRS · SURAT MANUFACTURE</p>
         <h1 id="mpd-title">Matched Pair<br /><em>Lab-Grown Diamonds</em></h1>
         <p className="specialty-hero-copy">
-          Alvora is a Surat manufacturer of matched-pair lab-grown diamonds for earrings and two-stone jewellery settings. A matched pair is assessed against agreed criteria such as shape, visible dimensions, colour appearance, clarity appearance and overall face-up presentation. The buyer should provide the required shape, dimensions, quality range, quantity of pairs, documentation and intended setting before production is confirmed. Alvora can document the applicable measurements for comparison. Buyers can test the first pair by measuring both stones under the same conditions, checking visual symmetry and confirming that the pair sits evenly in the planned setting. Any numerical tolerance must be confirmed for the specific order. The buyer should retain the approved dimensions and matching criteria so the first parcel can be checked consistently and any discrepancy can be reviewed against the same record.
+          Two stones that read as one. Matched pairs are the hardest single line item in a
+          jeweller's brief — and the one where calibration failures are most visible to the
+          customer. We cut from aligned rough and select after cutting.
+        </p>
+        <p className="hero-maker-line" style={{ marginTop: 32 }}>
+          A matched pair is not two stones of the same grade ticket. It is two stones a buyer and
+          their customers cannot distinguish when set opposite each other.
         </p>
       </section>
 
@@ -53,10 +58,10 @@ export default function MatchedPairDiamonds() {
 
         <div className="specialty-feature-list on-light" style={{ marginTop: 40 }}>
           {[
-            ["Colour", "Colour appearance is compared across the pair against the approved colour range."],
-            ["Dimensions", "Dimensions are checked against the approved length, width and depth specification."],
+            ["Colour", "Colour grade within one step. TODO: confirm — e.g., E/F or F/G range held across the pair."],
+            ["Dimensions", "Girdle diameter matched within tolerance. TODO: confirm tolerance — target ±0.05 mm or ±0.1 mm."],
             ["Table and depth", "Table and total depth percentages matched so crown height and pavilion depth are consistent."],
-            ["Crown angle", "Crown proportions are checked against the approved matching criteria for the pair."],
+            ["Crown angle", "Crown angles matched within tolerance. TODO: confirm angular tolerance."],
             ["Cut grade", "Excellent or Very Good on each stone — stated per pair."],
             ["Fluorescence", "None on either stone. No BGM. These are not relaxed for pairs."],
           ].map(([k, v]) => (
@@ -102,7 +107,9 @@ export default function MatchedPairDiamonds() {
             </p>
             <p>
               Pairs that drift outside tolerance at any measurement point are separated and replaced
-              rather than shipped as a matched set. Dispatch is three to five working days from cleared funds for applicable orders.
+              rather than shipped as a matched set. Lead time:{" "}
+              <strong>7–14 working days</strong>{" "}
+              <span className="specialty-todo">[TODO: confirm]</span> from specification sign-off.
             </p>
             <p>
               IGI certification is included. Each stone receives its own laser inscription and

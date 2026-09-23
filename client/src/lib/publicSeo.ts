@@ -1,5 +1,3 @@
-import { ROUTE_META } from "@shared/routeMeta";
-
 export type PublicSeoLocale = "global" | "fr" | "it" | "us";
 
 export type PublicDocumentMetadata = { lang: string; path: string; title: string; description: string; robots?: string };
@@ -10,26 +8,26 @@ export const publicSeo = {
   global: {
     lang: "en",
     path: "/",
-    title: ROUTE_META["/"].title,
-    description: ROUTE_META["/"].description,
+    title: "Alvora — Lab-Grown Diamond Manufacturers, Surat",
+    description: "Alvora is a Surat lab-grown diamond manufacturer making certified, calibrated diamonds, matched layouts, and custom cuts to exact specification.",
   },
   fr: {
     lang: "fr",
     path: "/fr",
-    title: ROUTE_META["/fr"].title,
-    description: ROUTE_META["/fr"].description,
+    title: "Alvora — Fabricant de diamants synthétiques à Surat",
+    description: "Alvora fabrique à Surat des diamants synthétiques certifiés et calibrés, des assortiments et des fabrications sur mesure pour les équipes joaillières.",
   },
   it: {
     lang: "it",
     path: "/it",
-    title: ROUTE_META["/it"].title,
-    description: ROUTE_META["/it"].description,
+    title: "Alvora — Produttori di diamanti sintetici, Surat",
+    description: "Alvora realizza a Surat diamanti sintetici certificati e calibrati, lotti abbinati e lavorazioni su specifica per la gioielleria.",
   },
   us: {
     lang: "en-US",
     path: "/us",
-    title: ROUTE_META["/us"].title,
-    description: ROUTE_META["/us"].description,
+    title: "Alvora — Lab-Grown Diamond Manufacturing for US & Canada",
+    description: "Alvora makes certified, calibrated lab-grown diamonds in Surat for North American jewellery teams, with clear US and Canada delivery guidance.",
   },
 } satisfies Record<PublicSeoLocale, PublicDocumentMetadata>;
 

@@ -4,25 +4,26 @@ import { MessageCircle, Phone, Mail, Clock, MapPin, Building2 } from "lucide-rea
 import { trackWhatsappClick } from "@/lib/ga4";
 import { buildWhatsAppHrefWithMessage, WhatsAppInquiry } from "@/lib/whatsapp";
 import { COMPANY } from "@shared/companyInfo";
-import { ROUTE_META } from "@shared/routeMeta";
 import FastRfqForm from "@/components/FastRfqForm";
 import SpecialtyPageMeta from "@/components/SpecialtyPageMeta";
 import SpecialtyPageShell from "@/components/SpecialtyPageShell";
 
 /* COPY: 3.4 — replace all COPY_* constants with final approved text */
 const COPY_INTRO =
-  "Alvora is a Surat-based manufacturer of polished lab-grown diamonds. Send your wholesale enquiry, specification brief or production requirement here.";
-// omitted: building name and unit pending Akshay confirmation
-// omitted: PIN code pending Akshay confirmation
+  "[/* COPY: 3.4 */ Introductory sentence: who Alvora is, where the team is based in Surat, and what kinds of enquiries to send here.]";
+const COPY_ADDRESS_LINE1 =
+  "[/* COPY: 3.4 */ Building name and unit / floor — Diamond World or equivalent, Surat]";
+const COPY_ADDRESS_PIN = "[/* COPY: 3.4 */ PIN code]";
 const COPY_MAP_ARIA =
   "Map showing the Diamond World area of Surat, Gujarat, India where Alvora operates";
 const COPY_MAP_ACTIVATE = "Show map — OpenStreetMap, no cookies";
-// omitted: building and unit pending Akshay confirmation
+const COPY_MAP_CAPTION =
+  "[/* COPY: 3.4 */ Short note confirming the exact building/unit once address is confirmed.]";
 const COPY_HOURS_NOTE =
-  "WhatsApp enquiries are handled during Surat business hours. Email enquiries receive a response within one business day.";
-// omitted: GSTIN pending Akshay confirmation
-// omitted: IEC pending Akshay confirmation
-// omitted: GJEPC membership status pending Akshay confirmation
+  "[/* COPY: 3.4 */ Note about same-day WhatsApp response within Surat hours (IST 09:00–19:00) and email response within one business day.]";
+const COPY_GST = "[/* COPY: 3.4 */ GST number]";
+const COPY_IEC = "[/* COPY: 3.4 */ IEC number]";
+const COPY_GJEPC = "[/* COPY: 3.4 */ GJEPC membership status]";
 
 const JSON_LD = {
   "@context": "https://schema.org",
@@ -66,7 +67,7 @@ function ContactMap() {
           referrerPolicy="no-referrer"
         />
         <p className="contact-map-caption">
-          {/* omitted: building and unit pending Akshay confirmation */}
+          {COPY_MAP_CAPTION}{" "}
           <a
             href="https://www.openstreetmap.org/?mlat=21.195&mlon=72.830#map=14/21.195/72.830"
             target="_blank"
@@ -112,8 +113,8 @@ export default function Contact() {
   return (
     <SpecialtyPageShell>
       <SpecialtyPageMeta
-        title={ROUTE_META["/contact"].title}
-        description={ROUTE_META["/contact"].description}
+        title="Contact Alvora Diamonds — Surat, India"
+        description="Contact the Alvora Diamonds team in Surat for lab-grown diamond wholesale enquiries, pricing, and specification briefs."
         path="/contact"
         jsonLd={JSON_LD}
       />
@@ -134,11 +135,11 @@ export default function Contact() {
               <MapPin size={15} aria-hidden="true" /> Address
             </h2>
             <address className="contact-address">
-              {/* omitted: building name and unit pending Akshay confirmation */}
+              <span>{COPY_ADDRESS_LINE1}</span>
               <span>
                 {COMPANY.address.city}, {COMPANY.address.state}
               </span>
-              {/* omitted: PIN code pending Akshay confirmation */}
+              <span>{COPY_ADDRESS_PIN}</span>
               <span>{COMPANY.address.country}</span>
             </address>
             <ContactMap />
@@ -202,9 +203,16 @@ export default function Contact() {
             <dl className="contact-dl contact-dl-company">
               <dt>Legal name</dt>
               <dd>{COMPANY.legalName}</dd>
-              {/* omitted: GSTIN pending Akshay confirmation */}
-              {/* omitted: IEC pending Akshay confirmation */}
-              {/* omitted: GJEPC membership status pending Akshay confirmation */}
+              <dt>
+                <abbr title="Goods and Services Tax Identification Number">GSTIN</abbr>
+              </dt>
+              <dd>{COMPANY.gstin ?? COPY_GST}</dd>
+              <dt>
+                <abbr title="Import Export Code">IEC</abbr>
+              </dt>
+              <dd>{COMPANY.iec ?? COPY_IEC}</dd>
+              <dt>GJEPC</dt>
+              <dd>{COMPANY.gjepcStatus ?? COPY_GJEPC}</dd>
               <dt>Growth methods</dt>
               <dd>{COMPANY.growthMethods.join(", ")}</dd>
               <dt>Certification</dt>

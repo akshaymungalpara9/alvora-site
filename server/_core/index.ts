@@ -10,6 +10,7 @@ import { createContext } from "./context";
 import { serveStatic, setupVite } from "./vite";
 import { registerPublicSeoRoutes } from "../publicSeoRoutes";
 import { registerQualifierFollowUpSchedule } from "../qualifierFollowUpSchedule";
+import { registerStonePassportRoutes } from "../stonePassport";
 
 function isPortAvailable(port: number): Promise<boolean> {
   return new Promise(resolve => {
@@ -47,6 +48,7 @@ async function startServer() {
   registerStorageProxy(app);
   registerOAuthRoutes(app);
   registerPublicSeoRoutes(app);
+  registerStonePassportRoutes(app);
   registerQualifierFollowUpSchedule(app);
   // tRPC API
   app.use(

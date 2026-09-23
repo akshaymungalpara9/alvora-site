@@ -1,6 +1,5 @@
 import SpecialtyPageShell from "@/components/SpecialtyPageShell";
 import SpecialtyPageMeta from "@/components/SpecialtyPageMeta";
-import { ROUTE_META } from "@shared/routeMeta";
 import {
   SgTrustPanel,
   SgCertificationNote,
@@ -54,8 +53,8 @@ export default function SgLgdWholesaler() {
   return (
     <SpecialtyPageShell>
       <SpecialtyPageMeta
-        title={ROUTE_META["/singapore/lab-grown-diamond-wholesaler"].title}
-        description={ROUTE_META["/singapore/lab-grown-diamond-wholesaler"].description}
+        title="Lab-Grown Diamond Wholesaler Singapore: Trade Accounts | Alvora"
+        description="Trade-only lab-grown diamond wholesaler for Singapore. Surat factory direct, IGI or GIA certified, insured shipping, and CAD or LC terms for first orders."
         path="/singapore/lab-grown-diamond-wholesaler"
         jsonLd={JSON_LD}
       />

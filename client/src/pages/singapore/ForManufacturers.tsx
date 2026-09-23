@@ -1,6 +1,5 @@
 import SpecialtyPageShell from "@/components/SpecialtyPageShell";
 import SpecialtyPageMeta from "@/components/SpecialtyPageMeta";
-import { ROUTE_META } from "@shared/routeMeta";
 import {
   SgTrustPanel,
   SgReplenishmentWorkflow,
@@ -54,8 +53,8 @@ export default function SgForManufacturers() {
   return (
     <SpecialtyPageShell>
       <SpecialtyPageMeta
-        title={ROUTE_META["/singapore/for-manufacturers"].title}
-        description={ROUTE_META["/singapore/for-manufacturers"].description}
+        title="Lab-Grown Diamonds for Jewellery Manufacturers Singapore | Alvora"
+        description="Lab-grown diamonds for Singapore jewellery manufacturers. Weekly make-list to cut and price matrix, matched parcels, replenishment, and CAD or LC terms."
         path="/singapore/for-manufacturers"
         jsonLd={JSON_LD}
       />

@@ -1,6 +1,5 @@
 import SpecialtyPageShell, { SpecialtyCta } from "@/components/SpecialtyPageShell";
 import SpecialtyPageMeta from "@/components/SpecialtyPageMeta";
-import { ROUTE_META } from "@shared/routeMeta";
 
 const JSON_LD = {
   "@context": "https://schema.org",
@@ -21,8 +20,8 @@ export default function ForJewelryBrands() {
   return (
     <SpecialtyPageShell>
       <SpecialtyPageMeta
-        title={ROUTE_META["/for-jewelry-brands"].title}
-        description={ROUTE_META["/for-jewelry-brands"].description}
+        title="Lab-Grown Diamonds for Jewellery Brands — Alvora"
+        description="Alvora supplies manufacturing jewellers, DTC brands, and private-label operations with certified, calibrated lab-grown diamonds. Spec-based ordering, matched parcels, direct manufacturer pricing."
         path="/for-jewelry-brands"
         jsonLd={JSON_LD}
       />
@@ -31,14 +30,12 @@ export default function ForJewelryBrands() {
         <p className="eyebrow eyebrow-bright"><span />FOR JEWELLERY BRANDS · DIRECT MANUFACTURE</p>
         <h1 id="fjb-title">Lab-Grown Diamonds<br /><em>for Jewellery Brands</em></h1>
         <p className="specialty-hero-copy">
-          Built for buyers whose brand programme depends on the same stone arriving the same way
-          every time. Whether the specification lives in Alvora's stock, can be matched from
-          network, or needs to be cut to specification at our Surat benches — the route is decided
-          per brief and the outcome is documented against the brief. Consistent specification.
-          Repeatable supply. Direct pricing on both tracks.
+          Built for buyers who need a manufacturer, not a marketplace. Consistent specification.
+          Repeatable make. Direct pricing. If your programme needs the same stone to arrive the same
+          way every time, that is a manufacturing requirement — and a manufacturer is what you need.
         </p>
         <p className="hero-maker-line" style={{ marginTop: 32 }}>
-          Two routes, one standard: 1–5 days from stock or network, 5–10 days custom-made.
+          You are buying from the bench — there is no factory behind us to go around.
         </p>
       </section>
 
@@ -49,11 +46,8 @@ export default function ForJewelryBrands() {
           <p>
             Alvora supplies manufacturing jewellers, DTC jewellery brands, and private-label
             operations. The common denominator is a buyer who needs the same stone — or the same
-            parcel — to arrive the same way every time. That is a specification requirement.
-            Alvora fulfils it in one of three ways: from current stock, matched from a trusted
-            sourcing network, or cut to specification at our Surat benches. Every brand order
-            retains its specification record so replenishment is quoted against the same brief,
-            no matter which route the first order used.
+            parcel — to arrive the same way every time. That is a manufacturing requirement, not a
+            retail one. A sourcer finds what exists. A manufacturer makes what you specify.
           </p>
         </div>
 
@@ -119,7 +113,8 @@ export default function ForJewelryBrands() {
               Send us the specification for your programme — shape, dimensions, grade range,
               certification requirement, quantity, and timing. We will return a production schedule
               and quotation. The quotation itemises per-stone pricing against the specified grade,
-              with calibration and layout work stated separately. Minimum quantities for brand programmes are confirmed in the quotation for the requested specification and production plan.
+              with calibration and layout work stated separately.{" "}
+              <span className="specialty-todo">[TODO: confirm minimum order quantities for brand programmes]</span>
             </p>
             <div className="specialty-feature-list" style={{ marginTop: 28 }}>
               {[

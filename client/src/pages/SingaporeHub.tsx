@@ -1,6 +1,5 @@
 import SpecialtyPageShell from "@/components/SpecialtyPageShell";
 import SpecialtyPageMeta from "@/components/SpecialtyPageMeta";
-import { ROUTE_META } from "@shared/routeMeta";
 import {
   SgTrustPanel,
   SgLandedCostBlock,
@@ -85,8 +84,8 @@ export default function SingaporeHub() {
   return (
     <SpecialtyPageShell>
       <SpecialtyPageMeta
-        title={ROUTE_META["/singapore"].title}
-        description={ROUTE_META["/singapore"].description}
+        title="Lab-Grown Diamonds Singapore: Wholesale, Manufacturing and Trade | Alvora"
+        description="Alvora supplies Singapore's jewellery trade with IGI or GIA certified lab-grown diamonds from Surat. Calibrated, matched, and made to specification."
         path="/singapore"
         jsonLd={JSON_LD}
       />

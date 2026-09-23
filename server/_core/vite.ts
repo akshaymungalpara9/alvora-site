@@ -41,11 +41,7 @@ export async function setupVite(app: Express, server: Server) {
         `src="/src/main.tsx?v=${nanoid()}"`
       );
       let page = await vite.transformIndexHtml(url, template);
-      {
-        const [devPathname, ...devSearchParts] = req.originalUrl.split("?");
-        const devSearch = devSearchParts.length ? `?${devSearchParts.join("?")}` : "";
-        page = injectSeoIntoHtml(page, devPathname, getPublicOrigin(req), devSearch);
-      }
+      page = injectSeoIntoHtml(page, req.originalUrl.split("?")[0], getPublicOrigin(req));
       res.status(200).set({ "Content-Type": "text/html" }).end(page);
     } catch (e) {
       vite.ssrFixStacktrace(e as Error);
@@ -94,10 +90,9 @@ export function serveStatic(app: Express) {
       res.status(500).send("Internal Server Error: build not found");
       return;
     }
-    const [pathname, ...searchParts] = req.originalUrl.split("?");
-    const search = searchParts.length ? `?${searchParts.join("?")}` : "";
+    const pathname = req.originalUrl.split("?")[0];
     const origin = getPublicOrigin(req);
-    let html = injectSeoIntoHtml(baseHtml, pathname, origin, search);
+    let html = injectSeoIntoHtml(baseHtml, pathname, origin);
     const snapshot = prerendered.get(pathname);
     if (snapshot) html = injectPrerenderedBody(html, snapshot);
     res.status(200).set("Content-Type", "text/html").send(html);

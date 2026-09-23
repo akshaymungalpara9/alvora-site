@@ -28,15 +28,14 @@ describe("public locale metadata", () => {
     const robots = readFileSync("client/public/robots.txt", "utf8");
     expect(robots).toContain("Allow: /");
     expect(robots).toContain("Disallow: /admin");
-    expect(robots).not.toContain("Disallow: /availability");
+    expect(robots).toContain("Disallow: /availability");
     expect(robots).toContain("Disallow: /api/");
     expect(robots).not.toContain("Sitemap: http");
   });
 
   it("requires canonical, hreflang, Open Graph, and Twitter metadata to be supplied from one route-aware helper", () => {
     const source = readFileSync("client/src/lib/publicSeo.ts", "utf8");
-    // 2026-08 change (df705a1): JPEG for WhatsApp/iMessage/social card support
-    expect(publicSocialImage).toBe("/assets/alvora-og.jpg");
+    expect(publicSocialImage).toBe("/assets/alvora-hero-qc.webp");
     for (const token of ["canonical", "x-default", "og:title", "og:description", "og:url", "og:image", "twitter:card", "twitter:title", "twitter:description", "twitter:image"]) {
       expect(source).toContain(token);
     }

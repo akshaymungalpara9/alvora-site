@@ -1,6 +1,5 @@
 import SpecialtyPageShell from "@/components/SpecialtyPageShell";
 import SpecialtyPageMeta from "@/components/SpecialtyPageMeta";
-import { ROUTE_META } from "@shared/routeMeta";
 import {
   SgTrustPanel,
   SgCertificationNote,
@@ -52,8 +51,8 @@ export default function SgSuratToSingapore() {
   return (
     <SpecialtyPageShell>
       <SpecialtyPageMeta
-        title={ROUTE_META["/singapore/surat-to-singapore"].title}
-        description={ROUTE_META["/singapore/surat-to-singapore"].description}
+        title="Surat Lab-Grown Diamonds Singapore: Factory-Direct Supply | Alvora"
+        description="Surat lab-grown diamonds for Singapore: factory-direct, IGI or GIA report per stone, insured shipping, and full export documentation prepared for customs."
         path="/singapore/surat-to-singapore"
         jsonLd={JSON_LD}
       />

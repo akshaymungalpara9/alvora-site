@@ -1,6 +1,5 @@
 import SpecialtyPageShell from "@/components/SpecialtyPageShell";
 import SpecialtyPageMeta from "@/components/SpecialtyPageMeta";
-import { ROUTE_META } from "@shared/routeMeta";
 import {
   SgTrustPanel,
   SgReplenishmentWorkflow,
@@ -66,8 +65,8 @@ export default function SgCalibratedParcels() {
   return (
     <SpecialtyPageShell>
       <SpecialtyPageMeta
-        title={ROUTE_META["/singapore/calibrated-parcels"].title}
-        description={ROUTE_META["/singapore/calibrated-parcels"].description}
+        title="Calibrated Lab-Grown Diamonds Singapore: Parcel Supply | Alvora"
+        description="Calibrated lab-grown diamond parcels for Singapore: melee to larger stones, held to size and shape tolerance for halo, pavé, and tennis production."
         path="/singapore/calibrated-parcels"
         jsonLd={JSON_LD}
       />

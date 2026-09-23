@@ -1,7 +1,5 @@
 import SpecialtyPageShell, { SpecialtyCta } from "@/components/SpecialtyPageShell";
 import SpecialtyPageMeta from "@/components/SpecialtyPageMeta";
-import { ROUTE_META } from "@shared/routeMeta";
-import { COMPANY } from "@shared/companyInfo";
 
 const JSON_LD = {
   "@context": "https://schema.org",
@@ -24,8 +22,8 @@ export default function About() {
   return (
     <SpecialtyPageShell>
       <SpecialtyPageMeta
-        title={ROUTE_META["/about"].title}
-        description={ROUTE_META["/about"].description}
+        title="About Alvora — Surat Lab-Grown Diamond Manufacturer"
+        description="Alvora is a Surat-based lab-grown diamond manufacturer specialising in precision cutting, calibration, and IGI certification. Learn about our factory, process, and the bench-to-buyer approach."
         path="/about"
         jsonLd={JSON_LD}
       />
@@ -34,14 +32,12 @@ export default function About() {
         <p className="eyebrow eyebrow-bright"><span />ABOUT ALVORA · SURAT, INDIA</p>
         <h1 id="about-title">The Precision House.</h1>
         <p className="specialty-hero-copy">
-          Alvora is a Surat-based lab-grown diamond supply partner. We hold broad stock across
-          white and fancy colour and we cut to specification at our own benches when a buyer's
-          requirement falls outside standard production. Whether the order ships from stock, is
-          matched from a sourcing network, or is made to specification, it is quoted, produced
-          and documented against the same buyer brief.
+          We are a Surat lab-grown diamond manufacturer. We cut, calibrate, certify, and ship
+          direct to jewellery teams and manufacturing operations worldwide. There is no factory
+          behind us — the bench you are buying from is the bench that made the stone.
         </p>
         <p className="hero-maker-line" style={{ marginTop: 32 }}>
-          Standard specs in 1–5 days. Custom cuts in 5–10 days. Documented against the brief either way.
+          Cut, calibrated and IGI-certified by our own team.
         </p>
       </section>
 
@@ -65,8 +61,8 @@ export default function About() {
 
         <div className="about-numbers">
           {[
-            // omitted: cumulative stones dispatched pending Akshay verification
-            [`${new Date().getFullYear() - COMPANY.foundingYear}+`, "years of industry experience", "Based on founding year in company records"],
+            ["25+", "years of industry experience", "TODO: confirm"],
+            ["10,000+", "stones dispatched", "TODO: confirm cumulative"],
             ["100%", "IGI standard on every stone", "No exceptions by stone size or order value"],
             ["DIRECT", "from-bench pricing", "No margin layer between manufacturer and buyer"],
           ].map(([value, label, note]) => (
@@ -121,13 +117,15 @@ export default function About() {
             and verified against its returned certificate before dispatch. The process is linear and
             accountable — no stone moves to the next stage until the current stage is confirmed.
           </p>
-          <p>Production begins with the approved specification, followed by cutting, polishing, inspection and documentation before dispatch.</p>
+          <p>
+            <span className="specialty-todo">[TODO: confirm and expand each stage with production specifics — rough sourcing, growth type, cutting tooling, capacity]</span>
+          </p>
         </div>
 
         <div className="about-process-list" style={{ marginTop: 48 }}>
           {[
             ["Rough assessment", "Rough is evaluated against the intended cut specification before being assigned to production. For custom cuts and matched pairs, rough selection is the first production decision."],
-            ["Cutting and faceting", "Each stone is cut against the approved shape, dimensions and proportion requirements at Alvora's Surat production benches."],
+            ["Cutting and faceting", "Each stone is cut against the specification — shape, dimensions, angles — at our benches. TODO: confirm tooling and cutting approach."],
             ["Calibration check", "Dimensions are verified at bench against the specification. Stones outside tolerance are evaluated for rework or separated from the parcel."],
             ["IGI submission", "Stones are submitted to IGI for laser inscription and full grading. We do not ship ungraded or self-certified stones."],
             ["Certificate verification", "Returned certificates are matched to each stone. Laser inscription is confirmed under magnification. Grades are cross-checked against specification."],

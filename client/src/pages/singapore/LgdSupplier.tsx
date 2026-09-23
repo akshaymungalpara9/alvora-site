@@ -1,6 +1,5 @@
 import SpecialtyPageShell from "@/components/SpecialtyPageShell";
 import SpecialtyPageMeta from "@/components/SpecialtyPageMeta";
-import { ROUTE_META } from "@shared/routeMeta";
 import {
   SgTrustPanel,
   SgCertificationNote,
@@ -23,7 +22,7 @@ const JSON_LD = {
     address: { "@type": "PostalAddress", addressLocality: "Surat", addressCountry: "IN" },
   },
   description:
-    "Alvora supplies Singapore with lab-grown diamonds across all major shapes, 0.10–5 ct+, D–G colour, VVS1–SI1 clarity, IGI or GIA certified, direct from Surat manufacture.",
+    "Alvora supplies Singapore with lab-grown diamonds across all major shapes, 0.10–5 ct+, D–J colour, IF–SI2 clarity, IGI or GIA certified, direct from Surat manufacture.",
   areaServed: "SG",
 };
 
@@ -65,8 +64,8 @@ export default function SgLgdSupplier() {
   return (
     <SpecialtyPageShell>
       <SpecialtyPageMeta
-        title={ROUTE_META["/singapore/lab-grown-diamond-supplier"].title}
-        description={ROUTE_META["/singapore/lab-grown-diamond-supplier"].description}
+        title="Lab-Grown Diamond Supplier Singapore: Capability and Catalogue | Alvora"
+        description="Surat lab-grown diamond supplier for Singapore. Shapes, sizes 0.10–5 ct+, D–J colour, IF–SI2 clarity, cut grades, IGI or GIA. Trade catalogue on request."
         path="/singapore/lab-grown-diamond-supplier"
         jsonLd={JSON_LD}
       />
@@ -80,7 +79,7 @@ export default function SgLgdSupplier() {
         <p className="specialty-hero-copy">
           Alvora manufactures lab-grown diamonds at its own benches in Surat and supplies Singapore's
           importers, wholesalers, and re-exporters across the full production range. Shapes from round
-          to fancy, sizes from 0.10 ct melee to 5 ct and above, colour D–G, clarity VVS1–SI1, with
+          to fancy, sizes from 0.10 ct melee to 5 ct and above, colour D–J, clarity IF–SI2, with
           complete treatment and fluorescence disclosure per stone. IGI certification is standard;
           GIA is available on request. Request a trade catalogue and sample parcel to qualify the
           specification.

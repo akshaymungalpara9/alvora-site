@@ -1,6 +1,5 @@
 import SpecialtyPageShell from "@/components/SpecialtyPageShell";
 import SpecialtyPageMeta from "@/components/SpecialtyPageMeta";
-import { ROUTE_META } from "@shared/routeMeta";
 import {
   SgTrustPanel,
   SgReplenishmentWorkflow,
@@ -52,8 +51,8 @@ export default function SgMelee() {
   return (
     <SpecialtyPageShell>
       <SpecialtyPageMeta
-        title={ROUTE_META["/singapore/melee"].title}
-        description={ROUTE_META["/singapore/melee"].description}
+        title="Lab-Grown Melee Diamonds Singapore: Parcel Supply | Alvora"
+        description="Lab-grown melee diamonds for Singapore. Parcel supply by colour and clarity band, replenishment cadence, and sample parcel to qualify the specification."
         path="/singapore/melee"
         jsonLd={JSON_LD}
       />

@@ -12,3 +12,16 @@ export const ENV = {
   alvoraEmailFrom: process.env.ALVORA_EMAIL_FROM ?? "Alvora Diamonds <onboarding@resend.dev>",
   alvoraEarlyAccessEnabled: process.env.ALVORA_EARLY_ACCESS_ENABLED === "true",
 };
+
+/**
+ * Whether /stone/:report pages should carry indexable robots meta.
+ * Ships false in this commit; flipped in a later Phase 5 prompt via env or by
+ * flipping the default here. seoInjection reads the current process.env each
+ * call so tests can override without a module reset.
+ */
+export function isStonePassportIndexable(): boolean {
+  return process.env.STONE_PASSPORT_INDEXABLE === "true";
+}
+
+/** Static default surface, read once at import. Present for downstream code that wants a compile-time constant. */
+export const STONE_PASSPORT_INDEXABLE: boolean = isStonePassportIndexable();

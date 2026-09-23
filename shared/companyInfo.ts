@@ -16,8 +16,6 @@ export interface CompanyInfo {
   email: string;
   growthMethods: string[];
   certBodies: string[];
-  colourRange: string;
-  clarityRange: string;
   moq: {
     stock: string;
     layouts: string;
@@ -32,6 +30,8 @@ export interface CompanyInfo {
   leadTime: {
     stock: string;
     bespoke: string;
+    stockShort: string;
+    custom: string;
   };
   paymentTerms: string;
   marketsServed: string[];
@@ -58,8 +58,6 @@ export const COMPANY: CompanyInfo = Object.freeze({
   email: "akshaym@alvoradiamonds.com",
   growthMethods: ["CVD", "HPHT"],
   certBodies: ["IGI", "GIA"],
-  colourRange: "D–G",
-  clarityRange: "VVS1–SI1",
   moq: Object.freeze({
     stock: "No minimum — single certified stones available ex-stock",
     layouts: "Minimum 5 carats total weight per layout order",
@@ -72,8 +70,10 @@ export const COMPANY: CompanyInfo = Object.freeze({
     pairs: "Matched within 1 colour grade, 1 clarity grade, and 2% weight variance between the two stones",
   }),
   leadTime: Object.freeze({
-    stock: "2–3 working days",
-    bespoke: "7–10 working days",  // DRAFT — confirm with Akshay for custom-cut/layout pages
+    stock: "1 to 5 working days",
+    bespoke: "5 to 10 working days",
+    stockShort: "1 to 5 working days",
+    custom: "5 to 10 working days",
   }),
   paymentTerms: "Flexible payment terms — advance, LC, or memo terms available depending on order size, confirmed with each quote.",
   marketsServed: [

@@ -1,6 +1,5 @@
 import SpecialtyPageShell, { SpecialtyCta } from "@/components/SpecialtyPageShell";
 import SpecialtyPageMeta from "@/components/SpecialtyPageMeta";
-import { ROUTE_META } from "@shared/routeMeta";
 
 const JSON_LD = {
   "@context": "https://schema.org",
@@ -21,8 +20,8 @@ export default function CustomCutDiamonds() {
   return (
     <SpecialtyPageShell>
       <SpecialtyPageMeta
-        title={ROUTE_META["/custom-cut-diamonds"].title}
-        description={ROUTE_META["/custom-cut-diamonds"].description}
+        title="Custom-Cut Lab-Grown Diamonds to Exact Specification"
+        description="Send your specification sheet — shape, exact diameter, depth ratio, table, finish — and Alvora cuts the diamond to meet it. Precision manufacturing from Surat, 5–10 working day lead time."
         path="/custom-cut-diamonds"
         jsonLd={JSON_LD}
       />
@@ -37,7 +36,8 @@ export default function CustomCutDiamonds() {
           is manufacturing.
         </p>
         <p className="hero-maker-line" style={{ marginTop: 32 }}>
-          Three to five working days from cleared funds for applicable orders.
+          Typical lead time for a spec make: 5–10 working days.{" "}
+          <span className="specialty-todo">[TODO: confirm]</span>
         </p>
       </section>
 
@@ -107,7 +107,7 @@ export default function CustomCutDiamonds() {
             <div className="specialty-feature-list" style={{ marginTop: 16 }}>
               {[
                 ["Shape", "Round brilliant, oval, cushion, pear, marquise, radiant, princess, emerald, asscher, or non-standard."],
-                ["Diameter / dimensions", "Dimensions are confirmed in millimetres for the requested shape before production begins."],
+                ["Diameter / dimensions", "Exact mm — diameter for rounds; length × width for fancies. TODO: confirm achievable size range."],
                 ["Depth %", "Total depth as a percentage of diameter or average width."],
                 ["Table %", "Table facet diameter as a percentage."],
                 ["Crown and pavilion angles", "Where setting depth or optical outcome requires specific angles."],

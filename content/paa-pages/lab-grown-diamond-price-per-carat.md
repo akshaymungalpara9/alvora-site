@@ -13,8 +13,6 @@ paaQuestions:
   - "How much should I pay for a 1 carat lab grown diamond?"
 ---
 
-Alvora is a Surat manufacturer that prepares lab-grown diamond quotations against a defined trade specification. A quotation can depend on the requested shape, size, colour, clarity, cut, growth method, certification, quantity and delivery requirements. Buyers should compare quotations only when these inputs are stated consistently, because a change in any one of them can change the stone or parcel being compared. The buyer should also confirm whether the request concerns stock, a matched pair, a calibrated layout, melee or a custom cut. No single per-carat figure can represent every lab-grown diamond order without those specifications. A useful comparison keeps the product type, grading basis, report requirement, quantity and delivery terms constant, then records what is included in each quotation. This gives the buyer a documented basis for deciding whether the quotations describe comparable goods.
-
 There is no defensible single 2026 public wholesale range for a 1ct lab-grown diamond because open data do not publish a complete current matrix by method, colour, clarity, cut, and certificate. The fact base records a **USD $191/ct average acquisition cost paid by US retailers for 1ct IGI-certified rounds in Q2 2025**, but that is retailer cost, not a current India wholesale quote, and it should be treated as a stale benchmark rather than a live price.[1](https://www.jckonline.com/editorial-article/lab-grown-wholesale-freefall/)
 
 ## Key takeaways
@@ -34,7 +32,7 @@ India's official export evidence points in the same direction. GJEPC reported po
 
 | Size | Colour / clarity | Certification | Public evidence | How to use it |
 |---|---|---|---|---|
-| 1ct | D–G, VVS1–SI1 | Mixed / specified lab | No complete current open matrix located | Request a live quote for the exact report and make |
+| 1ct | D–J, VS–VVS | Mixed / specified lab | No complete current open matrix located | Request a live quote for the exact report and make |
 | 1ct | Round, IGI-certified | IGI | USD $191/ct average US retailer acquisition cost in Q2 2025 | Stale retail-side benchmark; not India wholesale |
 | 1–3ct | Mixed qualities | Mixed | Down 42% year over year in Q2 2025 | Indicates severe repricing in standardized goods |
 | 3ct | VVS D round | Not stated in the cited summary | USD $126/ct in Q1 2026, about 30% below its 2025 level | Larger-stone public reference, not a 1ct quote |

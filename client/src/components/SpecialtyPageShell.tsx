@@ -117,6 +117,7 @@ export default function SpecialtyPageShell({ children }: { children: React.React
           <span className="brand-name">ALVORA</span>
         </div>
         <p>Lab-grown diamond manufacturing<br />Surat, India</p>
+        <p className="footer-registrations">{`${COMPANY.legalName} · ${COMPANY.address.city}, ${COMPANY.address.state}, ${COMPANY.address.country} · ${COMPANY.phone} · ${COMPANY.email}`}</p>
         <nav className="footer-legal" aria-label="Information">
           <a href="/privacy">Privacy</a>
           <a href="/terms">Terms of trade</a>

@@ -1,7 +1,6 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 import { PUBLIC_SITEMAP_PATHS, renderRobots, renderSitemap } from "./publicSeoRoutes";
-import { injectSeoIntoHtml } from "./seoInjection";
 
 describe("public legal and SEO surfaces", () => {
   it("keeps the privacy and trade-terms routes, footer links, and plain-language safeguards in place", () => {
@@ -18,9 +17,9 @@ describe("public legal and SEO surfaces", () => {
     expect(legal).toContain("Governing law and jurisdiction, where relevant, are stated in the written agreement");
   });
 
-  it("returns a host-aware sitemap and crawler rules limited to public routes", async () => {
+  it("returns a host-aware sitemap and crawler rules limited to public routes", () => {
     const origin = "https://alvora.example";
-    const sitemap = await renderSitemap(origin);
+    const sitemap = renderSitemap(origin);
     const robots = renderRobots(origin);
     expect(PUBLIC_SITEMAP_PATHS).toEqual([
       "/", "/fr", "/it", "/us",
@@ -60,49 +59,14 @@ describe("public legal and SEO surfaces", () => {
       "/hpht-lab-grown-diamonds",
       "/fancy-shape-colour-lab-grown-diamonds",
       "/precision-lab-grown-diamond-wholesale",
-      "/singapore",
-      "/singapore/wholesale-lab-grown-diamonds",
-      "/singapore/lab-grown-diamond-wholesaler",
-      "/singapore/for-jewellers",
-      "/singapore/lab-grown-diamond-supplier",
-      "/singapore/calibrated-parcels",
-      "/singapore/matched-pairs",
-      "/singapore/melee",
-      "/singapore/for-manufacturers",
-      "/singapore/surat-to-singapore",
-      "/singapore/wholesale-parcels",
       "/privacy",
       "/terms",
-      "/availability",
-      "/fr/availability",
-      "/it/availability",
     ]);
     expect(sitemap).toContain("https://alvora.example/fr");
     expect(sitemap).toContain("https://alvora.example/privacy");
     expect(robots).toContain("Disallow: /admin");
-    expect(robots).not.toContain("Disallow: /availability");
+    expect(robots).toContain("Disallow: /availability");
     expect(robots).toContain("Sitemap: https://alvora.example/sitemap.xml");
-  });
-
-  it("self-canonicalises paginated availability URLs so page 2..N are not folded back to page 1", () => {
-    const shell = "<html><head><title>x</title><meta name=\"description\" content=\"x\" /></head><body></body></html>";
-    const origin = "https://alvora.example";
-
-    const pageOne = injectSeoIntoHtml(shell, "/availability", origin, "?page=1");
-    expect(pageOne).toContain('<link rel="canonical" href="https://alvora.example/availability"');
-    expect(pageOne).not.toContain("Page 1");
-
-    const pageFive = injectSeoIntoHtml(shell, "/availability", origin, "?page=5");
-    expect(pageFive).toContain('<link rel="canonical" href="https://alvora.example/availability?page=5"');
-    expect(pageFive).toContain("— Page 5");
-
-    const frPageTwo = injectSeoIntoHtml(shell, "/fr/availability", origin, "?page=2");
-    expect(frPageTwo).toContain('<link rel="canonical" href="https://alvora.example/fr/availability?page=2"');
-
-    // Non-paginated routes ignore ?page — canonical stays plain.
-    const aboutWithBogus = injectSeoIntoHtml(shell, "/about", origin, "?page=5");
-    expect(aboutWithBogus).toContain('<link rel="canonical" href="https://alvora.example/about"');
-    expect(aboutWithBogus).not.toContain("Page 5");
   });
 
   it("keeps the documented public analytics posture free of consent UI and cookie-banner integrations", () => {

@@ -1,0 +1,38 @@
+{
+  "labels": {
+    "rounds-under-1ct": "Rounds Under 1 ct",
+    "rounds-1-2ct": "Rounds 1 to 2 ct",
+    "rounds-2-3ct": "Rounds 2 to 3 ct",
+    "rounds-3ct-plus": "Rounds 3 ct plus",
+    "shapes-ovals-pears": "Ovals and Pears",
+    "shapes-cushions-radiants": "Cushions and Radiants",
+    "shapes-step-cuts": "Step Cuts",
+    "shapes-other": "Other Shapes",
+    "fancy-pink": "Fancy Pink",
+    "fancy-blue": "Fancy Blue",
+    "fancy-yellow": "Fancy Yellow",
+    "fancy-other": "Fancy Green, Brown and Other",
+    "premium-pink-5ct": "Premium Pink 5 ct",
+    "big-white-3ct": "Big White 3 ct",
+    "big-fancy-3ct": "Big Fancy Colour 3 ct",
+    "showpiece-10ct": "Showpiece 10 ct"
+  },
+  "bands": {
+    "rounds-under-1ct": "yellow",
+    "rounds-1-2ct": "yellow",
+    "rounds-2-3ct": "yellow",
+    "rounds-3ct-plus": "yellow",
+    "shapes-ovals-pears": "green",
+    "shapes-cushions-radiants": "green",
+    "shapes-step-cuts": "green",
+    "shapes-other": "green",
+    "fancy-pink": "pink",
+    "fancy-blue": "pink",
+    "fancy-yellow": "pink",
+    "fancy-other": "pink",
+    "premium-pink-5ct": "pink",
+    "big-white-3ct": "blue",
+    "big-fancy-3ct": "blue",
+    "showpiece-10ct": "blue"
+  }
+}

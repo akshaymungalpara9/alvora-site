@@ -1,6 +1,41 @@
 import { availabilitySeo, publicSeo, publicSocialImage, publicSocialImageAlt } from "../client/src/lib/publicSeo";
 import { COMPANY } from "../shared/companyInfo";
-import { ROUTE_META } from "../shared/routeMeta";
+import { getStone, getStoneOfToday, getStonesMetaSnapshot } from "./stonePassport";
+import { formatInTimeZone } from "date-fns-tz";
+import { isStonePassportIndexable } from "./_core/env";
+
+const STONE_PASSPORT_ROUTE = /^\/stone\/(\d{6,12})$/;
+
+function formatWeight(weight: number): string {
+  return Number.isFinite(weight) ? weight.toFixed(2) : String(weight);
+}
+
+function stonePassportRouteMeta(report: string, origin: string): RouteMeta {
+  const record = getStone(report);
+  const canonical = `${origin}/stone/${report}`;
+  const robotsWhenBlocked = "noindex,nofollow";
+  const shouldIndex = isStonePassportIndexable();
+  if (!record) {
+    return {
+      lang: "en",
+      title: `Stone ${report} not found · Alvora Diamonds`,
+      description: `No certified stone with report ${report} is in the current lists.`,
+      canonical,
+      robots: "noindex,nofollow",
+    };
+  }
+  const shape = record.shape;
+  const weight = formatWeight(record.weight);
+  const title = `${record.lab} ${record.report} · ${weight} ct ${shape} ${record.color} ${record.clarity} · Alvora Diamonds`;
+  const description = `Lab-grown ${shape.toLowerCase()}, ${weight} ct, ${record.color} ${record.clarity}, ${record.lab} report ${record.report}. Made in Surat by Alvora Diamonds. Open the ${record.lab} report and 360 video.`;
+  return {
+    lang: "en",
+    title,
+    description,
+    canonical,
+    robots: shouldIndex ? undefined : robotsWhenBlocked,
+  };
+}
 
 function langToOgLocale(lang: string): string {
   const map: Record<string, string> = { en: "en_US", "en-US": "en_US", fr: "fr_FR", it: "it_IT" };
@@ -22,18 +57,9 @@ function buildOrgJsonLd(origin: string) {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "WebSite",
-        "@id": `${origin}/#website`,
-        url: `${origin}/`,
-        name: "Alvora",
-        publisher: { "@id": `${origin}/#organization` },
-        inLanguage: ["en", "fr", "it"],
-      },
-      {
         "@type": "Organization",
         "@id": `${origin}/#organization`,
         name: "Alvora",
-        legalName: COMPANY.legalName,
         url: `${origin}/`,
         logo: `${origin}/assets/alvora-faceted-a.webp`,
         description:
@@ -65,19 +91,6 @@ function buildOrgJsonLd(origin: string) {
         currenciesAccepted: "USD, EUR, INR",
       },
     ],
-  };
-}
-
-function mkBreadcrumbs(origin: string, trail: Array<{ name: string; path: string }>) {
-  return {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: trail.map((crumb, i) => ({
-      "@type": "ListItem",
-      position: i + 1,
-      name: crumb.name,
-      item: `${origin}${crumb.path}`,
-    })),
   };
 }
 
@@ -126,10 +139,14 @@ function availabilityHreflangAlternates(origin: string) {
 }
 
 export function resolveRouteMeta(pathname: string, origin: string): RouteMeta | null {
+  const stoneMatch = STONE_PASSPORT_ROUTE.exec(pathname);
+  if (stoneMatch) {
+    return stonePassportRouteMeta(stoneMatch[1], origin);
+  }
   const url = (p: string) => `${origin}${p}`;
   switch (pathname) {
     case "/":
-      return { ...publicSeo.global, title: ROUTE_META["/"].title, description: ROUTE_META["/"].description, canonical: url("/"), alternates: publicHreflangAlternates(origin), serviceJsonLd: mkFaqPage([
+      return { ...publicSeo.global, title: "Lab-Grown Diamond Manufacturer & Wholesale Supplier | Alvora", description: "Alvora is a Surat-based lab-grown diamond manufacturer supplying wholesale CVD and HPHT diamonds, layouts and matched pairs to jewellers worldwide.", canonical: url("/"), alternates: publicHreflangAlternates(origin), serviceJsonLd: mkFaqPage([
         { q: "Is there a minimum order?", a: "The minimum order depends on the product, size, shape, certification, and whether the request is stock, a sample, a layout, or custom production. Category-specific minimums are confirmed in the quotation before approval. Buyers should include the expected quantity and repeat-order plan so the applicable minimum can be discussed clearly." },
         { q: "Are your stones IGI or GIA certified?", a: "Alvora can supply IGI-certified laboratory-grown diamonds where applicable, with report-linked identity and familiar 4Cs information. IGI is generally the practical wholesale baseline for comparison and inventory workflows. GIA can be requested when a retailer or destination channel requires its name; buyers should confirm the report format needed before ordering." },
         { q: "Can I request a sample or memo?", a: "A sample or memo request can be discussed before the first production order, subject to the goods and commercial terms. Availability, return conditions, shipping, insurance, and any charges should be confirmed in writing. Custom-cut or specially produced goods may require separate treatment from standard stock." },
@@ -139,11 +156,11 @@ export function resolveRouteMeta(pathname: string, origin: string): RouteMeta | 
         { q: "How do I place my first order?", a: "Start with WhatsApp or an RFQ containing the design and stone specification. Alvora reviews the requirement and sends a quote, then the buyer can discuss a memo or sample where available before issuing a PO. After approval: production, documentation and QC, buyer confirmation where applicable, packing, and dispatch." },
       ]) };
     case "/fr":
-      return { ...publicSeo.fr, title: ROUTE_META["/fr"].title, description: ROUTE_META["/fr"].description, canonical: url("/fr"), alternates: publicHreflangAlternates(origin) };
+      return { ...publicSeo.fr, title: "Lab-Grown Diamond Manufacturer for France | Alvora Diamonds", description: "French jewellery brands and wholesalers: source lab-grown diamonds direct from Alvora, a Surat manufacturer shipping calibrated stones to France.", canonical: url("/fr"), alternates: publicHreflangAlternates(origin) };
     case "/it":
-      return { ...publicSeo.it, title: ROUTE_META["/it"].title, description: ROUTE_META["/it"].description, canonical: url("/it"), alternates: publicHreflangAlternates(origin) };
+      return { ...publicSeo.it, title: "Lab-Grown Diamond Manufacturer for Italy | Alvora Diamonds", description: "Italian jewellery manufacturers: source lab-grown diamonds wholesale from Alvora, a Surat manufacturer supplying layouts, matched pairs and melee.", canonical: url("/it"), alternates: publicHreflangAlternates(origin) };
     case "/us":
-      return { ...publicSeo.us, title: ROUTE_META["/us"].title, description: ROUTE_META["/us"].description, canonical: url("/us"), alternates: publicHreflangAlternates(origin) };
+      return { ...publicSeo.us, title: "Lab-Grown Diamond Manufacturer for the US | Alvora", description: "US jewelry brands and wholesalers: source lab-grown diamonds direct from Alvora, a Surat manufacturer shipping CVD and HPHT stones to America.", canonical: url("/us"), alternates: publicHreflangAlternates(origin) };
     case "/availability":
       return { ...availabilitySeo.global, canonical: url("/availability"), alternates: availabilityHreflangAlternates(origin) };
     case "/fr/availability":
@@ -161,8 +178,8 @@ export function resolveRouteMeta(pathname: string, origin: string): RouteMeta | 
     case "/insights":
       return {
         lang: "en",
-        title: ROUTE_META["/insights"].title,
-        description: ROUTE_META["/insights"].description,
+        title: "Lab-Grown Diamond Insights & Sourcing Guides | Alvora",
+        description: "Guides for wholesale buyers: growth methods, price per carat, certification, sourcing from Surat and how to evaluate a diamond manufacturer.",
         canonical: url("/insights"),
         serviceJsonLd: {
           "@context": "https://schema.org",
@@ -189,144 +206,144 @@ export function resolveRouteMeta(pathname: string, origin: string): RouteMeta | 
     case "/privacy":
       return {
         lang: "en",
-        title: ROUTE_META["/privacy"].title,
-        description: ROUTE_META["/privacy"].description,
+        title: "Privacy Policy — Alvora Lab-Grown Diamonds in Surat",
+        description: "How Alvora collects, uses and protects personal information submitted through this website, and the choices available to visitors and wholesale customers.",
         canonical: url("/privacy"),
         robots: "noindex,follow",
       };
     case "/terms":
       return {
         lang: "en",
-        title: ROUTE_META["/terms"].title,
-        description: ROUTE_META["/terms"].description,
+        title: "Terms & Conditions — Alvora Lab-Grown Diamonds, Surat",
+        description: "The terms governing use of Alvora's website and wholesale enquiries, including intellectual property, liability and governing law information.",
         canonical: url("/terms"),
         robots: "noindex,follow",
       };
     case "/calibrated-diamond-layouts":
       return {
         lang: "en",
-        title: ROUTE_META["/calibrated-diamond-layouts"].title,
-        description: ROUTE_META["/calibrated-diamond-layouts"].description,
+        title: "Calibrated Lab-Grown Diamond Layouts Wholesale | Alvora",
+        description: "Calibrated diamond layouts in consistent millimetre sizes for eternity rings and bands. Wholesale lab-grown layouts manufactured in Surat by Alvora.",
         canonical: url("/calibrated-diamond-layouts"),
         serviceJsonLd: { "@context": "https://schema.org", "@type": "Service", name: "Calibrated Lab-Grown Diamond Layouts", serviceType: "Calibrated laboratory-grown diamond layouts", provider: { "@type": "Organization", name: "Alvora Diamonds", address: { "@type": "PostalAddress", addressLocality: "Surat", addressCountry: "IN" } }, areaServed: "Worldwide" },
       };
     case "/matched-lab-grown-diamond-pairs":
       return {
         lang: "en",
-        title: ROUTE_META["/matched-lab-grown-diamond-pairs"].title,
-        description: ROUTE_META["/matched-lab-grown-diamond-pairs"].description,
+        title: "Matched Lab-Grown Diamond Pairs Wholesale | Alvora",
+        description: "Wholesale matched pairs of lab-grown diamonds for earrings and two-stone jewellery. Symmetrical cuts, consistent grading, manufactured in Surat by Alvora.",
         canonical: url("/matched-lab-grown-diamond-pairs"),
         serviceJsonLd: { "@context": "https://schema.org", "@type": "Service", name: "Matched Lab-Grown Diamond Pairs", serviceType: "Matched laboratory-grown diamond pairs", provider: { "@type": "Organization", name: "Alvora Diamonds", address: { "@type": "PostalAddress", addressLocality: "Surat", addressCountry: "IN" } }, areaServed: "Worldwide" },
       };
     case "/custom-cut-lab-grown-diamonds":
       return {
         lang: "en",
-        title: ROUTE_META["/custom-cut-lab-grown-diamonds"].title,
-        description: ROUTE_META["/custom-cut-lab-grown-diamonds"].description,
+        title: "Custom Cut Lab-Grown Diamonds to Specification | Alvora",
+        description: "Send your drawings or reference stones: Alvora cuts lab-grown diamonds to exact specifications in Surat for ateliers, brands and private-label programmes.",
         canonical: url("/custom-cut-lab-grown-diamonds"),
         serviceJsonLd: { "@context": "https://schema.org", "@type": "Service", name: "Custom-Cut Lab-Grown Diamonds to Specification", serviceType: "Custom-cut laboratory-grown diamonds", provider: { "@type": "Organization", name: "Alvora Diamonds", address: { "@type": "PostalAddress", addressLocality: "Surat", addressCountry: "IN" } }, areaServed: "Worldwide" },
       };
     case "/igi-certified-lab-grown-diamonds":
       return {
         lang: "en",
-        title: ROUTE_META["/igi-certified-lab-grown-diamonds"].title,
-        description: ROUTE_META["/igi-certified-lab-grown-diamonds"].description,
+        title: "IGI Certified Lab-Grown Diamonds Wholesale | Alvora",
+        description: "IGI-certified lab-grown diamonds in every shape and size, available wholesale direct from Alvora's Surat facility with full grading reports.",
         canonical: url("/igi-certified-lab-grown-diamonds"),
         serviceJsonLd: { "@context": "https://schema.org", "@type": "Product", name: "IGI-Certified Lab-Grown Diamonds", description: "Laboratory-grown diamonds supplied with IGI documentation where applicable.", brand: { "@type": "Brand", name: "Alvora Diamonds" }, manufacturer: { "@type": "Organization", name: "Alvora Diamonds", address: { "@type": "PostalAddress", addressLocality: "Surat", addressCountry: "IN" } } },
       };
     case "/cvd-lab-grown-diamonds":
       return {
         lang: "en",
-        title: ROUTE_META["/cvd-lab-grown-diamonds"].title,
-        description: ROUTE_META["/cvd-lab-grown-diamonds"].description,
+        title: "Wholesale CVD Lab-Grown Diamonds Manufacturer | Alvora",
+        description: "CVD-grown lab diamonds cut and polished in Surat. Wholesale CVD diamonds in calibrated sizes, matched pairs and layouts from manufacturer Alvora.",
         canonical: url("/cvd-lab-grown-diamonds"),
         serviceJsonLd: { "@context": "https://schema.org", "@type": "Product", name: "CVD Lab-Grown Diamonds", description: "CVD laboratory-grown diamonds supplied with transparent method and treatment information.", brand: { "@type": "Brand", name: "Alvora Diamonds" }, material: "Laboratory-grown diamond" },
       };
     case "/hpht-lab-grown-diamonds":
       return {
         lang: "en",
-        title: ROUTE_META["/hpht-lab-grown-diamonds"].title,
-        description: ROUTE_META["/hpht-lab-grown-diamonds"].description,
+        title: "Wholesale HPHT Lab-Grown Diamonds Manufacturer | Alvora",
+        description: "HPHT-grown lab diamonds with consistent colour and clarity. Wholesale HPHT diamonds from Alvora, a Surat manufacturer supplying jewellers worldwide.",
         canonical: url("/hpht-lab-grown-diamonds"),
         serviceJsonLd: { "@context": "https://schema.org", "@type": "AboutPage", name: "HPHT Lab-Grown Diamonds for Wholesale", description: "Information about HPHT laboratory-grown diamonds and specification-led sourcing.", about: { "@type": "Product", name: "HPHT laboratory-grown diamonds", material: "Laboratory-grown diamond" }, publisher: { "@type": "Organization", name: "Alvora Diamonds" } },
       };
     case "/fancy-shape-colour-lab-grown-diamonds":
       return {
         lang: "en",
-        title: ROUTE_META["/fancy-shape-colour-lab-grown-diamonds"].title,
-        description: ROUTE_META["/fancy-shape-colour-lab-grown-diamonds"].description,
+        title: "Fancy Shape & Colour Lab-Grown Diamonds Wholesale | Alvora",
+        description: "Wholesale fancy shapes — oval, pear, emerald, marquise — and fancy colour lab diamonds for distinctive jewellery lines, made by Alvora in Surat.",
         canonical: url("/fancy-shape-colour-lab-grown-diamonds"),
         serviceJsonLd: { "@context": "https://schema.org", "@type": "Service", name: "Fancy-Shape and Fancy-Colour Lab-Grown Diamonds", serviceType: "Fancy-shape and fancy-colour laboratory-grown diamond sourcing", provider: { "@type": "Organization", name: "Alvora Diamonds", address: { "@type": "PostalAddress", addressLocality: "Surat", addressCountry: "IN" } }, areaServed: "Worldwide" },
       };
     case "/precision-lab-grown-diamond-wholesale":
       return {
         lang: "en",
-        title: ROUTE_META["/precision-lab-grown-diamond-wholesale"].title,
-        description: ROUTE_META["/precision-lab-grown-diamond-wholesale"].description,
+        title: "Precision Cut Lab-Grown Diamonds Wholesale | Alvora",
+        description: "Precision-cut lab-grown diamonds with tight tolerances for fine jewellery. Wholesale supply from Alvora's Surat facility for brands and wholesalers.",
         canonical: url("/precision-lab-grown-diamond-wholesale"),
         serviceJsonLd: { "@context": "https://schema.org", "@type": "ContactPage", name: "Precision Lab-Grown Diamond Wholesale Supply", description: "Contact Alvora Diamonds about specification-led laboratory-grown diamond wholesale supply.", about: { "@type": "Service", name: "Precision lab-grown diamond wholesale supply" }, publisher: { "@type": "Organization", name: "Alvora Diamonds", address: { "@type": "PostalAddress", addressLocality: "Surat", addressCountry: "IN" } } },
       };
     case "/matched-pair-diamonds":
       return {
         lang: "en",
-        title: ROUTE_META["/matched-pair-diamonds"].title,
-        description: ROUTE_META["/matched-pair-diamonds"].description,
+        title: "Matched Pair Lab-Grown Diamonds Wholesale | Alvora",
+        description: "Precision-matched lab-grown diamond pairs for earrings and two-stone settings. Wholesale matched pairs cut and calibrated by Alvora in Surat.",
         canonical: url("/matched-pair-diamonds"),
         serviceJsonLd: { "@context": "https://schema.org", "@type": "Service", name: "Matched Pair Lab-Grown Diamonds", serviceType: "Diamond Manufacturing", provider: { "@type": "Organization", name: "Alvora", address: { "@type": "PostalAddress", addressLocality: "Surat", addressCountry: "IN" } }, description: "Matched pair lab-grown diamonds matched for colour, dimensions, cut grade, and proportions.", areaServed: "Worldwide" },
       };
     case "/custom-cut-diamonds":
       return {
         lang: "en",
-        title: ROUTE_META["/custom-cut-diamonds"].title,
-        description: ROUTE_META["/custom-cut-diamonds"].description,
+        title: "Custom-Cut Lab-Grown Diamonds for Jewellers | Alvora",
+        description: "Bespoke diamond cutting to your drawings and specs. Alvora manufactures custom-cut lab-grown diamonds in Surat for private-label jewellery lines.",
         canonical: url("/custom-cut-diamonds"),
         serviceJsonLd: { "@context": "https://schema.org", "@type": "Service", name: "Custom-Cut Lab-Grown Diamonds", serviceType: "Diamond Manufacturing", provider: { "@type": "Organization", name: "Alvora", address: { "@type": "PostalAddress", addressLocality: "Surat", addressCountry: "IN" } }, description: "Custom-cut lab-grown diamonds made to exact buyer specification — shape, diameter, depth, table, and finish.", areaServed: "Worldwide" },
       };
     case "/melee-diamonds":
       return {
         lang: "en",
-        title: ROUTE_META["/melee-diamonds"].title,
-        description: ROUTE_META["/melee-diamonds"].description,
+        title: "Wholesale Melee Lab-Grown Diamonds Manufacturer | Alvora",
+        description: "1mm–4mm melee lab-grown diamonds in calibrated sizes for pavé and halo settings. Consistent colour and clarity, wholesale from Alvora in Surat.",
         canonical: url("/melee-diamonds"),
         serviceJsonLd: { "@context": "https://schema.org", "@type": "Service", name: "Wholesale Lab-Grown Melee Diamonds", serviceType: "Diamond Manufacturing", provider: { "@type": "Organization", name: "Alvora", address: { "@type": "PostalAddress", addressLocality: "Surat", addressCountry: "IN" } }, description: "Wholesale lab-grown melee diamonds calibrated to consistent diameter ranges, Excellent cut, no fluorescence.", areaServed: "Worldwide" },
       };
     case "/certifications":
       return {
         lang: "en",
-        title: ROUTE_META["/certifications"].title,
-        description: ROUTE_META["/certifications"].description,
+        title: "Lab-Grown Diamond Certifications Explained | Alvora",
+        description: "How IGI and other laboratory certifications work for lab-grown diamonds, what each report covers and what wholesale buyers should verify before ordering.",
         canonical: url("/certifications"),
         serviceJsonLd: { "@context": "https://schema.org", "@type": "Service", name: "IGI-Certified Lab-Grown Diamonds", serviceType: "Diamond Manufacturing and Certification", provider: { "@type": "Organization", name: "Alvora", address: { "@type": "PostalAddress", addressLocality: "Surat", addressCountry: "IN" } }, description: "Every Alvora lab-grown diamond is IGI laser-inscribed and verified against the IGI database before dispatch.", areaServed: "Worldwide" },
       };
     case "/about":
       return {
         lang: "en",
-        title: ROUTE_META["/about"].title,
-        description: ROUTE_META["/about"].description,
+        title: "About Alvora — Surat Lab-Grown Diamond Manufacturer",
+        description: "Alvora grows, cuts and polishes lab-grown diamonds in Surat, India, supplying wholesale melee, matched pairs, layouts and custom cuts worldwide.",
         canonical: url("/about"),
         serviceJsonLd: { "@context": "https://schema.org", "@type": "Organization", name: "Alvora", description: "Alvora is a Surat-based lab-grown diamond manufacturer specialising in precision cutting, calibration, and IGI certification.", address: { "@type": "PostalAddress", addressLocality: "Surat", addressRegion: "Gujarat", addressCountry: "IN" } },
       };
     case "/for-jewelry-brands":
       return {
         lang: "en",
-        title: ROUTE_META["/for-jewelry-brands"].title,
-        description: ROUTE_META["/for-jewelry-brands"].description,
+        title: "Lab-Grown Diamond Partner for Jewelry Brands | Alvora",
+        description: "Private-label lab-grown diamond supply for jewellery brands: consistent grading, reliable lead times and wholesale pricing from Alvora in Surat.",
         canonical: url("/for-jewelry-brands"),
         serviceJsonLd: { "@context": "https://schema.org", "@type": "Service", name: "Lab-Grown Diamonds for Jewellery Brands", serviceType: "Diamond Manufacturing", provider: { "@type": "Organization", name: "Alvora", address: { "@type": "PostalAddress", addressLocality: "Surat", addressCountry: "IN" } }, description: "Certified, calibrated lab-grown diamonds for manufacturing jewellers, DTC brands, and private-label operations.", areaServed: "Worldwide" },
       };
     case "/request-a-quote":
       return {
         lang: "en",
-        title: ROUTE_META["/request-a-quote"].title,
-        description: ROUTE_META["/request-a-quote"].description,
+        title: "Request a Wholesale Lab-Grown Diamond Quote | Alvora",
+        description: "Tell Alvora your shapes, sizes, carat weights and quantities. Get a wholesale quote from a Surat lab-grown diamond manufacturer within one business day.",
         canonical: url("/request-a-quote"),
         serviceJsonLd: { "@context": "https://schema.org", "@type": "Service", name: "Request a Quote — Alvora Lab-Grown Diamonds", serviceType: "Diamond Manufacturing", provider: { "@type": "Organization", name: "Alvora", address: { "@type": "PostalAddress", addressLocality: "Surat", addressCountry: "IN" } }, description: "Submit a production enquiry to Alvora for certified, calibrated lab-grown diamonds.", areaServed: "Worldwide" },
       };
     case "/contact":
       return {
         lang: "en",
-        title: ROUTE_META["/contact"].title,
-        description: ROUTE_META["/contact"].description,
+        title: "Contact Alvora Diamonds — Surat, India",
+        description: "Contact the Alvora Diamonds team in Surat for lab-grown diamond wholesale enquiries, pricing, and specification briefs.",
         canonical: url("/contact"),
         serviceJsonLd: {
           "@context": "https://schema.org",
@@ -355,8 +372,8 @@ export function resolveRouteMeta(pathname: string, origin: string): RouteMeta | 
     case "/insights/are-lab-grown-diamonds-real-diamonds":
       return {
         lang: "en",
-        title: ROUTE_META["/insights/are-lab-grown-diamonds-real-diamonds"].title,
-        description: ROUTE_META["/insights/are-lab-grown-diamonds-real-diamonds"].description,
+        title: "Are Lab-Grown Diamonds Real Diamonds? | Alvora Insights",
+        description: "Yes — lab-grown diamonds are chemically, physically and optically identical to mined diamonds. Learn how they grow and why it matters for buyers.",
         canonical: url("/insights/are-lab-grown-diamonds-real-diamonds"),
         serviceJsonLd: [
           mkArticle(origin, "/insights/are-lab-grown-diamonds-real-diamonds", "Are Lab-Grown Diamonds Real Diamonds?", "Lab-grown diamonds share the chemical, physical, and optical properties of mined diamonds and are recognised by the FTC as diamonds with required origin disclosure."),
@@ -368,8 +385,8 @@ export function resolveRouteMeta(pathname: string, origin: string): RouteMeta | 
     case "/insights/best-lab-grown-diamond-manufacturer-for-your-need":
       return {
         lang: "en",
-        title: ROUTE_META["/insights/best-lab-grown-diamond-manufacturer-for-your-need"].title,
-        description: ROUTE_META["/insights/best-lab-grown-diamond-manufacturer-for-your-need"].description,
+        title: "How to Choose a Lab-Grown Diamond Manufacturer | Alvora",
+        description: "What jewellery brands and wholesalers should check — growth method, cut quality, certification, capacity and communication — before committing.",
         canonical: url("/insights/best-lab-grown-diamond-manufacturer-for-your-need"),
         serviceJsonLd: [
           mkArticle(origin, "/insights/best-lab-grown-diamond-manufacturer-for-your-need", "Which Lab-Grown Diamond Manufacturer Is Best? (It Depends What You're Buying)", "A buyer-focused rubric for choosing a laboratory-grown diamond manufacturer by need."),
@@ -381,8 +398,8 @@ export function resolveRouteMeta(pathname: string, origin: string): RouteMeta | 
     case "/insights/is-a-lab-grown-diamond-worth-it":
       return {
         lang: "en",
-        title: ROUTE_META["/insights/is-a-lab-grown-diamond-worth-it"].title,
-        description: ROUTE_META["/insights/is-a-lab-grown-diamond-worth-it"].description,
+        title: "Is a Lab-Grown Diamond Worth It? | Alvora Insights",
+        description: "An honest look at lab-grown diamond value for jewellery businesses: price per carat, resale considerations and what wholesale buyers should weigh.",
         canonical: url("/insights/is-a-lab-grown-diamond-worth-it"),
         serviceJsonLd: [
           mkArticle(origin, "/insights/is-a-lab-grown-diamond-worth-it", "Is a Lab-Grown Diamond Worth Buying? (For Retailers, Designers, and End Buyers)", "A balanced B2B and consumer analysis of laboratory-grown diamond value, cost, and resale considerations."),
@@ -394,8 +411,8 @@ export function resolveRouteMeta(pathname: string, origin: string): RouteMeta | 
     case "/insights/lab-grown-diamond-price-per-carat":
       return {
         lang: "en",
-        title: ROUTE_META["/insights/lab-grown-diamond-price-per-carat"].title,
-        description: ROUTE_META["/insights/lab-grown-diamond-price-per-carat"].description,
+        title: "Lab-Grown Diamond Price Per Carat: A Guide | Alvora",
+        description: "What drives lab-grown diamond prices per carat — size, colour, clarity, cut and growth method — plus how wholesale buyers should compare supplier quotes.",
         canonical: url("/insights/lab-grown-diamond-price-per-carat"),
         serviceJsonLd: [
           mkArticle(origin, "/insights/lab-grown-diamond-price-per-carat", "Lab-Grown Diamond Price Per Carat (Wholesale, 2026)", "An evidence-led explanation of public wholesale lab-grown diamond price data and its limitations."),
@@ -408,8 +425,8 @@ export function resolveRouteMeta(pathname: string, origin: string): RouteMeta | 
     case "/insights/lab-grown-diamond-wholesale-how-to-buy":
       return {
         lang: "en",
-        title: ROUTE_META["/insights/lab-grown-diamond-wholesale-how-to-buy"].title,
-        description: ROUTE_META["/insights/lab-grown-diamond-wholesale-how-to-buy"].description,
+        title: "Buying Lab-Grown Diamonds Wholesale: A Guide | Alvora",
+        description: "A practical guide to buying lab-grown diamonds wholesale: minimum orders, grading consistency, paperwork and vetting manufacturers before you buy.",
         canonical: url("/insights/lab-grown-diamond-wholesale-how-to-buy"),
         serviceJsonLd: [
           mkArticle(origin, "/insights/lab-grown-diamond-wholesale-how-to-buy", "Where to Buy Lab-Grown Diamonds Wholesale (A Buyer's Guide)", "A comparison of four wholesale channels for laboratory-grown diamonds."),
@@ -421,8 +438,8 @@ export function resolveRouteMeta(pathname: string, origin: string): RouteMeta | 
     case "/insights/largest-lab-grown-diamond-manufacturers-india":
       return {
         lang: "en",
-        title: ROUTE_META["/insights/largest-lab-grown-diamond-manufacturers-india"].title,
-        description: ROUTE_META["/insights/largest-lab-grown-diamond-manufacturers-india"].description,
+        title: "India's Lab-Grown Diamond Manufacturing Hub | Alvora",
+        description: "Surat and India's lab-grown diamond manufacturing landscape: who the major producers are, how they differ and how to choose a wholesale supplier.",
         canonical: url("/insights/largest-lab-grown-diamond-manufacturers-india"),
         serviceJsonLd: [
           mkArticle(origin, "/insights/largest-lab-grown-diamond-manufacturers-india", "The Largest Lab-Grown Diamond Manufacturers in India (2026)", "A sourced comparison of Indian lab-grown diamond manufacturers by publicly stated production evidence."),
@@ -437,192 +454,192 @@ export function resolveRouteMeta(pathname: string, origin: string): RouteMeta | 
     case "/insights/12-questions-to-ask-a-manufacturer":
       return {
         lang: "en",
-        title: ROUTE_META["/insights/12-questions-to-ask-a-manufacturer"].title,
-        description: ROUTE_META["/insights/12-questions-to-ask-a-manufacturer"].description,
+        title: "12 Questions to Ask a Diamond Manufacturer | Alvora",
+        description: "Twelve due-diligence questions for brands sourcing wholesale lab-grown diamonds — covering certification, consistency, capacity and terms.",
         canonical: url("/insights/12-questions-to-ask-a-manufacturer"),
         serviceJsonLd: mkArticle(origin, "/insights/12-questions-to-ask-a-manufacturer", "12 Questions to Ask a Lab-Grown Diamond Manufacturer Before You Order", "A due-diligence checklist for evaluating a laboratory-grown diamond manufacturer before placing an order."),
       };
     case "/insights/calibrated-diamond-layouts-explained":
       return {
         lang: "en",
-        title: ROUTE_META["/insights/calibrated-diamond-layouts-explained"].title,
-        description: ROUTE_META["/insights/calibrated-diamond-layouts-explained"].description,
+        title: "Calibrated Diamond Layouts Explained | Alvora Insights",
+        description: "What calibrated diamond layouts are, how millimetre tolerances work and why jewellers use them for eternity bands — a wholesale buyer's guide.",
         canonical: url("/insights/calibrated-diamond-layouts-explained"),
         serviceJsonLd: mkArticle(origin, "/insights/calibrated-diamond-layouts-explained", "Calibrated Diamond Layouts, Explained: Tolerances, Grading, and How to Order", "A practical explanation of calibrated diamond layouts covering tolerance, grading, and order brief requirements."),
       };
     case "/insights/cvd-vs-hpht-lab-grown-diamonds":
       return {
         lang: "en",
-        title: ROUTE_META["/insights/cvd-vs-hpht-lab-grown-diamonds"].title,
-        description: ROUTE_META["/insights/cvd-vs-hpht-lab-grown-diamonds"].description,
+        title: "CVD vs HPHT Lab-Grown Diamonds: Key Differences | Alvora",
+        description: "CVD and HPHT are the two methods for growing diamonds. Compare growth process, grading traits and cost to decide which suits your wholesale programme.",
         canonical: url("/insights/cvd-vs-hpht-lab-grown-diamonds"),
         serviceJsonLd: mkArticle(origin, "/insights/cvd-vs-hpht-lab-grown-diamonds", "CVD vs HPHT Lab-Grown Diamonds: What Wholesale Buyers Need to Know", "A comparison of CVD and HPHT laboratory-grown diamond production methods for wholesale buyers."),
       };
     case "/insights/matched-pairs-vs-melee-vs-layouts":
       return {
         lang: "en",
-        title: ROUTE_META["/insights/matched-pairs-vs-melee-vs-layouts"].title,
-        description: ROUTE_META["/insights/matched-pairs-vs-melee-vs-layouts"].description,
+        title: "Matched Pairs vs Melee vs Layouts | Alvora Insights",
+        description: "Three wholesale diamond categories compared: matched pairs for earrings, melee for pavé and calibrated layouts for bands — which format fits your designs.",
         canonical: url("/insights/matched-pairs-vs-melee-vs-layouts"),
         serviceJsonLd: mkArticle(origin, "/insights/matched-pairs-vs-melee-vs-layouts", "Matched Pairs vs. Melee vs. Layouts: Which Format Does Your Design Need?", "A practical guide to choosing between matched pairs, melee lots, and calibrated layouts for wholesale diamond procurement."),
       };
     case "/insights/sourcing-lab-grown-diamonds-from-surat":
       return {
         lang: "en",
-        title: ROUTE_META["/insights/sourcing-lab-grown-diamonds-from-surat"].title,
-        description: ROUTE_META["/insights/sourcing-lab-grown-diamonds-from-surat"].description,
+        title: "Sourcing Lab-Grown Diamonds From Surat | Alvora Insights",
+        description: "Why Surat, India is a global centre for lab-grown diamond cutting and how international wholesalers can vet manufacturers and import with confidence.",
         canonical: url("/insights/sourcing-lab-grown-diamonds-from-surat"),
         serviceJsonLd: mkArticle(origin, "/insights/sourcing-lab-grown-diamonds-from-surat", "Lab-Grown Diamond Manufacturers in Surat: A Buyer's Guide to Sourcing Direct", "A practical guide to sourcing laboratory-grown diamonds direct from Surat manufacturers."),
       };
     case "/insights/12-questions-to-ask-before-your-first-lab-grown-order":
       return {
         lang: "en",
-        title: ROUTE_META["/insights/12-questions-to-ask-before-your-first-lab-grown-order"].title,
-        description: ROUTE_META["/insights/12-questions-to-ask-before-your-first-lab-grown-order"].description,
+        title: "12 Questions to Ask Before Your First Lab-Grown Diamond Order | Alvora",
+        description: "A pre-order checklist for first-time B2B buyers of lab-grown diamonds: payment terms, sample approval, shipping insurance, dispute process and the questions most often skipped.",
         canonical: url("/insights/12-questions-to-ask-before-your-first-lab-grown-order"),
         serviceJsonLd: mkArticle(origin, "/insights/12-questions-to-ask-before-your-first-lab-grown-order", "12 Questions to Ask Before Your First Lab-Grown Diamond Order", "A pre-order checklist for first-time B2B lab-grown diamond buyers covering payment terms, sample approval, shipping, dispute process and returns."),
       };
     case "/insights/how-to-spec-a-calibrated-parcel":
       return {
         lang: "en",
-        title: ROUTE_META["/insights/how-to-spec-a-calibrated-parcel"].title,
-        description: ROUTE_META["/insights/how-to-spec-a-calibrated-parcel"].description,
+        title: "How to Spec a Calibrated Parcel: A Buyer's Checklist | Alvora",
+        description: "What jewellery manufacturers must specify before requesting a calibrated lab-grown diamond quote — shape, size range, tolerance, colour band, clarity band, quantity and delivery format.",
         canonical: url("/insights/how-to-spec-a-calibrated-parcel"),
         serviceJsonLd: mkArticle(origin, "/insights/how-to-spec-a-calibrated-parcel", "How to Spec a Calibrated Parcel: A Buyer's Checklist", "A seven-field specification checklist for ordering calibrated lab-grown diamond parcels from a manufacturer."),
       };
     case "/insights/igi-vs-gia-vs-sgl-lab-grown-diamonds":
       return {
         lang: "en",
-        title: ROUTE_META["/insights/igi-vs-gia-vs-sgl-lab-grown-diamonds"].title,
-        description: ROUTE_META["/insights/igi-vs-gia-vs-sgl-lab-grown-diamonds"].description,
+        title: "IGI vs GIA vs SGL for Lab-Grown Diamonds: An Honest Comparison | Alvora",
+        description: "An honest, factual comparison of IGI, GIA and SGL certification for lab-grown diamonds — what each grades, where buyers encounter each, and how to choose.",
         canonical: url("/insights/igi-vs-gia-vs-sgl-lab-grown-diamonds"),
         serviceJsonLd: mkArticle(origin, "/insights/igi-vs-gia-vs-sgl-lab-grown-diamonds", "IGI vs GIA vs SGL for Lab-Grown Diamonds: An Honest Comparison", "A factual comparison of IGI, GIA and SGL grading laboratories for lab-grown diamonds by scale, recognition and typical use case."),
       };
     case "/insights/import-duty-lc-terms-lab-grown-diamonds":
       return {
         lang: "en",
-        title: ROUTE_META["/insights/import-duty-lc-terms-lab-grown-diamonds"].title,
-        description: ROUTE_META["/insights/import-duty-lc-terms-lab-grown-diamonds"].description,
+        title: "Import Duties and Payment Terms for Lab-Grown Diamonds, Explained | Alvora",
+        description: "What first-time importers of loose lab-grown diamonds should ask about duties, tariffs, letters of credit, advance payment and memo terms — by market, in plain language.",
         canonical: url("/insights/import-duty-lc-terms-lab-grown-diamonds"),
         serviceJsonLd: mkArticle(origin, "/insights/import-duty-lc-terms-lab-grown-diamonds", "Import Duties and Payment Terms for Lab-Grown Diamonds, Explained", "A guide for first-time importers of loose lab-grown diamonds covering tariff treatment, Incoterms and payment structure by market."),
       };
     case "/insights/lab-grown-diamond-wholesale-price-trends-2026":
       return {
         lang: "en",
-        title: ROUTE_META["/insights/lab-grown-diamond-wholesale-price-trends-2026"].title,
-        description: ROUTE_META["/insights/lab-grown-diamond-wholesale-price-trends-2026"].description,
+        title: "Lab-Grown Diamond Wholesale Price Trends Through 2026 | Alvora",
+        description: "A dated, factual overview of publicly reported lab-grown diamond wholesale price trends through 2026 — what fell, what stabilised, and what buyers should take from it.",
         canonical: url("/insights/lab-grown-diamond-wholesale-price-trends-2026"),
         serviceJsonLd: mkArticle(origin, "/insights/lab-grown-diamond-wholesale-price-trends-2026", "Lab-Grown Diamond Wholesale Price Trends Through 2026", "A dated factual overview of publicly reported lab-grown diamond wholesale price trends through 2026 by segment."),
       };
     case "/insights/melee-vs-solitaire-moq-realities":
       return {
         lang: "en",
-        title: ROUTE_META["/insights/melee-vs-solitaire-moq-realities"].title,
-        description: ROUTE_META["/insights/melee-vs-solitaire-moq-realities"].description,
+        title: "Melee vs Solitaire MOQs: Why Bulk and Singles Behave Differently | Alvora",
+        description: "Why melee parcels, single solitaires and bespoke custom-cut lab-grown diamonds carry different minimum order quantities — and how to plan your first order accordingly.",
         canonical: url("/insights/melee-vs-solitaire-moq-realities"),
         serviceJsonLd: mkArticle(origin, "/insights/melee-vs-solitaire-moq-realities", "Melee vs Solitaire MOQs: Why Bulk and Singles Behave Differently", "Why melee, solitaires and bespoke custom-cut lab-grown diamonds carry different minimum order quantities, and how to plan accordingly."),
       };
     case "/insights/reading-a-matched-layout-tolerance-sheet":
       return {
         lang: "en",
-        title: ROUTE_META["/insights/reading-a-matched-layout-tolerance-sheet"].title,
-        description: ROUTE_META["/insights/reading-a-matched-layout-tolerance-sheet"].description,
+        title: "Reading a Matched-Layout Tolerance Sheet: What the Numbers Mean | Alvora",
+        description: "How to read and specify a matched-layout tolerance sheet for lab-grown diamond layouts: what 'matched within X' constrains, common ordering mistakes, and approval images.",
         canonical: url("/insights/reading-a-matched-layout-tolerance-sheet"),
         serviceJsonLd: mkArticle(origin, "/insights/reading-a-matched-layout-tolerance-sheet", "Reading a Matched-Layout Tolerance Sheet: What the Numbers Mean", "How to read a matched-layout tolerance sheet for lab-grown diamond layouts, including what each tolerance line controls and how approval images close the loop."),
       };
     case "/insights/sourcing-lab-grown-diamonds-us-retailer":
       return {
         lang: "en",
-        title: ROUTE_META["/insights/sourcing-lab-grown-diamonds-us-retailer"].title,
-        description: ROUTE_META["/insights/sourcing-lab-grown-diamonds-us-retailer"].description,
+        title: "Sourcing Lab-Grown Diamonds from India: A US Retailer's Guide | Alvora",
+        description: "A first-time guide for US retailers importing lab-grown diamonds from India: import basics, documentation, communication expectations, supplier vetting and red flags.",
         canonical: url("/insights/sourcing-lab-grown-diamonds-us-retailer"),
         serviceJsonLd: mkArticle(origin, "/insights/sourcing-lab-grown-diamonds-us-retailer", "Sourcing Lab-Grown Diamonds from India: A US Retailer's Guide", "A first-import guide for US retailers sourcing lab-grown diamonds from India covering duty treatment, documentation, vetting and red flags."),
       };
     case "/singapore":
       return {
         lang: "en",
-        title: ROUTE_META["/singapore"].title,
-        description: ROUTE_META["/singapore"].description,
+        title: "Wholesale Lab-Grown Diamonds Singapore | Alvora",
+        description: "Alvora supplies certified lab-grown diamonds wholesale to Singapore jewellers, manufacturers, and wholesalers direct from Surat.",
         canonical: url("/singapore"),
         serviceJsonLd: { "@context": "https://schema.org", "@type": "Service", name: "Lab-Grown Diamond Supply for Singapore", serviceType: "Lab-grown diamond wholesale supply", provider: { "@type": "Organization", name: "Alvora Diamonds", address: { "@type": "PostalAddress", addressLocality: "Surat", addressCountry: "IN" } }, areaServed: "Singapore" },
       };
     case "/singapore/wholesale-lab-grown-diamonds":
       return {
         lang: "en",
-        title: ROUTE_META["/singapore/wholesale-lab-grown-diamonds"].title,
-        description: ROUTE_META["/singapore/wholesale-lab-grown-diamonds"].description,
+        title: "Wholesale Lab-Grown Diamonds in Singapore | Alvora",
+        description: "Source certified wholesale lab-grown diamonds in Singapore from Alvora, a Surat manufacturer supplying IGI-certified stones direct to trade.",
         canonical: url("/singapore/wholesale-lab-grown-diamonds"),
         serviceJsonLd: { "@context": "https://schema.org", "@type": "Service", name: "Wholesale Lab-Grown Diamonds Singapore", serviceType: "Lab-grown diamond wholesale supply", provider: { "@type": "Organization", name: "Alvora Diamonds", address: { "@type": "PostalAddress", addressLocality: "Surat", addressCountry: "IN" } }, areaServed: "Singapore" },
       };
     case "/singapore/lab-grown-diamond-wholesaler":
       return {
         lang: "en",
-        title: ROUTE_META["/singapore/lab-grown-diamond-wholesaler"].title,
-        description: ROUTE_META["/singapore/lab-grown-diamond-wholesaler"].description,
+        title: "Lab-Grown Diamond Wholesaler Singapore | Alvora",
+        description: "Alvora is a Surat-based lab-grown diamond wholesaler supplying calibrated and certified stones to Singapore jewellery businesses.",
         canonical: url("/singapore/lab-grown-diamond-wholesaler"),
         serviceJsonLd: { "@context": "https://schema.org", "@type": "Service", name: "Lab-Grown Diamond Wholesaler for Singapore", serviceType: "Lab-grown diamond wholesale", provider: { "@type": "Organization", name: "Alvora Diamonds", address: { "@type": "PostalAddress", addressLocality: "Surat", addressCountry: "IN" } }, areaServed: "Singapore" },
       };
     case "/singapore/for-jewellers":
       return {
         lang: "en",
-        title: ROUTE_META["/singapore/for-jewellers"].title,
-        description: ROUTE_META["/singapore/for-jewellers"].description,
+        title: "Lab-Grown Diamonds for Singapore Jewellers | Alvora",
+        description: "Certified lab-grown diamonds for Singapore jewellers: calibrated parcels, matched pairs, and made-to-specification supply direct from Surat.",
         canonical: url("/singapore/for-jewellers"),
         serviceJsonLd: { "@context": "https://schema.org", "@type": "Service", name: "Lab-Grown Diamonds for Singapore Jewellers", serviceType: "Lab-grown diamond supply for jewellers", provider: { "@type": "Organization", name: "Alvora Diamonds", address: { "@type": "PostalAddress", addressLocality: "Surat", addressCountry: "IN" } }, areaServed: "Singapore" },
       };
     case "/singapore/lab-grown-diamond-supplier":
       return {
         lang: "en",
-        title: ROUTE_META["/singapore/lab-grown-diamond-supplier"].title,
-        description: ROUTE_META["/singapore/lab-grown-diamond-supplier"].description,
+        title: "Lab-Grown Diamond Supplier Singapore | Alvora",
+        description: "Alvora is a certified lab-grown diamond supplier serving Singapore with IGI-graded stones, calibrated parcels, and repeatable trade supply.",
         canonical: url("/singapore/lab-grown-diamond-supplier"),
         serviceJsonLd: { "@context": "https://schema.org", "@type": "Service", name: "Lab-Grown Diamond Supplier Singapore", serviceType: "Lab-grown diamond supply", provider: { "@type": "Organization", name: "Alvora Diamonds", address: { "@type": "PostalAddress", addressLocality: "Surat", addressCountry: "IN" } }, areaServed: "Singapore" },
       };
     case "/singapore/calibrated-parcels":
       return {
         lang: "en",
-        title: ROUTE_META["/singapore/calibrated-parcels"].title,
-        description: ROUTE_META["/singapore/calibrated-parcels"].description,
+        title: "Calibrated Lab-Grown Diamond Parcels for Singapore | Alvora",
+        description: "Calibrated lab-grown diamond parcels for Singapore jewellery manufacturers: consistent millimetre sizes, IGI certification, and repeat-order supply.",
         canonical: url("/singapore/calibrated-parcels"),
         serviceJsonLd: { "@context": "https://schema.org", "@type": "Service", name: "Calibrated Lab-Grown Diamond Parcels for Singapore", serviceType: "Calibrated diamond parcel supply", provider: { "@type": "Organization", name: "Alvora Diamonds", address: { "@type": "PostalAddress", addressLocality: "Surat", addressCountry: "IN" } }, areaServed: "Singapore" },
       };
     case "/singapore/matched-pairs":
       return {
         lang: "en",
-        title: ROUTE_META["/singapore/matched-pairs"].title,
-        description: ROUTE_META["/singapore/matched-pairs"].description,
+        title: "Matched Lab-Grown Diamond Pairs for Singapore | Alvora",
+        description: "Matched lab-grown diamond pairs for Singapore jewellers and manufacturers: symmetrical cuts, consistent grading, direct from Alvora in Surat.",
         canonical: url("/singapore/matched-pairs"),
         serviceJsonLd: { "@context": "https://schema.org", "@type": "Service", name: "Matched Lab-Grown Diamond Pairs for Singapore", serviceType: "Matched diamond pair supply", provider: { "@type": "Organization", name: "Alvora Diamonds", address: { "@type": "PostalAddress", addressLocality: "Surat", addressCountry: "IN" } }, areaServed: "Singapore" },
       };
     case "/singapore/melee":
       return {
         lang: "en",
-        title: ROUTE_META["/singapore/melee"].title,
-        description: ROUTE_META["/singapore/melee"].description,
+        title: "Wholesale Melee Lab-Grown Diamonds Singapore | Alvora",
+        description: "Wholesale melee lab-grown diamonds for Singapore jewellery production: calibrated sizes, Excellent cut, no fluorescence, direct from Alvora.",
         canonical: url("/singapore/melee"),
         serviceJsonLd: { "@context": "https://schema.org", "@type": "Service", name: "Wholesale Melee Lab-Grown Diamonds for Singapore", serviceType: "Melee diamond wholesale supply", provider: { "@type": "Organization", name: "Alvora Diamonds", address: { "@type": "PostalAddress", addressLocality: "Surat", addressCountry: "IN" } }, areaServed: "Singapore" },
       };
     case "/singapore/for-manufacturers":
       return {
         lang: "en",
-        title: ROUTE_META["/singapore/for-manufacturers"].title,
-        description: ROUTE_META["/singapore/for-manufacturers"].description,
+        title: "Lab-Grown Diamonds for Singapore Jewellery Manufacturers | Alvora",
+        description: "Calibrated and matched lab-grown diamond supply for Singapore jewellery manufacturers: production parcels, repeat programmes, IGI-certified direct from Surat.",
         canonical: url("/singapore/for-manufacturers"),
         serviceJsonLd: { "@context": "https://schema.org", "@type": "Service", name: "Lab-Grown Diamonds for Singapore Jewellery Manufacturers", serviceType: "Production diamond supply", provider: { "@type": "Organization", name: "Alvora Diamonds", address: { "@type": "PostalAddress", addressLocality: "Surat", addressCountry: "IN" } }, areaServed: "Singapore" },
       };
     case "/singapore/surat-to-singapore":
       return {
         lang: "en",
-        title: ROUTE_META["/singapore/surat-to-singapore"].title,
-        description: ROUTE_META["/singapore/surat-to-singapore"].description,
+        title: "Surat to Singapore Lab-Grown Diamond Supply | Alvora",
+        description: "Direct lab-grown diamond supply from Surat to Singapore: factory pricing, IGI documentation, insured shipping, and clear landed-cost guidance.",
         canonical: url("/singapore/surat-to-singapore"),
         serviceJsonLd: { "@context": "https://schema.org", "@type": "Service", name: "Surat to Singapore Lab-Grown Diamond Supply", serviceType: "Direct international diamond supply", provider: { "@type": "Organization", name: "Alvora Diamonds", address: { "@type": "PostalAddress", addressLocality: "Surat", addressCountry: "IN" } }, areaServed: "Singapore" },
       };
     case "/singapore/wholesale-parcels":
       return {
         lang: "en",
-        title: ROUTE_META["/singapore/wholesale-parcels"].title,
-        description: ROUTE_META["/singapore/wholesale-parcels"].description,
+        title: "Wholesale Diamond Parcels Singapore | Alvora",
+        description: "Wholesale lab-grown diamond parcels for Singapore trade buyers: calibrated sizes, matched lots, and specification-led supply direct from Alvora in Surat.",
         canonical: url("/singapore/wholesale-parcels"),
         serviceJsonLd: { "@context": "https://schema.org", "@type": "Service", name: "Wholesale Lab-Grown Diamond Parcels for Singapore", serviceType: "Wholesale diamond parcel supply", provider: { "@type": "Organization", name: "Alvora Diamonds", address: { "@type": "PostalAddress", addressLocality: "Surat", addressCountry: "IN" } }, areaServed: "Singapore" },
       };
@@ -653,90 +670,37 @@ function esc(s: string) {
   return s.replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 }
 
-/**
- * Auto-derives BreadcrumbList JSON-LD for hierarchical routes.
- * Returns null for the homepage or paths that have no crawlable parent.
- */
-function autoBreadcrumbs(pathname: string, origin: string, pageTitle: string): object | null {
-  if (pathname === "/" || !pathname.startsWith("/")) return null;
-
-  const home = { name: "Alvora", path: "/" };
-  const segments = pathname.split("/").filter(Boolean);
-  if (segments.length === 0) return null;
-
-  const titleCase = (slug: string) => slug.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
-
-  // Insights hierarchy: Home → Insights → Article
-  if (segments[0] === "insights" && segments.length === 2) {
-    return mkBreadcrumbs(origin, [
-      home,
-      { name: "Insights", path: "/insights" },
-      { name: pageTitle.split(" | ")[0] || titleCase(segments[1]), path: pathname },
-    ]);
-  }
-  if (segments[0] === "insights" && segments.length === 1) {
-    return mkBreadcrumbs(origin, [home, { name: "Insights", path: "/insights" }]);
-  }
-
-  // Singapore hierarchy: Home → Singapore → Sub-page
-  if (segments[0] === "singapore" && segments.length === 2) {
-    return mkBreadcrumbs(origin, [
-      home,
-      { name: "Singapore", path: "/singapore" },
-      { name: pageTitle.split(" | ")[0] || titleCase(segments[1]), path: pathname },
-    ]);
-  }
-  if (segments[0] === "singapore" && segments.length === 1) {
-    return mkBreadcrumbs(origin, [home, { name: "Singapore", path: "/singapore" }]);
-  }
-
-  // Locale landings and top-level pages: Home → Page
-  if (segments.length === 1) {
-    return mkBreadcrumbs(origin, [
-      home,
-      { name: pageTitle.split(" | ")[0] || titleCase(segments[0]), path: pathname },
-    ]);
-  }
-
-  return null;
+/** JSON-escape for embedding a record inside a <script type="application/json"> tag. */
+function jsonForScript(value: unknown): string {
+  return JSON.stringify(value).replace(/</g, "\\u003c").replace(/>/g, "\\u003e");
 }
 
 /**
- * Routes that support URL-driven pagination via ?page=N. When N > 1 the
- * canonical link and the title get a self-referencing suffix so page 2..N are
- * NOT canonicalised back to page 1.
+ * Builds the hero-stone hydration payload for the "/" route. Returns "" when
+ * no candidates exist so the client-side query falls back to fetching /today.
  */
-const PAGINATED_ROUTES = new Set(["/availability", "/fr/availability", "/it/availability"]);
+export function heroStoneHydrationTag(): string {
+  const record = getStoneOfToday();
+  if (!record) return "";
+  return `<script type="application/json" id="hero-stone">${jsonForScript(record)}</script>`;
+}
 
-/**
- * Extract a positive integer page number from a search string. Returns 1 for
- * missing/invalid values so callers can treat "page 1" and "no page param" the
- * same (both canonicalise to the un-paginated URL).
- */
-function paginationFromSearch(search: string | null | undefined): number {
-  if (!search) return 1;
-  const raw = new URLSearchParams(search).get("page");
-  if (!raw) return 1;
-  const n = parseInt(raw, 10);
-  return Number.isFinite(n) && n > 0 ? n : 1;
+/** Builds the ledger hydration tag so StockLedger has real figures at first paint. */
+export function stockLedgerHydrationTag(): string {
+  const snapshot = getStonesMetaSnapshot();
+  if (!snapshot) return "";
+  const generatedAtLabel = formatInTimeZone(new Date(snapshot.generatedAt), "Asia/Kolkata", "d MMMM yyyy");
+  const payload = { ...snapshot, generatedAtLabel };
+  return `<script type="application/json" id="stock-ledger-data">${jsonForScript(payload)}</script>`;
 }
 
 /**
  * Injects SEO tags into the index.html shell for a given pathname.
  * Returns html unchanged for unrecognised paths (admin, api, etc.).
- *
- * `search` is the raw URL query string (with or without a leading `?`).
- * For paginated routes, `?page=N` (N > 1) shifts the canonical and the title
- * to reference that specific page.
  */
-export function injectSeoIntoHtml(html: string, pathname: string, origin: string, search?: string | null): string {
+export function injectSeoIntoHtml(html: string, pathname: string, origin: string): string {
   const meta = resolveRouteMeta(pathname, origin);
   if (!meta) return html;
-
-  const page = PAGINATED_ROUTES.has(pathname) ? paginationFromSearch(search) : 1;
-  const pageSuffix = page > 1 ? ` — Page ${page}` : "";
-  const canonicalWithPage = page > 1 ? `${meta.canonical}?page=${page}` : meta.canonical;
-  const titleWithPage = `${meta.title}${pageSuffix}`;
 
   const image = `${origin}${publicSocialImage}`;
   const robots = meta.robots ?? "index,follow,max-image-preview:large";
@@ -753,17 +717,12 @@ export function injectSeoIntoHtml(html: string, pathname: string, origin: string
       : [`<script type="application/ld+json">${JSON.stringify(meta.serviceJsonLd)}</script>`]
     : [];
 
-  const breadcrumbs = autoBreadcrumbs(pathname, origin, meta.title);
-  const breadcrumbTag = breadcrumbs
-    ? `<script type="application/ld+json">${JSON.stringify(breadcrumbs)}</script>`
-    : null;
-
   const tags = [
     `<meta name="robots" content="${esc(robots)}" />`,
     `<meta property="og:type" content="website" />`,
-    `<meta property="og:title" content="${esc(titleWithPage)}" />`,
+    `<meta property="og:title" content="${esc(meta.title)}" />`,
     `<meta property="og:description" content="${esc(meta.description)}" />`,
-    `<meta property="og:url" content="${esc(canonicalWithPage)}" />`,
+    `<meta property="og:url" content="${esc(meta.canonical)}" />`,
     `<meta property="og:image" content="${esc(image)}" />`,
     `<meta property="og:image:width" content="1200" />`,
     `<meta property="og:image:height" content="630" />`,
@@ -773,20 +732,20 @@ export function injectSeoIntoHtml(html: string, pathname: string, origin: string
     `<meta property="og:locale" content="${ogLocale}" />`,
     ...ogLocaleAlternates.map((loc) => `<meta property="og:locale:alternate" content="${loc}" />`),
     `<meta name="twitter:card" content="summary_large_image" />`,
-    `<meta name="twitter:title" content="${esc(titleWithPage)}" />`,
+    `<meta name="twitter:title" content="${esc(meta.title)}" />`,
     `<meta name="twitter:description" content="${esc(meta.description)}" />`,
     `<meta name="twitter:image" content="${esc(image)}" />`,
     `<meta name="twitter:image:alt" content="${esc(publicSocialImageAlt)}" />`,
-    `<link rel="canonical" href="${esc(canonicalWithPage)}" />`,
+    `<link rel="canonical" href="${esc(meta.canonical)}" />`,
     ...(meta.alternates ?? []).map(({ lang, href }) => `<link rel="alternate" hreflang="${esc(lang)}" href="${esc(href)}" />`),
     `<script type="application/ld+json">${JSON.stringify(buildOrgJsonLd(origin))}</script>`,
-    ...(breadcrumbTag ? [breadcrumbTag] : []),
     ...serviceJsonLdTags,
+    ...(pathname === "/" ? [heroStoneHydrationTag(), stockLedgerHydrationTag()].filter(Boolean) : []),
   ].join("\n  ");
 
   return html
     .replace('lang="en"', `lang="${meta.lang}"`)
-    .replace(/<title>[^<]*<\/title>/, `<title>${esc(titleWithPage)}</title>`)
+    .replace(/<title>[^<]*<\/title>/, `<title>${esc(meta.title)}</title>`)
     .replace(
       /<meta\s+name="description"\s+content="[^"]*"\s*\/?>/,
       `<meta name="description" content="${esc(meta.description)}" />`

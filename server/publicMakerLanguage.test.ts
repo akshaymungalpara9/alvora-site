@@ -2,20 +2,18 @@ import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 
 describe("public maker-positioning language", () => {
-  it("keeps sourcing and supply terminology out of public FR and IT route copy (English two-track supply story is intentional post-2026-09-17)", () => {
-    // English "sourcing", "supply", "supplier" are permitted in the two-track hybrid model
-    // (confirmed 2026-09-17: standard specs from stock/sourcing network in 1-5 days;
-    // custom-made in 5-10 days). FR/IT market pages have not been rewritten to the
-    // two-track story yet, so their non-English equivalents remain prohibited.
+  it("keeps sourcing and supply terminology out of public English, French, Italian, and North American route copy", () => {
     const publicRouteSources = [
+      readFileSync("client/src/pages/Home.tsx", "utf8"),
       readFileSync("client/src/pages/MarketLanding.tsx", "utf8"),
       readFileSync("client/src/pages/LegalPage.tsx", "utf8"),
+      readFileSync("client/src/pages/Insights.tsx", "utf8"),
       readFileSync("client/src/pages/Refer.tsx", "utf8"),
       readFileSync("client/src/pages/PublicAvailability.tsx", "utf8"),
       readFileSync("client/src/components/WhatsAppQuickContact.tsx", "utf8"),
     ].join("\n").toLowerCase();
 
-    for (const prohibited of ["fournisseur", "fornitore", "approvisionnement", "fornitura"]) {
+    for (const prohibited of ["sourcing", "supply", "supplier", "fournisseur", "fornitore", "approvisionnement", "fornitura"]) {
       expect(publicRouteSources).not.toContain(prohibited);
     }
   });
@@ -92,7 +90,7 @@ describe("public maker-positioning language", () => {
     expect(legal).not.toContain("public draft");
     expect(insights).not.toContain("Owner draft");
     expect(insights).not.toContain("Open draft");
-    expect(insights).toContain("Manufacturing notes");
+    expect(insights).toContain("Manufacturing notes are in preparation.");
   });
 
   it("keeps prohibited commercial literals out of public copy while retaining clear trade-term explanations", () => {
