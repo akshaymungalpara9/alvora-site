@@ -46,40 +46,6 @@ function routeKey(route) {
 
 const indexHtml = fs.readFileSync(path.join(distPublic, "index.html"), "utf-8");
 
-// Compute today's hero stone at prerender time so the "/" snapshot matches
-// what the production server injects on each request. Skips gracefully when
-// the data file is not present.
-function loadTodayHeroStone() {
-  const stonesPath = path.resolve(__dirname, "../server/data/stones.public.json");
-  if (!fs.existsSync(stonesPath)) return null;
-  try {
-    const stones = JSON.parse(fs.readFileSync(stonesPath, "utf-8"));
-    const candidates = stones
-      .filter((s) => s.lab === "IGI" && s.videoUrl !== null)
-      .slice()
-      .sort((a, b) => {
-        if (a.report.length !== b.report.length) return a.report.length - b.report.length;
-        return a.report.localeCompare(b.report);
-      });
-    if (candidates.length === 0) return null;
-    const MS_PER_DAY = 86_400_000;
-    const IST_OFFSET_MS = 5.5 * 60 * 60 * 1000;
-    const days = Math.floor((Date.now() + IST_OFFSET_MS) / MS_PER_DAY);
-    const record = candidates[days % candidates.length];
-    const dateLabel = new Intl.DateTimeFormat("en-GB", {
-      day: "numeric",
-      month: "long",
-      year: "numeric",
-      timeZone: "Asia/Kolkata",
-    }).format(new Date());
-    return { ...record, dateLabel };
-  } catch {
-    return null;
-  }
-}
-
-const heroStoneRecord = loadTodayHeroStone();
-
 function loadLedgerSnapshot() {
   const metaPath = path.resolve(__dirname, "../server/data/stones.meta.json");
   if (!fs.existsSync(metaPath)) return null;
@@ -102,10 +68,6 @@ const ledgerSnapshot = loadLedgerSnapshot();
 function injectHomeHydrationTags(html, pathname) {
   if (pathname !== "/") return html;
   const tags = [];
-  if (heroStoneRecord) {
-    const payload = JSON.stringify(heroStoneRecord).replace(/</g, "\\u003c").replace(/>/g, "\\u003e");
-    tags.push(`<script type="application/json" id="hero-stone">${payload}</script>`);
-  }
   if (ledgerSnapshot) {
     const payload = JSON.stringify(ledgerSnapshot).replace(/</g, "\\u003c").replace(/>/g, "\\u003e");
     tags.push(`<script type="application/json" id="stock-ledger-data">${payload}</script>`);

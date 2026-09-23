@@ -1,6 +1,6 @@
 import { availabilitySeo, publicSeo, publicSocialImage, publicSocialImageAlt } from "../client/src/lib/publicSeo";
 import { COMPANY } from "../shared/companyInfo";
-import { getStone, getStoneOfToday, getStonesMetaSnapshot } from "./stonePassport";
+import { getStone, getStonesMetaSnapshot } from "./stonePassport";
 import { formatInTimeZone } from "date-fns-tz";
 import { isStonePassportIndexable } from "./_core/env";
 
@@ -675,16 +675,6 @@ function jsonForScript(value: unknown): string {
   return JSON.stringify(value).replace(/</g, "\\u003c").replace(/>/g, "\\u003e");
 }
 
-/**
- * Builds the hero-stone hydration payload for the "/" route. Returns "" when
- * no candidates exist so the client-side query falls back to fetching /today.
- */
-export function heroStoneHydrationTag(): string {
-  const record = getStoneOfToday();
-  if (!record) return "";
-  return `<script type="application/json" id="hero-stone">${jsonForScript(record)}</script>`;
-}
-
 /** Builds the ledger hydration tag so StockLedger has real figures at first paint. */
 export function stockLedgerHydrationTag(): string {
   const snapshot = getStonesMetaSnapshot();
@@ -740,7 +730,7 @@ export function injectSeoIntoHtml(html: string, pathname: string, origin: string
     ...(meta.alternates ?? []).map(({ lang, href }) => `<link rel="alternate" hreflang="${esc(lang)}" href="${esc(href)}" />`),
     `<script type="application/ld+json">${JSON.stringify(buildOrgJsonLd(origin))}</script>`,
     ...serviceJsonLdTags,
-    ...(pathname === "/" ? [heroStoneHydrationTag(), stockLedgerHydrationTag()].filter(Boolean) : []),
+    ...(pathname === "/" ? [stockLedgerHydrationTag()].filter(Boolean) : []),
   ].join("\n  ");
 
   return html
