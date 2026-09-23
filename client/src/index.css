@@ -228,7 +228,7 @@ h1 { margin-bottom: 24px; color: var(--paper); font-family: var(--serif); font-s
 .brief-form label > span { color: #92958d; font-family: var(--mono); font-size: 0.59rem; letter-spacing: 0.075em; text-transform: uppercase; }
 .brief-form input, .brief-form textarea, .brief-form select { width: 100%; padding: 0 0 12px; border: 0; border-bottom: 1px solid #5a5e57; border-radius: 0; outline: 0; color: var(--paper); background: transparent; font-size: 0.84rem; transition: border-color 180ms var(--ease-out); }
 .brief-form textarea { min-height: 116px; padding-top: 2px; resize: vertical; line-height: 1.65; }
-.brief-form select { appearance: none; background-image: linear-gradient(45deg, transparent 50%, var(--signal) 50%), linear-gradient(135deg, var(--signal) 50%, transparent 50%); background-position: calc(100% - 14px) 49%, calc(100% - 9px) 49%; background-size: 5px 5px, 5px 5px; background-repeat: no-repeat; }
+.brief-form select { appearance: none; -webkit-appearance: none; -moz-appearance: none; padding-right: 28px; text-overflow: ellipsis; overflow: hidden; white-space: nowrap; background-image: linear-gradient(45deg, transparent 50%, var(--signal) 50%), linear-gradient(135deg, var(--signal) 50%, transparent 50%); background-position: calc(100% - 18px) 50%, calc(100% - 10px) 50%; background-size: 10px 10px, 10px 10px; background-repeat: no-repeat; }
 .brief-form select option { color: var(--ink); background: var(--paper); }
 .brief-form input::placeholder, .brief-form textarea::placeholder { color: #777a73; opacity: 1; }
 .brief-form input:focus, .brief-form textarea:focus, .brief-form select:focus { border-color: var(--signal); }
@@ -903,7 +903,8 @@ body { color: var(--ink); }
 /* Production brief and trust/footer chrome. */
 .brief-section { border-top-color: var(--rule); }
 .brief-form label > span, .form-qualification-note, .form-submit-row p, .brief-intro > p:not(.eyebrow), .brief-aside { color: var(--paper-dim); }
-.brief-form input, .brief-form textarea, .brief-form select { border-color: var(--rule); color: var(--ink); background: transparent; }
+/* background-color (not the background shorthand): shorthand would reset background-image, background-position, background-size and background-repeat set by the .brief-form select rule above, filling the whole select with the chevron gradient. */
+.brief-form input, .brief-form textarea, .brief-form select { border-color: var(--rule); color: var(--ink); background-color: transparent; }
 .brief-form select { background-image: linear-gradient(45deg, transparent 50%, var(--signal-text) 50%), linear-gradient(135deg, var(--signal-text) 50%, transparent 50%); }
 .brief-form select option { color: var(--ink); background: var(--surface); }
 .brief-form input::placeholder, .brief-form textarea::placeholder { color: #81786a; }
