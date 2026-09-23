@@ -1,5 +1,5 @@
 /**
- * Alvora — The Precision House: dark editorial craftsmanship built from graphite fields,
+ * Alvora, The Precision House: dark editorial craftsmanship built from graphite fields,
  * calibration rules, restrained signal-lime accents, and direct production language.
  */
 import { FormEvent, MouseEvent, useEffect, useRef, useState } from "react";
@@ -160,7 +160,7 @@ export default function Home() {
         <section className="production-section" id="production" aria-labelledby="production-title">
           <div className="section-heading production-heading">
             <div>
-              <p className="eyebrow"><span /> 04 — OUR PRODUCTION</p>
+              <p className="eyebrow"><span /> 04 · OUR PRODUCTION</p>
               <h2 id="production-title">What we make.</h2>
             </div>
             <p>Certified lab-grown diamonds, cut, calibrated and finished for reliable work at the bench.</p>
@@ -205,7 +205,7 @@ export default function Home() {
 
         <section className="spec-section" id="made-to-spec" aria-labelledby="spec-title">
           <div className="spec-masthead">
-            <p className="eyebrow eyebrow-bright"><span /> 05 — MADE TO SPECIFICATION</p>
+            <p className="eyebrow eyebrow-bright"><span /> 05 · MADE TO SPECIFICATION</p>
             <p className="spec-stamp">SPEC 05–10 DAYS</p>
           </div>
           <div className="spec-lead">
@@ -242,7 +242,7 @@ export default function Home() {
             <p className="process-image-label">Laser inscription / identification / final check</p>
           </div>
           <div className="process-content">
-            <p className="eyebrow"><span /> 06 — HOW WE WORK</p>
+            <p className="eyebrow"><span /> 06 · HOW WE WORK</p>
             <h2 id="process-title">A clear make.<br />Practical terms.</h2>
             <p>We begin with the specification and stay accountable to the stone after the finished make leaves our benches.</p>
             <div className="commercial-panels">
@@ -254,7 +254,7 @@ export default function Home() {
               <article>
                 <span>Assured make</span>
                 <h3>Repair or replace.</h3>
-                <p>Every stone is verified against its certificate before dispatch. In the rare case a piece needs correction — a spec mismatch, a chip, a make issue — it goes back to our benches. We repair or replace and return it. You are never left with a stone you cannot sell.</p>
+                <p>Every stone is verified against its certificate before dispatch. In the rare case a piece needs correction (a spec mismatch, a chip, a make issue), it goes back to our benches. We repair or replace and return it. You are never left with a stone you cannot sell.</p>
               </article>
             </div>
             <a className="text-link" href="#production-brief">Start a production brief <MoveRight size={17} strokeWidth={1.5} /></a>
@@ -263,7 +263,7 @@ export default function Home() {
 
         <section className="faq-section" id="faq" aria-labelledby="faq-title">
           <div className="faq-heading">
-            <p className="eyebrow"><span /> 07 — FAQ</p>
+            <p className="eyebrow"><span /> 07 · FAQ</p>
             <h2 id="faq-title">The useful questions.</h2>
           </div>
           <Accordion.Root type="multiple" defaultValue={["q1", "q4"]} className="faq-content">
@@ -296,7 +296,7 @@ export default function Home() {
                 <Accordion.Trigger className="faq-trigger">How fast do you respond to a quote request?<span aria-hidden="true">+</span></Accordion.Trigger>
               </Accordion.Header>
               <Accordion.Content forceMount className="faq-answer">
-                <p>Within 24 hours during business days. Same-day on WhatsApp during Surat hours (IST 09:00–19:00). A complete brief — shape, measurements, quality, quantity, certification, destination, and any CAD or reference file — helps Alvora respond with a useful quotation rather than a generic initial indication.</p>
+                <p>Within 24 hours during business days. Same-day on WhatsApp during Surat hours (IST 09:00–19:00). A complete brief (shape, measurements, quality, quantity, certification, destination, and any CAD or reference file) helps Alvora respond with a useful quotation rather than a generic initial indication.</p>
               </Accordion.Content>
             </Accordion.Item>
             <Accordion.Item value="q5" className="faq-item">
@@ -312,7 +312,7 @@ export default function Home() {
                 <Accordion.Trigger className="faq-trigger">Do you ship to the US, Canada, EU, or GCC?<span aria-hidden="true">+</span></Accordion.Trigger>
               </Accordion.Header>
               <Accordion.Content forceMount className="faq-answer">
-                <p>Alvora can discuss courier shipment to the US, Canada, EU, and GCC, with insurance and applicable IGI paperwork arranged according to the order. The buyer is responsible for destination-country duties, taxes, and import clearance. For reference: US 25% duty, Canada 0%, EU standard, GCC standard — confirm current rates with the relevant customs authority before shipment.</p>
+                <p>Alvora can discuss courier shipment to the US, Canada, EU, and GCC, with insurance and applicable IGI paperwork arranged according to the order. The buyer is responsible for destination-country duties, taxes, and import clearance. For reference: US 25% duty, Canada 0%, EU standard, GCC standard. Confirm current rates with the relevant customs authority before shipment.</p>
               </Accordion.Content>
             </Accordion.Item>
             <Accordion.Item value="q7" className="faq-item">
@@ -329,7 +329,7 @@ export default function Home() {
 
         <section className="brief-section" id="production-brief" aria-labelledby="brief-title">
           <div className="brief-intro">
-            <p className="eyebrow eyebrow-bright"><span /> 08 — PRODUCTION BRIEF</p>
+            <p className="eyebrow eyebrow-bright"><span /> 08 · PRODUCTION BRIEF</p>
             <h2 id="brief-title">Commission a make.</h2>
             <p>Tell us the programme, profile, or specification you need. We will return with the practical production detail.</p>
             <div className="brief-aside">

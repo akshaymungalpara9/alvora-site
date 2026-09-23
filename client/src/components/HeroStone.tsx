@@ -1,5 +1,8 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
+
+const IFRAME_SETTLE_MS = 1500;
+const IFRAME_TIMEOUT_MS = 8000;
 
 interface HeroStoneRecord {
   report: string;
@@ -56,6 +59,34 @@ function specLine(record: HeroStoneRecord): string {
   return `${formatWeight(record.weight)} ct ${record.shape} ${record.color} ${record.clarity}`;
 }
 
+export interface TrayRenderState {
+  iframeLoaded: boolean;
+  settleElapsed: boolean;
+  timedOut: boolean;
+}
+
+export interface TrayRenderMode {
+  renderIframe: boolean;
+  iframeVisible: boolean;
+  showFallbackLinks: boolean;
+  showLoadingLabel: boolean;
+}
+
+export function computeTrayRenderMode(
+  record: Pick<HeroStoneRecord, "videoEmbeddable" | "videoUrl">,
+  state: TrayRenderState,
+): TrayRenderMode {
+  const canEmbed = record.videoEmbeddable && record.videoUrl !== null;
+  const timeoutFailed = state.timedOut && !state.iframeLoaded;
+  const showFallbackLinks = timeoutFailed || (!record.videoEmbeddable && record.videoUrl !== null);
+  return {
+    renderIframe: canEmbed && !timeoutFailed,
+    iframeVisible: state.iframeLoaded && state.settleElapsed,
+    showFallbackLinks,
+    showLoadingLabel: canEmbed && !showFallbackLinks,
+  };
+}
+
 interface HeroStoneViewProps {
   record: HeroStoneRecord;
   onAnother?: () => void;
@@ -66,20 +97,26 @@ interface HeroStoneViewProps {
 
 export function HeroStoneView({ record, onAnother, isSwapping, openBrief, leadTimes }: HeroStoneViewProps) {
   const [iframeLoaded, setIframeLoaded] = useState(false);
-  const [renderIframe, setRenderIframe] = useState(false);
+  const [settleElapsed, setSettleElapsed] = useState(false);
+  const [timedOut, setTimedOut] = useState(false);
+
   useEffect(() => {
     setIframeLoaded(false);
-  }, [record.videoUrl]);
-  useEffect(() => {
+    setSettleElapsed(false);
+    setTimedOut(false);
     if (typeof window === "undefined") return;
-    const idle = (window as unknown as { requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => number; cancelIdleCallback?: (id: number) => void }).requestIdleCallback;
-    if (typeof idle === "function") {
-      const id = idle(() => setRenderIframe(true), { timeout: 2000 });
-      return () => (window as unknown as { cancelIdleCallback?: (id: number) => void }).cancelIdleCallback?.(id);
-    }
-    const id = window.setTimeout(() => setRenderIframe(true), 350);
-    return () => window.clearTimeout(id);
-  }, []);
+    const settleId = window.setTimeout(() => setSettleElapsed(true), IFRAME_SETTLE_MS);
+    const timeoutId = window.setTimeout(() => setTimedOut(true), IFRAME_TIMEOUT_MS);
+    return () => {
+      window.clearTimeout(settleId);
+      window.clearTimeout(timeoutId);
+    };
+  }, [record.videoUrl]);
+
+  const { renderIframe, iframeVisible, showFallbackLinks, showLoadingLabel } = computeTrayRenderMode(
+    record,
+    { iframeLoaded, settleElapsed, timedOut },
+  );
 
   const stockShort = leadTimes?.stockShort ?? "1 to 5 working days";
   const custom = leadTimes?.custom ?? "5 to 10 working days";
@@ -89,11 +126,42 @@ export function HeroStoneView({ record, onAnother, isSwapping, openBrief, leadTi
   return (
     <section className="hero-stone" aria-labelledby="hero-stone-title">
       <div className="hero-stone-grid">
-        <div className="hero-stone-left settle d1" aria-busy={isSwapping ? "true" : undefined}>
+        <div
+          className={`hero-stone-left settle d1${isSwapping ? " swapping" : ""}`}
+          aria-busy={isSwapping ? "true" : undefined}
+        >
           <div className="tray hero-stone-tray">
-            {record.videoEmbeddable && record.videoUrl && renderIframe ? (
+            <div className="tray-placeholder">
+              <div className="tray-placeholder-spec">
+                <div className="tray-placeholder-carat">
+                  {formatWeight(record.weight)}
+                  <span className="tray-placeholder-unit">ct</span>
+                </div>
+                <div className="tray-placeholder-shape">{record.shape}</div>
+                <div className="tray-placeholder-cclarity">
+                  {record.color} {record.clarity}
+                </div>
+              </div>
+              <div className="tray-placeholder-cert">
+                <div className="tray-placeholder-lab">{record.lab}</div>
+                <div className="tray-placeholder-report">{record.report}</div>
+                {showFallbackLinks && record.videoUrl ? (
+                  <div className="tray-placeholder-links">
+                    <a href={record.videoUrl} target="_blank" rel="noopener">
+                      Open 360 video
+                    </a>
+                    <a href={record.certUrl} target="_blank" rel="noopener">
+                      View IGI certificate
+                    </a>
+                  </div>
+                ) : showLoadingLabel ? (
+                  <div className="tray-placeholder-status">Loading 360 view</div>
+                ) : null}
+              </div>
+            </div>
+            {renderIframe && record.videoUrl ? (
               <iframe
-                className={iframeLoaded ? "loaded" : ""}
+                className={iframeVisible ? "loaded" : ""}
                 src={record.videoUrl}
                 title={`360 video of ${record.lab} ${record.report}`}
                 loading="lazy"
@@ -101,24 +169,7 @@ export function HeroStoneView({ record, onAnother, isSwapping, openBrief, leadTi
                 referrerPolicy="no-referrer"
                 onLoad={() => setIframeLoaded(true)}
               />
-            ) : record.videoEmbeddable && record.videoUrl ? (
-              <div className="tray-placeholder">
-                <span>
-                  {record.lab} {record.report}
-                </span>
-              </div>
-            ) : (
-              <div className="tray-placeholder">
-                <span>
-                  {record.lab} {record.report}
-                </span>
-                {record.videoUrl ? (
-                  <a href={record.videoUrl} target="_blank" rel="noopener">
-                    Open 360 video
-                  </a>
-                ) : null}
-              </div>
-            )}
+            ) : null}
           </div>
           <p className="hero-stone-caption settle d2">
             <a href={passportHref} rel={rel}>
@@ -169,7 +220,7 @@ interface HeroStoneProps {
 
 export default function HeroStone({ openBrief, leadTimes }: HeroStoneProps) {
   const queryClient = useQueryClient();
-  const initialData = useRef(readHydratedRecord()).current;
+  const [initialData] = useState<HeroStoneRecord | undefined>(() => readHydratedRecord());
 
   const query = useQuery({
     queryKey: ["stone", "today"],

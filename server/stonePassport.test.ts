@@ -5,7 +5,7 @@ import { readFileSync } from "node:fs";
 import path from "node:path";
 import React from "react";
 import { renderToStaticMarkup } from "react-dom/server";
-import { registerStonePassportRoutes, type StoneRecord } from "./stonePassport";
+import { registerStonePassportRoutes, selectTodayCandidate, selectAnotherCandidate, type StoneRecord } from "./stonePassport";
 import { StonePassportView } from "../client/src/pages/StonePassport";
 
 let serverBase = "";
@@ -149,6 +149,34 @@ describe("StonePassportView render", () => {
     expect(html).toContain("Opened on gia.edu");
     expect(html).toContain("gia.edu");
     expect(html).not.toContain("Opened on igi.org");
+  });
+});
+
+describe("TODAY_CANDIDATES filter", () => {
+  it("selectTodayCandidate never returns a stone with videoEmbeddable false", () => {
+    // Rotate through 400 consecutive days and assert every pick is embeddable.
+    const now0 = Date.UTC(2026, 0, 1);
+    for (let i = 0; i < 400; i += 1) {
+      const record = selectTodayCandidate(now0 + i * 86_400_000);
+      if (record === null) continue;
+      expect(record.lab).toBe("IGI");
+      expect(record.videoUrl).not.toBeNull();
+      expect(record.videoEmbeddable).toBe(true);
+    }
+  });
+
+  it("selectAnotherCandidate never returns a stone with videoEmbeddable false", () => {
+    // 60 random samples against the exclude of the first embeddable stone.
+    const anchor = stones.find((s) => s.lab === "IGI" && s.videoEmbeddable && s.videoUrl);
+    if (!anchor) throw new Error("Need at least one embeddable IGI stone in fixture for this test");
+    for (let i = 0; i < 60; i += 1) {
+      const record = selectAnotherCandidate(anchor.report);
+      if (record === null) continue;
+      expect(record.report).not.toBe(anchor.report);
+      expect(record.lab).toBe("IGI");
+      expect(record.videoUrl).not.toBeNull();
+      expect(record.videoEmbeddable).toBe(true);
+    }
   });
 });
 

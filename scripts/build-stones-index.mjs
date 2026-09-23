@@ -11,9 +11,12 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { execFileSync } from "node:child_process";
+import { execFileSync, execFile } from "node:child_process";
+import { promisify } from "node:util";
 import * as XLSX from "xlsx";
 import { formatInTimeZone } from "date-fns-tz";
+
+const execFileAsync = promisify(execFile);
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, "..");
@@ -22,6 +25,8 @@ const OUT_DIR = path.join(REPO_ROOT, "server", "data");
 const OUT_PUBLIC = path.join(OUT_DIR, "stones.public.json");
 const OUT_META = path.join(OUT_DIR, "stones.meta.json");
 const EMBEDDABLE_HOSTS_JSON = path.join(__dirname, "embeddable-hosts.json");
+const EMBEDDABLE_URLS_JSON = path.join(__dirname, "embeddable-urls.json");
+const URL_PROBE_CONCURRENCY = 10;
 
 const stoneLists = JSON.parse(fs.readFileSync(STONE_LISTS_JSON, "utf8"));
 const LIST_LABELS = stoneLists.labels;
@@ -77,6 +82,20 @@ function saveEmbeddableHosts(map) {
   fs.writeFileSync(EMBEDDABLE_HOSTS_JSON, JSON.stringify(sorted, null, 2) + "\n");
 }
 
+function loadEmbeddableUrls() {
+  try {
+    return JSON.parse(fs.readFileSync(EMBEDDABLE_URLS_JSON, "utf8"));
+  } catch {
+    return {};
+  }
+}
+
+function saveEmbeddableUrls(map) {
+  const sorted = {};
+  for (const key of Object.keys(map).sort()) sorted[key] = map[key];
+  fs.writeFileSync(EMBEDDABLE_URLS_JSON, JSON.stringify(sorted, null, 2) + "\n");
+}
+
 function normaliseHost(hostname) {
   if (!hostname) return null;
   return hostname.toLowerCase();
@@ -89,8 +108,30 @@ function isCertHost(host) {
 }
 
 /**
- * Probe a sample URL for the host. Returns true only when neither
- * X-Frame-Options nor CSP frame-ancestors excludes our origin.
+ * Header analysis shared by per-host and per-URL probes.
+ * Returns true only when the response headers don't forbid framing from alvoradiamonds.com.
+ */
+function headersPermitFraming(stdout) {
+  const xfoMatches = [...stdout.matchAll(/^x-frame-options:\s*(.+)$/img)];
+  if (xfoMatches.length) {
+    const val = xfoMatches[xfoMatches.length - 1][1].trim().toLowerCase();
+    if (val.includes("deny") || val.includes("sameorigin")) return false;
+  }
+  const cspMatches = [...stdout.matchAll(/^content-security-policy:\s*(.+)$/img)];
+  if (cspMatches.length) {
+    const val = cspMatches[cspMatches.length - 1][1].toLowerCase();
+    const fa = /frame-ancestors\s+([^;]+)/i.exec(val);
+    if (fa) {
+      const ancestors = fa[1].trim();
+      if (ancestors === "'none'") return false;
+      if (!ancestors.includes("*") && !ancestors.includes("alvoradiamonds.com")) return false;
+    }
+  }
+  return true;
+}
+
+/**
+ * Probe a sample URL for the host (synchronous, kept for the per-host fallback).
  */
 function probeEmbeddable(sampleUrl) {
   try {
@@ -99,25 +140,70 @@ function probeEmbeddable(sampleUrl) {
       ["-sIL", "-A", "Mozilla/5.0 (build-stones-index)", "--max-time", "10", sampleUrl],
       { encoding: "utf8", stdio: ["ignore", "pipe", "ignore"] },
     );
-    const xfoMatches = [...stdout.matchAll(/^x-frame-options:\s*(.+)$/img)];
-    if (xfoMatches.length) {
-      const val = xfoMatches[xfoMatches.length - 1][1].trim().toLowerCase();
-      if (val.includes("deny") || val.includes("sameorigin")) return false;
-    }
-    const cspMatches = [...stdout.matchAll(/^content-security-policy:\s*(.+)$/img)];
-    if (cspMatches.length) {
-      const val = cspMatches[cspMatches.length - 1][1].toLowerCase();
-      const fa = /frame-ancestors\s+([^;]+)/i.exec(val);
-      if (fa) {
-        const ancestors = fa[1].trim();
-        if (ancestors === "'none'") return false;
-        if (!ancestors.includes("*") && !ancestors.includes("alvoradiamonds.com")) return false;
-      }
-    }
-    return true;
+    return headersPermitFraming(stdout);
   } catch {
     return false;
   }
+}
+
+/**
+ * Per-URL probe: requires https, HTTP 200 on the final response after redirects,
+ * and no XFO / CSP that excludes alvoradiamonds.com. Returns { ok, networkFailure }.
+ * networkFailure is true when curl itself errored (offline sandbox, DNS, etc.),
+ * so the caller can fall back to per-host cache rather than treating it as a real "no".
+ */
+async function probeUrlEmbeddable(url) {
+  if (!url.startsWith("https://")) return { ok: false, networkFailure: false };
+  try {
+    const { stdout } = await execFileAsync(
+      "curl",
+      [
+        "-sIL",
+        "-A", "Mozilla/5.0 (build-stones-index)",
+        "--max-time", "10",
+        "-w", "\nHTTP_STATUS:%{http_code}\n",
+        url,
+      ],
+      { encoding: "utf8", maxBuffer: 512 * 1024 },
+    );
+    const statusMatch = /HTTP_STATUS:(\d+)/.exec(stdout);
+    if (!statusMatch || statusMatch[1] !== "200") return { ok: false, networkFailure: false };
+    if (!headersPermitFraming(stdout)) return { ok: false, networkFailure: false };
+    return { ok: true, networkFailure: false };
+  } catch {
+    return { ok: false, networkFailure: true };
+  }
+}
+
+/**
+ * Run probeUrlEmbeddable across a list of URLs with bounded concurrency.
+ * Skips URLs already present in the cache. Returns { probed, networkFailures }.
+ */
+async function probeUrlsConcurrently(urls, cache, concurrency = URL_PROBE_CONCURRENCY) {
+  const queue = urls.filter((u) => !Object.prototype.hasOwnProperty.call(cache, u));
+  let probed = 0;
+  let networkFailures = 0;
+  let index = 0;
+  async function worker() {
+    while (true) {
+      const i = index;
+      index += 1;
+      if (i >= queue.length) return;
+      const url = queue[i];
+      const { ok, networkFailure } = await probeUrlEmbeddable(url);
+      if (networkFailure) {
+        networkFailures += 1;
+      } else {
+        cache[url] = ok;
+      }
+      probed += 1;
+      if (probed % 100 === 0) {
+        console.log(`[build-stones-index] per-URL probed ${probed}/${queue.length}`);
+      }
+    }
+  }
+  await Promise.all(Array.from({ length: Math.max(1, concurrency) }, worker));
+  return { probed, networkFailures };
 }
 
 function readWorkbook(filePath) {
@@ -322,8 +408,28 @@ async function main() {
   }
   saveEmbeddableHosts(embeddableCache);
 
+  const urlCache = loadEmbeddableUrls();
+  const allUrls = [];
   for (const record of rowsByReport.values()) {
-    if (record.videoHost) {
+    if (record.videoUrl) allUrls.push(record.videoUrl);
+  }
+  const { probed: urlsProbed, networkFailures: urlNetworkFailures } = await probeUrlsConcurrently(
+    allUrls,
+    urlCache,
+    URL_PROBE_CONCURRENCY,
+  );
+  saveEmbeddableUrls(urlCache);
+
+  const urlProbeUsable = allUrls.length > 0 && urlNetworkFailures < allUrls.length;
+
+  for (const record of rowsByReport.values()) {
+    if (!record.videoUrl || !record.videoHost) {
+      record.videoEmbeddable = false;
+      continue;
+    }
+    if (urlProbeUsable && Object.prototype.hasOwnProperty.call(urlCache, record.videoUrl)) {
+      record.videoEmbeddable = urlCache[record.videoUrl] === true;
+    } else {
       record.videoEmbeddable = embeddableCache[record.videoHost] === true;
     }
   }
@@ -369,6 +475,8 @@ async function main() {
   console.log(`Excluded: non-numeric report:     ${excludeCounts.badReport}`);
   console.log(`Duplicate reports (extra list):   ${duplicateCount}`);
   console.log(`Probed hosts this run:            ${probedCount}`);
+  console.log(`Probed URLs this run:             ${urlsProbed}  (network failures: ${urlNetworkFailures})`);
+  console.log(`URL probe usable (fallback flag): ${urlProbeUsable ? "yes" : "no, using per-host cache"}`);
   console.log("");
   console.log("Unknown shapes (kept as trimmed title case):");
   if (unknownShapes.size === 0) console.log("  (none)");

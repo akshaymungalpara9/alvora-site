@@ -11,7 +11,7 @@ import {
   daysSinceEpochIST,
   type StoneRecord,
 } from "./stonePassport";
-import { HeroStoneView } from "../client/src/components/HeroStone";
+import { HeroStoneView, computeTrayRenderMode } from "../client/src/components/HeroStone";
 import { StockLedgerView } from "../client/src/components/StockLedger";
 
 let serverBase = "";
@@ -147,6 +147,73 @@ describe("HeroStoneView render", () => {
     expect(html.includes("USD")).toBe(false);
     expect(html.toLowerCase().includes("price")).toBe(false);
     expect(html.includes("—")).toBe(false);
+  });
+
+  it("placeholder always renders the spec, lab, and report so the tray is never a blank black box", () => {
+    const record = { ...baseRecord, videoEmbeddable: true, videoUrl: "https://example.test/vid" };
+    const html = renderToStaticMarkup(React.createElement(HeroStoneView, { record }));
+    expect(html).toContain(record.shape);
+    expect(html).toContain(record.color);
+    expect(html).toContain(record.clarity);
+    expect(html).toContain(record.report);
+    expect(html).toContain(record.lab);
+    expect(html).toContain("Loading 360 view");
+  });
+});
+
+describe("computeTrayRenderMode (hero tray fallback logic)", () => {
+  const embeddable = { videoEmbeddable: true, videoUrl: "https://example.test/vid" };
+  const nonEmbeddable = { videoEmbeddable: false, videoUrl: "https://example.test/vid" };
+  const noVideo = { videoEmbeddable: false, videoUrl: null };
+  const initial = { iframeLoaded: false, settleElapsed: false, timedOut: false };
+  const loadedAndSettled = { iframeLoaded: true, settleElapsed: true, timedOut: false };
+  const timedOutNoLoad = { iframeLoaded: false, settleElapsed: true, timedOut: true };
+  const timedOutButLoaded = { iframeLoaded: true, settleElapsed: true, timedOut: true };
+
+  it("initial state with embeddable video shows iframe (invisible) and the loading label", () => {
+    const mode = computeTrayRenderMode(embeddable, initial);
+    expect(mode.renderIframe).toBe(true);
+    expect(mode.iframeVisible).toBe(false);
+    expect(mode.showFallbackLinks).toBe(false);
+    expect(mode.showLoadingLabel).toBe(true);
+  });
+
+  it("loaded and settled shows iframe visible with no loading label", () => {
+    const mode = computeTrayRenderMode(embeddable, loadedAndSettled);
+    expect(mode.renderIframe).toBe(true);
+    expect(mode.iframeVisible).toBe(true);
+    expect(mode.showFallbackLinks).toBe(false);
+    expect(mode.showLoadingLabel).toBe(true);
+  });
+
+  it("timeout without a load event removes the iframe and shows fallback links", () => {
+    const mode = computeTrayRenderMode(embeddable, timedOutNoLoad);
+    expect(mode.renderIframe).toBe(false);
+    expect(mode.iframeVisible).toBe(false);
+    expect(mode.showFallbackLinks).toBe(true);
+    expect(mode.showLoadingLabel).toBe(false);
+  });
+
+  it("timeout that fired after a successful load keeps the iframe and hides fallback links", () => {
+    const mode = computeTrayRenderMode(embeddable, timedOutButLoaded);
+    expect(mode.renderIframe).toBe(true);
+    expect(mode.iframeVisible).toBe(true);
+    expect(mode.showFallbackLinks).toBe(false);
+    expect(mode.showLoadingLabel).toBe(true);
+  });
+
+  it("non-embeddable with a video URL shows fallback links from the start and no iframe", () => {
+    const mode = computeTrayRenderMode(nonEmbeddable, initial);
+    expect(mode.renderIframe).toBe(false);
+    expect(mode.showFallbackLinks).toBe(true);
+    expect(mode.showLoadingLabel).toBe(false);
+  });
+
+  it("record with no video URL renders neither iframe nor fallback links", () => {
+    const mode = computeTrayRenderMode(noVideo, initial);
+    expect(mode.renderIframe).toBe(false);
+    expect(mode.showFallbackLinks).toBe(false);
+    expect(mode.showLoadingLabel).toBe(false);
   });
 });
 
