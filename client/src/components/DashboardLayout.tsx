@@ -21,7 +21,7 @@ import {
 } from "@/components/ui/sidebar";
 import { startLogin } from "@/const";
 import { useIsMobile } from "@/hooks/useMobile";
-import { ClipboardList, Database, FileStack, Gauge, LogOut, PanelLeft, Users } from "lucide-react";
+import { ClipboardList, Database, FileStack, Gauge, Gem, LogOut, PanelLeft, Users } from "lucide-react";
 import { CSSProperties, useEffect, useRef, useState } from "react";
 import { useLocation } from "wouter";
 import { DashboardLayoutSkeleton } from './DashboardLayoutSkeleton';
@@ -32,6 +32,7 @@ const menuItems = [
   { icon: Users, label: "Buyer accounts", path: "/admin/buyers" },
   { icon: Database, label: "Availability import", path: "/admin/availability" },
   { icon: ClipboardList, label: "Production briefs", path: "/admin/briefs" },
+  { icon: Gem, label: "Jewellery enquiries", path: "/admin/jewellery" },
   { icon: FileStack, label: "Current availability", path: "/availability" },
 ];
 

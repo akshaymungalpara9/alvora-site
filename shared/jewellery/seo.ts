@@ -79,6 +79,7 @@ export function pieceMeta(piece: Pick<JewelleryPiece, "name" | "description" | "
   const price = piece.fromPriceUsd != null ? ` From $${piece.fromPriceUsd.toLocaleString("en-US")}.` : "";
   return {
     title: `${piece.name} | Alvora`,
-    description: `${piece.description}${price} Choose your metal and size, then enquire.`.slice(0, 300),
+    // Leading with the name keeps descriptions unique across similar designs.
+    description: `The ${piece.name}: ${piece.description.charAt(0).toLowerCase()}${piece.description.slice(1)}${price} Choose your metal and size, then enquire.`.slice(0, 300),
   };
 }

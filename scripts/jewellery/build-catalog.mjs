@@ -475,6 +475,7 @@ async function main() {
   fs.writeFileSync(CATALOG_PATH, `${JSON.stringify(catalog, null, 2)}\n`);
   fs.writeFileSync(SOURCING_PATH, `${JSON.stringify(sourcing, null, 2)}\n`);
   fs.writeFileSync(PIECES_PATH, `${JSON.stringify(pieces, null, 2)}\n`);
+  syncPublicRoutes(catalog);
 
   const report = [
     `Alvora jewellery import report — ${new Date().toISOString()}`,
@@ -492,6 +493,37 @@ async function main() {
   console.log(`Catalogue: ${catalog.length} pieces → ${path.relative(ROOT, CATALOG_PATH)}`);
   console.log(`Missing photos: ${missingImages.length}, missing prices: ${missingPrices.length}. See ${path.relative(ROOT, REPORT_PATH)}`);
   if (!withImages) console.log("Photos were not processed. Add --images once data/jewellery/raw-images/ is populated.");
+}
+
+/**
+ * Keep scripts/publicRoutes.json (sitemap + prerender list) in step with the
+ * public catalogue: live collections, shape pages and every public piece.
+ * Must match PUBLIC_WAVES in shared/jewellery/catalog.ts.
+ */
+const PUBLIC_WAVES = ["A"];
+const COLLECTION_ROUTES = [
+  ["/jewellery", null],
+  ["/engagement-rings", "engagement-rings"],
+  ["/earrings", "earrings"],
+  ["/pendants", "pendants"],
+  ["/wedding-bands", "wedding-bands"],
+  ["/jewellery/antique-cuts", "antique-cuts"],
+  ["/jewellery/coloured-stones", "coloured-stones"],
+];
+const JEWELLERY_ROUTE = /^\/(jewellery|engagement-rings|rings|earrings|pendants|wedding-bands|book-a-consultation)(\/|$)/;
+
+function syncPublicRoutes(catalog) {
+  const routesPath = path.join(ROOT, "scripts", "publicRoutes.json");
+  const existing = JSON.parse(fs.readFileSync(routesPath, "utf8")).filter((route) => !JEWELLERY_ROUTE.test(route));
+  const live = catalog.filter((piece) => PUBLIC_WAVES.includes(piece.wave));
+  const collections = COLLECTION_ROUTES.filter(([, key]) => live.some((piece) => (key ? piece.collections.includes(key) : true))).map(([route]) => route);
+  const shapes = [...new Set(live.filter((piece) => piece.collections.includes("engagement-rings") && piece.shape).map((piece) => piece.shape))]
+    .filter((shape) => Object.keys(SHAPE_LABELS).includes(shape))
+    .map((shape) => `/engagement-rings/shape/${shape}`);
+  const jewellery = [...collections, ...shapes, "/book-a-consultation", ...live.map((piece) => `/jewellery/${piece.slug}`)];
+  const at = existing.indexOf("/trade") + 1 || 1;
+  const next = [...existing.slice(0, at), ...jewellery, ...existing.slice(at)];
+  fs.writeFileSync(routesPath, `${JSON.stringify(next, null, 2)}\n`);
 }
 
 /** Descriptive jewellery words partners also use; allowed in Alvora names. */

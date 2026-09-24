@@ -339,3 +339,58 @@ button.jw-swatch.is-selected { border-color: var(--jw-ink); box-shadow: inset 0 
   .jw-footer { grid-template-columns: 1fr; gap: 28px; padding-top: 52px; }
   .jw-footer-base { flex-direction: column; }
 }
+
+/* Enquiry form ------------------------------------------------------------ */
+.jw-form { display: grid; gap: 16px; }
+.jw-form label { display: grid; gap: 7px; color: var(--jw-ink2); font-family: var(--jw-mono); font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; }
+.jw-form label small { color: var(--jw-muted); font-size: 0.56rem; letter-spacing: 0.06em; text-transform: none; }
+.jw-form input:not([type="radio"]), .jw-form textarea {
+  width: 100%;
+  min-height: 46px;
+  padding: 11px 13px;
+  border: 1px solid var(--jw-rule2);
+  border-radius: 0;
+  background: var(--jw-card);
+  color: var(--jw-ink);
+  font-family: var(--jw-sans);
+  font-size: 0.95rem;
+  letter-spacing: 0;
+  text-transform: none;
+  transition: border-color 160ms var(--jw-ease);
+}
+.jw-form textarea { min-height: 110px; resize: vertical; line-height: 1.6; }
+.jw-form input:focus, .jw-form textarea:focus { outline: none; border-color: var(--jw-ink); }
+.jw-form input::placeholder, .jw-form textarea::placeholder { color: #a39b8e; }
+.jw-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.jw-form-choice { margin: 0; padding: 0; border: 0; }
+.jw-form-choice legend { margin-bottom: 8px; color: var(--jw-ink2); font-family: var(--jw-mono); font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; }
+.jw-form-choice div { display: flex; flex-wrap: wrap; gap: 8px; }
+.jw-form-choice label {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 14px;
+  border: 1px solid var(--jw-rule2);
+  background: var(--jw-card);
+  color: var(--jw-ink2);
+  font-size: 0.64rem;
+  cursor: pointer;
+}
+.jw-form-choice label.is-selected { border-color: var(--jw-ink); color: var(--jw-ink); box-shadow: inset 0 0 0 1px var(--jw-ink); }
+.jw-form-choice input { position: absolute; opacity: 0; pointer-events: none; }
+.jw-form-choice label:focus-within { outline: 2px solid var(--jw-brass); outline-offset: 2px; }
+.jw-form-honeypot { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+.jw-form-submit { justify-self: start; min-width: 220px; }
+.jw-form-submit:disabled { opacity: 0.6; cursor: progress; }
+.jw-form-error { margin: 0; color: #9b2c1f; font-size: 0.88rem; }
+.jw-form-note { margin: 0; color: var(--jw-muted); font-family: var(--jw-mono); font-size: 0.58rem; letter-spacing: 0.06em; }
+.jw-form-piece { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; margin: 0; padding: 12px 14px; border: 1px solid var(--jw-rule); background: var(--jw-vellum); }
+.jw-form-piece span:first-child { font-family: var(--jw-serif); font-size: 1.15rem; }
+.jw-form-piece span:last-child { color: var(--jw-muted); font-family: var(--jw-mono); font-size: 0.6rem; letter-spacing: 0.08em; text-transform: uppercase; align-self: center; }
+.jw-form-done { display: grid; gap: 8px; padding: 26px; border: 1px solid var(--jw-rule2); background: var(--jw-card); }
+.jw-form-done svg { color: var(--jw-brass-text); }
+.jw-form-done h3 { margin: 0; font-family: var(--jw-serif); font-size: 1.6rem; font-weight: 500; }
+.jw-form-done p { margin: 0; color: var(--jw-ink2); line-height: 1.7; }
+@media (max-width: 600px) {
+  .jw-form-row { grid-template-columns: 1fr; }
+  .jw-form-submit { justify-self: stretch; }
+}
