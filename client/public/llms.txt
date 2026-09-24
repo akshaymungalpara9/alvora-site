@@ -1,9 +1,17 @@
 Alvora Diamonds
 
-Alvora Diamonds is a laboratory-grown diamond business based in Surat, India. Its documented site content covers wholesale laboratory-grown diamonds for jewellery retailers, manufacturers, designers, and other trade buyers, including loose stones, calibrated layouts, matched pairs, melee, fancy shapes and colours, and custom-cut requirements. The available company-specific source material does not establish a public capacity figure, team size, or universal service level.
+Alvora Diamonds is a laboratory-grown diamond business based in Surat, India. It sells finished fine jewellery set with laboratory-grown diamonds (engagement rings, earrings and pendants in 14K and 18K gold) to private customers through an enquiry-first process, and supplies wholesale laboratory-grown diamonds for jewellery retailers, manufacturers, designers, and other trade buyers, including loose stones, calibrated layouts, matched pairs, melee, fancy shapes and colours, and custom-cut requirements. The available company-specific source material does not establish a public capacity figure, team size, or universal service level.
 
-Key pages
-Home: The site provides factual information and trade enquiry routes for laboratory-grown diamond sourcing, certification, and specification-led formats.
+Jewellery pages
+Home: Lab-grown diamond engagement rings and fine jewellery: /
+All jewellery: /jewellery
+Engagement rings: /engagement-rings
+Earrings: /earrings
+Pendants: /pendants
+Book a consultation: /book-a-consultation
+
+Trade pages
+Trade home: Wholesale laboratory-grown diamonds, certification, and specification-led formats for trade buyers: /trade
 About Alvora Diamonds: /about
 Calibrated Lab-Grown Diamond Layouts: /calibrated-diamond-layouts
 IGI-Certified Lab-Grown Diamonds: /certifications

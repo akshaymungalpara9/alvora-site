@@ -4,7 +4,7 @@ import { describe, expect, it } from "vitest";
 describe("public maker-positioning language", () => {
   it("keeps sourcing and supply terminology out of public English, French, Italian, and North American route copy", () => {
     const publicRouteSources = [
-      readFileSync("client/src/pages/Home.tsx", "utf8"),
+      readFileSync("client/src/pages/TradeHome.tsx", "utf8"),
       readFileSync("client/src/pages/MarketLanding.tsx", "utf8"),
       readFileSync("client/src/pages/LegalPage.tsx", "utf8"),
       readFileSync("client/src/pages/Insights.tsx", "utf8"),
@@ -72,7 +72,7 @@ describe("public maker-positioning language", () => {
   });
 
   it("keeps unverified credentials and unfinished editorial drafts out of public buyer-facing navigation", () => {
-    const home = readFileSync("client/src/pages/Home.tsx", "utf8");
+    const home = readFileSync("client/src/pages/TradeHome.tsx", "utf8");
     const market = readFileSync("client/src/pages/MarketLanding.tsx", "utf8");
     const legal = readFileSync("client/src/pages/LegalPage.tsx", "utf8");
     const insights = readFileSync("client/src/pages/Insights.tsx", "utf8");
@@ -95,7 +95,7 @@ describe("public maker-positioning language", () => {
 
   it("keeps prohibited commercial literals out of public copy while retaining clear trade-term explanations", () => {
     const publicSources = [
-      readFileSync("client/src/pages/Home.tsx", "utf8"),
+      readFileSync("client/src/pages/TradeHome.tsx", "utf8"),
       readFileSync("client/src/pages/MarketLanding.tsx", "utf8"),
       readFileSync("client/src/pages/LegalPage.tsx", "utf8"),
     ].join("\n").toLowerCase();

@@ -62,14 +62,15 @@ export default function SpecialtyPageShell({ children }: { children: React.React
         </a>
 
         <nav className="desktop-nav" aria-label="Main navigation">
-          <a href="/#production">Our production</a>
-          <a href="/#made-to-spec">Made to specification</a>
+          <a href="/trade#production">Our production</a>
+          <a href="/trade#made-to-spec">Made to specification</a>
           <a href="/about">About</a>
           <a href="/availability">Availability</a>
+          <a href="/">Fine jewellery</a>
         </nav>
 
         <nav className="language-switcher" aria-label="Language selection">
-          <a href="/">EN</a>
+          <a href="/trade">EN</a>
           <a href="/fr" lang="fr">FR</a>
           <a href="/it" lang="it">IT</a>
         </nav>
@@ -90,15 +91,16 @@ export default function SpecialtyPageShell({ children }: { children: React.React
 
         {menuOpen && (
           <div className="mobile-nav">
-            <a href="/#production" onClick={() => setMenuOpen(false)}>Our production</a>
-            <a href="/#made-to-spec" onClick={() => setMenuOpen(false)}>Made to specification</a>
+            <a href="/trade#production" onClick={() => setMenuOpen(false)}>Our production</a>
+            <a href="/trade#made-to-spec" onClick={() => setMenuOpen(false)}>Made to specification</a>
             <a href="/about" onClick={() => setMenuOpen(false)}>About</a>
             <a href="/availability" onClick={() => setMenuOpen(false)}>Availability</a>
+            <a href="/" onClick={() => setMenuOpen(false)}>Fine jewellery</a>
             {SPECIALTY_LINKS.map(({ label, href }) => (
               <a key={href} href={href} onClick={() => setMenuOpen(false)}>{label}</a>
             ))}
             <nav className="language-switcher" aria-label="Language selection">
-              <a href="/">EN</a><a href="/fr" lang="fr">FR</a><a href="/it" lang="it">IT</a>
+              <a href="/trade">EN</a><a href="/fr" lang="fr">FR</a><a href="/it" lang="it">IT</a>
             </nav>
             <a className="button button-signal" href="/request-a-quote" style={{ marginTop: 8 }}>
               Request a Quote <ArrowUpRight size={16} />

@@ -6,7 +6,7 @@ describe("public legal and SEO surfaces", () => {
   it("keeps the privacy and trade-terms routes, footer links, and plain-language safeguards in place", () => {
     const app = readFileSync("client/src/App.tsx", "utf8");
     const legal = readFileSync("client/src/pages/LegalPage.tsx", "utf8");
-    const home = readFileSync("client/src/pages/Home.tsx", "utf8");
+    const home = readFileSync("client/src/pages/TradeHome.tsx", "utf8");
     const market = readFileSync("client/src/pages/MarketLanding.tsx", "utf8");
     expect(app).toContain('path="/privacy"');
     expect(app).toContain('path="/terms"');
@@ -22,7 +22,7 @@ describe("public legal and SEO surfaces", () => {
     const sitemap = renderSitemap(origin);
     const robots = renderRobots(origin);
     expect(PUBLIC_SITEMAP_PATHS).toEqual([
-      "/", "/fr", "/it", "/us",
+      "/", "/trade", "/fr", "/it", "/us",
       "/calibrated-diamond-layouts",
       "/matched-pair-diamonds",
       "/custom-cut-diamonds",
@@ -71,7 +71,7 @@ describe("public legal and SEO surfaces", () => {
 
   it("keeps the documented public analytics posture free of consent UI and cookie-banner integrations", () => {
     const documentHead = readFileSync("client/index.html", "utf8");
-    const publicRoutes = ["client/src/pages/Home.tsx", "client/src/pages/MarketLanding.tsx", "client/src/pages/LegalPage.tsx"]
+    const publicRoutes = ["client/src/pages/TradeHome.tsx", "client/src/pages/MarketLanding.tsx", "client/src/pages/LegalPage.tsx"]
       .map((path) => readFileSync(path, "utf8"))
       .join("\n");
     expect(documentHead).toContain('%VITE_ANALYTICS_ENDPOINT%/umami');

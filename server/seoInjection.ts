@@ -2,6 +2,8 @@ import { availabilitySeo, publicSeo, publicSocialImage, publicSocialImageAlt } f
 import { COMPANY } from "../shared/companyInfo";
 import { getStone, getStonesMetaSnapshot } from "./stonePassport";
 import { formatInTimeZone } from "date-fns-tz";
+import { JEWELLERY_HOME_META } from "../shared/jewellery/seo";
+import { JEWELLERY_FAQ } from "../shared/jewellery/faq";
 import { isStonePassportIndexable } from "./_core/env";
 
 const STONE_PASSPORT_ROUTE = /^\/stone\/(\d{6,12})$/;
@@ -119,13 +121,14 @@ function mkFaqPage(questions: Array<{ q: string; a: string }>) {
   };
 }
 
+/** Wholesale landing set: the English trade home at /trade plus FR/IT/US variants. */
 function publicHreflangAlternates(origin: string) {
   return [
-    { lang: "en", href: `${origin}/` },
+    { lang: "en", href: `${origin}/trade` },
     { lang: "fr", href: `${origin}/fr` },
     { lang: "it", href: `${origin}/it` },
     { lang: "en-US", href: `${origin}/us` },
-    { lang: "x-default", href: `${origin}/` },
+    { lang: "x-default", href: `${origin}/trade` },
   ];
 }
 
@@ -146,7 +149,9 @@ export function resolveRouteMeta(pathname: string, origin: string): RouteMeta | 
   const url = (p: string) => `${origin}${p}`;
   switch (pathname) {
     case "/":
-      return { ...publicSeo.global, title: "Lab-Grown Diamond Manufacturer & Wholesale Supplier | Alvora", description: "Alvora is a Surat-based lab-grown diamond manufacturer supplying wholesale CVD and HPHT diamonds, layouts and matched pairs to jewellers worldwide.", canonical: url("/"), alternates: publicHreflangAlternates(origin), serviceJsonLd: mkFaqPage([
+      return { lang: "en", ...JEWELLERY_HOME_META, canonical: url("/"), serviceJsonLd: mkFaqPage(JEWELLERY_FAQ) };
+    case "/trade":
+      return { ...publicSeo.global, title: "Lab-Grown Diamond Manufacturer & Wholesale Supplier | Alvora", description: "Alvora is a Surat-based lab-grown diamond manufacturer supplying wholesale CVD and HPHT diamonds, layouts and matched pairs to jewellers worldwide.", canonical: url("/trade"), alternates: publicHreflangAlternates(origin), serviceJsonLd: mkFaqPage([
         { q: "Is there a minimum order?", a: "The minimum order depends on the product, size, shape, certification, and whether the request is stock, a sample, a layout, or custom production. Category-specific minimums are confirmed in the quotation before approval. Buyers should include the expected quantity and repeat-order plan so the applicable minimum can be discussed clearly." },
         { q: "Are your stones IGI or GIA certified?", a: "Alvora can supply IGI-certified laboratory-grown diamonds where applicable, with report-linked identity and familiar 4Cs information. IGI is generally the practical wholesale baseline for comparison and inventory workflows. GIA can be requested when a retailer or destination channel requires its name; buyers should confirm the report format needed before ordering." },
         { q: "Can I request a sample or memo?", a: "A sample or memo request can be discussed before the first production order, subject to the goods and commercial terms. Availability, return conditions, shipping, insurance, and any charges should be confirmed in writing. Custom-cut or specially produced goods may require separate treatment from standard stock." },
@@ -730,7 +735,7 @@ export function injectSeoIntoHtml(html: string, pathname: string, origin: string
     ...(meta.alternates ?? []).map(({ lang, href }) => `<link rel="alternate" hreflang="${esc(lang)}" href="${esc(href)}" />`),
     `<script type="application/ld+json">${JSON.stringify(buildOrgJsonLd(origin))}</script>`,
     ...serviceJsonLdTags,
-    ...(pathname === "/" ? [stockLedgerHydrationTag()].filter(Boolean) : []),
+    ...(pathname === "/trade" ? [stockLedgerHydrationTag()].filter(Boolean) : []),
   ].join("\n  ");
 
   return html

@@ -7,7 +7,7 @@ export const publicSocialImageAlt = "Alvora, lab-grown diamond manufacturer, Sur
 export const publicSeo = {
   global: {
     lang: "en",
-    path: "/",
+    path: "/trade",
     title: "Alvora — Lab-Grown Diamond Manufacturers, Surat",
     description: "Alvora is a Surat lab-grown diamond manufacturer making certified, calibrated diamonds, matched layouts, and custom cuts to exact specification.",
   },
@@ -101,7 +101,7 @@ export function applyPublicSeo(locale: PublicSeoLocale) {
   (Object.keys(publicSeo) as PublicSeoLocale[]).forEach((key) => {
     setLink("alternate", `${origin}${publicSeo[key].path}`, alternateLanguage[key]);
   });
-  setLink("alternate", `${origin}/`, "x-default");
+  setLink("alternate", `${origin}/trade`, "x-default");
   // og:locale:alternate for sibling language versions
   const currentOgLocale = langToOgLocale(current.lang);
   (Object.keys(publicSeo) as PublicSeoLocale[])

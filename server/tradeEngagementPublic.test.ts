@@ -6,7 +6,7 @@ const read = (path: string) => readFileSync(new URL(path, root), "utf8");
 
 describe("trade engagement public surfaces", () => {
   it("keeps the optional referral attribution in every public production-brief route", () => {
-    expect(read("client/src/pages/Home.tsx")).toContain('name="referrer_name"');
+    expect(read("client/src/pages/TradeHome.tsx")).toContain('name="referrer_name"');
     const market = read("client/src/pages/MarketLanding.tsx");
     expect(market).toContain('name="referrer_name"');
     expect(market).toContain("Introduit par un contact professionnel");

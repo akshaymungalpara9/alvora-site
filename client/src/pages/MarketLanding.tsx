@@ -119,7 +119,7 @@ export const marketLandingContent: Record<Variant, MarketContent> = {
 };
 
 function LanguageSwitcher({ current, label }: { current: Variant; label: string }) {
-  return <nav className="language-switcher" aria-label={label}><a href="/" className={current === "us" ? "is-active" : ""}>EN</a><a href="/fr" className={current === "fr" ? "is-active" : ""} lang="fr">FR</a><a href="/it" className={current === "it" ? "is-active" : ""} lang="it">IT</a></nav>;
+  return <nav className="language-switcher" aria-label={label}><a href="/trade" className={current === "us" ? "is-active" : ""}>EN</a><a href="/fr" className={current === "fr" ? "is-active" : ""} lang="fr">FR</a><a href="/it" className={current === "it" ? "is-active" : ""} lang="it">IT</a></nav>;
 }
 
 export default function MarketLanding({ variant }: { variant: Variant }) {

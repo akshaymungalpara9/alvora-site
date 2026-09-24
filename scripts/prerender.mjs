@@ -66,7 +66,7 @@ function loadLedgerSnapshot() {
 const ledgerSnapshot = loadLedgerSnapshot();
 
 function injectHomeHydrationTags(html, pathname) {
-  if (pathname !== "/") return html;
+  if (pathname !== "/trade") return html;
   const tags = [];
   if (ledgerSnapshot) {
     const payload = JSON.stringify(ledgerSnapshot).replace(/</g, "\\u003c").replace(/>/g, "\\u003e");
