@@ -306,7 +306,8 @@ function listSourceImages(folder) {
 }
 
 async function writeImages(code, sources) {
-  const { default: sharp } = await import("sharp");
+  // Ivory backdrop + Alvora watermark; sharp drops source metadata on output.
+  const { brandImage } = await import("./brand-image.mjs");
   const dir = path.join(IMAGE_OUT, code.toLowerCase());
   fs.rmSync(dir, { recursive: true, force: true });
   fs.mkdirSync(dir, { recursive: true });
@@ -314,15 +315,9 @@ async function writeImages(code, sources) {
   for (const [index, source] of sources.entries()) {
     const base = String(index + 1).padStart(2, "0");
     for (const size of IMAGE_SIZES) {
-      await sharp(source)
-        .rotate()
-        .resize({ width: size.width, height: size.width, fit: "inside", withoutEnlargement: true })
-        .webp({ quality: 80 })
-        // Strip all metadata so no partner EXIF/IPTC travels with the file.
-        .toFile(path.join(dir, `${base}${size.suffix}.webp`));
+      await (await brandImage(source, size.width)).toFile(path.join(dir, `${base}${size.suffix}.webp`));
     }
-    const { width, height } = await sharp(path.join(dir, `${base}.webp`)).metadata();
-    images.push({ src: `/assets/jewellery/${code.toLowerCase()}/${base}.webp`, thumb: `/assets/jewellery/${code.toLowerCase()}/${base}-600.webp`, width, height });
+    images.push({ src: `/assets/jewellery/${code.toLowerCase()}/${base}.webp`, thumb: `/assets/jewellery/${code.toLowerCase()}/${base}-600.webp`, width: IMAGE_SIZES[0].width, height: IMAGE_SIZES[0].width });
   }
   return images;
 }
@@ -336,7 +331,7 @@ function existingImages(code) {
     .sort()
     .map((file) => {
       const base = file.replace(".webp", "");
-      return { src: `/assets/jewellery/${code.toLowerCase()}/${file}`, thumb: `/assets/jewellery/${code.toLowerCase()}/${base}-600.webp`, width: null, height: null };
+      return { src: `/assets/jewellery/${code.toLowerCase()}/${file}`, thumb: `/assets/jewellery/${code.toLowerCase()}/${base}-600.webp`, width: IMAGE_SIZES[0].width, height: IMAGE_SIZES[0].width };
     });
 }
 
