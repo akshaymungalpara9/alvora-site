@@ -83,3 +83,8 @@ export function pieceMeta(piece: Pick<JewelleryPiece, "name" | "description" | "
     description: `The ${piece.name}: ${piece.description.charAt(0).toLowerCase()}${piece.description.slice(1)}${price} Choose your metal and size, then enquire.`.slice(0, 300),
   };
 }
+
+export const TRADE_JEWELLERY_META: JewelleryRouteMeta = {
+  title: "Wholesale Lab-Grown Diamond Jewellery for Retailers | Alvora Trade",
+  description: "Finished lab-grown diamond jewellery for retailers and brands: rings, bands, earrings and pendants in solid gold, with private label and trade line sheets.",
+};

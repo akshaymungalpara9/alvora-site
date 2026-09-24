@@ -2,7 +2,7 @@ import { availabilitySeo, publicSeo, publicSocialImage, publicSocialImageAlt } f
 import { COMPANY } from "../shared/companyInfo";
 import { getStone, getStonesMetaSnapshot } from "./stonePassport";
 import { formatInTimeZone } from "date-fns-tz";
-import { CONSULTATION_META, JEWELLERY_COLLECTION_META, JEWELLERY_HOME_META, pieceMeta, shapePageMeta } from "../shared/jewellery/seo";
+import { CONSULTATION_META, TRADE_JEWELLERY_META, JEWELLERY_COLLECTION_META, JEWELLERY_HOME_META, pieceMeta, shapePageMeta } from "../shared/jewellery/seo";
 import { PUBLIC_PIECES, findPublicPiece, type JewelleryCollection } from "../shared/jewellery/catalog";
 import { JEWELLERY_FAQ } from "../shared/jewellery/faq";
 import { isStonePassportIndexable } from "./_core/env";
@@ -177,6 +177,7 @@ function mkItemList(origin: string, name: string, pieces: typeof PUBLIC_PIECES) 
 function jewelleryRouteMeta(pathname: string, origin: string): RouteMeta | null {
   const url = (p: string) => `${origin}${p}`;
   if (pathname === "/book-a-consultation") return { lang: "en", ...CONSULTATION_META, canonical: url(pathname) };
+  if (pathname === "/trade/jewellery") return { lang: "en", ...TRADE_JEWELLERY_META, canonical: url(pathname) };
 
   if (pathname in COLLECTION_KEYS) {
     const key = COLLECTION_KEYS[pathname];

@@ -22,6 +22,8 @@ const SPECIALTY_LINKS = [
   { label: "Certifications", href: "/certifications" },
   { label: "About", href: "/about" },
   { label: "For Jewellery Brands", href: "/for-jewelry-brands" },
+  { label: "Finished Jewellery (Trade)", href: "/trade/jewellery" },
+  { label: "Alvora Fine Jewellery", href: "/" },
   { label: "Request a Quote", href: "/request-a-quote" },
 ];
 
@@ -66,7 +68,7 @@ export default function SpecialtyPageShell({ children }: { children: React.React
           <a href="/trade#made-to-spec">Made to specification</a>
           <a href="/about">About</a>
           <a href="/availability">Availability</a>
-          <a href="/">Fine jewellery</a>
+          <a href="/trade/jewellery">Finished jewellery</a>
         </nav>
 
         <nav className="language-switcher" aria-label="Language selection">
@@ -95,7 +97,7 @@ export default function SpecialtyPageShell({ children }: { children: React.React
             <a href="/trade#made-to-spec" onClick={() => setMenuOpen(false)}>Made to specification</a>
             <a href="/about" onClick={() => setMenuOpen(false)}>About</a>
             <a href="/availability" onClick={() => setMenuOpen(false)}>Availability</a>
-            <a href="/" onClick={() => setMenuOpen(false)}>Fine jewellery</a>
+            <a href="/trade/jewellery" onClick={() => setMenuOpen(false)}>Finished jewellery</a>
             {SPECIALTY_LINKS.map(({ label, href }) => (
               <a key={href} href={href} onClick={() => setMenuOpen(false)}>{label}</a>
             ))}

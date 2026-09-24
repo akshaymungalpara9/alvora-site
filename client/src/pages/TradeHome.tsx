@@ -105,7 +105,7 @@ export default function TradeHome() {
           <a href="#made-to-spec">Made to specification</a>
           <a href="#how-we-work">How we work</a>
           <a href="/availability">Availability</a>
-          <a href="/">Fine jewellery</a>
+          <a href="/trade/jewellery">Finished jewellery</a>
         </nav>
 
         <nav className="language-switcher" aria-label="Language selection"><a href="/trade" className="is-active">EN</a><a href="/fr" lang="fr">FR</a><a href="/it" lang="it">IT</a></nav>
@@ -134,7 +134,7 @@ export default function TradeHome() {
             <a href="#made-to-spec" onClick={() => setMenuOpen(false)}>Made to specification</a>
             <a href="#how-we-work" onClick={() => setMenuOpen(false)}>How we work</a>
             <a href="/availability" onClick={() => setMenuOpen(false)}>Availability</a>
-            <a href="/" onClick={() => setMenuOpen(false)}>Fine jewellery</a>
+            <a href="/trade/jewellery" onClick={() => setMenuOpen(false)}>Finished jewellery</a>
             <nav className="language-switcher" aria-label="Language selection"><a href="/trade" className="is-active">EN</a><a href="/fr" lang="fr">FR</a><a href="/it" lang="it">IT</a></nav>
             <button type="button" onClick={() => openBrief()}>Commission a make <ArrowUpRight size={16} /></button>
           </div>

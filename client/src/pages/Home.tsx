@@ -181,7 +181,10 @@ export default function Home() {
         </div>
         <div>
           <p>Alvora also makes loose lab-grown diamonds, matched pairs, calibrated layouts and finished jewellery for retailers and brands, with trade pricing and private-label options.</p>
-          <a href="/trade" className="jw-button jw-button-light">Visit Alvora Trade <ArrowRight size={15} strokeWidth={1.6} /></a>
+          <div className="jh-trade-actions">
+            <a href="/trade/jewellery" className="jw-button jw-button-light">Trade jewellery catalogue <ArrowRight size={15} strokeWidth={1.6} /></a>
+            <a href="/trade" className="jw-link">Loose diamonds &amp; manufacturing</a>
+          </div>
         </div>
       </section>
 

@@ -1,0 +1,47 @@
+/* Trade jewellery catalogue — sits inside the wholesale shell, uses jewellery tokens */
+.tj { border-top: 1px solid var(--jw-rule); }
+.tj-hero { padding: 64px var(--jw-gutter) 40px; border-bottom: 1px solid var(--jw-rule); }
+.tj-hero .jw-display { max-width: 820px; margin: 0 0 18px; font-size: clamp(2.5rem, 5vw, 4.4rem); }
+.tj-terms { display: grid; grid-template-columns: repeat(4, 1fr); margin: 36px 0 0; border-top: 1px solid var(--jw-rule2); border-left: 1px solid var(--jw-rule2); }
+.tj-terms div { padding: 16px 18px 18px; border-right: 1px solid var(--jw-rule2); border-bottom: 1px solid var(--jw-rule2); }
+.tj-terms dt { margin-bottom: 8px; color: var(--jw-brass-text); font-family: var(--jw-mono); font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; }
+.tj-terms dd { margin: 0; color: var(--jw-ink2); font-size: 0.86rem; line-height: 1.6; }
+.tj-retail { margin: 24px 0 0; color: var(--jw-muted); font-size: 0.88rem; }
+.tj-retail a { display: inline-flex; align-items: center; gap: 3px; color: var(--jw-ink); border-bottom: 1px solid var(--jw-rule2); }
+.tj-toolbar { position: sticky; top: 0; z-index: 5; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px var(--jw-gutter); border-bottom: 1px solid var(--jw-rule); background: rgba(247, 244, 239, 0.96); backdrop-filter: blur(8px); }
+.tj-tabs { display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; }
+.tj-tabs button { flex: 0 0 auto; min-height: 40px; padding: 0 14px; border: 1px solid var(--jw-rule2); background: var(--jw-card); color: var(--jw-ink2); font-family: var(--jw-mono); font-size: 0.64rem; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; }
+.tj-tabs button span { margin-left: 4px; color: var(--jw-muted); }
+.tj-tabs button[aria-selected="true"] { border-color: var(--jw-ink); background: var(--jw-ink); color: var(--jw-paper); }
+.tj-tabs button[aria-selected="true"] span { color: #c9c2b4; }
+.tj-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 28px 16px; margin: 0; padding: 36px var(--jw-gutter) 72px; list-style: none; }
+.tj-card { display: grid; gap: 4px; width: 100%; padding: 0; border: 0; background: none; color: var(--jw-ink); text-align: left; cursor: pointer; }
+.tj-card-media { position: relative; display: block; overflow: hidden; aspect-ratio: 1 / 1; outline: 1px solid transparent; outline-offset: -1px; transition: outline-color 160ms var(--jw-ease); }
+.tj-card:hover .tj-card-media { outline-color: var(--jw-rule2); }
+.tj-card.is-selected .tj-card-media { outline: 2px solid var(--jw-ink); outline-offset: -2px; }
+.tj-card-check { position: absolute; top: 10px; right: 10px; display: grid; place-items: center; width: 28px; height: 28px; border: 1px solid var(--jw-rule2); background: var(--jw-card); color: var(--jw-ink); }
+.tj-card.is-selected .tj-card-check { border-color: var(--jw-ink); background: var(--jw-ink); color: var(--jw-paper); }
+.tj-card-code { margin-top: 8px; color: var(--jw-brass-text); font-family: var(--jw-mono); font-size: 0.6rem; letter-spacing: 0.1em; }
+.tj-card-name { font-family: var(--jw-serif); font-size: 1.15rem; line-height: 1.15; }
+.tj-card-detail { color: var(--jw-muted); font-family: var(--jw-mono); font-size: 0.56rem; letter-spacing: 0.08em; text-transform: uppercase; }
+.tj-request { display: grid; grid-template-columns: minmax(240px, 0.8fr) minmax(0, 1.2fr); gap: 48px; padding: 72px var(--jw-gutter) 88px; border-top: 1px solid var(--jw-rule); background: var(--jw-card); scroll-margin-top: 80px; }
+.tj-request h2 { margin: 0 0 14px; font-family: var(--jw-serif); font-size: clamp(2rem, 3.4vw, 3rem); font-weight: 500; letter-spacing: -0.03em; }
+.tj-request > div > p:not(.jw-eyebrow) { max-width: 380px; color: var(--jw-ink2); line-height: 1.7; }
+.tj-selected { max-height: 320px; overflow-y: auto; margin: 18px 0 0; padding: 0; list-style: none; border-top: 1px solid var(--jw-rule); }
+.tj-selected li { display: flex; align-items: center; gap: 10px; padding: 9px 0; border-bottom: 1px solid var(--jw-rule); font-size: 0.88rem; }
+.tj-selected li span { color: var(--jw-brass-text); font-family: var(--jw-mono); font-size: 0.6rem; letter-spacing: 0.08em; }
+.tj-selected button { margin-left: auto; border: 0; background: none; color: var(--jw-muted); font-size: 1.1rem; cursor: pointer; }
+.tj-hint { color: var(--jw-muted) !important; font-size: 0.88rem; }
+@media (max-width: 1200px) { .tj-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+@media (max-width: 900px) {
+  .tj-terms { grid-template-columns: 1fr 1fr; }
+  .tj-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .tj-request { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  .tj-hero { padding: 40px 16px 28px; }
+  .tj-terms { grid-template-columns: 1fr; }
+  .tj-toolbar { flex-direction: column; align-items: stretch; padding: 12px 16px; }
+  .tj-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); padding: 24px 16px 56px; gap: 22px 12px; }
+  .tj-request { padding: 52px 16px; }
+}

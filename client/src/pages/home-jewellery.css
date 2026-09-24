@@ -72,6 +72,8 @@
 }
 .jh-trade .jw-eyebrow { color: #c7a75a; }
 .jh-trade p:not(.jw-eyebrow) { max-width: 480px; margin: 0 0 26px; color: #d0cabe; font-size: 0.95rem; line-height: 1.75; }
+.jh-trade-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 22px; }
+.jh-trade .jw-link { border-color: rgba(247, 244, 239, 0.35); color: var(--jw-paper); }
 .jw-button-light { background: var(--jw-paper); border-color: var(--jw-paper); color: var(--jw-ink); }
 .jw-button-light:hover { background: #c7a75a; border-color: #c7a75a; color: var(--jw-ink); }
 
