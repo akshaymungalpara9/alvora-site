@@ -199,9 +199,16 @@ for (const route of ROUTES) {
       timeout: 30_000,
     });
 
+    // Lazy routes first render the Suspense fallback; wait for the real page
+    // (no loading placeholder, and a heading present) before snapshotting.
     await page.waitForFunction(
-      () => (document.getElementById("root")?.children.length ?? 0) > 0,
-      { timeout: 15_000 }
+      () => {
+        const root = document.getElementById("root");
+        if (!root || root.children.length === 0) return false;
+        if (root.querySelector(".route-loading")) return false;
+        return Boolean(root.querySelector("h1, h2"));
+      },
+      { timeout: 20_000 }
     );
 
     const rootHtml = await page.evaluate(

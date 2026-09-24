@@ -178,7 +178,7 @@ describe("price-field scan for home-proof source files", () => {
   }
 });
 
-describe("prerender snapshot of /", () => {
+describe("prerender snapshot of the trade home (/trade)", () => {
   const rootManifest = path.resolve(import.meta.dirname, "..", "prerendered", "manifest.json");
   const distManifest = path.resolve(import.meta.dirname, "..", "dist", "prerendered", "manifest.json");
   const candidates = [distManifest, rootManifest];
@@ -188,9 +188,9 @@ describe("prerender snapshot of /", () => {
     return;
   }
   const manifest = JSON.parse(fs.readFileSync(foundManifest, "utf-8")) as Record<string, string>;
-  const indexSnapshot = manifest["/"];
+  const indexSnapshot = manifest["/trade"];
   if (!indexSnapshot) {
-    it.skip("no / snapshot in prerender manifest", () => {});
+    it.skip("no /trade snapshot in prerender manifest", () => {});
     return;
   }
   const snapshotPath = path.join(path.dirname(foundManifest), indexSnapshot);
