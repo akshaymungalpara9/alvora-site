@@ -15,6 +15,8 @@ CREATE TABLE IF NOT EXISTS `jewellery_enquiries` (
 	`preferredTime` varchar(160),
 	`budget` varchar(60),
 	`message` text,
+	`landingPage` varchar(300),
+	`referrer` varchar(200),
 	`alertStatus` enum('pending','sent','failed') NOT NULL DEFAULT 'pending',
 	`alertError` text,
 	`alertMessageId` varchar(160),

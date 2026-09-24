@@ -24,7 +24,7 @@ describe("jewellery catalogue", () => {
   });
 
   it("does not reuse partner design names in Alvora names or URLs", () => {
-    const generic = new Set(["oval", "round", "emerald", "marquise", "pear", "radiant", "cushion", "elongated", "asscher", "mine", "hexagon", "princess", "trillion", "baguette", "heart", "three", "stone", "five", "east", "west", "halo", "bezel", "solitaire", "signet", "eternity", "band", "wrap", "ring", "studs", "stud", "drop", "earrings", "pendant", "champagne", "green", "pink", "blue", "yellow", "ruby"]);
+    const generic = new Set(["oval", "round", "emerald", "marquise", "pear", "radiant", "cushion", "elongated", "asscher", "mine", "hexagon", "princess", "trillion", "baguette", "heart", "three", "stone", "five", "east", "west", "halo", "bezel", "solitaire", "signet", "eternity", "band", "wrap", "ring", "studs", "stud", "drop", "earrings", "pendant", "champagne", "green", "pink", "blue", "yellow", "ruby", "dutch"]);
     const banned = partnerWords();
     for (const piece of ALL_PIECES) {
       const words = `${piece.name} ${piece.slug}`.toLowerCase().split(/[^a-z]+/).filter((w) => w.length > 3 && !generic.has(w));

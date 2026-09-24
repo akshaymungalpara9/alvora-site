@@ -311,6 +311,8 @@ export const jewelleryEnquiries = mysqlTable(
     preferredTime: varchar("preferredTime", { length: 160 }),
     budget: varchar("budget", { length: 60 }),
     message: text("message"),
+    landingPage: varchar("landingPage", { length: 300 }),
+    referrer: varchar("referrer", { length: 200 }),
     alertStatus: mysqlEnum("alertStatus", ["pending", "sent", "failed"]).default("pending").notNull(),
     alertError: text("alertError"),
     alertMessageId: varchar("alertMessageId", { length: 160 }),

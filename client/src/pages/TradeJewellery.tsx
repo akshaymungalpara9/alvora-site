@@ -8,6 +8,7 @@ import { ArrowUpRight, Check, Plus } from "lucide-react";
 import SpecialtyPageShell from "@/components/SpecialtyPageShell";
 import PieceImage from "@/components/jewellery/PieceImage";
 import { trpc } from "@/lib/trpc";
+import { trackConversion } from "@/lib/ga4";
 import { applyDocumentMetadata } from "@/lib/publicSeo";
 import { ALL_PIECES, type JewelleryCategory } from "@shared/jewellery/catalog";
 import { TRADE_JEWELLERY_META } from "@shared/jewellery/seo";
@@ -32,7 +33,9 @@ const TRADE_TERMS = [
 export default function TradeJewellery() {
   const [category, setCategory] = useState<"all" | JewelleryCategory>("all");
   const [selected, setSelected] = useState<string[]>([]);
-  const submit = trpc.productionBrief.submitFastRfq.useMutation();
+  const submit = trpc.productionBrief.submitFastRfq.useMutation({
+    onSuccess: () => trackConversion("trade_linesheet_request", { styles: String(selected.length) }),
+  });
 
   useEffect(() => {
     applyDocumentMetadata({ lang: "en", path: "/trade/jewellery", ...TRADE_JEWELLERY_META });

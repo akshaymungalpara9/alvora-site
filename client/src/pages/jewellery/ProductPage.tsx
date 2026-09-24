@@ -78,6 +78,7 @@ export default function ProductPage({ slug }: { slug: string }) {
   const summary = [karat, METAL_LABELS[metal].toLowerCase(), carat ? `${carat} ct` : null, isRing && sizeLabel ? `size ${sizeLabel}` : null].filter(Boolean).join(", ");
   const whatsappHref = buildWhatsAppHrefWithMessage(COMPANY.whatsappNumber, `Hello Alvora, I'd like to ask about the ${piece.name} (${piece.code}): ${summary}.`);
   const category = CATEGORY_LINKS[piece.category];
+  const shapeCrumb = piece.shape && piece.collections.includes("engagement-rings") && piece.shapeLabel ? { label: piece.shapeLabel, href: `/engagement-rings/shape/${piece.shape}` } : null;
   const images = piece.images;
 
   return (
@@ -112,6 +113,12 @@ export default function ProductPage({ slug }: { slug: string }) {
             <Link href="/">Home</Link>
             <span aria-hidden="true">/</span>
             {category ? <Link href={category.href}>{category.label}</Link> : null}
+            {shapeCrumb ? (
+              <>
+                <span aria-hidden="true">/</span>
+                <Link href={shapeCrumb.href}>{shapeCrumb.label}</Link>
+              </>
+            ) : null}
           </nav>
           <h1 className="jp-title">{piece.name}</h1>
           <p className="jp-sub">{[piece.shapeLabel, piece.styleLabel, piece.stoneColourLabel].filter(Boolean).join(" · ")}</p>

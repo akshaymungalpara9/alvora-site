@@ -450,6 +450,7 @@ async function main() {
       caratRange: deriveCaratRange(row),
       fromPriceUsd: retail,
       description: piece.description ?? describe({ category, style, shapeLabel, stoneColourLabel }),
+      tags: piece.tags ?? [],
       featuredScore: Number(row.score) || 0,
       addedOn: row.created || null,
       images,
@@ -531,7 +532,7 @@ const GENERIC_WORDS = new Set([
   "oval", "round", "emerald", "marquise", "pear", "radiant", "cushion", "elongated", "asscher", "old", "mine", "hexagon",
   "princess", "trillion", "baguette", "heart", "three", "stone", "five", "east", "west", "halo", "bezel", "solitaire",
   "signet", "eternity", "band", "wrap", "ring", "studs", "stud", "drop", "earrings", "pendant", "heritage", "champagne",
-  "green", "pink", "blue", "yellow", "ruby", "toi", "moi",
+  "green", "pink", "blue", "yellow", "ruby", "toi", "moi", "dutch",
 ]);
 
 main().catch((error) => {

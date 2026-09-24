@@ -118,6 +118,7 @@ export default function AdminJewelleryEnquiries() {
                     .join(" · ")}
                 </p>
                 {item.maker ? <p className="admin-bands">Maker (internal): {item.maker.partner} · {item.maker.handle}{item.maker.partnerPriceUsd != null ? ` · partner price $${item.maker.partnerPriceUsd}` : ""}</p> : null}
+                {item.landingPage ? <p className="admin-bands">Landed on {item.landingPage}{item.referrer ? ` · from ${item.referrer}` : ""}</p> : null}
                 {item.message ? <p className="admin-brief-body">{item.message}</p> : null}
                 <form className="brief-triage-form" onSubmit={(event) => save(event, item.id)}>
                   <label>Status<select name="followUpStatus" defaultValue={item.followUpStatus}>{statusOptions.map((status) => <option key={status} value={status}>{status.replace("_", " ")}</option>)}</select></label>

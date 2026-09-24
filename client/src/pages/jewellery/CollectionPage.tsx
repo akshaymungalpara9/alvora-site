@@ -6,6 +6,7 @@ import CollectionGrid from "@/components/jewellery/CollectionGrid";
 import ShapeSelector, { SHOP_SHAPES } from "@/components/jewellery/ShapeSelector";
 import { PUBLIC_PIECES, type JewelleryCollection, type JewelleryPiece } from "@shared/jewellery/catalog";
 import { JEWELLERY_COLLECTION_META, shapePageMeta } from "@shared/jewellery/seo";
+import { shapeContentFor } from "@shared/jewellery/editorial";
 import { applyJewellerySeo } from "@/lib/jewellerySeo";
 import "./jewellery-pages.css";
 
@@ -53,7 +54,8 @@ export default function CollectionPage({ path, shape }: Props) {
   const collection = COLLECTION_ROUTES[path] ?? null;
   const shapeLabel = shape ? SHOP_SHAPES.find((item) => item.shape === shape)?.label ?? PUBLIC_PIECES.find((piece) => piece.shape === shape)?.shapeLabel ?? shape : null;
   const base = JEWELLERY_COLLECTION_META[path];
-  const meta = shape && shapeLabel ? { ...base, ...shapePageMeta(shape, shapeLabel), heading: `${shapeLabel} engagement rings` } : base;
+  const editorial = shape ? shapeContentFor(shape) : null;
+  const meta = shape && shapeLabel ? { ...base, ...shapePageMeta(shape, shapeLabel), heading: editorial?.heading ?? `${shapeLabel} engagement rings` } : base;
 
   useEffect(() => {
     applyJewellerySeo(location, meta.title, meta.description);
@@ -115,7 +117,10 @@ export default function CollectionPage({ path, shape }: Props) {
           <span aria-current="page">{meta.heading}</span>
         </nav>
         <h1 className="jw-display">{meta.heading}</h1>
-        <p className="jw-lede">{shape ? `${shapeLabel} stones in solitaire, bezel, east-west and heritage settings, each made to your size in yellow, white or rose gold.` : base.intro}</p>
+        <p className="jw-lede">{editorial?.intro ?? (shape ? `${shapeLabel} stones in solitaire, bezel, east-west and heritage settings, each made to your size in yellow, white or rose gold.` : base.intro)}</p>
+        {editorial?.guide ? (
+          <Link href={editorial.guide.href} className="jw-link jc-guide-link">{editorial.guide.label} <ArrowRight size={13} /></Link>
+        ) : null}
       </section>
 
       {isEngagement || shape ? (
@@ -200,6 +205,18 @@ export default function CollectionPage({ path, shape }: Props) {
           }
         />
       </section>
+
+      {editorial?.sections.length ? (
+        <section className="jc-editorial" aria-label={`About ${meta.heading.toLowerCase()}`}>
+          {editorial.sections.map((section) => (
+            <article key={section.heading}>
+              <h2>{section.heading}</h2>
+              {section.body.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+              {section.link ? <Link href={section.link.href} className="jw-link">{section.link.label} <ArrowRight size={13} /></Link> : null}
+            </article>
+          ))}
+        </section>
+      ) : null}
 
       <section className="jc-cta">
         <div>

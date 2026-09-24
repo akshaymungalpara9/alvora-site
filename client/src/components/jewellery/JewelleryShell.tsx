@@ -84,6 +84,7 @@ export default function JewelleryShell({ children }: { children: ReactNode }) {
           <h2>Help</h2>
           <Link href="/book-a-consultation">Book a consultation</Link>
           <a href="/contact">Contact</a>
+          <Link href="/guides/dutch-marquise-vs-marquise">Dutch marquise vs marquise</Link>
           <a href="/insights/are-lab-grown-diamonds-real-diamonds">Are lab-grown diamonds real?</a>
           <a href="/certifications">Certification</a>
         </nav>

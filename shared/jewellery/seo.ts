@@ -3,6 +3,7 @@
  * (initial HTML for crawlers) and the client (SPA navigation) so both agree.
  */
 import type { JewelleryPiece } from "./catalog";
+import { shapeContentFor } from "./editorial";
 
 export type JewelleryRouteMeta = { title: string; description: string };
 
@@ -69,6 +70,8 @@ export const CONSULTATION_META: JewelleryRouteMeta = {
 };
 
 export function shapePageMeta(shape: string, label: string): JewelleryRouteMeta {
+  const editorial = shapeContentFor(shape);
+  if (editorial) return { title: editorial.title, description: editorial.description };
   return {
     title: `${label} Lab-Grown Diamond Engagement Rings | Alvora`,
     description: `${label} lab-grown diamond engagement rings from Alvora: solitaire, bezel, east-west and heritage settings in solid gold, made to your size.`,

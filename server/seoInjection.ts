@@ -4,6 +4,7 @@ import { getStone, getStonesMetaSnapshot } from "./stonePassport";
 import { formatInTimeZone } from "date-fns-tz";
 import { CONSULTATION_META, TRADE_JEWELLERY_META, JEWELLERY_COLLECTION_META, JEWELLERY_HOME_META, pieceMeta, shapePageMeta } from "../shared/jewellery/seo";
 import { PUBLIC_PIECES, findPublicPiece, type JewelleryCollection } from "../shared/jewellery/catalog";
+import { findGuide } from "../shared/jewellery/editorial";
 import { JEWELLERY_FAQ } from "../shared/jewellery/faq";
 import { isStonePassportIndexable } from "./_core/env";
 
@@ -178,6 +179,21 @@ function jewelleryRouteMeta(pathname: string, origin: string): RouteMeta | null 
   const url = (p: string) => `${origin}${p}`;
   if (pathname === "/book-a-consultation") return { lang: "en", ...CONSULTATION_META, canonical: url(pathname) };
   if (pathname === "/trade/jewellery") return { lang: "en", ...TRADE_JEWELLERY_META, canonical: url(pathname) };
+  const guideMatch = /^\/guides\/([a-z0-9-]+)$/.exec(pathname);
+  if (guideMatch) {
+    const guide = findGuide(guideMatch[1]);
+    if (!guide) return null;
+    return {
+      lang: "en",
+      title: guide.title,
+      description: guide.description,
+      canonical: url(pathname),
+      serviceJsonLd: [
+        { ...mkArticle(origin, pathname, guide.heading, guide.description), datePublished: guide.published, author: { "@type": "Organization", name: "Alvora" }, publisher: { "@type": "Organization", name: "Alvora" } },
+        mkBreadcrumbs(origin, [{ name: "Home", path: "/" }, { name: guide.heading, path: pathname }]),
+      ],
+    };
+  }
 
   if (pathname in COLLECTION_KEYS) {
     const key = COLLECTION_KEYS[pathname];
@@ -230,7 +246,12 @@ function jewelleryRouteMeta(pathname: string, origin: string): RouteMeta | null 
       lang: "en",
       ...meta,
       canonical: url(pathname),
-      serviceJsonLd: [product, mkBreadcrumbs(origin, [{ name: "Home", path: "/" }, { name: category[0], path: category[1] }, { name: piece.name, path: pathname }])],
+      serviceJsonLd: [product, mkBreadcrumbs(origin, [
+        { name: "Home", path: "/" },
+        { name: category[0], path: category[1] },
+        ...(piece.shape && piece.shapeLabel && piece.collections.includes("engagement-rings") ? [{ name: piece.shapeLabel, path: `/engagement-rings/shape/${piece.shape}` }] : []),
+        { name: piece.name, path: pathname },
+      ])],
     };
   }
   return null;

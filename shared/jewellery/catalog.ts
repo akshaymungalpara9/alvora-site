@@ -37,6 +37,8 @@ export type JewelleryPiece = {
   caratRange: [number, number] | null;
   fromPriceUsd: number | null;
   description: string;
+  /** Editorial tags from data/jewellery/pieces.json, e.g. "dutch-marquise". */
+  tags: string[];
   featuredScore: number;
   addedOn: string | null;
   images: JewelleryImage[];

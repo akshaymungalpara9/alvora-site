@@ -35,6 +35,8 @@ export const JEWELLERY_ENQUIRIES_DDL = `CREATE TABLE IF NOT EXISTS \`jewellery_e
 	\`preferredTime\` varchar(160),
 	\`budget\` varchar(60),
 	\`message\` text,
+	\`landingPage\` varchar(300),
+	\`referrer\` varchar(200),
 	\`alertStatus\` enum('pending','sent','failed') NOT NULL DEFAULT 'pending',
 	\`alertError\` text,
 	\`alertMessageId\` varchar(160),
@@ -65,6 +67,8 @@ export type JewelleryEnquiryInput = {
   preferredTime?: string;
   budget?: string;
   message?: string;
+  landingPage?: string;
+  referrer?: string;
 };
 
 export type FollowUpStatus = JewelleryEnquiry["followUpStatus"];
@@ -183,6 +187,7 @@ export function buildJewelleryAlert(enquiry: JewelleryEnquiryInput & { id?: numb
     ["Prefers", CONTACT_LABELS[enquiry.preferredContact]],
     ["Best time", enquiry.preferredTime],
     ["Budget", enquiry.budget],
+    ["Landing page", enquiry.landingPage ? `${enquiry.landingPage}${enquiry.referrer ? ` (from ${enquiry.referrer})` : ""}` : undefined],
     ["Internal — maker", sourcing ? `${sourcing.partner} · ${sourcing.handle}${sourcing.partnerPriceUsd != null ? ` · partner price $${sourcing.partnerPriceUsd}` : ""}` : undefined],
     ["Enquiry ID", enquiry.id ? String(enquiry.id) : "NOT SAVED — database unavailable, reply from this email"],
   ];
@@ -248,6 +253,8 @@ function toInput(row: JewelleryEnquiry): JewelleryEnquiryInput & { id: number } 
     preferredTime: row.preferredTime ?? undefined,
     budget: row.budget ?? undefined,
     message: row.message ?? undefined,
+    landingPage: row.landingPage ?? undefined,
+    referrer: row.referrer ?? undefined,
   };
 }
 
@@ -264,9 +271,9 @@ export const csvCell = (value: unknown) => {
 
 export function exportJewelleryEnquiriesCsv(rows: JewelleryEnquiry[]) {
   const sourcing = loadJewellerySourcing();
-  const columns = ["ID", "Received (UTC)", "Type", "Status", "Owner", "Name", "Email", "Phone", "Country", "Prefers", "Best time", "Piece code", "Piece", "Metal", "Karat", "Carat", "Ring size", "Budget", "Message", "Maker", "Maker handle", "Alert", "Internal note"];
+  const columns = ["ID", "Received (UTC)", "Type", "Status", "Owner", "Name", "Email", "Phone", "Country", "Prefers", "Best time", "Piece code", "Piece", "Metal", "Karat", "Carat", "Ring size", "Budget", "Message", "Landing page", "Referrer", "Maker", "Maker handle", "Alert", "Internal note"];
   const lines = rows.map((row) => [
-    row.id, row.createdAt.toISOString(), row.kind, row.followUpStatus, row.ownerName, row.contactName, row.email, row.phone, row.country, row.preferredContact, row.preferredTime, row.pieceCode, row.pieceName, row.metal, row.karat, row.caratWeight, row.ringSize, row.budget, row.message,
+    row.id, row.createdAt.toISOString(), row.kind, row.followUpStatus, row.ownerName, row.contactName, row.email, row.phone, row.country, row.preferredContact, row.preferredTime, row.pieceCode, row.pieceName, row.metal, row.karat, row.caratWeight, row.ringSize, row.budget, row.message, row.landingPage, row.referrer,
     row.pieceCode ? sourcing[row.pieceCode]?.partner : "", row.pieceCode ? sourcing[row.pieceCode]?.handle : "", row.alertStatus, row.internalNote,
   ].map(csvCell).join(","));
   return [columns.map(csvCell).join(","), ...lines].join("\n");

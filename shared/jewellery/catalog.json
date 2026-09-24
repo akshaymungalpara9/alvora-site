@@ -28,6 +28,7 @@
     "caratRange": null,
     "fromPriceUsd": null,
     "description": "A oval lab-grown diamond turned on its side and held in a slim east-west setting.",
+    "tags": [],
     "featuredScore": 68,
     "addedOn": null,
     "images": []
@@ -61,6 +62,7 @@
     "caratRange": null,
     "fromPriceUsd": 1020,
     "description": "A oval lab-grown diamond in a heritage setting with hand-finished detailing along the band.",
+    "tags": [],
     "featuredScore": 64,
     "addedOn": null,
     "images": []
@@ -94,6 +96,7 @@
     "caratRange": null,
     "fromPriceUsd": null,
     "description": "A emerald lab-grown diamond wrapped in a clean, protective bezel of polished gold.",
+    "tags": [],
     "featuredScore": 62,
     "addedOn": null,
     "images": []
@@ -128,6 +131,7 @@
     "caratRange": null,
     "fromPriceUsd": null,
     "description": "A emerald lab-grown diamond wrapped in a clean, protective bezel of polished gold.",
+    "tags": [],
     "featuredScore": 62,
     "addedOn": null,
     "images": []
@@ -161,6 +165,7 @@
     "caratRange": null,
     "fromPriceUsd": null,
     "description": "A oval lab-grown diamond wrapped in a clean, protective bezel of polished gold.",
+    "tags": [],
     "featuredScore": 62,
     "addedOn": null,
     "images": []
@@ -194,6 +199,7 @@
     "caratRange": null,
     "fromPriceUsd": null,
     "description": "A pear lab-grown diamond turned on its side and held in a slim east-west setting.",
+    "tags": [],
     "featuredScore": 60,
     "addedOn": null,
     "images": []
@@ -228,6 +234,7 @@
     "caratRange": null,
     "fromPriceUsd": null,
     "description": "A elongated cushion lab-grown diamond in a heritage setting with hand-finished detailing along the band.",
+    "tags": [],
     "featuredScore": 58,
     "addedOn": null,
     "images": []
@@ -262,6 +269,7 @@
     "caratRange": null,
     "fromPriceUsd": null,
     "description": "A oval lab-grown diamond in a heritage setting with hand-finished detailing along the band.",
+    "tags": [],
     "featuredScore": 58,
     "addedOn": null,
     "images": []
@@ -295,6 +303,7 @@
     "caratRange": null,
     "fromPriceUsd": 770,
     "description": "A oval lab-grown diamond turned on its side and held in a slim east-west setting.",
+    "tags": [],
     "featuredScore": 58,
     "addedOn": null,
     "images": []
@@ -327,6 +336,7 @@
     "caratRange": null,
     "fromPriceUsd": 220,
     "description": "A pair of round lab-grown diamonds in secure claw settings, matched stone for stone.",
+    "tags": [],
     "featuredScore": 56,
     "addedOn": null,
     "images": []
@@ -359,6 +369,7 @@
     "caratRange": null,
     "fromPriceUsd": 370,
     "description": "A pair of round lab-grown diamonds in secure claw settings, matched stone for stone.",
+    "tags": [],
     "featuredScore": 56,
     "addedOn": null,
     "images": []
@@ -393,6 +404,7 @@
     "caratRange": null,
     "fromPriceUsd": null,
     "description": "A elongated cushion lab-grown diamond wrapped in a clean, protective bezel of polished gold.",
+    "tags": [],
     "featuredScore": 56,
     "addedOn": null,
     "images": []
@@ -426,6 +438,7 @@
     "caratRange": null,
     "fromPriceUsd": null,
     "description": "A emerald lab-grown diamond wrapped in a clean, protective bezel of polished gold.",
+    "tags": [],
     "featuredScore": 56,
     "addedOn": null,
     "images": []
@@ -458,7 +471,8 @@
     ],
     "caratRange": null,
     "fromPriceUsd": 770,
-    "description": "A marquise lab-grown diamond in a heritage setting with hand-finished detailing along the band.",
+    "description": "A marquise lab-grown diamond in a vintage setting with filigree along the gallery.",
+    "tags": [],
     "featuredScore": 55,
     "addedOn": null,
     "images": []
@@ -491,6 +505,7 @@
     "caratRange": null,
     "fromPriceUsd": 430,
     "description": "A emerald lab-grown diamond suspended on a fine gold chain in a clean, lifted setting.",
+    "tags": [],
     "featuredScore": 54,
     "addedOn": null,
     "images": []
@@ -523,6 +538,7 @@
     "caratRange": null,
     "fromPriceUsd": 430,
     "description": "A marquise lab-grown diamond suspended on a fine gold chain in a clean, lifted setting.",
+    "tags": [],
     "featuredScore": 54,
     "addedOn": null,
     "images": []
@@ -557,6 +573,7 @@
     "caratRange": null,
     "fromPriceUsd": null,
     "description": "A elongated cushion lab-grown diamond in a heritage setting with hand-finished detailing along the band.",
+    "tags": [],
     "featuredScore": 54,
     "addedOn": null,
     "images": []
@@ -594,14 +611,15 @@
     ],
     "fromPriceUsd": null,
     "description": "A single green oval lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "tags": [],
     "featuredScore": 54,
     "addedOn": null,
     "images": []
   },
   {
     "code": "ALV-R-0015",
-    "slug": "livia-marquise-heritage",
-    "name": "Livia Marquise Heritage",
+    "slug": "livia-dutch-marquise-heritage",
+    "name": "Livia Dutch Marquise Heritage",
     "collectionName": "Livia",
     "wave": "A",
     "category": "ring",
@@ -626,7 +644,10 @@
     ],
     "caratRange": null,
     "fromPriceUsd": 1000,
-    "description": "A marquise lab-grown diamond in a heritage setting with hand-finished detailing along the band.",
+    "description": "A Dutch marquise lab-grown diamond with filigree tucked beneath the stone, seen only from the side of the ring.",
+    "tags": [
+      "dutch-marquise"
+    ],
     "featuredScore": 53,
     "addedOn": null,
     "images": []
@@ -660,6 +681,7 @@
     "caratRange": null,
     "fromPriceUsd": null,
     "description": "A single oval lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "tags": [],
     "featuredScore": 52,
     "addedOn": null,
     "images": []
@@ -693,6 +715,7 @@
     "caratRange": null,
     "fromPriceUsd": null,
     "description": "A single oval lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "tags": [],
     "featuredScore": 52,
     "addedOn": null,
     "images": []
@@ -727,6 +750,7 @@
     "caratRange": null,
     "fromPriceUsd": null,
     "description": "A old mine lab-grown diamond in a heritage setting with hand-finished detailing along the band.",
+    "tags": [],
     "featuredScore": 52,
     "addedOn": null,
     "images": []
@@ -760,6 +784,7 @@
     "caratRange": null,
     "fromPriceUsd": null,
     "description": "A single oval lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "tags": [],
     "featuredScore": 52,
     "addedOn": null,
     "images": []
@@ -792,7 +817,8 @@
     ],
     "caratRange": null,
     "fromPriceUsd": 620,
-    "description": "A single marquise lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "description": "A marquise lab-grown diamond held securely by leaf-shaped claws.",
+    "tags": [],
     "featuredScore": 52,
     "addedOn": null,
     "images": []
@@ -826,6 +852,7 @@
     "caratRange": null,
     "fromPriceUsd": 790,
     "description": "A single oval lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "tags": [],
     "featuredScore": 52,
     "addedOn": null,
     "images": []
@@ -859,6 +886,7 @@
     "caratRange": null,
     "fromPriceUsd": null,
     "description": "A radiant lab-grown diamond turned on its side and held in a slim east-west setting.",
+    "tags": [],
     "featuredScore": 52,
     "addedOn": null,
     "images": []
@@ -892,14 +920,15 @@
     "caratRange": null,
     "fromPriceUsd": 1070,
     "description": "A oval lab-grown diamond wrapped in a clean, protective bezel of polished gold.",
+    "tags": [],
     "featuredScore": 51,
     "addedOn": null,
     "images": []
   },
   {
     "code": "ALV-R-0024",
-    "slug": "delphine-marquise-heritage",
-    "name": "Delphine Marquise Heritage",
+    "slug": "delphine-dutch-marquise-heritage",
+    "name": "Delphine Dutch Marquise Heritage",
     "collectionName": "Delphine",
     "wave": "A",
     "category": "ring",
@@ -924,7 +953,10 @@
     ],
     "caratRange": null,
     "fromPriceUsd": 1140,
-    "description": "A marquise lab-grown diamond in a heritage setting with hand-finished detailing along the band.",
+    "description": "A Dutch marquise lab-grown diamond in a vintage-inspired setting, its straight-sided outline held by fine claws.",
+    "tags": [
+      "dutch-marquise"
+    ],
     "featuredScore": 50,
     "addedOn": null,
     "images": []
@@ -958,6 +990,7 @@
     "caratRange": null,
     "fromPriceUsd": null,
     "description": "A single oval lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "tags": [],
     "featuredScore": 50,
     "addedOn": null,
     "images": []
@@ -992,14 +1025,15 @@
     "caratRange": null,
     "fromPriceUsd": null,
     "description": "A single round lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "tags": [],
     "featuredScore": 50,
     "addedOn": null,
     "images": []
   },
   {
     "code": "ALV-R-0027",
-    "slug": "greer-marquise-heritage",
-    "name": "Greer Marquise Heritage",
+    "slug": "greer-dutch-marquise-heritage",
+    "name": "Greer Dutch Marquise Heritage",
     "collectionName": "Greer",
     "wave": "A",
     "category": "ring",
@@ -1027,15 +1061,18 @@
       5
     ],
     "fromPriceUsd": 1390,
-    "description": "A marquise lab-grown diamond in a heritage setting with hand-finished detailing along the band.",
+    "description": "A Dutch marquise lab-grown diamond, from 1 to 5 carats, framed by a beaded milgrain edge.",
+    "tags": [
+      "dutch-marquise"
+    ],
     "featuredScore": 49,
     "addedOn": null,
     "images": []
   },
   {
     "code": "ALV-R-0028",
-    "slug": "halia-marquise-heritage",
-    "name": "Halia Marquise Heritage",
+    "slug": "halia-dutch-marquise-heritage",
+    "name": "Halia Dutch Marquise Heritage",
     "collectionName": "Halia",
     "wave": "A",
     "category": "ring",
@@ -1060,15 +1097,18 @@
     ],
     "caratRange": null,
     "fromPriceUsd": 1040,
-    "description": "A marquise lab-grown diamond in a heritage setting with hand-finished detailing along the band.",
+    "description": "A Dutch marquise lab-grown diamond on a band with hand-engraved filigree.",
+    "tags": [
+      "dutch-marquise"
+    ],
     "featuredScore": 49,
     "addedOn": null,
     "images": []
   },
   {
     "code": "ALV-R-0029",
-    "slug": "isolde-marquise-heritage",
-    "name": "Isolde Marquise Heritage",
+    "slug": "isolde-dutch-marquise-heritage",
+    "name": "Isolde Dutch Marquise Heritage",
     "collectionName": "Isolde",
     "wave": "A",
     "category": "ring",
@@ -1093,7 +1133,10 @@
     ],
     "caratRange": null,
     "fromPriceUsd": 740,
-    "description": "A marquise lab-grown diamond in a heritage setting with hand-finished detailing along the band.",
+    "description": "A Dutch marquise lab-grown diamond in a nature-inspired sunflower setting.",
+    "tags": [
+      "dutch-marquise"
+    ],
     "featuredScore": 49,
     "addedOn": null,
     "images": []
@@ -1126,6 +1169,7 @@
     "caratRange": null,
     "fromPriceUsd": 390,
     "description": "A pair of marquise lab-grown diamonds in secure claw settings, matched stone for stone.",
+    "tags": [],
     "featuredScore": 48,
     "addedOn": null,
     "images": []
@@ -1159,6 +1203,7 @@
     "caratRange": null,
     "fromPriceUsd": null,
     "description": "A single elongated cushion lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "tags": [],
     "featuredScore": 48,
     "addedOn": null,
     "images": []
@@ -1191,15 +1236,16 @@
     ],
     "caratRange": null,
     "fromPriceUsd": 780,
-    "description": "A single marquise lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "description": "A marquise lab-grown diamond held in a petal-like tulip setting.",
+    "tags": [],
     "featuredScore": 48,
     "addedOn": null,
     "images": []
   },
   {
     "code": "ALV-R-0032",
-    "slug": "mireille-marquise-heritage",
-    "name": "Mireille Marquise Heritage",
+    "slug": "mireille-dutch-marquise-heritage",
+    "name": "Mireille Dutch Marquise Heritage",
     "collectionName": "Mireille",
     "wave": "A",
     "category": "ring",
@@ -1224,7 +1270,10 @@
     ],
     "caratRange": null,
     "fromPriceUsd": 1030,
-    "description": "A marquise lab-grown diamond in a heritage setting with hand-finished detailing along the band.",
+    "description": "A Dutch marquise lab-grown diamond in an Art Deco setting finished with milgrain.",
+    "tags": [
+      "dutch-marquise"
+    ],
     "featuredScore": 47,
     "addedOn": null,
     "images": []
@@ -1257,6 +1306,7 @@
     "caratRange": null,
     "fromPriceUsd": 360,
     "description": "A pair of round lab-grown diamonds in secure claw settings, matched stone for stone.",
+    "tags": [],
     "featuredScore": 46,
     "addedOn": null,
     "images": []
@@ -1289,6 +1339,7 @@
     "caratRange": null,
     "fromPriceUsd": 280,
     "description": "A pair of round lab-grown diamonds in secure claw settings, matched stone for stone.",
+    "tags": [],
     "featuredScore": 46,
     "addedOn": null,
     "images": []
@@ -1321,6 +1372,7 @@
     "caratRange": null,
     "fromPriceUsd": 430,
     "description": "A cushion lab-grown diamond suspended on a fine gold chain in a clean, lifted setting.",
+    "tags": [],
     "featuredScore": 46,
     "addedOn": null,
     "images": []
@@ -1353,6 +1405,7 @@
     "caratRange": null,
     "fromPriceUsd": 430,
     "description": "A pear lab-grown diamond suspended on a fine gold chain in a clean, lifted setting.",
+    "tags": [],
     "featuredScore": 46,
     "addedOn": null,
     "images": []
@@ -1385,6 +1438,7 @@
     "caratRange": null,
     "fromPriceUsd": 430,
     "description": "A princess lab-grown diamond suspended on a fine gold chain in a clean, lifted setting.",
+    "tags": [],
     "featuredScore": 46,
     "addedOn": null,
     "images": []
@@ -1417,6 +1471,7 @@
     "caratRange": null,
     "fromPriceUsd": 430,
     "description": "A round lab-grown diamond suspended on a fine gold chain in a clean, lifted setting.",
+    "tags": [],
     "featuredScore": 46,
     "addedOn": null,
     "images": []
@@ -1449,6 +1504,7 @@
     "caratRange": null,
     "fromPriceUsd": 290,
     "description": "A lab-grown diamond suspended on a fine gold chain in a clean, lifted setting.",
+    "tags": [],
     "featuredScore": 46,
     "addedOn": null,
     "images": []
@@ -1486,6 +1542,7 @@
     ],
     "fromPriceUsd": 1000,
     "description": "A oval lab-grown diamond turned on its side and held in a slim east-west setting.",
+    "tags": [],
     "featuredScore": 46,
     "addedOn": "2026-01-20",
     "images": []
@@ -1519,6 +1576,7 @@
     "caratRange": null,
     "fromPriceUsd": null,
     "description": "A single emerald lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "tags": [],
     "featuredScore": 46,
     "addedOn": null,
     "images": []
@@ -1553,6 +1611,7 @@
     "caratRange": null,
     "fromPriceUsd": null,
     "description": "A old mine lab-grown diamond in a heritage setting with hand-finished detailing along the band.",
+    "tags": [],
     "featuredScore": 46,
     "addedOn": null,
     "images": []
@@ -1587,6 +1646,7 @@
     "caratRange": null,
     "fromPriceUsd": null,
     "description": "A single champagne oval lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "tags": [],
     "featuredScore": 46,
     "addedOn": null,
     "images": []
@@ -1620,6 +1680,7 @@
     "caratRange": null,
     "fromPriceUsd": 780,
     "description": "A pear lab-grown diamond in a heritage setting with hand-finished detailing along the band.",
+    "tags": [],
     "featuredScore": 46,
     "addedOn": null,
     "images": []
@@ -1654,6 +1715,7 @@
     "caratRange": null,
     "fromPriceUsd": null,
     "description": "A old mine lab-grown diamond in a heritage setting with hand-finished detailing along the band.",
+    "tags": [],
     "featuredScore": 46,
     "addedOn": null,
     "images": []
@@ -1691,6 +1753,7 @@
     ],
     "fromPriceUsd": 1100,
     "description": "A oval lab-grown diamond framed by two side stones, cut and matched on our bench in Surat.",
+    "tags": [],
     "featuredScore": 45,
     "addedOn": "2026-03-17",
     "images": []
@@ -1723,6 +1786,7 @@
     "caratRange": null,
     "fromPriceUsd": 410,
     "description": "A lab-grown diamond suspended on a fine gold chain in a clean, lifted setting.",
+    "tags": [],
     "featuredScore": 44,
     "addedOn": null,
     "images": []
@@ -1755,6 +1819,7 @@
     "caratRange": null,
     "fromPriceUsd": 430,
     "description": "A lab-grown diamond suspended on a fine gold chain in a clean, lifted setting.",
+    "tags": [],
     "featuredScore": 44,
     "addedOn": null,
     "images": []
@@ -1787,6 +1852,7 @@
     "caratRange": null,
     "fromPriceUsd": 220,
     "description": "A round lab-grown diamond suspended on a fine gold chain in a clean, lifted setting.",
+    "tags": [],
     "featuredScore": 44,
     "addedOn": null,
     "images": []
@@ -1820,6 +1886,7 @@
     "caratRange": null,
     "fromPriceUsd": null,
     "description": "A single marquise lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "tags": [],
     "featuredScore": 44,
     "addedOn": null,
     "images": []
@@ -1853,6 +1920,7 @@
     "caratRange": null,
     "fromPriceUsd": null,
     "description": "A single pear lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "tags": [],
     "featuredScore": 44,
     "addedOn": null,
     "images": []
@@ -1886,14 +1954,15 @@
     "caratRange": null,
     "fromPriceUsd": null,
     "description": "A single oval lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "tags": [],
     "featuredScore": 44,
     "addedOn": null,
     "images": []
   },
   {
     "code": "ALV-R-0043",
-    "slug": "gisele-marquise-heritage",
-    "name": "Gisele Marquise Heritage",
+    "slug": "gisele-dutch-marquise-heritage",
+    "name": "Gisele Dutch Marquise Heritage",
     "collectionName": "Gisele",
     "wave": "A",
     "category": "ring",
@@ -1918,7 +1987,10 @@
     ],
     "caratRange": null,
     "fromPriceUsd": 1170,
-    "description": "A marquise lab-grown diamond in a heritage setting with hand-finished detailing along the band.",
+    "description": "A Dutch marquise lab-grown diamond flanked by kite-shaped and round side stones.",
+    "tags": [
+      "dutch-marquise"
+    ],
     "featuredScore": 44,
     "addedOn": null,
     "images": []
@@ -1952,6 +2024,7 @@
     "caratRange": null,
     "fromPriceUsd": null,
     "description": "A single oval lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "tags": [],
     "featuredScore": 44,
     "addedOn": null,
     "images": []
@@ -1985,6 +2058,7 @@
     "caratRange": null,
     "fromPriceUsd": null,
     "description": "A single oval lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "tags": [],
     "featuredScore": 44,
     "addedOn": null,
     "images": []
@@ -2018,6 +2092,7 @@
     "caratRange": null,
     "fromPriceUsd": null,
     "description": "A marquise lab-grown diamond turned on its side and held in a slim east-west setting.",
+    "tags": [],
     "featuredScore": 44,
     "addedOn": null,
     "images": []
@@ -2050,6 +2125,7 @@
     "caratRange": null,
     "fromPriceUsd": 320,
     "description": "A marquise lab-grown diamond suspended on a fine gold chain in a clean, lifted setting.",
+    "tags": [],
     "featuredScore": 42,
     "addedOn": null,
     "images": []
@@ -2082,6 +2158,7 @@
     "caratRange": null,
     "fromPriceUsd": 90,
     "description": "A pair of marquise lab-grown diamonds in secure claw settings, matched stone for stone.",
+    "tags": [],
     "featuredScore": 40,
     "addedOn": null,
     "images": []
@@ -2114,6 +2191,7 @@
     "caratRange": null,
     "fromPriceUsd": 220,
     "description": "A pair of oval lab-grown diamonds in secure claw settings, matched stone for stone.",
+    "tags": [],
     "featuredScore": 40,
     "addedOn": null,
     "images": []
@@ -2146,6 +2224,7 @@
     "caratRange": null,
     "fromPriceUsd": 430,
     "description": "A oval lab-grown diamond suspended on a fine gold chain in a clean, lifted setting.",
+    "tags": [],
     "featuredScore": 40,
     "addedOn": null,
     "images": []
@@ -2178,6 +2257,7 @@
     "caratRange": null,
     "fromPriceUsd": 430,
     "description": "A radiant lab-grown diamond suspended on a fine gold chain in a clean, lifted setting.",
+    "tags": [],
     "featuredScore": 40,
     "addedOn": null,
     "images": []
@@ -2212,6 +2292,7 @@
     "caratRange": null,
     "fromPriceUsd": null,
     "description": "A single champagne emerald lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "tags": [],
     "featuredScore": 40,
     "addedOn": null,
     "images": []
@@ -2245,6 +2326,7 @@
     "caratRange": null,
     "fromPriceUsd": null,
     "description": "A single elongated cushion lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "tags": [],
     "featuredScore": 40,
     "addedOn": null,
     "images": []
@@ -2277,15 +2359,16 @@
     ],
     "caratRange": null,
     "fromPriceUsd": 970,
-    "description": "A single marquise lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "description": "A marquise lab-grown diamond with a small flower crown hidden beneath the stone.",
+    "tags": [],
     "featuredScore": 40,
     "addedOn": null,
     "images": []
   },
   {
     "code": "ALV-R-0050",
-    "slug": "dione-marquise-heritage",
-    "name": "Dione Marquise Heritage",
+    "slug": "dione-dutch-marquise-heritage",
+    "name": "Dione Dutch Marquise Heritage",
     "collectionName": "Dione",
     "wave": "A",
     "category": "ring",
@@ -2310,7 +2393,10 @@
     ],
     "caratRange": null,
     "fromPriceUsd": 1020,
-    "description": "A marquise lab-grown diamond in a heritage setting with hand-finished detailing along the band.",
+    "description": "A Dutch marquise lab-grown diamond held by claws shaped like autumn leaves.",
+    "tags": [
+      "dutch-marquise"
+    ],
     "featuredScore": 39,
     "addedOn": null,
     "images": []
@@ -2345,6 +2431,7 @@
     "caratRange": null,
     "fromPriceUsd": 870,
     "description": "A single lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "tags": [],
     "featuredScore": 39,
     "addedOn": null,
     "images": []
@@ -2377,6 +2464,7 @@
     "caratRange": null,
     "fromPriceUsd": 180,
     "description": "A pair of emerald lab-grown diamonds in secure claw settings, matched stone for stone.",
+    "tags": [],
     "featuredScore": 38,
     "addedOn": null,
     "images": []
@@ -2409,6 +2497,7 @@
     "caratRange": null,
     "fromPriceUsd": 230,
     "description": "A pair of marquise lab-grown diamonds in secure claw settings, matched stone for stone.",
+    "tags": [],
     "featuredScore": 38,
     "addedOn": null,
     "images": []
@@ -2441,6 +2530,7 @@
     "caratRange": null,
     "fromPriceUsd": 410,
     "description": "A pair of marquise lab-grown diamonds in secure claw settings, matched stone for stone.",
+    "tags": [],
     "featuredScore": 38,
     "addedOn": null,
     "images": []
@@ -2473,6 +2563,7 @@
     "caratRange": null,
     "fromPriceUsd": 330,
     "description": "A pair of round lab-grown diamonds in secure claw settings, matched stone for stone.",
+    "tags": [],
     "featuredScore": 38,
     "addedOn": null,
     "images": []
@@ -2507,6 +2598,7 @@
     "caratRange": null,
     "fromPriceUsd": null,
     "description": "A single emerald lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "tags": [],
     "featuredScore": 38,
     "addedOn": null,
     "images": []
@@ -2540,6 +2632,7 @@
     "caratRange": null,
     "fromPriceUsd": null,
     "description": "A single emerald lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "tags": [],
     "featuredScore": 38,
     "addedOn": null,
     "images": []
@@ -2573,6 +2666,7 @@
     "caratRange": null,
     "fromPriceUsd": null,
     "description": "A single emerald lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "tags": [],
     "featuredScore": 38,
     "addedOn": null,
     "images": []
@@ -2607,6 +2701,7 @@
     "caratRange": null,
     "fromPriceUsd": null,
     "description": "A single champagne lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "tags": [],
     "featuredScore": 36,
     "addedOn": null,
     "images": []
@@ -2640,6 +2735,7 @@
     "caratRange": null,
     "fromPriceUsd": null,
     "description": "A single radiant lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "tags": [],
     "featuredScore": 36,
     "addedOn": null,
     "images": []
@@ -2673,6 +2769,7 @@
     "caratRange": null,
     "fromPriceUsd": null,
     "description": "A single radiant lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "tags": [],
     "featuredScore": 36,
     "addedOn": null,
     "images": []
@@ -2706,6 +2803,7 @@
     "caratRange": null,
     "fromPriceUsd": null,
     "description": "A single marquise lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "tags": [],
     "featuredScore": 36,
     "addedOn": null,
     "images": []
@@ -2740,6 +2838,7 @@
     "caratRange": null,
     "fromPriceUsd": 2420,
     "description": "A pair of green lab-grown diamonds in secure claw settings, matched stone for stone.",
+    "tags": [],
     "featuredScore": 34,
     "addedOn": null,
     "images": []
@@ -2772,6 +2871,7 @@
     "caratRange": null,
     "fromPriceUsd": 220,
     "description": "A round lab-grown diamond suspended on a fine gold chain in a clean, lifted setting.",
+    "tags": [],
     "featuredScore": 34,
     "addedOn": null,
     "images": []
@@ -2806,6 +2906,7 @@
     "caratRange": null,
     "fromPriceUsd": null,
     "description": "A single lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "tags": [],
     "featuredScore": 34,
     "addedOn": null,
     "images": []
@@ -2839,6 +2940,7 @@
     "caratRange": null,
     "fromPriceUsd": null,
     "description": "A single lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "tags": [],
     "featuredScore": 34,
     "addedOn": null,
     "images": []
@@ -2872,6 +2974,7 @@
     "caratRange": null,
     "fromPriceUsd": null,
     "description": "A single lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "tags": [],
     "featuredScore": 34,
     "addedOn": null,
     "images": []
@@ -2904,6 +3007,7 @@
     "caratRange": null,
     "fromPriceUsd": 270,
     "description": "A round lab-grown diamond suspended on a fine gold chain in a clean, lifted setting.",
+    "tags": [],
     "featuredScore": 32,
     "addedOn": null,
     "images": []
@@ -2936,6 +3040,7 @@
     "caratRange": null,
     "fromPriceUsd": 330,
     "description": "A round lab-grown diamond suspended on a fine gold chain in a clean, lifted setting.",
+    "tags": [],
     "featuredScore": 32,
     "addedOn": null,
     "images": []
@@ -2968,6 +3073,7 @@
     "caratRange": null,
     "fromPriceUsd": 430,
     "description": "A asscher lab-grown diamond suspended on a fine gold chain in a clean, lifted setting.",
+    "tags": [],
     "featuredScore": 32,
     "addedOn": null,
     "images": []
@@ -3002,6 +3108,7 @@
     "caratRange": null,
     "fromPriceUsd": null,
     "description": "A single cushion lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "tags": [],
     "featuredScore": 32,
     "addedOn": null,
     "images": []
@@ -3035,6 +3142,7 @@
     "caratRange": null,
     "fromPriceUsd": null,
     "description": "A single baguette lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "tags": [],
     "featuredScore": 28,
     "addedOn": null,
     "images": []
@@ -3068,6 +3176,7 @@
     "caratRange": null,
     "fromPriceUsd": null,
     "description": "A single baguette lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "tags": [],
     "featuredScore": 28,
     "addedOn": null,
     "images": []
@@ -3102,6 +3211,7 @@
     "caratRange": null,
     "fromPriceUsd": null,
     "description": "A single blue lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "tags": [],
     "featuredScore": 26,
     "addedOn": null,
     "images": []
@@ -3138,6 +3248,7 @@
     ],
     "fromPriceUsd": 1000,
     "description": "A oval lab-grown diamond lifted by a fine halo of pavé that catches light from every angle.",
+    "tags": [],
     "featuredScore": 44,
     "addedOn": "2026-01-29",
     "images": []
@@ -3175,6 +3286,7 @@
     ],
     "fromPriceUsd": 1050,
     "description": "A oval lab-grown diamond lifted by a fine halo of pavé that catches light from every angle.",
+    "tags": [],
     "featuredScore": 43,
     "addedOn": "2026-01-26",
     "images": []
@@ -3212,6 +3324,7 @@
     ],
     "fromPriceUsd": 1000,
     "description": "A oval lab-grown diamond lifted by a fine halo of pavé that catches light from every angle.",
+    "tags": [],
     "featuredScore": 43,
     "addedOn": "2026-01-27",
     "images": []
@@ -3249,6 +3362,7 @@
     ],
     "fromPriceUsd": 1000,
     "description": "A oval lab-grown diamond lifted by a fine halo of pavé that catches light from every angle.",
+    "tags": [],
     "featuredScore": 43,
     "addedOn": "2026-01-21",
     "images": []
@@ -3286,6 +3400,7 @@
     ],
     "fromPriceUsd": 1050,
     "description": "A oval lab-grown diamond lifted by a fine halo of pavé that catches light from every angle.",
+    "tags": [],
     "featuredScore": 43,
     "addedOn": "2026-01-13",
     "images": []
@@ -3323,6 +3438,7 @@
     ],
     "fromPriceUsd": 1150,
     "description": "A oval lab-grown diamond lifted by a fine halo of pavé that catches light from every angle.",
+    "tags": [],
     "featuredScore": 43,
     "addedOn": "2026-01-13",
     "images": []
@@ -3360,6 +3476,7 @@
     ],
     "fromPriceUsd": 1000,
     "description": "A oval lab-grown diamond lifted by a fine halo of pavé that catches light from every angle.",
+    "tags": [],
     "featuredScore": 43,
     "addedOn": "2026-01-17",
     "images": []
@@ -3397,6 +3514,7 @@
     ],
     "fromPriceUsd": 1000,
     "description": "A oval lab-grown diamond lifted by a fine halo of pavé that catches light from every angle.",
+    "tags": [],
     "featuredScore": 43,
     "addedOn": "2026-01-19",
     "images": []
@@ -3434,6 +3552,7 @@
     ],
     "fromPriceUsd": 1050,
     "description": "A oval lab-grown diamond lifted by a fine halo of pavé that catches light from every angle.",
+    "tags": [],
     "featuredScore": 43,
     "addedOn": "2026-01-20",
     "images": []
@@ -3471,6 +3590,7 @@
     ],
     "fromPriceUsd": 1000,
     "description": "A oval lab-grown diamond lifted by a fine halo of pavé that catches light from every angle.",
+    "tags": [],
     "featuredScore": 43,
     "addedOn": "2026-01-21",
     "images": []
@@ -3508,6 +3628,7 @@
     ],
     "fromPriceUsd": 1000,
     "description": "A oval lab-grown diamond lifted by a fine halo of pavé that catches light from every angle.",
+    "tags": [],
     "featuredScore": 43,
     "addedOn": "2026-01-27",
     "images": []
@@ -3545,6 +3666,7 @@
     ],
     "fromPriceUsd": 1100,
     "description": "A round lab-grown diamond framed by two side stones, cut and matched on our bench in Surat.",
+    "tags": [],
     "featuredScore": 43,
     "addedOn": "2026-03-17",
     "images": []
@@ -3582,6 +3704,7 @@
     ],
     "fromPriceUsd": 1000,
     "description": "A oval lab-grown diamond lifted by a fine halo of pavé that catches light from every angle.",
+    "tags": [],
     "featuredScore": 43,
     "addedOn": "2026-01-16",
     "images": []
@@ -3614,6 +3737,7 @@
     "caratRange": null,
     "fromPriceUsd": 370,
     "description": "A round lab-grown diamond lifted by a fine halo of pavé that catches light from every angle.",
+    "tags": [],
     "featuredScore": 42,
     "addedOn": null,
     "images": []
@@ -3650,6 +3774,7 @@
     ],
     "fromPriceUsd": 1000,
     "description": "A round lab-grown diamond lifted by a fine halo of pavé that catches light from every angle.",
+    "tags": [],
     "featuredScore": 42,
     "addedOn": "2026-01-29",
     "images": []
@@ -3683,6 +3808,7 @@
     "caratRange": null,
     "fromPriceUsd": 1000,
     "description": "A single oval lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "tags": [],
     "featuredScore": 42,
     "addedOn": null,
     "images": []
@@ -3719,6 +3845,7 @@
     ],
     "fromPriceUsd": 1150,
     "description": "A round lab-grown diamond wrapped in a clean, protective bezel of polished gold.",
+    "tags": [],
     "featuredScore": 42,
     "addedOn": "2025-12-16",
     "images": []
@@ -3752,6 +3879,7 @@
     "caratRange": null,
     "fromPriceUsd": 940,
     "description": "A oval lab-grown diamond in a heritage setting with hand-finished detailing along the band.",
+    "tags": [],
     "featuredScore": 42,
     "addedOn": null,
     "images": []
@@ -3789,6 +3917,7 @@
     ],
     "fromPriceUsd": 1050,
     "description": "A round lab-grown diamond lifted by a fine halo of pavé that catches light from every angle.",
+    "tags": [],
     "featuredScore": 41,
     "addedOn": "2026-01-26",
     "images": []
@@ -3826,6 +3955,7 @@
     ],
     "fromPriceUsd": 1000,
     "description": "A round lab-grown diamond lifted by a fine halo of pavé that catches light from every angle.",
+    "tags": [],
     "featuredScore": 41,
     "addedOn": "2026-01-21",
     "images": []
@@ -3863,6 +3993,7 @@
     ],
     "fromPriceUsd": 1050,
     "description": "A round lab-grown diamond lifted by a fine halo of pavé that catches light from every angle.",
+    "tags": [],
     "featuredScore": 41,
     "addedOn": "2026-01-13",
     "images": []
@@ -3900,6 +4031,7 @@
     ],
     "fromPriceUsd": 1150,
     "description": "A round lab-grown diamond lifted by a fine halo of pavé that catches light from every angle.",
+    "tags": [],
     "featuredScore": 41,
     "addedOn": "2026-01-13",
     "images": []
@@ -3937,6 +4069,7 @@
     ],
     "fromPriceUsd": 1000,
     "description": "A round lab-grown diamond lifted by a fine halo of pavé that catches light from every angle.",
+    "tags": [],
     "featuredScore": 41,
     "addedOn": "2026-01-17",
     "images": []
@@ -3974,6 +4107,7 @@
     ],
     "fromPriceUsd": 1000,
     "description": "A round lab-grown diamond lifted by a fine halo of pavé that catches light from every angle.",
+    "tags": [],
     "featuredScore": 41,
     "addedOn": "2026-01-19",
     "images": []
@@ -4011,6 +4145,7 @@
     ],
     "fromPriceUsd": 1050,
     "description": "A round lab-grown diamond lifted by a fine halo of pavé that catches light from every angle.",
+    "tags": [],
     "featuredScore": 41,
     "addedOn": "2026-01-20",
     "images": []
@@ -4048,6 +4183,7 @@
     ],
     "fromPriceUsd": 1000,
     "description": "A round lab-grown diamond lifted by a fine halo of pavé that catches light from every angle.",
+    "tags": [],
     "featuredScore": 41,
     "addedOn": "2026-01-21",
     "images": []
@@ -4085,6 +4221,7 @@
     ],
     "fromPriceUsd": 1000,
     "description": "A round lab-grown diamond lifted by a fine halo of pavé that catches light from every angle.",
+    "tags": [],
     "featuredScore": 41,
     "addedOn": "2026-01-27",
     "images": []
@@ -4122,6 +4259,7 @@
     ],
     "fromPriceUsd": 1000,
     "description": "A round lab-grown diamond lifted by a fine halo of pavé that catches light from every angle.",
+    "tags": [],
     "featuredScore": 41,
     "addedOn": "2026-01-27",
     "images": []
@@ -4159,6 +4297,7 @@
     ],
     "fromPriceUsd": 1000,
     "description": "A round lab-grown diamond lifted by a fine halo of pavé that catches light from every angle.",
+    "tags": [],
     "featuredScore": 41,
     "addedOn": "2026-01-16",
     "images": []
@@ -4191,6 +4330,7 @@
     "caratRange": null,
     "fromPriceUsd": 410,
     "description": "A pair of marquise lab-grown diamonds in secure claw settings, matched stone for stone.",
+    "tags": [],
     "featuredScore": 40,
     "addedOn": null,
     "images": []
@@ -4223,6 +4363,7 @@
     "caratRange": null,
     "fromPriceUsd": 420,
     "description": "A pair of round lab-grown diamonds in secure claw settings, matched stone for stone.",
+    "tags": [],
     "featuredScore": 40,
     "addedOn": null,
     "images": []
@@ -4255,6 +4396,7 @@
     "caratRange": null,
     "fromPriceUsd": 220,
     "description": "A pair of round lab-grown diamonds in secure claw settings, matched stone for stone.",
+    "tags": [],
     "featuredScore": 40,
     "addedOn": null,
     "images": []
@@ -4287,6 +4429,7 @@
     "caratRange": null,
     "fromPriceUsd": 380,
     "description": "A pair of round lab-grown diamonds in secure claw settings, matched stone for stone.",
+    "tags": [],
     "featuredScore": 40,
     "addedOn": null,
     "images": []
@@ -4319,6 +4462,7 @@
     "caratRange": null,
     "fromPriceUsd": 360,
     "description": "A pair of round lab-grown diamonds in secure claw settings, matched stone for stone.",
+    "tags": [],
     "featuredScore": 40,
     "addedOn": null,
     "images": []
@@ -4351,6 +4495,7 @@
     "caratRange": null,
     "fromPriceUsd": 460,
     "description": "A pair of round lab-grown diamonds in secure claw settings, matched stone for stone.",
+    "tags": [],
     "featuredScore": 40,
     "addedOn": null,
     "images": []
@@ -4388,6 +4533,7 @@
     ],
     "fromPriceUsd": 1000,
     "description": "A emerald lab-grown diamond turned on its side and held in a slim east-west setting.",
+    "tags": [],
     "featuredScore": 40,
     "addedOn": "2026-01-20",
     "images": []
@@ -4424,6 +4570,7 @@
     ],
     "fromPriceUsd": 650,
     "description": "A round lab-grown diamond wrapped in a clean, protective bezel of polished gold.",
+    "tags": [],
     "featuredScore": 38,
     "addedOn": "2026-02-02",
     "images": []
@@ -4460,6 +4607,7 @@
     ],
     "fromPriceUsd": 650,
     "description": "A emerald lab-grown diamond wrapped in a clean, protective bezel of polished gold.",
+    "tags": [],
     "featuredScore": 38,
     "addedOn": "2026-02-02",
     "images": []
@@ -4496,6 +4644,7 @@
     ],
     "fromPriceUsd": 650,
     "description": "A pear lab-grown diamond wrapped in a clean, protective bezel of polished gold.",
+    "tags": [],
     "featuredScore": 38,
     "addedOn": "2026-02-02",
     "images": []
@@ -4532,6 +4681,7 @@
     ],
     "fromPriceUsd": 650,
     "description": "A round lab-grown diamond wrapped in a clean, protective bezel of polished gold.",
+    "tags": [],
     "featuredScore": 38,
     "addedOn": "2026-02-02",
     "images": []
@@ -4569,6 +4719,7 @@
     ],
     "fromPriceUsd": 1550,
     "description": "A oval lab-grown diamond turned on its side and held in a slim east-west setting.",
+    "tags": [],
     "featuredScore": 38,
     "addedOn": "2026-01-26",
     "images": []
@@ -4601,6 +4752,7 @@
     "caratRange": null,
     "fromPriceUsd": 900,
     "description": "A pair of emerald lab-grown diamonds in secure claw settings, matched stone for stone.",
+    "tags": [],
     "featuredScore": 36,
     "addedOn": "2025-12-11",
     "images": []
@@ -4633,6 +4785,7 @@
     "caratRange": null,
     "fromPriceUsd": 900,
     "description": "A pair of marquise lab-grown diamonds in secure claw settings, matched stone for stone.",
+    "tags": [],
     "featuredScore": 36,
     "addedOn": "2025-12-11",
     "images": []
@@ -4665,6 +4818,7 @@
     "caratRange": null,
     "fromPriceUsd": 900,
     "description": "A pair of oval lab-grown diamonds in secure claw settings, matched stone for stone.",
+    "tags": [],
     "featuredScore": 36,
     "addedOn": "2025-12-11",
     "images": []
@@ -4697,6 +4851,7 @@
     "caratRange": null,
     "fromPriceUsd": 900,
     "description": "A pair of pear lab-grown diamonds in secure claw settings, matched stone for stone.",
+    "tags": [],
     "featuredScore": 36,
     "addedOn": "2025-12-11",
     "images": []
@@ -4729,6 +4884,7 @@
     "caratRange": null,
     "fromPriceUsd": 900,
     "description": "A pair of round lab-grown diamonds in secure claw settings, matched stone for stone.",
+    "tags": [],
     "featuredScore": 36,
     "addedOn": "2025-12-11",
     "images": []
@@ -4761,6 +4917,7 @@
     "caratRange": null,
     "fromPriceUsd": 360,
     "description": "A lab-grown diamond lifted by a fine halo of pavé that catches light from every angle.",
+    "tags": [],
     "featuredScore": 36,
     "addedOn": null,
     "images": []
@@ -4798,6 +4955,7 @@
     ],
     "fromPriceUsd": 1100,
     "description": "A oval lab-grown diamond framed by two side stones, cut and matched on our bench in Surat.",
+    "tags": [],
     "featuredScore": 35,
     "addedOn": "2026-02-13",
     "images": []
@@ -4835,6 +4993,7 @@
     ],
     "fromPriceUsd": 1250,
     "description": "A single oval lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "tags": [],
     "featuredScore": 35,
     "addedOn": "2026-01-26",
     "images": []
@@ -4868,6 +5027,7 @@
     "caratRange": null,
     "fromPriceUsd": 760,
     "description": "A emerald lab-grown diamond in a heritage setting with hand-finished detailing along the band.",
+    "tags": [],
     "featuredScore": 35,
     "addedOn": null,
     "images": []
@@ -4905,6 +5065,7 @@
     ],
     "fromPriceUsd": 1100,
     "description": "A emerald lab-grown diamond wrapped in a clean, protective bezel of polished gold.",
+    "tags": [],
     "featuredScore": 34,
     "addedOn": "2026-01-19",
     "images": []
@@ -4941,6 +5102,7 @@
     ],
     "fromPriceUsd": 1900,
     "description": "A single emerald lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "tags": [],
     "featuredScore": 34,
     "addedOn": "2025-12-12",
     "images": []
@@ -4977,6 +5139,7 @@
     ],
     "fromPriceUsd": 1150,
     "description": "A emerald lab-grown diamond framed by two side stones, cut and matched on our bench in Surat.",
+    "tags": [],
     "featuredScore": 34,
     "addedOn": "2025-12-18",
     "images": []
@@ -5014,6 +5177,7 @@
     ],
     "fromPriceUsd": 1100,
     "description": "A round lab-grown diamond framed by two side stones, cut and matched on our bench in Surat.",
+    "tags": [],
     "featuredScore": 33,
     "addedOn": "2026-02-13",
     "images": []
@@ -5051,6 +5215,7 @@
     ],
     "fromPriceUsd": 1250,
     "description": "A single round lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "tags": [],
     "featuredScore": 33,
     "addedOn": "2026-01-26",
     "images": []
@@ -5083,6 +5248,7 @@
     "caratRange": null,
     "fromPriceUsd": 2200,
     "description": "A continuous line of emerald lab-grown diamonds, matched for colour and size around the band.",
+    "tags": [],
     "featuredScore": 32,
     "addedOn": "2025-12-13",
     "images": []
@@ -5119,6 +5285,7 @@
     ],
     "fromPriceUsd": 650,
     "description": "A heart lab-grown diamond wrapped in a clean, protective bezel of polished gold.",
+    "tags": [],
     "featuredScore": 32,
     "addedOn": "2026-02-02",
     "images": []
@@ -5155,6 +5322,7 @@
     ],
     "fromPriceUsd": 700,
     "description": "Round lab-grown diamond drops that move gently with the wearer.",
+    "tags": [],
     "featuredScore": 32,
     "addedOn": "2026-02-02",
     "images": []
@@ -5192,6 +5360,7 @@
     ],
     "fromPriceUsd": 1100,
     "description": "A oval lab-grown diamond framed by two side stones, cut and matched on our bench in Surat.",
+    "tags": [],
     "featuredScore": 32,
     "addedOn": "2026-03-12",
     "images": []
@@ -5229,6 +5398,7 @@
     ],
     "fromPriceUsd": 1000,
     "description": "A emerald lab-grown diamond turned on its side and held in a slim east-west setting.",
+    "tags": [],
     "featuredScore": 32,
     "addedOn": "2026-01-21",
     "images": []
@@ -5266,6 +5436,7 @@
     ],
     "fromPriceUsd": 1550,
     "description": "A emerald lab-grown diamond turned on its side and held in a slim east-west setting.",
+    "tags": [],
     "featuredScore": 32,
     "addedOn": "2026-01-26",
     "images": []
@@ -5303,6 +5474,7 @@
     ],
     "fromPriceUsd": 1100,
     "description": "A radiant lab-grown diamond wrapped in a clean, protective bezel of polished gold.",
+    "tags": [],
     "featuredScore": 32,
     "addedOn": "2026-01-19",
     "images": []
@@ -5339,6 +5511,7 @@
     ],
     "fromPriceUsd": 1100,
     "description": "A radiant lab-grown diamond framed by two side stones, cut and matched on our bench in Surat.",
+    "tags": [],
     "featuredScore": 32,
     "addedOn": "2025-12-18",
     "images": []
@@ -5374,6 +5547,7 @@
     ],
     "fromPriceUsd": 1200,
     "description": "A signet profile with a emerald lab-grown diamond set flush into the face.",
+    "tags": [],
     "featuredScore": 31,
     "addedOn": "2025-12-13",
     "images": []
@@ -5410,6 +5584,7 @@
     ],
     "fromPriceUsd": 700,
     "description": "A emerald lab-grown diamond lifted by a fine halo of pavé that catches light from every angle.",
+    "tags": [],
     "featuredScore": 30,
     "addedOn": "2026-02-02",
     "images": []
@@ -5442,6 +5617,7 @@
     "caratRange": null,
     "fromPriceUsd": 290,
     "description": "A cushion lab-grown diamond suspended on a fine gold chain in a clean, lifted setting.",
+    "tags": [],
     "featuredScore": 30,
     "addedOn": null,
     "images": []
@@ -5479,6 +5655,7 @@
     ],
     "fromPriceUsd": 1150,
     "description": "A emerald lab-grown diamond framed by two side stones, cut and matched on our bench in Surat.",
+    "tags": [],
     "featuredScore": 30,
     "addedOn": "2026-02-13",
     "images": []
@@ -5516,6 +5693,7 @@
     ],
     "fromPriceUsd": 1100,
     "description": "A round lab-grown diamond framed by two side stones, cut and matched on our bench in Surat.",
+    "tags": [],
     "featuredScore": 30,
     "addedOn": "2026-03-12",
     "images": []
@@ -5553,6 +5731,7 @@
     ],
     "fromPriceUsd": 1550,
     "description": "A radiant lab-grown diamond turned on its side and held in a slim east-west setting.",
+    "tags": [],
     "featuredScore": 30,
     "addedOn": "2026-01-26",
     "images": []
@@ -5590,6 +5769,7 @@
     ],
     "fromPriceUsd": 1100,
     "description": "A emerald lab-grown diamond framed by two side stones, cut and matched on our bench in Surat.",
+    "tags": [],
     "featuredScore": 29,
     "addedOn": "2026-03-03",
     "images": []
@@ -5627,6 +5807,7 @@
     ],
     "fromPriceUsd": 1000,
     "description": "A asscher lab-grown diamond in a heritage setting with hand-finished detailing along the band.",
+    "tags": [],
     "featuredScore": 29,
     "addedOn": "2026-01-08",
     "images": []
@@ -5662,6 +5843,7 @@
     ],
     "fromPriceUsd": 1200,
     "description": "An open, sculptural band set with emerald lab-grown diamonds that curve around the finger.",
+    "tags": [],
     "featuredScore": 28,
     "addedOn": "2025-12-13",
     "images": []
@@ -5699,6 +5881,7 @@
     ],
     "fromPriceUsd": 1000,
     "description": "A single emerald lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "tags": [],
     "featuredScore": 28,
     "addedOn": "2026-01-19",
     "images": []
@@ -5736,6 +5919,7 @@
     ],
     "fromPriceUsd": 1000,
     "description": "A single emerald lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "tags": [],
     "featuredScore": 28,
     "addedOn": "2026-01-19",
     "images": []
@@ -5772,6 +5956,7 @@
     ],
     "fromPriceUsd": 1100,
     "description": "A asscher lab-grown diamond framed by two side stones, cut and matched on our bench in Surat.",
+    "tags": [],
     "featuredScore": 28,
     "addedOn": "2025-12-17",
     "images": []
@@ -5809,6 +5994,7 @@
     ],
     "fromPriceUsd": 1050,
     "description": "A emerald lab-grown diamond framed by two side stones, cut and matched on our bench in Surat.",
+    "tags": [],
     "featuredScore": 26,
     "addedOn": "2026-04-02",
     "images": []
@@ -5846,6 +6032,7 @@
     ],
     "fromPriceUsd": 1050,
     "description": "A emerald lab-grown diamond framed by two side stones, cut and matched on our bench in Surat.",
+    "tags": [],
     "featuredScore": 26,
     "addedOn": "2026-04-07",
     "images": []
@@ -5883,6 +6070,7 @@
     ],
     "fromPriceUsd": 1050,
     "description": "A emerald lab-grown diamond framed by two side stones, cut and matched on our bench in Surat.",
+    "tags": [],
     "featuredScore": 26,
     "addedOn": "2026-04-09",
     "images": []
@@ -5919,6 +6107,7 @@
     ],
     "fromPriceUsd": 1300,
     "description": "A cushion lab-grown diamond wrapped in a clean, protective bezel of polished gold.",
+    "tags": [],
     "featuredScore": 26,
     "addedOn": "2025-12-18",
     "images": []
@@ -5955,6 +6144,7 @@
     ],
     "fromPriceUsd": 1500,
     "description": "A hexagon lab-grown diamond framed by two side stones, cut and matched on our bench in Surat.",
+    "tags": [],
     "featuredScore": 26,
     "addedOn": "2025-12-18",
     "images": []
@@ -5991,6 +6181,7 @@
     ],
     "fromPriceUsd": 1400,
     "description": "A single pear lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "tags": [],
     "featuredScore": 26,
     "addedOn": "2025-12-14",
     "images": []
@@ -6024,6 +6215,7 @@
     "caratRange": null,
     "fromPriceUsd": 1000,
     "description": "A single round lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "tags": [],
     "featuredScore": 26,
     "addedOn": null,
     "images": []
@@ -6060,6 +6252,7 @@
     ],
     "fromPriceUsd": 1050,
     "description": "A single marquise lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "tags": [],
     "featuredScore": 25,
     "addedOn": "2025-12-16",
     "images": []
@@ -6097,6 +6290,7 @@
     ],
     "fromPriceUsd": 1100,
     "description": "A pear lab-grown diamond framed by two side stones, cut and matched on our bench in Surat.",
+    "tags": [],
     "featuredScore": 24,
     "addedOn": "2026-03-13",
     "images": []
@@ -6134,6 +6328,7 @@
     ],
     "fromPriceUsd": 1050,
     "description": "A pear lab-grown diamond framed by two side stones, cut and matched on our bench in Surat.",
+    "tags": [],
     "featuredScore": 24,
     "addedOn": "2026-03-27",
     "images": []
@@ -6170,6 +6365,7 @@
     ],
     "fromPriceUsd": 1300,
     "description": "A marquise lab-grown diamond wrapped in a clean, protective bezel of polished gold.",
+    "tags": [],
     "featuredScore": 24,
     "addedOn": "2025-12-13",
     "images": []
@@ -6207,6 +6403,7 @@
     ],
     "fromPriceUsd": 1000,
     "description": "A lab-grown diamond wrapped in a clean, protective bezel of polished gold.",
+    "tags": [],
     "featuredScore": 22,
     "addedOn": "2026-01-20",
     "images": []
@@ -6243,6 +6440,7 @@
     ],
     "fromPriceUsd": 1400,
     "description": "A hexagon lab-grown diamond framed by two side stones, cut and matched on our bench in Surat.",
+    "tags": [],
     "featuredScore": 22,
     "addedOn": "2025-12-18",
     "images": []
@@ -6279,6 +6477,7 @@
     ],
     "fromPriceUsd": 1500,
     "description": "A hexagon lab-grown diamond framed by two side stones, cut and matched on our bench in Surat.",
+    "tags": [],
     "featuredScore": 22,
     "addedOn": "2025-12-18",
     "images": []
@@ -6316,6 +6515,7 @@
     ],
     "fromPriceUsd": 4400,
     "description": "A blue radiant lab-grown diamond lifted by a fine halo of pavé that catches light from every angle.",
+    "tags": [],
     "featuredScore": 18,
     "addedOn": "2025-12-27",
     "images": []
@@ -6353,6 +6553,7 @@
     ],
     "fromPriceUsd": 4600,
     "description": "A pink radiant lab-grown diamond lifted by a fine halo of pavé that catches light from every angle.",
+    "tags": [],
     "featuredScore": 18,
     "addedOn": "2025-12-27",
     "images": []
@@ -6389,6 +6590,7 @@
     ],
     "fromPriceUsd": 1800,
     "description": "A pear lab-grown diamond lifted by a fine halo of pavé that catches light from every angle.",
+    "tags": [],
     "featuredScore": 18,
     "addedOn": "2025-12-14",
     "images": []
@@ -6424,6 +6626,7 @@
     ],
     "fromPriceUsd": 3600,
     "description": "An open, sculptural band set with marquise lab-grown diamonds that curve around the finger.",
+    "tags": [],
     "featuredScore": 16,
     "addedOn": "2025-12-13",
     "images": []
@@ -6456,6 +6659,7 @@
     "caratRange": null,
     "fromPriceUsd": 1150,
     "description": "An open, sculptural band set with pear lab-grown diamonds that curve around the finger.",
+    "tags": [],
     "featuredScore": 16,
     "addedOn": "2025-12-17",
     "images": []
@@ -6489,6 +6693,7 @@
     "caratRange": null,
     "fromPriceUsd": 1800,
     "description": "A single marquise lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "tags": [],
     "featuredScore": 16,
     "addedOn": "2025-12-15",
     "images": []
@@ -6525,6 +6730,7 @@
     ],
     "fromPriceUsd": 2400,
     "description": "A single marquise lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "tags": [],
     "featuredScore": 16,
     "addedOn": "2025-12-13",
     "images": []
@@ -6561,6 +6767,7 @@
     ],
     "fromPriceUsd": 3000,
     "description": "A radiant lab-grown diamond lifted by a fine halo of pavé that catches light from every angle.",
+    "tags": [],
     "featuredScore": 16,
     "addedOn": "2025-12-15",
     "images": []
@@ -6594,6 +6801,7 @@
     "caratRange": null,
     "fromPriceUsd": 900,
     "description": "A single pear lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "tags": [],
     "featuredScore": 14,
     "addedOn": "2025-12-17",
     "images": []
@@ -6631,6 +6839,7 @@
     ],
     "fromPriceUsd": 1000,
     "description": "A single asscher lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "tags": [],
     "featuredScore": 12,
     "addedOn": "2026-01-12",
     "images": []
@@ -6667,6 +6876,7 @@
     ],
     "fromPriceUsd": 3900,
     "description": "A single lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "tags": [],
     "featuredScore": 9,
     "addedOn": "2025-12-13",
     "images": []
@@ -6699,6 +6909,7 @@
     "caratRange": null,
     "fromPriceUsd": 1150,
     "description": "An open, sculptural band set with round lab-grown diamonds that curve around the finger.",
+    "tags": [],
     "featuredScore": 6,
     "addedOn": "2025-12-17",
     "images": []
@@ -6734,6 +6945,7 @@
     ],
     "fromPriceUsd": 1900,
     "description": "An open, sculptural band set with heart lab-grown diamonds that curve around the finger.",
+    "tags": [],
     "featuredScore": 5,
     "addedOn": "2025-12-17",
     "images": []

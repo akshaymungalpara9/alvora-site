@@ -1,7 +1,7 @@
 {
   "version": "5",
   "dialect": "mysql",
-  "id": "8cde164c-6c64-4d09-a748-d0419fdd2086",
+  "id": "bb8e6b70-77f1-4268-8446-e8ab0dd54b79",
   "prevId": "71b0bfb4-2d0a-45f5-ae7a-3ee42cff97a3",
   "tables": {
     "availability_curation": {
@@ -918,6 +918,20 @@
         "message": {
           "name": "message",
           "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "landingPage": {
+          "name": "landingPage",
+          "type": "varchar(300)",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "referrer": {
+          "name": "referrer",
+          "type": "varchar(200)",
           "primaryKey": false,
           "notNull": false,
           "autoincrement": false

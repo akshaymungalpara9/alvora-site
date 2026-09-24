@@ -151,7 +151,8 @@
     "imageFolder": "marquise-cut-vintage-diamond-ring-with-filigree-details",
     "priceUsd": null,
     "hidden": false,
-    "notes": ""
+    "notes": "",
+    "description": "A marquise lab-grown diamond in a vintage setting with filigree along the gallery."
   },
   "junerings:cove-antique-elongated-cushion": {
     "code": "ALV-R-0013",
@@ -199,14 +200,18 @@
   },
   "carat:dutch-marquise-engagement-ring-with-hidden-filigree-detailing": {
     "code": "ALV-R-0015",
-    "slug": "livia-marquise-heritage",
-    "name": "Livia Marquise Heritage",
+    "slug": "livia-dutch-marquise-heritage",
+    "name": "Livia Dutch Marquise Heritage",
     "collectionName": "Livia",
     "familyKey": "carat:dutch engagement with hidden filigree detailing",
     "imageFolder": "dutch-marquise-engagement-ring-with-hidden-filigree-detailing",
     "priceUsd": null,
     "hidden": false,
-    "notes": ""
+    "notes": "",
+    "description": "A Dutch marquise lab-grown diamond with filigree tucked beneath the stone, seen only from the side of the ring.",
+    "tags": [
+      "dutch-marquise"
+    ]
   },
   "junerings:copy-of-caraway-oval-1": {
     "code": "ALV-R-0016",
@@ -261,7 +266,8 @@
     "imageFolder": "nature-inspired-marquise-diamond-ring-with-secure-leaf-style-prong",
     "priceUsd": null,
     "hidden": false,
-    "notes": ""
+    "notes": "",
+    "description": "A marquise lab-grown diamond held securely by leaf-shaped claws."
   },
   "carat:nature-inspired-oval-diamond-ring-with-leaf-style-prong-setting": {
     "code": "ALV-R-0021",
@@ -298,14 +304,18 @@
   },
   "carat:dutch-marquise-vintage-diamond-engagement-ring": {
     "code": "ALV-R-0024",
-    "slug": "delphine-marquise-heritage",
-    "name": "Delphine Marquise Heritage",
+    "slug": "delphine-dutch-marquise-heritage",
+    "name": "Delphine Dutch Marquise Heritage",
     "collectionName": "Delphine",
     "familyKey": "carat:dutch vintage engagement",
     "imageFolder": "dutch-marquise-vintage-diamond-engagement-ring",
     "priceUsd": null,
     "hidden": false,
-    "notes": ""
+    "notes": "",
+    "description": "A Dutch marquise lab-grown diamond in a vintage-inspired setting, its straight-sided outline held by fine claws.",
+    "tags": [
+      "dutch-marquise"
+    ]
   },
   "junerings:june-solitaire-oval": {
     "code": "ALV-R-0025",
@@ -331,36 +341,48 @@
   },
   "carat:1-3-ct-dutch-marquise-ring-in-milgrain-setting": {
     "code": "ALV-R-0027",
-    "slug": "greer-marquise-heritage",
-    "name": "Greer Marquise Heritage",
+    "slug": "greer-dutch-marquise-heritage",
+    "name": "Greer Dutch Marquise Heritage",
     "collectionName": "Greer",
     "familyKey": "carat:carat dutch milgrain setting",
     "imageFolder": "1-3-ct-dutch-marquise-ring-in-milgrain-setting",
     "priceUsd": null,
     "hidden": false,
-    "notes": ""
+    "notes": "",
+    "description": "A Dutch marquise lab-grown diamond, from 1 to 5 carats, framed by a beaded milgrain edge.",
+    "tags": [
+      "dutch-marquise"
+    ]
   },
   "carat:dutch-marquise-diamond-ring-with-hand-engraved-filigree-design": {
     "code": "ALV-R-0028",
-    "slug": "halia-marquise-heritage",
-    "name": "Halia Marquise Heritage",
+    "slug": "halia-dutch-marquise-heritage",
+    "name": "Halia Dutch Marquise Heritage",
     "collectionName": "Halia",
     "familyKey": "carat:dutch with hand engraved filigree design",
     "imageFolder": "dutch-marquise-diamond-ring-with-hand-engraved-filigree-design",
     "priceUsd": null,
     "hidden": false,
-    "notes": ""
+    "notes": "",
+    "description": "A Dutch marquise lab-grown diamond on a band with hand-engraved filigree.",
+    "tags": [
+      "dutch-marquise"
+    ]
   },
   "carat:nature-inspired-dutch-marquise-engagement-ring-in-sunflower-design": {
     "code": "ALV-R-0029",
-    "slug": "isolde-marquise-heritage",
-    "name": "Isolde Marquise Heritage",
+    "slug": "isolde-dutch-marquise-heritage",
+    "name": "Isolde Dutch Marquise Heritage",
     "collectionName": "Isolde",
     "familyKey": "carat:nature inspired dutch engagement sunflower design",
     "imageFolder": "nature-inspired-dutch-marquise-engagement-ring-in-sunflower-design",
     "priceUsd": null,
     "hidden": false,
-    "notes": ""
+    "notes": "",
+    "description": "A Dutch marquise lab-grown diamond in a nature-inspired sunflower setting.",
+    "tags": [
+      "dutch-marquise"
+    ]
   },
   "junerings:irving-elongated-cushion": {
     "code": "ALV-R-0030",
@@ -393,18 +415,23 @@
     "imageFolder": "muse-style-marquise-diamond-ring-with-tulip-setting",
     "priceUsd": null,
     "hidden": false,
-    "notes": ""
+    "notes": "",
+    "description": "A marquise lab-grown diamond held in a petal-like tulip setting."
   },
   "carat:art-deco-dutch-marquise-ring-in-milgrain-details": {
     "code": "ALV-R-0032",
-    "slug": "mireille-marquise-heritage",
-    "name": "Mireille Marquise Heritage",
+    "slug": "mireille-dutch-marquise-heritage",
+    "name": "Mireille Dutch Marquise Heritage",
     "collectionName": "Mireille",
     "familyKey": "carat:art deco dutch milgrain details",
     "imageFolder": "art-deco-dutch-marquise-ring-in-milgrain-details",
     "priceUsd": null,
     "hidden": false,
-    "notes": ""
+    "notes": "",
+    "description": "A Dutch marquise lab-grown diamond in an Art Deco setting finished with milgrain.",
+    "tags": [
+      "dutch-marquise"
+    ]
   },
   "pooja:1-to-5-ct-contemporary-lab-grown-oval-cut-diamond-luna-east-west-bezel-solitaire-ring-in-10k-14k-18k-gold-pooja-diamond-igi-certified-lab-diamond": {
     "code": "ALV-R-0033",
@@ -595,14 +622,18 @@
   },
   "carat:dutch-marquise-ring-with-kite-and-round-side-stones": {
     "code": "ALV-R-0043",
-    "slug": "gisele-marquise-heritage",
-    "name": "Gisele Marquise Heritage",
+    "slug": "gisele-dutch-marquise-heritage",
+    "name": "Gisele Dutch Marquise Heritage",
     "collectionName": "Gisele",
     "familyKey": "carat:dutch with kite and side stones",
     "imageFolder": "dutch-marquise-ring-with-kite-and-round-side-stones",
     "priceUsd": null,
     "hidden": false,
-    "notes": ""
+    "notes": "",
+    "description": "A Dutch marquise lab-grown diamond flanked by kite-shaped and round side stones.",
+    "tags": [
+      "dutch-marquise"
+    ]
   },
   "carat:halo-design-libra-pendant-in-white-gold": {
     "code": "ALV-P-0008",
@@ -723,7 +754,8 @@
     "imageFolder": "marquise-cut-diamond-ring-with-hidden-flower-crown",
     "priceUsd": null,
     "hidden": false,
-    "notes": ""
+    "notes": "",
+    "description": "A marquise lab-grown diamond with a small flower crown hidden beneath the stone."
   },
   "carat:oval-diamond-earrings-yellow-gold": {
     "code": "ALV-E-0007",
@@ -760,14 +792,18 @@
   },
   "carat:dutch-marquise-diamond-ring-with-autumn-leaf-style-prongs": {
     "code": "ALV-R-0050",
-    "slug": "dione-marquise-heritage",
-    "name": "Dione Marquise Heritage",
+    "slug": "dione-dutch-marquise-heritage",
+    "name": "Dione Dutch Marquise Heritage",
     "collectionName": "Dione",
     "familyKey": "carat:dutch with autumn leaf style prongs",
     "imageFolder": "dutch-marquise-diamond-ring-with-autumn-leaf-style-prongs",
     "priceUsd": null,
     "hidden": false,
-    "notes": ""
+    "notes": "",
+    "description": "A Dutch marquise lab-grown diamond held by claws shaped like autumn leaves.",
+    "tags": [
+      "dutch-marquise"
+    ]
   },
   "carat:oval-cut-nature-inspired-engagement-ring-in-euro-shank": {
     "code": "ALV-R-0051",

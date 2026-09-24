@@ -38,6 +38,9 @@ export const jewelleryEnquiryInput = z.object({
   preferredTime: optionalText(160),
   budget: optionalText(60),
   message: z.string().max(6000).optional().transform((value) => value?.trim().slice(0, 3000) || undefined),
+  // Attribution: the first page of the visit and the external referrer host.
+  landingPage: optionalText(300).transform((value) => (value && value.startsWith("/") ? value : undefined)),
+  referrer: optionalText(200),
 });
 
 export const jewelleryRouter = router({
