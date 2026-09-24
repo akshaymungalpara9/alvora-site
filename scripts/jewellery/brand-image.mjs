@@ -5,7 +5,7 @@
  *
  * Used by build-catalog.mjs for every jewellery photo, and usable on its own:
  *
- *   pnpm brand:image <input> [<input> ...] --out <dir> [--size 1400]
+ *   pnpm brand:image <photo or folder> [...] --out <folder> [--size 1400] [--keep-background]
  *
  * Output is square WebP with all source metadata stripped, so no partner
  * EXIF, IPTC or filenames travel with the file.
@@ -32,6 +32,15 @@ export const BRAND_IMAGE_STYLE = {
   logoWidth: 0.13, // full lock-up width as a share of the canvas
   margin: 0.035, // distance of the watermark from the edges
   ink: "#1b1a18",
+  // Plain white/light-grey studio backgrounds are swapped for the ivory
+  // backdrop. Only light pixels connected to the photo's edge are replaced,
+  // so white diamonds and highlights inside the piece are left untouched.
+  replaceBackground: true,
+  backgroundMinLightness: 232, // 0–255; lower replaces greyer backgrounds too
+  backgroundMaxTint: 16, // max spread between colour channels counted as "neutral"
+  enclosedBackgroundMinArea: 0.015, // enclosed plain areas larger than this share of the photo are background too…
+  enclosedToneTolerance: 1.5, // …if their average tone is within this of the edge background…
+  enclosedMaxSpread: 1.2, // …and they are as smooth as a studio backdrop
 };
 
 function backdropSvg(size, style) {
@@ -84,16 +93,111 @@ async function logoBuffer(size, style) {
 }
 
 /**
+ * Make the plain studio background transparent: flood-fill from the photo's
+ * edges across near-white, neutral pixels, then soften the mask edge so the
+ * piece blends into the ivory backdrop without a halo. Photos whose edges are
+ * not light (lifestyle shots, hands) come back unchanged.
+ */
+async function knockOutBackground({ data, info }, style) {
+  const { width, height, channels } = info;
+  const isBackground = (i) => {
+    const r = data[i], g = data[i + 1], b = data[i + 2];
+    const min = Math.min(r, g, b);
+    return min >= style.backgroundMinLightness && Math.max(r, g, b) - min <= style.backgroundMaxTint;
+  };
+  const mask = new Uint8Array(width * height); // 255 = background
+  const queue = new Int32Array(width * height);
+  let head = 0;
+  let tail = 0;
+  const seed = (x, y) => {
+    const p = y * width + x;
+    if (!mask[p] && isBackground(p * channels)) {
+      mask[p] = 255;
+      queue[tail++] = p;
+    }
+  };
+  for (let x = 0; x < width; x += 1) { seed(x, 0); seed(x, height - 1); }
+  for (let y = 0; y < height; y += 1) { seed(0, y); seed(width - 1, y); }
+  while (head < tail) {
+    const p = queue[head++];
+    const x = p % width;
+    const y = (p - x) / width;
+    if (x > 0) seed(x - 1, y);
+    if (x < width - 1) seed(x + 1, y);
+    if (y > 0) seed(x, y - 1);
+    if (y < height - 1) seed(x, y + 1);
+  }
+  // Less than ~2% of the frame touched: no studio background, keep the photo as-is.
+  if (tail < width * height * 0.02) {
+    return sharp(data, { raw: info }).png().toBuffer({ resolveWithObject: true });
+  }
+  // Enclosed studio background (the hole inside a ring band): large, smooth
+  // near-white areas not reached from the edge. Diamond facets are broken up
+  // by facet lines into small patches, so they stay well under this size.
+  const minEnclosed = Math.round(width * height * style.enclosedBackgroundMinArea);
+  let edgeSum = 0;
+  for (let k = 0; k < tail; k += 1) {
+    const i = queue[k] * channels;
+    edgeSum += (data[i] + data[i + 1] + data[i + 2]) / 3;
+  }
+  const edgeTone = edgeSum / tail;
+  const visited = new Uint8Array(width * height);
+  for (let start = 0; start < width * height; start += 1) {
+    if (mask[start] || visited[start] || !isBackground(start * channels)) continue;
+    const component = [];
+    visited[start] = 1;
+    component.push(start);
+    for (let k = 0; k < component.length; k += 1) {
+      const p = component[k];
+      const x = p % width;
+      const y = (p - x) / width;
+      for (const q of [x > 0 ? p - 1 : -1, x < width - 1 ? p + 1 : -1, y > 0 ? p - width : -1, y < height - 1 ? p + width : -1]) {
+        if (q >= 0 && !visited[q] && !mask[q] && isBackground(q * channels)) {
+          visited[q] = 1;
+          component.push(q);
+        }
+      }
+    }
+    if (component.length < minEnclosed) continue;
+    // Must match the studio backdrop's own tone and be smooth like it;
+    // a flat bright facet in a different tone is kept.
+    let sum = 0;
+    let sumSq = 0;
+    for (const p of component) {
+      const v = data[p * channels] + data[p * channels + 1] + data[p * channels + 2];
+      sum += v;
+      sumSq += v * v;
+    }
+    const mean = sum / component.length / 3;
+    const spread = Math.sqrt(Math.max(0, sumSq / component.length - (sum / component.length) ** 2)) / 3;
+    if (Math.abs(mean - edgeTone) <= style.enclosedToneTolerance && spread <= style.enclosedMaxSpread) {
+      for (const p of component) mask[p] = 255;
+    }
+  }
+  if (false) {
+    return sharp(data, { raw: info }).png().toBuffer({ resolveWithObject: true });
+  }
+  const softMask = await sharp(mask, { raw: { width, height, channels: 1 } }).blur(1.2).extractChannel(0).raw().toBuffer();
+  const rgba = Buffer.alloc(width * height * 4);
+  for (let p = 0; p < width * height; p += 1) {
+    rgba[p * 4] = data[p * channels];
+    rgba[p * 4 + 1] = data[p * channels + 1];
+    rgba[p * 4 + 2] = data[p * channels + 2];
+    rgba[p * 4 + 3] = 255 - softMask[p];
+  }
+  return sharp(rgba, { raw: { width, height, channels: 4 } }).png().toBuffer({ resolveWithObject: true });
+}
+
+/**
  * Render one branded square image and return a sharp pipeline ready for output.
  * `source` may be a path or a Buffer.
  */
 export async function brandImage(source, size, style = BRAND_IMAGE_STYLE) {
   const inner = Math.round(size * (1 - style.framePadding * 2));
-  const photo = await sharp(source)
-    .rotate()
-    .resize({ width: inner, height: inner, fit: "inside", withoutEnlargement: false })
-    .flatten({ background: style.backdropCentre })
-    .toBuffer({ resolveWithObject: true });
+  const resized = sharp(source).rotate().resize({ width: inner, height: inner, fit: "inside", withoutEnlargement: false });
+  const photo = style.replaceBackground
+    ? await knockOutBackground(await resized.flatten({ background: "#ffffff" }).raw().toBuffer({ resolveWithObject: true }), style)
+    : await resized.flatten({ background: style.backdropCentre }).png().toBuffer({ resolveWithObject: true });
 
   const margin = Math.round(size * style.margin);
   const photoLayer = { input: photo.data, left: Math.round((size - photo.info.width) / 2), top: Math.round((size - photo.info.height) / 2) };
@@ -119,23 +223,59 @@ export async function brandImage(source, size, style = BRAND_IMAGE_STYLE) {
     .webp({ quality: 82 });
 }
 
+const IMAGE_FILE = /\.(jpe?g|png|webp|tiff?|avif|heic)$/i;
+
+/** Expand folders (recursively) into image files, keeping the given order. */
+function collectInputs(inputs) {
+  const files = [];
+  for (const input of inputs) {
+    const full = path.resolve(input);
+    if (fs.existsSync(full) && fs.statSync(full).isDirectory()) {
+      const walk = (dir) => {
+        for (const entry of fs.readdirSync(dir, { withFileTypes: true }).sort((a, b) => a.name.localeCompare(b.name, undefined, { numeric: true }))) {
+          const child = path.join(dir, entry.name);
+          if (entry.isDirectory()) walk(child);
+          else if (IMAGE_FILE.test(entry.name)) files.push({ file: child, relative: path.relative(full, child) });
+        }
+      };
+      walk(full);
+    } else if (IMAGE_FILE.test(full)) {
+      files.push({ file: full, relative: path.basename(full) });
+    } else {
+      console.warn(`Skipping ${input}: not an image or folder`);
+    }
+  }
+  return files;
+}
+
 async function cli() {
   const args = process.argv.slice(2);
   const outIndex = args.indexOf("--out");
   const sizeIndex = args.indexOf("--size");
-  if (outIndex === -1 || args.length < 3) {
-    console.error("Usage: pnpm brand:image <input> [<input> ...] --out <dir> [--size 1400]");
+  const keepBackground = args.includes("--keep-background");
+  const inputs = args.filter((arg, i) => arg !== "--keep-background" && ![outIndex, outIndex + 1, sizeIndex, sizeIndex + 1].includes(i));
+  if (outIndex === -1 || !inputs.length) {
+    console.error("Usage: pnpm brand:image <photo or folder> [...] --out <folder> [--size 1400] [--keep-background]");
     process.exit(1);
   }
   const outDir = path.resolve(args[outIndex + 1]);
   const size = sizeIndex === -1 ? 1400 : Number(args[sizeIndex + 1]);
-  const inputs = args.filter((_, i) => ![outIndex, outIndex + 1, sizeIndex, sizeIndex + 1].includes(i));
-  fs.mkdirSync(outDir, { recursive: true });
-  for (const [index, input] of inputs.entries()) {
-    const out = path.join(outDir, `alvora-${String(index + 1).padStart(2, "0")}.webp`);
-    await (await brandImage(input, size)).toFile(out);
-    console.log(`${input} → ${out}`);
+  const style = { ...BRAND_IMAGE_STYLE, replaceBackground: !keepBackground };
+  const files = collectInputs(inputs);
+  let done = 0;
+  for (const { file, relative } of files) {
+    // Mirror sub-folders; every output is a .webp named after its source.
+    const out = path.join(outDir, relative.replace(/\.[^.]+$/, ".webp"));
+    fs.mkdirSync(path.dirname(out), { recursive: true });
+    try {
+      await (await brandImage(file, size, style)).toFile(out);
+      done += 1;
+      console.log(`✓ ${relative}`);
+    } catch (error) {
+      console.error(`✗ ${relative}: ${error.message}`);
+    }
   }
+  console.log(`\n${done} of ${files.length} photos branded → ${outDir}`);
 }
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {

@@ -26,6 +26,17 @@ Every photo is framed on an ivory background, gets the Alvora watermark, is rena
 
 Pieces whose photo folder could not be matched are listed in `data/jewellery/import-report.txt`. To fix one, set `imageFolder` for that piece in `data/jewellery/pieces.json` to the right folder name and run the command again.
 
+**Branding any photos (one command):**
+```
+pnpm brand:image path/to/folder --out path/to/output-folder
+```
+This handles a whole folder, including sub-folders. Each photo gets:
+- the soft ivory background (plain white or grey studio backgrounds are swapped for it, while diamonds and lifestyle photos are left alone)
+- the Alvora watermark
+- its hidden file details removed
+
+Add `--keep-background` to skip the background swap, or `--size 2000` for larger files.
+
 **Watermark logo:** save your logo (the version with the ALVORA wordmark underneath) as `client/public/assets/brand/alvora-logo.png`. The watermark then uses it automatically. You can also brand any single photo with `pnpm brand:image photo.jpg --out some-folder`.
 
 ## Names, prices and hiding a piece
