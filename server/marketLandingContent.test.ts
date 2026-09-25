@@ -14,12 +14,25 @@ describe("localized market landing content", () => {
   it("keeps Italian terminology and the North American country-to-market mapping explicit", () => {
     const italianCopy = JSON.stringify(marketLandingContent.it).toLowerCase();
     expect(italianCopy).toContain("diamanti sintetici");
-    expect(marketLandingContent.us.northAmerica?.countries).toEqual([["United States", "US"], ["Canada", "CA"]]);
+    expect(marketLandingContent.us.delivery?.countries).toEqual([["United States", "US"], ["Canada", "CA"]]);
   });
 
-  it("keeps the owner-provided experience and dispatch proof points across public market variants", () => {
-    expect(marketLandingContent.fr.heritage.numbers.slice(0, 2)).toEqual([["25+", "ans d’expérience"], ["10 000+", "pierres expédiées"]]);
-    expect(marketLandingContent.it.heritage.numbers.slice(0, 2)).toEqual([["25+", "anni di esperienza"], ["10.000+", "pietre spedite"]]);
-    expect(marketLandingContent.us.heritage.numbers.slice(0, 2)).toEqual([["25+", "years of experience"], ["10,000+", "stones dispatched"]]);
+  it("keeps verified stock and lead-time proof points across public market variants", () => {
+    expect(marketLandingContent.fr.heritage.numbers.slice(0, 2)).toEqual([["3 185", "pierres certifiées en stock actuel"], ["5-10", "jours ouvrés pour une fabrication sur spécification"]]);
+    expect(marketLandingContent.it.heritage.numbers.slice(0, 2)).toEqual([["3.185", "pietre certificate in stock attuale"], ["5-10", "giorni lavorativi per una lavorazione su specifica"]]);
+    expect(marketLandingContent.us.heritage.numbers.slice(0, 2)).toEqual([["3,185", "certified stones in current stock"], ["5-10", "working days for a spec make"]]);
+  });
+
+  it("serves the Canada, UK, Germany and Australia market variants with a delivery panel and country-mapped brief", () => {
+    expect(marketLandingContent.ca.market).toBe("CA");
+    expect(marketLandingContent.uk.market).toBe("UK");
+    expect(marketLandingContent.de.market).toBe("DE");
+    expect(marketLandingContent.au.market).toBe("AU");
+    for (const variant of ["ca", "uk", "de", "au"] as const) {
+      expect(marketLandingContent[variant].delivery?.countries).toHaveLength(1);
+      expect(marketLandingContent[variant].lang).toBe("en");
+      const copyWithoutAllowed = JSON.stringify(marketLandingContent[variant]).replace(/100%/g, "").replace(/0% MFN duty/g, "");
+      expect(copyWithoutAllowed).not.toMatch(/\d+(\.\d+)?%/);
+    }
   });
 });

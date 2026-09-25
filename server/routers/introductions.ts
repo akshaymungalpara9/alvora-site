@@ -9,7 +9,7 @@ const introductionInput = z.object({
   jewellerName: z.string().trim().min(2).max(180),
   company: z.string().trim().max(180).optional().transform((value) => value || undefined),
   workEmail: z.string().trim().email().max(320).optional().or(z.literal("")).transform((value) => value ? value.toLowerCase() : undefined),
-  market: z.enum(["GLOBAL", "FR", "IT", "US", "CA"]).default("GLOBAL"),
+  market: z.enum(["GLOBAL", "FR", "IT", "US", "CA", "UK", "DE", "AU"]).default("GLOBAL"),
   note: z.string().trim().max(2000).optional().transform((value) => value || undefined),
 });
 

@@ -49,7 +49,7 @@ async function requireDb() {
 
 const compactBand = (items: string[]) => items.map((item) => item.trim().toUpperCase()).filter(Boolean).join(",");
 export const expandBand = (value: string) => value.split(",").map((item) => item.trim()).filter(Boolean);
-export const productionBriefMarketCodes = ["GLOBAL", "FR", "IT", "US", "CA"] as const;
+export const productionBriefMarketCodes = ["GLOBAL", "FR", "IT", "US", "CA", "UK", "DE", "AU"] as const;
 
 export function summarizeProductionBriefMarkets(briefRows: Pick<ProductionBrief, "market" | "followUpStatus" | "alertStatus">[]) {
   return Object.fromEntries(productionBriefMarketCodes.map((market) => {
@@ -504,7 +504,7 @@ export async function listPrivateRequests() {
 
 export type ProductionBriefInput = {
   requestType: string;
-  market: "GLOBAL" | "FR" | "IT" | "US" | "CA";
+  market: "GLOBAL" | "FR" | "IT" | "US" | "CA" | "UK" | "DE" | "AU";
   contactName: string;
   email: string;
   company?: string;
@@ -627,7 +627,7 @@ export async function createTradeIntroduction(input: {
   jewellerName: string;
   company?: string;
   workEmail?: string;
-  market: "GLOBAL" | "FR" | "IT" | "US" | "CA";
+  market: "GLOBAL" | "FR" | "IT" | "US" | "CA" | "UK" | "DE" | "AU";
   note?: string;
 }) {
   const db = await requireDb();

@@ -20,6 +20,15 @@ Matched Pair Lab-Grown Diamonds: /matched-pair-diamonds
 Wholesale Lab-Grown Melee Diamonds: /melee-diamonds
 Request a Lab-Grown Diamond Wholesale Quote: /request-a-quote
 
+Market pages
+United States and Canada: /us
+Canada: /ca
+United Kingdom: /uk
+Germany and the EU: /de
+Australia: /au
+France (French): /fr
+Italy (Italian): /it
+
 PAA pages
 Are Lab-Grown Diamonds Real Diamonds?: /insights/are-lab-grown-diamonds-real-diamonds
 Which Lab-Grown Diamond Manufacturer Is Best? (It Depends What You're Buying): /insights/best-lab-grown-diamond-manufacturer-for-your-need

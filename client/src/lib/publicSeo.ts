@@ -1,4 +1,4 @@
-export type PublicSeoLocale = "global" | "fr" | "it" | "us";
+export type PublicSeoLocale = "global" | "fr" | "it" | "us" | "ca" | "uk" | "de" | "au";
 
 export type PublicDocumentMetadata = { lang: string; path: string; title: string; description: string; robots?: string };
 export const publicSocialImage = "/assets/alvora-og.jpg";
@@ -8,40 +8,68 @@ export const publicSeo = {
   global: {
     lang: "en",
     path: "/trade",
-    title: "Alvora — Lab-Grown Diamond Manufacturers, Surat",
+    title: "Alvora | Lab-Grown Diamond Manufacturers, Surat",
     description: "Alvora is a Surat lab-grown diamond manufacturer making certified, calibrated diamonds, matched layouts, and custom cuts to exact specification.",
   },
   fr: {
     lang: "fr",
     path: "/fr",
-    title: "Alvora — Fabricant de diamants synthétiques à Surat",
+    title: "Alvora | Fabricant de diamants synthétiques à Surat",
     description: "Alvora fabrique à Surat des diamants synthétiques certifiés et calibrés, des assortiments et des fabrications sur mesure pour les équipes joaillières.",
   },
   it: {
     lang: "it",
     path: "/it",
-    title: "Alvora — Produttori di diamanti sintetici, Surat",
+    title: "Alvora | Produttori di diamanti sintetici, Surat",
     description: "Alvora realizza a Surat diamanti sintetici certificati e calibrati, lotti abbinati e lavorazioni su specifica per la gioielleria.",
   },
   us: {
     lang: "en-US",
     path: "/us",
-    title: "Alvora — Lab-Grown Diamond Manufacturing for US & Canada",
+    title: "Alvora | Lab-Grown Diamond Manufacturing for US & Canada",
     description: "Alvora makes certified, calibrated lab-grown diamonds in Surat for North American jewellery teams, with clear US and Canada delivery guidance.",
+  },
+  ca: {
+    lang: "en-CA",
+    path: "/ca",
+    title: "Alvora | Lab-Grown Diamond Manufacturer for Canada",
+    description: "Alvora makes certified, calibrated lab-grown diamonds in Surat for Canadian jewellery brands, wholesalers and manufacturers, with clear Canada delivery guidance.",
+  },
+  uk: {
+    lang: "en-GB",
+    path: "/uk",
+    title: "Alvora | Lab-Grown Diamond Manufacturer for the UK",
+    description: "Alvora makes certified, calibrated lab-grown diamonds in Surat for British jewellery brands, wholesalers and manufacturers, with clear UK delivery guidance.",
+  },
+  de: {
+    lang: "en-DE",
+    path: "/de",
+    title: "Alvora | Lab-Grown Diamond Manufacturer for Germany",
+    description: "Alvora makes certified, calibrated lab-grown diamonds in Surat for German jewellery brands, wholesalers and manufacturers, with clear delivery guidance for Germany and the EU.",
+  },
+  au: {
+    lang: "en-AU",
+    path: "/au",
+    title: "Alvora | Lab-Grown Diamond Manufacturer for Australia",
+    description: "Alvora makes certified, calibrated lab-grown diamonds in Surat for Australian jewellery brands, wholesalers and manufacturers, with clear Australia delivery guidance.",
   },
 } satisfies Record<PublicSeoLocale, PublicDocumentMetadata>;
 
 export const availabilitySeo = {
-  global: { lang: "en", path: "/availability", title: "Current Production Availability — Alvora", description: "Browse Alvora's current Fancy Colour and White diamond production. View IGI-certified make details and request price or a hold directly from the stone." },
-  fr: { lang: "fr", path: "/fr/availability", title: "Disponibilités de production — Alvora", description: "Découvrez la production actuelle de diamants synthétiques Alvora, en couleurs fantaisie et blancs, avec détails de fabrication et vérification IGI." },
-  it: { lang: "it", path: "/it/availability", title: "Disponibilità di produzione — Alvora", description: "Consulta la produzione attuale di diamanti sintetici Alvora, colori Fancy e bianchi, con dettagli di lavorazione e verifica IGI." },
-  us: { lang: "en-US", path: "/availability", title: "Current Production Availability — Alvora", description: "Browse Alvora's current Fancy Colour and White diamond production with IGI-certified make details." },
+  global: { lang: "en", path: "/availability", title: "Current Production Availability | Alvora", description: "Browse Alvora's current Fancy Colour and White diamond production. View IGI-certified make details and request price or a hold directly from the stone." },
+  fr: { lang: "fr", path: "/fr/availability", title: "Disponibilités de production | Alvora", description: "Découvrez la production actuelle de diamants synthétiques Alvora, en couleurs fantaisie et blancs, avec détails de fabrication et vérification IGI." },
+  it: { lang: "it", path: "/it/availability", title: "Disponibilità di produzione | Alvora", description: "Consulta la produzione attuale di diamanti sintetici Alvora, colori Fancy e bianchi, con dettagli di lavorazione e verifica IGI." },
+  us: { lang: "en-US", path: "/availability", title: "Current Production Availability | Alvora", description: "Browse Alvora's current Fancy Colour and White diamond production with IGI-certified make details." },
+  ca: { lang: "en-CA", path: "/availability", title: "Current Production Availability | Alvora", description: "Browse Alvora's current Fancy Colour and White diamond production with IGI-certified make details." },
+  uk: { lang: "en-GB", path: "/availability", title: "Current Production Availability | Alvora", description: "Browse Alvora's current Fancy Colour and White diamond production with IGI-certified make details." },
+  de: { lang: "en-DE", path: "/availability", title: "Current Production Availability | Alvora", description: "Browse Alvora's current Fancy Colour and White diamond production with IGI-certified make details." },
+  au: { lang: "en-AU", path: "/availability", title: "Current Production Availability | Alvora", description: "Browse Alvora's current Fancy Colour and White diamond production with IGI-certified make details." },
 } satisfies Record<PublicSeoLocale, PublicDocumentMetadata>;
 
-const alternateLanguage = { global: "en", fr: "fr", it: "it", us: "en-US" } satisfies Record<PublicSeoLocale, string>;
+const alternateLanguage = { global: "en", fr: "fr", it: "it", us: "en-US", ca: "en-CA", uk: "en-GB", de: "en-DE", au: "en-AU" } satisfies Record<PublicSeoLocale, string>;
 
 function langToOgLocale(lang: string): string {
-  const map: Record<string, string> = { en: "en_US", "en-US": "en_US", fr: "fr_FR", it: "it_IT" };
+  const map: Record<string, string> = { en: "en_US", "en-US": "en_US", fr: "fr_FR", it: "it_IT", "en-CA": "en_CA", "en-GB": "en_GB", "en-DE": "en_DE", "en-AU": "en_AU" };
   return map[lang] ?? "en_US";
 }
 
