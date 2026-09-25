@@ -111,6 +111,10 @@
 .jp-details div { display: grid; grid-template-columns: 130px 1fr; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--jw-rule); font-size: 0.86rem; }
 .jp-details dt { color: var(--jw-muted); font-family: var(--jw-mono); font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; }
 .jp-details dd { margin: 0; color: var(--jw-ink); }
+.jp-story { max-width: 720px; margin: 0 auto; padding: 72px var(--jw-gutter) 64px; }
+.jp-story .jw-eyebrow, .jp-story h2 { text-align: center; justify-content: center; }
+.jp-story h2 { font-family: var(--jw-serif); font-weight: 400; font-size: clamp(1.9rem, 3.4vw, 2.6rem); margin: 10px 0 22px; }
+.jp-story p:not(.jw-eyebrow) { color: var(--jw-ink-soft, #3d3a35); font-size: 1rem; line-height: 1.75; margin: 0 0 16px; }
 .jp-enquire { display: grid; grid-template-columns: minmax(220px, 0.7fr) minmax(0, 1.3fr); gap: 48px; padding: 80px var(--jw-gutter); border-bottom: 1px solid var(--jw-rule); background: var(--jw-card); scroll-margin-top: 90px; }
 .jp-enquire h2 { margin: 0 0 14px; font-family: var(--jw-serif); font-size: clamp(2rem, 3.4vw, 3rem); font-weight: 500; letter-spacing: -0.03em; }
 .jp-enquire > div > p:not(.jw-eyebrow) { max-width: 360px; color: var(--jw-ink2); line-height: 1.7; }

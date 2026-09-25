@@ -34,6 +34,16 @@ before big changes, and end each work session with a short summary.
   `pnpm jewellery:images` (also processes photos). Report:
   `data/jewellery/import-report.txt`. See `JEWELLERY_RUNBOOK.md`.
 
+## Centre stone (engagement rings, necklaces & pendants)
+- Owner-confirmed standard (2026-09-25): E colour, VS1 clarity, Excellent cut;
+  customer chooses 0.5–6 ct. Lives in `shared/jewellery/centreStone.ts`
+  (options, spec rows, "Your centre stone" story, meta/JSON-LD summary).
+- Cut wording: "Excellent cut" for rounds; "Excellent polish and symmetry" for
+  fancy shapes (labs grade cut on rounds only). Colour grade only for white
+  diamonds; coloured stones show their colour.
+- Ethical copy stays factual: grown not mined, a real diamond, cut in Surat.
+  No "eco-friendly"/"sustainable" claims (not substantiated).
+
 ## Photos
 - Raw photos (git-ignored): `data/jewellery/raw-images/<partner>-images/<handle>/`
   where partner dir is `junerings-images`, `poojadiamond-images` or

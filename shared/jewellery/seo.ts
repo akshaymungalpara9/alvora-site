@@ -2,6 +2,7 @@
  * Titles and descriptions for the jewellery routes. Shared by the server
  * (initial HTML for crawlers) and the client (SPA navigation) so both agree.
  */
+import { centreStoneSummary, hasCentreStone } from "./centreStone";
 import type { JewelleryPiece } from "./catalog";
 import { shapeContentFor } from "./editorial";
 
@@ -78,12 +79,13 @@ export function shapePageMeta(shape: string, label: string): JewelleryRouteMeta 
   };
 }
 
-export function pieceMeta(piece: Pick<JewelleryPiece, "name" | "description" | "fromPriceUsd" | "shapeLabel" | "styleLabel">): JewelleryRouteMeta {
+export function pieceMeta(piece: Pick<JewelleryPiece, "name" | "description" | "fromPriceUsd" | "shapeLabel" | "styleLabel" | "category" | "collections" | "shape" | "stoneColourLabel">): JewelleryRouteMeta {
   const price = piece.fromPriceUsd != null ? ` From $${piece.fromPriceUsd.toLocaleString("en-US")}.` : "";
+  const stone = hasCentreStone(piece) ? ` ${centreStoneSummary(piece)}` : "";
   return {
     title: `${piece.name} | Alvora`,
     // Leading with the name keeps descriptions unique across similar designs.
-    description: `The ${piece.name}: ${piece.description.charAt(0).toLowerCase()}${piece.description.slice(1)}${price} Choose your metal and size, then enquire.`.slice(0, 300),
+    description: `The ${piece.name}: ${piece.description.charAt(0).toLowerCase()}${piece.description.slice(1)}${stone}${price} Choose your metal and size, then enquire.`.slice(0, 300),
   };
 }
 
