@@ -65,17 +65,21 @@ function buildOrgJsonLd(origin: string) {
       {
         "@type": "Organization",
         "@id": `${origin}/#organization`,
-        name: "Alvora",
+        name: "Alvora Diamonds",
+        alternateName: "Alvora",
         url: `${origin}/`,
         logo: `${origin}/assets/alvora-faceted-a.webp`,
         description:
           "Alvora is a Surat lab-grown diamond manufacturer making certified, calibrated diamonds, matched layouts, and custom cuts to exact specification.",
+        // Only profiles verified to exist may be listed here (owner decision D2, 2026-09-26). Empty until then; do not add directories to fill the array.
         sameAs: [],
       },
       {
         "@type": "LocalBusiness",
         "@id": `${origin}/#business`,
-        name: "Alvora",
+        name: "Alvora Diamonds",
+        alternateName: "Alvora",
+        parentOrganization: { "@id": `${origin}/#organization` },
         url: `${origin}/`,
         address: {
           "@type": "PostalAddress",
@@ -100,15 +104,112 @@ function buildOrgJsonLd(origin: string) {
   };
 }
 
-function mkArticle(origin: string, path: string, headline: string, description: string) {
+/** Real publication dates from each article's frontmatter, so markup stops reporting one flat date. */
+const ARTICLE_DATES: Record<string, { published: string; modified: string }> = {
+  "/insights/12-questions-to-ask-a-manufacturer": {
+    "published": "\"2026-09-01\"",
+    "modified": "\"2026-09-01\""
+  },
+  "/insights/12-questions-to-ask-before-your-first-lab-grown-order": {
+    "published": "\"2026-09-10\"",
+    "modified": "\"2026-09-10\""
+  },
+  "/insights/are-lab-grown-diamonds-real-diamonds": {
+    "published": "\"2026-09-01\"",
+    "modified": "\"2026-09-01\""
+  },
+  "/insights/best-lab-grown-diamond-manufacturer-for-your-need": {
+    "published": "\"2026-09-01\"",
+    "modified": "\"2026-09-01\""
+  },
+  "/insights/calibrated-diamond-layouts-explained": {
+    "published": "\"2026-09-01\"",
+    "modified": "\"2026-09-01\""
+  },
+  "/insights/cvd-vs-hpht-lab-grown-diamonds": {
+    "published": "\"2026-09-01\"",
+    "modified": "\"2026-09-01\""
+  },
+  "/insights/fluorescence-and-bgm-lab-grown-diamonds": {
+    "published": "\"2026-09-25\"",
+    "modified": "\"2026-09-25\""
+  },
+  "/insights/how-to-spec-a-calibrated-parcel": {
+    "published": "\"2026-09-10\"",
+    "modified": "\"2026-09-10\""
+  },
+  "/insights/how-to-verify-an-igi-lab-grown-report": {
+    "published": "\"2026-09-25\"",
+    "modified": "\"2026-09-25\""
+  },
+  "/insights/igi-vs-gia-vs-sgl-lab-grown-diamonds": {
+    "published": "\"2026-09-10\"",
+    "modified": "\"2026-09-10\""
+  },
+  "/insights/import-duty-lc-terms-lab-grown-diamonds": {
+    "published": "\"2026-09-10\"",
+    "modified": "\"2026-09-10\""
+  },
+  "/insights/importing-lab-grown-diamonds-from-india": {
+    "published": "\"2026-09-25\"",
+    "modified": "\"2026-09-25\""
+  },
+  "/insights/is-a-lab-grown-diamond-worth-it": {
+    "published": "\"2026-09-01\"",
+    "modified": "\"2026-09-01\""
+  },
+  "/insights/lab-grown-diamond-price-per-carat": {
+    "published": "\"2026-09-01\"",
+    "modified": "\"2026-09-01\""
+  },
+  "/insights/lab-grown-diamond-wholesale-how-to-buy": {
+    "published": "\"2026-09-01\"",
+    "modified": "\"2026-09-01\""
+  },
+  "/insights/lab-grown-diamond-wholesale-price-trends-2026": {
+    "published": "\"2026-09-10\"",
+    "modified": "\"2026-09-10\""
+  },
+  "/insights/largest-lab-grown-diamond-manufacturers-india": {
+    "published": "\"2026-09-01\"",
+    "modified": "\"2026-09-01\""
+  },
+  "/insights/matched-pairs-vs-melee-vs-layouts": {
+    "published": "\"2026-09-01\"",
+    "modified": "\"2026-09-01\""
+  },
+  "/insights/melee-vs-solitaire-moq-realities": {
+    "published": "\"2026-09-10\"",
+    "modified": "\"2026-09-10\""
+  },
+  "/insights/reading-a-matched-layout-tolerance-sheet": {
+    "published": "\"2026-09-10\"",
+    "modified": "\"2026-09-10\""
+  },
+  "/insights/sourcing-lab-grown-diamonds-from-surat": {
+    "published": "\"2026-09-01\"",
+    "modified": "\"2026-09-01\""
+  },
+  "/insights/sourcing-lab-grown-diamonds-us-retailer": {
+    "published": "\"2026-09-10\"",
+    "modified": "\"2026-09-10\""
+  }
+};
+
+function mkArticle(origin: string, path: string, headline: string, description: string, dates?: { published: string; modified: string }) {
+  const datePublished = dates?.published ?? "2026-09-01";
   return {
     "@context": "https://schema.org",
     "@type": "Article",
     headline,
     description,
-    datePublished: "2026-09-01",
-    author: { "@type": "Organization", name: "Alvora Diamonds" },
-    publisher: { "@type": "Organization", name: "Alvora Diamonds" },
+    datePublished,
+    dateModified: dates?.modified ?? datePublished,
+    inLanguage: "en-GB",
+    image: `${origin}/assets/alvora-og.jpg`,
+    isPartOf: { "@id": `${origin}/#website` },
+    author: { "@type": "Organization", name: "Alvora Diamonds", url: `${origin}/` },
+    publisher: { "@id": `${origin}/#organization`, "@type": "Organization", name: "Alvora Diamonds", logo: { "@type": "ImageObject", url: `${origin}/assets/alvora-faceted-a.webp` } },
     mainEntityOfPage: { "@type": "WebPage", "@id": `${origin}${path}` },
   };
 }
@@ -189,7 +290,7 @@ function mkWebSite(origin: string) {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "@id": `${origin}/#website`,
-    name: "Alvora",
+    name: "Alvora Diamonds",
     url: `${origin}/`,
     publisher: { "@id": `${origin}/#organization` },
   };
@@ -220,7 +321,7 @@ function jewelleryRouteMeta(pathname: string, origin: string): RouteMeta | null 
       description: guide.description,
       canonical: url(pathname),
       serviceJsonLd: [
-        { ...mkArticle(origin, pathname, guide.heading, guide.description), datePublished: guide.published, author: { "@type": "Organization", name: "Alvora" }, publisher: { "@type": "Organization", name: "Alvora" } },
+        mkArticle(origin, pathname, guide.heading, guide.description, { published: guide.published, modified: guide.published }),
         mkBreadcrumbs(origin, [{ name: "Home", path: "/" }, { name: guide.heading, path: pathname }]),
       ],
     };
@@ -538,7 +639,7 @@ export function resolveRouteMeta(pathname: string, origin: string): RouteMeta | 
         description: "Yes - lab-grown diamonds are chemically, physically and optically identical to mined diamonds. Learn how they grow and why it matters for buyers.",
         canonical: url("/insights/are-lab-grown-diamonds-real-diamonds"),
         serviceJsonLd: [
-          mkArticle(origin, "/insights/are-lab-grown-diamonds-real-diamonds", "Are Lab-Grown Diamonds Real Diamonds?", "Lab-grown diamonds share the chemical, physical, and optical properties of mined diamonds and are recognised by the FTC as diamonds with required origin disclosure."),
+          mkArticle(origin, "/insights/are-lab-grown-diamonds-real-diamonds", "Are Lab-Grown Diamonds Real Diamonds?", "Lab-grown diamonds share the chemical, physical, and optical properties of mined diamonds and are recognised by the FTC as diamonds with required origin disclosure.", ARTICLE_DATES["/insights/are-lab-grown-diamonds-real-diamonds"]),
           mkFaqPage([
             { q: "Are lab-grown diamonds real diamonds?", a: "Yes. Lab-grown diamonds are diamonds with the same fundamental chemical, physical, and optical properties as mined diamonds; the distinction is their origin. The US FTC recognized this in its 2018 Jewelry Guides while retaining a requirement to disclose laboratory-grown origin clearly. IGI and GIA provide laboratory-grown reports or assessments, and buyers can verify report numbers and laser inscriptions online." },
           ]),
@@ -551,7 +652,7 @@ export function resolveRouteMeta(pathname: string, origin: string): RouteMeta | 
         description: "What jewellery brands and wholesalers should check - growth method, cut quality, certification, capacity and communication - before committing.",
         canonical: url("/insights/best-lab-grown-diamond-manufacturer-for-your-need"),
         serviceJsonLd: [
-          mkArticle(origin, "/insights/best-lab-grown-diamond-manufacturer-for-your-need", "Which Lab-Grown Diamond Manufacturer Is Best? (It Depends What You're Buying)", "A buyer-focused rubric for choosing a laboratory-grown diamond manufacturer by need."),
+          mkArticle(origin, "/insights/best-lab-grown-diamond-manufacturer-for-your-need", "Which Lab-Grown Diamond Manufacturer Is Best? (It Depends What You're Buying)", "A buyer-focused rubric for choosing a laboratory-grown diamond manufacturer by need.", ARTICLE_DATES["/insights/best-lab-grown-diamond-manufacturer-for-your-need"]),
           mkFaqPage([
             { q: "Which company is the best for lab-grown diamonds?", a: "There is no single best company for every lab-grown diamond purchase. KIRA has the clearest public scale evidence, Guru Diam emphasizes US-facing trade convenience, and specialist suppliers may be more suitable for calibrated layouts, matched pairs, custom cuts, fancy colour, or large stones. Compare each supplier against the exact design, volume, certification, and delivery requirement." },
           ]),
@@ -564,7 +665,7 @@ export function resolveRouteMeta(pathname: string, origin: string): RouteMeta | 
         description: "An honest look at lab-grown diamond value for jewellery businesses: price per carat, resale considerations and what wholesale buyers should weigh.",
         canonical: url("/insights/is-a-lab-grown-diamond-worth-it"),
         serviceJsonLd: [
-          mkArticle(origin, "/insights/is-a-lab-grown-diamond-worth-it", "Is a Lab-Grown Diamond Worth Buying? (For Retailers, Designers, and End Buyers)", "A balanced B2B and consumer analysis of laboratory-grown diamond value, cost, and resale considerations."),
+          mkArticle(origin, "/insights/is-a-lab-grown-diamond-worth-it", "Is a Lab-Grown Diamond Worth Buying? (For Retailers, Designers, and End Buyers)", "A balanced B2B and consumer analysis of laboratory-grown diamond value, cost, and resale considerations.", ARTICLE_DATES["/insights/is-a-lab-grown-diamond-worth-it"]),
           mkFaqPage([
             { q: "Is it worth buying a lab-grown diamond?", a: "It can be worth buying if you value the jewellery, size, design, laboratory-grown origin, and current price more than future resale. Retailers and designers should assess landed cost, certification, inventory risk, and repeatability. End consumers should assume secondary-market value may be low and should not buy a lab-grown diamond as a short-term investment." },
           ]),
@@ -577,7 +678,7 @@ export function resolveRouteMeta(pathname: string, origin: string): RouteMeta | 
         description: "What drives lab-grown diamond prices per carat - size, colour, clarity, cut and growth method - plus how wholesale buyers should compare supplier quotes.",
         canonical: url("/insights/lab-grown-diamond-price-per-carat"),
         serviceJsonLd: [
-          mkArticle(origin, "/insights/lab-grown-diamond-price-per-carat", "Lab-Grown Diamond Price Per Carat (Wholesale, 2026)", "An evidence-led explanation of public wholesale lab-grown diamond price data and its limitations."),
+          mkArticle(origin, "/insights/lab-grown-diamond-price-per-carat", "Lab-Grown Diamond Price Per Carat (Wholesale, 2026)", "An evidence-led explanation of public wholesale lab-grown diamond price data and its limitations.", ARTICLE_DATES["/insights/lab-grown-diamond-price-per-carat"]),
           mkFaqPage([
             { q: "How much is 1 carat lab grown diamond in India?", a: "There is no reliable single public 2026 India wholesale price for a 1ct lab-grown diamond. The price depends on shape, colour, clarity, cut, CVD or HPHT method, treatment, certification, quantity, and delivery terms. A Q2 2025 US retailer acquisition average of USD $191/ct for 1ct IGI-certified rounds is a stale benchmark, not an India factory quote." },
             { q: "How much should I pay for a 1 carat lab grown diamond?", a: "Pay only after comparing like-for-like current quotes. Ask for the exact report, method, treatment, measurements, cut, return terms, certification, freight, insurance, duties, and taxes. Public data show continuing wholesale price declines but do not support a complete current 1ct price range by colour, clarity, and certificate." },
@@ -591,7 +692,7 @@ export function resolveRouteMeta(pathname: string, origin: string): RouteMeta | 
         description: "A practical guide to buying lab-grown diamonds wholesale: minimum orders, grading consistency, paperwork and vetting manufacturers before you buy.",
         canonical: url("/insights/lab-grown-diamond-wholesale-how-to-buy"),
         serviceJsonLd: [
-          mkArticle(origin, "/insights/lab-grown-diamond-wholesale-how-to-buy", "Where to Buy Lab-Grown Diamonds Wholesale (A Buyer's Guide)", "A comparison of four wholesale channels for laboratory-grown diamonds."),
+          mkArticle(origin, "/insights/lab-grown-diamond-wholesale-how-to-buy", "Where to Buy Lab-Grown Diamonds Wholesale (A Buyer's Guide)", "A comparison of four wholesale channels for laboratory-grown diamonds.", ARTICLE_DATES["/insights/lab-grown-diamond-wholesale-how-to-buy"]),
           mkFaqPage([
             { q: "Where can I buy lab-grown diamonds wholesale?", a: "Wholesale lab-grown diamonds are available direct from manufacturers, through online marketplaces such as Nivoda and VDB, from local wholesalers, and at trade shows such as IIJS, JCK, and Jewellery & Gem WORLD Hong Kong. Choose the channel according to your need for breadth, technical specification, physical inspection, urgency, and repeat supply." },
           ]),
@@ -604,7 +705,7 @@ export function resolveRouteMeta(pathname: string, origin: string): RouteMeta | 
         description: "Surat and India's lab-grown diamond manufacturing landscape: who the major producers are, how they differ and how to choose a wholesale supplier.",
         canonical: url("/insights/largest-lab-grown-diamond-manufacturers-india"),
         serviceJsonLd: [
-          mkArticle(origin, "/insights/largest-lab-grown-diamond-manufacturers-india", "The Largest Lab-Grown Diamond Manufacturers in India (2026)", "A sourced comparison of Indian lab-grown diamond manufacturers by publicly stated production evidence."),
+          mkArticle(origin, "/insights/largest-lab-grown-diamond-manufacturers-india", "The Largest Lab-Grown Diamond Manufacturers in India (2026)", "A sourced comparison of Indian lab-grown diamond manufacturers by publicly stated production evidence.", ARTICLE_DATES["/insights/largest-lab-grown-diamond-manufacturers-india"]),
           mkFaqPage([
             { q: "Who is the largest producer of lab-grown diamonds in India?", a: "Based on publicly stated production figures in 2026, KIRA / Kira Jewels is India's largest lab-grown diamond producer on the evidence reviewed, with more than 250,000 polished carats per month reported by GJEPC. Current reported output and planned capacity should be kept separate." },
             { q: "Who is the biggest producer of lab-grown diamonds?", a: "For India, KIRA / Kira Jewels has the strongest public scale evidence in the reviewed 2026 source set, with more than 250,000 polished carats per month reported by GJEPC. Public figures from other producers use different units and are not directly comparable." },
@@ -619,7 +720,7 @@ export function resolveRouteMeta(pathname: string, origin: string): RouteMeta | 
         title: "12 Questions to Ask a Diamond Manufacturer | Alvora",
         description: "Twelve due-diligence questions for brands sourcing wholesale lab-grown diamonds - covering certification, consistency, capacity and terms.",
         canonical: url("/insights/12-questions-to-ask-a-manufacturer"),
-        serviceJsonLd: mkArticle(origin, "/insights/12-questions-to-ask-a-manufacturer", "12 Questions to Ask a Lab-Grown Diamond Manufacturer Before You Order", "A due-diligence checklist for evaluating a laboratory-grown diamond manufacturer before placing an order."),
+        serviceJsonLd: mkArticle(origin, "/insights/12-questions-to-ask-a-manufacturer", "12 Questions to Ask a Lab-Grown Diamond Manufacturer Before You Order", "A due-diligence checklist for evaluating a laboratory-grown diamond manufacturer before placing an order.", ARTICLE_DATES["/insights/12-questions-to-ask-a-manufacturer"]),
       };
     case "/insights/calibrated-diamond-layouts-explained":
       return {
@@ -627,7 +728,7 @@ export function resolveRouteMeta(pathname: string, origin: string): RouteMeta | 
         title: "Calibrated Diamond Layouts Explained | Alvora Insights",
         description: "What calibrated diamond layouts are, how millimetre tolerances work and why jewellers use them for eternity bands - a wholesale buyer's guide.",
         canonical: url("/insights/calibrated-diamond-layouts-explained"),
-        serviceJsonLd: mkArticle(origin, "/insights/calibrated-diamond-layouts-explained", "Calibrated Diamond Layouts, Explained: Tolerances, Grading, and How to Order", "A practical explanation of calibrated diamond layouts covering tolerance, grading, and order brief requirements."),
+        serviceJsonLd: mkArticle(origin, "/insights/calibrated-diamond-layouts-explained", "Calibrated Diamond Layouts, Explained: Tolerances, Grading, and How to Order", "A practical explanation of calibrated diamond layouts covering tolerance, grading, and order brief requirements.", ARTICLE_DATES["/insights/calibrated-diamond-layouts-explained"]),
       };
     case "/insights/cvd-vs-hpht-lab-grown-diamonds":
       return {
@@ -635,7 +736,7 @@ export function resolveRouteMeta(pathname: string, origin: string): RouteMeta | 
         title: "CVD vs HPHT Lab-Grown Diamonds: Key Differences | Alvora",
         description: "CVD and HPHT are the two methods for growing diamonds. Compare growth process, grading traits and cost to decide which suits your wholesale programme.",
         canonical: url("/insights/cvd-vs-hpht-lab-grown-diamonds"),
-        serviceJsonLd: mkArticle(origin, "/insights/cvd-vs-hpht-lab-grown-diamonds", "CVD vs HPHT Lab-Grown Diamonds: What Wholesale Buyers Need to Know", "A comparison of CVD and HPHT laboratory-grown diamond production methods for wholesale buyers."),
+        serviceJsonLd: mkArticle(origin, "/insights/cvd-vs-hpht-lab-grown-diamonds", "CVD vs HPHT Lab-Grown Diamonds: What Wholesale Buyers Need to Know", "A comparison of CVD and HPHT laboratory-grown diamond production methods for wholesale buyers.", ARTICLE_DATES["/insights/cvd-vs-hpht-lab-grown-diamonds"]),
       };
     case "/insights/matched-pairs-vs-melee-vs-layouts":
       return {
@@ -643,7 +744,7 @@ export function resolveRouteMeta(pathname: string, origin: string): RouteMeta | 
         title: "Matched Pairs vs Melee vs Layouts | Alvora Insights",
         description: "Three wholesale diamond categories compared: matched pairs for earrings, melee for pavé and calibrated layouts for bands - which format fits your designs.",
         canonical: url("/insights/matched-pairs-vs-melee-vs-layouts"),
-        serviceJsonLd: mkArticle(origin, "/insights/matched-pairs-vs-melee-vs-layouts", "Matched Pairs vs. Melee vs. Layouts: Which Format Does Your Design Need?", "A practical guide to choosing between matched pairs, melee lots, and calibrated layouts for wholesale diamond procurement."),
+        serviceJsonLd: mkArticle(origin, "/insights/matched-pairs-vs-melee-vs-layouts", "Matched Pairs vs. Melee vs. Layouts: Which Format Does Your Design Need?", "A practical guide to choosing between matched pairs, melee lots, and calibrated layouts for wholesale diamond procurement.", ARTICLE_DATES["/insights/matched-pairs-vs-melee-vs-layouts"]),
       };
     case "/insights/sourcing-lab-grown-diamonds-from-surat":
       return {
@@ -651,7 +752,7 @@ export function resolveRouteMeta(pathname: string, origin: string): RouteMeta | 
         title: "Sourcing Lab-Grown Diamonds From Surat | Alvora Insights",
         description: "Why Surat, India is a global centre for lab-grown diamond cutting and how international wholesalers can vet manufacturers and import with confidence.",
         canonical: url("/insights/sourcing-lab-grown-diamonds-from-surat"),
-        serviceJsonLd: mkArticle(origin, "/insights/sourcing-lab-grown-diamonds-from-surat", "Lab-Grown Diamond Manufacturers in Surat: A Buyer's Guide to Sourcing Direct", "A practical guide to sourcing laboratory-grown diamonds direct from Surat manufacturers."),
+        serviceJsonLd: mkArticle(origin, "/insights/sourcing-lab-grown-diamonds-from-surat", "Lab-Grown Diamond Manufacturers in Surat: A Buyer's Guide to Sourcing Direct", "A practical guide to sourcing laboratory-grown diamonds direct from Surat manufacturers.", ARTICLE_DATES["/insights/sourcing-lab-grown-diamonds-from-surat"]),
       };
     case "/insights/12-questions-to-ask-before-your-first-lab-grown-order":
       return {
@@ -659,7 +760,7 @@ export function resolveRouteMeta(pathname: string, origin: string): RouteMeta | 
         title: "12 Questions to Ask Before Your First Lab-Grown Diamond Order | Alvora",
         description: "A pre-order checklist for first-time B2B buyers of lab-grown diamonds: payment terms, sample approval, shipping insurance, dispute process and the questions most often skipped.",
         canonical: url("/insights/12-questions-to-ask-before-your-first-lab-grown-order"),
-        serviceJsonLd: mkArticle(origin, "/insights/12-questions-to-ask-before-your-first-lab-grown-order", "12 Questions to Ask Before Your First Lab-Grown Diamond Order", "A pre-order checklist for first-time B2B lab-grown diamond buyers covering payment terms, sample approval, shipping, dispute process and returns."),
+        serviceJsonLd: mkArticle(origin, "/insights/12-questions-to-ask-before-your-first-lab-grown-order", "12 Questions to Ask Before Your First Lab-Grown Diamond Order", "A pre-order checklist for first-time B2B lab-grown diamond buyers covering payment terms, sample approval, shipping, dispute process and returns.", ARTICLE_DATES["/insights/12-questions-to-ask-before-your-first-lab-grown-order"]),
       };
     case "/insights/how-to-spec-a-calibrated-parcel":
       return {
@@ -667,7 +768,7 @@ export function resolveRouteMeta(pathname: string, origin: string): RouteMeta | 
         title: "How to Spec a Calibrated Parcel: A Buyer's Checklist | Alvora",
         description: "What jewellery manufacturers must specify before requesting a calibrated lab-grown diamond quote - shape, size range, tolerance, colour band, clarity band, quantity and delivery format.",
         canonical: url("/insights/how-to-spec-a-calibrated-parcel"),
-        serviceJsonLd: mkArticle(origin, "/insights/how-to-spec-a-calibrated-parcel", "How to Spec a Calibrated Parcel: A Buyer's Checklist", "A seven-field specification checklist for ordering calibrated lab-grown diamond parcels from a manufacturer."),
+        serviceJsonLd: mkArticle(origin, "/insights/how-to-spec-a-calibrated-parcel", "How to Spec a Calibrated Parcel: A Buyer's Checklist", "A seven-field specification checklist for ordering calibrated lab-grown diamond parcels from a manufacturer.", ARTICLE_DATES["/insights/how-to-spec-a-calibrated-parcel"]),
       };
     case "/insights/igi-vs-gia-vs-sgl-lab-grown-diamonds":
       return {
@@ -675,7 +776,7 @@ export function resolveRouteMeta(pathname: string, origin: string): RouteMeta | 
         title: "IGI vs GIA vs SGL for Lab-Grown Diamonds: An Honest Comparison | Alvora",
         description: "An honest, factual comparison of IGI, GIA and SGL certification for lab-grown diamonds - what each grades, where buyers encounter each, and how to choose.",
         canonical: url("/insights/igi-vs-gia-vs-sgl-lab-grown-diamonds"),
-        serviceJsonLd: mkArticle(origin, "/insights/igi-vs-gia-vs-sgl-lab-grown-diamonds", "IGI vs GIA vs SGL for Lab-Grown Diamonds: An Honest Comparison", "A factual comparison of IGI, GIA and SGL grading laboratories for lab-grown diamonds by scale, recognition and typical use case."),
+        serviceJsonLd: mkArticle(origin, "/insights/igi-vs-gia-vs-sgl-lab-grown-diamonds", "IGI vs GIA vs SGL for Lab-Grown Diamonds: An Honest Comparison", "A factual comparison of IGI, GIA and SGL grading laboratories for lab-grown diamonds by scale, recognition and typical use case.", ARTICLE_DATES["/insights/igi-vs-gia-vs-sgl-lab-grown-diamonds"]),
       };
     case "/insights/import-duty-lc-terms-lab-grown-diamonds":
       return {
@@ -683,7 +784,7 @@ export function resolveRouteMeta(pathname: string, origin: string): RouteMeta | 
         title: "Import Duties and Payment Terms for Lab-Grown Diamonds, Explained | Alvora",
         description: "What first-time importers of loose lab-grown diamonds should ask about duties, tariffs, letters of credit, advance payment and memo terms - by market, in plain language.",
         canonical: url("/insights/import-duty-lc-terms-lab-grown-diamonds"),
-        serviceJsonLd: mkArticle(origin, "/insights/import-duty-lc-terms-lab-grown-diamonds", "Import Duties and Payment Terms for Lab-Grown Diamonds, Explained", "A guide for first-time importers of loose lab-grown diamonds covering tariff treatment, Incoterms and payment structure by market."),
+        serviceJsonLd: mkArticle(origin, "/insights/import-duty-lc-terms-lab-grown-diamonds", "Import Duties and Payment Terms for Lab-Grown Diamonds, Explained", "A guide for first-time importers of loose lab-grown diamonds covering tariff treatment, Incoterms and payment structure by market.", ARTICLE_DATES["/insights/import-duty-lc-terms-lab-grown-diamonds"]),
       };
     case "/insights/lab-grown-diamond-wholesale-price-trends-2026":
       return {
@@ -691,7 +792,7 @@ export function resolveRouteMeta(pathname: string, origin: string): RouteMeta | 
         title: "Lab-Grown Diamond Wholesale Price Trends Through 2026 | Alvora",
         description: "A dated, factual overview of publicly reported lab-grown diamond wholesale price trends through 2026 - what fell, what stabilised, and what buyers should take from it.",
         canonical: url("/insights/lab-grown-diamond-wholesale-price-trends-2026"),
-        serviceJsonLd: mkArticle(origin, "/insights/lab-grown-diamond-wholesale-price-trends-2026", "Lab-Grown Diamond Wholesale Price Trends Through 2026", "A dated factual overview of publicly reported lab-grown diamond wholesale price trends through 2026 by segment."),
+        serviceJsonLd: mkArticle(origin, "/insights/lab-grown-diamond-wholesale-price-trends-2026", "Lab-Grown Diamond Wholesale Price Trends Through 2026", "A dated factual overview of publicly reported lab-grown diamond wholesale price trends through 2026 by segment.", ARTICLE_DATES["/insights/lab-grown-diamond-wholesale-price-trends-2026"]),
       };
     case "/insights/melee-vs-solitaire-moq-realities":
       return {
@@ -699,7 +800,7 @@ export function resolveRouteMeta(pathname: string, origin: string): RouteMeta | 
         title: "Melee vs Solitaire MOQs: Why Bulk and Singles Behave Differently | Alvora",
         description: "Why melee parcels, single solitaires and bespoke custom-cut lab-grown diamonds carry different minimum order quantities - and how to plan your first order accordingly.",
         canonical: url("/insights/melee-vs-solitaire-moq-realities"),
-        serviceJsonLd: mkArticle(origin, "/insights/melee-vs-solitaire-moq-realities", "Melee vs Solitaire MOQs: Why Bulk and Singles Behave Differently", "Why melee, solitaires and bespoke custom-cut lab-grown diamonds carry different minimum order quantities, and how to plan accordingly."),
+        serviceJsonLd: mkArticle(origin, "/insights/melee-vs-solitaire-moq-realities", "Melee vs Solitaire MOQs: Why Bulk and Singles Behave Differently", "Why melee, solitaires and bespoke custom-cut lab-grown diamonds carry different minimum order quantities, and how to plan accordingly.", ARTICLE_DATES["/insights/melee-vs-solitaire-moq-realities"]),
       };
     case "/insights/reading-a-matched-layout-tolerance-sheet":
       return {
@@ -707,7 +808,7 @@ export function resolveRouteMeta(pathname: string, origin: string): RouteMeta | 
         title: "Reading a Matched-Layout Tolerance Sheet: What the Numbers Mean | Alvora",
         description: "How to read and specify a matched-layout tolerance sheet for lab-grown diamond layouts: what 'matched within X' constrains, common ordering mistakes, and approval images.",
         canonical: url("/insights/reading-a-matched-layout-tolerance-sheet"),
-        serviceJsonLd: mkArticle(origin, "/insights/reading-a-matched-layout-tolerance-sheet", "Reading a Matched-Layout Tolerance Sheet: What the Numbers Mean", "How to read a matched-layout tolerance sheet for lab-grown diamond layouts, including what each tolerance line controls and how approval images close the loop."),
+        serviceJsonLd: mkArticle(origin, "/insights/reading-a-matched-layout-tolerance-sheet", "Reading a Matched-Layout Tolerance Sheet: What the Numbers Mean", "How to read a matched-layout tolerance sheet for lab-grown diamond layouts, including what each tolerance line controls and how approval images close the loop.", ARTICLE_DATES["/insights/reading-a-matched-layout-tolerance-sheet"]),
       };
     case "/insights/sourcing-lab-grown-diamonds-us-retailer":
       return {
@@ -715,7 +816,7 @@ export function resolveRouteMeta(pathname: string, origin: string): RouteMeta | 
         title: "Sourcing Lab-Grown Diamonds from India: A US Retailer's Guide | Alvora",
         description: "A first-time guide for US retailers importing lab-grown diamonds from India: import basics, documentation, communication expectations, supplier vetting and red flags.",
         canonical: url("/insights/sourcing-lab-grown-diamonds-us-retailer"),
-        serviceJsonLd: mkArticle(origin, "/insights/sourcing-lab-grown-diamonds-us-retailer", "Sourcing Lab-Grown Diamonds from India: A US Retailer's Guide", "A first-import guide for US retailers sourcing lab-grown diamonds from India covering duty treatment, documentation, vetting and red flags."),
+        serviceJsonLd: mkArticle(origin, "/insights/sourcing-lab-grown-diamonds-us-retailer", "Sourcing Lab-Grown Diamonds from India: A US Retailer's Guide", "A first-import guide for US retailers sourcing lab-grown diamonds from India covering duty treatment, documentation, vetting and red flags.", ARTICLE_DATES["/insights/sourcing-lab-grown-diamonds-us-retailer"]),
       };
     case "/singapore":
       return {
@@ -812,7 +913,7 @@ export function resolveRouteMeta(pathname: string, origin: string): RouteMeta | 
         description: "How trade buyers import lab-grown diamonds from India: the commercial documents, the classification question, and what is confirmed per shipment.",
         canonical: url("/insights/importing-lab-grown-diamonds-from-india"),
         serviceJsonLd: [
-          mkArticle(origin, "/insights/importing-lab-grown-diamonds-from-india", "Importing Lab-Grown Diamonds from India: Process and Paperwork for Trade Buyers", "Importing lab-grown diamonds from India is a standard courier-cleared trade shipment; the commercial path, documents and destination charges are confirmed in writing per order, and duty or tax rates are confirmed with the destination customs authority rather than published as generic percentages."),
+          mkArticle(origin, "/insights/importing-lab-grown-diamonds-from-india", "Importing Lab-Grown Diamonds from India: Process and Paperwork for Trade Buyers", "Importing lab-grown diamonds from India is a standard courier-cleared trade shipment; the commercial path, documents and destination charges are confirmed in writing per order, and duty or tax rates are confirmed with the destination customs authority rather than published as generic percentages.", ARTICLE_DATES["/insights/importing-lab-grown-diamonds-from-india"]),
           mkBreadcrumbs(origin, [{ name: "Home", path: "/" }, { name: "Insights", path: "/insights" }, { name: "Importing from India", path: "/insights/importing-lab-grown-diamonds-from-india" }]),
         ],
       };
@@ -823,7 +924,7 @@ export function resolveRouteMeta(pathname: string, origin: string): RouteMeta | 
         description: "Verify an IGI lab-grown diamond report in three steps: check the report number online, match the laser inscription, and reconcile the stone to its certificate.",
         canonical: url("/insights/how-to-verify-an-igi-lab-grown-report"),
         serviceJsonLd: [
-          mkArticle(origin, "/insights/how-to-verify-an-igi-lab-grown-report", "How to Verify an IGI Lab-Grown Diamond Report Before You Buy", "An IGI lab-grown diamond report is verified by entering the report number on IGI's verification page, matching the laser inscription on the stone's girdle to that report, and confirming that weight, measurements and grades agree exactly."),
+          mkArticle(origin, "/insights/how-to-verify-an-igi-lab-grown-report", "How to Verify an IGI Lab-Grown Diamond Report Before You Buy", "An IGI lab-grown diamond report is verified by entering the report number on IGI's verification page, matching the laser inscription on the stone's girdle to that report, and confirming that weight, measurements and grades agree exactly.", ARTICLE_DATES["/insights/how-to-verify-an-igi-lab-grown-report"]),
           mkBreadcrumbs(origin, [{ name: "Home", path: "/" }, { name: "Insights", path: "/insights" }, { name: "Verify an IGI report", path: "/insights/how-to-verify-an-igi-lab-grown-report" }]),
         ],
       };
@@ -834,7 +935,7 @@ export function resolveRouteMeta(pathname: string, origin: string): RouteMeta | 
         description: "What fluorescence and BGM (brown, green, milky) mean on a lab-grown diamond, why they affect how a stone looks, and what to ask before buying.",
         canonical: url("/insights/fluorescence-and-bgm-lab-grown-diamonds"),
         serviceJsonLd: [
-          mkArticle(origin, "/insights/fluorescence-and-bgm-lab-grown-diamonds", "Fluorescence and BGM in Lab-Grown Diamonds: What the Terms Mean for Buyers", "Fluorescence is a glow some diamonds show under ultraviolet light, and BGM stands for brown, green or milky undertones that sit outside the colour grade; both can change how a stone faces up, so buyers should confirm them beyond the certificate's 4Cs."),
+          mkArticle(origin, "/insights/fluorescence-and-bgm-lab-grown-diamonds", "Fluorescence and BGM in Lab-Grown Diamonds: What the Terms Mean for Buyers", "Fluorescence is a glow some diamonds show under ultraviolet light, and BGM stands for brown, green or milky undertones that sit outside the colour grade; both can change how a stone faces up, so buyers should confirm them beyond the certificate's 4Cs.", ARTICLE_DATES["/insights/fluorescence-and-bgm-lab-grown-diamonds"]),
           mkBreadcrumbs(origin, [{ name: "Home", path: "/" }, { name: "Insights", path: "/insights" }, { name: "Fluorescence and BGM", path: "/insights/fluorescence-and-bgm-lab-grown-diamonds" }]),
         ],
       };
