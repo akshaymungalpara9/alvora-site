@@ -31,7 +31,7 @@ export default function PieceImage({ piece, image = piece.images[0], sizes = "(m
       sizes={sizes}
       width={image.width ?? 1400}
       height={image.height ?? 1400}
-      alt={`${piece.name}${piece.styleLabel ? `, ${piece.styleLabel.toLowerCase()} setting` : ""}`}
+      alt={image.alt ?? `${piece.name}${piece.styleLabel ? `, ${piece.styleLabel.toLowerCase()} setting` : ""}`}
       loading={priority ? "eager" : "lazy"}
       decoding="async"
       {...(priority ? { fetchPriority: "high" as const } : {})}

@@ -7,7 +7,7 @@ import MetalSwatches, { METAL_LABELS } from "@/components/jewellery/MetalSwatche
 import CollectionGrid from "@/components/jewellery/CollectionGrid";
 import EnquiryForm, { type PieceSelection } from "@/components/jewellery/EnquiryForm";
 import NotFound from "@/pages/NotFound";
-import { PUBLIC_PIECES, findPublicPiece, formatFromPrice, type MetalColour } from "@shared/jewellery/catalog";
+import { GRADING_REPORT_IMAGE, PUBLIC_PIECES, findPublicPiece, formatFromPrice, type MetalColour } from "@shared/jewellery/catalog";
 import { pieceMeta } from "@shared/jewellery/seo";
 import { CENTRE_STONE_CARATS, centreStoneSpec, centreStoneStory, hasCentreStone } from "@shared/jewellery/centreStone";
 import { COMPANY } from "@shared/companyInfo";
@@ -82,7 +82,8 @@ export default function ProductPage({ slug }: { slug: string }) {
   const whatsappHref = buildWhatsAppHrefWithMessage(COMPANY.whatsappNumber, `Hello Alvora, I'd like to ask about the ${piece.name} (${piece.code}): ${summary}.`);
   const category = CATEGORY_LINKS[piece.category];
   const shapeCrumb = piece.shape && piece.collections.includes("engagement-rings") && piece.shapeLabel ? { label: piece.shapeLabel, href: `/engagement-rings/shape/${piece.shape}` } : null;
-  const images = piece.images;
+  // The grading-report photo closes every gallery.
+  const images = [...piece.images, GRADING_REPORT_IMAGE];
 
   return (
     <JewelleryShell>
