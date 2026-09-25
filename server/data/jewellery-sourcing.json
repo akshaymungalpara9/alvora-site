@@ -371,16 +371,310 @@
     "partnerTitle": "Cross Marquise Diamond Pendant with round in Bunny Ear",
     "partnerPriceUsd": 322
   },
+  "ALV-R-0141": {
+    "partner": "junerings",
+    "handle": "2-57-ct-rose-compass-portuguese-cushion",
+    "partnerTitle": "Compass || 2.57 ct Rose Portuguese Cushion",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0142": {
+    "partner": "junerings",
+    "handle": "2-70-ct-compass-portuguese-cushion",
+    "partnerTitle": "Compass || 2.70 ct Portuguese Cushion",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0143": {
+    "partner": "junerings",
+    "handle": "alba-champagne-radiant",
+    "partnerTitle": "Alba Champagne || Radiant",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0144": {
+    "partner": "junerings",
+    "handle": "alba-old-cut-emerald",
+    "partnerTitle": "Alba || Old Cut Emerald",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0145": {
+    "partner": "junerings",
+    "handle": "antique-cut-cushion-cigar-band-solitaire-oak",
+    "partnerTitle": "Cigar Band || Antique Cut Cushion Solitaire",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0146": {
+    "partner": "junerings",
+    "handle": "antique-cut-moval-marlow-oak",
+    "partnerTitle": "Marlow || Antique Cut Moval",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0147": {
+    "partner": "junerings",
+    "handle": "antique-cut-moval-solitaire-oak",
+    "partnerTitle": "Antique Moval Solitaire || Antique Cut Moval Solitaire",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0148": {
+    "partner": "junerings",
+    "handle": "antique-cut-pear-solitaire-oak",
+    "partnerTitle": "Antique Pear Solitaire || Antique Cut Pear Solitaire",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0149": {
+    "partner": "junerings",
+    "handle": "antique-cut-toi-et-moi-oak",
+    "partnerTitle": "Antique Toi et Moi || Antique Cut Toi et Moi",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0150": {
+    "partner": "junerings",
+    "handle": "antique-moval-round-ring-4",
+    "partnerTitle": "Antique Moval Round",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0151": {
+    "partner": "junerings",
+    "handle": "arden-emerald",
+    "partnerTitle": "Arden || Emerald",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0152": {
+    "partner": "junerings",
+    "handle": "art-deco-five-stone-oak",
+    "partnerTitle": "Art Deco Five Stone",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0153": {
+    "partner": "junerings",
+    "handle": "aster-oval",
+    "partnerTitle": "Aster || Oval",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0154": {
+    "partner": "junerings",
+    "handle": "azure-diamond",
+    "partnerTitle": "Azure Diamond",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0155": {
+    "partner": "junerings",
+    "handle": "bonn-cushion",
+    "partnerTitle": "Bonn || Cushion",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0156": {
+    "partner": "junerings",
+    "handle": "brooks-moval",
+    "partnerTitle": "Brooks || Moval",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0157": {
+    "partner": "junerings",
+    "handle": "brooks-pear",
+    "partnerTitle": "Brooks || Pear",
+    "partnerPriceUsd": null
+  },
   "ALV-E-0006": {
     "partner": "carat",
     "handle": "buy-marquise-earrings",
     "partnerTitle": "Marquise Earrings - Yellow Gold",
     "partnerPriceUsd": 91
   },
+  "ALV-R-0158": {
+    "partner": "junerings",
+    "handle": "carmine-emerald",
+    "partnerTitle": "Carmine || Emerald",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0159": {
+    "partner": "junerings",
+    "handle": "carmine-old-mine-cushion",
+    "partnerTitle": "Carmine || Old Mine Cushion",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0160": {
+    "partner": "junerings",
+    "handle": "carroll-marquise",
+    "partnerTitle": "Carroll || Marquise",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0161": {
+    "partner": "junerings",
+    "handle": "cassia-bezel-marquise",
+    "partnerTitle": "Cassia || Bezel Marquise",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0162": {
+    "partner": "junerings",
+    "handle": "caye-five-stone-porguese-cut",
+    "partnerTitle": "Caye || Five Stone Porguese Cut",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0163": {
+    "partner": "junerings",
+    "handle": "celine-champagne-step-cut-oval",
+    "partnerTitle": "Celine || Champagne Step Cut Oval",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0164": {
+    "partner": "junerings",
+    "handle": "ceylon-sapphire-three-stone-oak",
+    "partnerTitle": "Ceylon || Sapphire Three Stone",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0165": {
+    "partner": "junerings",
+    "handle": "champagne-arden-euro-round",
+    "partnerTitle": "Arden || Champagne Euro Round",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0166": {
+    "partner": "junerings",
+    "handle": "champagne-azure-oval",
+    "partnerTitle": "Azure || Champagne Oval",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0167": {
+    "partner": "junerings",
+    "handle": "champagne-caraway-oval",
+    "partnerTitle": "Caraway || Champagne Oval",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0168": {
+    "partner": "junerings",
+    "handle": "champagne-cove-2-00-ct",
+    "partnerTitle": "Cove || Champagne 2.00 ct",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0169": {
+    "partner": "junerings",
+    "handle": "champagne-cove-elongated-cushion",
+    "partnerTitle": "Cove || Champagne Elongated Cushion",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0170": {
+    "partner": "junerings",
+    "handle": "champagne-cushion-wade-oak",
+    "partnerTitle": "Wade || Champagne Cushion",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0171": {
+    "partner": "junerings",
+    "handle": "champagne-dove-rose-cut-cushion",
+    "partnerTitle": "Dove || Champagne Rose Cut Cushion",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0172": {
+    "partner": "junerings",
+    "handle": "champagne-emerald-three-stone",
+    "partnerTitle": "Emerald Three Stone || Champagne",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0173": {
+    "partner": "junerings",
+    "handle": "champagne-emerald-three-stone-june-champagne",
+    "partnerTitle": "Emerald Three Stone June || Champagne Champagne",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0174": {
+    "partner": "junerings",
+    "handle": "champagne-geo-cut-perry-oak",
+    "partnerTitle": "Perry || Champagne Geo Cut",
+    "partnerPriceUsd": null
+  },
   "ALV-R-0047": {
     "partner": "junerings",
     "handle": "champagne-maren-portrait-emerald",
     "partnerTitle": "Champagne Maren || Portrait emerald",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0175": {
+    "partner": "junerings",
+    "handle": "champagne-moval-with-emerald-accents-oak",
+    "partnerTitle": "Moval Emerald Accents || Champagne Moval with Emerald Accents",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0176": {
+    "partner": "junerings",
+    "handle": "champagne-portrait-domed-pave-halo-oak",
+    "partnerTitle": "Domed Halo || Champagne Portrait Domed Pave Halo",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0177": {
+    "partner": "junerings",
+    "handle": "champagne-senna-old-mine-cushion-deep-champagne",
+    "partnerTitle": "Senna || Champagne Old Mine Cushion Deep Champagne",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0178": {
+    "partner": "junerings",
+    "handle": "champagne-step-cut-marquise-solitaire",
+    "partnerTitle": "Step Cut Marquise || Champagne Solitaire",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0179": {
+    "partner": "junerings",
+    "handle": "cove-2-00-ct-old-mine-cushion",
+    "partnerTitle": "Cove || 2.00 ct Old Mine Cushion",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0180": {
+    "partner": "junerings",
+    "handle": "cove-moval",
+    "partnerTitle": "Cove || Moval",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0181": {
+    "partner": "junerings",
+    "handle": "cove-standard-brilliant-elongated-cushion",
+    "partnerTitle": "Cove || Standard Brilliant Elongated Cushion",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0182": {
+    "partner": "junerings",
+    "handle": "dahlia-east-west-portuguese-cushion",
+    "partnerTitle": "Dahlia || East West Portuguese Cushion",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0183": {
+    "partner": "junerings",
+    "handle": "dahlia-old-mine-elongated-cushion",
+    "partnerTitle": "Dahlia || Old Mine Elongated Cushion",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0184": {
+    "partner": "junerings",
+    "handle": "dahlia-tab-prong-euro-cut",
+    "partnerTitle": "Dahlia || Tab Prong Euro Cut",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0185": {
+    "partner": "junerings",
+    "handle": "derby-signet-horse-head-brilliant",
+    "partnerTitle": "Derby || Signet Horse Head Brilliant",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0186": {
+    "partner": "junerings",
+    "handle": "double-cut-champagne-cushion-solitaire-oak",
+    "partnerTitle": "Double Cut Cushion || Double Cut Champagne Cushion Solitaire",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0187": {
+    "partner": "junerings",
+    "handle": "dusk-sapphire",
+    "partnerTitle": "Dusk || Sapphire",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0188": {
+    "partner": "junerings",
+    "handle": "east-west-champagne-portrait",
+    "partnerTitle": "East West Champagne Portrait",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0189": {
+    "partner": "junerings",
+    "handle": "eddy-champagne-marquise",
+    "partnerTitle": "Eddy || Champagne Marquise",
     "partnerPriceUsd": null
   },
   "ALV-R-0048": {
@@ -389,11 +683,341 @@
     "partnerTitle": "Eddy || Elongated Cushion",
     "partnerPriceUsd": null
   },
+  "ALV-R-0190": {
+    "partner": "junerings",
+    "handle": "elongated-6-prong-fleur",
+    "partnerTitle": "Fleur || Elongated Prong",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0191": {
+    "partner": "junerings",
+    "handle": "elongated-cushion-solitaire-with-compass-prongs",
+    "partnerTitle": "Compass Prongs || Elongated Cushion Solitaire with",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0192": {
+    "partner": "junerings",
+    "handle": "ely-chunky-pear",
+    "partnerTitle": "Ely || Chunky Pear",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0193": {
+    "partner": "junerings",
+    "handle": "emerald-pear-solitaire-oak",
+    "partnerTitle": "Emerald Pear Solitaire",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0194": {
+    "partner": "junerings",
+    "handle": "emerald-pear-starling",
+    "partnerTitle": "Starling || Emerald Pear",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0195": {
+    "partner": "junerings",
+    "handle": "estelle-rose-cut-marquise",
+    "partnerTitle": "Estelle Rose || Cut Marquise",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0196": {
+    "partner": "junerings",
+    "handle": "everett-old-mine-signet",
+    "partnerTitle": "Everett || Old Mine Signet",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0197": {
+    "partner": "junerings",
+    "handle": "farro-antique-old-mine-moval",
+    "partnerTitle": "Farro || Antique Old Mine Moval",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0198": {
+    "partner": "junerings",
+    "handle": "finch-elongated-cushion",
+    "partnerTitle": "Finch || Elongated Cushion",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0199": {
+    "partner": "junerings",
+    "handle": "flora-east-west-oval",
+    "partnerTitle": "Flora || East West Oval",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0200": {
+    "partner": "junerings",
+    "handle": "french-cut-alba-oak",
+    "partnerTitle": "Alba || French Cut",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0201": {
+    "partner": "junerings",
+    "handle": "gale-champagne-moval-three-stone",
+    "partnerTitle": "Gale || Champagne Moval Three Stone",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0202": {
+    "partner": "junerings",
+    "handle": "gale-white-diamond-movals",
+    "partnerTitle": "Gale || White Diamond Movals",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0203": {
+    "partner": "junerings",
+    "handle": "gemstone-medley-band-oak",
+    "partnerTitle": "Gemstone Medley || Band",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0204": {
+    "partner": "junerings",
+    "handle": "geo-pear-estelle-oak",
+    "partnerTitle": "Estelle || Geo Pear",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0205": {
+    "partner": "junerings",
+    "handle": "green-mira",
+    "partnerTitle": "Mira || Green",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0206": {
+    "partner": "junerings",
+    "handle": "green-sapphire-lea-elongated-old-mine-cushion",
+    "partnerTitle": "Lea || Green Sapphire Elongated Old Mine Cushion",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0207": {
+    "partner": "junerings",
+    "handle": "invisible-set-champagne-octagon",
+    "partnerTitle": "Invisible Set Octagon || Invisible Set Champagne Octagon",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0208": {
+    "partner": "junerings",
+    "handle": "iris-2-ct-green-diamond",
+    "partnerTitle": "Iris ct || Iris 2 ct Green Diamond",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0209": {
+    "partner": "junerings",
+    "handle": "iris-green-diamond",
+    "partnerTitle": "Iris || Green Diamond",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0210": {
+    "partner": "junerings",
+    "handle": "iris-green-marquise",
+    "partnerTitle": "Iris || Green Marquise",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0211": {
+    "partner": "junerings",
+    "handle": "june-antique-cut-solitaire-euro-round",
+    "partnerTitle": "June Solitaire Antique || June Antique Cut Solitaire Euro Round",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0212": {
+    "partner": "junerings",
+    "handle": "june-antique-cut-solitaire-oval",
+    "partnerTitle": "June Solitaire Antique || June Antique Cut Solitaire Oval",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0213": {
+    "partner": "junerings",
+    "handle": "june-antique-cut-solitaire-portrait",
+    "partnerTitle": "June Solitaire Antique Portrait || June Antique Cut Solitaire Portrait",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0214": {
+    "partner": "junerings",
+    "handle": "june-bezel-antique-cut-oval",
+    "partnerTitle": "June Bezel Antique || Cut Oval",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0215": {
+    "partner": "junerings",
+    "handle": "june-bezel-antique-cut-rose-oval",
+    "partnerTitle": "June Bezel Antique Rose || June Bezel Antique Cut Rose Oval",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0216": {
+    "partner": "junerings",
+    "handle": "june-bezel-antique-cut-round",
+    "partnerTitle": "June Bezel Antique || Cut Round",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0217": {
+    "partner": "junerings",
+    "handle": "june-solitaire-antique-cut-rose-oval",
+    "partnerTitle": "June Solitaire Antique Rose || June Solitaire Antique Cut Rose Oval",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0218": {
+    "partner": "junerings",
+    "handle": "june-solitaire-rose-cut-round",
+    "partnerTitle": "June Solitaire || Rose Cut Round",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0219": {
+    "partner": "junerings",
+    "handle": "june-solitaire-trillion",
+    "partnerTitle": "June Solitaire || Trillion",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0220": {
+    "partner": "junerings",
+    "handle": "juno-north-south-pink-radiant",
+    "partnerTitle": "Juno || North South Pink Radiant",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0221": {
+    "partner": "junerings",
+    "handle": "lake-asscher",
+    "partnerTitle": "Lake || Asscher",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0222": {
+    "partner": "junerings",
+    "handle": "lake-old-mine-portrait",
+    "partnerTitle": "Lake || Old Mine Portrait",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0223": {
+    "partner": "junerings",
+    "handle": "lake-old-mine-portrait-white",
+    "partnerTitle": "Lake Portrait White || Lake Old Mine Portrait White",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0224": {
+    "partner": "junerings",
+    "handle": "lark-oval-green",
+    "partnerTitle": "Lark || Oval Green",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0225": {
+    "partner": "junerings",
+    "handle": "lark-princess",
+    "partnerTitle": "Lark || Princess",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0226": {
+    "partner": "junerings",
+    "handle": "lea",
+    "partnerTitle": "Lea",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0227": {
+    "partner": "junerings",
+    "handle": "lea-1-25-ct-white-diamond",
+    "partnerTitle": "Lea ct || Lea 1.25 ct White Diamond",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0228": {
+    "partner": "junerings",
+    "handle": "lea-marquise",
+    "partnerTitle": "Lea || Marquise",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0229": {
+    "partner": "junerings",
+    "handle": "lennon-round",
+    "partnerTitle": "Lennon || Round",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0230": {
+    "partner": "junerings",
+    "handle": "locke-east-west-oval",
+    "partnerTitle": "Locke || East West Oval",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0231": {
+    "partner": "junerings",
+    "handle": "maren-old-mine-portrait",
+    "partnerTitle": "Maren Portrait || Maren Old Mine Portrait",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0232": {
+    "partner": "junerings",
+    "handle": "marlow-green-pear",
+    "partnerTitle": "Marlow || Green Pear",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0233": {
+    "partner": "junerings",
+    "handle": "marlow-old-mine-pear",
+    "partnerTitle": "Marlow || Old Mine Pear",
+    "partnerPriceUsd": null
+  },
   "ALV-R-0049": {
     "partner": "carat",
     "handle": "marquise-cut-diamond-ring-with-hidden-flower-crown",
     "partnerTitle": "Marquise Cut Diamond Ring with Hidden Flower Crown",
     "partnerPriceUsd": 973
+  },
+  "ALV-R-0234": {
+    "partner": "junerings",
+    "handle": "mermaid-sapphire-cushion-with-emerald-diamonds-oak",
+    "partnerTitle": "Mermaid || Sapphire Cushion with Emerald Diamonds",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0235": {
+    "partner": "junerings",
+    "handle": "mesa-asscher",
+    "partnerTitle": "Mesa || Asscher",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0236": {
+    "partner": "junerings",
+    "handle": "mesa-champagne-portugese-marquise",
+    "partnerTitle": "Mesa || Champagne Portugese Marquise",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0237": {
+    "partner": "junerings",
+    "handle": "mira-champagne-moval",
+    "partnerTitle": "Mira || Champagne Moval",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0238": {
+    "partner": "junerings",
+    "handle": "mira-euro-round",
+    "partnerTitle": "Mira || Euro Round",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0239": {
+    "partner": "junerings",
+    "handle": "mira-old-cut-emerald",
+    "partnerTitle": "Mira || Old Cut Emerald",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0240": {
+    "partner": "junerings",
+    "handle": "mira-old-mine-champagne-cushion",
+    "partnerTitle": "Mira || Old Mine Champagne Cushion",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0241": {
+    "partner": "junerings",
+    "handle": "mira-princess",
+    "partnerTitle": "Mira || Princess",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0242": {
+    "partner": "junerings",
+    "handle": "old-mine-champagne-cigar-band-solitaire-oak",
+    "partnerTitle": "Cigar Band || Old Mine Champagne Solitaire",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0243": {
+    "partner": "junerings",
+    "handle": "old-mine-moval-wade-oak",
+    "partnerTitle": "Wade || Old Mine Moval",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0244": {
+    "partner": "junerings",
+    "handle": "old-mine-oval-signet-oak",
+    "partnerTitle": "Oval Signet || Old Mine",
+    "partnerPriceUsd": null
   },
   "ALV-E-0007": {
     "partner": "carat",
@@ -407,11 +1031,293 @@
     "partnerTitle": "Oval Diamond Pendant With Four Claw prong",
     "partnerPriceUsd": 428
   },
+  "ALV-R-0245": {
+    "partner": "junerings",
+    "handle": "palm-pear-round-toi-et-moi",
+    "partnerTitle": "Palm || Pear Round Toi et Moi",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0246": {
+    "partner": "junerings",
+    "handle": "pave-clutch-baguette",
+    "partnerTitle": "Pave Clutch || Baguette",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0247": {
+    "partner": "junerings",
+    "handle": "perry-east-west-portrait-cushion",
+    "partnerTitle": "Perry || East West Portrait Cushion",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0248": {
+    "partner": "junerings",
+    "handle": "perry-square-portrait",
+    "partnerTitle": "Perry || Square Portrait",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0249": {
+    "partner": "junerings",
+    "handle": "petite-flora-east-west-oval",
+    "partnerTitle": "Flora || Petite East West Oval",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0250": {
+    "partner": "junerings",
+    "handle": "portrait-lark-oak",
+    "partnerTitle": "Lark || Portrait",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0251": {
+    "partner": "junerings",
+    "handle": "portrait-sapphire-signet-oak",
+    "partnerTitle": "Portrait Sapphire Signet",
+    "partnerPriceUsd": null
+  },
   "ALV-P-0013": {
     "partner": "carat",
     "handle": "radiant-cut-pendant-set-in-four-claw-prong",
     "partnerTitle": "Radiant Cut Pendant Set In Four Claw Prong",
     "partnerPriceUsd": 428
+  },
+  "ALV-R-0252": {
+    "partner": "junerings",
+    "handle": "radiant-rose-cut-mira-oak",
+    "partnerTitle": "Mira || Radiant Rose Cut",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0253": {
+    "partner": "junerings",
+    "handle": "rhodes-portuguese-oval",
+    "partnerTitle": "Rhodes || Portuguese Oval",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0254": {
+    "partner": "junerings",
+    "handle": "ridged-bezel-solitaire-moval-oak",
+    "partnerTitle": "Ridged Bezel Moval || Ridged Bezel Solitaire Moval",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0255": {
+    "partner": "junerings",
+    "handle": "rose-cut-champagne-trillion-oak",
+    "partnerTitle": "Rose Cut Trillion || Rose Cut Champagne Trillion",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0256": {
+    "partner": "junerings",
+    "handle": "santi-euro-cut-champagne",
+    "partnerTitle": "Santi || Euro Cut Champagne",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0257": {
+    "partner": "junerings",
+    "handle": "sapphire-diamond-five-stone-oak",
+    "partnerTitle": "Sapphire Five Stone || Sapphire Diamond Five Stone",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0258": {
+    "partner": "junerings",
+    "handle": "seville",
+    "partnerTitle": "Seville",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0259": {
+    "partner": "junerings",
+    "handle": "seville-east-west-cushion",
+    "partnerTitle": "Seville || East West Cushion",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0260": {
+    "partner": "junerings",
+    "handle": "seville-east-west-oval",
+    "partnerTitle": "Seville || East West Oval",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0261": {
+    "partner": "junerings",
+    "handle": "seville-radiant",
+    "partnerTitle": "Seville || Radiant",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0262": {
+    "partner": "junerings",
+    "handle": "simone-east-west-emerald",
+    "partnerTitle": "Simone || East West Emerald",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0263": {
+    "partner": "junerings",
+    "handle": "sintra-euro-round",
+    "partnerTitle": "Sintra || Euro Round",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0264": {
+    "partner": "junerings",
+    "handle": "sintra-radiant",
+    "partnerTitle": "Sintra || Radiant",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0265": {
+    "partner": "junerings",
+    "handle": "sonora-euro-cut-round",
+    "partnerTitle": "Sonora || Euro Cut Round",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0266": {
+    "partner": "junerings",
+    "handle": "starling-round-rose-cut",
+    "partnerTitle": "Starling || Round Rose Cut",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0267": {
+    "partner": "junerings",
+    "handle": "step-cut-elongated-cushion-band",
+    "partnerTitle": "Step Cut Cushion Band || Step Cut Elongated Cushion Band",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0268": {
+    "partner": "junerings",
+    "handle": "summit-east-west-rose-cut-pear",
+    "partnerTitle": "Summit || East West Rose Cut Pear",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0269": {
+    "partner": "junerings",
+    "handle": "summit-set-roval-oval",
+    "partnerTitle": "Summit || Set Roval Oval",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0270": {
+    "partner": "junerings",
+    "handle": "surry-champagne",
+    "partnerTitle": "Surry || Champagne",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0271": {
+    "partner": "junerings",
+    "handle": "surry-oval",
+    "partnerTitle": "Surry || Oval",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0272": {
+    "partner": "junerings",
+    "handle": "sutton-radiant",
+    "partnerTitle": "Sutton || Radiant",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0273": {
+    "partner": "junerings",
+    "handle": "tab-prong-old-mine-solitaire-oak",
+    "partnerTitle": "Tab Prong Solitaire || Tab Prong Old Mine Solitaire",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0274": {
+    "partner": "junerings",
+    "handle": "tate-croissant-bezel-oval",
+    "partnerTitle": "Tate || Croissant Bezel Oval",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0275": {
+    "partner": "junerings",
+    "handle": "terra-east-west-oval",
+    "partnerTitle": "Terra || East West Oval",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0276": {
+    "partner": "junerings",
+    "handle": "toi-et-marlow-dual-engagement-set",
+    "partnerTitle": "Marlow || Toi et Dual Engagement Set",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0277": {
+    "partner": "junerings",
+    "handle": "townes-old-mine-east-west-moval",
+    "partnerTitle": "Townes || Old Mine East West Moval",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0278": {
+    "partner": "junerings",
+    "handle": "true-antique-starling",
+    "partnerTitle": "Starling || True Antique",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0279": {
+    "partner": "junerings",
+    "handle": "two-tone-emerald-soitaire",
+    "partnerTitle": "Two Tone Emerald || Soitaire",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0280": {
+    "partner": "junerings",
+    "handle": "vale-bubble-cut-round",
+    "partnerTitle": "Vale || Bubble Cut Round",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0281": {
+    "partner": "junerings",
+    "handle": "vale-soft-pear",
+    "partnerTitle": "Vale || Soft Pear",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0282": {
+    "partner": "junerings",
+    "handle": "vienna-toi-et-moi",
+    "partnerTitle": "Vienna || Toi et Moi",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0283": {
+    "partner": "junerings",
+    "handle": "vigo-cushion-half-moon-signet",
+    "partnerTitle": "Vigo || Cushion Half Moon Signet",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0284": {
+    "partner": "junerings",
+    "handle": "vintage-cabochon-ruby-bombe-ring-oak",
+    "partnerTitle": "Ruby Bombe || Vintage Cabochon",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0285": {
+    "partner": "junerings",
+    "handle": "vintage-scattered-gemstone-band-oak-copy",
+    "partnerTitle": "Scattered Gemstone || Vintage Band",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0286": {
+    "partner": "junerings",
+    "handle": "vitrine-signet-round-portrait",
+    "partnerTitle": "Vitrine || Signet Round Portrait",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0287": {
+    "partner": "junerings",
+    "handle": "wade-champagne",
+    "partnerTitle": "Wade || Champagne",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0288": {
+    "partner": "junerings",
+    "handle": "wade-ew-moval",
+    "partnerTitle": "Wade || Ew Moval",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0289": {
+    "partner": "junerings",
+    "handle": "wade-moval",
+    "partnerTitle": "Wade || Moval",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0290": {
+    "partner": "junerings",
+    "handle": "weave-champagne-marquise",
+    "partnerTitle": "Weave || Champagne Marquise",
+    "partnerPriceUsd": null
+  },
+  "ALV-R-0291": {
+    "partner": "junerings",
+    "handle": "yellow-sapphire-juno-oak",
+    "partnerTitle": "Juno || Yellow Sapphire",
+    "partnerPriceUsd": null
   },
   "ALV-R-0050": {
     "partner": "carat",

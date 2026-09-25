@@ -53,6 +53,14 @@ Append-only. Newest entry at the bottom. Never delete an entry.
 
 **Next bet:** `/earrings` for "lab grown diamond earrings" (9,900/mo, KD 9, commercial) and "lab grown diamond stud earrings" (2,400, KD 7). It has 32 pieces, all priced. See STATE.md backup candidates; a four-pass checkup is due before launch.
 
+## 2026-09-26: 151 new rings complete the June Rings catalogue import
+
+**Changed:** 151 pieces added from the remaining source folders (ALV-R-0141 to ALV-R-0291): cushion, elongated cushion, oval, round, emerald, pear, marquise, radiant, asscher, princess, trillion, baguette, moval, roval, old-mine and old-euro cuts across solitaire, bezel, east-west, three-stone, five-stone, toi-et-moi, halo, signet and heritage styles, including champagne, green, blue, pink, yellow and ruby stones. Engagement-ring pieces pick up the rupee price table, the 0.5-6 ct centre-stone choice and the E/VS1/Excellent copy; signets and pieces with unknown shapes stay Price on request. Five source folders were skipped as duplicates of live or new pieces, six likely-same-design pairs were kept as separate pieces pending owner review, and three band designs classify as rings until a bands wave exists. Shapes that could not be read from the folder name (portrait cuts, geo cut, octagon, cabochon, five-stone) are blank until confirmed against the photos.
+
+**Why:** the import brings the catalogue from 45 to 196 rings and gives the shape, colour and style landing pages real depth.
+
+**Measure:** impressions and clicks for the new shape and colour landing combinations; product-page coverage in Search Console once indexed.
+
 ## 2026-09-25: Launch: only pieces with photos are shown
 
 **Changed:** a launch piece is shown only once it has at least one photo (`isShown()` in `shared/jewellery/catalog.ts`). At launch, 65 of 156 are shown: 45 June Rings rings and 20 Carat earrings. The 91 Pooja pieces (all 6 bands among them) stay hidden until their photos are added. The sitemap, `llms.txt` and prerendered snapshots list only shown pages (136 routes). The build now deletes snapshots of routes that no longer exist.

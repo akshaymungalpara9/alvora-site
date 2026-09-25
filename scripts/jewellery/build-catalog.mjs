@@ -85,6 +85,8 @@ const LEXICON = [
   "Vanya", "Winifred", "Ximena", "Yvaine", "Zerlina", "Alcina", "Bryony", "Calliope", "Desma", "Evadne",
   "Filippa", "Gwendolen", "Hermia", "Idony", "Jolie", "Kerensa", "Lorelle", "Minerva", "Nyssa", "Orabel",
   "Pernille", "Quenby", "Rosel", "Sorrel", "Tamara", "Undine", "Verena", "Willa", "Yseult", "Zenobia",
+  "Adrienne", "Aisling", "Alethea", "Amabel", "Amandine", "Aurore", "Avriel", "Belen", "Bertille", "Bruna", "Caelia", "Carlota", "Clarimond", "Clemence", "Delfina", "Demetria", "Eira", "Elif", "Ellora", "Fabia", "Federica", "Fenella", "Fiorella", "Giacinta", "Giulietta", "Gracia", "Hannelore", "Ianthe", "Irina", "Isabetta", "Jacinthe", "Jessenia", "Josiane", "Kallista", "Kerstin", "Leandra", "Liliane", "Loretta", "Lucasta", "Magdalena",
+  "Valentina", "Veronique", "Violetta", "Wendeline", "Xiomara", "Yasmina", "Zabel", "Zephyrine", "Anneliese", "Ambretta", "Belinda", "Cressida", "Domenica", "Elspeth", "Fortuna", "Georgina", "Henrietta", "Iolanthe", "Janina", "Klementine", "Leonora", "Nicolette", "Priscilla", "Raphaela", "Rosalba", "Sebastienne", "Theodosia", "Zoraya", "Antonella", "Benedetta", "Celestina", "Davina", "Ernestine", "Franca", "Giovanna",
 ].filter((name) => !name.includes("-"));
 
 const SHAPE_LABELS = {
