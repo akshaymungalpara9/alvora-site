@@ -13,6 +13,7 @@
     "social:images": "node scripts/build-social-images.mjs",
     "hero:image": "node scripts/build-home-hero.mjs",
     "jewellery:images": "node scripts/jewellery/build-catalog.mjs --images",
+    "jewellery:ai-photos": "node scripts/jewellery/ai-photos.mjs",
     "brand:image": "node scripts/jewellery/brand-image.mjs",
     "prerender": "node scripts/prerender.mjs",
     "start": "NODE_ENV=production node dist/index.js",

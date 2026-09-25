@@ -51,7 +51,7 @@ export const BRAND_IMAGE_STYLE = {
 /** Longest side the photo is worked on at; keeps large originals fast. */
 const WORKING_SIZE = 2400;
 
-function backdropSvg(size, style) {
+export function backdropSvg(size, style) {
   return Buffer.from(`<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}">
   <defs>
     <radialGradient id="g" cx="50%" cy="46%" r="72%">

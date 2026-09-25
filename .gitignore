@@ -127,3 +127,6 @@ SEO_CONTENT_EXPORT.md
 
 # Partner source photos (processed copies live in client/public/assets/jewellery)
 data/jewellery/raw-images/
+# AI photo candidates and review bundles (only approved photos are committed)
+data/jewellery/ai-photos/candidates/
+data/jewellery/ai-photos/review/
