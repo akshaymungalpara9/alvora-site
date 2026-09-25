@@ -1,5 +1,5 @@
 {
   "_comment": "Retail 'from' price = partner price_usd × retailMultiplier, rounded to roundTo. A priceUsd set on a piece in pieces.json always wins.",
-  "retailMultiplier": 1,
+  "retailMultiplier": 1.10,
   "roundTo": 10
 }
