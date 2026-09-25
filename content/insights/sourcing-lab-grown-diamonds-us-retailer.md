@@ -7,10 +7,12 @@ author: Alvora Diamonds
 readingTime: 7 min
 relatedProduct: /precision-lab-grown-diamond-wholesale
 answerSentence: A US retailer sourcing lab-grown diamonds from India for the first time should confirm the current tariff treatment and import classification, request complete shipping and certification documentation, agree payment terms in writing, and vet the manufacturer through samples, references and a third-party inspection before scaling up.
+buyerNote: "Confirm tariff treatment and classification first, then vet the supplier; the order of those steps protects your margin."
 eyebrow: SOURCING GUIDE
 ---
-
 Sourcing lab-grown diamonds directly from an Indian manufacturer can meaningfully improve a US retailer's margin, but the first shipment is where most of the avoidable mistakes happen. The essentials are straightforward: understand the current duty environment, know which documents should accompany the goods, set communication expectations across the time difference, and verify the manufacturer before your first wire transfer.
+
+For the Surat side of sourcing direct, read [Lab-Grown Diamond Manufacturers in Surat: A Buyer's Guide](/insights/sourcing-lab-grown-diamonds-from-surat).
 
 ## Key takeaways
 

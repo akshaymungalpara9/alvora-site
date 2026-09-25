@@ -7,6 +7,7 @@ author: Alvora Diamonds
 readingTime: 6 min
 relatedProduct: /precision-lab-grown-diamond-wholesale
 answerSentence: Melee is typically ordered in bulk because small stones are produced, cut and sorted in batches, while single solitaires can be ordered individually because they are drawn from finished inventory - and bespoke custom-cut production sits in between, with higher minimums that reflect set-up cost rather than stone value.
+buyerNote: "Expect bulk minimums on melee and per-piece ordering on solitaires; plan cash and stock around that difference."
 eyebrow: BUYER EDUCATION
 ---
 

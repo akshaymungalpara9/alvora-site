@@ -3,17 +3,20 @@ slug: lab-grown-diamond-price-per-carat
 title: Lab-Grown Diamond Price Per Carat (Wholesale, 2026)
 metaDescription: A sourced explanation of public wholesale lab-grown diamond price data for 2026 and its limitations. A real quote requires the exact stone specification, report, method, and delivery terms.
 publishedDate: "2026-09-01"
+reviewedDate: "2026-09-26"
 author: Alvora Diamonds
 readingTime: 3 min
 relatedProduct: /request-a-quote
 answerSentence: There is no defensible single 2026 public wholesale range for a 1ct lab-grown diamond because open data do not publish a complete current matrix by method, colour, clarity, cut, and certificate.
+buyerNote: "Treat any single public per-carat number with caution; get written quotes against your exact specification."
 eyebrow: "Q&A · WHOLESALE PRICING"
 paaQuestions:
   - "How much is 1 carat lab grown diamond in India?"
   - "How much should I pay for a 1 carat lab grown diamond?"
 ---
-
 There is no defensible single 2026 public wholesale range for a 1ct lab-grown diamond because open data do not publish a complete current matrix by method, colour, clarity, cut, and certificate. The fact base records a **USD $191/ct average acquisition cost paid by US retailers for 1ct IGI-certified rounds in Q2 2025**, but that is retailer cost, not a current India wholesale quote, and it should be treated as a stale benchmark rather than a live price.[1](https://www.jckonline.com/editorial-article/lab-grown-wholesale-freefall/)
+
+For where wholesale prices are heading, read [Lab-Grown Diamond Wholesale Price Trends Through 2026](/insights/lab-grown-diamond-wholesale-price-trends-2026).
 
 ## Key takeaways
 

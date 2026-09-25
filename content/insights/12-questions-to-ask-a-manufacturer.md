@@ -7,10 +7,12 @@ author: Alvora Diamonds
 readingTime: 4 min
 relatedProduct: /request-a-quote
 answerSentence: Before ordering laboratory-grown diamonds, ask the manufacturer about specification control, growth method, treatment, certification, commercial terms, logistics, and repeat-order capability.
+buyerNote: "Use these twelve questions as a written checklist before you commit to any manufacturer; the answers separate specification-led makers from traders."
 eyebrow: "BUYER'S CHECKLIST"
 ---
-
 Before ordering laboratory-grown diamonds, ask the manufacturer about specification control, growth method, treatment, certification, commercial terms, logistics, and repeat-order capability. A supplier's catalogue, factory photograph, or low quoted price cannot answer these questions on its own.
+
+For a manufacturer shortlist matched to what you are buying, read [Which Lab-Grown Diamond Manufacturer Is Best?](/insights/best-lab-grown-diamond-manufacturer-for-your-need).
 
 ## Key takeaways
 

@@ -7,6 +7,7 @@ author: Alvora Diamonds
 readingTime: 3 min
 relatedProduct: /precision-lab-grown-diamond-wholesale
 answerSentence: Whether a lab-grown diamond is worth buying depends on who's buying - for B2B jewellery retailers and designers the case is straightforward, but end consumers should factor in the low secondary-market resale value of lab-grown vs. mined stones.
+buyerNote: "For retail and design buyers the case usually holds; judge each stone on its specification and disclosure, not its origin."
 eyebrow: "Q&A · VALUE & RESALE"
 paaQuestions:
   - "Is it worth buying a lab-grown diamond?"

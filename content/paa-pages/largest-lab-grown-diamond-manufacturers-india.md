@@ -3,10 +3,12 @@ slug: largest-lab-grown-diamond-manufacturers-india
 title: The Largest Lab-Grown Diamond Manufacturers in India (2026)
 metaDescription: A sourced comparison of Indian lab-grown diamond manufacturers by public capacity evidence. Based on 2026 public figures, KIRA has the strongest scale evidence, with over 250,000 polished carats per month.
 publishedDate: "2026-09-01"
+reviewedDate: "2026-09-26"
 author: Alvora Diamonds
 readingTime: 4 min
 relatedProduct: /calibrated-diamond-layouts
 answerSentence: Based on publicly stated production figures in 2026, KIRA / Kira Jewels is India's largest lab-grown diamond producer on the evidence reviewed, with more than 250,000 polished carats per month reported by GJEPC.
+buyerNote: "Use public scale claims as a shortlist input, then verify capacity and consistency with your own sample order."
 eyebrow: "Q&A · INDIA MANUFACTURERS"
 paaQuestions:
   - "Who is the largest producer of lab-grown diamonds in India?"

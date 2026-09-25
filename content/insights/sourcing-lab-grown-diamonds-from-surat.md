@@ -7,10 +7,12 @@ author: Alvora Diamonds
 readingTime: 4 min
 relatedProduct: /precision-lab-grown-diamond-wholesale
 answerSentence: Sourcing laboratory-grown diamonds direct from Surat can improve technical dialogue and specification control, but buyers still need to verify the manufacturer, documentation, quality process, and landed cost.
+buyerNote: "Buying direct in Surat improves specification control when you verify the maker; treat verification as part of the price."
 eyebrow: SOURCING GUIDE
 ---
-
 Sourcing laboratory-grown diamonds direct from Surat can improve technical dialogue and specification control, but buyers still need to verify the manufacturer, documentation, quality process, and landed cost. Surat is an important Indian production and processing cluster, especially for CVD, but a buyer should distinguish a credible factory relationship from a generic catalogue or an intermediary using factory language.
+
+For a first-import walkthrough aimed at US retailers, read [Sourcing Lab-Grown Diamonds from India: A US Retailer's Guide](/insights/sourcing-lab-grown-diamonds-us-retailer).
 
 ## Key takeaways
 

@@ -71,7 +71,15 @@ function InsightArticlePage({ slug }: { slug: string }) {
   const article = findInsightArticle(slug);
 
   const published = article?.publishedDate ?? '';
-  const author = article?.author ?? 'Alvora Diamonds';
+  const displayBody = (() => {
+    if (!article) return '';
+    const firstPara = article.body.split('\n\n')[0] ?? '';
+    const probe = article.answerSentence.replace(/^[\"']+/, '').slice(0, 40);
+    return probe && firstPara.includes(probe)
+      ? article.body.slice(firstPara.length).trimStart()
+      : article.body;
+  })();
+  const author = 'Alvora Diamonds editorial team';
   const readingTime = article?.readingTime;
   const relatedProduct = article?.relatedProduct;
   const description = article?.description ?? '';
@@ -154,11 +162,19 @@ function InsightArticlePage({ slug }: { slug: string }) {
         <p className="eyebrow eyebrow-bright"><span />ALVORA / TRADE INSIGHTS · {article.eyebrow}</p>
         <h1>{article.title}</h1>
         <p className="insight-author">
-          {formatDate(published)} · {author}{readingTime && <> · {readingTime} read</>}
+          {formatDate(published)} · {author}{readingTime && <> · {readingTime} read</>}{article.reviewedDate && <> · Last reviewed {formatDate(article.reviewedDate)}</>}
         </p>
 
+        <div className="insight-answer-block">
+          <p className="insight-answer-label">The short answer</p>
+          <p className="insight-answer-text">{article.answerSentence}</p>
+          {article.buyerNote && (
+            <p className="insight-answer-buyer">What this means for a buyer: {article.buyerNote}</p>
+          )}
+        </div>
+
         <div className="insight-body">
-          <ReactMarkdown remarkPlugins={[remarkGfm]}>{article.body}</ReactMarkdown>
+          <ReactMarkdown remarkPlugins={[remarkGfm]}>{displayBody}</ReactMarkdown>
         </div>
 
         <div className="insight-cta-block">

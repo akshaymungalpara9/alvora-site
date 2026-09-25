@@ -7,6 +7,7 @@ author: Alvora Diamonds
 readingTime: 6 min
 relatedProduct: /calibrated-diamond-layouts
 answerSentence: A complete calibrated parcel specification covers shape, size range, dimensional tolerance, colour and clarity band, quantity per size, growth method, certification and delivery format; an incomplete spec forces the manufacturer to either guess at your intent or delay your quote with clarifying questions.
+buyerNote: "Copy this specification structure into your next enquiry; complete specifications get accurate quotes, partial ones get assumptions."
 eyebrow: BUYER'S CHECKLIST
 ---
 

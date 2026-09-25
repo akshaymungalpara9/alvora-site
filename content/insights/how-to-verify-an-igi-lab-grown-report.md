@@ -3,10 +3,12 @@ slug: how-to-verify-an-igi-lab-grown-report
 title: "How to Verify an IGI Lab-Grown Diamond Report Before You Buy"
 metaDescription: "Verify an IGI lab-grown diamond report in three steps: check the report number online, match the laser inscription, and reconcile the stone to its certificate."
 publishedDate: "2026-09-25"
+reviewedDate: "2026-09-26"
 author: Alvora Diamonds
 readingTime: 3 min
 relatedProduct: /certifications
 answerSentence: "An IGI lab-grown diamond report is verified by entering the report number on IGI's verification page, matching the laser inscription on the stone's girdle to that report, and confirming that weight, measurements and grades agree exactly."
+buyerNote: "Verify every report number on IGI's own site and match the laser inscription before you pay; it takes minutes per stone."
 eyebrow: CERTIFICATION
 ---
 

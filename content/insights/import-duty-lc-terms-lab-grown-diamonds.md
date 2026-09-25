@@ -3,10 +3,12 @@ slug: import-duty-lc-terms-lab-grown-diamonds
 title: "Import Duties and Payment Terms for Lab-Grown Diamonds, Explained"
 metaDescription: What first-time importers of loose lab-grown diamonds should ask about duties, tariffs, letters of credit, advance payment and memo terms - by market, in plain language.
 publishedDate: "2026-09-10"
+reviewedDate: "2026-09-26"
 author: Alvora Diamonds
 readingTime: 7 min
 relatedProduct: /precision-lab-grown-diamond-wholesale
 answerSentence: First-time importers of loose lab-grown diamonds should confirm the duty treatment for their specific market with a customs broker, and settle payment structure - advance, letter of credit or memo - with the supplier in writing before the first order, since both the tariff environment and credit terms vary by destination and relationship.
+buyerNote: "Confirm duty treatment with a customs broker in your market before pricing an order, and settle payment terms in writing before production."
 eyebrow: COMPLIANCE GUIDE
 ---
 
