@@ -59,7 +59,7 @@ export default function About() {
 
         <div className="about-numbers">
           {[
-            ["3,000+", "certified stones in the current index", "Each listed with its IGI or GIA report number"],
+            ["3,185", "certified stones in the current index", "3,151 IGI-certified and 34 GIA-certified, each listed with its report number"],
             ["100%", "IGI standard on every stone", "No exceptions by stone size or order value"],
             ["DIRECT", "from-bench pricing", "No margin layer between manufacturer and buyer"],
           ].map(([value, label, note]) => (

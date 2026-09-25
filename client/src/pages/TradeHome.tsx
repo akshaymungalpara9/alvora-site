@@ -22,12 +22,6 @@ import { useLocation } from "wouter";
 import { navigateToPublicAnchor, scrollToPublicAnchor, usePublicHashNavigation } from "@/lib/hashNavigation";
 import "./home-proof.css";
 
-const isDev = import.meta.env.DEV;
-function Todo() {
-  if (isDev) return <mark data-alvora-todo style={{ background: "rgba(255,180,0,.28)", padding: "0 .3em", fontFamily: "var(--mono)", fontSize: ".82em" }}>TODO</mark>;
-  return <span data-alvora-todo aria-hidden="true" />;
-}
-
 const facetingImage = "/assets/plates/plate-parcel-spill.webp";
 const laserImage = "/assets/plates/plate-bench-loupe-close.webp";
 const markImage = "/assets/alvora-faceted-a.webp";
@@ -274,7 +268,7 @@ export default function TradeHome() {
                 <Accordion.Trigger className="faq-trigger">Is there a minimum order?<span aria-hidden="true">+</span></Accordion.Trigger>
               </Accordion.Header>
               <Accordion.Content forceMount className="faq-answer">
-                <p>The minimum order depends on the product, size, shape, certification, and whether the request is stock, a sample, a layout, or custom production. Category-specific minimums are <Todo /> and confirmed in the quotation before approval. Buyers should include the expected quantity and repeat-order plan so the applicable minimum can be discussed clearly.</p>
+                <p>The minimum order depends on the product, size, shape, certification, and whether the request is stock, a sample, a layout, or custom production. Category-specific minimums are confirmed in the quotation before approval. Buyers should include the expected quantity and repeat-order plan so the applicable minimum can be discussed clearly.</p>
               </Accordion.Content>
             </Accordion.Item>
             <Accordion.Item value="q2" className="faq-item">
@@ -290,7 +284,7 @@ export default function TradeHome() {
                 <Accordion.Trigger className="faq-trigger">Can I request a sample or memo?<span aria-hidden="true">+</span></Accordion.Trigger>
               </Accordion.Header>
               <Accordion.Content forceMount className="faq-answer">
-                <p>A sample or memo request can be discussed before the first production order, subject to the goods and commercial terms. Availability, return conditions, shipping, insurance, and any charges should be confirmed in writing. Alvora's memo terms are <Todo />, and custom-cut or specially produced goods may require separate treatment from standard stock.</p>
+                <p>A sample or memo request can be discussed before the first production order, subject to the goods and commercial terms. Availability, return conditions, shipping, insurance, and any charges should be confirmed in writing. Memo terms are confirmed in writing before any goods ship. Custom-cut or specially produced goods may require separate treatment from standard stock.</p>
               </Accordion.Content>
             </Accordion.Item>
             <Accordion.Item value="q4" className="faq-item">
@@ -306,7 +300,7 @@ export default function TradeHome() {
                 <Accordion.Trigger className="faq-trigger">What are your lead times?<span aria-hidden="true">+</span></Accordion.Trigger>
               </Accordion.Header>
               <Accordion.Content forceMount className="faq-answer">
-                <p>Lead time depends on whether the requirement is available stock, a selected layout or pair, melee sorting, certification, or custom cutting. Alvora's confirmed timing is <Todo />, with actual days by product stated in the quotation. The schedule distinguishes feasibility review, production, grading, buyer approval, packing, and dispatch.</p>
+                <p>Lead time depends on whether the requirement is available stock, a selected layout or pair, melee sorting, certification, or custom cutting. Actual days by product are stated in the quotation. The schedule distinguishes feasibility review, production, grading, buyer approval, packing, and dispatch.</p>
               </Accordion.Content>
             </Accordion.Item>
             <Accordion.Item value="q6" className="faq-item">
@@ -314,7 +308,7 @@ export default function TradeHome() {
                 <Accordion.Trigger className="faq-trigger">Do you ship to the US, Canada, EU, or GCC?<span aria-hidden="true">+</span></Accordion.Trigger>
               </Accordion.Header>
               <Accordion.Content forceMount className="faq-answer">
-                <p>Alvora can discuss courier shipment to the US, Canada, EU, and GCC, with insurance and applicable IGI paperwork arranged according to the order. The buyer is responsible for destination-country duties, taxes, and import clearance. For reference: US 25% duty, Canada 0%, EU standard, GCC standard. Confirm current rates with the relevant customs authority before shipment.</p>
+                <p>Alvora can discuss courier shipment to the US, Canada, EU, and GCC, with insurance and applicable IGI paperwork arranged according to the order. The buyer is responsible for destination-country duties, taxes, and import clearance. Confirm current rates with the relevant customs authority before shipment.</p>
               </Accordion.Content>
             </Accordion.Item>
             <Accordion.Item value="q7" className="faq-item">

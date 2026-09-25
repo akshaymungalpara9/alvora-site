@@ -40,25 +40,6 @@ export default function MarkdownPage({ page }: Props) {
         <div className="product-body">
           <ReactMarkdown
             remarkPlugins={[remarkGfm]}
-            components={{
-              code({ children, ...props }) {
-                const content = String(children);
-                if (content === '::todo::') {
-                  if (isDev) {
-                    return (
-                      <mark
-                        data-alvora-todo
-                        style={{ background: 'oklch(0.9 0.18 100)', color: '#222' }}
-                      >
-                        ⚠ alvora
-                      </mark>
-                    );
-                  }
-                  return <span data-alvora-todo aria-hidden="true" />;
-                }
-                return <code {...props}>{children}</code>;
-              },
-            }}
           >
             {processedBody}
           </ReactMarkdown>

@@ -1,0 +1,101 @@
+# Alvora Diamonds — full LLM feed
+
+Alvora Diamonds is a laboratory-grown diamond business based in Surat, India.
+It sells finished fine jewellery set with laboratory-grown diamonds (engagement
+rings and earrings in 14K and 18K gold) to private customers through an
+enquiry-first process, and supplies wholesale laboratory-grown diamonds for
+jewellery retailers, manufacturers, designers, and other trade buyers,
+including loose stones, calibrated layouts, matched pairs, melee, fancy shapes
+and colours, and custom-cut requirements.
+
+Growth methods: CVD and HPHT. Certification: IGI as standard; GIA on request.
+
+## Current certified stock
+
+As of 22 September 2026 the current index lists 3,185 certified stones:
+3,151 IGI-certified and 34 GIA-certified. 1,195 stones have a 360 video.
+Each stone has its own page with the lab report and video. Prices are agreed
+on enquiry.
+
+- White stones: colours D–G, plus fancy colours including pink, blue, yellow
+  and green. The exact colour is stated on each stone's report.
+- Fluorescence: None. All shipped stones are graded None by IGI.
+- Lists include rounds under 1 ct through 3 ct+, ovals, pears, cushions,
+  radiants, step cuts, fancy pink/blue/yellow, 3 ct+ white and fancy stones,
+  and 10 ct+ showpieces.
+
+## Jewellery (private customers)
+
+- Home: lab-grown diamond engagement rings and fine jewellery — /
+- All jewellery: /jewellery
+- Engagement rings: /engagement-rings
+- Rings by shape: /engagement-rings/shape/oval, /engagement-rings/shape/emerald,
+  /engagement-rings/shape/pear, /engagement-rings/shape/elongated-cushion,
+  /engagement-rings/shape/old-mine and more
+- Earrings: /earrings
+- Necklaces and pendants: /necklaces
+- Book a consultation: /book-a-consultation
+
+Each piece is made to order. Centre stones run 0.5–6 ct at E colour, VS1
+clarity; rounds are Excellent cut, fancy shapes Excellent polish and symmetry
+(labs grade cut only on rounds). Rings are made in 925 sterling silver,
+platinum, or solid 14K/18K gold in yellow, white or rose; earrings in solid
+14K/18K gold. Nothing is made until the buyer confirms a written price and
+timeline.
+
+## Trade pages
+
+- Trade home (wholesale): /trade
+- About Alvora Diamonds: /about
+- Calibrated lab-grown diamond layouts: /calibrated-diamond-layouts
+- IGI-certified lab-grown diamonds: /certifications
+- Custom-cut lab-grown diamonds to exact specification: /custom-cut-diamonds
+- Lab-grown diamond supply for jewelry brands: /for-jewelry-brands
+- Matched pair lab-grown diamonds: /matched-pair-diamonds
+- Wholesale lab-grown melee diamonds: /melee-diamonds
+- Request a wholesale quote: /request-a-quote
+
+## Trade facts
+
+- Minimum order: depends on product, size, shape, certification and whether
+  the request is stock, a sample, a layout, or custom production.
+  Category-specific minimums are confirmed in the quotation before approval.
+- Sample or memo requests can be discussed before the first production order;
+  memo terms are confirmed in writing before any goods ship.
+- Lead time depends on whether the requirement is available stock, a selected
+  layout or pair, melee sorting, certification, or custom cutting. Actual days
+  by product are stated in the quotation.
+- Shipping: courier shipment to the US, Canada, EU and GCC can be discussed,
+  with insurance and applicable IGI paperwork. The buyer is responsible for
+  destination-country duties, taxes and import clearance; confirm current
+  rates with the relevant customs authority before shipment. US buyers receive
+  tariff-inclusive quotes within the confirmed quotation scope.
+- Quote response: within 24 hours on business days; same-day on WhatsApp
+  during Surat hours (IST 09:00–19:00).
+
+## Buyer guides (PAA)
+
+- Are lab-grown diamonds real diamonds?: /insights/are-lab-grown-diamonds-real-diamonds
+- Which lab-grown diamond manufacturer is best?: /insights/best-lab-grown-diamond-manufacturer-for-your-need
+- Is a lab-grown diamond worth buying?: /insights/is-a-lab-grown-diamond-worth-it
+- Lab-grown diamond price per carat (wholesale, 2026): /insights/lab-grown-diamond-price-per-carat
+- Where to buy lab-grown diamonds wholesale: /insights/lab-grown-diamond-wholesale-how-to-buy
+- The largest lab-grown diamond manufacturers in India (2026): /insights/largest-lab-grown-diamond-manufacturers-india
+
+## Insights articles
+
+- 12 questions to ask a lab-grown diamond manufacturer before you order: /insights/12-questions-to-ask-a-manufacturer
+- Calibrated diamond layouts, explained: /insights/calibrated-diamond-layouts-explained
+- CVD vs HPHT lab-grown diamonds: /insights/cvd-vs-hpht-lab-grown-diamonds
+- Matched pairs vs melee vs layouts: /insights/matched-pairs-vs-melee-vs-layouts
+- Lab-grown diamond manufacturers in Surat: /insights/sourcing-lab-grown-diamonds-from-surat
+
+## Contact
+
+- Phone: +91 99244 90125
+- WhatsApp: +91 99244 90125 (https://wa.me/919924490125)
+- Email: akshay@alvoradiamonds.com
+- Office hours: Monday–Friday, 09:00–18:00 IST (UTC+5:30)
+- Location: Surat, Gujarat, India
+
+Sitemap: https://www.alvoradiamonds.com/sitemap.xml
