@@ -56,6 +56,15 @@ before big changes, and end each work session with a short summary.
   **Pooja (91 pieces) still needs photos**; they appear automatically once
   added and `pnpm jewellery:images` is run.
 
+- Every product gallery ends with the shared grading-report photo
+  (`client/public/assets/jewellery/shared/grading-report*.webp`,
+  `GRADING_REPORT_IMAGE` in `shared/jewellery/catalog.ts`). It is an
+  owner-supplied AI image; replace with a real IGI report photo when available.
+- Owner photo overrides: ALV-R-0042 (Fiora Oval Solitaire) uses the owner's
+  model and hand photos as images 03-04 instead of the partner lifestyle shot.
+  The committed output in `client/public/assets/jewellery/alv-r-0042/` is the
+  source of truth; if raw photos are re-downloaded, keep that override.
+
 ## Homepage hero photos
 - The homepage rotates the owner's photos (cross-fade every 6s; still for
   reduced-motion visitors). Current set (2026-09-25): 4 photos, two with a

@@ -16,6 +16,17 @@ export type JewelleryImage = {
   thumb: string;
   width: number | null;
   height: number | null;
+  /** Overrides the piece-name alt text (used for shared, non-product photos). */
+  alt?: string;
+};
+
+/** Shown last in every product gallery: loose diamonds beside their grading reports. */
+export const GRADING_REPORT_IMAGE: JewelleryImage = {
+  src: "/assets/jewellery/shared/grading-report.webp",
+  thumb: "/assets/jewellery/shared/grading-report-600.webp",
+  width: 1400,
+  height: 1400,
+  alt: "Loose lab-grown diamonds beside their laboratory grading reports",
 };
 
 export type JewelleryPiece = {
