@@ -1,3 +1,4 @@
+import { centreStoneSummary, hasCentreStone } from "../shared/jewellery/centreStone";
 import { availabilitySeo, publicSeo, publicSocialImage, publicSocialImageAlt } from "../client/src/lib/publicSeo";
 import { COMPANY } from "../shared/companyInfo";
 import { getStone, getStonesMetaSnapshot } from "./stonePassport";
@@ -234,7 +235,7 @@ function jewelleryRouteMeta(pathname: string, origin: string): RouteMeta | null 
       "@type": "Product",
       name: piece.name,
       sku: piece.code,
-      description: piece.description,
+      description: hasCentreStone(piece) ? `${piece.description} ${centreStoneSummary(piece)}` : piece.description,
       brand: { "@type": "Brand", name: "Alvora" },
       url: url(pathname),
       ...(piece.images.length ? { image: piece.images.map((image) => `${origin}${image.src}`) } : {}),

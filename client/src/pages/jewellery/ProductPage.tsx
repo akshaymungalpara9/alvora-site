@@ -9,6 +9,7 @@ import EnquiryForm, { type PieceSelection } from "@/components/jewellery/Enquiry
 import NotFound from "@/pages/NotFound";
 import { PUBLIC_PIECES, findPublicPiece, formatFromPrice, type MetalColour } from "@shared/jewellery/catalog";
 import { pieceMeta } from "@shared/jewellery/seo";
+import { CENTRE_STONE_CARATS, centreStoneSpec, centreStoneStory, hasCentreStone } from "@shared/jewellery/centreStone";
 import { COMPANY } from "@shared/companyInfo";
 import { applyJewellerySeo } from "@/lib/jewellerySeo";
 import { buildWhatsAppHrefWithMessage } from "@/lib/whatsapp";
@@ -67,7 +68,9 @@ export default function ProductPage({ slug }: { slug: string }) {
   if (!piece) return <NotFound />;
 
   const isRing = piece.category === "ring" || piece.category === "band";
-  const carats = caratOptions(piece.caratRange);
+  const withCentre = hasCentreStone(piece);
+  const carats = withCentre ? CENTRE_STONE_CARATS : caratOptions(piece.caratRange);
+  const story = withCentre ? centreStoneStory(piece) : null;
   const sizeLabel = ringSize ? (sizeSystem === "us" ? `US ${ringSize}` : `UK ${RING_SIZES.find((s) => s.us === ringSize)?.uk}`) : undefined;
   const selection: PieceSelection = {
     metal: METAL_NAMES[metal],
@@ -184,7 +187,7 @@ export default function ProductPage({ slug }: { slug: string }) {
           </div>
 
           <ul className="jp-trust">
-            <li><Gem size={16} strokeWidth={1.4} /> Lab-grown diamonds, graded before setting</li>
+            <li><Gem size={16} strokeWidth={1.4} /> {withCentre ? "E colour, VS1 clarity, grown not mined" : "Lab-grown diamonds, graded before setting"}</li>
             <li><Sparkles size={16} strokeWidth={1.4} /> Solid {piece.karats.join(" or ")} gold</li>
             <li><Ruler size={16} strokeWidth={1.4} /> Made to your size</li>
             <li><ShieldCheck size={16} strokeWidth={1.4} /> Price confirmed before making</li>
@@ -194,12 +197,21 @@ export default function ProductPage({ slug }: { slug: string }) {
             <div><dt>Style code</dt><dd>{piece.code}</dd></div>
             {piece.shapeLabel ? <div><dt>Shape</dt><dd>{piece.shapeLabel}</dd></div> : null}
             <div><dt>Setting</dt><dd>{piece.styleLabel}</dd></div>
-            <div><dt>Stone</dt><dd>{piece.stoneColourLabel ? `${piece.stoneColourLabel} lab-grown diamond` : "Lab-grown diamond"}</dd></div>
-            {piece.caratRange ? <div><dt>Carat</dt><dd>{piece.caratRange[0] === piece.caratRange[1] ? `${piece.caratRange[0]} ct` : `${piece.caratRange[0]} – ${piece.caratRange[1]} ct`}</dd></div> : null}
+            {withCentre ? null : <div><dt>Stone</dt><dd>{piece.stoneColourLabel ? `${piece.stoneColourLabel} lab-grown diamond` : "Lab-grown diamond"}</dd></div>}
+            {withCentre ? centreStoneSpec(piece).map((row) => <div key={row.label}><dt>{row.label}</dt><dd>{row.value}</dd></div>) : null}
+            {!withCentre && piece.caratRange ? <div><dt>Carat</dt><dd>{piece.caratRange[0] === piece.caratRange[1] ? `${piece.caratRange[0]} ct` : `${piece.caratRange[0]} – ${piece.caratRange[1]} ct`}</dd></div> : null}
             <div><dt>Metal</dt><dd>{piece.karats.join(" / ")} yellow, white or rose gold</dd></div>
           </dl>
         </div>
       </article>
+
+      {story ? (
+        <section className="jp-story" aria-labelledby="story-heading">
+          <p className="jw-eyebrow">Ethically grown</p>
+          <h2 id="story-heading">{story.heading}</h2>
+          {story.paragraphs.map((paragraph) => <p key={paragraph.slice(0, 24)}>{paragraph}</p>)}
+        </section>
+      ) : null}
 
       <section className="jp-enquire" id="enquire" aria-labelledby="enquire-heading">
         <div>

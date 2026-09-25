@@ -62,3 +62,11 @@ Append-only. Newest entry at the bottom. Never delete an entry.
 **Effect on the next bet:** `/earrings` now has 20 pieces (Carat only), not 32. Re-check how many are priced before the four-pass checkup.
 
 **Measure from launch day:** connect Search Console and Bing, then record baseline impressions and positions for the earrings cluster in STATE.md.
+
+## 2026-09-25: Centre-stone grade on every engagement ring
+
+**Changed:** engagement rings (and necklaces/pendants, when live) offer 0.5–6 ct centre stones at the owner-confirmed grade: E colour, VS1 clarity, Excellent cut. For fancy shapes this is worded as "Excellent polish and symmetry". Each product page adds a "Your centre stone" section: a shape story, grown-not-mined, what E and VS1 mean, and cut in Surat. The meta description and Product JSON-LD description now carry the grade.
+
+**Why:** people searching for specific grades ("E VS1 lab grown oval ring", "2 carat lab grown engagement ring") and AI answers comparing grades need the spec stated plainly on the page.
+
+**Measure:** impressions for queries containing carat sizes or "E VS1" on product URLs.
