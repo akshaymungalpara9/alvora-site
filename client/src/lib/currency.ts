@@ -1,4 +1,5 @@
 import { useSyncExternalStore } from "react";
+import { launchOfferActive } from "@shared/jewellery/pricing";
 import { BASE_CURRENCY, availableCurrencies, currencyForTimeZone, type CurrencyCode } from "@shared/jewellery/currency";
 
 const STORAGE_KEY = "alvora-currency";
@@ -6,6 +7,8 @@ const listeners = new Set<() => void>();
 let current: CurrencyCode | null = null;
 
 function initial(): CurrencyCode {
+  // Build-time page snapshots (an automated browser) always use rupees.
+  if (navigator.webdriver) return BASE_CURRENCY;
   const offered = new Set(availableCurrencies().map((c) => c.code));
   try {
     const saved = window.localStorage.getItem(STORAGE_KEY) as CurrencyCode | null;
@@ -39,4 +42,14 @@ function subscribe(listener: () => void) {
 /** The visitor's display currency: their saved choice, else a guess from their time zone. */
 export function useCurrency(): CurrencyCode {
   return useSyncExternalStore(subscribe, read, () => BASE_CURRENCY);
+}
+
+/**
+ * Whether to show the dated launch offer. Page snapshots saved at build time
+ * (an automated browser) leave it out, so a saved page never shows an offer
+ * after it has ended; visitors' browsers show it while it runs.
+ */
+export function showLaunchOffer() {
+  if (typeof navigator !== "undefined" && navigator.webdriver) return false;
+  return launchOfferActive();
 }

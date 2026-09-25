@@ -36,20 +36,23 @@ before big changes, and end each work session with a short summary.
 
 ## Prices (owner-set 2026-09-25)
 - `shared/jewellery/pricing.ts`: engagement rings are priced in rupees by
-  metal (silver, 14K gold, 18K gold, platinum) and centre-stone carat
-  (0.5–6 ct). "From" price = 0.5 ct in silver (₹25,000); the product page opens
-  on it. Platinum = 14K prices (owner-confirmed). Silver and platinum are white
-  only; gold keeps yellow/white/rose.
-- Earrings (and anything else) show "Price on request" until rupee prices are
-  set. The old partner-derived `fromPriceUsd` is internal only.
-- Launch offer: table prices are the offer prices. `LAUNCH_OFFER.endsOn` (owner
-  sets the date) shows the full price struck through and "30% launch offer
-  until <date>". It must be a real price charged after that date (Indian
-  consumer rules on misleading discounts). No date = no discount shown.
-- Currency: `shared/jewellery/currency.ts`. Visitors see their currency, guessed
-  from time zone, with a switcher. A currency is offered only once the owner
-  sets its rate (rupees per unit); until then everyone sees rupees. Search
-  results and structured data use rupees.
+  metal (925 sterling silver, 14K gold, 18K gold, platinum) and centre-stone
+  carat (0.5–6 ct). "From" price = 0.5 ct in silver (₹25,000); the product page
+  opens on it. Platinum = 14K prices (owner-confirmed). Silver and platinum are
+  white only; gold keeps yellow/white/rose.
+- Earrings show "Price on request" (owner's choice). The partner list prices
+  (`fromPriceUsd`) are internal only: they may be trade prices, so don't publish
+  them without a markup decision.
+- Launch offer: table prices are the offer prices; runs until 25 Dec 2026
+  (`LAUNCH_OFFER.endsOn`, "till Christmas"). The full price is struck through,
+  rounded UP so the saving is always at least 30%. It must be a real price
+  charged after the offer (Indian rules on misleading discounts). Build-time
+  page snapshots leave the offer out (`showLaunchOffer()`), so they never go
+  stale; visitors see it until the date passes, then it disappears.
+- Currency: `shared/jewellery/currency.ts`. Visitors see their currency (guessed
+  from time zone) with a switcher. Owner rates: USD 96, EUR 110, GBP 126,
+  CAD 70, AUD 70 rupees; converted prices rounded to 10. AED/SGD have no rate,
+  so they are not offered. Search results and structured data use rupees.
 
 ## Centre stone (engagement rings, necklaces & pendants)
 - Owner-confirmed standard (2026-09-25): E colour, VS1 clarity, Excellent cut;
@@ -135,8 +138,8 @@ before big changes, and end each work session with a short summary.
   "confirmed in your quotation" instead.
 
 ## Open items for the owner
-- Launch offer end date, exchange rates for other currencies, and rupee
-  prices for earrings (see Prices).
+- Rupee prices for earrings (on request for now); review exchange rates
+  from time to time (see Prices).
 - Logo file at `client/public/assets/brand/alvora-logo.png` (optional).
 - Two Carat earrings appear to be the same product (flower-stud marquise vs
   marquise prong-style); decide whether to hide one.

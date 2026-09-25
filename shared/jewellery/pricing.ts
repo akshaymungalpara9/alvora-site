@@ -17,7 +17,7 @@ import type { JewelleryPiece } from "./catalog";
 export type RingMetal = "silver" | "14K" | "18K" | "platinum";
 
 export const RING_METALS: Array<{ value: RingMetal; label: string; gold: boolean }> = [
-  { value: "silver", label: "Silver", gold: false },
+  { value: "silver", label: "925 silver", gold: false },
   { value: "14K", label: "14K gold", gold: true },
   { value: "18K", label: "18K gold", gold: true },
   { value: "platinum", label: "Platinum", gold: false },
@@ -36,7 +36,7 @@ export const RING_PRICES_INR: Record<RingMetal, Record<string, number>> = {
 export const LAUNCH_OFFER: { percentOff: number; endsOn: string | null } = {
   percentOff: 30,
   /** Last day of the offer, YYYY-MM-DD (India time). Set by the owner. */
-  endsOn: null,
+  endsOn: "2026-12-25", // owner: "till Christmas"
 };
 
 type PricedPiece = Pick<JewelleryPiece, "category" | "collections">;
@@ -70,9 +70,12 @@ export function launchOfferActive(now = new Date()) {
   return LAUNCH_OFFER.endsOn != null && todayInIndia(now) <= LAUNCH_OFFER.endsOn;
 }
 
-/** Full price before the launch offer, rounded to the nearest ₹100. */
+/**
+ * Full price before the launch offer, rounded UP to a tidy ₹100, so the
+ * saving is never less than the advertised percentage.
+ */
 export function fullPriceInr(offerPrice: number) {
-  return Math.round(offerPrice / (1 - LAUNCH_OFFER.percentOff / 100) / 100) * 100;
+  return Math.ceil(offerPrice / (1 - LAUNCH_OFFER.percentOff / 100) / 100) * 100;
 }
 
 /**
@@ -82,7 +85,8 @@ export function fullPriceInr(offerPrice: number) {
 export function formatFullPrice(offerPriceInr: number, code: CurrencyCode) {
   const step = roundingStep(code);
   const offer = convertFromInr(offerPriceInr, code);
-  return formatAmount(Math.round(offer / (1 - LAUNCH_OFFER.percentOff / 100) / step) * step, code);
+  // Rounded up, so the saving shown is never less than the advertised percentage.
+  return formatAmount(Math.ceil(offer / (1 - LAUNCH_OFFER.percentOff / 100) / step) * step, code);
 }
 
 /** Rupees, e.g. "₹25,000" (search results and structured data use rupees). */

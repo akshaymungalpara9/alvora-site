@@ -1,7 +1,7 @@
 import { Link } from "wouter";
 import { formatFromPrice, type JewelleryPiece } from "@shared/jewellery/catalog";
-import { useCurrency } from "@/lib/currency";
-import { formatFullPrice, fromPriceInr, launchOfferActive } from "@shared/jewellery/pricing";
+import { showLaunchOffer, useCurrency } from "@/lib/currency";
+import { formatFullPrice, fromPriceInr } from "@shared/jewellery/pricing";
 import PieceImage from "./PieceImage";
 import MetalSwatches from "./MetalSwatches";
 
@@ -31,7 +31,7 @@ export default function ProductCard({ piece, priority = false, hidePrice = false
         <p className="jw-card-detail">{detail}</p>
         <div className="jw-card-foot">
           <MetalSwatches colours={piece.metalColours} />
-          {hidePrice ? <span className="jw-card-price">{piece.code}</span> : <span className="jw-card-price">{formatFromPrice(piece, currency)}{from != null && launchOfferActive() ? <s aria-label="Full price">{formatFullPrice(from, currency)}</s> : null}</span>}
+          {hidePrice ? <span className="jw-card-price">{piece.code}</span> : <span className="jw-card-price">{formatFromPrice(piece, currency)}{from != null && showLaunchOffer() ? <s aria-label="Full price">{formatFullPrice(from, currency)}</s> : null}</span>}
         </div>
       </div>
     </Link>

@@ -62,7 +62,7 @@ export function shapeContentFor(shape: string): ShapeContent | null {
         heading: "How much does a lab-grown marquise engagement ring cost?",
         body: [
           span
-            ? `Our marquise engagement rings start at ${formatInr(span.from)} in silver with a 0.5 ct centre stone; the price rises with the centre-stone size and metal you choose.`
+            ? `Our marquise engagement rings start at ${formatInr(span.from)} in 925 sterling silver with a 0.5 ct centre stone; the price rises with the centre-stone size and metal you choose.`
             : "Prices depend on the centre-stone size and gold you choose.",
           "You receive a written price for your exact ring, stone and size before anything is made, and nothing is charged until you confirm.",
         ],

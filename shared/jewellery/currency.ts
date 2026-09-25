@@ -21,14 +21,15 @@ type Currency = {
   locale: string;
 };
 
+/** Owner-set rates (2026-09-25). AED and SGD have no rate yet, so they are not offered. */
 export const CURRENCIES: Currency[] = [
   { code: "INR", label: "₹ INR", inrPerUnit: 1, roundTo: 100, locale: "en-IN" },
-  { code: "USD", label: "$ USD", inrPerUnit: null, roundTo: 10, locale: "en-US" },
-  { code: "GBP", label: "£ GBP", inrPerUnit: null, roundTo: 10, locale: "en-GB" },
-  { code: "EUR", label: "€ EUR", inrPerUnit: null, roundTo: 10, locale: "en-IE" },
+  { code: "USD", label: "$ USD", inrPerUnit: 96, roundTo: 10, locale: "en-US" },
+  { code: "GBP", label: "£ GBP", inrPerUnit: 126, roundTo: 10, locale: "en-GB" },
+  { code: "EUR", label: "€ EUR", inrPerUnit: 110, roundTo: 10, locale: "en-IE" },
   { code: "AED", label: "AED", inrPerUnit: null, roundTo: 50, locale: "en-AE" },
-  { code: "CAD", label: "$ CAD", inrPerUnit: null, roundTo: 10, locale: "en-CA" },
-  { code: "AUD", label: "$ AUD", inrPerUnit: null, roundTo: 10, locale: "en-AU" },
+  { code: "CAD", label: "$ CAD", inrPerUnit: 70, roundTo: 10, locale: "en-CA" },
+  { code: "AUD", label: "$ AUD", inrPerUnit: 70, roundTo: 10, locale: "en-AU" },
   { code: "SGD", label: "$ SGD", inrPerUnit: null, roundTo: 10, locale: "en-SG" },
 ];
 
