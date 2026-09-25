@@ -52,3 +52,13 @@ Append-only. Newest entry at the bottom. Never delete an entry.
 - Necklaces & Pendants has 0 live pieces and hides itself.
 
 **Next bet:** `/earrings` for "lab grown diamond earrings" (9,900/mo, KD 9, commercial) and "lab grown diamond stud earrings" (2,400, KD 7). It has 32 pieces, all priced. See STATE.md backup candidates; a four-pass checkup is due before launch.
+
+## 2026-09-25: Launch: only pieces with photos are shown
+
+**Changed:** a launch piece is shown only once it has at least one photo (`isShown()` in `shared/jewellery/catalog.ts`). At launch, 65 of 156 are shown: 45 June Rings rings and 20 Carat earrings. The 91 Pooja pieces (all 6 bands among them) stay hidden until their photos are added. The sitemap, `llms.txt` and prerendered snapshots list only shown pages (136 routes). The build now deletes snapshots of routes that no longer exist.
+
+**Copy:** "engagement rings, wedding bands and earrings" became "engagement rings and earrings" on the homepage, the meta descriptions, the trade meta and `llms.txt`, because no bands are on sale. Revert this when the Pooja bands go live.
+
+**Effect on the next bet:** `/earrings` now has 20 pieces (Carat only), not 32. Re-check how many are priced before the four-pass checkup.
+
+**Measure from launch day:** connect Search Console and Bing, then record baseline impressions and positions for the earrings cluster in STATE.md.
