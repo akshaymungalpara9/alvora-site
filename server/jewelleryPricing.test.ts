@@ -13,11 +13,16 @@ describe("jewellery pricing", () => {
     }
   });
 
-  it("matches the owner's table at its ends", () => {
-    expect(RING_PRICES_INR.silver["0.5"]).toBe(25000);
-    expect(RING_PRICES_INR.silver["6"]).toBe(330000);
-    expect(RING_PRICES_INR["14K"]["2"]).toBe(170000);
-    expect(RING_PRICES_INR["18K"]["6"]).toBe(520000);
+  it("matches every owner-set price at every metal and centre-stone size", () => {
+    const expected = {
+      silver: [25, 45, 70, 90, 120, 150, 180, 210, 240, 270, 300, 330],
+      "14K": [70, 90, 130, 170, 210, 240, 280, 320, 360, 400, 440, 480],
+      "18K": [90, 120, 160, 200, 240, 280, 320, 360, 400, 440, 480, 520],
+      platinum: [70, 90, 130, 170, 210, 240, 280, 320, 360, 400, 440, 480],
+    } as const;
+    for (const { value } of RING_METALS) {
+      expect(CENTRE_STONE_CARATS.map((carat) => RING_PRICES_INR[value][carat])).toEqual(expected[value].map((thousands) => thousands * 1000));
+    }
     expect(RING_PRICES_INR.platinum).toEqual(RING_PRICES_INR["14K"]);
   });
 
