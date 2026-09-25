@@ -131,3 +131,7 @@ data/jewellery/raw-images/
 data/jewellery/ai-photos/candidates/
 data/jewellery/ai-photos/review/
 data/jewellery/skipped-photos.txt
+data/jewellery/junerings-source-swap-diff.txt
+data/jewellery/junerings-contact-sheet.html
+# Open-source upscaling binary (developer's Mac only)
+tools/realesrgan/

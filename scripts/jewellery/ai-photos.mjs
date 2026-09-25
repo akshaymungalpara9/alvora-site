@@ -29,11 +29,17 @@
  */
 
 import fs from "node:fs";
+import os from "node:os";
+import crypto from "node:crypto";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { execFile } from "node:child_process";
+import { promisify } from "node:util";
 import sharp from "sharp";
 import { brandImage, backdropSvg, BRAND_IMAGE_STYLE } from "./brand-image.mjs";
 import { AI_PHOTOS_DIR, APPROVED_PATH, IMAGE_OUT, readApproved } from "./ai-approved.mjs";
+
+const execFileP = promisify(execFile);
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..", "..");
@@ -45,6 +51,11 @@ const HERO_DIR = path.join(ROOT, "client", "public", "assets", "home");
 const MODEL = process.env.GEMINI_IMAGE_MODEL || "gemini-3.1-flash-image";
 const IMAGE_SIZE = "2K";
 const CONCURRENCY = 4;
+
+/** Real-ESRGAN (free, local): binary path, and the model used with `-n`. */
+const REALESRGAN_BIN = process.env.REALESRGAN_BIN
+  || path.join(ROOT, "tools", "realesrgan", "realesrgan-ncnn-vulkan");
+const REALESRGAN_MODEL = "realesrgan-x4plus";
 
 /**
  * Pieces whose photos include the owner's own shots (CLAUDE.md "Owner photo
@@ -281,10 +292,10 @@ async function gemini(prompt, references, { aspectRatio = "1:1" } = {}) {
   }
 }
 
-async function pool(items, worker) {
+async function pool(items, worker, concurrency = CONCURRENCY) {
   let next = 0;
   await Promise.all(
-    Array.from({ length: Math.min(CONCURRENCY, items.length) }, async () => {
+    Array.from({ length: Math.min(concurrency, items.length) }, async () => {
       while (next < items.length) {
         const item = items[next++];
         await worker(item);
@@ -294,10 +305,47 @@ async function pool(items, worker) {
 }
 
 // ---------------------------------------------------------------------------
+// Real-ESRGAN (free, local, open source)
+// ---------------------------------------------------------------------------
+
+let esrganUsage = { images: 0 };
+
+/** Sharpen a source PNG with Real-ESRGAN (2x, x4plus model). Returns a PNG Buffer. */
+async function esrgan(sourcePng) {
+  if (!fs.existsSync(REALESRGAN_BIN)) {
+    throw new Error(
+      `Real-ESRGAN binary not found at ${REALESRGAN_BIN}. Download the macOS zip ` +
+      "from github.com/xinntao/Real-ESRGAN releases into tools/realesrgan/, or set REALESRGAN_BIN.",
+    );
+  }
+  const id = crypto.randomUUID();
+  const inFile = path.join(os.tmpdir(), `realesrgan-${id}-in.png`);
+  const outFile = path.join(os.tmpdir(), `realesrgan-${id}-out.png`);
+  fs.writeFileSync(inFile, sourcePng);
+  try {
+    // Run from the binary's folder so it finds ./models automatically.
+    await execFileP(
+      REALESRGAN_BIN,
+      ["-i", inFile, "-o", outFile, "-n", REALESRGAN_MODEL, "-s", "2"],
+      { cwd: path.dirname(REALESRGAN_BIN), maxBuffer: 32 * 1024 * 1024 },
+    );
+    esrganUsage.images += 1;
+    return fs.readFileSync(outFile);
+  } finally {
+    fs.rmSync(inFile, { force: true });
+    fs.rmSync(outFile, { force: true });
+  }
+}
+
+// ---------------------------------------------------------------------------
 // generate
 // ---------------------------------------------------------------------------
 
 async function generate(args) {
+  const engine = argValue(args, "--engine") ?? "gemini";
+  if (!["gemini", "esrgan"].includes(engine)) {
+    throw new Error(`Unknown --engine "${engine}". Use "gemini" (default) or "esrgan".`);
+  }
   const catalog = readJson(CATALOG_PATH, []);
   const live = catalog.filter((p) => p.live && p.images.length);
   const wanted = args.includes("--all") ? live : live.filter((p) => (argValue(args, "--pieces") ?? "").split(",").map((s) => s.trim().toUpperCase()).includes(p.code));
@@ -306,7 +354,8 @@ async function generate(args) {
   const force = args.includes("--force");
   const retryRejected = args.includes("--retry-rejected");
   const decisions = readJson(DECISIONS_PATH, {});
-  const heroFile = fs.readdirSync(HERO_DIR).find((f) => /hero-1-900\.webp$/.test(f));
+  // Mood image is only used as a Gemini reference; esrgan doesn't need it.
+  const heroFile = engine === "gemini" ? fs.readdirSync(HERO_DIR).find((f) => /hero-1-900\.webp$/.test(f)) : null;
   const mood = heroFile ? await sharp(path.join(HERO_DIR, heroFile)).png().toBuffer() : null;
   const manifestPath = path.join(CANDIDATES_DIR, "manifest.json");
   const manifest = readJson(manifestPath, {});
@@ -339,13 +388,16 @@ async function generate(args) {
       const prompt = [ENHANCE_PROMPT, pieceFacts(piece), ownerCorrection(decisions, piece.code, shot)].filter(Boolean).join(" ");
       jobs.push({ shot, label: `Sharper photo ${number}`, kind: "replace", replaces: number, prompt, references: [source], fromRaw, keepBackground: false });
     }
-    const scenes = SCENES[piece.category] ?? SCENES.ring;
-    const references = studio.slice(0, 4).map((s) => s.source);
-    for (const scene of scenes) {
-      const prompt =
-        `${scene.prompt} The reference product photos (the first ${references.length} image${references.length > 1 ? "s" : ""}) show this exact piece from different angles. ` +
-        [KEEP_DESIGN, pieceFacts(piece), ownerCorrection(decisions, piece.code, scene.shot), MOOD].filter(Boolean).join(" ");
-      jobs.push({ shot: scene.shot, label: scene.label, kind: "extra", prompt, references: mood ? [...references, mood] : references, keepBackground: true });
+    // Real-ESRGAN only sharpens existing studio photos; no scene generation.
+    if (engine === "gemini") {
+      const scenes = SCENES[piece.category] ?? SCENES.ring;
+      const references = studio.slice(0, 4).map((s) => s.source);
+      for (const scene of scenes) {
+        const prompt =
+          `${scene.prompt} The reference product photos (the first ${references.length} image${references.length > 1 ? "s" : ""}) show this exact piece from different angles. ` +
+          [KEEP_DESIGN, pieceFacts(piece), ownerCorrection(decisions, piece.code, scene.shot), MOOD].filter(Boolean).join(" ");
+        jobs.push({ shot: scene.shot, label: scene.label, kind: "extra", prompt, references: mood ? [...references, mood] : references, keepBackground: true });
+      }
     }
 
     const statusOf = (shot) => { const d = decisions[piece.code]?.[shot]; return typeof d === "object" ? d?.status : d; };
@@ -355,24 +407,40 @@ async function generate(args) {
       // Never remake a photo the owner already decided on unless forced.
       return force || (!entry.items[job.shot] && !statusOf(job.shot));
     });
-    console.log(`▸ ${piece.code} ${piece.name}: ${todo.length} photo${todo.length === 1 ? "" : "s"} to make`);
+    console.log(`▸ ${piece.code} ${piece.name}: ${todo.length} photo${todo.length === 1 ? "" : "s"} to make (${engine})`);
+    // ncnn-vulkan uses one GPU; run one job at a time for esrgan.
+    const workers = engine === "esrgan" ? 1 : CONCURRENCY;
     await pool(todo, async (job) => {
       try {
-        const png = await gemini(job.prompt, job.references);
+        const png = engine === "esrgan"
+          ? await esrgan(job.references[0])
+          : await gemini(job.prompt, job.references);
         fs.writeFileSync(path.join(outDir, `${job.shot}.png`), png);
         const style = { ...BRAND_IMAGE_STYLE, replaceBackground: !job.keepBackground };
         await (await brandImage(png, 1400, style)).toFile(path.join(outDir, `${job.shot}.webp`));
         await (await brandImage(png, 600, style)).toFile(path.join(outDir, `${job.shot}-600.webp`));
-        entry.items[job.shot] = { shot: job.shot, label: job.label, kind: job.kind, replaces: job.replaces ?? null, model: MODEL, fromRaw: job.fromRaw ?? null, createdAt: new Date().toISOString() };
+        entry.items[job.shot] = {
+          shot: job.shot,
+          label: job.label,
+          kind: job.kind,
+          replaces: job.replaces ?? null,
+          model: engine === "esrgan" ? REALESRGAN_MODEL : MODEL,
+          fromRaw: job.fromRaw ?? null,
+          createdAt: new Date().toISOString(),
+        };
         writeJson(manifestPath, manifest);
         console.log(`  ✓ ${piece.code} ${job.shot}`);
       } catch (error) {
         console.error(`  ✗ ${piece.code} ${job.shot}: ${error.message}`);
       }
-    });
+    }, workers);
   }
   writeJson(manifestPath, manifest);
-  console.log(`\nGemini calls: ${totalUsage.calls}, images made: ${totalUsage.outputImages} (model ${MODEL}, ${IMAGE_SIZE}).`);
+  if (engine === "esrgan") {
+    console.log(`\nReal-ESRGAN images made: ${esrganUsage.images} (model ${REALESRGAN_MODEL}, 2x).`);
+  } else {
+    console.log(`\nGemini calls: ${totalUsage.calls}, images made: ${totalUsage.outputImages} (model ${MODEL}, ${IMAGE_SIZE}).`);
+  }
 }
 
 /** Each remake of a shot gets its own id, so an old decision never sticks to a new photo. */
