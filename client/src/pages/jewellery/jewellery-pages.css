@@ -74,6 +74,11 @@
 .jp-price { flex-wrap: wrap; }
 .jp-price strong { font-family: var(--jw-serif); font-size: 1.8rem; font-weight: 500; white-space: nowrap; }
 .jp-price span { color: var(--jw-muted); font-size: 0.82rem; }
+div.jp-price { flex-direction: column; align-items: flex-start; gap: 4px; }
+.jp-price-line { display: flex; align-items: baseline; flex-wrap: wrap; gap: 10px 12px; margin: 0; }
+.jp-price-line s { color: var(--jw-muted); font-size: 1rem; }
+.jp-price-line .jw-currency { margin-left: auto; align-self: center; }
+.jp-price .jp-offer { color: var(--jw-ink); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.02em; }
 .jp-desc { margin: 0 0 26px; color: var(--jw-ink2); font-size: 0.98rem; line-height: 1.75; }
 .jp-option { margin: 0 0 22px; padding: 0; border: 0; }
 .jp-option legend, .jp-option-label { display: flex; justify-content: space-between; width: 100%; margin-bottom: 10px; color: var(--jw-ink2); font-family: var(--jw-mono); font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; }

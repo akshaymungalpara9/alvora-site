@@ -69,7 +69,7 @@ export function centreStoneStory(piece: Piece): { heading: string; paragraphs: s
       shapeLine,
       "Grown, not mined. Your diamond is grown from carbon in a laboratory and is a real diamond, with the same crystal structure, hardness and fire as one taken from the ground. There is no mine behind it and no question over where it came from.",
       `${grade} Choose any size from ${CENTRE_STONE_CARATS[0]} to ${CENTRE_STONE_CARATS[CENTRE_STONE_CARATS.length - 1]} carats.`,
-      "It is cut and polished in Surat, India, the city where most of the world's diamonds are cut, and checked against its grade before it is set by hand in solid gold.",
+      "It is cut and polished in Surat, India, the city where most of the world's diamonds are cut, and checked against its grade before it is set by hand in the metal you choose.",
     ],
   };
 }

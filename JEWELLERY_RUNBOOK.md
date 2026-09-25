@@ -49,6 +49,14 @@ Sharper versions of the studio photos and new styled photos (on a hand, on a mod
 
 Rejected photos can be remade with `generate --retry-rejected`; your rejection note is given to the AI.
 
+## Engagement ring prices, launch offer and currencies
+
+All in `shared/jewellery/pricing.ts` and `shared/jewellery/currency.ts`; ask Claude to change them.
+
+- **Price table:** rupees for each metal (silver, 14K, 18K, platinum) and each centre stone from 0.5 to 6 ct.
+- **Launch offer:** set the last day in `LAUNCH_OFFER.endsOn`. Until that date the full price is shown crossed out with "30% launch offer until …"; afterwards the discount disappears by itself. Only use it if you will really charge the full price after that date.
+- **Other currencies:** give each currency a rate (rupees per 1 dollar, pound, euro …). Visitors then see prices in their own currency and can switch. Without a rate, they see rupees.
+
 ## Names, prices and hiding a piece
 
 All in `data/jewellery/pieces.json`. After editing, run `pnpm jewellery:build`.

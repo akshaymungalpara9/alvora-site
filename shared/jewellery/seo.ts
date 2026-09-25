@@ -3,6 +3,7 @@
  * (initial HTML for crawlers) and the client (SPA navigation) so both agree.
  */
 import { centreStoneSummary, hasCentreStone } from "./centreStone";
+import { formatInr, fromPriceInr } from "./pricing";
 import type { JewelleryPiece } from "./catalog";
 import { shapeContentFor } from "./editorial";
 
@@ -17,25 +18,25 @@ export const JEWELLERY_HOME_META: JewelleryRouteMeta = {
 export const JEWELLERY_COLLECTION_META: Record<string, JewelleryRouteMeta & { heading: string; intro: string }> = {
   "/jewellery": {
     title: "Lab-Grown Diamond Jewellery Collection | Alvora",
-    description: "Every Alvora piece in one place: lab-grown diamond engagement rings and earrings in solid gold, each priced or quoted before anything is made.",
+    description: "Every Alvora piece in one place: lab-grown diamond engagement rings and earrings in gold, platinum or silver, each priced or quoted before anything is made.",
     heading: "The collection",
     intro: "Every piece we currently make, in one place. Filter by shape, setting or metal, then open a piece to choose its details.",
   },
   "/engagement-rings": {
     title: "Lab-Grown Diamond Engagement Rings | Alvora",
-    description: "Lab-grown diamond engagement rings in oval, round, emerald, pear and antique cuts. Solitaire, bezel, east-west and heritage settings in solid gold.",
+    description: "Lab-grown diamond engagement rings in oval, round, emerald, pear and antique cuts. Solitaire, bezel, east-west and heritage settings in silver, gold or platinum.",
     heading: "Engagement rings",
-    intro: "Solitaires, bezels, east-west and heritage settings, each made to your size in yellow, white or rose gold.",
+    intro: "Solitaires, bezels, east-west and heritage settings, each made to your size in silver, platinum, or yellow, white or rose gold.",
   },
   "/rings": {
     title: "Lab-Grown Diamond Rings in Solid Gold | Alvora",
-    description: "Alvora rings set with lab-grown diamonds: solitaires, three-stone, halo and heritage designs, made to your size in 14K or 18K gold.",
+    description: "Alvora rings set with lab-grown diamonds: solitaires, three-stone, halo and heritage designs, made to your size in silver, 14K or 18K gold, or platinum.",
     heading: "Rings",
     intro: "Rings for every day and for the day itself, set with lab-grown diamonds and made to your size.",
   },
   "/earrings": {
     title: "Lab-Grown Diamond Earrings & Studs | Alvora",
-    description: "Lab-grown diamond studs, halo studs and drop earrings in solid gold from Alvora. Matched pairs, set by hand, with prices shown.",
+    description: "Lab-grown diamond studs, halo studs and drop earrings in solid gold from Alvora. Matched pairs, set by hand, priced for you on request.",
     heading: "Earrings",
     intro: "Studs and drops with matched pairs of lab-grown diamonds, from everyday pieces to statement pairs.",
   },
@@ -59,7 +60,7 @@ export const JEWELLERY_COLLECTION_META: Record<string, JewelleryRouteMeta & { he
   },
   "/jewellery/coloured-stones": {
     title: "Champagne, Green & Coloured Diamond Rings | Alvora",
-    description: "Champagne, green, pink and blue lab-grown diamonds in engagement rings and fine jewellery, set in solid gold by Alvora.",
+    description: "Champagne, green, pink and blue lab-grown diamonds in engagement rings and fine jewellery, set in gold, platinum or silver by Alvora.",
     heading: "Coloured stones",
     intro: "Champagne, green, pink and blue stones for a ring that is entirely your own.",
   },
@@ -75,12 +76,13 @@ export function shapePageMeta(shape: string, label: string): JewelleryRouteMeta 
   if (editorial) return { title: editorial.title, description: editorial.description };
   return {
     title: `${label} Lab-Grown Diamond Engagement Rings | Alvora`,
-    description: `${label} lab-grown diamond engagement rings from Alvora: solitaire, bezel, east-west and heritage settings in solid gold, made to your size.`,
+    description: `${label} lab-grown diamond engagement rings from Alvora: solitaire, bezel, east-west and heritage settings in silver, gold or platinum, made to your size.`,
   };
 }
 
-export function pieceMeta(piece: Pick<JewelleryPiece, "name" | "description" | "fromPriceUsd" | "shapeLabel" | "styleLabel" | "category" | "collections" | "shape" | "stoneColourLabel">): JewelleryRouteMeta {
-  const price = piece.fromPriceUsd != null ? ` From $${piece.fromPriceUsd.toLocaleString("en-US")}.` : "";
+export function pieceMeta(piece: Pick<JewelleryPiece, "name" | "description" | "shapeLabel" | "styleLabel" | "category" | "collections" | "shape" | "stoneColourLabel">): JewelleryRouteMeta {
+  const from = fromPriceInr(piece);
+  const price = from != null ? ` From ${formatInr(from)}.` : "";
   const stone = hasCentreStone(piece) ? ` ${centreStoneSummary(piece)}` : "";
   return {
     title: `${piece.name} | Alvora`,

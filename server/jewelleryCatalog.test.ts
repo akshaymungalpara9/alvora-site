@@ -78,7 +78,7 @@ describe("jewellery catalogue", () => {
   });
 
   it("formats prices and falls back to price on request", () => {
-    expect(formatFromPrice({ fromPriceUsd: 1250 })).toBe("From $1,250");
-    expect(formatFromPrice({ fromPriceUsd: null })).toBe("Price on request");
+    expect(formatFromPrice({ category: "ring", collections: ["engagement-rings", "rings"] })).toBe("From ₹25,000");
+    expect(formatFromPrice({ category: "earrings", collections: ["earrings"] })).toBe("Price on request");
   });
 });

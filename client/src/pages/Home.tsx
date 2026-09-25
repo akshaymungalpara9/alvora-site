@@ -14,6 +14,8 @@ import PieceImage from "@/components/jewellery/PieceImage";
 import HeroSlides, { type HeroSlide } from "@/components/jewellery/HeroSlides";
 import { pieceHref } from "@/components/jewellery/ProductCard";
 import { PUBLIC_PIECES, formatFromPrice } from "@shared/jewellery/catalog";
+import { fromPriceInr } from "@shared/jewellery/pricing";
+import { useCurrency } from "@/lib/currency";
 import { JEWELLERY_HOME_META } from "@shared/jewellery/seo";
 import { JEWELLERY_FAQ } from "@shared/jewellery/faq";
 import { applyJewellerySeo } from "@/lib/jewellerySeo";
@@ -29,7 +31,7 @@ const everyday = PUBLIC_PIECES.filter((piece) => piece.category === "earrings" |
 const HERO_SLIDES = (homeHero as { slides: HeroSlide[] } | null)?.slides ?? [];
 const heroPiece = engagement.find((piece) => piece.images.length) ?? null;
 const liveShapes = SHOP_SHAPES.filter(({ shape }) => engagement.some((piece) => piece.shape === shape));
-const lowestEveryday = everyday.reduce<number | null>((low, piece) => (piece.fromPriceUsd != null && (low == null || piece.fromPriceUsd < low) ? piece.fromPriceUsd : low), null);
+const lowestEveryday = everyday.find((piece) => fromPriceInr(piece) != null) ?? null;
 
 const collectionIndex = LIVE_NAV.map((item) => ({
   ...item,
@@ -38,6 +40,7 @@ const collectionIndex = LIVE_NAV.map((item) => ({
 
 export default function Home() {
   const [, navigate] = useLocation();
+  const currency = useCurrency();
 
   useEffect(() => {
     applyJewellerySeo("/", JEWELLERY_HOME_META.title, JEWELLERY_HOME_META.description);
@@ -70,7 +73,7 @@ export default function Home() {
             Fine jewellery from a <em>Surat</em> diamond house.
           </h1>
           <p className="jw-lede">
-            Engagement rings and earrings in solid gold, set with lab-grown diamonds. Choose a piece, tell us your metal and size, and we confirm the price before anything is made.
+            Engagement rings and earrings in gold, platinum or silver, set with lab-grown diamonds. Choose a piece, tell us your metal and size, and we confirm the price before anything is made.
           </p>
           <div className="jh-hero-actions">
             <Link href="/engagement-rings" className="jw-button">Explore engagement rings <ArrowRight size={15} strokeWidth={1.6} /></Link>
@@ -146,7 +149,7 @@ export default function Home() {
           <header className="jh-heading">
             <div>
               <p className="jw-eyebrow">Earrings &amp; necklaces</p>
-              <h2 id="everyday-heading" className="jh-title">Everyday diamonds{lowestEveryday != null ? <span className="jh-title-note"> {formatFromPrice({ fromPriceUsd: lowestEveryday }).toLowerCase()}</span> : null}</h2>
+              <h2 id="everyday-heading" className="jh-title">Everyday diamonds{lowestEveryday != null ? <span className="jh-title-note"> {formatFromPrice(lowestEveryday, currency).toLowerCase()}</span> : null}</h2>
             </div>
             <Link href="/earrings" className="jw-link">Shop earrings <ArrowRight size={13} /></Link>
           </header>

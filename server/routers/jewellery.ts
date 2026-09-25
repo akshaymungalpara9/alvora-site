@@ -26,7 +26,7 @@ export const jewelleryEnquiryInput = z.object({
   kind: z.enum(["piece", "consultation"]),
   website: z.string().max(200).optional().default(""),
   pieceCode: z.string().trim().regex(/^ALV-[A-Z]-\d{4}$/).optional(),
-  metal: z.enum(["Yellow gold", "White gold", "Rose gold"]).optional(),
+  metal: z.enum(["Yellow gold", "White gold", "Rose gold", "Silver", "Platinum"]).optional(),
   karat: z.enum(["10K", "14K", "18K"]).optional(),
   caratWeight: optionalText(20),
   ringSize: optionalText(20),

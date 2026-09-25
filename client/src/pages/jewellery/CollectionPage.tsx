@@ -1,4 +1,5 @@
 import { useEffect, useMemo } from "react";
+import { fromPriceInr } from "@shared/jewellery/pricing";
 import { Link, useLocation, useSearch } from "wouter";
 import { ArrowRight } from "lucide-react";
 import JewelleryShell from "@/components/jewellery/JewelleryShell";
@@ -22,11 +23,12 @@ export const COLLECTION_ROUTES: Record<string, JewelleryCollection | null> = {
   "/jewellery/coloured-stones": "coloured-stones",
 };
 
+/** "From" price bands in rupees (prices are set in rupees; see pricing.ts). */
 const PRICE_BANDS = [
-  { value: "under-500", label: "Under $500", test: (p: number) => p < 500 },
-  { value: "500-1000", label: "$500 – $1,000", test: (p: number) => p >= 500 && p < 1000 },
-  { value: "1000-2000", label: "$1,000 – $2,000", test: (p: number) => p >= 1000 && p < 2000 },
-  { value: "2000-plus", label: "$2,000+", test: (p: number) => p >= 2000 },
+  { value: "under-50000", label: "Under ₹50,000", test: (p: number) => p < 50000 },
+  { value: "50000-100000", label: "₹50,000 – ₹1,00,000", test: (p: number) => p >= 50000 && p < 100000 },
+  { value: "100000-200000", label: "₹1,00,000 – ₹2,00,000", test: (p: number) => p >= 100000 && p < 200000 },
+  { value: "200000-plus", label: "₹2,00,000+", test: (p: number) => p >= 200000 },
 ] as const;
 
 const SORTS = [
@@ -39,7 +41,7 @@ const SORTS = [
 type Props = { path: string; shape?: string };
 
 function sortPieces(pieces: JewelleryPiece[], sort: string) {
-  const priced = (piece: JewelleryPiece, fallback: number) => piece.fromPriceUsd ?? fallback;
+  const priced = (piece: JewelleryPiece, fallback: number) => fromPriceInr(piece) ?? fallback;
   const copy = [...pieces];
   if (sort === "price-asc") return copy.sort((a, b) => priced(a, Infinity) - priced(b, Infinity));
   if (sort === "price-desc") return copy.sort((a, b) => priced(b, -1) - priced(a, -1));
@@ -78,14 +80,16 @@ export default function CollectionPage({ path, shape }: Props) {
     sort: params.get("sort") ?? "featured",
   };
 
-  const band = PRICE_BANDS.find((item) => item.value === active.price);
+  // Price filters and sorts only help when the pieces here differ in price.
+  const priceVaries = new Set(inScope.map((piece) => fromPriceInr(piece))).size > 1;
+  const band = priceVaries ? PRICE_BANDS.find((item) => item.value === active.price) : undefined;
   const results = sortPieces(
     inScope.filter(
       (piece) =>
         (!active.shape || piece.shape === active.shape) &&
         (!active.style || piece.style === active.style) &&
         (!active.colour || piece.stoneColour === active.colour) &&
-        (!band || (piece.fromPriceUsd != null && band.test(piece.fromPriceUsd))),
+        (!band || (fromPriceInr(piece) != null && band.test(fromPriceInr(piece)!))),
     ),
     active.sort,
   );
@@ -117,7 +121,7 @@ export default function CollectionPage({ path, shape }: Props) {
           <span aria-current="page">{meta.heading}</span>
         </nav>
         <h1 className="jw-display">{meta.heading}</h1>
-        <p className="jw-lede">{editorial?.intro ?? (shape ? `${shapeLabel} stones in solitaire, bezel, east-west and heritage settings, each made to your size in yellow, white or rose gold.` : base.intro)}</p>
+        <p className="jw-lede">{editorial?.intro ?? (shape ? `${shapeLabel} stones in solitaire, bezel, east-west and heritage settings, each made to your size in silver, platinum, or yellow, white or rose gold.` : base.intro)}</p>
         {editorial?.guide ? (
           <Link href={editorial.guide.href} className="jw-link jc-guide-link">{editorial.guide.label} <ArrowRight size={13} /></Link>
         ) : null}
@@ -164,6 +168,7 @@ export default function CollectionPage({ path, shape }: Props) {
               </select>
             </label>
           ) : null}
+          {priceVaries ? (
           <label>
             <span>Price</span>
             <select value={active.price ?? ""} onChange={(event) => setParam("price", event.target.value || null)}>
@@ -173,6 +178,7 @@ export default function CollectionPage({ path, shape }: Props) {
               ))}
             </select>
           </label>
+          ) : null}
           {hasFilters ? (
             <button type="button" className="jc-clear" onClick={clearAll}>Clear filters</button>
           ) : null}
@@ -182,7 +188,7 @@ export default function CollectionPage({ path, shape }: Props) {
           <label>
             <span>Sort</span>
             <select value={active.sort} onChange={(event) => setParam("sort", event.target.value)}>
-              {SORTS.map((item) => (
+              {SORTS.filter((item) => priceVaries || !item.value.startsWith("price")).map((item) => (
                 <option key={item.value} value={item.value}>{item.label}</option>
               ))}
             </select>

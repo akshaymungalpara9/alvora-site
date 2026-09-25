@@ -34,6 +34,23 @@ before big changes, and end each work session with a short summary.
   `pnpm jewellery:images` (also processes photos). Report:
   `data/jewellery/import-report.txt`. See `JEWELLERY_RUNBOOK.md`.
 
+## Prices (owner-set 2026-09-25)
+- `shared/jewellery/pricing.ts`: engagement rings are priced in rupees by
+  metal (silver, 14K gold, 18K gold, platinum) and centre-stone carat
+  (0.5–6 ct). "From" price = 0.5 ct in silver (₹25,000); the product page opens
+  on it. Platinum = 14K prices (owner-confirmed). Silver and platinum are white
+  only; gold keeps yellow/white/rose.
+- Earrings (and anything else) show "Price on request" until rupee prices are
+  set. The old partner-derived `fromPriceUsd` is internal only.
+- Launch offer: table prices are the offer prices. `LAUNCH_OFFER.endsOn` (owner
+  sets the date) shows the full price struck through and "30% launch offer
+  until <date>". It must be a real price charged after that date (Indian
+  consumer rules on misleading discounts). No date = no discount shown.
+- Currency: `shared/jewellery/currency.ts`. Visitors see their currency, guessed
+  from time zone, with a switcher. A currency is offered only once the owner
+  sets its rate (rupees per unit); until then everyone sees rupees. Search
+  results and structured data use rupees.
+
 ## Centre stone (engagement rings, necklaces & pendants)
 - Owner-confirmed standard (2026-09-25): E colour, VS1 clarity, Excellent cut;
   customer chooses 0.5–6 ct. Lives in `shared/jewellery/centreStone.ts`
@@ -118,7 +135,8 @@ before big changes, and end each work session with a short summary.
   "confirmed in your quotation" instead.
 
 ## Open items for the owner
-- Markup (pricing multiplier is 1) and prices for 45 June Rings pieces.
+- Launch offer end date, exchange rates for other currencies, and rupee
+  prices for earrings (see Prices).
 - Logo file at `client/public/assets/brand/alvora-logo.png` (optional).
 - Two Carat earrings appear to be the same product (flower-stud marquise vs
   marquise prong-style); decide whether to hide one.
