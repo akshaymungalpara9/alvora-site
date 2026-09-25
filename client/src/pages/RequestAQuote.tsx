@@ -19,7 +19,7 @@ const JSON_LD = {
     address: { "@type": "PostalAddress", addressLocality: "Surat", addressCountry: "IN" },
   },
   description:
-    "Submit a production enquiry to Alvora - describe the specification, quantity, certification requirement, and timeline. We respond with practical production detail and pricing.",
+    "Submit a production enquiry to Alvora - describe the specification, quantity, certification requirement, and timeline. We respond with a quotation within 24 hours.",
   areaServed: "Worldwide",
 };
 
@@ -60,9 +60,9 @@ function ConfirmationMessage({ state, onReset }: { state: SubmissionState; onRes
       {state === "sending"
         ? "Recording your enquiry…"
         : state === "sent"
-        ? "Thank you. Your enquiry has been recorded and sent to the Alvora team. We will respond with production detail and pricing."
+        ? "Thank you. Your enquiry has been recorded and sent to the Alvora team. We will respond with a quotation within 24 hours."
         : state === "saved"
-        ? "Thank you. Your enquiry has been safely recorded for the Alvora team. We will respond shortly."
+        ? "Thank you. Your enquiry has been safely recorded for the Alvora team. We will respond within 24 hours."
         : <>Your enquiry could not be recorded. Please try again, or{" "}
             <button className="inline-link" onClick={onReset} type="button">reset the form</button>.</>}
     </p>
@@ -97,9 +97,13 @@ function QualifiedBriefForm({ onSwitchToFast }: { onSwitchToFast: () => void }) 
     const timeline = String(values.get("timeline") || "");
     const message = String(values.get("message") || "").trim();
 
+    const specShape = String(values.get("spec_shape") || "");
+    const specColour = String(values.get("spec_colour") || "");
     const briefParts = [
       `Product interest: ${productInterest}`,
+      specShape ? `Shape: ${specShape}` : null,
       caratQuantity ? `Quantity / carat weight: ${caratQuantity}` : null,
+      specColour ? `Colour range: ${specColour}` : null,
       `Certification requirement: ${certificationReq}`,
       `Timeline: ${timeline}`,
       message ? `\nAdditional details:\n${message}` : null,
@@ -216,6 +220,37 @@ function QualifiedBriefForm({ onSwitchToFast }: { onSwitchToFast: () => void }) 
           </select>
         </label>
 
+        <div className="rfq-row">
+          <label>
+            <span>Shape</span>
+            <select name="spec_shape" defaultValue="">
+              <option value="">Any shape</option>
+              <option>Round</option>
+              <option>Oval</option>
+              <option>Cushion</option>
+              <option>Elongated Cushion</option>
+              <option>Emerald</option>
+              <option>Radiant</option>
+              <option>Pear</option>
+              <option>Marquise</option>
+              <option>Old Mine</option>
+              <option>Baguette</option>
+              <option>Other / mixed</option>
+            </select>
+          </label>
+          <label>
+            <span>Colour range</span>
+            <select name="spec_colour" defaultValue="">
+              <option value="">Any colour</option>
+              <option>D-F (colourless)</option>
+              <option>G-H (near colourless)</option>
+              <option>I-J</option>
+              <option>Fancy colour</option>
+              <option>Not sure yet</option>
+            </select>
+          </label>
+        </div>
+
         <label>
           <span>Carat weight / quantity</span>
           <input
@@ -308,7 +343,7 @@ function QualifiedBriefForm({ onSwitchToFast }: { onSwitchToFast: () => void }) 
               ? "Sending enquiry…"
               : <>Commission a Specification Make <ArrowUpRight size={18} /></>}
           </button>
-          <p>We use this information only to understand the make you require.</p>
+          <p>We use this information only to understand the make you require. We respond with a quotation within 24 hours.</p>
         </div>
 
         <ConfirmationMessage state={submissionState} onReset={() => setSubmissionState("idle")} />
@@ -331,7 +366,7 @@ export default function RequestAQuote() {
     <SpecialtyPageShell>
       <SpecialtyPageMeta
         title="Request a Quote - Alvora Lab-Grown Diamonds"
-        description="Submit a production enquiry to Alvora - describe the specification, quantity, certification requirement, and timeline. We respond with practical production detail and pricing."
+        description="Submit a production enquiry to Alvora - describe the specification, quantity, certification requirement, and timeline. We respond with a quotation within 24 hours."
         path="/request-a-quote"
         jsonLd={JSON_LD}
       />
@@ -343,7 +378,7 @@ export default function RequestAQuote() {
           <p>
             Tell us the programme, profile, or specification you need. We will return with the
             practical production detail - lead time, per-stone pricing, certification scope, and
-            dispatch arrangement.
+            dispatch arrangement. You receive a quotation within 24 hours.
           </p>
           <div className="rfq-sidebar-meta">
             <article>

@@ -497,7 +497,7 @@ export function resolveRouteMeta(pathname: string, origin: string): RouteMeta | 
       return {
         lang: "en",
         title: "Request a Wholesale Lab-Grown Diamond Quote | Alvora",
-        description: "Tell Alvora your shapes, sizes, carat weights and quantities. Get a wholesale quote from a Surat lab-grown diamond manufacturer within one business day.",
+        description: "Tell Alvora your shapes, sizes, carat weights and quantities. Get a wholesale quote from a Surat lab-grown diamond manufacturer within 24 hours.",
         canonical: url("/request-a-quote"),
         serviceJsonLd: { "@context": "https://schema.org", "@type": "Service", name: "Request a Quote - Alvora Lab-Grown Diamonds", serviceType: "Diamond Manufacturing", provider: { "@type": "Organization", name: "Alvora", address: { "@type": "PostalAddress", addressLocality: "Surat", addressCountry: "IN" } }, description: "Submit a production enquiry to Alvora for certified, calibrated lab-grown diamonds.", areaServed: "Worldwide" },
       };
