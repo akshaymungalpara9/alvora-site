@@ -10,13 +10,13 @@ export type JewelleryRouteMeta = { title: string; description: string };
 export const JEWELLERY_HOME_META: JewelleryRouteMeta = {
   title: "Lab-Grown Diamond Engagement Rings & Fine Jewellery | Alvora",
   description:
-    "Engagement rings, earrings and pendants set with lab-grown diamonds, from Alvora, a diamond house in Surat. Choose a piece and enquire for sizing and price.",
+    "Engagement rings, wedding bands and earrings set with lab-grown diamonds, from Alvora, a diamond house in Surat. Choose a piece and enquire for sizing and price.",
 };
 
 export const JEWELLERY_COLLECTION_META: Record<string, JewelleryRouteMeta & { heading: string; intro: string }> = {
   "/jewellery": {
     title: "Lab-Grown Diamond Jewellery Collection | Alvora",
-    description: "Every Alvora piece in one place: lab-grown diamond engagement rings, earrings and pendants in solid gold, with prices from the first view.",
+    description: "Every Alvora piece in one place: lab-grown diamond engagement rings, wedding bands and earrings in solid gold, with prices from the first view.",
     heading: "The collection",
     intro: "Every piece we currently make, in one place. Filter by shape, setting or metal, then open a piece to choose its details.",
   },
@@ -89,5 +89,5 @@ export function pieceMeta(piece: Pick<JewelleryPiece, "name" | "description" | "
 
 export const TRADE_JEWELLERY_META: JewelleryRouteMeta = {
   title: "Wholesale Lab-Grown Diamond Jewellery for Retailers | Alvora Trade",
-  description: "Finished lab-grown diamond jewellery for retailers and brands: rings, bands, earrings and pendants in solid gold, with private label and trade line sheets.",
+  description: "Finished lab-grown diamond jewellery for retailers and brands: engagement rings, bands and earrings in solid gold, with private label and trade line sheets.",
 };

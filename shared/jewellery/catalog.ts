@@ -24,6 +24,8 @@ export type JewelleryPiece = {
   name: string;
   collectionName: string;
   wave: "A" | "B";
+  /** On the site: launch-list piece allowed by data/jewellery/launch.json. */
+  live: boolean;
   category: JewelleryCategory;
   collections: JewelleryCollection[];
   shape: string | null;
@@ -44,15 +46,10 @@ export type JewelleryPiece = {
   images: JewelleryImage[];
 };
 
-/**
- * Launch waves visible to the public. Wave B stays hidden until it is
- * switched on here; the trade catalogue always sees every wave.
- */
-export const PUBLIC_WAVES: ReadonlyArray<JewelleryPiece["wave"]> = ["A"];
-
 export const ALL_PIECES = rawCatalog as JewelleryPiece[];
 
-export const PUBLIC_PIECES = ALL_PIECES.filter((piece) => PUBLIC_WAVES.includes(piece.wave));
+/** Pieces on the site (retail and trade), as set by data/jewellery/launch.json. */
+export const PUBLIC_PIECES = ALL_PIECES.filter((piece) => piece.live);
 
 export function findPublicPiece(slug: string): JewelleryPiece | undefined {
   return PUBLIC_PIECES.find((piece) => piece.slug === slug);

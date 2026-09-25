@@ -33,6 +33,7 @@ const DATA = path.join(ROOT, "data", "jewellery");
 const CSV_PATH = path.join(DATA, "launch_shortlist_v1.csv");
 const PIECES_PATH = path.join(DATA, "pieces.json");
 const PRICING_PATH = path.join(DATA, "pricing.json");
+const LAUNCH_PATH = path.join(DATA, "launch.json");
 const RAW_IMAGES = path.join(DATA, "raw-images");
 const REPORT_PATH = path.join(DATA, "import-report.txt");
 const CATALOG_PATH = path.join(ROOT, "shared", "jewellery", "catalog.json");
@@ -343,6 +344,11 @@ async function main() {
   const rows = parseCsv(fs.readFileSync(CSV_PATH, "utf8"));
   const pieces = fs.existsSync(PIECES_PATH) ? JSON.parse(fs.readFileSync(PIECES_PATH, "utf8")) : {};
   const pricing = JSON.parse(fs.readFileSync(PRICING_PATH, "utf8"));
+  const launch = JSON.parse(fs.readFileSync(LAUNCH_PATH, "utf8")).partners;
+  const isLive = (partner, category) => {
+    const rule = launch[partner];
+    return rule === "all" || (Array.isArray(rule) && rule.includes(category));
+  };
   const withImages = process.argv.includes("--images");
 
   // Every word used by a partner is off-limits as an Alvora name.
@@ -437,6 +443,7 @@ async function main() {
       name: piece.name,
       collectionName: piece.collectionName,
       wave: row.launch.endsWith("A") ? "A" : "B",
+      live: isLive(row.partner, category),
       category,
       collections: [...collections],
       shape,
@@ -480,6 +487,7 @@ async function main() {
 
   const report = [
     `Alvora jewellery import report — ${new Date().toISOString()}`,
+    `Live on the site: ${catalog.filter((c) => c.live).length} (rule: data/jewellery/launch.json)`,
     `Pieces in catalogue: ${catalog.length} (wave A: ${catalog.filter((c) => c.wave === "A").length}, wave B: ${catalog.filter((c) => c.wave === "B").length})`,
     "",
     `Missing photos (${missingImages.length}):`,
@@ -499,9 +507,7 @@ async function main() {
 /**
  * Keep scripts/publicRoutes.json (sitemap + prerender list) in step with the
  * public catalogue: live collections, shape pages and every public piece.
- * Must match PUBLIC_WAVES in shared/jewellery/catalog.ts.
  */
-const PUBLIC_WAVES = ["A"];
 const COLLECTION_ROUTES = [
   ["/jewellery", null],
   ["/engagement-rings", "engagement-rings"],
@@ -516,7 +522,7 @@ const JEWELLERY_ROUTE = /^\/(jewellery|engagement-rings|rings|earrings|necklaces
 function syncPublicRoutes(catalog) {
   const routesPath = path.join(ROOT, "scripts", "publicRoutes.json");
   const existing = JSON.parse(fs.readFileSync(routesPath, "utf8")).filter((route) => !JEWELLERY_ROUTE.test(route));
-  const live = catalog.filter((piece) => PUBLIC_WAVES.includes(piece.wave));
+  const live = catalog.filter((piece) => piece.live);
   const collections = COLLECTION_ROUTES.filter(([, key]) => live.some((piece) => (key ? piece.collections.includes(key) : true))).map(([route]) => route);
   const shapes = [...new Set(live.filter((piece) => piece.collections.includes("engagement-rings") && piece.shape).map((piece) => piece.shape))]
     .filter((shape) => Object.keys(SHAPE_LABELS).includes(shape))

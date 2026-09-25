@@ -39,9 +39,15 @@ describe("jewellery catalogue", () => {
     expect(unique(ALL_PIECES.map((p) => p.name))).toBe(true);
   });
 
-  it("keeps wave B out of the public catalogue", () => {
+  it("puts only the launch rule's pieces on the site", () => {
+    const sourcing = JSON.parse(fs.readFileSync(path.join(ROOT, "server", "data", "jewellery-sourcing.json"), "utf8")) as Record<string, { partner: string }>;
+    const rule = JSON.parse(fs.readFileSync(path.join(ROOT, "data", "jewellery", "launch.json"), "utf8")).partners as Record<string, "all" | string[]>;
     expect(PUBLIC_PIECES.length).toBeGreaterThan(0);
-    expect(PUBLIC_PIECES.every((p) => p.wave === "A")).toBe(true);
+    for (const piece of ALL_PIECES) {
+      const partnerRule = rule[sourcing[piece.code].partner];
+      const allowed = partnerRule === "all" || (Array.isArray(partnerRule) && partnerRule.includes(piece.category));
+      expect(piece.live, piece.code).toBe(allowed);
+    }
   });
 
   it("serves image paths only under the Alvora asset folder", () => {

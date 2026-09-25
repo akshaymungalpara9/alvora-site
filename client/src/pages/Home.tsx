@@ -64,7 +64,7 @@ export default function Home() {
             Fine jewellery from a <em>Surat</em> diamond house.
           </h1>
           <p className="jw-lede">
-            Engagement rings, earrings and pendants in solid gold, set with lab-grown diamonds. Choose a piece, tell us your metal and size, and we confirm the price before anything is made.
+            Engagement rings, wedding bands and earrings in solid gold, set with lab-grown diamonds. Choose a piece, tell us your metal and size, and we confirm the price before anything is made.
           </p>
           <div className="jh-hero-actions">
             <Link href="/engagement-rings" className="jw-button">Explore engagement rings <ArrowRight size={15} strokeWidth={1.6} /></Link>

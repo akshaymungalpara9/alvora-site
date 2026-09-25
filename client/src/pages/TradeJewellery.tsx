@@ -10,7 +10,7 @@ import PieceImage from "@/components/jewellery/PieceImage";
 import { trpc } from "@/lib/trpc";
 import { trackConversion } from "@/lib/ga4";
 import { applyDocumentMetadata } from "@/lib/publicSeo";
-import { ALL_PIECES, type JewelleryCategory } from "@shared/jewellery/catalog";
+import { PUBLIC_PIECES as ALL_PIECES, type JewelleryCategory } from "@shared/jewellery/catalog";
 import { TRADE_JEWELLERY_META } from "@shared/jewellery/seo";
 import "@/components/jewellery/jewellery.css";
 import "./trade-jewellery.css";
@@ -85,7 +85,7 @@ export default function TradeJewellery() {
 
         <div className="tj-toolbar">
           <div className="tj-tabs" role="tablist" aria-label="Category">
-            {CATEGORY_TABS.map((tab) => (
+            {CATEGORY_TABS.filter((tab) => tab.value === "all" || ALL_PIECES.some((p) => p.category === tab.value)).map((tab) => (
               <button key={tab.value} type="button" role="tab" aria-selected={category === tab.value} onClick={() => setCategory(tab.value)}>
                 {tab.label} <span>{tab.value === "all" ? ALL_PIECES.length : ALL_PIECES.filter((p) => p.category === tab.value).length}</span>
               </button>

@@ -30,6 +30,9 @@ export function shapeContentFor(shape: string): ShapeContent | null {
   if (shape !== "marquise") return null;
   const pieces = PUBLIC_PIECES.filter((p) => p.shape === "marquise" && p.collections.includes("engagement-rings"));
   const dutch = pieces.filter((p) => p.tags.includes("dutch-marquise")).length;
+  // This copy is about vintage and Dutch marquise; without Dutch pieces on sale
+  // it would promise rings we do not show, so the generic template is used.
+  if (!dutch) return null;
   const span = priceSpan(pieces);
   const fromText = span ? ` from ${usd(span.from)}` : "";
   return {
@@ -134,6 +137,13 @@ export const GUIDES: Guide[] = [
   },
 ];
 
+/** A guide is published only while it has pieces on sale to point at. */
+export function isGuideLive(guide: Guide) {
+  return guide.pieces().some((piece) => piece.tags.includes("dutch-marquise")) || !guide.slug.includes("dutch-marquise");
+}
+
+export const LIVE_GUIDES = GUIDES.filter(isGuideLive);
+
 export function findGuide(slug: string) {
-  return GUIDES.find((guide) => guide.slug === slug);
+  return LIVE_GUIDES.find((guide) => guide.slug === slug);
 }

@@ -1,4 +1,5 @@
-Alvora jewellery import report — 2026-09-25T08:42:36.164Z
+Alvora jewellery import report — 2026-09-25T09:00:01.802Z
+Live on the site: 156 (rule: data/jewellery/launch.json)
 Pieces in catalogue: 196 (wave A: 94, wave B: 102)
 
 Missing photos (196):

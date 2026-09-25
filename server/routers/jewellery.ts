@@ -49,7 +49,8 @@ export const jewelleryRouter = router({
     // Honeypot: real visitors never see or fill this field.
     if (website.trim()) throw new TRPCError({ code: "BAD_REQUEST", message: "Invalid public submission" });
 
-    const piece = rest.pieceCode ? findPieceByCode(rest.pieceCode) : undefined;
+    const found = rest.pieceCode ? findPieceByCode(rest.pieceCode) : undefined;
+    const piece = found?.live ? found : undefined;
     if (rest.kind === "piece" && !piece) throw new TRPCError({ code: "BAD_REQUEST", message: "Unknown piece" });
     const enquiry: JewelleryEnquiryInput = { ...rest, pieceCode: piece?.code, pieceName: piece?.name };
 

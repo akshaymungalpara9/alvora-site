@@ -41,3 +41,14 @@ Append-only. Newest entry at the bottom. Never delete an entry.
 **Changed:** `/pendants` → `/necklaces`, with the old address forwarding to the new one. The label is now "Necklaces & Pendants" in the menus and breadcrumbs, and "Necklaces & pendants" as the H1 and in the trade catalogue tab.
 
 **Why:** Semrush (US, 2026-09-24) shows "lab grown diamond necklace" at 4,400/mo vs "lab grown diamond pendant" at 880/mo. The owner asked to keep necklaces and pendants in one collection. Pre-launch, so no baseline is affected.
+
+## 2026-09-25: Launch set narrowed; the money page needs re-picking
+
+**Changed (owner decision):** live pieces = launch list ∩ {all June Rings, all Pooja Diamond, Carat Diamonds earrings only}. That's 156 pieces (118 rings, 6 bands, 32 earrings, all 32 earrings priced), set in `data/jewellery/launch.json`.
+
+**Effect on SEO:**
+- All 8 Dutch-marquise rings were Carat rings and are no longer live. The marquise page now has 7 rings (4 priced), so its vintage/Dutch copy is switched off (it would have promised rings we don't show).
+- `/guides/dutch-marquise-vs-marquise` is unpublished: removed from the sitemap and footer, and the route now 404s. Both stay in `shared/jewellery/editorial.ts` and come back automatically if Dutch-marquise pieces go live again.
+- Necklaces & Pendants has 0 live pieces and hides itself.
+
+**Next bet:** `/earrings` for "lab grown diamond earrings" (9,900/mo, KD 9, commercial) and "lab grown diamond stud earrings" (2,400, KD 7). It has 32 pieces, all priced. See STATE.md backup candidates; a four-pass checkup is due before launch.

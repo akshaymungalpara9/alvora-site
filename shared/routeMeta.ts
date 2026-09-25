@@ -8,7 +8,7 @@ export const ROUTE_META: Record<string, { title: string; description: string }> 
   "/": {
     title: "Lab-Grown Diamond Engagement Rings & Fine Jewellery | Alvora",
     description:
-      "Engagement rings, earrings and pendants set with lab-grown diamonds, from Alvora, a diamond house in Surat. Choose a piece and enquire for sizing and price.",
+      "Engagement rings, wedding bands and earrings set with lab-grown diamonds, from Alvora, a diamond house in Surat. Choose a piece and enquire for sizing and price.",
   },
   "/trade": {
     title: "lab grown diamond manufacturer wholesale supplier | Alvora",

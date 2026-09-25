@@ -5,6 +5,7 @@
     "name": "Aurel Oval East-West",
     "collectionName": "Aurel",
     "wave": "A",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -39,6 +40,7 @@
     "name": "Solene Oval Heritage",
     "collectionName": "Solene",
     "wave": "A",
+    "live": false,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -73,6 +75,7 @@
     "name": "Vela Emerald Bezel",
     "collectionName": "Vela",
     "wave": "A",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -107,6 +110,7 @@
     "name": "Orla Emerald Bezel",
     "collectionName": "Orla",
     "wave": "A",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -142,6 +146,7 @@
     "name": "Ondine Oval Bezel",
     "collectionName": "Ondine",
     "wave": "A",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -176,6 +181,7 @@
     "name": "Aurel Pear East-West",
     "collectionName": "Aurel",
     "wave": "A",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -210,6 +216,7 @@
     "name": "Selene Elongated Cushion Heritage",
     "collectionName": "Selene",
     "wave": "A",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -245,6 +252,7 @@
     "name": "Selene Oval Heritage",
     "collectionName": "Selene",
     "wave": "A",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -280,6 +288,7 @@
     "name": "Talia Oval East-West",
     "collectionName": "Talia",
     "wave": "A",
+    "live": false,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -314,6 +323,7 @@
     "name": "Cyra Round Studs",
     "collectionName": "Cyra",
     "wave": "A",
+    "live": true,
     "category": "earrings",
     "collections": [
       "earrings"
@@ -347,6 +357,7 @@
     "name": "Maelis Round Studs",
     "collectionName": "Maelis",
     "wave": "A",
+    "live": true,
     "category": "earrings",
     "collections": [
       "earrings"
@@ -380,6 +391,7 @@
     "name": "Nerida Elongated Cushion Bezel",
     "collectionName": "Nerida",
     "wave": "A",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -415,6 +427,7 @@
     "name": "Ilse Emerald Bezel",
     "collectionName": "Ilse",
     "wave": "A",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -449,6 +462,7 @@
     "name": "Oriel Marquise Heritage",
     "collectionName": "Oriel",
     "wave": "A",
+    "live": false,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -483,6 +497,7 @@
     "name": "Elowen Emerald Pendant",
     "collectionName": "Elowen",
     "wave": "A",
+    "live": false,
     "category": "pendant",
     "collections": [
       "pendants"
@@ -516,6 +531,7 @@
     "name": "Ines Marquise Pendant",
     "collectionName": "Ines",
     "wave": "A",
+    "live": false,
     "category": "pendant",
     "collections": [
       "pendants"
@@ -549,6 +565,7 @@
     "name": "Sabine Elongated Cushion Heritage",
     "collectionName": "Sabine",
     "wave": "A",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -584,6 +601,7 @@
     "name": "Celeste Green Oval Solitaire",
     "collectionName": "Celeste",
     "wave": "A",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -622,6 +640,7 @@
     "name": "Livia Dutch Marquise Heritage",
     "collectionName": "Livia",
     "wave": "A",
+    "live": false,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -658,6 +677,7 @@
     "name": "Noor Oval Solitaire",
     "collectionName": "Noor",
     "wave": "A",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -692,6 +712,7 @@
     "name": "Rhea Oval Solitaire",
     "collectionName": "Rhea",
     "wave": "A",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -726,6 +747,7 @@
     "name": "Thea Old Mine Heritage",
     "collectionName": "Thea",
     "wave": "A",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -761,6 +783,7 @@
     "name": "Vesna Oval Solitaire",
     "collectionName": "Vesna",
     "wave": "A",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -795,6 +818,7 @@
     "name": "Yara Marquise Solitaire",
     "collectionName": "Yara",
     "wave": "A",
+    "live": false,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -829,6 +853,7 @@
     "name": "Zelie Oval Solitaire",
     "collectionName": "Zelie",
     "wave": "A",
+    "live": false,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -863,6 +888,7 @@
     "name": "Anouk Radiant East-West",
     "collectionName": "Anouk",
     "wave": "A",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -897,6 +923,7 @@
     "name": "Brisa Oval Bezel",
     "collectionName": "Brisa",
     "wave": "A",
+    "live": false,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -931,6 +958,7 @@
     "name": "Delphine Dutch Marquise Heritage",
     "collectionName": "Delphine",
     "wave": "A",
+    "live": false,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -967,6 +995,7 @@
     "name": "Esra Oval Solitaire",
     "collectionName": "Esra",
     "wave": "A",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -1001,6 +1030,7 @@
     "name": "Faye Round Solitaire",
     "collectionName": "Faye",
     "wave": "A",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -1036,6 +1066,7 @@
     "name": "Greer Dutch Marquise Heritage",
     "collectionName": "Greer",
     "wave": "A",
+    "live": false,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -1075,6 +1106,7 @@
     "name": "Halia Dutch Marquise Heritage",
     "collectionName": "Halia",
     "wave": "A",
+    "live": false,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -1111,6 +1143,7 @@
     "name": "Isolde Dutch Marquise Heritage",
     "collectionName": "Isolde",
     "wave": "A",
+    "live": false,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -1147,6 +1180,7 @@
     "name": "Kaia Marquise Studs",
     "collectionName": "Kaia",
     "wave": "A",
+    "live": true,
     "category": "earrings",
     "collections": [
       "earrings"
@@ -1180,6 +1214,7 @@
     "name": "Jora Elongated Cushion Solitaire",
     "collectionName": "Jora",
     "wave": "A",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -1214,6 +1249,7 @@
     "name": "Liora Marquise Solitaire",
     "collectionName": "Liora",
     "wave": "A",
+    "live": false,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -1248,6 +1284,7 @@
     "name": "Mireille Dutch Marquise Heritage",
     "collectionName": "Mireille",
     "wave": "A",
+    "live": false,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -1284,6 +1321,7 @@
     "name": "Tove Round Studs",
     "collectionName": "Tove",
     "wave": "A",
+    "live": true,
     "category": "earrings",
     "collections": [
       "earrings"
@@ -1317,6 +1355,7 @@
     "name": "Xanthe Round Studs",
     "collectionName": "Xanthe",
     "wave": "A",
+    "live": true,
     "category": "earrings",
     "collections": [
       "earrings"
@@ -1350,6 +1389,7 @@
     "name": "Odile Cushion Pendant",
     "collectionName": "Odile",
     "wave": "A",
+    "live": false,
     "category": "pendant",
     "collections": [
       "pendants"
@@ -1383,6 +1423,7 @@
     "name": "Vivienne Pear Pendant",
     "collectionName": "Vivienne",
     "wave": "A",
+    "live": false,
     "category": "pendant",
     "collections": [
       "pendants"
@@ -1416,6 +1457,7 @@
     "name": "Vivienne Princess Pendant",
     "collectionName": "Vivienne",
     "wave": "A",
+    "live": false,
     "category": "pendant",
     "collections": [
       "pendants"
@@ -1449,6 +1491,7 @@
     "name": "Amara Round Pendant",
     "collectionName": "Amara",
     "wave": "A",
+    "live": false,
     "category": "pendant",
     "collections": [
       "pendants"
@@ -1482,6 +1525,7 @@
     "name": "Coralie Pendant",
     "collectionName": "Coralie",
     "wave": "A",
+    "live": false,
     "category": "pendant",
     "collections": [
       "pendants"
@@ -1515,6 +1559,7 @@
     "name": "Nika Oval East-West",
     "collectionName": "Nika",
     "wave": "A",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -1553,6 +1598,7 @@
     "name": "Pia Emerald Solitaire",
     "collectionName": "Pia",
     "wave": "A",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -1587,6 +1633,7 @@
     "name": "Romilly Old Mine Heritage",
     "collectionName": "Romilly",
     "wave": "A",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -1622,6 +1669,7 @@
     "name": "Saskia Champagne Oval Solitaire",
     "collectionName": "Saskia",
     "wave": "A",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -1657,6 +1705,7 @@
     "name": "Una Pear Heritage",
     "collectionName": "Una",
     "wave": "A",
+    "live": false,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -1691,6 +1740,7 @@
     "name": "Beatrix Old Mine Heritage",
     "collectionName": "Beatrix",
     "wave": "A",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -1726,6 +1776,7 @@
     "name": "Doria Oval Three Stone",
     "collectionName": "Doria",
     "wave": "A",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -1764,6 +1815,7 @@
     "name": "Honora Halo Pendant",
     "collectionName": "Honora",
     "wave": "A",
+    "live": false,
     "category": "pendant",
     "collections": [
       "pendants"
@@ -1797,6 +1849,7 @@
     "name": "Leonie Halo Pendant",
     "collectionName": "Leonie",
     "wave": "A",
+    "live": false,
     "category": "pendant",
     "collections": [
       "pendants"
@@ -1830,6 +1883,7 @@
     "name": "Nadia Round Pendant",
     "collectionName": "Nadia",
     "wave": "A",
+    "live": false,
     "category": "pendant",
     "collections": [
       "pendants"
@@ -1863,6 +1917,7 @@
     "name": "Elodie Marquise Solitaire",
     "collectionName": "Elodie",
     "wave": "A",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -1897,6 +1952,7 @@
     "name": "Elodie Pear Solitaire",
     "collectionName": "Elodie",
     "wave": "A",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -1931,6 +1987,7 @@
     "name": "Fiora Oval Solitaire",
     "collectionName": "Fiora",
     "wave": "A",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -1965,6 +2022,7 @@
     "name": "Gisele Dutch Marquise Heritage",
     "collectionName": "Gisele",
     "wave": "A",
+    "live": false,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -2001,6 +2059,7 @@
     "name": "Pia Oval Solitaire",
     "collectionName": "Pia",
     "wave": "A",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -2035,6 +2094,7 @@
     "name": "Marisol Oval Solitaire",
     "collectionName": "Marisol",
     "wave": "A",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -2069,6 +2129,7 @@
     "name": "Oriane Marquise East-West",
     "collectionName": "Oriane",
     "wave": "A",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -2103,6 +2164,7 @@
     "name": "Perrine Marquise Pendant",
     "collectionName": "Perrine",
     "wave": "A",
+    "live": false,
     "category": "pendant",
     "collections": [
       "pendants"
@@ -2136,6 +2198,7 @@
     "name": "Seren Marquise Studs",
     "collectionName": "Seren",
     "wave": "A",
+    "live": true,
     "category": "earrings",
     "collections": [
       "earrings"
@@ -2169,6 +2232,7 @@
     "name": "Ada Oval Studs",
     "collectionName": "Ada",
     "wave": "A",
+    "live": true,
     "category": "earrings",
     "collections": [
       "earrings"
@@ -2202,6 +2266,7 @@
     "name": "Blythe Oval Pendant",
     "collectionName": "Blythe",
     "wave": "A",
+    "live": false,
     "category": "pendant",
     "collections": [
       "pendants"
@@ -2235,6 +2300,7 @@
     "name": "Clio Radiant Pendant",
     "collectionName": "Clio",
     "wave": "A",
+    "live": false,
     "category": "pendant",
     "collections": [
       "pendants"
@@ -2268,6 +2334,7 @@
     "name": "Tamsin Champagne Emerald Solitaire",
     "collectionName": "Tamsin",
     "wave": "A",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -2303,6 +2370,7 @@
     "name": "Ulla Elongated Cushion Solitaire",
     "collectionName": "Ulla",
     "wave": "A",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -2337,6 +2405,7 @@
     "name": "Verity Marquise Solitaire",
     "collectionName": "Verity",
     "wave": "A",
+    "live": false,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -2371,6 +2440,7 @@
     "name": "Dione Dutch Marquise Heritage",
     "collectionName": "Dione",
     "wave": "A",
+    "live": false,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -2407,6 +2477,7 @@
     "name": "Edda Solitaire",
     "collectionName": "Edda",
     "wave": "A",
+    "live": false,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -2442,6 +2513,7 @@
     "name": "Hesper Emerald Studs",
     "collectionName": "Hesper",
     "wave": "A",
+    "live": true,
     "category": "earrings",
     "collections": [
       "earrings"
@@ -2475,6 +2547,7 @@
     "name": "Hesper Marquise Studs",
     "collectionName": "Hesper",
     "wave": "A",
+    "live": true,
     "category": "earrings",
     "collections": [
       "earrings"
@@ -2508,6 +2581,7 @@
     "name": "Jessamy Marquise Studs",
     "collectionName": "Jessamy",
     "wave": "A",
+    "live": true,
     "category": "earrings",
     "collections": [
       "earrings"
@@ -2541,6 +2615,7 @@
     "name": "Kestrel Round Studs",
     "collectionName": "Kestrel",
     "wave": "A",
+    "live": true,
     "category": "earrings",
     "collections": [
       "earrings"
@@ -2574,6 +2649,7 @@
     "name": "Freya Emerald Solitaire",
     "collectionName": "Freya",
     "wave": "A",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -2609,6 +2685,7 @@
     "name": "Galia Emerald Solitaire",
     "collectionName": "Galia",
     "wave": "A",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -2643,6 +2720,7 @@
     "name": "Ione Emerald Solitaire",
     "collectionName": "Ione",
     "wave": "A",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -2677,6 +2755,7 @@
     "name": "Linnea Champagne Solitaire",
     "collectionName": "Linnea",
     "wave": "A",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -2712,6 +2791,7 @@
     "name": "Meline Radiant Solitaire",
     "collectionName": "Meline",
     "wave": "A",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -2746,6 +2826,7 @@
     "name": "Nell Radiant Solitaire",
     "collectionName": "Nell",
     "wave": "A",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -2780,6 +2861,7 @@
     "name": "Odessa Marquise Solitaire",
     "collectionName": "Odessa",
     "wave": "A",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -2814,6 +2896,7 @@
     "name": "Rosalind Green Studs",
     "collectionName": "Rosalind",
     "wave": "A",
+    "live": true,
     "category": "earrings",
     "collections": [
       "earrings",
@@ -2849,6 +2932,7 @@
     "name": "Ursa Round Pendant",
     "collectionName": "Ursa",
     "wave": "A",
+    "live": false,
     "category": "pendant",
     "collections": [
       "pendants"
@@ -2882,6 +2966,7 @@
     "name": "Philippa Solitaire",
     "collectionName": "Philippa",
     "wave": "A",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -2917,6 +3002,7 @@
     "name": "Sidonie Solitaire",
     "collectionName": "Sidonie",
     "wave": "A",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -2951,6 +3037,7 @@
     "name": "Tessaly Solitaire",
     "collectionName": "Tessaly",
     "wave": "A",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -2985,6 +3072,7 @@
     "name": "Wilhelmina Round Pendant",
     "collectionName": "Wilhelmina",
     "wave": "A",
+    "live": false,
     "category": "pendant",
     "collections": [
       "pendants"
@@ -3018,6 +3106,7 @@
     "name": "Ysolde Round Pendant",
     "collectionName": "Ysolde",
     "wave": "A",
+    "live": false,
     "category": "pendant",
     "collections": [
       "pendants"
@@ -3051,6 +3140,7 @@
     "name": "Zinaida Asscher Pendant",
     "collectionName": "Zinaida",
     "wave": "A",
+    "live": false,
     "category": "pendant",
     "collections": [
       "pendants"
@@ -3084,6 +3174,7 @@
     "name": "Valen Cushion Solitaire",
     "collectionName": "Valen",
     "wave": "A",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -3119,6 +3210,7 @@
     "name": "Aveline Baguette Solitaire",
     "collectionName": "Aveline",
     "wave": "A",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -3153,6 +3245,7 @@
     "name": "Bettina Baguette Solitaire",
     "collectionName": "Bettina",
     "wave": "A",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -3187,6 +3280,7 @@
     "name": "Cosima Blue Solitaire",
     "collectionName": "Cosima",
     "wave": "A",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -3222,6 +3316,7 @@
     "name": "Damaris Oval Halo",
     "collectionName": "Damaris",
     "wave": "B",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -3259,6 +3354,7 @@
     "name": "Eulalie Oval Halo",
     "collectionName": "Eulalie",
     "wave": "B",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -3297,6 +3393,7 @@
     "name": "Florine Oval Halo",
     "collectionName": "Florine",
     "wave": "B",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -3335,6 +3432,7 @@
     "name": "Genevieve Oval Halo",
     "collectionName": "Genevieve",
     "wave": "B",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -3373,6 +3471,7 @@
     "name": "Hortense Oval Halo",
     "collectionName": "Hortense",
     "wave": "B",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -3411,6 +3510,7 @@
     "name": "Ilaria Oval Halo",
     "collectionName": "Ilaria",
     "wave": "B",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -3449,6 +3549,7 @@
     "name": "Josette Oval Halo",
     "collectionName": "Josette",
     "wave": "B",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -3487,6 +3588,7 @@
     "name": "Katrin Oval Halo",
     "collectionName": "Katrin",
     "wave": "B",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -3525,6 +3627,7 @@
     "name": "Lucienne Oval Halo",
     "collectionName": "Lucienne",
     "wave": "B",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -3563,6 +3666,7 @@
     "name": "Margaux Oval Halo",
     "collectionName": "Margaux",
     "wave": "B",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -3601,6 +3705,7 @@
     "name": "Noemi Oval Halo",
     "collectionName": "Noemi",
     "wave": "B",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -3639,6 +3744,7 @@
     "name": "Doria Round Three Stone",
     "collectionName": "Doria",
     "wave": "B",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -3677,6 +3783,7 @@
     "name": "Ottilie Oval Halo",
     "collectionName": "Ottilie",
     "wave": "B",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -3715,6 +3822,7 @@
     "name": "Paloma Round Halo Studs",
     "collectionName": "Paloma",
     "wave": "B",
+    "live": true,
     "category": "earrings",
     "collections": [
       "earrings"
@@ -3748,6 +3856,7 @@
     "name": "Damaris Round Halo",
     "collectionName": "Damaris",
     "wave": "B",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -3785,6 +3894,7 @@
     "name": "Quilla Oval Solitaire",
     "collectionName": "Quilla",
     "wave": "B",
+    "live": false,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -3819,6 +3929,7 @@
     "name": "Renata Round Bezel",
     "collectionName": "Renata",
     "wave": "B",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -3856,6 +3967,7 @@
     "name": "Solveig Oval Heritage",
     "collectionName": "Solveig",
     "wave": "B",
+    "live": false,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -3890,6 +4002,7 @@
     "name": "Eulalie Round Halo",
     "collectionName": "Eulalie",
     "wave": "B",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -3928,6 +4041,7 @@
     "name": "Genevieve Round Halo",
     "collectionName": "Genevieve",
     "wave": "B",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -3966,6 +4080,7 @@
     "name": "Hortense Round Halo",
     "collectionName": "Hortense",
     "wave": "B",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -4004,6 +4119,7 @@
     "name": "Ilaria Round Halo",
     "collectionName": "Ilaria",
     "wave": "B",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -4042,6 +4158,7 @@
     "name": "Josette Round Halo",
     "collectionName": "Josette",
     "wave": "B",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -4080,6 +4197,7 @@
     "name": "Katrin Round Halo",
     "collectionName": "Katrin",
     "wave": "B",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -4118,6 +4236,7 @@
     "name": "Lucienne Round Halo",
     "collectionName": "Lucienne",
     "wave": "B",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -4156,6 +4275,7 @@
     "name": "Margaux Round Halo",
     "collectionName": "Margaux",
     "wave": "B",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -4194,6 +4314,7 @@
     "name": "Florine Round Halo",
     "collectionName": "Florine",
     "wave": "B",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -4232,6 +4353,7 @@
     "name": "Noemi Round Halo",
     "collectionName": "Noemi",
     "wave": "B",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -4270,6 +4392,7 @@
     "name": "Ottilie Round Halo",
     "collectionName": "Ottilie",
     "wave": "B",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -4308,6 +4431,7 @@
     "name": "Tatiana Marquise Studs",
     "collectionName": "Tatiana",
     "wave": "B",
+    "live": true,
     "category": "earrings",
     "collections": [
       "earrings"
@@ -4341,6 +4465,7 @@
     "name": "Tatiana Round Studs",
     "collectionName": "Tatiana",
     "wave": "B",
+    "live": true,
     "category": "earrings",
     "collections": [
       "earrings"
@@ -4374,6 +4499,7 @@
     "name": "Valerie Round Studs",
     "collectionName": "Valerie",
     "wave": "B",
+    "live": true,
     "category": "earrings",
     "collections": [
       "earrings"
@@ -4407,6 +4533,7 @@
     "name": "Wynne Round Studs",
     "collectionName": "Wynne",
     "wave": "B",
+    "live": true,
     "category": "earrings",
     "collections": [
       "earrings"
@@ -4440,6 +4567,7 @@
     "name": "Yolande Round Studs",
     "collectionName": "Yolande",
     "wave": "B",
+    "live": true,
     "category": "earrings",
     "collections": [
       "earrings"
@@ -4473,6 +4601,7 @@
     "name": "Zosia Round Studs",
     "collectionName": "Zosia",
     "wave": "B",
+    "live": true,
     "category": "earrings",
     "collections": [
       "earrings"
@@ -4506,6 +4635,7 @@
     "name": "Nika Emerald East-West",
     "collectionName": "Nika",
     "wave": "B",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -4544,6 +4674,7 @@
     "name": "Adele Round Bezel Studs",
     "collectionName": "Adele",
     "wave": "B",
+    "live": true,
     "category": "earrings",
     "collections": [
       "earrings"
@@ -4581,6 +4712,7 @@
     "name": "Bianca Emerald Bezel Studs",
     "collectionName": "Bianca",
     "wave": "B",
+    "live": true,
     "category": "earrings",
     "collections": [
       "earrings"
@@ -4618,6 +4750,7 @@
     "name": "Bianca Pear Bezel Studs",
     "collectionName": "Bianca",
     "wave": "B",
+    "live": true,
     "category": "earrings",
     "collections": [
       "earrings"
@@ -4655,6 +4788,7 @@
     "name": "Bianca Round Bezel Studs",
     "collectionName": "Bianca",
     "wave": "B",
+    "live": true,
     "category": "earrings",
     "collections": [
       "earrings"
@@ -4692,6 +4826,7 @@
     "name": "Carys Oval East-West",
     "collectionName": "Carys",
     "wave": "B",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -4730,6 +4865,7 @@
     "name": "Daria Emerald Studs",
     "collectionName": "Daria",
     "wave": "B",
+    "live": true,
     "category": "earrings",
     "collections": [
       "earrings"
@@ -4763,6 +4899,7 @@
     "name": "Daria Marquise Studs",
     "collectionName": "Daria",
     "wave": "B",
+    "live": true,
     "category": "earrings",
     "collections": [
       "earrings"
@@ -4796,6 +4933,7 @@
     "name": "Daria Oval Studs",
     "collectionName": "Daria",
     "wave": "B",
+    "live": true,
     "category": "earrings",
     "collections": [
       "earrings"
@@ -4829,6 +4967,7 @@
     "name": "Daria Pear Studs",
     "collectionName": "Daria",
     "wave": "B",
+    "live": true,
     "category": "earrings",
     "collections": [
       "earrings"
@@ -4862,6 +5001,7 @@
     "name": "Daria Round Studs",
     "collectionName": "Daria",
     "wave": "B",
+    "live": true,
     "category": "earrings",
     "collections": [
       "earrings"
@@ -4895,6 +5035,7 @@
     "name": "Emmeline Halo Studs",
     "collectionName": "Emmeline",
     "wave": "B",
+    "live": true,
     "category": "earrings",
     "collections": [
       "earrings"
@@ -4928,6 +5069,7 @@
     "name": "Fabienne Oval Three Stone",
     "collectionName": "Fabienne",
     "wave": "B",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -4966,6 +5108,7 @@
     "name": "Gaia Oval Solitaire",
     "collectionName": "Gaia",
     "wave": "B",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -5004,6 +5147,7 @@
     "name": "Heloise Emerald Heritage",
     "collectionName": "Heloise",
     "wave": "B",
+    "live": false,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -5038,6 +5182,7 @@
     "name": "Irene Emerald Bezel",
     "collectionName": "Irene",
     "wave": "B",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -5076,6 +5221,7 @@
     "name": "Juliane Emerald Solitaire",
     "collectionName": "Juliane",
     "wave": "B",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -5113,6 +5259,7 @@
     "name": "Kalina Emerald Three Stone",
     "collectionName": "Kalina",
     "wave": "B",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -5150,6 +5297,7 @@
     "name": "Fabienne Round Three Stone",
     "collectionName": "Fabienne",
     "wave": "B",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -5188,6 +5336,7 @@
     "name": "Gaia Round Solitaire",
     "collectionName": "Gaia",
     "wave": "B",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -5226,6 +5375,7 @@
     "name": "Priya Emerald Eternity Band",
     "collectionName": "Priya",
     "wave": "B",
+    "live": true,
     "category": "band",
     "collections": [
       "wedding-bands"
@@ -5259,6 +5409,7 @@
     "name": "Bianca Heart Bezel Studs",
     "collectionName": "Bianca",
     "wave": "B",
+    "live": true,
     "category": "earrings",
     "collections": [
       "earrings"
@@ -5296,6 +5447,7 @@
     "name": "Lisette Round Drop Earrings",
     "collectionName": "Lisette",
     "wave": "B",
+    "live": true,
     "category": "earrings",
     "collections": [
       "earrings"
@@ -5333,6 +5485,7 @@
     "name": "Nanette Oval Three Stone",
     "collectionName": "Nanette",
     "wave": "B",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -5371,6 +5524,7 @@
     "name": "Octavia Emerald East-West",
     "collectionName": "Octavia",
     "wave": "B",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -5409,6 +5563,7 @@
     "name": "Carys Emerald East-West",
     "collectionName": "Carys",
     "wave": "B",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -5447,6 +5602,7 @@
     "name": "Irene Radiant Bezel",
     "collectionName": "Irene",
     "wave": "B",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -5485,6 +5641,7 @@
     "name": "Kalina Radiant Three Stone",
     "collectionName": "Kalina",
     "wave": "B",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -5522,6 +5679,7 @@
     "name": "Rosamund Emerald Signet",
     "collectionName": "Rosamund",
     "wave": "B",
+    "live": true,
     "category": "ring",
     "collections": [
       "rings"
@@ -5558,6 +5716,7 @@
     "name": "Signe Emerald Halo Studs",
     "collectionName": "Signe",
     "wave": "B",
+    "live": true,
     "category": "earrings",
     "collections": [
       "earrings"
@@ -5595,6 +5754,7 @@
     "name": "Viola Cushion Pendant",
     "collectionName": "Viola",
     "wave": "B",
+    "live": false,
     "category": "pendant",
     "collections": [
       "pendants"
@@ -5628,6 +5788,7 @@
     "name": "Tallis Emerald Three Stone",
     "collectionName": "Tallis",
     "wave": "B",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -5666,6 +5827,7 @@
     "name": "Nanette Round Three Stone",
     "collectionName": "Nanette",
     "wave": "B",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -5704,6 +5866,7 @@
     "name": "Carys Radiant East-West",
     "collectionName": "Carys",
     "wave": "B",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -5742,6 +5905,7 @@
     "name": "Wilda Emerald Three Stone",
     "collectionName": "Wilda",
     "wave": "B",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -5780,6 +5944,7 @@
     "name": "Anika Asscher Heritage",
     "collectionName": "Anika",
     "wave": "B",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -5818,6 +5983,7 @@
     "name": "Felicity Emerald Wrap Ring",
     "collectionName": "Felicity",
     "wave": "B",
+    "live": true,
     "category": "band",
     "collections": [
       "wedding-bands"
@@ -5854,6 +6020,7 @@
     "name": "Brigitte Emerald Solitaire",
     "collectionName": "Brigitte",
     "wave": "B",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -5892,6 +6059,7 @@
     "name": "Camille Emerald Solitaire",
     "collectionName": "Camille",
     "wave": "B",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -5930,6 +6098,7 @@
     "name": "Dagny Asscher Three Stone",
     "collectionName": "Dagny",
     "wave": "B",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -5967,6 +6136,7 @@
     "name": "Guinevere Emerald Three Stone",
     "collectionName": "Guinevere",
     "wave": "B",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -6005,6 +6175,7 @@
     "name": "Hazel Emerald Three Stone",
     "collectionName": "Hazel",
     "wave": "B",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -6043,6 +6214,7 @@
     "name": "Imogen Emerald Three Stone",
     "collectionName": "Imogen",
     "wave": "B",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -6081,6 +6253,7 @@
     "name": "Johanna Cushion Bezel",
     "collectionName": "Johanna",
     "wave": "B",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -6118,6 +6291,7 @@
     "name": "Karina Hexagon Three Stone",
     "collectionName": "Karina",
     "wave": "B",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -6155,6 +6329,7 @@
     "name": "Lavinia Pear Solitaire",
     "collectionName": "Lavinia",
     "wave": "B",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -6192,6 +6367,7 @@
     "name": "Mathilde Round Solitaire",
     "collectionName": "Mathilde",
     "wave": "B",
+    "live": false,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -6226,6 +6402,7 @@
     "name": "Ninon Marquise Solitaire",
     "collectionName": "Ninon",
     "wave": "B",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -6263,6 +6440,7 @@
     "name": "Orsola Pear Three Stone",
     "collectionName": "Orsola",
     "wave": "B",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -6301,6 +6479,7 @@
     "name": "Paulette Pear Three Stone",
     "collectionName": "Paulette",
     "wave": "B",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -6339,6 +6518,7 @@
     "name": "Rowena Marquise Bezel",
     "collectionName": "Rowena",
     "wave": "B",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -6376,6 +6556,7 @@
     "name": "Sunniva Bezel",
     "collectionName": "Sunniva",
     "wave": "B",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -6414,6 +6595,7 @@
     "name": "Theodora Hexagon Three Stone",
     "collectionName": "Theodora",
     "wave": "B",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -6451,6 +6633,7 @@
     "name": "Ulrike Hexagon Three Stone",
     "collectionName": "Ulrike",
     "wave": "B",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -6488,6 +6671,7 @@
     "name": "Vanya Blue Radiant Halo",
     "collectionName": "Vanya",
     "wave": "B",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -6526,6 +6710,7 @@
     "name": "Winifred Pink Radiant Halo",
     "collectionName": "Winifred",
     "wave": "B",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -6564,6 +6749,7 @@
     "name": "Ximena Pear Halo",
     "collectionName": "Ximena",
     "wave": "B",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -6601,6 +6787,7 @@
     "name": "Zerlina Marquise Wrap Ring",
     "collectionName": "Zerlina",
     "wave": "B",
+    "live": true,
     "category": "band",
     "collections": [
       "wedding-bands"
@@ -6637,6 +6824,7 @@
     "name": "Bryony Pear Wrap Ring",
     "collectionName": "Bryony",
     "wave": "B",
+    "live": true,
     "category": "band",
     "collections": [
       "wedding-bands"
@@ -6670,6 +6858,7 @@
     "name": "Yvaine Marquise Solitaire",
     "collectionName": "Yvaine",
     "wave": "B",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -6704,6 +6893,7 @@
     "name": "Alcina Marquise Solitaire",
     "collectionName": "Alcina",
     "wave": "B",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -6741,6 +6931,7 @@
     "name": "Calliope Radiant Halo",
     "collectionName": "Calliope",
     "wave": "B",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -6778,6 +6969,7 @@
     "name": "Desma Pear Solitaire",
     "collectionName": "Desma",
     "wave": "B",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -6812,6 +7004,7 @@
     "name": "Evadne Asscher Solitaire",
     "collectionName": "Evadne",
     "wave": "B",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -6850,6 +7043,7 @@
     "name": "Filippa Solitaire",
     "collectionName": "Filippa",
     "wave": "B",
+    "live": true,
     "category": "ring",
     "collections": [
       "engagement-rings",
@@ -6887,6 +7081,7 @@
     "name": "Gwendolen Round Wrap Ring",
     "collectionName": "Gwendolen",
     "wave": "B",
+    "live": true,
     "category": "band",
     "collections": [
       "wedding-bands"
@@ -6920,6 +7115,7 @@
     "name": "Hermia Heart Wrap Ring",
     "collectionName": "Hermia",
     "wave": "B",
+    "live": true,
     "category": "band",
     "collections": [
       "wedding-bands"
