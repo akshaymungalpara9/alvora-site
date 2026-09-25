@@ -222,7 +222,7 @@ export default function CollectionPage({ path, shape }: Props) {
         <div>
           <p className="jw-eyebrow">Not sure where to start?</p>
           <h2>Talk it through with us.</h2>
-          <p>A short video or WhatsApp call to choose a shape, setting and size, with a written price afterwards.</p>
+          <p>A short WhatsApp or phone call to choose a shape, setting and size, with a written price afterwards.</p>
         </div>
         <Link href="/book-a-consultation" className="jw-button">Book a consultation <ArrowRight size={15} strokeWidth={1.6} /></Link>
       </section>

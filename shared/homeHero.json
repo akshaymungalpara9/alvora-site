@@ -1,1 +1,64 @@
-null
+{
+  "slides": [
+    {
+      "alt": "A woman touches her jaw, wearing a marquise lab-grown diamond ring in a gold bezel with baguette side stones",
+      "sizes": [
+        {
+          "src": "/assets/home/hero-1-900.webp",
+          "width": 900,
+          "height": 1117
+        },
+        {
+          "src": "/assets/home/hero-1-1600.webp",
+          "width": 1600,
+          "height": 1986
+        }
+      ]
+    },
+    {
+      "alt": "A hand resting on ivory linen wearing a marquise lab-grown diamond ring with stepped baguettes in yellow gold",
+      "sizes": [
+        {
+          "src": "/assets/home/hero-2-900.webp",
+          "width": 900,
+          "height": 1117
+        },
+        {
+          "src": "/assets/home/hero-2-1600.webp",
+          "width": 1600,
+          "height": 1986
+        }
+      ]
+    },
+    {
+      "alt": "A woman in soft window light wearing a champagne lab-grown diamond solitaire on a wide brushed gold band",
+      "sizes": [
+        {
+          "src": "/assets/home/hero-3-900.webp",
+          "width": 900,
+          "height": 1117
+        },
+        {
+          "src": "/assets/home/hero-3-1600.webp",
+          "width": 1600,
+          "height": 1986
+        }
+      ]
+    },
+    {
+      "alt": "A hand on ivory linen wearing a champagne cushion-cut lab-grown diamond on a wide brushed rose gold band",
+      "sizes": [
+        {
+          "src": "/assets/home/hero-4-900.webp",
+          "width": 900,
+          "height": 1117
+        },
+        {
+          "src": "/assets/home/hero-4-1600.webp",
+          "width": 1600,
+          "height": 1986
+        }
+      ]
+    }
+  ]
+}

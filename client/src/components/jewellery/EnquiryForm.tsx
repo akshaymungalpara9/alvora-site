@@ -23,13 +23,12 @@ const CONTACT_OPTIONS = [
   { value: "email", label: "Email" },
   { value: "whatsapp", label: "WhatsApp" },
   { value: "phone", label: "Phone" },
-  { value: "video", label: "Video call" },
 ] as const;
 
 type ContactPreference = (typeof CONTACT_OPTIONS)[number]["value"];
 
 export default function EnquiryForm({ kind, piece, selection = {}, idPrefix = "jw" }: Props) {
-  const [preferredContact, setPreferredContact] = useState<ContactPreference>(kind === "consultation" ? "video" : "email");
+  const [preferredContact, setPreferredContact] = useState<ContactPreference>(kind === "consultation" ? "whatsapp" : "email");
   const submit = trpc.jewellery.submit.useMutation({
     onSuccess: () => trackConversion(kind === "consultation" ? "consultation_request" : "jewellery_enquiry", piece ? { piece_code: piece.code } : {}),
   });
