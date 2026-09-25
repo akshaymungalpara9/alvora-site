@@ -55,6 +55,20 @@ timeline.
 - Wholesale lab-grown melee diamonds: /melee-diamonds
 - Request a wholesale quote: /request-a-quote
 
+## Market pages
+
+- United States and Canada: /us
+- Canada: /ca
+- United Kingdom: /uk
+- Germany and the EU: /de
+- Australia: /au
+- France (French): /fr
+- Italy (Italian): /it
+
+Market pages state only market-specific delivery guidance. Duty and tax
+percentages are never published; classification, import VAT or GST, and
+delivery timing are confirmed per quotation or shipment.
+
 ## Trade facts
 
 - Minimum order: depends on product, size, shape, certification and whether

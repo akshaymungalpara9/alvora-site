@@ -132,6 +132,10 @@ function publicHreflangAlternates(origin: string) {
     { lang: "fr", href: `${origin}/fr` },
     { lang: "it", href: `${origin}/it` },
     { lang: "en-US", href: `${origin}/us` },
+    { lang: "en-CA", href: `${origin}/ca` },
+    { lang: "en-GB", href: `${origin}/uk` },
+    { lang: "en-DE", href: `${origin}/de` },
+    { lang: "en-AU", href: `${origin}/au` },
     { lang: "x-default", href: `${origin}/trade` },
   ];
 }
@@ -311,6 +315,14 @@ export function resolveRouteMeta(pathname: string, origin: string): RouteMeta | 
       return { ...publicSeo.it, title: "Lab-Grown Diamond Manufacturer for Italy | Alvora Diamonds", description: "Italian jewellery manufacturers: source lab-grown diamonds wholesale from Alvora, a Surat manufacturer supplying layouts, matched pairs and melee.", canonical: url("/it"), alternates: publicHreflangAlternates(origin) };
     case "/us":
       return { ...publicSeo.us, title: "Lab-Grown Diamond Manufacturer for the US | Alvora", description: "US jewelry brands and wholesalers: source lab-grown diamonds direct from Alvora, a Surat manufacturer shipping CVD and HPHT stones to America.", canonical: url("/us"), alternates: publicHreflangAlternates(origin) };
+    case "/ca":
+      return { ...publicSeo.ca, title: "Lab-Grown Diamond Manufacturer for Canada | Alvora Diamonds", description: "Canadian jewellery brands and wholesalers: source IGI-certified lab-grown diamonds direct from Alvora, a Surat manufacturer. HS 7104 classification guidance and insured courier dispatch to Canada.", canonical: url("/ca"), alternates: publicHreflangAlternates(origin) };
+    case "/uk":
+      return { ...publicSeo.uk, title: "Lab-Grown Diamond Manufacturer for the UK | Alvora Diamonds", description: "British jewellery brands and wholesalers: source IGI-certified lab-grown diamonds direct from Alvora, a Surat manufacturer, with insured courier shipment to the UK arranged per order.", canonical: url("/uk"), alternates: publicHreflangAlternates(origin) };
+    case "/de":
+      return { ...publicSeo.de, title: "Lab-Grown Diamond Manufacturer for Germany | Alvora Diamonds", description: "German jewellery brands and wholesalers: source IGI-certified lab-grown diamonds direct from Alvora, a Surat manufacturer shipping insured to Germany and the EU.", canonical: url("/de"), alternates: publicHreflangAlternates(origin) };
+    case "/au":
+      return { ...publicSeo.au, title: "Lab-Grown Diamond Manufacturer for Australia | Alvora Diamonds", description: "Australian jewellery brands and wholesalers: source IGI-certified lab-grown diamonds direct from Alvora, a Surat manufacturer, with insured courier shipment to Australia arranged per order.", canonical: url("/au"), alternates: publicHreflangAlternates(origin) };
     case "/availability":
       return { ...availabilitySeo.global, canonical: url("/availability"), alternates: availabilityHreflangAlternates(origin) };
     case "/fr/availability":

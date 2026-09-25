@@ -11,7 +11,7 @@ import { COOKIE_NAME } from "../../shared/const";
 
 const publicBriefInput = z.object({
   requestType: z.string().trim().min(2).max(120),
-  market: z.enum(["GLOBAL", "FR", "IT", "US", "CA"]).default("GLOBAL"),
+  market: z.enum(["GLOBAL", "FR", "IT", "US", "CA", "UK", "DE", "AU"]).default("GLOBAL"),
   website: z.string().trim().max(200).optional().default(""),
   contactName: z.string().trim().min(2).max(180),
   email: z.string().trim().email().max(320).transform((value) => value.toLowerCase()),
@@ -25,7 +25,7 @@ const publicBriefInput = z.object({
 });
 
 const fastRfqInput = z.object({
-  market: z.enum(["GLOBAL", "FR", "IT", "US", "CA"]).default("GLOBAL"),
+  market: z.enum(["GLOBAL", "FR", "IT", "US", "CA", "UK", "DE", "AU"]).default("GLOBAL"),
   website: z.string().trim().max(200).optional().default(""),
   contactName: z.string().trim().min(2).max(180),
   email: z.string().trim().email().max(320).transform((value) => value.toLowerCase()),
@@ -33,7 +33,7 @@ const fastRfqInput = z.object({
   phone: z.string().trim().min(2).max(80),
   requirement: z.string().trim().min(2).max(5000),
 });
-const marketCode = z.enum(["GLOBAL", "FR", "IT", "US", "CA"]);
+const marketCode = z.enum(["GLOBAL", "FR", "IT", "US", "CA", "UK", "DE", "AU"]);
 
 const csvCell = (value: unknown) => {
   const raw = String(value ?? "");

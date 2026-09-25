@@ -213,7 +213,7 @@ export const productionBriefs = mysqlTable(
   {
     id: int("id").autoincrement().primaryKey(),
     requestType: varchar("requestType", { length: 120 }).notNull(),
-    market: mysqlEnum("market", ["GLOBAL", "FR", "IT", "US", "CA"]).default("GLOBAL").notNull(),
+    market: mysqlEnum("market", ["GLOBAL", "FR", "IT", "US", "CA", "UK", "DE", "AU"]).default("GLOBAL").notNull(),
     source: mysqlEnum("source", ["direct", "referral"]).default("direct").notNull(),
     referrerName: varchar("referrerName", { length: 180 }),
     contactName: varchar("contactName", { length: 180 }).notNull(),
@@ -274,7 +274,7 @@ export const tradeIntroductions = mysqlTable(
     jewellerName: varchar("jewellerName", { length: 180 }).notNull(),
     company: varchar("company", { length: 180 }),
     workEmail: varchar("workEmail", { length: 320 }),
-    market: mysqlEnum("market", ["GLOBAL", "FR", "IT", "US", "CA"]).default("GLOBAL").notNull(),
+    market: mysqlEnum("market", ["GLOBAL", "FR", "IT", "US", "CA", "UK", "DE", "AU"]).default("GLOBAL").notNull(),
     note: text("note"),
     alertStatus: mysqlEnum("alertStatus", ["pending", "sent", "failed"]).default("pending").notNull(),
     alertError: text("alertError"),

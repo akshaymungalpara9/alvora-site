@@ -66,6 +66,10 @@ const HOME_ALTERNATES = [
   { hreflang: "fr",      path: "/fr" },
   { hreflang: "it",      path: "/it" },
   { hreflang: "en-US",   path: "/us" },
+  { hreflang: "en-CA",   path: "/ca" },
+  { hreflang: "en-GB",   path: "/uk" },
+  { hreflang: "en-DE",   path: "/de" },
+  { hreflang: "en-AU",   path: "/au" },
   { hreflang: "x-default", path: "/trade" },
 ] as const;
 
@@ -85,6 +89,10 @@ const ROUTE_META: Record<string, RouteMetadata> = {
   "/fr":  { changefreq: "weekly",  priority: "0.9", alternates: HOME_ALTERNATES },
   "/it":  { changefreq: "weekly",  priority: "0.9", alternates: HOME_ALTERNATES },
   "/us":  { changefreq: "weekly",  priority: "0.9", alternates: HOME_ALTERNATES },
+  "/ca":  { changefreq: "weekly",  priority: "0.9", alternates: HOME_ALTERNATES },
+  "/uk":  { changefreq: "weekly",  priority: "0.9", alternates: HOME_ALTERNATES },
+  "/de":  { changefreq: "weekly",  priority: "0.9", alternates: HOME_ALTERNATES },
+  "/au":  { changefreq: "weekly",  priority: "0.9", alternates: HOME_ALTERNATES },
   "/calibrated-diamond-layouts": { changefreq: "monthly", priority: "0.8" },
   "/matched-pair-diamonds":      { changefreq: "monthly", priority: "0.8" },
   "/custom-cut-diamonds":        { changefreq: "monthly", priority: "0.8" },

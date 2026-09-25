@@ -21,10 +21,10 @@ describe("public production-brief form semantics", () => {
     }
   });
 
-  it("uses country autofill only where the North American form exposes country choice", () => {
+  it("uses country autofill only where a market form exposes country choice", () => {
     const market = readFileSync("client/src/pages/MarketLanding.tsx", "utf8");
-    expect(market).toContain('content.northAmerica && <label>');
+    expect(market).toContain('content.delivery && <label>');
     expect(market).toContain('name="country" autoComplete="country"');
-    expect(market).toMatch(/content\.northAmerica && <label><span>[^<]+<\/span><select name="country"/);
+    expect(market).toMatch(/content\.delivery && <label><span>[^<]+<\/span><select name="country"/);
   });
 });

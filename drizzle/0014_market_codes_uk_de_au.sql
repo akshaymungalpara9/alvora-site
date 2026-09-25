@@ -1,0 +1,2 @@
+ALTER TABLE `production_briefs` MODIFY COLUMN `market` enum('GLOBAL','FR','IT','US','CA','UK','DE','AU') NOT NULL DEFAULT 'GLOBAL';--> statement-breakpoint
+ALTER TABLE `trade_introductions` MODIFY COLUMN `market` enum('GLOBAL','FR','IT','US','CA','UK','DE','AU') NOT NULL DEFAULT 'GLOBAL';

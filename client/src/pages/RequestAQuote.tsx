@@ -23,14 +23,18 @@ const JSON_LD = {
   areaServed: "Worldwide",
 };
 
-const COUNTRY_TO_MARKET: Record<string, "GLOBAL" | "FR" | "IT" | "US" | "CA"> = {
+const COUNTRY_TO_MARKET: Record<string, "GLOBAL" | "FR" | "IT" | "US" | "CA" | "UK" | "DE" | "AU"> = {
   US: "US",
   CA: "CA",
   FR: "FR",
   IT: "IT",
+  GB: "UK",
+  UK: "UK",
+  DE: "DE",
+  AU: "AU",
 };
 
-function mapCountryToMarket(country: string): "GLOBAL" | "FR" | "IT" | "US" | "CA" {
+function mapCountryToMarket(country: string): "GLOBAL" | "FR" | "IT" | "US" | "CA" | "UK" | "DE" | "AU" {
   return COUNTRY_TO_MARKET[country] ?? "GLOBAL";
 }
 
