@@ -48,7 +48,7 @@ export function SgLandedCostBlock() {
       </p>
 
       <p className="eyebrow" style={{ marginTop: 40 }}><span />ILLUSTRATIVE PLANNING MODEL</p>
-      <p style={{ fontSize: "0.82rem", color: "#9fa19a", marginBottom: 18, lineHeight: 1.7 }}>
+      <p style={{ fontSize: "0.82rem", color: "var(--paper-dim)", marginBottom: 18, lineHeight: 1.7 }}>
         The figures below are a planning model for a 100 ct parcel at an assumed invoice price of
         USD 500/ct, air freight, standard insurance, and mid-market exchange rates from 30 August
         2026. This is not a carrier quote or a live price. Replace all assumptions with actual
@@ -246,7 +246,7 @@ export function SgFaqBlock({ items }: { items: FaqItem[] }) {
             </button>
             {openIndex === i && (
               <div style={{ paddingBottom: 20 }}>
-                <p style={{ margin: 0, fontSize: "0.86rem", lineHeight: 1.75, color: "#9fa19a" }}>
+                <p style={{ margin: 0, fontSize: "0.86rem", lineHeight: 1.75, color: "var(--paper-dim)" }}>
                   {item.answer}
                 </p>
               </div>

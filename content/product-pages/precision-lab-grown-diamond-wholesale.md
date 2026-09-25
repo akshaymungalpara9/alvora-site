@@ -14,9 +14,9 @@ Alvora provides precision-led lab-grown diamond wholesale supply for buyers who 
 ## Key facts
 
 - Certification: IGI is the standard route where applicable; other laboratories can be discussed when a buyer or channel requires them.
-- Tolerance range: ±0.05mm on diameter/length-width (calibrated); matched within 1 colour grade, 1 clarity grade, and 2% weight variance (pairs); state the accepted measurement and matching ranges for each product programme. <!-- DRAFT-VALUE: confirm with Akshay -->
-- MOQ: No minimum (ex-stock loose); 5 ct minimum (layouts and custom cuts); 1 pair minimum (matched pairs); 10 ct minimum (melee); clarify minimums for stock, layouts, pairs, custom cuts, and repeat orders. <!-- DRAFT-VALUE: confirm with Akshay -->
-- Lead time: 2–3 working days (ex-stock); 7–10 working days (bespoke production); identify review, production, certification, approval, and dispatch stages. <!-- DRAFT-VALUE: confirm with Akshay -->
+- Tolerance range: On request; measurement and matching tolerances are agreed in writing for each order before selection or production.
+- MOQ: On request; order minimums are confirmed at quotation for the relevant programme.
+- Lead time: On request; timing is confirmed at quotation with the production stages for each order.
 - Primary shapes: rounds, ovals, pears, marquises, emeralds, radiants, cushions, hearts, and agreed custom forms.
 
 Marketplaces can provide breadth and speed; local wholesalers can help with urgent inspection; trade shows support supplier discovery. Direct manufacturer sourcing is most useful when the buyer needs calibrated layouts, matched pairs, exact custom cuts, or a repeat programme tied to a documented specification.[1]

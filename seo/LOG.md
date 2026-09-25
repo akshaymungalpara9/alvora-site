@@ -110,3 +110,15 @@ Append-only. Newest entry at the bottom. Never delete an entry.
 **Next**
 - Monthly prompt-panel run (first run in the October cycle); record results in the panel's sheet and summarise here.
 - Phase 1 items 3, 4 and 6 of the plan remain owner-gated (redacted documents, off-site outreach, company facts).
+
+## 2026-09-26: Readability repair (white-on-cream text) and DRAFT-VALUE removal
+
+**Done**
+- Owner reported unreadable white text on the live site. Traced to the 27 August light-editorial reskin, which moved page backgrounds to the light canvas but left dark-era text colours on the SpecialtyPageShell family: white hero titles, light-grey hero copy, and white body text on the cream `.specialty-section-ink` sections. Affected every specialty page, all markdown product pages (including the new calibrated-parcel-specification-template), and the contact hero since 27 August.
+- Fixed site-wide: specialty hero, copy and section colours pinned to the light-surface ink scale; contact hero; referral page H1; catalogue pagination buttons; availability summary; weak mid-greys raised to the standard secondary ink; markdown body links styled; form labels and inputs on the contact page's intentionally dark columns restored to dark-panel values; hero-maker-line inside light specialty heroes pinned to the secondary ink; an inline `color: var(--paper)` removed from Certifications.tsx; inline `#9fa19a` raised to `var(--paper-dim)` in SingaporeBlocks.
+- Removed 24 literal `DRAFT-VALUE` HTML comments (unconfirmed tolerance, MOQ and lead-time values) from 8 product pages and the matching invented values from two pages' JSON-LD. Bullets now state "On request" with confirmation at quotation, per the no-invented-terms rule.
+- Verification: scripted contrast audit over all 326 prerendered routes in headless Chromium (text elements below 2.0 contrast flagged; remaining flags are text over photos, the brand gold eyebrow, and a deliberately invisible form honeypot), plus visual screenshots at 1280 and 390 of the template page, calibrated-diamond-layouts, certifications, about, contact, singapore, request-a-quote and availability.
+
+**Decided**
+- The cream `.specialty-section-ink` band stays as a design alternation; only its text colour was wrong.
+- The brand gold eyebrow (#c7a75a on cream, about 2.1:1) is a deliberate site-wide accent used on owner-approved pages; left unchanged.

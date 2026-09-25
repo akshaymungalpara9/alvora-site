@@ -14,9 +14,9 @@ Alvora's calibrated lab-grown diamond layouts are coordinated sets of stones sel
 ## Key facts
 
 - Certification: IGI-certified stones available where applicable; report-to-stone linkage should be confirmed for each order.
-- Tolerance range: ±0.05mm on diameter/length-width; confirm whether the tolerance applies to every stone, a selected group, or a production sample. <!-- DRAFT-VALUE: confirm with Akshay -->
-- MOQ: Minimum 5 carats total weight per layout order; state whether minimums vary by shape, size, layout, or custom production. <!-- DRAFT-VALUE: confirm with Akshay -->
-- Lead time: 7–10 working days; confirm selection, cutting, certification, approval, and dispatch stages. <!-- DRAFT-VALUE: confirm with Akshay -->
+- Tolerance range: On request; measurement and matching tolerances are agreed in writing for each order before selection or production.
+- MOQ: On request; order minimums are confirmed at quotation for the relevant programme.
+- Lead time: On request; timing is confirmed at quotation with the production stages for each order.
 - Primary shapes: rounds, ovals, pears, marquises, emeralds, radiants, cushions, hearts, and other agreed forms.
 
 A layout should be specified as a group rather than as a list of individual stones. Share the target shape, nominal measurements, colour and clarity range, quantity, setting architecture, or CAD reference. Length, width, depth, outline, faceting, and face-up appearance may all matter when stones are set beside one another. The required acceptance criteria should be agreed before selection or production.

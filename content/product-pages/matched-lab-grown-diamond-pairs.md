@@ -14,9 +14,9 @@ Alvora's matched lab-grown diamond pairs are two stones selected to work togethe
 ## Key facts
 
 - Certification: IGI certification can provide report-linked identity and familiar 4Cs information where applicable.
-- Tolerance range: Matched within 1 colour grade, 1 clarity grade, and 2% weight variance between the two stones; define the permitted difference between the two stones for each required measurement. <!-- DRAFT-VALUE: confirm with Akshay -->
-- MOQ: 1 pair (2 stones) minimum; clarify whether one pair, a sample pair, or a repeat programme is the minimum. <!-- DRAFT-VALUE: confirm with Akshay -->
-- Lead time: 7–10 working days; confirm availability, matching, certification, approval, and dispatch timing. <!-- DRAFT-VALUE: confirm with Akshay -->
+- Tolerance range: On request; the permitted differences between the two stones are agreed in writing for each pair.
+- MOQ: On request; order minimums are confirmed at quotation for the relevant programme.
+- Lead time: On request; timing is confirmed at quotation with the production stages for each order.
 - Primary shapes: rounds, ovals, pears, marquises, emeralds, radiants, cushions, hearts, and agreed fancy shapes.
 
 Pair matching is not simply a request for equal carat weights. Two stones can weigh the same while differing in length, width, depth, faceting, fluorescence, or face-up appearance. Those differences can affect symmetry, orientation, light return, and how each stone sits in its mounting.
