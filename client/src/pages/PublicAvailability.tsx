@@ -86,17 +86,48 @@ function CatalogStoneCard({ stone, isStatement, tab, locale, view, onOpenViewer 
 
 export default function PublicAvailability({ locale = "global" }: { locale?: Locale }) {
   const text = copy[locale];
-  const [tab, setTab] = useState<CollectionTab>("Fancy Colour");
-  const [shape, setShape] = useState("");
-  const [caratBand, setCaratBand] = useState("");
-  const [colour, setColour] = useState("");
-  const [clarity, setClarity] = useState("");
-  const [statementType, setStatementType] = useState("");
-  const [lab, setLab] = useState("");
-  const [sort, setSort] = useState<"curated" | "carat_desc" | "carat_asc" | "new_arrivals">("curated");
+  const [initialFilters] = useState(() => {
+    if (typeof window === "undefined") return { tab: "Fancy Colour" as CollectionTab, shape: "", caratBand: "", colour: "", clarity: "", statementType: "", lab: "", sort: "curated" as "curated" | "carat_desc" | "carat_asc" | "new_arrivals" };
+    const p = new URLSearchParams(window.location.search);
+    const tabParam = p.get("tab");
+    const sortParam = p.get("sort");
+    return {
+      tab: (tabParam === "White" || tabParam === "statement" ? tabParam : "Fancy Colour") as CollectionTab,
+      shape: p.get("shape") ?? "",
+      caratBand: p.get("carat") ?? "",
+      colour: p.get("colour") ?? "",
+      clarity: p.get("clarity") ?? "",
+      statementType: p.get("type") ?? "",
+      lab: p.get("lab") ?? "",
+      sort: (["curated", "carat_desc", "carat_asc", "new_arrivals"].includes(sortParam ?? "") ? sortParam : "curated") as "curated" | "carat_desc" | "carat_asc" | "new_arrivals",
+    };
+  });
+  const [tab, setTab] = useState<CollectionTab>(initialFilters.tab);
+  const [shape, setShape] = useState(initialFilters.shape);
+  const [caratBand, setCaratBand] = useState(initialFilters.caratBand);
+  const [colour, setColour] = useState(initialFilters.colour);
+  const [clarity, setClarity] = useState(initialFilters.clarity);
+  const [statementType, setStatementType] = useState(initialFilters.statementType);
+  const [lab, setLab] = useState(initialFilters.lab);
+  const [sort, setSort] = useState<"curated" | "carat_desc" | "carat_asc" | "new_arrivals">(initialFilters.sort);
   const [page, setPage] = useState(0);
   const [view, setView] = useState<"grid" | "list">("grid");
   const [viewer, setViewer] = useState<{ url: string; stockNumber: string } | null>(null);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const p = new URLSearchParams();
+    if (tab !== "Fancy Colour") p.set("tab", tab);
+    if (shape) p.set("shape", shape);
+    if (caratBand) p.set("carat", caratBand);
+    if (colour) p.set("colour", colour);
+    if (clarity) p.set("clarity", clarity);
+    if (statementType) p.set("type", statementType);
+    if (lab) p.set("lab", lab);
+    if (sort !== "curated") p.set("sort", sort);
+    const qs = p.toString();
+    window.history.replaceState(null, "", qs ? `${window.location.pathname}?${qs}` : window.location.pathname);
+  }, [tab, shape, caratBand, colour, clarity, statementType, lab, sort]);
   const reportedCuratedTabs = useRef(new Set<CollectionTab>());
   const isStatement = tab === "statement";
   const coreCategory = tab === "statement" ? undefined : tab;
