@@ -10,6 +10,10 @@ import NotFound from "@/pages/NotFound";
 import { GRADING_REPORT_IMAGE, PUBLIC_PIECES, findPublicPiece, formatFromPrice, type MetalColour } from "@shared/jewellery/catalog";
 import { pieceMeta } from "@shared/jewellery/seo";
 import { CENTRE_STONE_CARATS, centreStoneSpec, centreStoneStory, hasCentreStone } from "@shared/jewellery/centreStone";
+import { formatMoney } from "@shared/jewellery/currency";
+import CurrencySwitcher from "@/components/jewellery/CurrencySwitcher";
+import { showLaunchOffer, useCurrency } from "@/lib/currency";
+import { LAUNCH_OFFER, RING_METALS, formatFullPrice, formatOfferEnd, hasRingPricing, ringPriceInr, type RingMetal } from "@shared/jewellery/pricing";
 import { COMPANY } from "@shared/companyInfo";
 import { applyJewellerySeo } from "@/lib/jewellerySeo";
 import { buildWhatsAppHrefWithMessage } from "@/lib/whatsapp";
@@ -45,7 +49,11 @@ export default function ProductPage({ slug }: { slug: string }) {
   const [imageIndex, setImageIndex] = useState(0);
   const [metal, setMetal] = useState<MetalColour>("yellow");
   const [karat, setKarat] = useState<string>(() => (piece?.karats.includes("14K") ? "14K" : piece?.karats[0] ?? "14K"));
-  const [carat, setCarat] = useState<string | undefined>(undefined);
+  const currency = useCurrency();
+  const priced = piece ? hasRingPricing(piece) : false;
+  // Priced rings open on the "From" price: silver with a 0.5 ct centre stone.
+  const [ringMetal, setRingMetal] = useState<RingMetal>("silver");
+  const [carat, setCarat] = useState<string | undefined>(priced ? CENTRE_STONE_CARATS[0] : undefined);
   const [sizeSystem, setSizeSystem] = useState<"us" | "uk">("us");
   const [ringSize, setRingSize] = useState<string>("");
 
@@ -54,7 +62,8 @@ export default function ProductPage({ slug }: { slug: string }) {
     const meta = pieceMeta(piece);
     applyJewellerySeo(`/jewellery/${piece.slug}`, meta.title, meta.description);
     setImageIndex(0);
-    setCarat(undefined);
+    setRingMetal("silver");
+    setCarat(hasRingPricing(piece) ? CENTRE_STONE_CARATS[0] : undefined);
     setRingSize("");
   }, [piece]);
 
@@ -72,13 +81,19 @@ export default function ProductPage({ slug }: { slug: string }) {
   const carats = withCentre ? CENTRE_STONE_CARATS : caratOptions(piece.caratRange);
   const story = withCentre ? centreStoneStory(piece) : null;
   const sizeLabel = ringSize ? (sizeSystem === "us" ? `US ${ringSize}` : `UK ${RING_SIZES.find((s) => s.us === ringSize)?.uk}`) : undefined;
+  // Silver and platinum come in white only; gold in the piece's colours.
+  const isGold = !priced || RING_METALS.find((m) => m.value === ringMetal)!.gold;
   const selection: PieceSelection = {
-    metal: METAL_NAMES[metal],
-    karat: karat as PieceSelection["karat"],
+    metal: isGold ? METAL_NAMES[metal] : ringMetal === "silver" ? "Silver" : "Platinum",
+    karat: isGold ? ((priced ? ringMetal : karat) as PieceSelection["karat"]) : undefined,
     caratWeight: carat,
     ringSize: isRing ? sizeLabel ?? "Not sure yet" : undefined,
   };
-  const summary = [karat, METAL_LABELS[metal].toLowerCase(), carat ? `${carat} ct` : null, isRing && sizeLabel ? `size ${sizeLabel}` : null].filter(Boolean).join(", ");
+  const metalText = isGold ? `${selection.karat} ${METAL_LABELS[metal].toLowerCase()}` : selection.metal!.toLowerCase();
+  const summary = [metalText, carat ? `${carat} ct` : null, isRing && sizeLabel ? `size ${sizeLabel}` : null].filter(Boolean).join(", ");
+  const price = priced && carat ? ringPriceInr(ringMetal, carat) : null;
+  const offer = price != null && showLaunchOffer();
+  const metalList = priced ? "925 sterling silver, 14K or 18K gold, or platinum" : `Solid ${piece.karats.join(" or ")} gold`;
   const whatsappHref = buildWhatsAppHrefWithMessage(COMPANY.whatsappNumber, `Hello Alvora, I'd like to ask about the ${piece.name} (${piece.code}): ${summary}.`);
   const category = CATEGORY_LINKS[piece.category];
   const shapeCrumb = piece.shape && piece.collections.includes("engagement-rings") && piece.shapeLabel ? { label: piece.shapeLabel, href: `/engagement-rings/shape/${piece.shape}` } : null;
@@ -126,18 +141,43 @@ export default function ProductPage({ slug }: { slug: string }) {
           </nav>
           <h1 className="jp-title">{piece.name}</h1>
           <p className="jp-sub">{[piece.shapeLabel, piece.styleLabel, piece.stoneColourLabel].filter(Boolean).join(" · ")}</p>
-          <p className="jp-price">
-            <strong>{formatFromPrice(piece)}</strong>
-            <span>{piece.fromPriceUsd != null ? "USD · final price confirmed for your selection" : "We quote your exact selection"}</span>
-          </p>
+          {price != null ? (
+            <div className="jp-price" aria-live="polite">
+              <p className="jp-price-line">
+                <strong>{formatMoney(price, currency)}</strong>
+                {offer ? <s aria-label={`Full price ${formatFullPrice(price, currency)}`}>{formatFullPrice(price, currency)}</s> : null}
+                <CurrencySwitcher />
+              </p>
+              {offer ? <span className="jp-offer">{LAUNCH_OFFER.percentOff}% launch offer until {formatOfferEnd()}</span> : null}
+              <span>{`${RING_METALS.find((m) => m.value === ringMetal)!.label}, ${carat} ct centre stone · confirmed in writing before making`}</span>
+            </div>
+          ) : (
+            <p className="jp-price">
+              <strong>{formatFromPrice(piece, currency)}</strong>
+              <span>We quote your exact selection</span>
+            </p>
+          )}
           <p className="jp-desc">{piece.description}</p>
 
-          <fieldset className="jp-option">
-            <legend>Metal <b>{METAL_LABELS[metal]}</b></legend>
-            <MetalSwatches colours={piece.metalColours} selected={metal} onSelect={setMetal} size="md" />
-          </fieldset>
+          {priced ? (
+            <fieldset className="jp-option">
+              <legend>Metal <b>{RING_METALS.find((m) => m.value === ringMetal)!.label}</b></legend>
+              <div className="jp-chips" role="radiogroup" aria-label="Metal">
+                {RING_METALS.map((option) => (
+                  <button key={option.value} type="button" role="radio" aria-checked={ringMetal === option.value} className="jp-chip" onClick={() => setRingMetal(option.value)}>{option.label}</button>
+                ))}
+              </div>
+            </fieldset>
+          ) : null}
 
-          {piece.karats.length > 1 ? (
+          {isGold ? (
+            <fieldset className="jp-option">
+              <legend>{priced ? "Gold colour" : "Metal"} <b>{METAL_LABELS[metal]}</b></legend>
+              <MetalSwatches colours={piece.metalColours} selected={metal} onSelect={setMetal} size="md" />
+            </fieldset>
+          ) : null}
+
+          {!priced && piece.karats.length > 1 ? (
             <fieldset className="jp-option">
               <legend>Gold <b>{karat}</b></legend>
               <div className="jp-chips" role="radiogroup" aria-label="Gold purity">
@@ -189,7 +229,7 @@ export default function ProductPage({ slug }: { slug: string }) {
 
           <ul className="jp-trust">
             <li><Gem size={16} strokeWidth={1.4} /> {withCentre ? "E colour, VS1 clarity, grown not mined" : "Lab-grown diamonds, graded before setting"}</li>
-            <li><Sparkles size={16} strokeWidth={1.4} /> Solid {piece.karats.join(" or ")} gold</li>
+            <li><Sparkles size={16} strokeWidth={1.4} /> {metalList}</li>
             <li><Ruler size={16} strokeWidth={1.4} /> Made to your size</li>
             <li><ShieldCheck size={16} strokeWidth={1.4} /> Price confirmed before making</li>
           </ul>
@@ -201,7 +241,7 @@ export default function ProductPage({ slug }: { slug: string }) {
             {withCentre ? null : <div><dt>Stone</dt><dd>{piece.stoneColourLabel ? `${piece.stoneColourLabel} lab-grown diamond` : "Lab-grown diamond"}</dd></div>}
             {withCentre ? centreStoneSpec(piece).map((row) => <div key={row.label}><dt>{row.label}</dt><dd>{row.value}</dd></div>) : null}
             {!withCentre && piece.caratRange ? <div><dt>Carat</dt><dd>{piece.caratRange[0] === piece.caratRange[1] ? `${piece.caratRange[0]} ct` : `${piece.caratRange[0]} – ${piece.caratRange[1]} ct`}</dd></div> : null}
-            <div><dt>Metal</dt><dd>{piece.karats.join(" / ")} yellow, white or rose gold</dd></div>
+            <div><dt>Metal</dt><dd>{priced ? "925 sterling silver or platinum (white); 14K or 18K yellow, white or rose gold" : `${piece.karats.join(" / ")} yellow, white or rose gold`}</dd></div>
           </dl>
         </div>
       </article>

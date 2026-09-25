@@ -1,4 +1,5 @@
-import { centreStoneSummary, hasCentreStone } from "../shared/jewellery/centreStone";
+import { CENTRE_STONE_CARATS, centreStoneSummary, hasCentreStone } from "../shared/jewellery/centreStone";
+import { RING_METALS, fromPriceInr, highPriceInr } from "../shared/jewellery/pricing";
 import { availabilitySeo, publicSeo, publicSocialImage, publicSocialImageAlt } from "../client/src/lib/publicSeo";
 import { COMPANY } from "../shared/companyInfo";
 import { getStone, getStonesMetaSnapshot } from "./stonePassport";
@@ -253,8 +254,8 @@ function jewelleryRouteMeta(pathname: string, origin: string): RouteMeta | null 
       brand: { "@type": "Brand", name: "Alvora" },
       url: url(pathname),
       ...(piece.images.length ? { image: piece.images.map((image) => `${origin}${image.src}`) } : {}),
-      ...(piece.fromPriceUsd != null
-        ? { offers: { "@type": "AggregateOffer", priceCurrency: "USD", lowPrice: piece.fromPriceUsd, offerCount: 1, availability: "https://schema.org/MadeToOrder", url: url(pathname) } }
+      ...(fromPriceInr(piece) != null
+        ? { offers: { "@type": "AggregateOffer", priceCurrency: "INR", lowPrice: fromPriceInr(piece), highPrice: highPriceInr(piece), offerCount: RING_METALS.length * CENTRE_STONE_CARATS.length, availability: "https://schema.org/MadeToOrder", url: url(pathname) } }
         : {}),
     };
     return {

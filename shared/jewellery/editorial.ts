@@ -5,6 +5,7 @@
  * See seo/reports for the research behind each page.
  */
 import { PUBLIC_PIECES, type JewelleryPiece } from "./catalog";
+import { formatInr, fromPriceInr } from "./pricing";
 
 export type EditorialSection = { heading: string; body: string[]; link?: { label: string; href: string } };
 
@@ -17,10 +18,10 @@ export type ShapeContent = {
   guide?: { label: string; href: string };
 };
 
-const usd = (value: number) => `$${value.toLocaleString("en-US")}`;
+
 
 function priceSpan(pieces: JewelleryPiece[]) {
-  const prices = pieces.map((p) => p.fromPriceUsd).filter((p): p is number => p != null).sort((a, b) => a - b);
+  const prices = pieces.map((p) => fromPriceInr(p)).filter((p): p is number => p != null).sort((a, b) => a - b);
   if (!prices.length) return null;
   return { from: prices[0], to: prices[prices.length - 1], count: prices.length };
 }
@@ -34,12 +35,12 @@ export function shapeContentFor(shape: string): ShapeContent | null {
   // it would promise rings we do not show, so the generic template is used.
   if (!dutch) return null;
   const span = priceSpan(pieces);
-  const fromText = span ? ` from ${usd(span.from)}` : "";
+  const fromText = span ? ` from ${formatInr(span.from)}` : "";
   return {
     title: "Vintage & Dutch Marquise Engagement Rings, Lab-Grown | Alvora",
-    description: `Vintage-style marquise and Dutch marquise lab-grown diamond engagement rings with milgrain, filigree and engraved detail, made to order in 14K or 18K gold${fromText}.`,
+    description: `Vintage-style marquise and Dutch marquise lab-grown diamond engagement rings with milgrain, filigree and engraved detail, made to order in silver, 14K or 18K gold, or platinum${fromText}.`,
     heading: "Vintage & Dutch marquise engagement rings",
-    intro: `Lab-grown marquise diamonds in vintage-style settings, from the classic curved marquise to the straighter-sided Dutch marquise, made to your size in 14K or 18K gold${fromText}.`,
+    intro: `Lab-grown marquise diamonds in vintage-style settings, from the classic curved marquise to the straighter-sided Dutch marquise, made to your size in silver, 14K or 18K gold, or platinum${fromText}.`,
     guide: { label: "Dutch marquise or classic marquise? Read the guide", href: "/guides/dutch-marquise-vs-marquise" },
     sections: [
       {
@@ -61,7 +62,7 @@ export function shapeContentFor(shape: string): ShapeContent | null {
         heading: "How much does a lab-grown marquise engagement ring cost?",
         body: [
           span
-            ? `Our marquise engagement rings start at ${usd(span.from)}, and the priced designs run to ${usd(span.to)} before you choose the centre-stone size and gold.`
+            ? `Our marquise engagement rings start at ${formatInr(span.from)} in 925 sterling silver with a 0.5 ct centre stone; the price rises with the centre-stone size and metal you choose.`
             : "Prices depend on the centre-stone size and gold you choose.",
           "You receive a written price for your exact ring, stone and size before anything is made, and nothing is charged until you confirm.",
         ],

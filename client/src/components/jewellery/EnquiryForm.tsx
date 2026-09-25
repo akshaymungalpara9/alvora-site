@@ -5,7 +5,7 @@ import { landingContext, trackConversion } from "@/lib/ga4";
 import type { JewelleryPiece } from "@shared/jewellery/catalog";
 
 export type PieceSelection = {
-  metal?: "Yellow gold" | "White gold" | "Rose gold";
+  metal?: "Yellow gold" | "White gold" | "Rose gold" | "Silver" | "Platinum";
   karat?: "10K" | "14K" | "18K";
   caratWeight?: string;
   ringSize?: string;

@@ -34,6 +34,26 @@ before big changes, and end each work session with a short summary.
   `pnpm jewellery:images` (also processes photos). Report:
   `data/jewellery/import-report.txt`. See `JEWELLERY_RUNBOOK.md`.
 
+## Prices (owner-set 2026-09-25)
+- `shared/jewellery/pricing.ts`: engagement rings are priced in rupees by
+  metal (925 sterling silver, 14K gold, 18K gold, platinum) and centre-stone
+  carat (0.5–6 ct). "From" price = 0.5 ct in silver (₹25,000); the product page
+  opens on it. Platinum = 14K prices (owner-confirmed). Silver and platinum are
+  white only; gold keeps yellow/white/rose.
+- Earrings show "Price on request" (owner's choice). The partner list prices
+  (`fromPriceUsd`) are internal only: they may be trade prices, so don't publish
+  them without a markup decision.
+- Launch offer: table prices are the offer prices; runs until 25 Dec 2026
+  (`LAUNCH_OFFER.endsOn`, "till Christmas"). The full price is struck through,
+  rounded UP so the saving is always at least 30%. It must be a real price
+  charged after the offer (Indian rules on misleading discounts). Build-time
+  page snapshots leave the offer out (`showLaunchOffer()`), so they never go
+  stale; visitors see it until the date passes, then it disappears.
+- Currency: `shared/jewellery/currency.ts`. Visitors see their currency (guessed
+  from time zone) with a switcher. Owner rates: USD 96, EUR 110, GBP 126,
+  CAD 70, AUD 70 rupees; converted prices rounded to 10. AED/SGD have no rate,
+  so they are not offered. Search results and structured data use rupees.
+
 ## Centre stone (engagement rings, necklaces & pendants)
 - Owner-confirmed standard (2026-09-25): E colour, VS1 clarity, Excellent cut;
   customer chooses 0.5–6 ct. Lives in `shared/jewellery/centreStone.ts`
@@ -64,6 +84,19 @@ before big changes, and end each work session with a short summary.
   model and hand photos as images 03-04 instead of the partner lifestyle shot.
   The committed output in `client/public/assets/jewellery/alv-r-0042/` is the
   source of truth; if raw photos are re-downloaded, keep that override.
+
+## AI photo upgrade (owner-approved only)
+- `pnpm jewellery:ai-photos generate|review|apply` (`scripts/jewellery/ai-photos.mjs`):
+  sharper redraws of studio photos + new styled shots (hand, model, close-up,
+  side view) made from the piece's own studio photos. Candidates are
+  git-ignored; **only photos the owner approves** on the private review page
+  are copied to the site as `ai-*.webp`, listed in
+  `data/jewellery/ai-photos/approved.json` (decisions and rejection notes in
+  `decisions.json`; notes are fed into the next retry). The catalogue build
+  keeps them when raw photos are re-processed.
+- Status (2026-09-25): trial on ALV-R-0001, ALV-R-0026, ALV-E-0006 (17
+  approved). Gemini stopped by the owner on cost (about 13 INR per image);
+  choose a cheaper provider before running the other 62 pieces.
 
 ## Homepage hero photos
 - The homepage rotates the owner's photos (cross-fade every 6s; still for
@@ -105,7 +138,8 @@ before big changes, and end each work session with a short summary.
   "confirmed in your quotation" instead.
 
 ## Open items for the owner
-- Markup (pricing multiplier is 1) and prices for 45 June Rings pieces.
+- Rupee prices for earrings (on request for now); review exchange rates
+  from time to time (see Prices).
 - Logo file at `client/public/assets/brand/alvora-logo.png` (optional).
 - Two Carat earrings appear to be the same product (flower-stud marquise vs
   marquise prong-style); decide whether to hide one.

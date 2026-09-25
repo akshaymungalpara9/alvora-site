@@ -39,6 +39,24 @@ Add `--keep-background` to skip the background swap, or `--size 2000` for larger
 
 **Watermark logo:** save your logo (the version with the ALVORA wordmark underneath) as `client/public/assets/brand/alvora-logo.png`. The watermark then uses it automatically. You can also brand any single photo with `pnpm brand:image photo.jpg --out some-folder`.
 
+## AI photo upgrade
+
+Sharper versions of the studio photos and new styled photos (on a hand, on a model, close-up, side view) are made by AI, then approved by you one by one. Nothing reaches the site until you approve it.
+
+1. `pnpm jewellery:ai-photos generate --pieces ALV-R-0001,ALV-E-0006` (or `--all`). Needs an image AI key.
+2. `pnpm jewellery:ai-photos review` builds the approval page's photos; Claude publishes the page for you.
+3. After you approve or reject each photo: `pnpm jewellery:ai-photos apply --decisions <saved decisions>`, then `pnpm jewellery:build` and `pnpm social:images`.
+
+Rejected photos can be remade with `generate --retry-rejected`; your rejection note is given to the AI.
+
+## Engagement ring prices, launch offer and currencies
+
+All in `shared/jewellery/pricing.ts` and `shared/jewellery/currency.ts`; ask Claude to change them.
+
+- **Price table:** rupees for each metal (silver, 14K, 18K, platinum) and each centre stone from 0.5 to 6 ct.
+- **Launch offer:** set the last day in `LAUNCH_OFFER.endsOn`. Until that date the full price is shown crossed out with "30% launch offer until …"; afterwards the discount disappears by itself. Only use it if you will really charge the full price after that date.
+- **Other currencies:** give each currency a rate (rupees per 1 dollar, pound, euro …). Visitors then see prices in their own currency and can switch. Without a rate, they see rupees.
+
 ## Names, prices and hiding a piece
 
 All in `data/jewellery/pieces.json`. After editing, run `pnpm jewellery:build`.

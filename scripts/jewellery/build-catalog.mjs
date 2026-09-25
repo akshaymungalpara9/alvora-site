@@ -26,6 +26,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { withApprovedAiPhotos } from "./ai-approved.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..", "..");
@@ -313,8 +314,11 @@ async function writeImages(code, sources) {
   // Ivory backdrop + Alvora watermark; sharp drops source metadata on output.
   const { brandImage } = await import("./brand-image.mjs");
   const dir = path.join(IMAGE_OUT, code.toLowerCase());
-  fs.rmSync(dir, { recursive: true, force: true });
+  // Clear the numbered photos only: approved AI photos (ai-*.webp) stay.
   fs.mkdirSync(dir, { recursive: true });
+  for (const file of fs.readdirSync(dir)) {
+    if (/^\d+(-600)?\.webp$/.test(file)) fs.rmSync(path.join(dir, file));
+  }
   const images = [];
   for (const [index, source] of sources.entries()) {
     const base = String(index + 1).padStart(2, "0");
@@ -429,6 +433,7 @@ async function main() {
     } else {
       images = existingImages(piece.code);
     }
+    images = withApprovedAiPhotos(piece.code, images);
     if (!images.length) missingImages.push(`${piece.code}  ${piece.name}  (looked for folder: ${row.partner}/${piece.imageFolder})`);
 
     const collections = new Set();

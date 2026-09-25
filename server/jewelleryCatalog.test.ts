@@ -73,12 +73,12 @@ describe("jewellery catalogue", () => {
 
   it("serves image paths only under the Alvora asset folder", () => {
     for (const piece of ALL_PIECES) {
-      for (const image of piece.images) expect(image.src).toMatch(/^\/assets\/jewellery\/alv-[a-z]-\d{4}\/\d{2}\.webp$/);
+      for (const image of piece.images) expect(image.src).toMatch(/^\/assets\/jewellery\/alv-[a-z]-\d{4}\/(\d{2}|ai-[a-z]+(-\d{2})?)\.webp$/);
     }
   });
 
   it("formats prices and falls back to price on request", () => {
-    expect(formatFromPrice({ fromPriceUsd: 1250 })).toBe("From $1,250");
-    expect(formatFromPrice({ fromPriceUsd: null })).toBe("Price on request");
+    expect(formatFromPrice({ category: "ring", collections: ["engagement-rings", "rings"] })).toBe("From ₹25,000");
+    expect(formatFromPrice({ category: "earrings", collections: ["earrings"] })).toBe("Price on request");
   });
 });

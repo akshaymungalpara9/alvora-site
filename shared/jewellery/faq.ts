@@ -10,7 +10,7 @@ export const JEWELLERY_FAQ: Array<{ q: string; a: string }> = [
   },
   {
     q: "Which metals can I choose?",
-    a: "Our pieces are made in solid 14K or 18K gold, in yellow, white or rose. Some designs are also offered in 10K; the options for each piece are shown on its page.",
+    a: "Engagement rings are made in 925 sterling silver, platinum, or solid 14K or 18K gold in yellow, white or rose; silver and platinum come in white. Earrings are made in solid 14K or 18K gold. The options for each piece are shown on its page.",
   },
   {
     q: "I don't know my ring size. What should I do?",

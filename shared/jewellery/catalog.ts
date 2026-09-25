@@ -6,6 +6,8 @@
  * lives server-side in server/data/jewellery-sourcing.json.
  */
 import rawCatalog from "./catalog.json";
+import { fromPriceInr } from "./pricing";
+import { formatMoney, type CurrencyCode } from "./currency";
 
 export type JewelleryCategory = "ring" | "band" | "earrings" | "pendant";
 export type JewelleryCollection = "engagement-rings" | "rings" | "wedding-bands" | "earrings" | "pendants" | "antique-cuts" | "coloured-stones";
@@ -48,6 +50,7 @@ export type JewelleryPiece = {
   karats: string[];
   metalColours: MetalColour[];
   caratRange: [number, number] | null;
+  /** Partner-derived USD price; internal only. Public prices come from pricing.ts. */
   fromPriceUsd: number | null;
   description: string;
   /** Editorial tags from data/jewellery/pieces.json, e.g. "dutch-marquise". */
@@ -77,9 +80,10 @@ export function findPieceByCode(code: string): JewelleryPiece | undefined {
   return ALL_PIECES.find((piece) => piece.code === code);
 }
 
-export function formatFromPrice(piece: Pick<JewelleryPiece, "fromPriceUsd">): string {
-  if (piece.fromPriceUsd == null) return "Price on request";
-  return `From ${new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 }).format(piece.fromPriceUsd)}`;
+/** Public "From" price (rupee table in pricing.ts, shown in `currency`), or "Price on request". */
+export function formatFromPrice(piece: Pick<JewelleryPiece, "category" | "collections">, currency: CurrencyCode = "INR"): string {
+  const price = fromPriceInr(piece);
+  return price == null ? "Price on request" : `From ${formatMoney(price, currency)}`;
 }
 
 export const SHAPE_ORDER = ["oval", "round", "emerald", "pear", "marquise", "radiant", "cushion", "elongated-cushion", "old-mine", "asscher", "hexagon", "princess"] as const;

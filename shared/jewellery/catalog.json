@@ -34,14 +34,14 @@
     "addedOn": null,
     "images": [
       {
-        "src": "/assets/jewellery/alv-r-0001/01.webp",
-        "thumb": "/assets/jewellery/alv-r-0001/01-600.webp",
+        "src": "/assets/jewellery/alv-r-0001/ai-enhance-01.webp",
+        "thumb": "/assets/jewellery/alv-r-0001/ai-enhance-01-600.webp",
         "width": 1400,
         "height": 1400
       },
       {
-        "src": "/assets/jewellery/alv-r-0001/02.webp",
-        "thumb": "/assets/jewellery/alv-r-0001/02-600.webp",
+        "src": "/assets/jewellery/alv-r-0001/ai-enhance-02.webp",
+        "thumb": "/assets/jewellery/alv-r-0001/ai-enhance-02-600.webp",
         "width": 1400,
         "height": 1400
       },
@@ -54,6 +54,18 @@
       {
         "src": "/assets/jewellery/alv-r-0001/04.webp",
         "thumb": "/assets/jewellery/alv-r-0001/04-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0001/ai-model.webp",
+        "thumb": "/assets/jewellery/alv-r-0001/ai-model-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0001/ai-closeup.webp",
+        "thumb": "/assets/jewellery/alv-r-0001/ai-closeup-600.webp",
         "width": 1400,
         "height": 1400
       }
@@ -1403,20 +1415,38 @@
     "addedOn": null,
     "images": [
       {
-        "src": "/assets/jewellery/alv-r-0026/01.webp",
-        "thumb": "/assets/jewellery/alv-r-0026/01-600.webp",
+        "src": "/assets/jewellery/alv-r-0026/ai-enhance-01.webp",
+        "thumb": "/assets/jewellery/alv-r-0026/ai-enhance-01-600.webp",
         "width": 1400,
         "height": 1400
       },
       {
-        "src": "/assets/jewellery/alv-r-0026/02.webp",
-        "thumb": "/assets/jewellery/alv-r-0026/02-600.webp",
+        "src": "/assets/jewellery/alv-r-0026/ai-enhance-02.webp",
+        "thumb": "/assets/jewellery/alv-r-0026/ai-enhance-02-600.webp",
         "width": 1400,
         "height": 1400
       },
       {
-        "src": "/assets/jewellery/alv-r-0026/03.webp",
-        "thumb": "/assets/jewellery/alv-r-0026/03-600.webp",
+        "src": "/assets/jewellery/alv-r-0026/ai-enhance-03.webp",
+        "thumb": "/assets/jewellery/alv-r-0026/ai-enhance-03-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0026/ai-hand.webp",
+        "thumb": "/assets/jewellery/alv-r-0026/ai-hand-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0026/ai-closeup.webp",
+        "thumb": "/assets/jewellery/alv-r-0026/ai-closeup-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0026/ai-side.webp",
+        "thumb": "/assets/jewellery/alv-r-0026/ai-side-600.webp",
         "width": 1400,
         "height": 1400
       }
@@ -2812,20 +2842,44 @@
     "addedOn": null,
     "images": [
       {
-        "src": "/assets/jewellery/alv-e-0006/01.webp",
-        "thumb": "/assets/jewellery/alv-e-0006/01-600.webp",
+        "src": "/assets/jewellery/alv-e-0006/ai-enhance-01.webp",
+        "thumb": "/assets/jewellery/alv-e-0006/ai-enhance-01-600.webp",
         "width": 1400,
         "height": 1400
       },
       {
-        "src": "/assets/jewellery/alv-e-0006/02.webp",
-        "thumb": "/assets/jewellery/alv-e-0006/02-600.webp",
+        "src": "/assets/jewellery/alv-e-0006/ai-enhance-02.webp",
+        "thumb": "/assets/jewellery/alv-e-0006/ai-enhance-02-600.webp",
         "width": 1400,
         "height": 1400
       },
       {
-        "src": "/assets/jewellery/alv-e-0006/03.webp",
-        "thumb": "/assets/jewellery/alv-e-0006/03-600.webp",
+        "src": "/assets/jewellery/alv-e-0006/ai-enhance-03.webp",
+        "thumb": "/assets/jewellery/alv-e-0006/ai-enhance-03-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-e-0006/ai-model.webp",
+        "thumb": "/assets/jewellery/alv-e-0006/ai-model-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-e-0006/ai-ear.webp",
+        "thumb": "/assets/jewellery/alv-e-0006/ai-ear-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-e-0006/ai-linen.webp",
+        "thumb": "/assets/jewellery/alv-e-0006/ai-linen-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-e-0006/ai-hand.webp",
+        "thumb": "/assets/jewellery/alv-e-0006/ai-hand-600.webp",
         "width": 1400,
         "height": 1400
       }
