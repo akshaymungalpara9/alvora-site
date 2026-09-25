@@ -78,3 +78,20 @@ Append-only. Newest entry at the bottom. Never delete an entry.
 **Why:** people searching for specific grades ("E VS1 lab grown oval ring", "2 carat lab grown engagement ring") and AI answers comparing grades need the spec stated plainly on the page.
 
 **Measure:** impressions for queries containing carat sizes or "E VS1" on product URLs.
+
+## 2026-09-26: Necklaces & Pendants collection live (16 pieces)
+
+**Shipped**
+- 16 pendant pieces (ALV-P-0001 to 0017, minus 0004) went live with 4 brand photos each (ivory backdrop, Alvora watermark). The Necklaces & Pendants nav tab, collection route, cards and product pages surfaced automatically once photos were attached.
+- Product pages show metal (14K/18K, yellow/white/rose) and centre-stone carat (0.5 to 6 ct) enquiry options, like the engagement rings; prices stay on request, like the earrings.
+- ALV-P-0004 (pear) and ALV-P-0018 (cushion) stay hidden: no matching photo sets exist in the source material.
+
+**Data repair**
+- The source photo folders' code prefixes did not match the catalogue: 12 of 17 sets sat under a code whose named design did not match the photos. Every set was re-assigned by visual design match (shape, motif and metal, corroborated by the descriptive folder slugs, which agree with the re-assigned photos in all 16 cases). Product names and slugs were already correct; only the photo attachment changed. One spare cushion photo set (rose gold) has no catalogue home and was left out, held for owner confirmation.
+
+**Verification**
+- Visual check of every photo set (4 photos x 17 sets) before and after the remap; product-page check (desktop + phone) confirms the Elowen Emerald Pendant page shows emerald photos, carat and metal selectors, and "Price on request".
+- Gates: tsc clean, validate-seo-meta 325 routes, vitest identical to main baseline, full build with prerender snapshots committed.
+
+**Next**
+- Owner to confirm whether a pear pendant photo set exists (ALV-P-0004) and whether the spare rose-gold cushion set is ALV-P-0018 Viola.

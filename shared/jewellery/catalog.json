@@ -994,7 +994,7 @@
     "name": "Elowen Emerald Pendant",
     "collectionName": "Elowen",
     "wave": "A",
-    "live": false,
+    "live": true,
     "category": "pendant",
     "collections": [
       "pendants"
@@ -1020,7 +1020,32 @@
     "tags": [],
     "featuredScore": 54,
     "addedOn": null,
-    "images": []
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-p-0001/01.webp",
+        "thumb": "/assets/jewellery/alv-p-0001/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-p-0001/02.webp",
+        "thumb": "/assets/jewellery/alv-p-0001/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-p-0001/03.webp",
+        "thumb": "/assets/jewellery/alv-p-0001/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-p-0001/04.webp",
+        "thumb": "/assets/jewellery/alv-p-0001/04-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
   },
   {
     "code": "ALV-P-0002",
@@ -1028,7 +1053,7 @@
     "name": "Ines Marquise Pendant",
     "collectionName": "Ines",
     "wave": "A",
-    "live": false,
+    "live": true,
     "category": "pendant",
     "collections": [
       "pendants"
@@ -1054,7 +1079,32 @@
     "tags": [],
     "featuredScore": 54,
     "addedOn": null,
-    "images": []
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-p-0002/01.webp",
+        "thumb": "/assets/jewellery/alv-p-0002/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-p-0002/02.webp",
+        "thumb": "/assets/jewellery/alv-p-0002/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-p-0002/03.webp",
+        "thumb": "/assets/jewellery/alv-p-0002/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-p-0002/04.webp",
+        "thumb": "/assets/jewellery/alv-p-0002/04-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
   },
   {
     "code": "ALV-R-0013",
@@ -2541,7 +2591,7 @@
     "name": "Odile Cushion Pendant",
     "collectionName": "Odile",
     "wave": "A",
-    "live": false,
+    "live": true,
     "category": "pendant",
     "collections": [
       "pendants"
@@ -2567,7 +2617,32 @@
     "tags": [],
     "featuredScore": 46,
     "addedOn": null,
-    "images": []
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-p-0003/01.webp",
+        "thumb": "/assets/jewellery/alv-p-0003/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-p-0003/02.webp",
+        "thumb": "/assets/jewellery/alv-p-0003/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-p-0003/03.webp",
+        "thumb": "/assets/jewellery/alv-p-0003/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-p-0003/04.webp",
+        "thumb": "/assets/jewellery/alv-p-0003/04-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
   },
   {
     "code": "ALV-P-0004",
@@ -2575,7 +2650,7 @@
     "name": "Vivienne Pear Pendant",
     "collectionName": "Vivienne",
     "wave": "A",
-    "live": false,
+    "live": true,
     "category": "pendant",
     "collections": [
       "pendants"
@@ -2609,7 +2684,7 @@
     "name": "Vivienne Princess Pendant",
     "collectionName": "Vivienne",
     "wave": "A",
-    "live": false,
+    "live": true,
     "category": "pendant",
     "collections": [
       "pendants"
@@ -2635,7 +2710,32 @@
     "tags": [],
     "featuredScore": 46,
     "addedOn": null,
-    "images": []
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-p-0005/01.webp",
+        "thumb": "/assets/jewellery/alv-p-0005/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-p-0005/02.webp",
+        "thumb": "/assets/jewellery/alv-p-0005/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-p-0005/03.webp",
+        "thumb": "/assets/jewellery/alv-p-0005/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-p-0005/04.webp",
+        "thumb": "/assets/jewellery/alv-p-0005/04-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
   },
   {
     "code": "ALV-P-0006",
@@ -2643,7 +2743,7 @@
     "name": "Amara Round Pendant",
     "collectionName": "Amara",
     "wave": "A",
-    "live": false,
+    "live": true,
     "category": "pendant",
     "collections": [
       "pendants"
@@ -2669,7 +2769,32 @@
     "tags": [],
     "featuredScore": 46,
     "addedOn": null,
-    "images": []
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-p-0006/01.webp",
+        "thumb": "/assets/jewellery/alv-p-0006/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-p-0006/02.webp",
+        "thumb": "/assets/jewellery/alv-p-0006/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-p-0006/03.webp",
+        "thumb": "/assets/jewellery/alv-p-0006/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-p-0006/04.webp",
+        "thumb": "/assets/jewellery/alv-p-0006/04-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
   },
   {
     "code": "ALV-P-0007",
@@ -2677,7 +2802,7 @@
     "name": "Coralie Pendant",
     "collectionName": "Coralie",
     "wave": "A",
-    "live": false,
+    "live": true,
     "category": "pendant",
     "collections": [
       "pendants"
@@ -2703,7 +2828,32 @@
     "tags": [],
     "featuredScore": 46,
     "addedOn": null,
-    "images": []
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-p-0007/01.webp",
+        "thumb": "/assets/jewellery/alv-p-0007/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-p-0007/02.webp",
+        "thumb": "/assets/jewellery/alv-p-0007/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-p-0007/03.webp",
+        "thumb": "/assets/jewellery/alv-p-0007/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-p-0007/04.webp",
+        "thumb": "/assets/jewellery/alv-p-0007/04-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
   },
   {
     "code": "ALV-R-0033",
@@ -3145,7 +3295,7 @@
     "name": "Honora Halo Pendant",
     "collectionName": "Honora",
     "wave": "A",
-    "live": false,
+    "live": true,
     "category": "pendant",
     "collections": [
       "pendants"
@@ -3171,7 +3321,32 @@
     "tags": [],
     "featuredScore": 44,
     "addedOn": null,
-    "images": []
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-p-0008/01.webp",
+        "thumb": "/assets/jewellery/alv-p-0008/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-p-0008/02.webp",
+        "thumb": "/assets/jewellery/alv-p-0008/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-p-0008/03.webp",
+        "thumb": "/assets/jewellery/alv-p-0008/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-p-0008/04.webp",
+        "thumb": "/assets/jewellery/alv-p-0008/04-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
   },
   {
     "code": "ALV-P-0009",
@@ -3179,7 +3354,7 @@
     "name": "Leonie Halo Pendant",
     "collectionName": "Leonie",
     "wave": "A",
-    "live": false,
+    "live": true,
     "category": "pendant",
     "collections": [
       "pendants"
@@ -3205,7 +3380,32 @@
     "tags": [],
     "featuredScore": 44,
     "addedOn": null,
-    "images": []
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-p-0009/01.webp",
+        "thumb": "/assets/jewellery/alv-p-0009/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-p-0009/02.webp",
+        "thumb": "/assets/jewellery/alv-p-0009/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-p-0009/03.webp",
+        "thumb": "/assets/jewellery/alv-p-0009/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-p-0009/04.webp",
+        "thumb": "/assets/jewellery/alv-p-0009/04-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
   },
   {
     "code": "ALV-P-0010",
@@ -3213,7 +3413,7 @@
     "name": "Nadia Round Pendant",
     "collectionName": "Nadia",
     "wave": "A",
-    "live": false,
+    "live": true,
     "category": "pendant",
     "collections": [
       "pendants"
@@ -3239,7 +3439,32 @@
     "tags": [],
     "featuredScore": 44,
     "addedOn": null,
-    "images": []
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-p-0010/01.webp",
+        "thumb": "/assets/jewellery/alv-p-0010/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-p-0010/02.webp",
+        "thumb": "/assets/jewellery/alv-p-0010/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-p-0010/03.webp",
+        "thumb": "/assets/jewellery/alv-p-0010/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-p-0010/04.webp",
+        "thumb": "/assets/jewellery/alv-p-0010/04-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
   },
   {
     "code": "ALV-R-0040",
@@ -3758,7 +3983,7 @@
     "name": "Perrine Marquise Pendant",
     "collectionName": "Perrine",
     "wave": "A",
-    "live": false,
+    "live": true,
     "category": "pendant",
     "collections": [
       "pendants"
@@ -3784,7 +4009,32 @@
     "tags": [],
     "featuredScore": 42,
     "addedOn": null,
-    "images": []
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-p-0011/01.webp",
+        "thumb": "/assets/jewellery/alv-p-0011/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-p-0011/02.webp",
+        "thumb": "/assets/jewellery/alv-p-0011/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-p-0011/03.webp",
+        "thumb": "/assets/jewellery/alv-p-0011/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-p-0011/04.webp",
+        "thumb": "/assets/jewellery/alv-p-0011/04-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
   },
   {
     "code": "ALV-E-0006",
@@ -3922,7 +4172,7 @@
     "name": "Blythe Oval Pendant",
     "collectionName": "Blythe",
     "wave": "A",
-    "live": false,
+    "live": true,
     "category": "pendant",
     "collections": [
       "pendants"
@@ -3948,7 +4198,32 @@
     "tags": [],
     "featuredScore": 40,
     "addedOn": null,
-    "images": []
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-p-0012/01.webp",
+        "thumb": "/assets/jewellery/alv-p-0012/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-p-0012/02.webp",
+        "thumb": "/assets/jewellery/alv-p-0012/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-p-0012/03.webp",
+        "thumb": "/assets/jewellery/alv-p-0012/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-p-0012/04.webp",
+        "thumb": "/assets/jewellery/alv-p-0012/04-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
   },
   {
     "code": "ALV-P-0013",
@@ -3956,7 +4231,7 @@
     "name": "Clio Radiant Pendant",
     "collectionName": "Clio",
     "wave": "A",
-    "live": false,
+    "live": true,
     "category": "pendant",
     "collections": [
       "pendants"
@@ -3982,7 +4257,32 @@
     "tags": [],
     "featuredScore": 40,
     "addedOn": null,
-    "images": []
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-p-0013/01.webp",
+        "thumb": "/assets/jewellery/alv-p-0013/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-p-0013/02.webp",
+        "thumb": "/assets/jewellery/alv-p-0013/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-p-0013/03.webp",
+        "thumb": "/assets/jewellery/alv-p-0013/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-p-0013/04.webp",
+        "thumb": "/assets/jewellery/alv-p-0013/04-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
   },
   {
     "code": "ALV-R-0047",
@@ -13668,7 +13968,7 @@
     "name": "Ursa Round Pendant",
     "collectionName": "Ursa",
     "wave": "A",
-    "live": false,
+    "live": true,
     "category": "pendant",
     "collections": [
       "pendants"
@@ -13694,7 +13994,32 @@
     "tags": [],
     "featuredScore": 34,
     "addedOn": null,
-    "images": []
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-p-0014/01.webp",
+        "thumb": "/assets/jewellery/alv-p-0014/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-p-0014/02.webp",
+        "thumb": "/assets/jewellery/alv-p-0014/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-p-0014/03.webp",
+        "thumb": "/assets/jewellery/alv-p-0014/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-p-0014/04.webp",
+        "thumb": "/assets/jewellery/alv-p-0014/04-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
   },
   {
     "code": "ALV-R-0059",
@@ -13895,7 +14220,7 @@
     "name": "Wilhelmina Round Pendant",
     "collectionName": "Wilhelmina",
     "wave": "A",
-    "live": false,
+    "live": true,
     "category": "pendant",
     "collections": [
       "pendants"
@@ -13921,7 +14246,32 @@
     "tags": [],
     "featuredScore": 32,
     "addedOn": null,
-    "images": []
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-p-0015/01.webp",
+        "thumb": "/assets/jewellery/alv-p-0015/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-p-0015/02.webp",
+        "thumb": "/assets/jewellery/alv-p-0015/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-p-0015/03.webp",
+        "thumb": "/assets/jewellery/alv-p-0015/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-p-0015/04.webp",
+        "thumb": "/assets/jewellery/alv-p-0015/04-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
   },
   {
     "code": "ALV-P-0016",
@@ -13929,7 +14279,7 @@
     "name": "Ysolde Round Pendant",
     "collectionName": "Ysolde",
     "wave": "A",
-    "live": false,
+    "live": true,
     "category": "pendant",
     "collections": [
       "pendants"
@@ -13955,7 +14305,32 @@
     "tags": [],
     "featuredScore": 32,
     "addedOn": null,
-    "images": []
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-p-0016/01.webp",
+        "thumb": "/assets/jewellery/alv-p-0016/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-p-0016/02.webp",
+        "thumb": "/assets/jewellery/alv-p-0016/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-p-0016/03.webp",
+        "thumb": "/assets/jewellery/alv-p-0016/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-p-0016/04.webp",
+        "thumb": "/assets/jewellery/alv-p-0016/04-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
   },
   {
     "code": "ALV-P-0017",
@@ -13963,7 +14338,7 @@
     "name": "Zinaida Asscher Pendant",
     "collectionName": "Zinaida",
     "wave": "A",
-    "live": false,
+    "live": true,
     "category": "pendant",
     "collections": [
       "pendants"
@@ -13989,7 +14364,32 @@
     "tags": [],
     "featuredScore": 32,
     "addedOn": null,
-    "images": []
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-p-0017/01.webp",
+        "thumb": "/assets/jewellery/alv-p-0017/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-p-0017/02.webp",
+        "thumb": "/assets/jewellery/alv-p-0017/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-p-0017/03.webp",
+        "thumb": "/assets/jewellery/alv-p-0017/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-p-0017/04.webp",
+        "thumb": "/assets/jewellery/alv-p-0017/04-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
   },
   {
     "code": "ALV-R-0062",
@@ -16859,7 +17259,7 @@
     "name": "Viola Cushion Pendant",
     "collectionName": "Viola",
     "wave": "B",
-    "live": false,
+    "live": true,
     "category": "pendant",
     "collections": [
       "pendants"
