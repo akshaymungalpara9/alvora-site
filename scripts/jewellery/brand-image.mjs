@@ -41,7 +41,15 @@ export const BRAND_IMAGE_STYLE = {
   enclosedBackgroundMinArea: 0.015, // enclosed plain areas larger than this share of the photo are background too…
   enclosedToneTolerance: 1.5, // …if their average tone is within this of the edge background…
   enclosedMaxSpread: 1.2, // …and they are as smooth as a studio backdrop
+  // Product shots on a studio background are cropped to the piece and enlarged
+  // so it fills the frame, instead of floating small in empty space.
+  subjectFill: 0.66, // longest side of the piece as a share of the canvas
+  maxUpscale: 2.5, // never enlarge the source more than this, to stay sharp
+  shadowTolerance: 40, // pixels within this of the backdrop tone count as shadow when framing
 };
+
+/** Longest side the photo is worked on at; keeps large originals fast. */
+const WORKING_SIZE = 2400;
 
 function backdropSvg(size, style) {
   return Buffer.from(`<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}">
@@ -128,9 +136,7 @@ async function knockOutBackground({ data, info }, style) {
     if (y < height - 1) seed(x, y + 1);
   }
   // Less than ~2% of the frame touched: no studio background, keep the photo as-is.
-  if (tail < width * height * 0.02) {
-    return sharp(data, { raw: info }).png().toBuffer({ resolveWithObject: true });
-  }
+  if (tail < width * height * 0.02) return null;
   // Enclosed studio background (the hole inside a ring band): large, smooth
   // near-white areas not reached from the edge. Diamond facets are broken up
   // by facet lines into small patches, so they stay well under this size.
@@ -174,18 +180,32 @@ async function knockOutBackground({ data, info }, style) {
       for (const p of component) mask[p] = 255;
     }
   }
-  if (false) {
-    return sharp(data, { raw: info }).png().toBuffer({ resolveWithObject: true });
-  }
   const softMask = await sharp(mask, { raw: { width, height, channels: 1 } }).blur(1.2).extractChannel(0).raw().toBuffer();
   const rgba = Buffer.alloc(width * height * 4);
+  // Bounding box of the piece itself, for framing. Faint pixels close to the
+  // backdrop tone (the soft cast shadow) are left out so the piece, not its
+  // shadow, is what gets centred.
+  let left = width, top = height, right = -1, bottom = -1;
   for (let p = 0; p < width * height; p += 1) {
-    rgba[p * 4] = data[p * channels];
-    rgba[p * 4 + 1] = data[p * channels + 1];
-    rgba[p * 4 + 2] = data[p * channels + 2];
+    const i = p * channels;
+    rgba[p * 4] = data[i];
+    rgba[p * 4 + 1] = data[i + 1];
+    rgba[p * 4 + 2] = data[i + 2];
     rgba[p * 4 + 3] = 255 - softMask[p];
+    if (softMask[p] >= 128) continue;
+    const min = Math.min(data[i], data[i + 1], data[i + 2]);
+    const spread = Math.max(data[i], data[i + 1], data[i + 2]) - min;
+    if (min > edgeTone - style.shadowTolerance && spread < 24) continue;
+    const x = p % width;
+    const y = (p - x) / width;
+    if (x < left) left = x;
+    if (x > right) right = x;
+    if (y < top) top = y;
+    if (y > bottom) bottom = y;
   }
-  return sharp(rgba, { raw: { width, height, channels: 4 } }).png().toBuffer({ resolveWithObject: true });
+  if (right < 0) return null;
+  const box = { left, top, width: right - left + 1, height: bottom - top + 1 };
+  return { rgba: await sharp(rgba, { raw: { width, height, channels: 4 } }).png().toBuffer(), width, height, box };
 }
 
 /**
@@ -194,10 +214,34 @@ async function knockOutBackground({ data, info }, style) {
  */
 export async function brandImage(source, size, style = BRAND_IMAGE_STYLE) {
   const inner = Math.round(size * (1 - style.framePadding * 2));
-  const resized = sharp(source).rotate().resize({ width: inner, height: inner, fit: "inside", withoutEnlargement: false });
-  const photo = style.replaceBackground
-    ? await knockOutBackground(await resized.flatten({ background: "#ffffff" }).raw().toBuffer({ resolveWithObject: true }), style)
-    : await resized.flatten({ background: style.backdropCentre }).png().toBuffer({ resolveWithObject: true });
+  const cutout = style.replaceBackground
+    ? await knockOutBackground(await sharp(source).rotate().resize({ width: WORKING_SIZE, height: WORKING_SIZE, fit: "inside", withoutEnlargement: true }).flatten({ background: "#ffffff" }).raw().toBuffer({ resolveWithObject: true }), style)
+    : null;
+  let photo;
+  if (cutout) {
+    // Scale the piece to fill the frame (within the upscale limit) and centre
+    // it: take a square window around the piece, padding with transparency
+    // where the window runs past the photo's edge.
+    const { box } = cutout;
+    const scale = Math.min((size * style.subjectFill) / Math.max(box.width, box.height), style.maxUpscale);
+    const side = Math.round(size / scale);
+    const cx = box.left + box.width / 2;
+    const cy = box.top + box.height / 2;
+    const wantLeft = Math.round(cx - side / 2);
+    const wantTop = Math.round(cy - side / 2);
+    const x0 = Math.max(0, wantLeft);
+    const y0 = Math.max(0, wantTop);
+    const x1 = Math.min(cutout.width, wantLeft + side);
+    const y1 = Math.min(cutout.height, wantTop + side);
+    const window = await sharp(cutout.rgba)
+      .extract({ left: x0, top: y0, width: x1 - x0, height: y1 - y0 })
+      .extend({ left: x0 - wantLeft, top: y0 - wantTop, right: wantLeft + side - x1, bottom: wantTop + side - y1, background: { r: 0, g: 0, b: 0, alpha: 0 } })
+      .png()
+      .toBuffer();
+    photo = await sharp(window).resize({ width: size, height: size, fit: "fill" }).png().toBuffer({ resolveWithObject: true });
+  } else {
+    photo = await sharp(source).rotate().resize({ width: inner, height: inner, fit: "inside", withoutEnlargement: false }).flatten({ background: style.backdropCentre }).png().toBuffer({ resolveWithObject: true });
+  }
 
   const margin = Math.round(size * style.margin);
   const photoLayer = { input: photo.data, left: Math.round((size - photo.info.width) / 2), top: Math.round((size - photo.info.height) / 2) };

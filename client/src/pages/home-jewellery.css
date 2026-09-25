@@ -14,8 +14,10 @@
   left: 22px;
   bottom: 20px;
   padding: 6px 9px;
-  border: 1px solid rgba(247, 244, 239, 0.55);
-  color: #f7f4ef;
+  /* Readable on both light product shots and dark lifestyle photos. */
+  border: 1px solid rgba(27, 26, 24, 0.18);
+  background: rgba(247, 244, 239, 0.82);
+  color: #1b1a18;
   font-family: var(--jw-mono);
   font-size: 0.56rem;
   letter-spacing: 0.14em;

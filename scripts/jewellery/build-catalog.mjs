@@ -261,23 +261,26 @@ function codePrefix(category) {
 
 function describe({ category, style, shapeLabel, stoneColourLabel }) {
   const stone = `${stoneColourLabel ? `${stoneColourLabel.toLowerCase()} ` : ""}${shapeLabel ? `${shapeLabel.toLowerCase()} ` : ""}lab-grown diamond`;
+  // "a" or "an", by the first letter of the stone description.
+  const a = `${/^[aeiou]/i.test(stone) ? "an" : "a"} ${stone}`;
+  const A = a.charAt(0).toUpperCase() + a.slice(1);
   const lines = {
-    "toi-et-moi": `Two stones set side by side: a ${stone} paired with a companion cut, each held in its own claws.`,
-    "five-stone": `A ${stone} flanked by four graduated stones, set low across the finger.`,
-    "three-stone": `A ${stone} framed by two side stones, cut and matched on our bench in Surat.`,
+    "toi-et-moi": `Two stones set side by side: ${a} paired with a companion cut, each held in its own claws.`,
+    "five-stone": `${A} flanked by four graduated stones, set low across the finger.`,
+    "three-stone": `${A} framed by two side stones, matched for colour and cut.`,
     eternity: `A continuous line of ${stone}s, matched for colour and size around the band.`,
     wrap: `An open, sculptural band set with ${stone}s that curve around the finger.`,
-    signet: `A signet profile with a ${stone} set flush into the face.`,
-    "east-west": `A ${stone} turned on its side and held in a slim east-west setting.`,
-    halo: `A ${stone} lifted by a fine halo of pavé that catches light from every angle.`,
-    bezel: `A ${stone} wrapped in a clean, protective bezel of polished gold.`,
-    vintage: `A ${stone} in a heritage setting with hand-finished detailing along the band.`,
+    signet: `A signet profile with ${a} set flush into the face.`,
+    "east-west": `${A} turned on its side and held in a slim east-west setting.`,
+    halo: `${A} lifted by a fine halo of pavé that catches light from every angle.`,
+    bezel: `${A} wrapped in a clean, protective bezel of polished gold.`,
+    vintage: `${A} in a heritage setting with hand-finished detailing along the band.`,
     solitaire: `A single ${stone}, held high in a precise claw setting on a slender band.`,
     stud: `A pair of ${stone}s in secure claw settings, matched stone for stone.`,
     drop: `${stone.charAt(0).toUpperCase() + stone.slice(1)} drops that move gently with the wearer.`,
   };
-  if (category === "pendant") return `A ${stone} suspended on a fine gold chain in a clean, lifted setting.`;
-  return lines[style] ?? `A ${stone} set by hand in solid gold.`;
+  if (category === "pendant") return `${A} suspended on a fine gold chain in a clean, lifted setting.`;
+  return lines[style] ?? `${A} set by hand in solid gold.`;
 }
 
 function round(value, step) {

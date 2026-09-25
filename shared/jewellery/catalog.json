@@ -28,11 +28,36 @@
     ],
     "caratRange": null,
     "fromPriceUsd": null,
-    "description": "A oval lab-grown diamond turned on its side and held in a slim east-west setting.",
+    "description": "An oval lab-grown diamond turned on its side and held in a slim east-west setting.",
     "tags": [],
     "featuredScore": 68,
     "addedOn": null,
-    "images": []
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-r-0001/01.webp",
+        "thumb": "/assets/jewellery/alv-r-0001/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0001/02.webp",
+        "thumb": "/assets/jewellery/alv-r-0001/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0001/03.webp",
+        "thumb": "/assets/jewellery/alv-r-0001/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0001/04.webp",
+        "thumb": "/assets/jewellery/alv-r-0001/04-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
   },
   {
     "code": "ALV-R-0002",
@@ -63,7 +88,7 @@
     ],
     "caratRange": null,
     "fromPriceUsd": 1020,
-    "description": "A oval lab-grown diamond in a heritage setting with hand-finished detailing along the band.",
+    "description": "An oval lab-grown diamond in a heritage setting with hand-finished detailing along the band.",
     "tags": [],
     "featuredScore": 64,
     "addedOn": null,
@@ -98,11 +123,30 @@
     ],
     "caratRange": null,
     "fromPriceUsd": null,
-    "description": "A emerald lab-grown diamond wrapped in a clean, protective bezel of polished gold.",
+    "description": "An emerald lab-grown diamond wrapped in a clean, protective bezel of polished gold.",
     "tags": [],
     "featuredScore": 62,
     "addedOn": null,
-    "images": []
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-r-0003/01.webp",
+        "thumb": "/assets/jewellery/alv-r-0003/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0003/02.webp",
+        "thumb": "/assets/jewellery/alv-r-0003/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0003/03.webp",
+        "thumb": "/assets/jewellery/alv-r-0003/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
   },
   {
     "code": "ALV-R-0004",
@@ -134,11 +178,30 @@
     ],
     "caratRange": null,
     "fromPriceUsd": null,
-    "description": "A emerald lab-grown diamond wrapped in a clean, protective bezel of polished gold.",
+    "description": "An emerald lab-grown diamond wrapped in a clean, protective bezel of polished gold.",
     "tags": [],
     "featuredScore": 62,
     "addedOn": null,
-    "images": []
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-r-0004/01.webp",
+        "thumb": "/assets/jewellery/alv-r-0004/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0004/02.webp",
+        "thumb": "/assets/jewellery/alv-r-0004/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0004/03.webp",
+        "thumb": "/assets/jewellery/alv-r-0004/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
   },
   {
     "code": "ALV-R-0005",
@@ -169,11 +232,30 @@
     ],
     "caratRange": null,
     "fromPriceUsd": null,
-    "description": "A oval lab-grown diamond wrapped in a clean, protective bezel of polished gold.",
+    "description": "An oval lab-grown diamond wrapped in a clean, protective bezel of polished gold.",
     "tags": [],
     "featuredScore": 62,
     "addedOn": null,
-    "images": []
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-r-0005/01.webp",
+        "thumb": "/assets/jewellery/alv-r-0005/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0005/02.webp",
+        "thumb": "/assets/jewellery/alv-r-0005/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0005/03.webp",
+        "thumb": "/assets/jewellery/alv-r-0005/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
   },
   {
     "code": "ALV-R-0006",
@@ -208,7 +290,26 @@
     "tags": [],
     "featuredScore": 60,
     "addedOn": null,
-    "images": []
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-r-0006/01.webp",
+        "thumb": "/assets/jewellery/alv-r-0006/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0006/02.webp",
+        "thumb": "/assets/jewellery/alv-r-0006/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0006/03.webp",
+        "thumb": "/assets/jewellery/alv-r-0006/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
   },
   {
     "code": "ALV-R-0007",
@@ -240,11 +341,30 @@
     ],
     "caratRange": null,
     "fromPriceUsd": null,
-    "description": "A elongated cushion lab-grown diamond in a heritage setting with hand-finished detailing along the band.",
+    "description": "An elongated cushion lab-grown diamond in a heritage setting with hand-finished detailing along the band.",
     "tags": [],
     "featuredScore": 58,
     "addedOn": null,
-    "images": []
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-r-0007/01.webp",
+        "thumb": "/assets/jewellery/alv-r-0007/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0007/02.webp",
+        "thumb": "/assets/jewellery/alv-r-0007/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0007/03.webp",
+        "thumb": "/assets/jewellery/alv-r-0007/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
   },
   {
     "code": "ALV-R-0008",
@@ -276,11 +396,30 @@
     ],
     "caratRange": null,
     "fromPriceUsd": null,
-    "description": "A oval lab-grown diamond in a heritage setting with hand-finished detailing along the band.",
+    "description": "An oval lab-grown diamond in a heritage setting with hand-finished detailing along the band.",
     "tags": [],
     "featuredScore": 58,
     "addedOn": null,
-    "images": []
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-r-0008/01.webp",
+        "thumb": "/assets/jewellery/alv-r-0008/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0008/02.webp",
+        "thumb": "/assets/jewellery/alv-r-0008/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0008/03.webp",
+        "thumb": "/assets/jewellery/alv-r-0008/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
   },
   {
     "code": "ALV-R-0009",
@@ -311,7 +450,7 @@
     ],
     "caratRange": null,
     "fromPriceUsd": 770,
-    "description": "A oval lab-grown diamond turned on its side and held in a slim east-west setting.",
+    "description": "An oval lab-grown diamond turned on its side and held in a slim east-west setting.",
     "tags": [],
     "featuredScore": 58,
     "addedOn": null,
@@ -349,7 +488,20 @@
     "tags": [],
     "featuredScore": 56,
     "addedOn": null,
-    "images": []
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-e-0001/01.webp",
+        "thumb": "/assets/jewellery/alv-e-0001/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-e-0001/02.webp",
+        "thumb": "/assets/jewellery/alv-e-0001/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
   },
   {
     "code": "ALV-E-0002",
@@ -383,7 +535,20 @@
     "tags": [],
     "featuredScore": 56,
     "addedOn": null,
-    "images": []
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-e-0002/01.webp",
+        "thumb": "/assets/jewellery/alv-e-0002/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-e-0002/02.webp",
+        "thumb": "/assets/jewellery/alv-e-0002/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
   },
   {
     "code": "ALV-R-0010",
@@ -415,11 +580,30 @@
     ],
     "caratRange": null,
     "fromPriceUsd": null,
-    "description": "A elongated cushion lab-grown diamond wrapped in a clean, protective bezel of polished gold.",
+    "description": "An elongated cushion lab-grown diamond wrapped in a clean, protective bezel of polished gold.",
     "tags": [],
     "featuredScore": 56,
     "addedOn": null,
-    "images": []
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-r-0010/01.webp",
+        "thumb": "/assets/jewellery/alv-r-0010/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0010/02.webp",
+        "thumb": "/assets/jewellery/alv-r-0010/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0010/03.webp",
+        "thumb": "/assets/jewellery/alv-r-0010/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
   },
   {
     "code": "ALV-R-0011",
@@ -450,11 +634,30 @@
     ],
     "caratRange": null,
     "fromPriceUsd": null,
-    "description": "A emerald lab-grown diamond wrapped in a clean, protective bezel of polished gold.",
+    "description": "An emerald lab-grown diamond wrapped in a clean, protective bezel of polished gold.",
     "tags": [],
     "featuredScore": 56,
     "addedOn": null,
-    "images": []
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-r-0011/01.webp",
+        "thumb": "/assets/jewellery/alv-r-0011/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0011/02.webp",
+        "thumb": "/assets/jewellery/alv-r-0011/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0011/03.webp",
+        "thumb": "/assets/jewellery/alv-r-0011/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
   },
   {
     "code": "ALV-R-0012",
@@ -519,7 +722,7 @@
     ],
     "caratRange": null,
     "fromPriceUsd": 430,
-    "description": "A emerald lab-grown diamond suspended on a fine gold chain in a clean, lifted setting.",
+    "description": "An emerald lab-grown diamond suspended on a fine gold chain in a clean, lifted setting.",
     "tags": [],
     "featuredScore": 54,
     "addedOn": null,
@@ -589,11 +792,30 @@
     ],
     "caratRange": null,
     "fromPriceUsd": null,
-    "description": "A elongated cushion lab-grown diamond in a heritage setting with hand-finished detailing along the band.",
+    "description": "An elongated cushion lab-grown diamond in a heritage setting with hand-finished detailing along the band.",
     "tags": [],
     "featuredScore": 54,
     "addedOn": null,
-    "images": []
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-r-0013/01.webp",
+        "thumb": "/assets/jewellery/alv-r-0013/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0013/02.webp",
+        "thumb": "/assets/jewellery/alv-r-0013/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0013/03.webp",
+        "thumb": "/assets/jewellery/alv-r-0013/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
   },
   {
     "code": "ALV-R-0014",
@@ -632,7 +854,26 @@
     "tags": [],
     "featuredScore": 54,
     "addedOn": null,
-    "images": []
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-r-0014/01.webp",
+        "thumb": "/assets/jewellery/alv-r-0014/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0014/02.webp",
+        "thumb": "/assets/jewellery/alv-r-0014/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0014/03.webp",
+        "thumb": "/assets/jewellery/alv-r-0014/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
   },
   {
     "code": "ALV-R-0015",
@@ -704,7 +945,26 @@
     "tags": [],
     "featuredScore": 52,
     "addedOn": null,
-    "images": []
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-r-0016/01.webp",
+        "thumb": "/assets/jewellery/alv-r-0016/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0016/02.webp",
+        "thumb": "/assets/jewellery/alv-r-0016/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0016/03.webp",
+        "thumb": "/assets/jewellery/alv-r-0016/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
   },
   {
     "code": "ALV-R-0017",
@@ -739,7 +999,26 @@
     "tags": [],
     "featuredScore": 52,
     "addedOn": null,
-    "images": []
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-r-0017/01.webp",
+        "thumb": "/assets/jewellery/alv-r-0017/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0017/02.webp",
+        "thumb": "/assets/jewellery/alv-r-0017/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0017/03.webp",
+        "thumb": "/assets/jewellery/alv-r-0017/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
   },
   {
     "code": "ALV-R-0018",
@@ -771,11 +1050,30 @@
     ],
     "caratRange": null,
     "fromPriceUsd": null,
-    "description": "A old mine lab-grown diamond in a heritage setting with hand-finished detailing along the band.",
+    "description": "An old mine lab-grown diamond in a heritage setting with hand-finished detailing along the band.",
     "tags": [],
     "featuredScore": 52,
     "addedOn": null,
-    "images": []
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-r-0018/01.webp",
+        "thumb": "/assets/jewellery/alv-r-0018/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0018/02.webp",
+        "thumb": "/assets/jewellery/alv-r-0018/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0018/03.webp",
+        "thumb": "/assets/jewellery/alv-r-0018/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
   },
   {
     "code": "ALV-R-0019",
@@ -810,7 +1108,26 @@
     "tags": [],
     "featuredScore": 52,
     "addedOn": null,
-    "images": []
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-r-0019/01.webp",
+        "thumb": "/assets/jewellery/alv-r-0019/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0019/02.webp",
+        "thumb": "/assets/jewellery/alv-r-0019/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0019/03.webp",
+        "thumb": "/assets/jewellery/alv-r-0019/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
   },
   {
     "code": "ALV-R-0020",
@@ -915,7 +1232,26 @@
     "tags": [],
     "featuredScore": 52,
     "addedOn": null,
-    "images": []
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-r-0022/01.webp",
+        "thumb": "/assets/jewellery/alv-r-0022/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0022/02.webp",
+        "thumb": "/assets/jewellery/alv-r-0022/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0022/03.webp",
+        "thumb": "/assets/jewellery/alv-r-0022/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
   },
   {
     "code": "ALV-R-0023",
@@ -946,7 +1282,7 @@
     ],
     "caratRange": null,
     "fromPriceUsd": 1070,
-    "description": "A oval lab-grown diamond wrapped in a clean, protective bezel of polished gold.",
+    "description": "An oval lab-grown diamond wrapped in a clean, protective bezel of polished gold.",
     "tags": [],
     "featuredScore": 51,
     "addedOn": null,
@@ -1022,7 +1358,14 @@
     "tags": [],
     "featuredScore": 50,
     "addedOn": null,
-    "images": []
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-r-0025/01.webp",
+        "thumb": "/assets/jewellery/alv-r-0025/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
   },
   {
     "code": "ALV-R-0026",
@@ -1058,7 +1401,26 @@
     "tags": [],
     "featuredScore": 50,
     "addedOn": null,
-    "images": []
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-r-0026/01.webp",
+        "thumb": "/assets/jewellery/alv-r-0026/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0026/02.webp",
+        "thumb": "/assets/jewellery/alv-r-0026/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0026/03.webp",
+        "thumb": "/assets/jewellery/alv-r-0026/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
   },
   {
     "code": "ALV-R-0027",
@@ -1206,7 +1568,20 @@
     "tags": [],
     "featuredScore": 48,
     "addedOn": null,
-    "images": []
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-e-0003/01.webp",
+        "thumb": "/assets/jewellery/alv-e-0003/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-e-0003/02.webp",
+        "thumb": "/assets/jewellery/alv-e-0003/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
   },
   {
     "code": "ALV-R-0030",
@@ -1241,7 +1616,14 @@
     "tags": [],
     "featuredScore": 48,
     "addedOn": null,
-    "images": []
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-r-0030/01.webp",
+        "thumb": "/assets/jewellery/alv-r-0030/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
   },
   {
     "code": "ALV-R-0031",
@@ -1347,7 +1729,14 @@
     "tags": [],
     "featuredScore": 46,
     "addedOn": null,
-    "images": []
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-e-0004/01.webp",
+        "thumb": "/assets/jewellery/alv-e-0004/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
   },
   {
     "code": "ALV-E-0005",
@@ -1381,7 +1770,20 @@
     "tags": [],
     "featuredScore": 46,
     "addedOn": null,
-    "images": []
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-e-0005/01.webp",
+        "thumb": "/assets/jewellery/alv-e-0005/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-e-0005/02.webp",
+        "thumb": "/assets/jewellery/alv-e-0005/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
   },
   {
     "code": "ALV-P-0003",
@@ -1586,7 +1988,7 @@
       5
     ],
     "fromPriceUsd": 1000,
-    "description": "A oval lab-grown diamond turned on its side and held in a slim east-west setting.",
+    "description": "An oval lab-grown diamond turned on its side and held in a slim east-west setting.",
     "tags": [],
     "featuredScore": 46,
     "addedOn": "2026-01-20",
@@ -1625,7 +2027,26 @@
     "tags": [],
     "featuredScore": 46,
     "addedOn": null,
-    "images": []
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-r-0034/01.webp",
+        "thumb": "/assets/jewellery/alv-r-0034/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0034/02.webp",
+        "thumb": "/assets/jewellery/alv-r-0034/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0034/03.webp",
+        "thumb": "/assets/jewellery/alv-r-0034/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
   },
   {
     "code": "ALV-R-0035",
@@ -1657,11 +2078,30 @@
     ],
     "caratRange": null,
     "fromPriceUsd": null,
-    "description": "A old mine lab-grown diamond in a heritage setting with hand-finished detailing along the band.",
+    "description": "An old mine lab-grown diamond in a heritage setting with hand-finished detailing along the band.",
     "tags": [],
     "featuredScore": 46,
     "addedOn": null,
-    "images": []
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-r-0035/01.webp",
+        "thumb": "/assets/jewellery/alv-r-0035/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0035/02.webp",
+        "thumb": "/assets/jewellery/alv-r-0035/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0035/03.webp",
+        "thumb": "/assets/jewellery/alv-r-0035/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
   },
   {
     "code": "ALV-R-0036",
@@ -1697,7 +2137,26 @@
     "tags": [],
     "featuredScore": 46,
     "addedOn": null,
-    "images": []
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-r-0036/01.webp",
+        "thumb": "/assets/jewellery/alv-r-0036/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0036/02.webp",
+        "thumb": "/assets/jewellery/alv-r-0036/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0036/03.webp",
+        "thumb": "/assets/jewellery/alv-r-0036/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
   },
   {
     "code": "ALV-R-0037",
@@ -1764,11 +2223,30 @@
     ],
     "caratRange": null,
     "fromPriceUsd": null,
-    "description": "A old mine lab-grown diamond in a heritage setting with hand-finished detailing along the band.",
+    "description": "An old mine lab-grown diamond in a heritage setting with hand-finished detailing along the band.",
     "tags": [],
     "featuredScore": 46,
     "addedOn": null,
-    "images": []
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-r-0038/01.webp",
+        "thumb": "/assets/jewellery/alv-r-0038/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0038/02.webp",
+        "thumb": "/assets/jewellery/alv-r-0038/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0038/03.webp",
+        "thumb": "/assets/jewellery/alv-r-0038/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
   },
   {
     "code": "ALV-R-0039",
@@ -1803,7 +2281,7 @@
       5
     ],
     "fromPriceUsd": 1100,
-    "description": "A oval lab-grown diamond framed by two side stones, cut and matched on our bench in Surat.",
+    "description": "An oval lab-grown diamond framed by two side stones, matched for colour and cut.",
     "tags": [],
     "featuredScore": 45,
     "addedOn": "2026-03-17",
@@ -1944,7 +2422,26 @@
     "tags": [],
     "featuredScore": 44,
     "addedOn": null,
-    "images": []
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-r-0040/01.webp",
+        "thumb": "/assets/jewellery/alv-r-0040/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0040/02.webp",
+        "thumb": "/assets/jewellery/alv-r-0040/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0040/03.webp",
+        "thumb": "/assets/jewellery/alv-r-0040/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
   },
   {
     "code": "ALV-R-0041",
@@ -1979,7 +2476,26 @@
     "tags": [],
     "featuredScore": 44,
     "addedOn": null,
-    "images": []
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-r-0041/01.webp",
+        "thumb": "/assets/jewellery/alv-r-0041/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0041/02.webp",
+        "thumb": "/assets/jewellery/alv-r-0041/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0041/03.webp",
+        "thumb": "/assets/jewellery/alv-r-0041/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
   },
   {
     "code": "ALV-R-0042",
@@ -2014,7 +2530,26 @@
     "tags": [],
     "featuredScore": 44,
     "addedOn": null,
-    "images": []
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-r-0042/01.webp",
+        "thumb": "/assets/jewellery/alv-r-0042/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0042/02.webp",
+        "thumb": "/assets/jewellery/alv-r-0042/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0042/03.webp",
+        "thumb": "/assets/jewellery/alv-r-0042/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
   },
   {
     "code": "ALV-R-0043",
@@ -2086,7 +2621,26 @@
     "tags": [],
     "featuredScore": 44,
     "addedOn": null,
-    "images": []
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-r-0044/01.webp",
+        "thumb": "/assets/jewellery/alv-r-0044/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0044/02.webp",
+        "thumb": "/assets/jewellery/alv-r-0044/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0044/03.webp",
+        "thumb": "/assets/jewellery/alv-r-0044/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
   },
   {
     "code": "ALV-R-0045",
@@ -2121,7 +2675,26 @@
     "tags": [],
     "featuredScore": 44,
     "addedOn": null,
-    "images": []
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-r-0045/01.webp",
+        "thumb": "/assets/jewellery/alv-r-0045/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0045/02.webp",
+        "thumb": "/assets/jewellery/alv-r-0045/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0045/03.webp",
+        "thumb": "/assets/jewellery/alv-r-0045/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
   },
   {
     "code": "ALV-R-0046",
@@ -2156,7 +2729,14 @@
     "tags": [],
     "featuredScore": 44,
     "addedOn": null,
-    "images": []
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-r-0046/01.webp",
+        "thumb": "/assets/jewellery/alv-r-0046/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
   },
   {
     "code": "ALV-P-0011",
@@ -2224,7 +2804,26 @@
     "tags": [],
     "featuredScore": 40,
     "addedOn": null,
-    "images": []
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-e-0006/01.webp",
+        "thumb": "/assets/jewellery/alv-e-0006/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-e-0006/02.webp",
+        "thumb": "/assets/jewellery/alv-e-0006/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-e-0006/03.webp",
+        "thumb": "/assets/jewellery/alv-e-0006/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
   },
   {
     "code": "ALV-E-0007",
@@ -2258,7 +2857,26 @@
     "tags": [],
     "featuredScore": 40,
     "addedOn": null,
-    "images": []
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-e-0007/01.webp",
+        "thumb": "/assets/jewellery/alv-e-0007/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-e-0007/02.webp",
+        "thumb": "/assets/jewellery/alv-e-0007/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-e-0007/03.webp",
+        "thumb": "/assets/jewellery/alv-e-0007/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
   },
   {
     "code": "ALV-P-0012",
@@ -2288,7 +2906,7 @@
     ],
     "caratRange": null,
     "fromPriceUsd": 430,
-    "description": "A oval lab-grown diamond suspended on a fine gold chain in a clean, lifted setting.",
+    "description": "An oval lab-grown diamond suspended on a fine gold chain in a clean, lifted setting.",
     "tags": [],
     "featuredScore": 40,
     "addedOn": null,
@@ -2362,7 +2980,20 @@
     "tags": [],
     "featuredScore": 40,
     "addedOn": null,
-    "images": []
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-r-0047/01.webp",
+        "thumb": "/assets/jewellery/alv-r-0047/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0047/02.webp",
+        "thumb": "/assets/jewellery/alv-r-0047/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
   },
   {
     "code": "ALV-R-0048",
@@ -2397,7 +3028,26 @@
     "tags": [],
     "featuredScore": 40,
     "addedOn": null,
-    "images": []
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-r-0048/01.webp",
+        "thumb": "/assets/jewellery/alv-r-0048/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0048/02.webp",
+        "thumb": "/assets/jewellery/alv-r-0048/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0048/03.webp",
+        "thumb": "/assets/jewellery/alv-r-0048/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
   },
   {
     "code": "ALV-R-0049",
@@ -2539,7 +3189,26 @@
     "tags": [],
     "featuredScore": 38,
     "addedOn": null,
-    "images": []
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-e-0008/01.webp",
+        "thumb": "/assets/jewellery/alv-e-0008/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-e-0008/02.webp",
+        "thumb": "/assets/jewellery/alv-e-0008/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-e-0008/03.webp",
+        "thumb": "/assets/jewellery/alv-e-0008/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
   },
   {
     "code": "ALV-E-0009",
@@ -2573,7 +3242,26 @@
     "tags": [],
     "featuredScore": 38,
     "addedOn": null,
-    "images": []
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-e-0009/01.webp",
+        "thumb": "/assets/jewellery/alv-e-0009/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-e-0009/02.webp",
+        "thumb": "/assets/jewellery/alv-e-0009/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-e-0009/03.webp",
+        "thumb": "/assets/jewellery/alv-e-0009/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
   },
   {
     "code": "ALV-E-0010",
@@ -2607,7 +3295,20 @@
     "tags": [],
     "featuredScore": 38,
     "addedOn": null,
-    "images": []
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-e-0010/01.webp",
+        "thumb": "/assets/jewellery/alv-e-0010/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-e-0010/02.webp",
+        "thumb": "/assets/jewellery/alv-e-0010/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
   },
   {
     "code": "ALV-E-0011",
@@ -2641,7 +3342,20 @@
     "tags": [],
     "featuredScore": 38,
     "addedOn": null,
-    "images": []
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-e-0011/01.webp",
+        "thumb": "/assets/jewellery/alv-e-0011/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-e-0011/02.webp",
+        "thumb": "/assets/jewellery/alv-e-0011/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
   },
   {
     "code": "ALV-R-0052",
@@ -2677,7 +3391,26 @@
     "tags": [],
     "featuredScore": 38,
     "addedOn": null,
-    "images": []
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-r-0052/01.webp",
+        "thumb": "/assets/jewellery/alv-r-0052/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0052/02.webp",
+        "thumb": "/assets/jewellery/alv-r-0052/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0052/03.webp",
+        "thumb": "/assets/jewellery/alv-r-0052/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
   },
   {
     "code": "ALV-R-0053",
@@ -2712,7 +3445,26 @@
     "tags": [],
     "featuredScore": 38,
     "addedOn": null,
-    "images": []
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-r-0053/01.webp",
+        "thumb": "/assets/jewellery/alv-r-0053/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0053/02.webp",
+        "thumb": "/assets/jewellery/alv-r-0053/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0053/03.webp",
+        "thumb": "/assets/jewellery/alv-r-0053/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
   },
   {
     "code": "ALV-R-0054",
@@ -2747,7 +3499,26 @@
     "tags": [],
     "featuredScore": 38,
     "addedOn": null,
-    "images": []
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-r-0054/01.webp",
+        "thumb": "/assets/jewellery/alv-r-0054/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0054/02.webp",
+        "thumb": "/assets/jewellery/alv-r-0054/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0054/03.webp",
+        "thumb": "/assets/jewellery/alv-r-0054/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
   },
   {
     "code": "ALV-R-0055",
@@ -2783,7 +3554,14 @@
     "tags": [],
     "featuredScore": 36,
     "addedOn": null,
-    "images": []
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-r-0055/01.webp",
+        "thumb": "/assets/jewellery/alv-r-0055/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
   },
   {
     "code": "ALV-R-0056",
@@ -2818,7 +3596,20 @@
     "tags": [],
     "featuredScore": 36,
     "addedOn": null,
-    "images": []
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-r-0056/01.webp",
+        "thumb": "/assets/jewellery/alv-r-0056/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0056/02.webp",
+        "thumb": "/assets/jewellery/alv-r-0056/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
   },
   {
     "code": "ALV-R-0057",
@@ -2853,7 +3644,26 @@
     "tags": [],
     "featuredScore": 36,
     "addedOn": null,
-    "images": []
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-r-0057/01.webp",
+        "thumb": "/assets/jewellery/alv-r-0057/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0057/02.webp",
+        "thumb": "/assets/jewellery/alv-r-0057/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0057/03.webp",
+        "thumb": "/assets/jewellery/alv-r-0057/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
   },
   {
     "code": "ALV-R-0058",
@@ -2888,7 +3698,26 @@
     "tags": [],
     "featuredScore": 36,
     "addedOn": null,
-    "images": []
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-r-0058/01.webp",
+        "thumb": "/assets/jewellery/alv-r-0058/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0058/02.webp",
+        "thumb": "/assets/jewellery/alv-r-0058/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0058/03.webp",
+        "thumb": "/assets/jewellery/alv-r-0058/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
   },
   {
     "code": "ALV-E-0012",
@@ -2924,7 +3753,14 @@
     "tags": [],
     "featuredScore": 34,
     "addedOn": null,
-    "images": []
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-e-0012/01.webp",
+        "thumb": "/assets/jewellery/alv-e-0012/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
   },
   {
     "code": "ALV-P-0014",
@@ -2994,7 +3830,26 @@
     "tags": [],
     "featuredScore": 34,
     "addedOn": null,
-    "images": []
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-r-0059/01.webp",
+        "thumb": "/assets/jewellery/alv-r-0059/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0059/02.webp",
+        "thumb": "/assets/jewellery/alv-r-0059/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0059/03.webp",
+        "thumb": "/assets/jewellery/alv-r-0059/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
   },
   {
     "code": "ALV-R-0060",
@@ -3029,7 +3884,26 @@
     "tags": [],
     "featuredScore": 34,
     "addedOn": null,
-    "images": []
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-r-0060/01.webp",
+        "thumb": "/assets/jewellery/alv-r-0060/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0060/02.webp",
+        "thumb": "/assets/jewellery/alv-r-0060/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0060/03.webp",
+        "thumb": "/assets/jewellery/alv-r-0060/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
   },
   {
     "code": "ALV-R-0061",
@@ -3064,7 +3938,26 @@
     "tags": [],
     "featuredScore": 34,
     "addedOn": null,
-    "images": []
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-r-0061/01.webp",
+        "thumb": "/assets/jewellery/alv-r-0061/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0061/02.webp",
+        "thumb": "/assets/jewellery/alv-r-0061/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0061/03.webp",
+        "thumb": "/assets/jewellery/alv-r-0061/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
   },
   {
     "code": "ALV-P-0015",
@@ -3162,7 +4055,7 @@
     ],
     "caratRange": null,
     "fromPriceUsd": 430,
-    "description": "A asscher lab-grown diamond suspended on a fine gold chain in a clean, lifted setting.",
+    "description": "An asscher lab-grown diamond suspended on a fine gold chain in a clean, lifted setting.",
     "tags": [],
     "featuredScore": 32,
     "addedOn": null,
@@ -3202,7 +4095,26 @@
     "tags": [],
     "featuredScore": 32,
     "addedOn": null,
-    "images": []
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-r-0062/01.webp",
+        "thumb": "/assets/jewellery/alv-r-0062/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0062/02.webp",
+        "thumb": "/assets/jewellery/alv-r-0062/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0062/03.webp",
+        "thumb": "/assets/jewellery/alv-r-0062/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
   },
   {
     "code": "ALV-R-0063",
@@ -3237,7 +4149,26 @@
     "tags": [],
     "featuredScore": 28,
     "addedOn": null,
-    "images": []
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-r-0063/01.webp",
+        "thumb": "/assets/jewellery/alv-r-0063/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0063/02.webp",
+        "thumb": "/assets/jewellery/alv-r-0063/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0063/03.webp",
+        "thumb": "/assets/jewellery/alv-r-0063/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
   },
   {
     "code": "ALV-R-0064",
@@ -3272,7 +4203,26 @@
     "tags": [],
     "featuredScore": 28,
     "addedOn": null,
-    "images": []
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-r-0064/01.webp",
+        "thumb": "/assets/jewellery/alv-r-0064/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0064/02.webp",
+        "thumb": "/assets/jewellery/alv-r-0064/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0064/03.webp",
+        "thumb": "/assets/jewellery/alv-r-0064/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
   },
   {
     "code": "ALV-R-0065",
@@ -3308,7 +4258,26 @@
     "tags": [],
     "featuredScore": 26,
     "addedOn": null,
-    "images": []
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-r-0065/01.webp",
+        "thumb": "/assets/jewellery/alv-r-0065/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0065/02.webp",
+        "thumb": "/assets/jewellery/alv-r-0065/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0065/03.webp",
+        "thumb": "/assets/jewellery/alv-r-0065/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
   },
   {
     "code": "ALV-R-0066",
@@ -3342,7 +4311,7 @@
       5
     ],
     "fromPriceUsd": 1000,
-    "description": "A oval lab-grown diamond lifted by a fine halo of pavé that catches light from every angle.",
+    "description": "An oval lab-grown diamond lifted by a fine halo of pavé that catches light from every angle.",
     "tags": [],
     "featuredScore": 44,
     "addedOn": "2026-01-29",
@@ -3381,7 +4350,7 @@
       5
     ],
     "fromPriceUsd": 1050,
-    "description": "A oval lab-grown diamond lifted by a fine halo of pavé that catches light from every angle.",
+    "description": "An oval lab-grown diamond lifted by a fine halo of pavé that catches light from every angle.",
     "tags": [],
     "featuredScore": 43,
     "addedOn": "2026-01-26",
@@ -3420,7 +4389,7 @@
       5
     ],
     "fromPriceUsd": 1000,
-    "description": "A oval lab-grown diamond lifted by a fine halo of pavé that catches light from every angle.",
+    "description": "An oval lab-grown diamond lifted by a fine halo of pavé that catches light from every angle.",
     "tags": [],
     "featuredScore": 43,
     "addedOn": "2026-01-27",
@@ -3459,7 +4428,7 @@
       5
     ],
     "fromPriceUsd": 1000,
-    "description": "A oval lab-grown diamond lifted by a fine halo of pavé that catches light from every angle.",
+    "description": "An oval lab-grown diamond lifted by a fine halo of pavé that catches light from every angle.",
     "tags": [],
     "featuredScore": 43,
     "addedOn": "2026-01-21",
@@ -3498,7 +4467,7 @@
       5
     ],
     "fromPriceUsd": 1050,
-    "description": "A oval lab-grown diamond lifted by a fine halo of pavé that catches light from every angle.",
+    "description": "An oval lab-grown diamond lifted by a fine halo of pavé that catches light from every angle.",
     "tags": [],
     "featuredScore": 43,
     "addedOn": "2026-01-13",
@@ -3537,7 +4506,7 @@
       5
     ],
     "fromPriceUsd": 1150,
-    "description": "A oval lab-grown diamond lifted by a fine halo of pavé that catches light from every angle.",
+    "description": "An oval lab-grown diamond lifted by a fine halo of pavé that catches light from every angle.",
     "tags": [],
     "featuredScore": 43,
     "addedOn": "2026-01-13",
@@ -3576,7 +4545,7 @@
       5
     ],
     "fromPriceUsd": 1000,
-    "description": "A oval lab-grown diamond lifted by a fine halo of pavé that catches light from every angle.",
+    "description": "An oval lab-grown diamond lifted by a fine halo of pavé that catches light from every angle.",
     "tags": [],
     "featuredScore": 43,
     "addedOn": "2026-01-17",
@@ -3615,7 +4584,7 @@
       5
     ],
     "fromPriceUsd": 1000,
-    "description": "A oval lab-grown diamond lifted by a fine halo of pavé that catches light from every angle.",
+    "description": "An oval lab-grown diamond lifted by a fine halo of pavé that catches light from every angle.",
     "tags": [],
     "featuredScore": 43,
     "addedOn": "2026-01-19",
@@ -3654,7 +4623,7 @@
       5
     ],
     "fromPriceUsd": 1050,
-    "description": "A oval lab-grown diamond lifted by a fine halo of pavé that catches light from every angle.",
+    "description": "An oval lab-grown diamond lifted by a fine halo of pavé that catches light from every angle.",
     "tags": [],
     "featuredScore": 43,
     "addedOn": "2026-01-20",
@@ -3693,7 +4662,7 @@
       5
     ],
     "fromPriceUsd": 1000,
-    "description": "A oval lab-grown diamond lifted by a fine halo of pavé that catches light from every angle.",
+    "description": "An oval lab-grown diamond lifted by a fine halo of pavé that catches light from every angle.",
     "tags": [],
     "featuredScore": 43,
     "addedOn": "2026-01-21",
@@ -3732,7 +4701,7 @@
       5
     ],
     "fromPriceUsd": 1000,
-    "description": "A oval lab-grown diamond lifted by a fine halo of pavé that catches light from every angle.",
+    "description": "An oval lab-grown diamond lifted by a fine halo of pavé that catches light from every angle.",
     "tags": [],
     "featuredScore": 43,
     "addedOn": "2026-01-27",
@@ -3771,7 +4740,7 @@
       5
     ],
     "fromPriceUsd": 1100,
-    "description": "A round lab-grown diamond framed by two side stones, cut and matched on our bench in Surat.",
+    "description": "A round lab-grown diamond framed by two side stones, matched for colour and cut.",
     "tags": [],
     "featuredScore": 43,
     "addedOn": "2026-03-17",
@@ -3810,7 +4779,7 @@
       5
     ],
     "fromPriceUsd": 1000,
-    "description": "A oval lab-grown diamond lifted by a fine halo of pavé that catches light from every angle.",
+    "description": "An oval lab-grown diamond lifted by a fine halo of pavé that catches light from every angle.",
     "tags": [],
     "featuredScore": 43,
     "addedOn": "2026-01-16",
@@ -3848,7 +4817,20 @@
     "tags": [],
     "featuredScore": 42,
     "addedOn": null,
-    "images": []
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-e-0013/01.webp",
+        "thumb": "/assets/jewellery/alv-e-0013/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-e-0013/02.webp",
+        "thumb": "/assets/jewellery/alv-e-0013/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
   },
   {
     "code": "ALV-R-0079",
@@ -3990,7 +4972,7 @@
     ],
     "caratRange": null,
     "fromPriceUsd": 940,
-    "description": "A oval lab-grown diamond in a heritage setting with hand-finished detailing along the band.",
+    "description": "An oval lab-grown diamond in a heritage setting with hand-finished detailing along the band.",
     "tags": [],
     "featuredScore": 42,
     "addedOn": null,
@@ -4457,7 +5439,20 @@
     "tags": [],
     "featuredScore": 40,
     "addedOn": null,
-    "images": []
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-e-0014/01.webp",
+        "thumb": "/assets/jewellery/alv-e-0014/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-e-0014/02.webp",
+        "thumb": "/assets/jewellery/alv-e-0014/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
   },
   {
     "code": "ALV-E-0015",
@@ -4491,7 +5486,20 @@
     "tags": [],
     "featuredScore": 40,
     "addedOn": null,
-    "images": []
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-e-0015/01.webp",
+        "thumb": "/assets/jewellery/alv-e-0015/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-e-0015/02.webp",
+        "thumb": "/assets/jewellery/alv-e-0015/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
   },
   {
     "code": "ALV-E-0016",
@@ -4525,7 +5533,14 @@
     "tags": [],
     "featuredScore": 40,
     "addedOn": null,
-    "images": []
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-e-0016/01.webp",
+        "thumb": "/assets/jewellery/alv-e-0016/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
   },
   {
     "code": "ALV-E-0017",
@@ -4559,7 +5574,26 @@
     "tags": [],
     "featuredScore": 40,
     "addedOn": null,
-    "images": []
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-e-0017/01.webp",
+        "thumb": "/assets/jewellery/alv-e-0017/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-e-0017/02.webp",
+        "thumb": "/assets/jewellery/alv-e-0017/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-e-0017/03.webp",
+        "thumb": "/assets/jewellery/alv-e-0017/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
   },
   {
     "code": "ALV-E-0018",
@@ -4593,7 +5627,26 @@
     "tags": [],
     "featuredScore": 40,
     "addedOn": null,
-    "images": []
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-e-0018/01.webp",
+        "thumb": "/assets/jewellery/alv-e-0018/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-e-0018/02.webp",
+        "thumb": "/assets/jewellery/alv-e-0018/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-e-0018/03.webp",
+        "thumb": "/assets/jewellery/alv-e-0018/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
   },
   {
     "code": "ALV-E-0019",
@@ -4627,7 +5680,20 @@
     "tags": [],
     "featuredScore": 40,
     "addedOn": null,
-    "images": []
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-e-0019/01.webp",
+        "thumb": "/assets/jewellery/alv-e-0019/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-e-0019/02.webp",
+        "thumb": "/assets/jewellery/alv-e-0019/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
   },
   {
     "code": "ALV-R-0094",
@@ -4662,7 +5728,7 @@
       5
     ],
     "fromPriceUsd": 1000,
-    "description": "A emerald lab-grown diamond turned on its side and held in a slim east-west setting.",
+    "description": "An emerald lab-grown diamond turned on its side and held in a slim east-west setting.",
     "tags": [],
     "featuredScore": 40,
     "addedOn": "2026-01-20",
@@ -4738,7 +5804,7 @@
       3
     ],
     "fromPriceUsd": 650,
-    "description": "A emerald lab-grown diamond wrapped in a clean, protective bezel of polished gold.",
+    "description": "An emerald lab-grown diamond wrapped in a clean, protective bezel of polished gold.",
     "tags": [],
     "featuredScore": 38,
     "addedOn": "2026-02-02",
@@ -4853,7 +5919,7 @@
       5
     ],
     "fromPriceUsd": 1550,
-    "description": "A oval lab-grown diamond turned on its side and held in a slim east-west setting.",
+    "description": "An oval lab-grown diamond turned on its side and held in a slim east-west setting.",
     "tags": [],
     "featuredScore": 38,
     "addedOn": "2026-01-26",
@@ -5061,7 +6127,20 @@
     "tags": [],
     "featuredScore": 36,
     "addedOn": null,
-    "images": []
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-e-0029/01.webp",
+        "thumb": "/assets/jewellery/alv-e-0029/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-e-0029/02.webp",
+        "thumb": "/assets/jewellery/alv-e-0029/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
   },
   {
     "code": "ALV-R-0096",
@@ -5096,7 +6175,7 @@
       5
     ],
     "fromPriceUsd": 1100,
-    "description": "A oval lab-grown diamond framed by two side stones, cut and matched on our bench in Surat.",
+    "description": "An oval lab-grown diamond framed by two side stones, matched for colour and cut.",
     "tags": [],
     "featuredScore": 35,
     "addedOn": "2026-02-13",
@@ -5170,7 +6249,7 @@
     ],
     "caratRange": null,
     "fromPriceUsd": 760,
-    "description": "A emerald lab-grown diamond in a heritage setting with hand-finished detailing along the band.",
+    "description": "An emerald lab-grown diamond in a heritage setting with hand-finished detailing along the band.",
     "tags": [],
     "featuredScore": 35,
     "addedOn": null,
@@ -5209,7 +6288,7 @@
       5
     ],
     "fromPriceUsd": 1100,
-    "description": "A emerald lab-grown diamond wrapped in a clean, protective bezel of polished gold.",
+    "description": "An emerald lab-grown diamond wrapped in a clean, protective bezel of polished gold.",
     "tags": [],
     "featuredScore": 34,
     "addedOn": "2026-01-19",
@@ -5285,7 +6364,7 @@
       3
     ],
     "fromPriceUsd": 1150,
-    "description": "A emerald lab-grown diamond framed by two side stones, cut and matched on our bench in Surat.",
+    "description": "An emerald lab-grown diamond framed by two side stones, matched for colour and cut.",
     "tags": [],
     "featuredScore": 34,
     "addedOn": "2025-12-18",
@@ -5324,7 +6403,7 @@
       5
     ],
     "fromPriceUsd": 1100,
-    "description": "A round lab-grown diamond framed by two side stones, cut and matched on our bench in Surat.",
+    "description": "A round lab-grown diamond framed by two side stones, matched for colour and cut.",
     "tags": [],
     "featuredScore": 33,
     "addedOn": "2026-02-13",
@@ -5512,7 +6591,7 @@
       5
     ],
     "fromPriceUsd": 1100,
-    "description": "A oval lab-grown diamond framed by two side stones, cut and matched on our bench in Surat.",
+    "description": "An oval lab-grown diamond framed by two side stones, matched for colour and cut.",
     "tags": [],
     "featuredScore": 32,
     "addedOn": "2026-03-12",
@@ -5551,7 +6630,7 @@
       5
     ],
     "fromPriceUsd": 1000,
-    "description": "A emerald lab-grown diamond turned on its side and held in a slim east-west setting.",
+    "description": "An emerald lab-grown diamond turned on its side and held in a slim east-west setting.",
     "tags": [],
     "featuredScore": 32,
     "addedOn": "2026-01-21",
@@ -5590,7 +6669,7 @@
       5
     ],
     "fromPriceUsd": 1550,
-    "description": "A emerald lab-grown diamond turned on its side and held in a slim east-west setting.",
+    "description": "An emerald lab-grown diamond turned on its side and held in a slim east-west setting.",
     "tags": [],
     "featuredScore": 32,
     "addedOn": "2026-01-26",
@@ -5667,7 +6746,7 @@
       3
     ],
     "fromPriceUsd": 1100,
-    "description": "A radiant lab-grown diamond framed by two side stones, cut and matched on our bench in Surat.",
+    "description": "A radiant lab-grown diamond framed by two side stones, matched for colour and cut.",
     "tags": [],
     "featuredScore": 32,
     "addedOn": "2025-12-18",
@@ -5704,7 +6783,7 @@
       5
     ],
     "fromPriceUsd": 1200,
-    "description": "A signet profile with a emerald lab-grown diamond set flush into the face.",
+    "description": "A signet profile with an emerald lab-grown diamond set flush into the face.",
     "tags": [],
     "featuredScore": 31,
     "addedOn": "2025-12-13",
@@ -5742,7 +6821,7 @@
       3
     ],
     "fromPriceUsd": 700,
-    "description": "A emerald lab-grown diamond lifted by a fine halo of pavé that catches light from every angle.",
+    "description": "An emerald lab-grown diamond lifted by a fine halo of pavé that catches light from every angle.",
     "tags": [],
     "featuredScore": 30,
     "addedOn": "2026-02-02",
@@ -5815,7 +6894,7 @@
       5
     ],
     "fromPriceUsd": 1150,
-    "description": "A emerald lab-grown diamond framed by two side stones, cut and matched on our bench in Surat.",
+    "description": "An emerald lab-grown diamond framed by two side stones, matched for colour and cut.",
     "tags": [],
     "featuredScore": 30,
     "addedOn": "2026-02-13",
@@ -5854,7 +6933,7 @@
       5
     ],
     "fromPriceUsd": 1100,
-    "description": "A round lab-grown diamond framed by two side stones, cut and matched on our bench in Surat.",
+    "description": "A round lab-grown diamond framed by two side stones, matched for colour and cut.",
     "tags": [],
     "featuredScore": 30,
     "addedOn": "2026-03-12",
@@ -5932,7 +7011,7 @@
       5
     ],
     "fromPriceUsd": 1100,
-    "description": "A emerald lab-grown diamond framed by two side stones, cut and matched on our bench in Surat.",
+    "description": "An emerald lab-grown diamond framed by two side stones, matched for colour and cut.",
     "tags": [],
     "featuredScore": 29,
     "addedOn": "2026-03-03",
@@ -5971,7 +7050,7 @@
       5
     ],
     "fromPriceUsd": 1000,
-    "description": "A asscher lab-grown diamond in a heritage setting with hand-finished detailing along the band.",
+    "description": "An asscher lab-grown diamond in a heritage setting with hand-finished detailing along the band.",
     "tags": [],
     "featuredScore": 29,
     "addedOn": "2026-01-08",
@@ -6124,7 +7203,7 @@
       5
     ],
     "fromPriceUsd": 1100,
-    "description": "A asscher lab-grown diamond framed by two side stones, cut and matched on our bench in Surat.",
+    "description": "An asscher lab-grown diamond framed by two side stones, matched for colour and cut.",
     "tags": [],
     "featuredScore": 28,
     "addedOn": "2025-12-17",
@@ -6163,7 +7242,7 @@
       5
     ],
     "fromPriceUsd": 1050,
-    "description": "A emerald lab-grown diamond framed by two side stones, cut and matched on our bench in Surat.",
+    "description": "An emerald lab-grown diamond framed by two side stones, matched for colour and cut.",
     "tags": [],
     "featuredScore": 26,
     "addedOn": "2026-04-02",
@@ -6202,7 +7281,7 @@
       5
     ],
     "fromPriceUsd": 1050,
-    "description": "A emerald lab-grown diamond framed by two side stones, cut and matched on our bench in Surat.",
+    "description": "An emerald lab-grown diamond framed by two side stones, matched for colour and cut.",
     "tags": [],
     "featuredScore": 26,
     "addedOn": "2026-04-07",
@@ -6241,7 +7320,7 @@
       5
     ],
     "fromPriceUsd": 1050,
-    "description": "A emerald lab-grown diamond framed by two side stones, cut and matched on our bench in Surat.",
+    "description": "An emerald lab-grown diamond framed by two side stones, matched for colour and cut.",
     "tags": [],
     "featuredScore": 26,
     "addedOn": "2026-04-09",
@@ -6317,7 +7396,7 @@
       3
     ],
     "fromPriceUsd": 1500,
-    "description": "A hexagon lab-grown diamond framed by two side stones, cut and matched on our bench in Surat.",
+    "description": "A hexagon lab-grown diamond framed by two side stones, matched for colour and cut.",
     "tags": [],
     "featuredScore": 26,
     "addedOn": "2025-12-18",
@@ -6467,7 +7546,7 @@
       5
     ],
     "fromPriceUsd": 1100,
-    "description": "A pear lab-grown diamond framed by two side stones, cut and matched on our bench in Surat.",
+    "description": "A pear lab-grown diamond framed by two side stones, matched for colour and cut.",
     "tags": [],
     "featuredScore": 24,
     "addedOn": "2026-03-13",
@@ -6506,7 +7585,7 @@
       5
     ],
     "fromPriceUsd": 1050,
-    "description": "A pear lab-grown diamond framed by two side stones, cut and matched on our bench in Surat.",
+    "description": "A pear lab-grown diamond framed by two side stones, matched for colour and cut.",
     "tags": [],
     "featuredScore": 24,
     "addedOn": "2026-03-27",
@@ -6621,7 +7700,7 @@
       3
     ],
     "fromPriceUsd": 1400,
-    "description": "A hexagon lab-grown diamond framed by two side stones, cut and matched on our bench in Surat.",
+    "description": "A hexagon lab-grown diamond framed by two side stones, matched for colour and cut.",
     "tags": [],
     "featuredScore": 22,
     "addedOn": "2025-12-18",
@@ -6659,7 +7738,7 @@
       3
     ],
     "fromPriceUsd": 1500,
-    "description": "A hexagon lab-grown diamond framed by two side stones, cut and matched on our bench in Surat.",
+    "description": "A hexagon lab-grown diamond framed by two side stones, matched for colour and cut.",
     "tags": [],
     "featuredScore": 22,
     "addedOn": "2025-12-18",
