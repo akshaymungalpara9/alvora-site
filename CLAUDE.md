@@ -75,6 +75,15 @@ before big changes, and end each work session with a short summary.
   engagement-ring shot. Use photos 1600px+ wide (2400px+ ideal).
 - Contact options are email, WhatsApp and phone. There is no video call.
 
+## Link previews (WhatsApp etc.)
+- `socialImageFor()` in `server/seoInjection.ts`: product pages use
+  `/assets/social/pieces/<code>.jpg` (the piece's first photo); homepage,
+  collections, shapes, consultation and guides use
+  `/assets/social/alvora-jewellery.jpg` (the homepage photos side by side);
+  trade pages keep `/assets/alvora-og.jpg`. JPEG only (WebP breaks previews).
+- Rebuilt automatically by `pnpm hero:image` and `pnpm jewellery:images`, or
+  run `pnpm social:images`.
+
 ## SEO
 - Follows the owner's SEO/AEO playbook: conversions first, one money page at
   a time, weekly loop, every claim sourced. Files in `seo/` (`BRIEF.md`,

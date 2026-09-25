@@ -63,6 +63,8 @@ async function main() {
   }
   fs.writeFileSync(MANIFEST, `${JSON.stringify({ slides }, null, 2)}\n`);
   console.log(`${slides.length} homepage photo(s) → client/public/assets/home/`);
+  const { buildSocialImages } = await import("./build-social-images.mjs");
+  await buildSocialImages();
 }
 
 main().catch((error) => {
