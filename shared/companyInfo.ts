@@ -55,7 +55,7 @@ export const COMPANY: CompanyInfo = Object.freeze({
   gjepcStatus: null,
   phone: "+91 99244 90125",
   whatsappNumber: "919924490125",
-  email: "akshaym@alvoradiamonds.com",
+  email: "akshay@alvoradiamonds.com",
   growthMethods: ["CVD", "HPHT"],
   certBodies: ["IGI", "GIA"],
   moq: Object.freeze({

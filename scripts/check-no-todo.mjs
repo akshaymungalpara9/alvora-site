@@ -35,18 +35,26 @@ if (dirs.length === 0) {
   process.exit(0);
 }
 
+// Placeholder patterns that must never reach a build. Each entry is a
+// fixed-string grep pattern; add to scripts/todo-allowlist.json to exempt
+// specific files (same allowlist is applied to every pattern).
+const PATTERNS = [
+  "TODO(alvora)",      // explicit in-code work markers
+  "data-alvora-todo",  // rendered hidden TODO spans (visible as broken sentences)
+  "/* COPY:",          // content-team placeholder strings
+];
+
 let output = "";
-try {
-  output = execSync(`grep -rn "TODO(alvora)" ${dirs.join(" ")}`, {
-    cwd: root,
-    encoding: "utf-8",
-  });
-} catch (err) {
-  if (err.status === 1) {
-    console.log("[check-no-todo] No TODO(alvora) markers found. ✓");
-    process.exit(0);
+for (const pattern of PATTERNS) {
+  try {
+    const found = execSync(`grep -rnF "${pattern}" ${dirs.join(" ")}`, {
+      cwd: root,
+      encoding: "utf-8",
+    });
+    if (found) output += found;
+  } catch (err) {
+    if (err.status !== 1) throw err; // 1 = no matches, which is the goal
   }
-  throw err;
 }
 
 const violations = output
@@ -55,11 +63,11 @@ const violations = output
   .filter((line) => !isAllowlisted(line.split(":")[0]));
 
 if (violations.length === 0) {
-  console.log("[check-no-todo] All TODO(alvora) markers are in allowlisted files. ✓");
+  console.log("[check-no-todo] All placeholder markers are in allowlisted files. ✓");
   process.exit(0);
 }
 
-console.error("[check-no-todo] Unresolved TODO(alvora) markers found outside allowlist:");
+console.error("[check-no-todo] Unresolved placeholder markers found outside allowlist:");
 for (const v of violations) console.error(`  ${v}`);
 console.error("\nFix these or add the files to scripts/todo-allowlist.json.");
 process.exit(1);

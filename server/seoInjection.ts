@@ -180,6 +180,17 @@ function mkBreadcrumbs(origin: string, trail: Array<{ name: string; path: string
   };
 }
 
+function mkWebSite(origin: string) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": `${origin}/#website`,
+    name: "Alvora",
+    url: `${origin}/`,
+    publisher: { "@id": `${origin}/#organization` },
+  };
+}
+
 function mkItemList(origin: string, name: string, pieces: typeof PUBLIC_PIECES) {
   return {
     "@context": "https://schema.org",
@@ -283,17 +294,17 @@ export function resolveRouteMeta(pathname: string, origin: string): RouteMeta | 
   const url = (p: string) => `${origin}${p}`;
   switch (pathname) {
     case "/":
-      return { lang: "en", ...JEWELLERY_HOME_META, canonical: url("/"), serviceJsonLd: mkFaqPage(JEWELLERY_FAQ) };
+      return { lang: "en", ...JEWELLERY_HOME_META, canonical: url("/"), serviceJsonLd: [mkFaqPage(JEWELLERY_FAQ), mkWebSite(origin)] };
     case "/trade":
-      return { ...publicSeo.global, title: "Lab-Grown Diamond Manufacturer & Wholesale Supplier | Alvora", description: "Alvora is a Surat-based lab-grown diamond manufacturer supplying wholesale CVD and HPHT diamonds, layouts and matched pairs to jewellers worldwide.", canonical: url("/trade"), alternates: publicHreflangAlternates(origin), serviceJsonLd: mkFaqPage([
+      return { ...publicSeo.global, title: "Lab-Grown Diamond Manufacturer & Wholesale Supplier | Alvora", description: "Alvora is a Surat-based lab-grown diamond manufacturer supplying wholesale CVD and HPHT diamonds, layouts and matched pairs to jewellers worldwide.", canonical: url("/trade"), alternates: publicHreflangAlternates(origin), serviceJsonLd: [mkFaqPage([
         { q: "Is there a minimum order?", a: "The minimum order depends on the product, size, shape, certification, and whether the request is stock, a sample, a layout, or custom production. Category-specific minimums are confirmed in the quotation before approval. Buyers should include the expected quantity and repeat-order plan so the applicable minimum can be discussed clearly." },
         { q: "Are your stones IGI or GIA certified?", a: "Alvora can supply IGI-certified laboratory-grown diamonds where applicable, with report-linked identity and familiar 4Cs information. IGI is generally the practical wholesale baseline for comparison and inventory workflows. GIA can be requested when a retailer or destination channel requires its name; buyers should confirm the report format needed before ordering." },
         { q: "Can I request a sample or memo?", a: "A sample or memo request can be discussed before the first production order, subject to the goods and commercial terms. Availability, return conditions, shipping, insurance, and any charges should be confirmed in writing. Custom-cut or specially produced goods may require separate treatment from standard stock." },
         { q: "How fast do you respond to a quote request?", a: "Within 24 hours during business days. Same-day on WhatsApp during Surat hours (IST 09:00–19:00). A complete brief — shape, measurements, quality, quantity, certification, destination, and any CAD or reference file — helps Alvora respond with a useful quotation." },
         { q: "What are your lead times?", a: "Lead time depends on whether the requirement is available stock, a selected layout or pair, melee sorting, certification, or custom cutting. Actual days by product are stated in the quotation. The schedule distinguishes feasibility review, production, grading, buyer approval, packing, and dispatch." },
-        { q: "Do you ship to the US, Canada, EU, or GCC?", a: "Alvora can discuss courier shipment to the US, Canada, EU, and GCC, with insurance and applicable IGI paperwork arranged according to the order. The buyer is responsible for destination-country duties, taxes, and import clearance. US 25% duty, Canada 0%, EU standard, GCC standard — confirm current rates with the relevant customs authority before shipment." },
+        { q: "Do you ship to the US, Canada, EU, or GCC?", a: "Alvora can discuss courier shipment to the US, Canada, EU, and GCC, with insurance and applicable IGI paperwork arranged according to the order. The buyer is responsible for destination-country duties, taxes, and import clearance. Confirm current rates with the relevant customs authority before shipment." },
         { q: "How do I place my first order?", a: "Start with WhatsApp or an RFQ containing the design and stone specification. Alvora reviews the requirement and sends a quote, then the buyer can discuss a memo or sample where available before issuing a PO. After approval: production, documentation and QC, buyer confirmation where applicable, packing, and dispatch." },
-      ]) };
+      ]), mkBreadcrumbs(origin, [{ name: "Home", path: "/" }, { name: "Trade", path: "/trade" }])] };
     case "/fr":
       return { ...publicSeo.fr, title: "Lab-Grown Diamond Manufacturer for France | Alvora Diamonds", description: "French jewellery brands and wholesalers: source lab-grown diamonds direct from Alvora, a Surat manufacturer shipping calibrated stones to France.", canonical: url("/fr"), alternates: publicHreflangAlternates(origin) };
     case "/it":
@@ -452,7 +463,7 @@ export function resolveRouteMeta(pathname: string, origin: string): RouteMeta | 
         title: "Lab-Grown Diamond Certifications Explained | Alvora",
         description: "How IGI and other laboratory certifications work for lab-grown diamonds, what each report covers and what wholesale buyers should verify before ordering.",
         canonical: url("/certifications"),
-        serviceJsonLd: { "@context": "https://schema.org", "@type": "Service", name: "IGI-Certified Lab-Grown Diamonds", serviceType: "Diamond Manufacturing and Certification", provider: { "@type": "Organization", name: "Alvora", address: { "@type": "PostalAddress", addressLocality: "Surat", addressCountry: "IN" } }, description: "Every Alvora lab-grown diamond is IGI laser-inscribed and verified against the IGI database before dispatch.", areaServed: "Worldwide" },
+        serviceJsonLd: [{ "@context": "https://schema.org", "@type": "Service", name: "IGI-Certified Lab-Grown Diamonds", serviceType: "Diamond Manufacturing and Certification", provider: { "@type": "Organization", name: "Alvora", address: { "@type": "PostalAddress", addressLocality: "Surat", addressCountry: "IN" } }, description: "Every Alvora lab-grown diamond is IGI laser-inscribed and verified against the IGI database before dispatch.", areaServed: "Worldwide" }, mkBreadcrumbs(origin, [{ name: "Home", path: "/" }, { name: "Certifications", path: "/certifications" }])],
       };
     case "/about":
       return {
@@ -460,7 +471,7 @@ export function resolveRouteMeta(pathname: string, origin: string): RouteMeta | 
         title: "About Alvora — Surat Lab-Grown Diamond Manufacturer",
         description: "Alvora grows, cuts and polishes lab-grown diamonds in Surat, India, supplying wholesale melee, matched pairs, layouts and custom cuts worldwide.",
         canonical: url("/about"),
-        serviceJsonLd: { "@context": "https://schema.org", "@type": "Organization", name: "Alvora", description: "Alvora is a Surat-based lab-grown diamond manufacturer specialising in precision cutting, calibration, and IGI certification.", address: { "@type": "PostalAddress", addressLocality: "Surat", addressRegion: "Gujarat", addressCountry: "IN" } },
+        serviceJsonLd: [{ "@context": "https://schema.org", "@type": "Organization", name: "Alvora", description: "Alvora is a Surat-based lab-grown diamond manufacturer specialising in precision cutting, calibration, and IGI certification.", address: { "@type": "PostalAddress", addressLocality: "Surat", addressRegion: "Gujarat", addressCountry: "IN" } }, mkBreadcrumbs(origin, [{ name: "Home", path: "/" }, { name: "About", path: "/about" }])],
       };
     case "/for-jewelry-brands":
       return {
