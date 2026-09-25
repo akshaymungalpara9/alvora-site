@@ -10,6 +10,7 @@
     "stones:build": "node scripts/build-stones-index.mjs",
     "plates:build": "node scripts/build-plates.mjs",
     "jewellery:build": "node scripts/jewellery/build-catalog.mjs",
+    "hero:image": "node scripts/build-home-hero.mjs",
     "jewellery:images": "node scripts/jewellery/build-catalog.mjs --images",
     "brand:image": "node scripts/jewellery/brand-image.mjs",
     "prerender": "node scripts/prerender.mjs",

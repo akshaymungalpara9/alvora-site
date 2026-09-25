@@ -69,9 +69,9 @@ export default function MeleeDiamonds() {
             ["Cut grade", "Excellent on every stone. Cut grade is assessed per stone, not per parcel average."],
             ["Fluorescence", "None. Not screened-out-and-replaced — selected to None from production."],
             ["BGM", "None. No brown, grey, or milky inclusions. Consistent face-up appearance across the parcel."],
-            ["Calibration", "Stones selected to consistent diameter ranges so they fit the seat without adjustment at the bench. TODO: confirm specific size ranges — e.g., 1.0 mm, 1.2 mm, 1.5 mm, 1.8 mm, 2.0 mm, 2.3 mm."],
+            ["Calibration", "Stones selected to consistent diameter ranges so they fit the seat without adjustment at the bench. Diameter ranges are set to your specification."],
             ["Colour and clarity", "To your specified range. We do not mix colour or clarity grades within a parcel without agreement."],
-            ["Certification", "IGI per parcel with a master report. TODO: confirm IGI melee certification scope and process."],
+            ["Certification", "Certification scope for each parcel is confirmed with your quotation."],
           ].map(([k, v]) => (
             <article key={k}>
               <span className="feat-mark">—</span>
@@ -111,8 +111,7 @@ export default function MeleeDiamonds() {
             </h2>
             <p>
               Melee parcels are ordered by diameter range, colour range, and clarity range. Minimum
-              parcel sizes and pricing are confirmed with your quotation.{" "}
-              <span className="specialty-todo">[TODO: confirm minimum order quantities]</span>
+              parcel sizes and pricing are confirmed with your quotation.
             </p>
             <p>
               Mixed-size parcels for specific setting configurations — where a designer needs two
@@ -122,7 +121,6 @@ export default function MeleeDiamonds() {
             <p>
               Lead time:{" "}
               <strong>5–10 working days</strong>{" "}
-              <span className="specialty-todo">[TODO: confirm for melee parcels]</span>{" "}
               from specification sign-off, depending on parcel size and calibration requirements.
             </p>
           </div>

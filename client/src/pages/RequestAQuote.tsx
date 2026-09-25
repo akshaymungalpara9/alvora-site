@@ -346,8 +346,7 @@ export default function RequestAQuote() {
               <strong>Lead time</strong>
               <p>
                 Standard production: typically available from bench stock or within 5–10 working
-                days. Custom cuts and matched pairs: 5–14 working days from specification sign-off.{" "}
-                <span className="specialty-todo">[TODO: confirm]</span>
+                days. Custom cuts and matched pairs: lead time is confirmed in your quotation.
               </p>
             </article>
             <article>

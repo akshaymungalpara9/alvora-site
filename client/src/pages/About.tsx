@@ -13,8 +13,6 @@ const JSON_LD = {
     addressRegion: "Gujarat",
     addressCountry: "IN",
   },
-  foundingDate: "TODO",
-  numberOfEmployees: { "@type": "QuantitativeValue", value: "TODO" },
   knowsAbout: ["Lab-grown diamonds", "Diamond cutting", "IGI certification", "Calibrated diamond layouts"],
 };
 
@@ -61,8 +59,7 @@ export default function About() {
 
         <div className="about-numbers">
           {[
-            ["25+", "years of industry experience", "TODO: confirm"],
-            ["10,000+", "stones dispatched", "TODO: confirm cumulative"],
+            ["3,000+", "certified stones in the current index", "Each listed with its IGI or GIA report number"],
             ["100%", "IGI standard on every stone", "No exceptions by stone size or order value"],
             ["DIRECT", "from-bench pricing", "No margin layer between manufacturer and buyer"],
           ].map(([value, label, note]) => (
@@ -117,15 +114,12 @@ export default function About() {
             and verified against its returned certificate before dispatch. The process is linear and
             accountable — no stone moves to the next stage until the current stage is confirmed.
           </p>
-          <p>
-            <span className="specialty-todo">[TODO: confirm and expand each stage with production specifics — rough sourcing, growth type, cutting tooling, capacity]</span>
-          </p>
         </div>
 
         <div className="about-process-list" style={{ marginTop: 48 }}>
           {[
             ["Rough assessment", "Rough is evaluated against the intended cut specification before being assigned to production. For custom cuts and matched pairs, rough selection is the first production decision."],
-            ["Cutting and faceting", "Each stone is cut against the specification — shape, dimensions, angles — at our benches. TODO: confirm tooling and cutting approach."],
+            ["Cutting and faceting", "Each stone is cut against the specification — shape, dimensions, angles — at our benches."],
             ["Calibration check", "Dimensions are verified at bench against the specification. Stones outside tolerance are evaluated for rework or separated from the parcel."],
             ["IGI submission", "Stones are submitted to IGI for laser inscription and full grading. We do not ship ungraded or self-certified stones."],
             ["Certificate verification", "Returned certificates are matched to each stone. Laser inscription is confirmed under magnification. Grades are cross-checked against specification."],
