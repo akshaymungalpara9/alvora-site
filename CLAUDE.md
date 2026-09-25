@@ -76,7 +76,7 @@ before big changes, and end each work session with a short summary.
   skipped before numbering: a 64-bit difference hash (dhash) drops any photo
   within 2 bits of one already kept. Dropped filenames are logged to the
   git-ignored `data/jewellery/skipped-photos.txt` so you can review the trims.
-- Status (2026-09-25): June Rings 45/45 and Carat earrings 20/20 have photos.
+- Status (2026-09-25): June Rings 196/196 and Carat earrings 20/20 have photos.
   **Pooja (91 pieces) still needs photos**; they appear automatically once
   added and `pnpm jewellery:images` is run.
 
