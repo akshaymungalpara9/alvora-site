@@ -18,7 +18,7 @@ export const JEWELLERY_FAQ: Array<{ q: string; a: string }> = [
   },
   {
     q: "Do your diamonds come with a certificate?",
-    a: "Centre stones can be supplied with an independent grading report. Tell us in your enquiry if you need one and we will confirm the report for your stone before you order.",
+    a: "Yes. Every stone ships with its own IGI or GIA report, and we confirm the report number for your stone before you order.",
   },
   {
     q: "Where do you deliver?",
