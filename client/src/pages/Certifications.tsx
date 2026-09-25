@@ -89,7 +89,7 @@ export default function Certifications() {
               We do not submit stones for certification as a separate step after production is
               complete. Certification is integrated into our make process:
             </p>
-            <div className="about-process-list" style={{ marginTop: 24, color: "var(--paper)" }}>
+            <div className="about-process-list" style={{ marginTop: 24 }}>
               {[
                 ["Cut and polish", "Stone is cut and polished to our standard make - Excellent/Ideal, no fluorescence, no BGM."],
                 ["IGI submission", "Stone is submitted to IGI for laser inscription and full grading."],
@@ -99,7 +99,7 @@ export default function Certifications() {
               ].map(([title, desc]) => (
                 <article key={title}>
                   <div>
-                    <h3 style={{ color: "var(--paper)" }}>{title}</h3>
+                    <h3>{title}</h3>
                     <p>{desc}</p>
                   </div>
                 </article>

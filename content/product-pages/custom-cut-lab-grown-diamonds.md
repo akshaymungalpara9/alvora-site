@@ -14,9 +14,9 @@ Alvora's custom-cut lab-grown diamond service develops unusual or design-specifi
 ## Key facts
 
 - Certification: IGI certification can be specified where applicable; report and treatment fields should be agreed before production.
-- Tolerance range: ±0.05mm on diameter/length-width; define minimum and maximum measurements and any facet or outline tolerance. <!-- DRAFT-VALUE: confirm with Akshay -->
-- MOQ: Minimum 5 carats total per custom-cut production run; state whether minimums depend on rough planning, shape complexity, or repeat quantity. <!-- DRAFT-VALUE: confirm with Akshay -->
-- Lead time: 7–10 working days; separate feasibility, cutting, certification, approval, and dispatch stages. <!-- DRAFT-VALUE: confirm with Akshay -->
+- Tolerance range: On request; measurement and matching tolerances are agreed in writing for each order before selection or production.
+- MOQ: On request; order minimums are confirmed at quotation for the relevant programme.
+- Lead time: On request; timing is confirmed at quotation with the production stages for each order.
 - Primary shapes: agreed standard or unusual shapes, including CAD-defined outlines and design-specific faceting.
 
 A custom cut should begin with a production conversation. Share the intended finished dimensions, outline, facet direction, setting constraints, quantity, colour and clarity range, and CAD or drawing. Available rough, morphology, yield, and faceting complexity can affect feasibility, price, and delivery planning. Early review helps distinguish a reproducible specification from one that needs adjustment.

@@ -1104,3 +1104,33 @@ body { color: var(--ink); }
 .insight-evidence-unknown::before { background: #b58a3c; }
 .form-field-hint { display: block; font-size: .8rem; color: var(--signal-text); margin: .2rem 0 .45rem; }
 .product-body pre { white-space: pre-wrap; overflow-x: auto; word-break: break-word; }
+
+/* Readability repair: the light editorial reskin moved page backgrounds to the light canvas but
+   left dark-era text colours on the specialty shell family, the contact hero, the referral page,
+   and catalogue pagination, rendering white or near-white text on cream. Pin those elements to
+   the light-surface ink scale. Dark panels (.hero, contact columns, dark chips) are untouched. */
+.specialty-hero h1 { color: var(--ink); }
+.specialty-hero-copy { color: var(--paper-dim); }
+.specialty-section-ink { color: var(--ink); }
+.specialty-feature-list h3 { color: var(--ink); }
+.specialty-feature-list p { color: var(--paper-dim); }
+.about-numbers span { color: var(--paper-dim); }
+.contact-hero h1 { color: var(--ink); }
+.contact-intro { color: var(--paper-dim); }
+.inline-link:hover { color: var(--signal-text); }
+.refer-page h1 { color: var(--ink); }
+.catalog-pagination button { color: var(--paper-dim); }
+.availability-summary { color: var(--paper-dim); }
+.product-body a { color: var(--signal-text); text-decoration: underline; text-underline-offset: 2px; }
+.product-body a:hover { color: var(--signal); }
+
+/* Contact page: the brief form sits on the page's intentionally dark contact columns, so the
+   light-theme label and input colours are unreadable there. Restore dark-panel values. */
+.contact-form-col .brief-form label > span { color: #b0b2ab; }
+.contact-form-col .brief-form input, .contact-form-col .brief-form textarea, .contact-form-col .brief-form select { color: var(--paper); border-bottom-color: #5a5e57; }
+.contact-form-col .brief-form input::placeholder, .contact-form-col .brief-form textarea::placeholder { color: #777a73; }
+.contact-form-col .brief-form select option { color: var(--ink); background: var(--surface); }
+
+/* Specialty heroes are light surfaces: the maker-line was designed for the dark photographic
+   homepage hero, so pin it to the readable secondary ink wherever it appears in a specialty hero. */
+.specialty-hero .hero-maker-line { color: var(--paper-dim); border-color: var(--signal); }
