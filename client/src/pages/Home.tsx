@@ -11,6 +11,7 @@ import CollectionGrid from "@/components/jewellery/CollectionGrid";
 import ShapeSelector, { SHOP_SHAPES } from "@/components/jewellery/ShapeSelector";
 import EditorialBand from "@/components/jewellery/EditorialBand";
 import PieceImage from "@/components/jewellery/PieceImage";
+import HeroSlides, { type HeroSlide } from "@/components/jewellery/HeroSlides";
 import { pieceHref } from "@/components/jewellery/ProductCard";
 import { PUBLIC_PIECES, formatFromPrice } from "@shared/jewellery/catalog";
 import { JEWELLERY_HOME_META } from "@shared/jewellery/seo";
@@ -25,8 +26,7 @@ const TRADE_ANCHORS = new Set(["#production", "#made-to-spec", "#how-we-work", "
 const byScore = (a: { featuredScore: number }, b: { featuredScore: number }) => b.featuredScore - a.featuredScore;
 const engagement = PUBLIC_PIECES.filter((piece) => piece.collections.includes("engagement-rings")).sort(byScore);
 const everyday = PUBLIC_PIECES.filter((piece) => piece.category === "earrings" || piece.category === "pendant").sort(byScore);
-type HeroPhoto = { alt: string; sizes: Array<{ src: string; width: number; height: number }> };
-const HERO_PHOTO = homeHero as HeroPhoto | null;
+const HERO_SLIDES = (homeHero as { slides: HeroSlide[] } | null)?.slides ?? [];
 const heroPiece = engagement.find((piece) => piece.images.length) ?? null;
 const liveShapes = SHOP_SHAPES.filter(({ shape }) => engagement.some((piece) => piece.shape === shape));
 const lowestEveryday = everyday.reduce<number | null>((low, piece) => (piece.fromPriceUsd != null && (low == null || piece.fromPriceUsd < low) ? piece.fromPriceUsd : low), null);
@@ -49,12 +49,9 @@ export default function Home() {
     <JewelleryShell>
       <section className="jh-hero">
         <div className="jh-hero-media">
-          {HERO_PHOTO ? (
-            // Owner-supplied hero photo (pnpm hero:image), in sizes up to 2400px.
-            <picture>
-              <source type="image/webp" srcSet={HERO_PHOTO.sizes.map((size) => `${size.src} ${size.width}w`).join(", ")} sizes="(min-width: 900px) 55vw, 100vw" />
-              <img src={HERO_PHOTO.sizes[HERO_PHOTO.sizes.length - 1].src} alt={HERO_PHOTO.alt} width={HERO_PHOTO.sizes[0].width} height={HERO_PHOTO.sizes[0].height} fetchPriority="high" />
-            </picture>
+          {HERO_SLIDES.length ? (
+            // Owner-supplied hero photos (pnpm hero:image), rotating.
+            <HeroSlides slides={HERO_SLIDES} sizes="(min-width: 900px) 55vw, 100vw" />
           ) : heroPiece ? (
             <Link href={pieceHref(heroPiece)} className="jh-hero-piece" aria-label={heroPiece.name}>
               <PieceImage piece={heroPiece} priority sizes="(min-width: 900px) 55vw, 100vw" />

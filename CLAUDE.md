@@ -56,11 +56,15 @@ before big changes, and end each work session with a short summary.
   **Pooja (91 pieces) still needs photos**; they appear automatically once
   added and `pnpm jewellery:images` is run.
 
-## Homepage hero photo
-- `pnpm hero:image <photo> --alt "Description"` makes 900/1600/2400px WebP in
-  `client/public/assets/home/` and records it in `shared/homeHero.json`;
-  `pnpm hero:image --clear` goes back to the top engagement-ring shot.
-  Use a photo 2400px+ wide (4K ideal); catalogue shots look soft at hero size.
+## Homepage hero photos
+- The homepage rotates the owner's photos (cross-fade every 6s; still for
+  reduced-motion visitors). Current set (2026-09-25): 4 photos, two with a
+  model and two hand shots, 1611x2000 each.
+- Replace or add: `pnpm hero:image a.jpg b.jpg ... --alt "..." --alt "..."`
+  (one --alt per photo, same order). Writes `client/public/assets/home/` and
+  `shared/homeHero.json`. `pnpm hero:image --clear` goes back to the top
+  engagement-ring shot. Use photos 1600px+ wide (2400px+ ideal).
+- Contact options are email, WhatsApp and phone. There is no video call.
 
 ## SEO
 - Follows the owner's SEO/AEO playbook: conversions first, one money page at

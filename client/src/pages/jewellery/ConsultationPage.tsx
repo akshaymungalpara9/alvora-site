@@ -19,7 +19,7 @@ export default function ConsultationPage() {
         <div className="jb-copy">
           <p className="jw-eyebrow">Consultation</p>
           <h1 className="jw-display">Choose your ring with <em>us</em>, not alone.</h1>
-          <p className="jw-lede">A free, unhurried conversation by video, WhatsApp or phone with someone who knows diamonds from the bench up.</p>
+          <p className="jw-lede">A free, unhurried conversation on WhatsApp or by phone with someone who knows diamonds from the bench up.</p>
           <ol className="jb-list">
             <li>
               <span>01</span>

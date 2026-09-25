@@ -67,7 +67,7 @@ export const JEWELLERY_COLLECTION_META: Record<string, JewelleryRouteMeta & { he
 
 export const CONSULTATION_META: JewelleryRouteMeta = {
   title: "Book a Jewellery Consultation | Alvora",
-  description: "Book a video or WhatsApp consultation with Alvora to choose a lab-grown diamond ring, confirm your size and metal, and get a price for your piece.",
+  description: "Book a WhatsApp or phone consultation with Alvora to choose a lab-grown diamond ring, confirm your size and metal, and get a price for your piece.",
 };
 
 export function shapePageMeta(shape: string, label: string): JewelleryRouteMeta {

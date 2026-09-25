@@ -34,7 +34,7 @@ export const jewelleryEnquiryInput = z.object({
   email: z.string().trim().email().max(320).transform((value) => value.toLowerCase()),
   phone: optionalText(80),
   country: optionalText(80),
-  preferredContact: z.enum(["email", "whatsapp", "phone", "video"]).default("email"),
+  preferredContact: z.enum(["email", "whatsapp", "phone"]).default("email"),
   preferredTime: optionalText(160),
   budget: optionalText(60),
   message: z.string().max(6000).optional().transform((value) => value?.trim().slice(0, 3000) || undefined),

@@ -9,6 +9,12 @@
 .jh-hero-media { position: relative; overflow: hidden; background: var(--jw-vellum); }
 .jh-hero-media img, .jh-hero-media .jw-image, .jh-hero-piece { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .jh-hero-media picture img { filter: saturate(0.85) contrast(1.04); }
+.jh-slides { position: absolute; inset: 0; }
+.jh-slides picture { position: absolute; inset: 0; opacity: 0; transition: opacity 1.2s ease; }
+.jh-slides picture.is-active { opacity: 1; }
+.jh-slides img { object-position: 50% 30%; }
+.jh-hero-media .jh-slides picture img { filter: none; }
+@media (prefers-reduced-motion: reduce) { .jh-slides picture { transition: none; } }
 .jh-hero-stamp {
   position: absolute;
   left: 22px;
@@ -105,6 +111,8 @@
 @media (max-width: 900px) {
   .jh-hero { grid-template-columns: 1fr; min-height: 0; }
   .jh-hero-media { aspect-ratio: 4 / 3.4; }
+  .jh-hero-media:has(.jh-slides) { aspect-ratio: 1 / 1.05; }
+  .jh-slides img { object-position: 50% 62%; }
   .jh-hero-copy { padding: 40px 16px 52px; }
   .jh-steps-list { grid-template-columns: 1fr; }
   .jh-steps-list h3 { margin-top: 18px; }
