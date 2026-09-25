@@ -25,7 +25,7 @@ const CATEGORY_LINKS: Record<string, { label: string; href: string }> = {
   ring: { label: "Engagement rings", href: "/engagement-rings" },
   band: { label: "Wedding & bands", href: "/wedding-bands" },
   earrings: { label: "Earrings", href: "/earrings" },
-  pendant: { label: "Pendants", href: "/pendants" },
+  pendant: { label: "Necklaces & pendants", href: "/necklaces" },
 };
 
 const METAL_NAMES: Record<MetalColour, NonNullable<PieceSelection["metal"]>> = { yellow: "Yellow gold", white: "White gold", rose: "Rose gold" };

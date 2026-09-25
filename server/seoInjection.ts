@@ -148,7 +148,7 @@ const COLLECTION_KEYS: Record<string, JewelleryCollection | null> = {
   "/engagement-rings": "engagement-rings",
   "/rings": "rings",
   "/earrings": "earrings",
-  "/pendants": "pendants",
+  "/necklaces": "pendants",
   "/wedding-bands": "wedding-bands",
   "/jewellery/antique-cuts": "antique-cuts",
   "/jewellery/coloured-stones": "coloured-stones",
@@ -228,7 +228,7 @@ function jewelleryRouteMeta(pathname: string, origin: string): RouteMeta | null 
     const piece = findPublicPiece(pieceMatch[1]);
     if (!piece) return null;
     const meta = pieceMeta(piece);
-    const category = { ring: ["Engagement rings", "/engagement-rings"], band: ["Wedding & bands", "/wedding-bands"], earrings: ["Earrings", "/earrings"], pendant: ["Pendants", "/pendants"] }[piece.category];
+    const category = { ring: ["Engagement rings", "/engagement-rings"], band: ["Wedding & bands", "/wedding-bands"], earrings: ["Earrings", "/earrings"], pendant: ["Necklaces & pendants", "/necklaces"] }[piece.category];
     const product: Record<string, unknown> = {
       "@context": "https://schema.org",
       "@type": "Product",

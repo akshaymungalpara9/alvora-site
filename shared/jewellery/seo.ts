@@ -38,11 +38,11 @@ export const JEWELLERY_COLLECTION_META: Record<string, JewelleryRouteMeta & { he
     heading: "Earrings",
     intro: "Studs and drops with matched pairs of lab-grown diamonds, from everyday pieces to statement pairs.",
   },
-  "/pendants": {
-    title: "Lab-Grown Diamond Pendants & Necklaces | Alvora",
-    description: "Lab-grown diamond pendants on fine gold chains: solitaire and halo designs in round, oval, emerald, pear and more, from Alvora.",
-    heading: "Pendants",
-    intro: "A single stone on a fine chain, in the shape you love.",
+  "/necklaces": {
+    title: "Lab-Grown Diamond Necklaces & Pendants | Alvora",
+    description: "Lab-grown diamond necklaces and pendants on fine gold chains: solitaire and halo designs in round, oval, emerald, pear, marquise and more, from Alvora.",
+    heading: "Necklaces & pendants",
+    intro: "A single lab-grown diamond on a fine gold chain: solitaire and halo pendants in the shape you love, in yellow, white or rose gold.",
   },
   "/wedding-bands": {
     title: "Lab-Grown Diamond Wedding & Eternity Bands | Alvora",

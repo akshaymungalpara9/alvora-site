@@ -139,7 +139,7 @@ export default function Home() {
         <section className="jh-section" aria-labelledby="everyday-heading">
           <header className="jh-heading">
             <div>
-              <p className="jw-eyebrow">Earrings &amp; pendants</p>
+              <p className="jw-eyebrow">Earrings &amp; necklaces</p>
               <h2 id="everyday-heading" className="jh-title">Everyday diamonds{lowestEveryday != null ? <span className="jh-title-note"> {formatFromPrice({ fromPriceUsd: lowestEveryday }).toLowerCase()}</span> : null}</h2>
             </div>
             <Link href="/earrings" className="jw-link">Shop earrings <ArrowRight size={13} /></Link>

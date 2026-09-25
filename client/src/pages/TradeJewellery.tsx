@@ -20,7 +20,7 @@ const CATEGORY_TABS: Array<{ value: "all" | JewelleryCategory; label: string }> 
   { value: "ring", label: "Rings" },
   { value: "band", label: "Bands" },
   { value: "earrings", label: "Earrings" },
-  { value: "pendant", label: "Pendants" },
+  { value: "pendant", label: "Necklaces & pendants" },
 ];
 
 const TRADE_TERMS = [

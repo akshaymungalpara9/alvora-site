@@ -13,7 +13,7 @@ const NAV: NavItem[] = [
   { label: "Antique cuts", href: "/jewellery/antique-cuts", collection: "antique-cuts" },
   { label: "Coloured stones", href: "/jewellery/coloured-stones", collection: "coloured-stones" },
   { label: "Earrings", href: "/earrings", collection: "earrings" },
-  { label: "Pendants", href: "/pendants", collection: "pendants" },
+  { label: "Necklaces & Pendants", href: "/necklaces", collection: "pendants" },
   { label: "Wedding & bands", href: "/wedding-bands", collection: "wedding-bands" },
 ];
 

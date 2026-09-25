@@ -6,7 +6,7 @@ import { buildWhatsAppHrefWithMessage, WhatsAppInquiry } from "@/lib/whatsapp";
 import { COMPANY } from "@shared/companyInfo";
 import { findPublicPiece } from "@shared/jewellery/catalog";
 
-const JEWELLERY_PATHS = /^\/($|jewellery|engagement-rings|rings|earrings|pendants|wedding-bands|book-a-consultation)/;
+const JEWELLERY_PATHS = /^\/($|jewellery|engagement-rings|rings|earrings|necklaces|pendants|wedding-bands|book-a-consultation)/;
 
 const ADMIN_ROUTES = ["/admin", "/admin/buyers", "/admin/availability", "/admin/briefs", "/admin/jewellery"];
 

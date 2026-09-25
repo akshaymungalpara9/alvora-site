@@ -16,7 +16,7 @@ export const COLLECTION_ROUTES: Record<string, JewelleryCollection | null> = {
   "/engagement-rings": "engagement-rings",
   "/rings": "rings",
   "/earrings": "earrings",
-  "/pendants": "pendants",
+  "/necklaces": "pendants",
   "/wedding-bands": "wedding-bands",
   "/jewellery/antique-cuts": "antique-cuts",
   "/jewellery/coloured-stones": "coloured-stones",

@@ -35,3 +35,9 @@ Append-only. Newest entry at the bottom. Never delete an entry.
 **Measure after launch:**
 - Impressions and position for the STATE.md cluster on both URLs.
 - `jewellery_enquiry` and `consultation_request` events where `landing_page` is the marquise page or the guide.
+
+## 2026-09-25: Pendants collection becomes "Necklaces & Pendants"
+
+**Changed:** `/pendants` → `/necklaces`, with the old address forwarding to the new one. The label is now "Necklaces & Pendants" in the menus and breadcrumbs, and "Necklaces & pendants" as the H1 and in the trade catalogue tab.
+
+**Why:** Semrush (US, 2026-09-24) shows "lab grown diamond necklace" at 4,400/mo vs "lab grown diamond pendant" at 880/mo. The owner asked to keep necklaces and pendants in one collection. Pre-launch, so no baseline is affected.

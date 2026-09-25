@@ -506,12 +506,12 @@ const COLLECTION_ROUTES = [
   ["/jewellery", null],
   ["/engagement-rings", "engagement-rings"],
   ["/earrings", "earrings"],
-  ["/pendants", "pendants"],
+  ["/necklaces", "pendants"],
   ["/wedding-bands", "wedding-bands"],
   ["/jewellery/antique-cuts", "antique-cuts"],
   ["/jewellery/coloured-stones", "coloured-stones"],
 ];
-const JEWELLERY_ROUTE = /^\/(jewellery|engagement-rings|rings|earrings|pendants|wedding-bands|book-a-consultation)(\/|$)/;
+const JEWELLERY_ROUTE = /^\/(jewellery|engagement-rings|rings|earrings|necklaces|pendants|wedding-bands|book-a-consultation)(\/|$)/;
 
 function syncPublicRoutes(catalog) {
   const routesPath = path.join(ROOT, "scripts", "publicRoutes.json");

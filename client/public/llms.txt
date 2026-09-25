@@ -7,7 +7,7 @@ Home: Lab-grown diamond engagement rings and fine jewellery: /
 All jewellery: /jewellery
 Engagement rings: /engagement-rings
 Earrings: /earrings
-Pendants: /pendants
+Necklaces & pendants: /necklaces
 Book a consultation: /book-a-consultation
 
 Trade pages
