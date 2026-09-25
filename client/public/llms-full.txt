@@ -1,4 +1,4 @@
-# Alvora Diamonds — full LLM feed
+# Alvora Diamonds - full LLM feed
 
 Alvora Diamonds is a laboratory-grown diamond business based in Surat, India.
 It sells finished fine jewellery set with laboratory-grown diamonds (engagement
@@ -26,7 +26,7 @@ on enquiry.
 
 ## Jewellery (private customers)
 
-- Home: lab-grown diamond engagement rings and fine jewellery — /
+- Home: lab-grown diamond engagement rings and fine jewellery - /
 - All jewellery: /jewellery
 - Engagement rings: /engagement-rings
 - Rings by shape: /engagement-rings/shape/oval, /engagement-rings/shape/emerald,

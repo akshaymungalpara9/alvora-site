@@ -44,7 +44,7 @@ export default function LegalPage({ page }: { page: LegalPageKind }) {
   const path = page === "privacy" ? "/privacy" : "/terms";
 
   useEffect(() => {
-    applyDocumentMetadata({ lang: "en", path, title: `Alvora — ${content.label}`, description: content.description });
+    applyDocumentMetadata({ lang: "en", path, title: `Alvora - ${content.label}`, description: content.description });
   }, [content.description, content.label, path]);
 
   return <div className="legal-shell">

@@ -40,7 +40,7 @@ export default function Contact() {
   return (
     <SpecialtyPageShell>
       <SpecialtyPageMeta
-        title="Contact Alvora Diamonds — Surat, India"
+        title="Contact Alvora Diamonds - Surat, India"
         description="Contact the Alvora Diamonds team in Surat for lab-grown diamond wholesale enquiries, pricing, and specification briefs."
         path="/contact"
         jsonLd={JSON_LD}

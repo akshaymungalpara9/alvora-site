@@ -69,7 +69,7 @@ function CatalogStoneCard({ stone, isStatement, tab, locale, view, onOpenViewer 
     ["stock", stone.stockNumber], ["collection", stone.category], ["shape", stone.shape], ["carat", `${stone.carat} ct`], ["caratBand", stone.caratBand], ["colour", stone.color], ["clarity", stone.clarity], ["cut", stone.cut], ["polish", stone.polish], ["symmetry", stone.symmetry], ["fluorescence", stone.fluorescence], ["measurements", stone.measurements], ["depth", stone.depthPct === null ? null : `${stone.depthPct}%`], ["table", stone.tablePct === null ? null : `${stone.tablePct}%`], ["ratio", stone.ratio === null ? null : String(stone.ratio)], ["lab", stone.lab], ["certificate", certText || null], ["type", stone.statementType], ["crownHeight", stone.crownHeight === null ? null : `${stone.crownHeight}%`], ["pavilionDepth", stone.pavilionDepth === null ? null : `${stone.pavilionDepth}%`], ["crownAngle", stone.crownAngle === null ? null : `${stone.crownAngle}°`], ["pavilionAngle", stone.pavilionAngle === null ? null : `${stone.pavilionAngle}°`], ["girdle", stone.girdlePct === null ? null : `${stone.girdlePct}%`],
   ];
   const details = rawDetails.filter((entry): entry is [DetailKey, string] => Boolean(entry[1]));
-  const briefDetails = [`${stone.stockNumber} — ${stone.shape}`, `${stone.carat} ct`, stone.color, stone.clarity, certText].filter(Boolean).join(", ");
+  const briefDetails = [`${stone.stockNumber} - ${stone.shape}`, `${stone.carat} ct`, stone.color, stone.clarity, certText].filter(Boolean).join(", ");
   const requestHref = `${menuLinks[locale]}?availability=${encodeURIComponent(briefDetails)}#production-brief`;
 
   return <article className={`catalog-stone${isStatement ? " catalog-statement-stone" : ""}`}>
@@ -116,9 +116,9 @@ export default function PublicAvailability({ locale = "global" }: { locale?: Loc
   const pinnedStones = page === 0 ? visibleStones.filter((stone) => stone.isPinned) : [];
   const regularStones = visibleStones.filter((stone) => !stone.isPinned);
   const tabCount = (target: CollectionTab) => {
-    if (target === tab) return catalog.isLoading ? "—" : catalog.data?.total ?? "—";
-    if (target === "statement") return statementSummary.isLoading ? "—" : statementSummary.data?.total ?? "—";
-    return coreSummary.isLoading ? "—" : coreSummary.data?.byCategory.find((entry) => entry.category === target)?.count ?? "—";
+    if (target === tab) return catalog.isLoading ? "-" : catalog.data?.total ?? "-";
+    if (target === "statement") return statementSummary.isLoading ? "-" : statementSummary.data?.total ?? "-";
+    return coreSummary.isLoading ? "-" : coreSummary.data?.byCategory.find((entry) => entry.category === target)?.count ?? "-";
   };
 
   useEffect(() => {

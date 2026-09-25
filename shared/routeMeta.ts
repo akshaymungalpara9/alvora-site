@@ -36,7 +36,7 @@ export const ROUTE_META: Record<string, { title: string; description: string }> 
       "Alvora fabrique à Surat des diamants de synthèse certifiés et calibrés, des assortiments et des fabrications sur mesure pour les équipes joaillières.",
   },
   "/it": {
-    // FLAGGED — description kept from existing publicSeo.it.description
+    // FLAGGED - description kept from existing publicSeo.it.description
     title: "produttore diamanti sintetici Surat trade | Alvora",
     description:
       "Alvora realizza a Surat diamanti sintetici certificati e calibrati, lotti abbinati e lavorazioni su specifica per la gioielleria.",
@@ -87,7 +87,7 @@ export const ROUTE_META: Record<string, { title: string; description: string }> 
       "Request a wholesale lab-grown diamond quote from Alvora with your shapes, dimensions, quality, quantity, certification needs and destination for review.",
   },
   "/contact": {
-    // FLAGGED — description kept from existing seoInjection.ts value
+    // FLAGGED - description kept from existing seoInjection.ts value
     title: "contact lab grown diamond manufacturer Surat | Alvora",
     description:
       "Contact the Alvora Diamonds team in Surat for lab-grown diamond wholesale enquiries, pricing, and specification briefs.",
@@ -108,7 +108,7 @@ export const ROUTE_META: Record<string, { title: string; description: string }> 
       "Alvora outlines how jewellery brands and wholesalers can compare a lab-grown diamond manufacturer by growth method, cut, certification and communication.",
   },
   "/insights/is-a-lab-grown-diamond-worth-it": {
-    // FLAGGED — description kept from existing seoInjection.ts value
+    // FLAGGED - description kept from existing seoInjection.ts value
     title: "is a lab grown diamond worth buying guide | Alvora",
     description:
       "An honest look at lab-grown diamond value for jewellery businesses: price per carat, resale considerations and what wholesale buyers should weigh.",
@@ -129,10 +129,10 @@ export const ROUTE_META: Record<string, { title: string; description: string }> 
       "Alvora explains Surat's lab-grown diamond manufacturing context and checks buyers can use to compare makers, specifications, documentation and dispatch.",
   },
   "/insights/12-questions-to-ask-a-manufacturer": {
-    // FLAGGED — description kept from existing seoInjection.ts value
+    // FLAGGED - description kept from existing seoInjection.ts value
     title: "questions for a lab grown diamond manufacturer | Alvora",
     description:
-      "Twelve due-diligence questions for brands sourcing wholesale lab-grown diamonds — covering certification, consistency, capacity and terms.",
+      "Twelve due-diligence questions for brands sourcing wholesale lab-grown diamonds - covering certification, consistency, capacity and terms.",
   },
   "/insights/calibrated-diamond-layouts-explained": {
     title: "calibrated diamond layouts tolerances guide | Alvora",
@@ -290,7 +290,7 @@ export const ROUTE_META: Record<string, { title: string; description: string }> 
       "Alvora's privacy policy explains how information from website visitors and wholesale enquiries is collected, used, protected and handled by the company.",
   },
   "/terms": {
-    // FLAGGED — description kept from existing seoInjection.ts value
+    // FLAGGED - description kept from existing seoInjection.ts value
     title: "terms and conditions lab grown diamonds website | Alvora",
     description:
       "The terms governing use of Alvora's website and wholesale enquiries, including intellectual property, liability and governing law information.",

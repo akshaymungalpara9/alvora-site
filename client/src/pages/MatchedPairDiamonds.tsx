@@ -12,7 +12,7 @@ const JSON_LD = {
     address: { "@type": "PostalAddress", addressLocality: "Surat", addressCountry: "IN" },
   },
   description:
-    "Matched pair lab-grown diamonds from Alvora — matched for colour, dimensions, cut grade, and proportions so they read as one stone in the finished piece.",
+    "Matched pair lab-grown diamonds from Alvora - matched for colour, dimensions, cut grade, and proportions so they read as one stone in the finished piece.",
   areaServed: "Worldwide",
 };
 
@@ -21,7 +21,7 @@ export default function MatchedPairDiamonds() {
     <SpecialtyPageShell>
       <SpecialtyPageMeta
         title="Matched Pair Lab-Grown Diamonds, Made to Tolerance | Alvora"
-        description="Alvora makes matched pairs of lab-grown diamonds — matched for colour, dimensions, and cut grade so they read as one stone in the finished piece. Direct from our benches in Surat."
+        description="Alvora makes matched pairs of lab-grown diamonds - matched for colour, dimensions, and cut grade so they read as one stone in the finished piece. Direct from our benches in Surat."
         path="/matched-pair-diamonds"
         jsonLd={JSON_LD}
       />
@@ -31,7 +31,7 @@ export default function MatchedPairDiamonds() {
         <h1 id="mpd-title">Matched Pair<br /><em>Lab-Grown Diamonds</em></h1>
         <p className="specialty-hero-copy">
           Two stones that read as one. Matched pairs are the hardest single line item in a
-          jeweller's brief — and the one where calibration failures are most visible to the
+          jeweller's brief - and the one where calibration failures are most visible to the
           customer. We cut from aligned rough and select after cutting.
         </p>
         <p className="hero-maker-line" style={{ marginTop: 32 }}>
@@ -45,7 +45,7 @@ export default function MatchedPairDiamonds() {
           <p className="eyebrow"><span />WHAT MATCHING MEANS</p>
           <h2 id="mpd-what-title">Matched for colour,<br />dimension, and return.</h2>
           <p>
-            The real work in a matched pair is not colour grade — it is matching dimensions,
+            The real work in a matched pair is not colour grade - it is matching dimensions,
             proportions, and the way light returns from each stone so that when a jeweller sets them
             into an earring or a two-stone ring, the piece reads as symmetrical and intentional.
             Colour within one grade step is the table stake. The pair must also match in crown
@@ -62,11 +62,11 @@ export default function MatchedPairDiamonds() {
             ["Dimensions", "Girdle diameter matched within the tolerance stated in your quotation."],
             ["Table and depth", "Table and total depth percentages matched so crown height and pavilion depth are consistent."],
             ["Crown angle", "Crown angles matched within the tolerance stated in your quotation."],
-            ["Cut grade", "Excellent or Very Good on each stone — stated per pair."],
+            ["Cut grade", "Excellent or Very Good on each stone - stated per pair."],
             ["Fluorescence", "None on either stone. No BGM. These are not relaxed for pairs."],
           ].map(([k, v]) => (
             <article key={k}>
-              <span className="feat-mark">—</span>
+              <span className="feat-mark">-</span>
               <div>
                 <h3>{k}</h3>
                 <p>{v}</p>
@@ -84,12 +84,12 @@ export default function MatchedPairDiamonds() {
             <p>
               Matched pairs matter most where the customer sees both stones simultaneously and can
               compare them directly. An asymmetric pair in a drop earring or a two-stone ring is not
-              a subtle defect — it is the first thing the eye finds.
+              a subtle defect - it is the first thing the eye finds.
             </p>
             <ul className="specialty-plain-list">
-              <li>Earring pairs — drop, stud, halo</li>
+              <li>Earring pairs - drop, stud, halo</li>
               <li>Two-stone engagement rings and toi-et-moi settings</li>
-              <li>Anniversary bands — shoulder stones flanking a centre</li>
+              <li>Anniversary bands - shoulder stones flanking a centre</li>
               <li>Three-stone rings where both flanking stones must match</li>
               <li>Matched pairs for resale, packed together with a pair reference</li>
             </ul>
@@ -100,7 +100,7 @@ export default function MatchedPairDiamonds() {
               Cut together.<br />Selected together.
             </h2>
             <p>
-              We assess rough for matched pairs from the outset — selecting rough that yields
+              We assess rough for matched pairs from the outset - selecting rough that yields
               consistent proportions before we begin cutting. After cutting, pairs are placed
               together, measured, and assessed for face-up appearance under consistent lighting
               before acceptance.

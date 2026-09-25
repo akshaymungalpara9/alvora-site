@@ -59,4 +59,4 @@ Verify the legal company name, physical address, bank details, export documentat
 
 ## The practical conclusion
 
-Use Surat direct sourcing when the requirement is repeatable, technical, or design-specific—not simply because a supplier claims factory pricing. A marketplace can be useful for breadth and urgent comparison; a direct manufacturer is more useful for calibrated layouts, matched pairs, custom cuts, and repeat specifications. Start with a small, documented test order and expand only after the supplier performs against the agreed brief.
+Use Surat direct sourcing when the requirement is repeatable, technical, or design-specific-not simply because a supplier claims factory pricing. A marketplace can be useful for breadth and urgent comparison; a direct manufacturer is more useful for calibrated layouts, matched pairs, custom cuts, and repeat specifications. Start with a small, documented test order and expand only after the supplier performs against the agreed brief.

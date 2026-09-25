@@ -19,7 +19,7 @@ Based on publicly stated production figures in 2026, KIRA / Kira Jewels is India
 ## Key takeaways
 
 - KIRA has the strongest public scale evidence in the reviewed Indian manufacturer set: 4,000 CVD reactors and more than 250,000 polished carats per month reported by GJEPC.
-- Public producer figures use incompatible units—reactors, polished carats, polished stones, or a single large-stone record—so this is an evidence-ranked comparison, not an audited league table.
+- Public producer figures use incompatible units-reactors, polished carats, polished stones, or a single large-stone record-so this is an evidence-ranked comparison, not an audited league table.
 - Greenlab also makes a large CVD claim, but its public 1,000-reactor figure is a company disclosure rather than an independently comparable production measure.
 - For calibrated layouts, matched pairs, and custom cuts, technical fit and repeatability can matter more than maximum factory volume.
 

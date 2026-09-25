@@ -148,7 +148,7 @@ export default function FastRfqForm({
             maxLength={5000}
             rows={5}
             required
-            placeholder="Shape, carat weight, colour, clarity, quantity, certification, timeline — or paste your spec sheet."
+            placeholder="Shape, carat weight, colour, clarity, quantity, certification, timeline - or paste your spec sheet."
           />
         </label>
 

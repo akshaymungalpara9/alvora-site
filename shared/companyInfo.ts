@@ -44,10 +44,10 @@ export const COMPANY: CompanyInfo = Object.freeze({
   legalName: "Alvora Diamonds",
   foundingYear: 2000,
   address: Object.freeze({
-    street: null,         // BLOCKED — Diamond World unit number not yet confirmed
+    street: null,         // BLOCKED - Diamond World unit number not yet confirmed
     city: "Surat",
     state: "Gujarat",
-    postalCode: null,     // BLOCKED — PIN not yet confirmed
+    postalCode: null,     // BLOCKED - PIN not yet confirmed
     country: "India",
   }),
   gstin: null,
@@ -59,7 +59,7 @@ export const COMPANY: CompanyInfo = Object.freeze({
   growthMethods: ["CVD", "HPHT"],
   certBodies: ["IGI", "GIA"],
   moq: Object.freeze({
-    stock: "No minimum — single certified stones available ex-stock",
+    stock: "No minimum - single certified stones available ex-stock",
     layouts: "Minimum 5 carats total weight per layout order",
     pairs: "1 pair (2 stones) minimum",
     customCuts: "Minimum 5 carats total per custom-cut production run",
@@ -75,7 +75,7 @@ export const COMPANY: CompanyInfo = Object.freeze({
     stockShort: "1 to 5 working days",
     custom: "5 to 10 working days",
   }),
-  paymentTerms: "Flexible payment terms — advance, LC, or memo terms available depending on order size, confirmed with each quote.",
+  paymentTerms: "Flexible payment terms - advance, LC, or memo terms available depending on order size, confirmed with each quote.",
   marketsServed: [
     "United States",
     "Canada",

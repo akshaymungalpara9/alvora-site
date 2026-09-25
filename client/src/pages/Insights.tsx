@@ -20,7 +20,7 @@ function InsightHub() {
     applyDocumentMetadata({
       lang: "en",
       path: "/insights",
-      title: "Diamond Industry Insights — Alvora",
+      title: "Diamond Industry Insights - Alvora",
       description: "Analysis, reports, and market commentary from Alvora's diamond manufacturing team in Surat.",
       robots: "index,follow,max-image-preview:large",
     });
@@ -45,7 +45,7 @@ function InsightHub() {
         <p className="eyebrow eyebrow-bright"><span />ALVORA / TRADE INSIGHTS</p>
         <h1>Manufacturing notes<br />for trade buyers.</h1>
         <p className="insight-dek">
-          Practical guides, Q&amp;A, and sourcing notes from Alvora's team in Surat — on certification,
+          Practical guides, Q&amp;A, and sourcing notes from Alvora's team in Surat - on certification,
           specification, pricing, and choosing the right wholesale format.
         </p>
       </section>

@@ -141,7 +141,7 @@ describe("jewellery enquiries", () => {
     email.sendTransactionalEmail.mockResolvedValue({ id: "x" });
     await jewelleryRouter.createCaller({} as never).submit(pieceInput);
     const [alert, ack] = email.sendTransactionalEmail.mock.calls.map((call) => call[0]);
-    expect(alert.text).toContain("Internal — maker");
+    expect(alert.text).toContain("Internal - maker");
     expect(`${ack.subject} ${ack.text} ${ack.html}`.toLowerCase()).not.toMatch(/junerings|pooja|caratdiamonds|maker/);
   });
 
