@@ -95,3 +95,18 @@ Append-only. Newest entry at the bottom. Never delete an entry.
 
 **Next**
 - Owner to confirm whether a pear pendant photo set exists (ALV-P-0004) and whether the spare rose-gold cushion set is ALV-P-0018 Viola.
+
+## 2026-09-26: GEO phase 1 part 2 - evidence labels, specification template, prompt panel
+
+**Shipped**
+- Evidence labels on the claim-bearing sections of the 8 volatile articles (price, duty, certification, manufacturer comparisons): 29 markers reading "Evidence: Verified public evidence", "Evidence: Alvora process" or "Evidence: Unknown - confirm at quote", rendered as small markers via a paragraph-level component in the article renderer.
+- New page /calibrated-parcel-specification-template: a ready-to-copy eight-field specification template for calibrated parcels, linked from the spec checklist article (worked-example section) and from the quote form's message field.
+- seo/geo-prompt-panel.md: 36 fixed monthly prompts in four groups (consumer, trade sourcing, technical specialist, brand/entity) with recording fields and a run protocol. First monthly run scheduled.
+
+**Verification**
+- Gates: tsc clean, validate-seo-meta 326 routes, vitest identical to main baseline (12 pre-existing failures) plus the llms.txt drift guard passing, full build with prerender snapshots committed.
+- Visual check: specification template page and a labelled article on desktop and phone.
+
+**Next**
+- Monthly prompt-panel run (first run in the October cycle); record results in the panel's sheet and summarise here.
+- Phase 1 items 3, 4 and 6 of the plan remain owner-gated (redacted documents, off-site outreach, company facts).
