@@ -3,6 +3,9 @@
   "partners": {
     "junerings": "all",
     "pooja": "all",
-    "carat": ["earrings"]
+    "carat": [
+      "earrings",
+      "pendant"
+    ]
   }
 }
