@@ -1,6 +1,7 @@
 {
   "/": "index.html",
   "/trade": "trade.html",
+  "/availability": "availability.html",
   "/jewellery": "jewellery.html",
   "/engagement-rings": "engagement-rings.html",
   "/earrings": "earrings.html",

@@ -175,7 +175,6 @@ export function renderRobots(origin: string): string {
     "Allow: /",
     "Disallow: /admin",
     "Disallow: /admin/",
-    "Disallow: /availability",
     "Disallow: /buyer-availability",
     "Disallow: /api/",
     "",
