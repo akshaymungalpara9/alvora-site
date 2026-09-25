@@ -6,13 +6,13 @@ publishedDate: "2026-09-01"
 author: Alvora Diamonds
 readingTime: 3 min
 relatedProduct: /certifications
-answerSentence: Yes — lab-grown diamonds are chemically, physically, and optically identical to mined diamonds, and are graded by the same laboratories (IGI, GIA), a position formally recognized by the US FTC in 2018.
+answerSentence: Yes - lab-grown diamonds are chemically, physically, and optically identical to mined diamonds, and are graded by the same laboratories (IGI, GIA), a position formally recognized by the US FTC in 2018.
 eyebrow: "Q&A · LAB-GROWN DIAMOND IDENTITY"
 paaQuestions:
   - "Are lab-grown diamonds real diamonds?"
 ---
 
-Yes — lab-grown diamonds are chemically, physically, and optically identical to mined diamonds, and are graded by the same laboratories (IGI, GIA), a position formally recognized by the US FTC in 2018. "Real" describes the diamond material and properties; "laboratory-grown" describes how the diamond was formed. A lab-grown diamond is not a simulant such as cubic zirconia or moissanite.
+Yes - lab-grown diamonds are chemically, physically, and optically identical to mined diamonds, and are graded by the same laboratories (IGI, GIA), a position formally recognized by the US FTC in 2018. "Real" describes the diamond material and properties; "laboratory-grown" describes how the diamond was formed. A lab-grown diamond is not a simulant such as cubic zirconia or moissanite.
 
 ## Key takeaways
 

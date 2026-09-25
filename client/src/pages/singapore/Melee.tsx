@@ -105,7 +105,7 @@ export default function SgMelee() {
             ],
           ] as [string, string][]).map(([k, v]) => (
             <article key={k}>
-              <span className="feat-mark">—</span>
+              <span className="feat-mark">-</span>
               <div>
                 <h3>{k}</h3>
                 <p>{v}</p>

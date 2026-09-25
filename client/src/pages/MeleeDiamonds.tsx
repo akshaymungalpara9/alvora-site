@@ -12,7 +12,7 @@ const JSON_LD = {
     address: { "@type": "PostalAddress", addressLocality: "Surat", addressCountry: "IN" },
   },
   description:
-    "Wholesale lab-grown melee diamonds from Alvora — Excellent cut, no fluorescence, no BGM, calibrated to consistent diameter ranges for pave, eternity, and halo programmes.",
+    "Wholesale lab-grown melee diamonds from Alvora - Excellent cut, no fluorescence, no BGM, calibrated to consistent diameter ranges for pave, eternity, and halo programmes.",
   areaServed: "Worldwide",
 };
 
@@ -21,7 +21,7 @@ export default function MeleeDiamonds() {
     <SpecialtyPageShell>
       <SpecialtyPageMeta
         title="Wholesale Lab-Grown Melee Diamonds | Alvora Diamonds"
-        description="Alvora supplies wholesale lab-grown melee diamonds calibrated to consistent diameter ranges. Excellent cut, no fluorescence, no BGM — the same standard applied to every stone regardless of size."
+        description="Alvora supplies wholesale lab-grown melee diamonds calibrated to consistent diameter ranges. Excellent cut, no fluorescence, no BGM - the same standard applied to every stone regardless of size."
         path="/melee-diamonds"
         jsonLd={JSON_LD}
       />
@@ -30,7 +30,7 @@ export default function MeleeDiamonds() {
         <p className="eyebrow eyebrow-bright"><span />MELEE DIAMONDS · WHOLESALE · SURAT</p>
         <h1 id="mel-title">Wholesale Lab-Grown<br /><em>Melee Diamonds</em></h1>
         <p className="specialty-hero-copy">
-          Melee from the bench — the same standard applied to every stone regardless of size.
+          Melee from the bench - the same standard applied to every stone regardless of size.
           Calibrated to consistent diameter ranges. Excellent cut grade. No fluorescence. No BGM.
           The quality that protects the finished piece across its full surface area.
         </p>
@@ -45,8 +45,8 @@ export default function MeleeDiamonds() {
           <p className="eyebrow"><span />THE CASE FOR QUALITY MELEE</p>
           <h2 id="mel-standard-title">Same standard.<br />Every size.</h2>
           <p>
-            In the trade, melee refers to small brilliant-cut diamonds — typically under 0.20 carat
-            — used as accent stones in pave settings, eternity bands, halo arrangements, and
+            In the trade, melee refers to small brilliant-cut diamonds - typically under 0.20 carat
+            - used as accent stones in pave settings, eternity bands, halo arrangements, and
             side-stone programmes. The quality standard applied to melee is often lower than what
             buyers apply to centre stones. At Alvora, it is not.
           </p>
@@ -60,21 +60,21 @@ export default function MeleeDiamonds() {
           <p>
             We cut melee to Excellent cut grade, select for no fluorescence and no BGM, and
             calibrate each parcel to a consistent diameter range. There is no separate melee
-            production standard at Alvora — only the Alvora standard applied to a smaller stone.
+            production standard at Alvora - only the Alvora standard applied to a smaller stone.
           </p>
         </div>
 
         <div className="specialty-feature-list on-light" style={{ marginTop: 60 }}>
           {[
             ["Cut grade", "Excellent on every stone. Cut grade is assessed per stone, not per parcel average."],
-            ["Fluorescence", "None. Not screened-out-and-replaced — selected to None from production."],
+            ["Fluorescence", "None. Not screened-out-and-replaced - selected to None from production."],
             ["BGM", "None. No brown, grey, or milky inclusions. Consistent face-up appearance across the parcel."],
             ["Calibration", "Stones selected to consistent diameter ranges so they fit the seat without adjustment at the bench. Diameter ranges are set to your specification."],
             ["Colour and clarity", "To your specified range. We do not mix colour or clarity grades within a parcel without agreement."],
             ["Certification", "Certification scope for each parcel is confirmed with your quotation."],
           ].map(([k, v]) => (
             <article key={k}>
-              <span className="feat-mark">—</span>
+              <span className="feat-mark">-</span>
               <div>
                 <h3>{k}</h3>
                 <p>{v}</p>
@@ -91,13 +91,13 @@ export default function MeleeDiamonds() {
             <h2 id="mel-use-title">Where melee quality<br />determines the outcome.</h2>
             <p>
               Pave settings, shared-prong bands, and halo arrangements are the most quality-sensitive
-              melee applications — every stone in the setting is exposed. Eternity bands are worse:
+              melee applications - every stone in the setting is exposed. Eternity bands are worse:
               every stone is a centre stone by position. A mixed-quality melee parcel does not hide
               in these settings.
             </p>
             <ul className="specialty-plain-list">
               <li>Pave and micropave engagement rings</li>
-              <li>Eternity bands — full and half bands</li>
+              <li>Eternity bands - full and half bands</li>
               <li>Halo arrangements around centre stones</li>
               <li>Channel-set accent rows</li>
               <li>Side stones in three-stone settings</li>
@@ -114,8 +114,8 @@ export default function MeleeDiamonds() {
               parcel sizes and pricing are confirmed with your quotation.
             </p>
             <p>
-              Mixed-size parcels for specific setting configurations — where a designer needs two
-              different diameter stones in the same piece — are available on request. State the
+              Mixed-size parcels for specific setting configurations - where a designer needs two
+              different diameter stones in the same piece - are available on request. State the
               diameter ranges and the split by proportion in your enquiry.
             </p>
             <p>

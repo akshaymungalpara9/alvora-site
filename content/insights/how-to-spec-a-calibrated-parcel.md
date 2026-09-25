@@ -1,7 +1,7 @@
 ---
 slug: how-to-spec-a-calibrated-parcel
 title: "How to Spec a Calibrated Parcel: A Buyer's Checklist"
-metaDescription: What jewellery manufacturers must specify before requesting a calibrated lab-grown diamond quote — shape, size range, tolerance, colour band, clarity band, quantity and delivery format.
+metaDescription: What jewellery manufacturers must specify before requesting a calibrated lab-grown diamond quote - shape, size range, tolerance, colour band, clarity band, quantity and delivery format.
 publishedDate: "2026-09-10"
 author: Alvora Diamonds
 readingTime: 6 min
@@ -17,7 +17,7 @@ A calibrated parcel is only as good as the specification behind it. Before you r
 - State size as a range with an explicit dimensional tolerance, not a single nominal figure.
 - Specify colour and clarity as bands (for example F–G / VS) rather than single grades.
 - Separate what must be certified from what can be supplied as a graded, uncertified parcel.
-- An incomplete spec does not usually cost you money — it costs you time, which is often worse.
+- An incomplete spec does not usually cost you money - it costs you time, which is often worse.
 - Stock and standard calibrated parcels can dispatch in 2–3 working days; bespoke custom-cut or calibrated-layout production typically takes 7–10 working days.
 
 ## The seven fields every calibrated spec needs
@@ -35,15 +35,15 @@ A calibrated parcel is only as good as the specification behind it. Before you r
 
 ## Tolerance: the field most often underspecified
 
-"1.0 mm rounds" is a wish, not a specification. A workable spec reads more like: round brilliant, 1.00–1.05 mm, tolerance ±0.02 mm on diameter. The difference matters because every downstream process — layout drawing, setting, channel work — assumes a known maximum deviation. If you do not state a tolerance, the manufacturer will apply a default, and their default may not match the tolerance your CAD model or mounting assumes.
+"1.0 mm rounds" is a wish, not a specification. A workable spec reads more like: round brilliant, 1.00–1.05 mm, tolerance ±0.02 mm on diameter. The difference matters because every downstream process - layout drawing, setting, channel work - assumes a known maximum deviation. If you do not state a tolerance, the manufacturer will apply a default, and their default may not match the tolerance your CAD model or mounting assumes.
 
-Tolerance also interacts with quantity. The tighter the tolerance, the fewer stones from any production batch qualify, which is one reason ultra-tight calibrated parcels command a premium. When you review a quote, check that the tolerance quoted is the tolerance you wrote — a cheaper line item with a looser tolerance is not the same product.
+Tolerance also interacts with quantity. The tighter the tolerance, the fewer stones from any production batch qualify, which is one reason ultra-tight calibrated parcels command a premium. When you review a quote, check that the tolerance quoted is the tolerance you wrote - a cheaper line item with a looser tolerance is not the same product.
 
 ## Colour and clarity: specify bands, not points
 
 Calibrated production is a sorting exercise as much as a cutting one. Growers produce material across a range of colours and clarities, and parcels are built by grouping what the rough yields. Asking for forty stones that are all exactly F / VS1 means waiting until nature and the sorting table cooperate; asking for F–G / VS means the parcel can be assembled from the normal flow of production.
 
-Be explicit about treatment, too. "As-grown" material commands different pricing from stones that have undergone post-growth colour treatment, and the two behave differently under some lighting conditions. If your end client has a preference — or a disclosure policy — state it in the specification rather than discovering it at goods-in inspection.
+Be explicit about treatment, too. "As-grown" material commands different pricing from stones that have undergone post-growth colour treatment, and the two behave differently under some lighting conditions. If your end client has a preference - or a disclosure policy - state it in the specification rather than discovering it at goods-in inspection.
 
 ## What happens when your spec is incomplete
 
@@ -59,6 +59,6 @@ That block answers every question the cutting and sorting teams need to ask, and
 
 ## In closing
 
-A precise specification is the cheapest quality-control step in the entire supply chain — it costs you ten minutes and a careful table. Manufacturers, for their part, respond to precision with precision: well-specified orders move faster through quotation, production and inspection, and both parties spend less time on clarification loops. If you are building a calibrated specification for the first time, start with the eight-field table above, and treat every field you leave blank as a decision you are delegating to someone else.
+A precise specification is the cheapest quality-control step in the entire supply chain - it costs you ten minutes and a careful table. Manufacturers, for their part, respond to precision with precision: well-specified orders move faster through quotation, production and inspection, and both parties spend less time on clarification loops. If you are building a calibrated specification for the first time, start with the eight-field table above, and treat every field you leave blank as a decision you are delegating to someone else.
 
 For a firm quote, send your specification to the [calibrated diamond layouts page](/calibrated-diamond-layouts).

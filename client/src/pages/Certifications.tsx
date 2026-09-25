@@ -21,8 +21,8 @@ export default function Certifications() {
   return (
     <SpecialtyPageShell>
       <SpecialtyPageMeta
-        title="IGI-Certified Lab-Grown Diamonds — What Our Certificates Cover"
-        description="Every Alvora diamond ships IGI laser-inscribed and database-verified. Understand what each certificate covers — 4Cs, cut quality, laser inscription, and how to verify any report number directly with IGI."
+        title="IGI-Certified Lab-Grown Diamonds - What Our Certificates Cover"
+        description="Every Alvora diamond ships IGI laser-inscribed and database-verified. Understand what each certificate covers - 4Cs, cut quality, laser inscription, and how to verify any report number directly with IGI."
         path="/certifications"
         jsonLd={JSON_LD}
       />
@@ -44,10 +44,10 @@ export default function Certifications() {
       <section className="specialty-section specialty-section-light" aria-labelledby="cert-what-title">
         <div className="specialty-section-lead">
           <p className="eyebrow"><span />WHAT AN IGI REPORT COVERS</p>
-          <h2 id="cert-what-title">What the certificate<br />specifies — and verifies.</h2>
+          <h2 id="cert-what-title">What the certificate<br />specifies - and verifies.</h2>
           <p>
-            An IGI grading report for a lab-grown diamond specifies the 4Cs — colour grade, clarity
-            grade, cut grade (for brilliant cuts), and carat weight — alongside the laser
+            An IGI grading report for a lab-grown diamond specifies the 4Cs - colour grade, clarity
+            grade, cut grade (for brilliant cuts), and carat weight - alongside the laser
             inscription number, the report number, and cut quality measurements: table percentage,
             depth percentage, crown angle, pavilion angle, girdle range, finish, and symmetry
             grades. For lab-grown stones, the report also identifies the growth type (HPHT or CVD)
@@ -67,10 +67,10 @@ export default function Certifications() {
             ["Cut quality measurements", "Table %, depth %, crown angle, pavilion angle, girdle range, polish, and symmetry grades. These are the measurements that determine how the stone performs optically and how it fits a setting."],
             ["Growth origin", "Lab-grown origin is stated on the certificate. Growth type (HPHT or CVD) is stated where the laboratory records it; Alvora supplies both."],
             ["Fluorescence", "Fluorescence grade (None, Faint, Medium, Strong) is stated. Alvora's standard: None on all shipped stones."],
-            ["BGM screening", "Brown, grey, and milky quality issues are screened at production. No BGM stones are included in shipped parcels — this is not stated on the certificate but is an Alvora production standard."],
+            ["BGM screening", "Brown, grey, and milky quality issues are screened at production. No BGM stones are included in shipped parcels - this is not stated on the certificate but is an Alvora production standard."],
           ].map(([k, v]) => (
             <article key={k}>
-              <span className="feat-mark">—</span>
+              <span className="feat-mark">-</span>
               <div>
                 <h3>{k}</h3>
                 <p>{v}</p>
@@ -91,9 +91,9 @@ export default function Certifications() {
             </p>
             <div className="about-process-list" style={{ marginTop: 24, color: "var(--paper)" }}>
               {[
-                ["Cut and polish", "Stone is cut and polished to our standard make — Excellent/Ideal, no fluorescence, no BGM."],
+                ["Cut and polish", "Stone is cut and polished to our standard make - Excellent/Ideal, no fluorescence, no BGM."],
                 ["IGI submission", "Stone is submitted to IGI for laser inscription and full grading."],
-                ["Certificate verification", "Returned certificate is verified against the stone — laser inscription confirmed under magnification, measurements cross-checked."],
+                ["Certificate verification", "Returned certificate is verified against the stone - laser inscription confirmed under magnification, measurements cross-checked."],
                 ["Dispatch stock", "Only stones verified against their certificate are moved to dispatch stock."],
                 ["Shipment", "Stone dispatches with physical or digital IGI report. Report number, inscription, and certificate are reconciled in the order documentation."],
               ].map(([title, desc]) => (
@@ -117,7 +117,7 @@ export default function Certifications() {
                 ["Growth type", `${COMPANY.growthMethods.join(" and ")}, depending on the stone. Growth method is recorded on the laboratory report where available.`],
               ].map(([k, v]) => (
                 <article key={k}>
-                  <span className="feat-mark">—</span>
+                  <span className="feat-mark">-</span>
                   <div>
                     <h3>{k}</h3>
                     <p>{v}</p>
@@ -129,7 +129,7 @@ export default function Certifications() {
             <p style={{ fontSize: "0.84rem", lineHeight: 1.7, color: "#9fa19a", marginTop: 12 }}>
               A grading report specifies grade at the time of grading. It does not constitute a
               warranty against damage, chipping, or future grading variation. We verify every stone
-              against its certificate before dispatch — but we recommend buyers verify the
+              against its certificate before dispatch - but we recommend buyers verify the
               inscription-to-certificate match on receipt of any significant parcel.
             </p>
           </div>

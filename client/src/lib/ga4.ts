@@ -13,7 +13,7 @@ export function initGA4(): void {
   ready = true;
 
   window.dataLayer = window.dataLayer ?? [];
-  // GA4 library inspects the IArguments object — must use a regular function, not an arrow
+  // GA4 library inspects the IArguments object - must use a regular function, not an arrow
   window.gtag = function gtag() {
     window.dataLayer.push(arguments); // eslint-disable-line prefer-rest-params
   } as typeof window.gtag;

@@ -172,7 +172,7 @@ export function describeSelection(input: Pick<JewelleryEnquiryInput, "karat" | "
 export function buildJewelleryAlert(enquiry: JewelleryEnquiryInput & { id?: number }, options: { saved: boolean }) {
   const selection = describeSelection(enquiry);
   const heading = enquiry.kind === "consultation" ? "Consultation request" : "Jewellery enquiry";
-  const subjectParts = [enquiry.kind === "consultation" ? "[Consultation]" : "[Jewellery]", enquiry.pieceName, selection, `— ${enquiry.contactName}`]
+  const subjectParts = [enquiry.kind === "consultation" ? "[Consultation]" : "[Jewellery]", enquiry.pieceName, selection, `- ${enquiry.contactName}`]
     .filter(Boolean)
     .map((part) => subjectSegment(String(part)));
   const subject = subjectParts.join(" ").slice(0, 200);
@@ -188,13 +188,13 @@ export function buildJewelleryAlert(enquiry: JewelleryEnquiryInput & { id?: numb
     ["Best time", enquiry.preferredTime],
     ["Budget", enquiry.budget],
     ["Landing page", enquiry.landingPage ? `${enquiry.landingPage}${enquiry.referrer ? ` (from ${enquiry.referrer})` : ""}` : undefined],
-    ["Internal — maker", sourcing ? `${sourcing.partner} · ${sourcing.handle}${sourcing.partnerPriceUsd != null ? ` · partner price $${sourcing.partnerPriceUsd}` : ""}` : undefined],
-    ["Enquiry ID", enquiry.id ? String(enquiry.id) : "NOT SAVED — database unavailable, reply from this email"],
+    ["Internal - maker", sourcing ? `${sourcing.partner} · ${sourcing.handle}${sourcing.partnerPriceUsd != null ? ` · partner price $${sourcing.partnerPriceUsd}` : ""}` : undefined],
+    ["Enquiry ID", enquiry.id ? String(enquiry.id) : "NOT SAVED - database unavailable, reply from this email"],
   ];
   const present = rows.filter((row): row is [string, string] => Boolean(row[1]));
   const warning = options.saved ? "" : "<p style=\"color:#a33\"><strong>This enquiry could not be saved to the database. Reply directly from this email.</strong></p>";
   const html = `<div style="font-family:Arial,sans-serif;line-height:1.6"><p><strong>${heading}</strong></p>${warning}<p>${present.map(([label, value]) => `<strong>${escapeHtml(label)}:</strong> ${escapeHtml(value)}`).join("<br/>")}</p>${enquiry.message ? `<p><strong>Message</strong><br/>${escapeHtml(enquiry.message).replaceAll("\n", "<br/>")}</p>` : ""}</div>`;
-  const text = `${heading}\n${options.saved ? "" : "NOT SAVED — reply directly from this email\n"}${present.map(([label, value]) => `${label}: ${value}`).join("\n")}${enquiry.message ? `\n\nMessage:\n${enquiry.message}` : ""}`;
+  const text = `${heading}\n${options.saved ? "" : "NOT SAVED - reply directly from this email\n"}${present.map(([label, value]) => `${label}: ${value}`).join("\n")}${enquiry.message ? `\n\nMessage:\n${enquiry.message}` : ""}`;
   return { subject, html, text };
 }
 
@@ -229,7 +229,7 @@ export async function sendJewelleryAcknowledgement(enquiry: JewelleryEnquiryInpu
   const html = `<div style="font-family:Georgia,serif;line-height:1.7;color:#1b1a18"><p>Dear ${escapeHtml(firstName)},</p><p>Thank you for ${escapeHtml(about)}. A member of the Alvora team will reply within one working day with the details you asked for${enquiry.kind === "piece" ? ", including a written price for your selection" : " and a time for your consultation"}.</p><p>Nothing is made or charged until you confirm.</p><p>With warm regards,<br/>Alvora · Surat</p></div>`;
   const text = `Dear ${firstName},\n\nThank you for ${about}. A member of the Alvora team will reply within one working day with the details you asked for${enquiry.kind === "piece" ? ", including a written price for your selection" : " and a time for your consultation"}.\n\nNothing is made or charged until you confirm.\n\nWith warm regards,\nAlvora · Surat`;
   try {
-    await sendTransactionalEmail({ to: enquiry.email, subject: "We have your enquiry — Alvora", html, text, replyTo: ENV.leadAlertTo || undefined, tags: [{ name: "workflow", value: "jewellery_acknowledgement" }] });
+    await sendTransactionalEmail({ to: enquiry.email, subject: "We have your enquiry - Alvora", html, text, replyTo: ENV.leadAlertTo || undefined, tags: [{ name: "workflow", value: "jewellery_acknowledgement" }] });
   } catch {
     // Acknowledgements are best-effort.
   }

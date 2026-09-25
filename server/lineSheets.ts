@@ -13,7 +13,7 @@ const columnLayout = [
 ] as const;
 
 const compact = (value?: string | null, max = 22) => {
-  if (!value) return "—";
+  if (!value) return "-";
   return value.length > max ? `${value.slice(0, max - 1)}…` : value;
 };
 
@@ -67,7 +67,7 @@ export async function buildLineSheetPdf(input: { buyer?: BuyerAccount; title?: s
   const validText = `VALID UNTIL ${input.validUntil.toLocaleDateString("en-GB", { day: "2-digit", month: "short", year: "numeric" }).toUpperCase()}`;
   page.drawText(validText, { x: 48, y: footerY + 7, size: 6.2, font: sansBold, color: signal });
   page.drawText(rows.length < input.stones.length ? `${rows.length} OF ${input.stones.length} MATCHING STONES SHOWN` : `${input.stones.length} MATCHING STONES`, { x: 262, y: footerY + 7, size: 6.2, font: sans, color: muted });
-  page.drawText("ALVORA DIAMONDS — MADE IN SURAT", { x: 390, y: footerY + 7, size: 5.8, font: sans, color: paper });
+  page.drawText("ALVORA DIAMONDS - MADE IN SURAT", { x: 390, y: footerY + 7, size: 5.8, font: sans, color: paper });
   if (hasMissingCertificates) {
     const disclosure = "DATA NOTE: CERTIFICATE NUMBERS ARE NOT PRESENT IN THE CURRENT AVAILABILITY IMPORT; CONFIRM BEFORE COMMITTING.";
     page.drawText(compact(disclosure, 135), { x: 48, y: 33, size: 5.1, font: sans, color: muted });

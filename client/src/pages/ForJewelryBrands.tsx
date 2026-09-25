@@ -20,7 +20,7 @@ export default function ForJewelryBrands() {
   return (
     <SpecialtyPageShell>
       <SpecialtyPageMeta
-        title="Lab-Grown Diamonds for Jewellery Brands — Alvora"
+        title="Lab-Grown Diamonds for Jewellery Brands - Alvora"
         description="Alvora supplies manufacturing jewellers, DTC brands, and private-label operations with certified, calibrated lab-grown diamonds. Spec-based ordering, matched parcels, direct manufacturer pricing."
         path="/for-jewelry-brands"
         jsonLd={JSON_LD}
@@ -32,10 +32,10 @@ export default function ForJewelryBrands() {
         <p className="specialty-hero-copy">
           Built for buyers who need a manufacturer, not a marketplace. Consistent specification.
           Repeatable make. Direct pricing. If your programme needs the same stone to arrive the same
-          way every time, that is a manufacturing requirement — and a manufacturer is what you need.
+          way every time, that is a manufacturing requirement - and a manufacturer is what you need.
         </p>
         <p className="hero-maker-line" style={{ marginTop: 32 }}>
-          You are buying from the bench — there is no factory behind us to go around.
+          You are buying from the bench - there is no factory behind us to go around.
         </p>
       </section>
 
@@ -45,8 +45,8 @@ export default function ForJewelryBrands() {
           <h2 id="fjb-who-title">Buyers who need<br />a manufacturer.</h2>
           <p>
             Alvora supplies manufacturing jewellers, DTC jewellery brands, and private-label
-            operations. The common denominator is a buyer who needs the same stone — or the same
-            parcel — to arrive the same way every time. That is a manufacturing requirement, not a
+            operations. The common denominator is a buyer who needs the same stone - or the same
+            parcel - to arrive the same way every time. That is a manufacturing requirement, not a
             retail one. A sourcer finds what exists. A manufacturer makes what you specify.
           </p>
         </div>
@@ -67,11 +67,11 @@ export default function ForJewelryBrands() {
             ],
             [
               "Brands with non-standard requirements",
-              "If your programme requires a diamond shape, dimension, or cut grade combination that standard production does not supply, custom cutting is the answer — not a broader search across existing stock.",
+              "If your programme requires a diamond shape, dimension, or cut grade combination that standard production does not supply, custom cutting is the answer - not a broader search across existing stock.",
             ],
           ].map(([title, desc]) => (
             <article key={title}>
-              <span className="feat-mark">—</span>
+              <span className="feat-mark">-</span>
               <div>
                 <h3>{title}</h3>
                 <p>{desc}</p>
@@ -95,7 +95,7 @@ export default function ForJewelryBrands() {
             <p>
               For a DTC brand selling a solitaire in a patented setting at a fixed price point, this
               means the diamond for order 4,000 is the same diamond as order 1. The customer buying
-              from a brand's catalogue at reorder is not a test of sourcing — it is a test of
+              from a brand's catalogue at reorder is not a test of sourcing - it is a test of
               manufacturing discipline.
             </p>
             <p>
@@ -110,20 +110,20 @@ export default function ForJewelryBrands() {
               Your programme.<br />Our production.
             </h2>
             <p>
-              Send us the specification for your programme — shape, dimensions, grade range,
+              Send us the specification for your programme - shape, dimensions, grade range,
               certification requirement, quantity, and timing. We will return a production schedule
               and quotation. The quotation itemises per-stone pricing against the specified grade,
               with calibration and layout work stated separately, and minimum quantities confirmed.
             </p>
             <div className="specialty-feature-list" style={{ marginTop: 28 }}>
               {[
-                ["Direct pricing", "No intermediary margin. Pricing reflects the make — stone, certification, and any layout or calibration work — stated per stone and per parcel."],
+                ["Direct pricing", "No intermediary margin. Pricing reflects the make - stone, certification, and any layout or calibration work - stated per stone and per parcel."],
                 ["Spec on file", "Your production specification is held on file for reorders. We cut to the same spec each time without requiring you to re-brief each order."],
-                ["Assured make", "Every stone is verified against its certificate before dispatch. Spec mismatches, chips, or make issues go back to our benches — repaired or replaced, never shipped."],
+                ["Assured make", "Every stone is verified against its certificate before dispatch. Spec mismatches, chips, or make issues go back to our benches - repaired or replaced, never shipped."],
                 ["Trade terms", "We work with established brands and jewellers on negotiated trade terms. First orders confirm the make; ongoing accounts move to agreed terms after credit and reference checks."],
               ].map(([k, v]) => (
                 <article key={k}>
-                  <span className="feat-mark">—</span>
+                  <span className="feat-mark">-</span>
                   <div>
                     <h3>{k}</h3>
                     <p>{v}</p>

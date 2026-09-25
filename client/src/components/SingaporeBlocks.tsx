@@ -180,7 +180,7 @@ export function SgTrustPanel() {
           ],
         ] as [string, string][]).map(([k, v]) => (
           <article key={k}>
-            <span className="feat-mark">—</span>
+            <span className="feat-mark">-</span>
             <div>
               <h3>{k}</h3>
               <p>{v}</p>
@@ -472,7 +472,7 @@ export function SgProductPanel({ programme = "all", pageSlug }: { programme?: Pr
     <div className="specialty-feature-list">
       {entries.map(([key, prog]) => (
         <article key={key}>
-          <span className="feat-mark">—</span>
+          <span className="feat-mark">-</span>
           <div>
             <h3>
               <a href={prog.href} style={{ color: "inherit", textDecoration: "none" }}>

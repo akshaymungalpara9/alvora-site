@@ -6,7 +6,7 @@ publishedDate: "2026-09-01"
 author: Alvora Diamonds
 readingTime: 4 min
 relatedProduct: /matched-pair-diamonds
-answerSentence: Matched pairs, melee, and calibrated layouts are different wholesale formats — pairs coordinate two stones, melee supplies small stones by lot, and layouts coordinate a larger design-specific group.
+answerSentence: Matched pairs, melee, and calibrated layouts are different wholesale formats - pairs coordinate two stones, melee supplies small stones by lot, and layouts coordinate a larger design-specific group.
 eyebrow: FORMAT GUIDE
 ---
 

@@ -3,7 +3,7 @@
  *
  * Each facet is a single URL that queries the SAME public tRPC endpoint the
  * main /availability page uses, with a pre-set filter. The filter values below
- * are the exact strings present in the live availability catalogue — hand-mapped
+ * are the exact strings present in the live availability catalogue - hand-mapped
  * from a `getPublicAvailabilitySummary` query on 17 Sep 2026, so we don't rely
  * on lowercase substring matching that could drift as the data changes.
  *
@@ -32,7 +32,7 @@ export interface AvailabilityFacet {
 }
 
 /**
- * Canonical facet list. Order matters for the /availability discovery strip —
+ * Canonical facet list. Order matters for the /availability discovery strip -
  * colour facets first, shape facets next, size facet last.
  */
 export const AVAILABILITY_FACETS: AvailabilityFacet[] = [
@@ -74,7 +74,7 @@ export const AVAILABILITY_FACETS: AvailabilityFacet[] = [
     route: "/white-lab-grown-diamonds",
     displayName: "White (D–G, VVS1–SI1)",
     category: "White",
-    // Filter by category alone — the White collection is entirely D/E/F/G by
+    // Filter by category alone - the White collection is entirely D/E/F/G by
     // definition. Enumerating colours here would silently exclude any future
     // colourless stone imported outside the D–G band, which shouldn't happen
     // per Alvora's stated range but we don't need to enforce it twice.

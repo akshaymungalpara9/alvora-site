@@ -1,12 +1,12 @@
 ---
 slug: lab-grown-diamond-wholesale-how-to-buy
 title: Where to Buy Lab-Grown Diamonds Wholesale
-metaDescription: Lab-grown diamonds are sold wholesale through four channels — direct from manufacturers, online marketplaces, local wholesalers, and trade shows. A practical guide to choosing the right channel.
+metaDescription: Lab-grown diamonds are sold wholesale through four channels - direct from manufacturers, online marketplaces, local wholesalers, and trade shows. A practical guide to choosing the right channel.
 publishedDate: "2026-09-01"
 author: Alvora Diamonds
 readingTime: 4 min
 relatedProduct: /precision-lab-grown-diamond-wholesale
-answerSentence: Lab-grown diamonds are sold wholesale through four channels — direct from manufacturers (mostly India, China, US), online marketplaces (Nivoda, VDB, RapNet), local wholesalers, and trade shows (IIJS, JCK, Hong Kong Jewellery & Gem Fair).
+answerSentence: Lab-grown diamonds are sold wholesale through four channels - direct from manufacturers (mostly India, China, US), online marketplaces (Nivoda, VDB, RapNet), local wholesalers, and trade shows (IIJS, JCK, Hong Kong Jewellery & Gem Fair).
 eyebrow: "Q&A · WHOLESALE CHANNELS"
 paaQuestions:
   - "Where can I buy lab-grown diamonds wholesale?"

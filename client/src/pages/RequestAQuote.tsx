@@ -11,7 +11,7 @@ import SpecialtyPageShell from "@/components/SpecialtyPageShell";
 const JSON_LD = {
   "@context": "https://schema.org",
   "@type": "Service",
-  name: "Request a Quote — Alvora Lab-Grown Diamonds",
+  name: "Request a Quote - Alvora Lab-Grown Diamonds",
   serviceType: "Diamond Manufacturing",
   provider: {
     "@type": "Organization",
@@ -19,7 +19,7 @@ const JSON_LD = {
     address: { "@type": "PostalAddress", addressLocality: "Surat", addressCountry: "IN" },
   },
   description:
-    "Submit a production enquiry to Alvora — describe the specification, quantity, certification requirement, and timeline. We respond with practical production detail and pricing.",
+    "Submit a production enquiry to Alvora - describe the specification, quantity, certification requirement, and timeline. We respond with practical production detail and pricing.",
   areaServed: "Worldwide",
 };
 
@@ -222,7 +222,7 @@ function QualifiedBriefForm({ onSwitchToFast }: { onSwitchToFast: () => void }) 
             name="carat_quantity"
             type="text"
             maxLength={300}
-            placeholder="e.g. 1.00 ct round, ×20 pieces — or describe the parcel"
+            placeholder="e.g. 1.00 ct round, ×20 pieces - or describe the parcel"
           />
         </label>
 
@@ -289,7 +289,7 @@ function QualifiedBriefForm({ onSwitchToFast }: { onSwitchToFast: () => void }) 
         </p>
 
         <label>
-          <span>Message — specification, shape, dimensions, or any context useful to the make</span>
+          <span>Message - specification, shape, dimensions, or any context useful to the make</span>
           <textarea
             name="message"
             maxLength={4500}
@@ -330,8 +330,8 @@ export default function RequestAQuote() {
   return (
     <SpecialtyPageShell>
       <SpecialtyPageMeta
-        title="Request a Quote — Alvora Lab-Grown Diamonds"
-        description="Submit a production enquiry to Alvora — describe the specification, quantity, certification requirement, and timeline. We respond with practical production detail and pricing."
+        title="Request a Quote - Alvora Lab-Grown Diamonds"
+        description="Submit a production enquiry to Alvora - describe the specification, quantity, certification requirement, and timeline. We respond with practical production detail and pricing."
         path="/request-a-quote"
         jsonLd={JSON_LD}
       />
@@ -342,7 +342,7 @@ export default function RequestAQuote() {
           <h1>Request<br />a Quote.</h1>
           <p>
             Tell us the programme, profile, or specification you need. We will return with the
-            practical production detail — lead time, per-stone pricing, certification scope, and
+            practical production detail - lead time, per-stone pricing, certification scope, and
             dispatch arrangement.
           </p>
           <div className="rfq-sidebar-meta">
@@ -357,7 +357,7 @@ export default function RequestAQuote() {
               <strong>Certification</strong>
               <p>
                 All Alvora stones are IGI laser-inscribed. Per-stone certificates and per-parcel
-                master reports are available — confirm your requirement in the form.
+                master reports are available - confirm your requirement in the form.
               </p>
             </article>
             <article>

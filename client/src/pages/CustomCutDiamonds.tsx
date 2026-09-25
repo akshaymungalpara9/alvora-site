@@ -12,7 +12,7 @@ const JSON_LD = {
     address: { "@type": "PostalAddress", addressLocality: "Surat", addressCountry: "IN" },
   },
   description:
-    "Custom-cut lab-grown diamonds made to exact buyer specification — shape, exact diameter, depth ratio, table percentage, crown and pavilion angles. 5–10 working day lead time from Surat.",
+    "Custom-cut lab-grown diamonds made to exact buyer specification - shape, exact diameter, depth ratio, table percentage, crown and pavilion angles. 5–10 working day lead time from Surat.",
   areaServed: "Worldwide",
 };
 
@@ -21,7 +21,7 @@ export default function CustomCutDiamonds() {
     <SpecialtyPageShell>
       <SpecialtyPageMeta
         title="Custom-Cut Lab-Grown Diamonds to Exact Specification"
-        description="Send your specification sheet — shape, exact diameter, depth ratio, table, finish — and Alvora cuts the diamond to meet it. Precision manufacturing from Surat, 5–10 working day lead time."
+        description="Send your specification sheet - shape, exact diameter, depth ratio, table, finish - and Alvora cuts the diamond to meet it. Precision manufacturing from Surat, 5–10 working day lead time."
         path="/custom-cut-diamonds"
         jsonLd={JSON_LD}
       />
@@ -31,8 +31,8 @@ export default function CustomCutDiamonds() {
         <h1 id="ccd-title">Custom-Cut Lab-Grown<br /><em>Diamonds to Specification</em></h1>
         <p className="specialty-hero-copy">
           A broker can match a requirement. A manufacturer can cut to it. Send the specification
-          your jewellery programme needs — shape, exact diameter, depth ratio, table, crown and
-          pavilion angles, finish — and we make the diamond to meet it. That is not sourcing. That
+          your jewellery programme needs - shape, exact diameter, depth ratio, table, crown and
+          pavilion angles, finish - and we make the diamond to meet it. That is not sourcing. That
           is manufacturing.
         </p>
         <p className="hero-maker-line" style={{ marginTop: 32 }}>
@@ -45,7 +45,7 @@ export default function CustomCutDiamonds() {
           <p className="eyebrow"><span />WHEN CUSTOM CUTTING IS NECESSARY</p>
           <h2 id="ccd-when-title">When the spec exists<br />and the stock does not.</h2>
           <p>
-            Most diamond suppliers work from existing stock — they source and grade what is already
+            Most diamond suppliers work from existing stock - they source and grade what is already
             cut. Custom cutting means starting from rough and making the diamond to the buyer's
             instruction set. The specification is not a preference. It is the output requirement.
           </p>
@@ -59,7 +59,7 @@ export default function CustomCutDiamonds() {
             ],
             [
               "Length-to-width ratio requirements",
-              "Fancy shapes — ovals, cushions, pears, marquise — vary enormously in LW ratio across standard production. If your programme specifies a 1.40–1.45 oval and standard production gives you 1.30 and 1.55 mixed in a parcel, the result is visible inconsistency. We cut to ratio.",
+              "Fancy shapes - ovals, cushions, pears, marquise - vary enormously in LW ratio across standard production. If your programme specifies a 1.40–1.45 oval and standard production gives you 1.30 and 1.55 mixed in a parcel, the result is visible inconsistency. We cut to ratio.",
             ],
             [
               "Depth-profile requirements",
@@ -71,7 +71,7 @@ export default function CustomCutDiamonds() {
             ],
           ].map(([title, desc]) => (
             <article key={title}>
-              <span className="feat-mark">—</span>
+              <span className="feat-mark">-</span>
               <div>
                 <h3>{title}</h3>
                 <p>{desc}</p>
@@ -92,7 +92,7 @@ export default function CustomCutDiamonds() {
               dimensions, and finish grade. The more you add, the tighter the output.
             </p>
             <p>
-              If you have a reference stone — an existing diamond you want replicated — we can
+              If you have a reference stone - an existing diamond you want replicated - we can
               measure it and derive the specification from that stone. Send dimensions and photos, or
               ship the reference stone for bench assessment.
             </p>
@@ -106,18 +106,18 @@ export default function CustomCutDiamonds() {
             <div className="specialty-feature-list" style={{ marginTop: 16 }}>
               {[
                 ["Shape", "Round brilliant, oval, cushion, pear, marquise, radiant, princess, emerald, asscher, or non-standard."],
-                ["Diameter / dimensions", "Exact mm — diameter for rounds; length × width for fancies. Achievable sizes are confirmed against your specification."],
+                ["Diameter / dimensions", "Exact mm - diameter for rounds; length × width for fancies. Achievable sizes are confirmed against your specification."],
                 ["Depth %", "Total depth as a percentage of diameter or average width."],
                 ["Table %", "Table facet diameter as a percentage."],
                 ["Crown and pavilion angles", "Where setting depth or optical outcome requires specific angles."],
                 ["Girdle", "Thin / medium / thick; faceted or polished."],
-                ["Finish grade", "Good, Very Good, or Excellent — stated per specification."],
+                ["Finish grade", "Good, Very Good, or Excellent - stated per specification."],
                 ["Colour and clarity range", "Your minimum and maximum grade tolerance."],
                 ["Quantity", "Number of stones, with any first-article requirement noted."],
                 ["Certification", "IGI on each stone. Report scope confirmed per enquiry."],
               ].map(([k, v]) => (
                 <article key={k}>
-                  <span className="feat-mark">—</span>
+                  <span className="feat-mark">-</span>
                   <div>
                     <h3>{k}</h3>
                     <p>{v}</p>
