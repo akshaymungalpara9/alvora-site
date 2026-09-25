@@ -58,10 +58,10 @@ export default function MatchedPairDiamonds() {
 
         <div className="specialty-feature-list on-light" style={{ marginTop: 40 }}>
           {[
-            ["Colour", "Colour grade within one step. TODO: confirm — e.g., E/F or F/G range held across the pair."],
-            ["Dimensions", "Girdle diameter matched within tolerance. TODO: confirm tolerance — target ±0.05 mm or ±0.1 mm."],
+            ["Colour", "Colour matched across the pair, as stated on each stone's report."],
+            ["Dimensions", "Girdle diameter matched within the tolerance stated in your quotation."],
             ["Table and depth", "Table and total depth percentages matched so crown height and pavilion depth are consistent."],
-            ["Crown angle", "Crown angles matched within tolerance. TODO: confirm angular tolerance."],
+            ["Crown angle", "Crown angles matched within the tolerance stated in your quotation."],
             ["Cut grade", "Excellent or Very Good on each stone — stated per pair."],
             ["Fluorescence", "None on either stone. No BGM. These are not relaxed for pairs."],
           ].map(([k, v]) => (
@@ -107,9 +107,7 @@ export default function MatchedPairDiamonds() {
             </p>
             <p>
               Pairs that drift outside tolerance at any measurement point are separated and replaced
-              rather than shipped as a matched set. Lead time:{" "}
-              <strong>7–14 working days</strong>{" "}
-              <span className="specialty-todo">[TODO: confirm]</span> from specification sign-off.
+              rather than shipped as a matched set. Lead time is confirmed in your quotation from specification sign-off.
             </p>
             <p>
               IGI certification is included. Each stone receives its own laser inscription and

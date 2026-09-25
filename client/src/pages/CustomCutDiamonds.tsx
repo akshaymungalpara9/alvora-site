@@ -36,8 +36,7 @@ export default function CustomCutDiamonds() {
           is manufacturing.
         </p>
         <p className="hero-maker-line" style={{ marginTop: 32 }}>
-          Typical lead time for a spec make: 5–10 working days.{" "}
-          <span className="specialty-todo">[TODO: confirm]</span>
+          Typical lead time for a spec make: 5–10 working days.
         </p>
       </section>
 
@@ -107,7 +106,7 @@ export default function CustomCutDiamonds() {
             <div className="specialty-feature-list" style={{ marginTop: 16 }}>
               {[
                 ["Shape", "Round brilliant, oval, cushion, pear, marquise, radiant, princess, emerald, asscher, or non-standard."],
-                ["Diameter / dimensions", "Exact mm — diameter for rounds; length × width for fancies. TODO: confirm achievable size range."],
+                ["Diameter / dimensions", "Exact mm — diameter for rounds; length × width for fancies. Achievable sizes are confirmed against your specification."],
                 ["Depth %", "Total depth as a percentage of diameter or average width."],
                 ["Table %", "Table facet diameter as a percentage."],
                 ["Crown and pavilion angles", "Where setting depth or optical outcome requires specific angles."],

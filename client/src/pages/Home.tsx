@@ -16,6 +16,7 @@ import { PUBLIC_PIECES, formatFromPrice } from "@shared/jewellery/catalog";
 import { JEWELLERY_HOME_META } from "@shared/jewellery/seo";
 import { JEWELLERY_FAQ } from "@shared/jewellery/faq";
 import { applyJewellerySeo } from "@/lib/jewellerySeo";
+import homeHero from "@shared/homeHero.json";
 import "./home-jewellery.css";
 
 /** Anchors that used to live on the homepage and now belong to /trade. */
@@ -24,6 +25,8 @@ const TRADE_ANCHORS = new Set(["#production", "#made-to-spec", "#how-we-work", "
 const byScore = (a: { featuredScore: number }, b: { featuredScore: number }) => b.featuredScore - a.featuredScore;
 const engagement = PUBLIC_PIECES.filter((piece) => piece.collections.includes("engagement-rings")).sort(byScore);
 const everyday = PUBLIC_PIECES.filter((piece) => piece.category === "earrings" || piece.category === "pendant").sort(byScore);
+type HeroPhoto = { alt: string; sizes: Array<{ src: string; width: number; height: number }> };
+const HERO_PHOTO = homeHero as HeroPhoto | null;
 const heroPiece = engagement.find((piece) => piece.images.length) ?? null;
 const liveShapes = SHOP_SHAPES.filter(({ shape }) => engagement.some((piece) => piece.shape === shape));
 const lowestEveryday = everyday.reduce<number | null>((low, piece) => (piece.fromPriceUsd != null && (low == null || piece.fromPriceUsd < low) ? piece.fromPriceUsd : low), null);
@@ -46,7 +49,13 @@ export default function Home() {
     <JewelleryShell>
       <section className="jh-hero">
         <div className="jh-hero-media">
-          {heroPiece ? (
+          {HERO_PHOTO ? (
+            // Owner-supplied hero photo (pnpm hero:image), in sizes up to 2400px.
+            <picture>
+              <source type="image/webp" srcSet={HERO_PHOTO.sizes.map((size) => `${size.src} ${size.width}w`).join(", ")} sizes="(min-width: 900px) 55vw, 100vw" />
+              <img src={HERO_PHOTO.sizes[HERO_PHOTO.sizes.length - 1].src} alt={HERO_PHOTO.alt} width={HERO_PHOTO.sizes[0].width} height={HERO_PHOTO.sizes[0].height} fetchPriority="high" />
+            </picture>
+          ) : heroPiece ? (
             <Link href={pieceHref(heroPiece)} className="jh-hero-piece" aria-label={heroPiece.name}>
               <PieceImage piece={heroPiece} priority sizes="(min-width: 900px) 55vw, 100vw" />
             </Link>
