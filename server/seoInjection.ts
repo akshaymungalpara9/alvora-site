@@ -805,6 +805,39 @@ export function resolveRouteMeta(pathname: string, origin: string): RouteMeta | 
         canonical: url("/singapore/wholesale-parcels"),
         serviceJsonLd: { "@context": "https://schema.org", "@type": "Service", name: "Wholesale Lab-Grown Diamond Parcels for Singapore", serviceType: "Wholesale diamond parcel supply", provider: { "@type": "Organization", name: "Alvora Diamonds", address: { "@type": "PostalAddress", addressLocality: "Surat", addressCountry: "IN" } }, areaServed: "Singapore" },
       };
+    case "/insights/importing-lab-grown-diamonds-from-india":
+      return {
+        lang: "en",
+        title: "Importing Lab-Grown Diamonds from India: Process and Paperwork | Alvora Insights",
+        description: "How trade buyers import lab-grown diamonds from India: the commercial documents, the classification question, and what is confirmed per shipment.",
+        canonical: url("/insights/importing-lab-grown-diamonds-from-india"),
+        serviceJsonLd: [
+          mkArticle(origin, "/insights/importing-lab-grown-diamonds-from-india", "Importing Lab-Grown Diamonds from India: Process and Paperwork for Trade Buyers", "Importing lab-grown diamonds from India is a standard courier-cleared trade shipment; the commercial path, documents and destination charges are confirmed in writing per order, and duty or tax rates are confirmed with the destination customs authority rather than published as generic percentages."),
+          mkBreadcrumbs(origin, [{ name: "Home", path: "/" }, { name: "Insights", path: "/insights" }, { name: "Importing from India", path: "/insights/importing-lab-grown-diamonds-from-india" }]),
+        ],
+      };
+    case "/insights/how-to-verify-an-igi-lab-grown-report":
+      return {
+        lang: "en",
+        title: "How to Verify an IGI Lab-Grown Diamond Report | Alvora Insights",
+        description: "Verify an IGI lab-grown diamond report in three steps: check the report number online, match the laser inscription, and reconcile the stone to its certificate.",
+        canonical: url("/insights/how-to-verify-an-igi-lab-grown-report"),
+        serviceJsonLd: [
+          mkArticle(origin, "/insights/how-to-verify-an-igi-lab-grown-report", "How to Verify an IGI Lab-Grown Diamond Report Before You Buy", "An IGI lab-grown diamond report is verified by entering the report number on IGI's verification page, matching the laser inscription on the stone's girdle to that report, and confirming that weight, measurements and grades agree exactly."),
+          mkBreadcrumbs(origin, [{ name: "Home", path: "/" }, { name: "Insights", path: "/insights" }, { name: "Verify an IGI report", path: "/insights/how-to-verify-an-igi-lab-grown-report" }]),
+        ],
+      };
+    case "/insights/fluorescence-and-bgm-lab-grown-diamonds":
+      return {
+        lang: "en",
+        title: "Fluorescence and BGM in Lab-Grown Diamonds | Alvora Insights",
+        description: "What fluorescence and BGM (brown, green, milky) mean on a lab-grown diamond, why they affect how a stone looks, and what to ask before buying.",
+        canonical: url("/insights/fluorescence-and-bgm-lab-grown-diamonds"),
+        serviceJsonLd: [
+          mkArticle(origin, "/insights/fluorescence-and-bgm-lab-grown-diamonds", "Fluorescence and BGM in Lab-Grown Diamonds: What the Terms Mean for Buyers", "Fluorescence is a glow some diamonds show under ultraviolet light, and BGM stands for brown, green or milky undertones that sit outside the colour grade; both can change how a stone faces up, so buyers should confirm them beyond the certificate's 4Cs."),
+          mkBreadcrumbs(origin, [{ name: "Home", path: "/" }, { name: "Insights", path: "/insights" }, { name: "Fluorescence and BGM", path: "/insights/fluorescence-and-bgm-lab-grown-diamonds" }]),
+        ],
+      };
     default:
       if (pathname.startsWith("/insights/")) {
         return {

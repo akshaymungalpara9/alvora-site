@@ -34,6 +34,21 @@ export default function GuidePage({ slug }: { slug: string }) {
           <Link href={guide.cta.href} className="jw-button">{guide.cta.label} <ArrowRight size={15} strokeWidth={1.6} /></Link>
         </header>
 
+        {guide.video ? (
+          <figure className="jg-video" style={{ margin: "0 0 2rem" }}>
+            <div style={{ position: "relative", paddingTop: "56.25%" }}>
+              <iframe
+                src={`https://www.youtube-nocookie.com/embed/${guide.video.youtubeId}`}
+                title={guide.video.title}
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                style={{ position: "absolute", inset: 0, width: "100%", height: "100%", border: 0 }}
+              />
+            </div>
+          </figure>
+        ) : null}
+
         <div className="jg-body">
           {guide.sections.map((section) => (
             <section key={section.heading}>
