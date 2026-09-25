@@ -57,6 +57,20 @@ describe("jewellery catalogue", () => {
     }
   });
 
+  it("has a JPEG link preview for every shown piece and the jewellery pages", async () => {
+    const { socialImageFor } = await import("./seoInjection");
+    for (const piece of PUBLIC_PIECES) {
+      const social = socialImageFor(`/jewellery/${piece.slug}`);
+      expect(social.path, piece.code).toBe(`/assets/social/pieces/${piece.code.toLowerCase()}.jpg`);
+      expect(fs.existsSync(path.join(ROOT, "client", "public", social.path)), piece.code).toBe(true);
+    }
+    for (const route of ["/", "/engagement-rings", "/earrings", "/book-a-consultation"]) {
+      const social = socialImageFor(route);
+      expect(social.path).toMatch(/\.jpg$/);
+      expect(fs.existsSync(path.join(ROOT, "client", "public", social.path)), route).toBe(true);
+    }
+  });
+
   it("serves image paths only under the Alvora asset folder", () => {
     for (const piece of ALL_PIECES) {
       for (const image of piece.images) expect(image.src).toMatch(/^\/assets\/jewellery\/alv-[a-z]-\d{4}\/\d{2}\.webp$/);

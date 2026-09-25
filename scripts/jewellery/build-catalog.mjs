@@ -505,6 +505,7 @@ async function main() {
   console.log(`Catalogue: ${catalog.length} pieces → ${path.relative(ROOT, CATALOG_PATH)}`);
   console.log(`Missing photos: ${missingImages.length}, missing prices: ${missingPrices.length}. See ${path.relative(ROOT, REPORT_PATH)}`);
   if (!withImages) console.log("Photos were not processed. Add --images once data/jewellery/raw-images/ is populated.");
+  else await (await import("../build-social-images.mjs")).buildSocialImages();
 }
 
 /**

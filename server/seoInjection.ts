@@ -155,6 +155,20 @@ const COLLECTION_KEYS: Record<string, JewelleryCollection | null> = {
   "/jewellery/coloured-stones": "coloured-stones",
 };
 const SHAPE_ROUTE = /^\/engagement-rings\/shape\/([a-z-]+)$/;
+const JEWELLERY_SOCIAL_IMAGE = { path: "/assets/social/alvora-jewellery.jpg", alt: "Alvora lab-grown diamond rings, worn" };
+
+/**
+ * Link-preview image for a page: a piece's own photo on its product page, the
+ * homepage photos on the retail jewellery pages, the default image elsewhere.
+ * Files are made by scripts/build-social-images.mjs.
+ */
+export function socialImageFor(pathname: string): { path: string; alt: string } {
+  const pieceMatch = PIECE_ROUTE.exec(pathname);
+  const piece = pieceMatch ? findPublicPiece(pieceMatch[1]) : undefined;
+  if (piece) return { path: `/assets/social/pieces/${piece.code.toLowerCase()}.jpg`, alt: piece.name };
+  const isJewellery = pathname === "/" || pathname in COLLECTION_KEYS || SHAPE_ROUTE.test(pathname) || pathname === "/book-a-consultation" || pathname.startsWith("/guides/");
+  return isJewellery ? JEWELLERY_SOCIAL_IMAGE : { path: publicSocialImage, alt: publicSocialImageAlt };
+}
 const PIECE_ROUTE = /^\/jewellery\/([a-z0-9-]+)$/;
 
 function mkBreadcrumbs(origin: string, trail: Array<{ name: string; path: string }>) {
@@ -816,7 +830,8 @@ export function injectSeoIntoHtml(html: string, pathname: string, origin: string
   const meta = resolveRouteMeta(pathname, origin);
   if (!meta) return html;
 
-  const image = `${origin}${publicSocialImage}`;
+  const social = socialImageFor(pathname);
+  const image = `${origin}${social.path}`;
   const robots = meta.robots ?? "index,follow,max-image-preview:large";
   const ogLocale = langToOgLocale(meta.lang);
   const ogLocaleAlternates = (meta.alternates ?? [])
@@ -841,7 +856,7 @@ export function injectSeoIntoHtml(html: string, pathname: string, origin: string
     `<meta property="og:image:width" content="1200" />`,
     `<meta property="og:image:height" content="630" />`,
     `<meta property="og:image:type" content="image/jpeg" />`,
-    `<meta property="og:image:alt" content="${esc(publicSocialImageAlt)}" />`,
+    `<meta property="og:image:alt" content="${esc(social.alt)}" />`,
     `<meta property="og:site_name" content="Alvora" />`,
     `<meta property="og:locale" content="${ogLocale}" />`,
     ...ogLocaleAlternates.map((loc) => `<meta property="og:locale:alternate" content="${loc}" />`),
@@ -849,7 +864,7 @@ export function injectSeoIntoHtml(html: string, pathname: string, origin: string
     `<meta name="twitter:title" content="${esc(meta.title)}" />`,
     `<meta name="twitter:description" content="${esc(meta.description)}" />`,
     `<meta name="twitter:image" content="${esc(image)}" />`,
-    `<meta name="twitter:image:alt" content="${esc(publicSocialImageAlt)}" />`,
+    `<meta name="twitter:image:alt" content="${esc(social.alt)}" />`,
     `<link rel="canonical" href="${esc(meta.canonical)}" />`,
     ...(meta.alternates ?? []).map(({ lang, href }) => `<link rel="alternate" hreflang="${esc(lang)}" href="${esc(href)}" />`),
     `<script type="application/ld+json">${JSON.stringify(buildOrgJsonLd(origin))}</script>`,
