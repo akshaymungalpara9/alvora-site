@@ -1,8 +1,8 @@
-Alvora jewellery import report — 2026-09-25T16:00:35.799Z
-On the launch list: 156 (rule: data/jewellery/launch.json); shown on the site (with photos): 65
-Pieces in catalogue: 196 (wave A: 94, wave B: 102)
+Alvora jewellery import report — 2026-09-25T18:48:44.257Z
+On the launch list: 307 (rule: data/jewellery/launch.json); shown on the site (with photos): 65
+Pieces in catalogue: 347 (wave A: 245, wave B: 102)
 
-Missing photos (131):
+Missing photos (282):
   ALV-R-0002  Solene Oval Heritage  (looked for folder: carat/vintage-art-deco-oval-cut-diamond-ring)
   ALV-R-0009  Talia Oval East-West  (looked for folder: carat/solitaire-oval-cut-diamond-ring-in-east-to-west-setting)
   ALV-R-0012  Oriel Marquise Heritage  (looked for folder: carat/marquise-cut-vintage-diamond-ring-with-filigree-details)
@@ -31,9 +31,160 @@ Missing photos (131):
   ALV-P-0009  Leonie Halo Pendant  (looked for folder: carat/halo-style-taurus-pendant-in-rose-gold)
   ALV-P-0010  Nadia Round Pendant  (looked for folder: carat/round-diamond-moon-pendant-in-yellow-gold)
   ALV-P-0011  Perrine Marquise Pendant  (looked for folder: carat/round-and-marquise-diamond-pendant-in-sweden-cross-style)
+  ALV-R-0141  Idony Cushion Solitaire  (looked for folder: junerings/2-57-ct-rose-compass-portuguese-cushion)
+  ALV-R-0142  Jolie Cushion Solitaire  (looked for folder: junerings/2-70-ct-compass-portuguese-cushion)
+  ALV-R-0143  Linnea Champagne Radiant Solitaire  (looked for folder: junerings/alba-champagne-radiant)
+  ALV-R-0144  Kerensa Emerald Solitaire  (looked for folder: junerings/alba-old-cut-emerald)
+  ALV-R-0145  Lorelle Cushion Heritage  (looked for folder: junerings/antique-cut-cushion-cigar-band-solitaire-oak)
+  ALV-R-0146  Minerva Heritage  (looked for folder: junerings/antique-cut-moval-marlow-oak)
+  ALV-R-0147  Nyssa Heritage  (looked for folder: junerings/antique-cut-moval-solitaire-oak)
+  ALV-R-0148  Orabel Pear Heritage  (looked for folder: junerings/antique-cut-pear-solitaire-oak)
+  ALV-R-0149  Pernille Toi et Moi  (looked for folder: junerings/antique-cut-toi-et-moi-oak)
+  ALV-R-0150  Quenby Heritage  (looked for folder: junerings/antique-moval-round-ring-4)
+  ALV-R-0151  Philippa Emerald Solitaire  (looked for folder: junerings/arden-emerald)
+  ALV-R-0152  Rosel Five Stone  (looked for folder: junerings/art-deco-five-stone-oak)
+  ALV-R-0153  Sorrel Oval Solitaire  (looked for folder: junerings/aster-oval)
+  ALV-R-0154  Tamara Blue Solitaire  (looked for folder: junerings/azure-diamond)
+  ALV-R-0155  Undine Cushion Solitaire  (looked for folder: junerings/bonn-cushion)
+  ALV-R-0156  Verena Solitaire  (looked for folder: junerings/brooks-moval)
+  ALV-R-0157  Verena Pear Solitaire  (looked for folder: junerings/brooks-pear)
+  ALV-R-0158  Willa Emerald Solitaire  (looked for folder: junerings/carmine-emerald)
+  ALV-R-0159  Willa Cushion Solitaire  (looked for folder: junerings/carmine-old-mine-cushion)
+  ALV-R-0160  Yseult Marquise Solitaire  (looked for folder: junerings/carroll-marquise)
+  ALV-R-0161  Galia Marquise Bezel  (looked for folder: junerings/cassia-bezel-marquise)
+  ALV-R-0162  Zenobia Five Stone  (looked for folder: junerings/caye-five-stone-porguese-cut)
+  ALV-R-0163  Adrienne Champagne Oval Solitaire  (looked for folder: junerings/celine-champagne-step-cut-oval)
+  ALV-R-0164  Aisling Blue Three Stone  (looked for folder: junerings/ceylon-sapphire-three-stone-oak)
+  ALV-R-0165  Philippa Champagne Solitaire  (looked for folder: junerings/champagne-arden-euro-round)
+  ALV-R-0166  Cosima Champagne Oval Solitaire  (looked for folder: junerings/champagne-azure-oval)
+  ALV-R-0167  Noor Champagne Oval Solitaire  (looked for folder: junerings/champagne-caraway-oval)
+  ALV-R-0168  Alethea Champagne Cushion Solitaire  (looked for folder: junerings/champagne-cove-2-00-ct)
+  ALV-R-0169  Alethea Champagne Elongated Cushion Solitaire  (looked for folder: junerings/champagne-cove-elongated-cushion)
+  ALV-R-0170  Amabel Champagne Cushion Solitaire  (looked for folder: junerings/champagne-cushion-wade-oak)
+  ALV-R-0171  Jora Champagne Cushion Solitaire  (looked for folder: junerings/champagne-dove-rose-cut-cushion)
+  ALV-R-0172  Amandine Champagne Emerald Three Stone  (looked for folder: junerings/champagne-emerald-three-stone)
+  ALV-R-0173  Aurore Champagne Emerald Three Stone  (looked for folder: junerings/champagne-emerald-three-stone-june-champagne)
+  ALV-R-0174  Avriel Champagne Solitaire  (looked for folder: junerings/champagne-geo-cut-perry-oak)
+  ALV-R-0175  Belen Champagne Solitaire  (looked for folder: junerings/champagne-moval-with-emerald-accents-oak)
+  ALV-R-0176  Bertille Champagne Halo  (looked for folder: junerings/champagne-portrait-domed-pave-halo-oak)
+  ALV-R-0177  Bruna Champagne Cushion Solitaire  (looked for folder: junerings/champagne-senna-old-mine-cushion-deep-champagne)
+  ALV-R-0178  Caelia Champagne Marquise Solitaire  (looked for folder: junerings/champagne-step-cut-marquise-solitaire)
+  ALV-R-0179  Alethea Cushion Solitaire  (looked for folder: junerings/cove-2-00-ct-old-mine-cushion)
+  ALV-R-0180  Alethea Solitaire  (looked for folder: junerings/cove-moval)
+  ALV-R-0181  Alethea Elongated Cushion Solitaire  (looked for folder: junerings/cove-standard-brilliant-elongated-cushion)
+  ALV-R-0182  Elodie Cushion East-West  (looked for folder: junerings/dahlia-east-west-portuguese-cushion)
+  ALV-R-0183  Elodie Elongated Cushion Solitaire  (looked for folder: junerings/dahlia-old-mine-elongated-cushion)
+  ALV-R-0184  Elodie Solitaire  (looked for folder: junerings/dahlia-tab-prong-euro-cut)
+  ALV-R-0185  Carlota Round Signet  (looked for folder: junerings/derby-signet-horse-head-brilliant)
+  ALV-R-0186  Clarimond Champagne Cushion Solitaire  (looked for folder: junerings/double-cut-champagne-cushion-solitaire-oak)
+  ALV-R-0187  Vela Blue Solitaire  (looked for folder: junerings/dusk-sapphire)
+  ALV-R-0188  Clemence Champagne East-West  (looked for folder: junerings/east-west-champagne-portrait)
+  ALV-R-0189  Ulla Champagne Marquise Solitaire  (looked for folder: junerings/eddy-champagne-marquise)
+  ALV-R-0190  Delfina Oval Solitaire  (looked for folder: junerings/elongated-6-prong-fleur)
+  ALV-R-0191  Demetria Elongated Cushion Solitaire  (looked for folder: junerings/elongated-cushion-solitaire-with-compass-prongs)
+  ALV-R-0192  Eira Pear Solitaire  (looked for folder: junerings/ely-chunky-pear)
+  ALV-R-0193  Elif Pear Solitaire  (looked for folder: junerings/emerald-pear-solitaire-oak)
+  ALV-R-0194  Ellora Pear Solitaire  (looked for folder: junerings/emerald-pear-starling)
+  ALV-R-0195  Valen Marquise Solitaire  (looked for folder: junerings/estelle-rose-cut-marquise)
+  ALV-R-0196  Fabia Signet  (looked for folder: junerings/everett-old-mine-signet)
+  ALV-R-0197  Federica Heritage  (looked for folder: junerings/farro-antique-old-mine-moval)
+  ALV-R-0198  Fenella Elongated Cushion Solitaire  (looked for folder: junerings/finch-elongated-cushion)
+  ALV-R-0199  Fiorella Oval East-West  (looked for folder: junerings/flora-east-west-oval)
+  ALV-R-0200  Kerensa Solitaire  (looked for folder: junerings/french-cut-alba-oak)
+  ALV-R-0201  Giacinta Champagne Three Stone  (looked for folder: junerings/gale-champagne-moval-three-stone)
+  ALV-R-0202  Giacinta Solitaire  (looked for folder: junerings/gale-white-diamond-movals)
+  ALV-R-0203  Giulietta Solitaire  (looked for folder: junerings/gemstone-medley-band-oak)
+  ALV-R-0204  Gracia Pear Solitaire  (looked for folder: junerings/geo-pear-estelle-oak)
+  ALV-R-0205  Hannelore Green Solitaire  (looked for folder: junerings/green-mira)
+  ALV-R-0206  Romilly Green Elongated Cushion Solitaire  (looked for folder: junerings/green-sapphire-lea-elongated-old-mine-cushion)
+  ALV-R-0207  Ianthe Champagne Solitaire  (looked for folder: junerings/invisible-set-champagne-octagon)
+  ALV-R-0208  Irina Green Solitaire  (looked for folder: junerings/iris-2-ct-green-diamond)
+  ALV-R-0209  Pia Green Solitaire  (looked for folder: junerings/iris-green-diamond)
+  ALV-R-0210  Pia Green Marquise Solitaire  (looked for folder: junerings/iris-green-marquise)
+  ALV-R-0211  Thea Heritage  (looked for folder: junerings/june-antique-cut-solitaire-euro-round)
+  ALV-R-0212  Thea Oval Heritage  (looked for folder: junerings/june-antique-cut-solitaire-oval)
+  ALV-R-0213  Isabetta Heritage  (looked for folder: junerings/june-antique-cut-solitaire-portrait)
+  ALV-R-0214  Nerida Oval Bezel  (looked for folder: junerings/june-bezel-antique-cut-oval)
+  ALV-R-0215  Jacinthe Oval Bezel  (looked for folder: junerings/june-bezel-antique-cut-rose-oval)
+  ALV-R-0216  Nerida Round Bezel  (looked for folder: junerings/june-bezel-antique-cut-round)
+  ALV-R-0217  Jessenia Oval Heritage  (looked for folder: junerings/june-solitaire-antique-cut-rose-oval)
+  ALV-R-0218  Esra Round Solitaire  (looked for folder: junerings/june-solitaire-rose-cut-round)
+  ALV-R-0219  Esra Trillion Solitaire  (looked for folder: junerings/june-solitaire-trillion)
+  ALV-R-0220  Tessaly Pink Radiant Solitaire  (looked for folder: junerings/juno-north-south-pink-radiant)
+  ALV-R-0221  Josiane Asscher Solitaire  (looked for folder: junerings/lake-asscher)
+  ALV-R-0222  Josiane Solitaire  (looked for folder: junerings/lake-old-mine-portrait)
+  ALV-R-0223  Kallista Solitaire  (looked for folder: junerings/lake-old-mine-portrait-white)
+  ALV-R-0224  Ione Green Oval Solitaire  (looked for folder: junerings/lark-oval-green)
+  ALV-R-0225  Ione Princess Solitaire  (looked for folder: junerings/lark-princess)
+  ALV-R-0226  Romilly Solitaire  (looked for folder: junerings/lea)
+  ALV-R-0227  Celeste Solitaire  (looked for folder: junerings/lea-1-25-ct-white-diamond)
+  ALV-R-0228  Romilly Marquise Solitaire  (looked for folder: junerings/lea-marquise)
+  ALV-R-0229  Kerstin Round Solitaire  (looked for folder: junerings/lennon-round)
+  ALV-R-0230  Leandra Oval East-West  (looked for folder: junerings/locke-east-west-oval)
+  ALV-R-0231  Ilse Old Mine Solitaire  (looked for folder: junerings/maren-old-mine-portrait)
+  ALV-R-0232  Minerva Green Pear Solitaire  (looked for folder: junerings/marlow-green-pear)
+  ALV-R-0233  Minerva Pear Solitaire  (looked for folder: junerings/marlow-old-mine-pear)
   ALV-R-0049  Verity Marquise Solitaire  (looked for folder: carat/marquise-cut-diamond-ring-with-hidden-flower-crown)
+  ALV-R-0234  Liliane Blue Cushion Solitaire  (looked for folder: junerings/mermaid-sapphire-cushion-with-emerald-diamonds-oak)
+  ALV-R-0235  Loretta Asscher Solitaire  (looked for folder: junerings/mesa-asscher)
+  ALV-R-0236  Loretta Champagne Marquise Solitaire  (looked for folder: junerings/mesa-champagne-portugese-marquise)
+  ALV-R-0237  Hannelore Champagne Solitaire  (looked for folder: junerings/mira-champagne-moval)
+  ALV-R-0238  Hannelore Solitaire  (looked for folder: junerings/mira-euro-round)
+  ALV-R-0239  Hannelore Emerald Solitaire  (looked for folder: junerings/mira-old-cut-emerald)
+  ALV-R-0240  Hannelore Champagne Cushion Solitaire  (looked for folder: junerings/mira-old-mine-champagne-cushion)
+  ALV-R-0241  Hannelore Princess Solitaire  (looked for folder: junerings/mira-princess)
+  ALV-R-0242  Lorelle Champagne Cushion Solitaire  (looked for folder: junerings/old-mine-champagne-cigar-band-solitaire-oak)
+  ALV-R-0243  Amabel Solitaire  (looked for folder: junerings/old-mine-moval-wade-oak)
+  ALV-R-0244  Lucasta Oval Signet  (looked for folder: junerings/old-mine-oval-signet-oak)
   ALV-P-0012  Blythe Oval Pendant  (looked for folder: carat/oval-diamond-pendant-with-four-claw-prong)
+  ALV-R-0245  Magdalena Round Toi et Moi  (looked for folder: junerings/palm-pear-round-toi-et-moi)
+  ALV-R-0246  Valentina Baguette Solitaire  (looked for folder: junerings/pave-clutch-baguette)
+  ALV-R-0247  Avriel Cushion East-West  (looked for folder: junerings/perry-east-west-portrait-cushion)
+  ALV-R-0248  Avriel Solitaire  (looked for folder: junerings/perry-square-portrait)
+  ALV-R-0249  Veronique Oval East-West  (looked for folder: junerings/petite-flora-east-west-oval)
+  ALV-R-0250  Ione Solitaire  (looked for folder: junerings/portrait-lark-oak)
+  ALV-R-0251  Violetta Blue Signet  (looked for folder: junerings/portrait-sapphire-signet-oak)
   ALV-P-0013  Clio Radiant Pendant  (looked for folder: carat/radiant-cut-pendant-set-in-four-claw-prong)
+  ALV-R-0252  Hannelore Radiant Solitaire  (looked for folder: junerings/radiant-rose-cut-mira-oak)
+  ALV-R-0253  Wendeline Oval Solitaire  (looked for folder: junerings/rhodes-portuguese-oval)
+  ALV-R-0254  Xiomara Bezel  (looked for folder: junerings/ridged-bezel-solitaire-moval-oak)
+  ALV-R-0255  Yasmina Champagne Trillion Solitaire  (looked for folder: junerings/rose-cut-champagne-trillion-oak)
+  ALV-R-0256  Zabel Champagne Solitaire  (looked for folder: junerings/santi-euro-cut-champagne)
+  ALV-R-0257  Zephyrine Blue Five Stone  (looked for folder: junerings/sapphire-diamond-five-stone-oak)
+  ALV-R-0258  Anneliese Solitaire  (looked for folder: junerings/seville)
+  ALV-R-0259  Anneliese Cushion East-West  (looked for folder: junerings/seville-east-west-cushion)
+  ALV-R-0260  Anneliese Oval East-West  (looked for folder: junerings/seville-east-west-oval)
+  ALV-R-0261  Anneliese Radiant Solitaire  (looked for folder: junerings/seville-radiant)
+  ALV-R-0262  Ambretta Emerald East-West  (looked for folder: junerings/simone-east-west-emerald)
+  ALV-R-0263  Belinda Solitaire  (looked for folder: junerings/sintra-euro-round)
+  ALV-R-0264  Belinda Radiant Solitaire  (looked for folder: junerings/sintra-radiant)
+  ALV-R-0265  Cressida Solitaire  (looked for folder: junerings/sonora-euro-cut-round)
+  ALV-R-0266  Ellora Round Solitaire  (looked for folder: junerings/starling-round-rose-cut)
+  ALV-R-0267  Domenica Elongated Cushion Solitaire  (looked for folder: junerings/step-cut-elongated-cushion-band)
+  ALV-R-0268  Elspeth Pear East-West  (looked for folder: junerings/summit-east-west-rose-cut-pear)
+  ALV-R-0269  Elspeth Solitaire  (looked for folder: junerings/summit-set-roval-oval)
+  ALV-R-0270  Fortuna Champagne Solitaire  (looked for folder: junerings/surry-champagne)
+  ALV-R-0271  Fortuna Oval Solitaire  (looked for folder: junerings/surry-oval)
+  ALV-R-0272  Odessa Radiant Solitaire  (looked for folder: junerings/sutton-radiant)
+  ALV-R-0273  Georgina Old Mine Solitaire  (looked for folder: junerings/tab-prong-old-mine-solitaire-oak)
+  ALV-R-0274  Henrietta Oval Bezel  (looked for folder: junerings/tate-croissant-bezel-oval)
+  ALV-R-0275  Iolanthe Oval East-West  (looked for folder: junerings/terra-east-west-oval)
+  ALV-R-0276  Minerva Solitaire  (looked for folder: junerings/toi-et-marlow-dual-engagement-set)
+  ALV-R-0277  Janina East-West  (looked for folder: junerings/townes-old-mine-east-west-moval)
+  ALV-R-0278  Ellora Heritage  (looked for folder: junerings/true-antique-starling)
+  ALV-R-0279  Klementine Emerald Solitaire  (looked for folder: junerings/two-tone-emerald-soitaire)
+  ALV-R-0280  Leonora Round Solitaire  (looked for folder: junerings/vale-bubble-cut-round)
+  ALV-R-0281  Leonora Pear Solitaire  (looked for folder: junerings/vale-soft-pear)
+  ALV-R-0282  Nicolette Toi et Moi  (looked for folder: junerings/vienna-toi-et-moi)
+  ALV-R-0283  Priscilla Cushion Signet  (looked for folder: junerings/vigo-cushion-half-moon-signet)
+  ALV-R-0284  Raphaela Ruby Heritage  (looked for folder: junerings/vintage-cabochon-ruby-bombe-ring-oak)
+  ALV-R-0285  Rosalba Heritage  (looked for folder: junerings/vintage-scattered-gemstone-band-oak-copy)
+  ALV-R-0286  Sebastienne Round Signet  (looked for folder: junerings/vitrine-signet-round-portrait)
+  ALV-R-0287  Amabel Champagne Solitaire  (looked for folder: junerings/wade-champagne)
+  ALV-R-0288  Amabel East-West  (looked for folder: junerings/wade-ew-moval)
+  ALV-R-0289  Theodosia Solitaire  (looked for folder: junerings/wade-moval)
+  ALV-R-0290  Zoraya Champagne Marquise Solitaire  (looked for folder: junerings/weave-champagne-marquise)
+  ALV-R-0291  Tessaly Yellow Solitaire  (looked for folder: junerings/yellow-sapphire-juno-oak)
   ALV-R-0050  Dione Dutch Marquise Heritage  (looked for folder: carat/dutch-marquise-diamond-ring-with-autumn-leaf-style-prongs)
   ALV-R-0051  Edda Solitaire  (looked for folder: carat/oval-cut-nature-inspired-engagement-ring-in-euro-shank)
   ALV-P-0014  Ursa Round Pendant  (looked for folder: carat/round-cut-diamond-cross-pendant)
@@ -135,7 +286,7 @@ Missing photos (131):
   ALV-B-0005  Gwendolen Round Wrap Ring  (looked for folder: pooja/designer-lab-grown-diamond-wrap-ring-marquise-round-cuts)
   ALV-B-0006  Hermia Heart Wrap Ring  (looked for folder: pooja/heart-round-lab-grown-diamond-wrap-ring)
 
-Missing prices — shown as "Price on request" (45):
+Missing prices — shown as "Price on request" (196):
   ALV-R-0001  Aurel Oval East-West
   ALV-R-0003  Vela Emerald Bezel
   ALV-R-0004  Orla Emerald Bezel
@@ -165,8 +316,159 @@ Missing prices — shown as "Price on request" (45):
   ALV-R-0044  Pia Oval Solitaire
   ALV-R-0045  Marisol Oval Solitaire
   ALV-R-0046  Oriane Marquise East-West
+  ALV-R-0141  Idony Cushion Solitaire
+  ALV-R-0142  Jolie Cushion Solitaire
+  ALV-R-0143  Linnea Champagne Radiant Solitaire
+  ALV-R-0144  Kerensa Emerald Solitaire
+  ALV-R-0145  Lorelle Cushion Heritage
+  ALV-R-0146  Minerva Heritage
+  ALV-R-0147  Nyssa Heritage
+  ALV-R-0148  Orabel Pear Heritage
+  ALV-R-0149  Pernille Toi et Moi
+  ALV-R-0150  Quenby Heritage
+  ALV-R-0151  Philippa Emerald Solitaire
+  ALV-R-0152  Rosel Five Stone
+  ALV-R-0153  Sorrel Oval Solitaire
+  ALV-R-0154  Tamara Blue Solitaire
+  ALV-R-0155  Undine Cushion Solitaire
+  ALV-R-0156  Verena Solitaire
+  ALV-R-0157  Verena Pear Solitaire
+  ALV-R-0158  Willa Emerald Solitaire
+  ALV-R-0159  Willa Cushion Solitaire
+  ALV-R-0160  Yseult Marquise Solitaire
+  ALV-R-0161  Galia Marquise Bezel
+  ALV-R-0162  Zenobia Five Stone
+  ALV-R-0163  Adrienne Champagne Oval Solitaire
+  ALV-R-0164  Aisling Blue Three Stone
+  ALV-R-0165  Philippa Champagne Solitaire
+  ALV-R-0166  Cosima Champagne Oval Solitaire
+  ALV-R-0167  Noor Champagne Oval Solitaire
+  ALV-R-0168  Alethea Champagne Cushion Solitaire
+  ALV-R-0169  Alethea Champagne Elongated Cushion Solitaire
+  ALV-R-0170  Amabel Champagne Cushion Solitaire
+  ALV-R-0171  Jora Champagne Cushion Solitaire
+  ALV-R-0172  Amandine Champagne Emerald Three Stone
+  ALV-R-0173  Aurore Champagne Emerald Three Stone
+  ALV-R-0174  Avriel Champagne Solitaire
   ALV-R-0047  Tamsin Champagne Emerald Solitaire
+  ALV-R-0175  Belen Champagne Solitaire
+  ALV-R-0176  Bertille Champagne Halo
+  ALV-R-0177  Bruna Champagne Cushion Solitaire
+  ALV-R-0178  Caelia Champagne Marquise Solitaire
+  ALV-R-0179  Alethea Cushion Solitaire
+  ALV-R-0180  Alethea Solitaire
+  ALV-R-0181  Alethea Elongated Cushion Solitaire
+  ALV-R-0182  Elodie Cushion East-West
+  ALV-R-0183  Elodie Elongated Cushion Solitaire
+  ALV-R-0184  Elodie Solitaire
+  ALV-R-0185  Carlota Round Signet
+  ALV-R-0186  Clarimond Champagne Cushion Solitaire
+  ALV-R-0187  Vela Blue Solitaire
+  ALV-R-0188  Clemence Champagne East-West
+  ALV-R-0189  Ulla Champagne Marquise Solitaire
   ALV-R-0048  Ulla Elongated Cushion Solitaire
+  ALV-R-0190  Delfina Oval Solitaire
+  ALV-R-0191  Demetria Elongated Cushion Solitaire
+  ALV-R-0192  Eira Pear Solitaire
+  ALV-R-0193  Elif Pear Solitaire
+  ALV-R-0194  Ellora Pear Solitaire
+  ALV-R-0195  Valen Marquise Solitaire
+  ALV-R-0196  Fabia Signet
+  ALV-R-0197  Federica Heritage
+  ALV-R-0198  Fenella Elongated Cushion Solitaire
+  ALV-R-0199  Fiorella Oval East-West
+  ALV-R-0200  Kerensa Solitaire
+  ALV-R-0201  Giacinta Champagne Three Stone
+  ALV-R-0202  Giacinta Solitaire
+  ALV-R-0203  Giulietta Solitaire
+  ALV-R-0204  Gracia Pear Solitaire
+  ALV-R-0205  Hannelore Green Solitaire
+  ALV-R-0206  Romilly Green Elongated Cushion Solitaire
+  ALV-R-0207  Ianthe Champagne Solitaire
+  ALV-R-0208  Irina Green Solitaire
+  ALV-R-0209  Pia Green Solitaire
+  ALV-R-0210  Pia Green Marquise Solitaire
+  ALV-R-0211  Thea Heritage
+  ALV-R-0212  Thea Oval Heritage
+  ALV-R-0213  Isabetta Heritage
+  ALV-R-0214  Nerida Oval Bezel
+  ALV-R-0215  Jacinthe Oval Bezel
+  ALV-R-0216  Nerida Round Bezel
+  ALV-R-0217  Jessenia Oval Heritage
+  ALV-R-0218  Esra Round Solitaire
+  ALV-R-0219  Esra Trillion Solitaire
+  ALV-R-0220  Tessaly Pink Radiant Solitaire
+  ALV-R-0221  Josiane Asscher Solitaire
+  ALV-R-0222  Josiane Solitaire
+  ALV-R-0223  Kallista Solitaire
+  ALV-R-0224  Ione Green Oval Solitaire
+  ALV-R-0225  Ione Princess Solitaire
+  ALV-R-0226  Romilly Solitaire
+  ALV-R-0227  Celeste Solitaire
+  ALV-R-0228  Romilly Marquise Solitaire
+  ALV-R-0229  Kerstin Round Solitaire
+  ALV-R-0230  Leandra Oval East-West
+  ALV-R-0231  Ilse Old Mine Solitaire
+  ALV-R-0232  Minerva Green Pear Solitaire
+  ALV-R-0233  Minerva Pear Solitaire
+  ALV-R-0234  Liliane Blue Cushion Solitaire
+  ALV-R-0235  Loretta Asscher Solitaire
+  ALV-R-0236  Loretta Champagne Marquise Solitaire
+  ALV-R-0237  Hannelore Champagne Solitaire
+  ALV-R-0238  Hannelore Solitaire
+  ALV-R-0239  Hannelore Emerald Solitaire
+  ALV-R-0240  Hannelore Champagne Cushion Solitaire
+  ALV-R-0241  Hannelore Princess Solitaire
+  ALV-R-0242  Lorelle Champagne Cushion Solitaire
+  ALV-R-0243  Amabel Solitaire
+  ALV-R-0244  Lucasta Oval Signet
+  ALV-R-0245  Magdalena Round Toi et Moi
+  ALV-R-0246  Valentina Baguette Solitaire
+  ALV-R-0247  Avriel Cushion East-West
+  ALV-R-0248  Avriel Solitaire
+  ALV-R-0249  Veronique Oval East-West
+  ALV-R-0250  Ione Solitaire
+  ALV-R-0251  Violetta Blue Signet
+  ALV-R-0252  Hannelore Radiant Solitaire
+  ALV-R-0253  Wendeline Oval Solitaire
+  ALV-R-0254  Xiomara Bezel
+  ALV-R-0255  Yasmina Champagne Trillion Solitaire
+  ALV-R-0256  Zabel Champagne Solitaire
+  ALV-R-0257  Zephyrine Blue Five Stone
+  ALV-R-0258  Anneliese Solitaire
+  ALV-R-0259  Anneliese Cushion East-West
+  ALV-R-0260  Anneliese Oval East-West
+  ALV-R-0261  Anneliese Radiant Solitaire
+  ALV-R-0262  Ambretta Emerald East-West
+  ALV-R-0263  Belinda Solitaire
+  ALV-R-0264  Belinda Radiant Solitaire
+  ALV-R-0265  Cressida Solitaire
+  ALV-R-0266  Ellora Round Solitaire
+  ALV-R-0267  Domenica Elongated Cushion Solitaire
+  ALV-R-0268  Elspeth Pear East-West
+  ALV-R-0269  Elspeth Solitaire
+  ALV-R-0270  Fortuna Champagne Solitaire
+  ALV-R-0271  Fortuna Oval Solitaire
+  ALV-R-0272  Odessa Radiant Solitaire
+  ALV-R-0273  Georgina Old Mine Solitaire
+  ALV-R-0274  Henrietta Oval Bezel
+  ALV-R-0275  Iolanthe Oval East-West
+  ALV-R-0276  Minerva Solitaire
+  ALV-R-0277  Janina East-West
+  ALV-R-0278  Ellora Heritage
+  ALV-R-0279  Klementine Emerald Solitaire
+  ALV-R-0280  Leonora Round Solitaire
+  ALV-R-0281  Leonora Pear Solitaire
+  ALV-R-0282  Nicolette Toi et Moi
+  ALV-R-0283  Priscilla Cushion Signet
+  ALV-R-0284  Raphaela Ruby Heritage
+  ALV-R-0285  Rosalba Heritage
+  ALV-R-0286  Sebastienne Round Signet
+  ALV-R-0287  Amabel Champagne Solitaire
+  ALV-R-0288  Amabel East-West
+  ALV-R-0289  Theodosia Solitaire
+  ALV-R-0290  Zoraya Champagne Marquise Solitaire
+  ALV-R-0291  Tessaly Yellow Solitaire
   ALV-R-0052  Freya Emerald Solitaire
   ALV-R-0053  Galia Emerald Solitaire
   ALV-R-0054  Ione Emerald Solitaire

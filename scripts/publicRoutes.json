@@ -1,7 +1,6 @@
 [
   "/",
   "/trade",
-  "/availability",
   "/jewellery",
   "/engagement-rings",
   "/earrings",
@@ -83,6 +82,7 @@
   "/jewellery/yolande-round-studs",
   "/jewellery/zosia-round-studs",
   "/jewellery/emmeline-halo-studs",
+  "/availability",
   "/trade/jewellery",
   "/fr",
   "/it",
