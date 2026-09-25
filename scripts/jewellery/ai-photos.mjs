@@ -55,6 +55,8 @@ const OWNER_PHOTOS = { "ALV-R-0042": ["03", "04"] };
 const KEEP_DESIGN =
   "The jewellery must stay exactly identical to the reference product photos: same design, metal colour, stone shape, cut and colour, " +
   "number and position of prongs, side stones, band width, profile and proportions. Copy the exact number of stones and their arrangement. " +
+  "The centre stone keeps its exact cut and facet pattern from the reference (a rose cut stays a flat-topped rose cut, a step cut stays a step cut) " +
+  "and its exact orientation relative to the band. " +
   "Do not add, remove, simplify or change any element of the piece. Show only as many pieces as the reference shows (a pair of earrings is exactly two earrings; " +
   "a ring shown stacked with a band stays stacked with that same band). No duplicates, reflections or ghost copies of the piece. No text, no logos, no watermark.";
 
@@ -66,7 +68,7 @@ const MOOD =
 const SCENES = {
   ring: [
     { shot: "hand", label: "Hand on ivory linen", prompt: "Close-up editorial photograph of a woman's left hand, neat short natural manicure, resting on softly draped ivory linen, wearing the ring on the ring finger (fourth finger). Frame tightly on the fingers so the ring is the hero: large in the frame, sharply focused, face-up to the camera so the centre stone and setting are clearly visible." },
-    { shot: "model", label: "On a model", prompt: "Editorial portrait of a woman with softly tied-back hair in an ivory silk top, fingertips resting lightly near her jaw, in front of a cream linen curtain. She wears the ring on her left ring finger; the hand is close to the camera so the ring is clearly visible and in sharp focus." },
+    { shot: "model", label: "On a model", prompt: "Editorial portrait of a woman with softly tied-back hair in an ivory silk top, fingertips resting lightly near her jaw, in front of a cream linen curtain. She wears the ring on her left ring finger. Her hand is in the foreground, close to the camera, so the ring is large enough that the centre stone's shape, cut and facets are clearly recognisable and in sharp focus." },
     { shot: "closeup", label: "Close-up", prompt: "Macro close-up photograph of the ring resting on ivory linen, centre stone facing the camera, crisp facets and polished metal, very shallow depth of field with the linen weave softly blurred." },
     { shot: "side", label: "Side view", prompt: "Side-profile photograph of the ring standing upright on an ivory linen surface, seen from the side at stone height so the setting height, prongs and band profile are visible. Follow the side-view reference photos exactly where they exist." },
   ],
@@ -106,6 +108,31 @@ const writeJson = (file, data) => {
 function argValue(args, name) {
   const index = args.indexOf(name);
   return index === -1 ? null : args[index + 1];
+}
+
+const ELONGATED = new Set(["oval", "pear", "marquise", "emerald", "elongated-cushion", "radiant", "moval", "baguette"]);
+
+/** Facts from the catalogue that the AI tends to get wrong if not told. */
+function pieceFacts(piece) {
+  const facts = [];
+  if (piece.description) facts.push(`About the piece: ${piece.description}`);
+  if (piece.shapeLabel) facts.push(`Centre stone shape: ${piece.shapeLabel.toLowerCase()}.`);
+  if (piece.style === "east-west" && piece.category !== "earrings") {
+    facts.push(
+      "IMPORTANT: the centre stone is set east-west. Its long axis runs along the band, across the finger from side to side, " +
+        "never pointing along the finger towards the fingertip. Keep it horizontal across the finger in every view, exactly as in the reference.",
+    );
+  } else if (ELONGATED.has(piece.shape) && piece.category !== "earrings") {
+    facts.push("Keep the elongated centre stone pointing in the same direction relative to the band as in the reference photos.");
+  }
+  return facts.join(" ");
+}
+
+/** The owner's note on a rejected earlier version of this shot, if any. */
+function ownerCorrection(decisions, code, shot) {
+  const decision = decisions[code]?.[shot];
+  const note = typeof decision === "object" ? decision?.note?.trim() : "";
+  return note ? `A previous version of this photo was rejected by the jeweller for this reason, so make sure it is fixed: "${note}".` : "";
 }
 
 function publicDir(code) {
@@ -277,6 +304,8 @@ async function generate(args) {
   if (!wanted.length) throw new Error("No pieces selected. Use --pieces ALV-R-0001,... or --all.");
   const shotFilter = argValue(args, "--shots")?.split(",");
   const force = args.includes("--force");
+  const retryRejected = args.includes("--retry-rejected");
+  const decisions = readJson(DECISIONS_PATH, {});
   const heroFile = fs.readdirSync(HERO_DIR).find((f) => /hero-1-900\.webp$/.test(f));
   const mood = heroFile ? await sharp(path.join(HERO_DIR, heroFile)).png().toBuffer() : null;
   const manifestPath = path.join(CANDIDATES_DIR, "manifest.json");
@@ -306,18 +335,26 @@ async function generate(args) {
 
     const jobs = [];
     for (const { number, source, fromRaw } of studio) {
-      jobs.push({ shot: `enhance-${number}`, label: `Sharper photo ${number}`, kind: "replace", replaces: number, prompt: ENHANCE_PROMPT, references: [source], fromRaw, keepBackground: false });
+      const shot = `enhance-${number}`;
+      const prompt = [ENHANCE_PROMPT, pieceFacts(piece), ownerCorrection(decisions, piece.code, shot)].filter(Boolean).join(" ");
+      jobs.push({ shot, label: `Sharper photo ${number}`, kind: "replace", replaces: number, prompt, references: [source], fromRaw, keepBackground: false });
     }
     const scenes = SCENES[piece.category] ?? SCENES.ring;
     const references = studio.slice(0, 4).map((s) => s.source);
     for (const scene of scenes) {
       const prompt =
         `${scene.prompt} The reference product photos (the first ${references.length} image${references.length > 1 ? "s" : ""}) show this exact piece from different angles. ` +
-        `${KEEP_DESIGN} ${MOOD}`;
+        [KEEP_DESIGN, pieceFacts(piece), ownerCorrection(decisions, piece.code, scene.shot), MOOD].filter(Boolean).join(" ");
       jobs.push({ shot: scene.shot, label: scene.label, kind: "extra", prompt, references: mood ? [...references, mood] : references, keepBackground: true });
     }
 
-    const todo = jobs.filter((job) => (!shotFilter || shotFilter.some((s) => job.shot.startsWith(s))) && (force || !entry.items[job.shot]));
+    const statusOf = (shot) => { const d = decisions[piece.code]?.[shot]; return typeof d === "object" ? d?.status : d; };
+    const todo = jobs.filter((job) => {
+      if (shotFilter && !shotFilter.some((s) => job.shot.startsWith(s))) return false;
+      if (retryRejected) return statusOf(job.shot) === "rejected";
+      // Never remake a photo the owner already decided on unless forced.
+      return force || (!entry.items[job.shot] && !statusOf(job.shot));
+    });
     console.log(`▸ ${piece.code} ${piece.name}: ${todo.length} photo${todo.length === 1 ? "" : "s"} to make`);
     await pool(todo, async (job) => {
       try {
@@ -337,6 +374,10 @@ async function generate(args) {
   writeJson(manifestPath, manifest);
   console.log(`\nGemini calls: ${totalUsage.calls}, images made: ${totalUsage.outputImages} (model ${MODEL}, ${IMAGE_SIZE}).`);
 }
+
+/** Each remake of a shot gets its own id, so an old decision never sticks to a new photo. */
+const versionOf = (item) => Date.parse(item.createdAt).toString(36);
+const candidateId = (code, item) => `${code}--${item.shot}--${versionOf(item)}`;
 
 // ---------------------------------------------------------------------------
 // review: bundle for the private review page
@@ -364,10 +405,13 @@ async function review(args) {
     for (const item of Object.values(entry.items)) {
       const file = path.join(candidateDir, `${item.shot}.webp`);
       if (!fs.existsSync(file)) continue;
-      items.push({ ...item, id: `${entry.code}--${item.shot}`, src: await save(file, item.shot), decision: decisions[entry.code]?.[item.shot] ?? null });
+      // Already decided on this exact version: nothing to review.
+      if (decisions[entry.code]?.[item.shot]?.decidedFor === item.createdAt) continue;
+      items.push({ ...item, id: candidateId(entry.code, item), src: await save(file, `${item.shot}-${versionOf(item)}`), decision: null });
     }
     const rank = (item) => (item.kind === "replace" ? Number(item.replaces) : 100 + sceneOrder(entry.code, `ai-${item.shot}`));
     items.sort((a, b) => rank(a) - rank(b));
+    if (!items.length) continue;
     pieces.push({ code: entry.code, name: entry.name, category: entry.category, originals, items });
   }
   writeJson(path.join(out, "data.json"), { generatedAt: new Date().toISOString(), pieces });
@@ -380,16 +424,20 @@ async function review(args) {
 
 async function apply(args) {
   const file = argValue(args, "--decisions");
-  if (!file) throw new Error("Usage: apply --decisions <file.json>  ({ \"ALV-R-0001\": { \"hand\": \"approved\" } })");
-  const incoming = readJson(path.resolve(file), {});
+  if (!file) throw new Error('Usage: apply --decisions <file.json>  ({ "ALV-R-0001": { "hand": "approved" } } or { "hand": { "status": "rejected", "note": "..." } })');
+  const incoming = readDecisions(path.resolve(file));
   const decisions = readJson(DECISIONS_PATH, {});
   const approved = readApproved();
   let written = 0;
   let removed = 0;
   for (const [code, shots] of Object.entries(incoming)) {
-    decisions[code] = { ...(decisions[code] ?? {}), ...shots };
+    decisions[code] ??= {};
     const entry = (approved[code] ??= { replace: {}, extra: [] });
-    for (const [shot, status] of Object.entries(shots)) {
+    for (const [shot, value] of Object.entries(shots)) {
+      const status = typeof value === "object" ? value.status : value;
+      const note = typeof value === "object" ? value.note ?? "" : "";
+      const candidate = readJson(path.join(CANDIDATES_DIR, "manifest.json"), {})[code]?.items?.[shot];
+      decisions[code][shot] = { status, note, decidedFor: candidate?.createdAt ?? null };
       const name = `ai-${shot}`;
       const replaces = shot.match(/^enhance-(\d+)$/)?.[1] ?? null;
       const target = path.join(publicDir(code), `${name}.webp`);
@@ -424,6 +472,31 @@ async function apply(args) {
   writeJson(APPROVED_PATH, Object.fromEntries(Object.entries(approved).sort(([a], [b]) => a.localeCompare(b))));
   console.log(`Applied: ${written} photo${written === 1 ? "" : "s"} on the site, ${removed} file${removed === 1 ? "" : "s"} removed.`);
   console.log("Next: pnpm jewellery:build && pnpm social:images");
+}
+
+/**
+ * Decisions as a JSON file ({ code: { shot: status | {status, note} } }), or a
+ * folder of review-page records (<code>--<shot>--<version>.json, as saved by
+ * ArtifactData with out_dir). Records for an older version of a photo are skipped.
+ */
+function readDecisions(source) {
+  if (!fs.statSync(source).isDirectory()) return readJson(source, {});
+  const manifest = readJson(path.join(CANDIDATES_DIR, "manifest.json"), {});
+  const result = {};
+  let stale = 0;
+  for (const file of fs.readdirSync(source).filter((f) => f.endsWith(".json"))) {
+    const [code, shot, version] = file.replace(/\.json$/, "").split("--");
+    const record = readJson(path.join(source, file), {});
+    if (!record.status || !code || !shot) continue;
+    const item = manifest[code]?.items?.[shot];
+    if (version && item && versionOf(item) !== version) {
+      stale += 1;
+      continue;
+    }
+    (result[code] ??= {})[shot] = { status: record.status, note: record.note ?? "" };
+  }
+  if (stale) console.log(`Skipped ${stale} decision${stale === 1 ? "" : "s"} on older versions of a photo.`);
+  return result;
 }
 
 function sceneOrder(code, name) {

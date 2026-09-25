@@ -65,6 +65,19 @@ before big changes, and end each work session with a short summary.
   The committed output in `client/public/assets/jewellery/alv-r-0042/` is the
   source of truth; if raw photos are re-downloaded, keep that override.
 
+## AI photo upgrade (owner-approved only)
+- `pnpm jewellery:ai-photos generate|review|apply` (`scripts/jewellery/ai-photos.mjs`):
+  sharper redraws of studio photos + new styled shots (hand, model, close-up,
+  side view) made from the piece's own studio photos. Candidates are
+  git-ignored; **only photos the owner approves** on the private review page
+  are copied to the site as `ai-*.webp`, listed in
+  `data/jewellery/ai-photos/approved.json` (decisions and rejection notes in
+  `decisions.json`; notes are fed into the next retry). The catalogue build
+  keeps them when raw photos are re-processed.
+- Status (2026-09-25): trial on ALV-R-0001, ALV-R-0026, ALV-E-0006 (17
+  approved). Gemini stopped by the owner on cost (about 13 INR per image);
+  choose a cheaper provider before running the other 62 pieces.
+
 ## Homepage hero photos
 - The homepage rotates the owner's photos (cross-fade every 6s; still for
   reduced-motion visitors). Current set (2026-09-25): 4 photos, two with a

@@ -1,0 +1,108 @@
+{
+  "ALV-E-0006": {
+    "ear": {
+      "status": "approved",
+      "note": "",
+      "decidedFor": "2026-09-25T11:16:24.259Z"
+    },
+    "enhance-01": {
+      "status": "approved",
+      "note": "",
+      "decidedFor": "2026-09-25T11:16:28.946Z"
+    },
+    "enhance-02": {
+      "status": "approved",
+      "note": "",
+      "decidedFor": "2026-09-25T11:16:09.155Z"
+    },
+    "enhance-03": {
+      "status": "approved",
+      "note": "",
+      "decidedFor": "2026-09-25T11:16:07.908Z"
+    },
+    "hand": {
+      "status": "approved",
+      "note": "",
+      "decidedFor": "2026-09-25T11:16:23.792Z"
+    },
+    "linen": {
+      "status": "approved",
+      "note": "",
+      "decidedFor": "2026-09-25T11:16:22.199Z"
+    },
+    "model": {
+      "status": "approved",
+      "note": "",
+      "decidedFor": "2026-09-25T11:16:08.774Z"
+    }
+  },
+  "ALV-R-0001": {
+    "closeup": {
+      "status": "approved",
+      "note": "",
+      "decidedFor": "2026-09-25T11:15:21.520Z"
+    },
+    "enhance-01": {
+      "status": "approved",
+      "note": "",
+      "decidedFor": "2026-09-25T11:15:09.279Z"
+    },
+    "enhance-02": {
+      "status": "approved",
+      "note": "",
+      "decidedFor": "2026-09-25T11:15:09.994Z"
+    },
+    "hand": {
+      "status": "rejected",
+      "note": "in original product's image the centre stone diamond is horizontal set but in hand images it come out as vertical",
+      "decidedFor": "2026-09-25T11:15:07.294Z"
+    },
+    "model": {
+      "status": "approved",
+      "note": "",
+      "decidedFor": "2026-09-25T11:15:07.861Z"
+    },
+    "side": {
+      "status": "rejected",
+      "note": "in original product's image the centre stone diamond is horizontal set but in hand images it come out as vertical",
+      "decidedFor": "2026-09-25T11:15:21.417Z"
+    }
+  },
+  "ALV-R-0026": {
+    "closeup": {
+      "status": "approved",
+      "note": "",
+      "decidedFor": "2026-09-25T11:15:51.619Z"
+    },
+    "enhance-01": {
+      "status": "approved",
+      "note": "",
+      "decidedFor": "2026-09-25T11:15:40.709Z"
+    },
+    "enhance-02": {
+      "status": "approved",
+      "note": "",
+      "decidedFor": "2026-09-25T11:15:39.938Z"
+    },
+    "enhance-03": {
+      "status": "approved",
+      "note": "",
+      "decidedFor": "2026-09-25T11:15:40.322Z"
+    },
+    "hand": {
+      "status": "approved",
+      "note": "",
+      "decidedFor": "2026-09-25T11:15:34.823Z"
+    },
+    "model": {
+      "status": "rejected",
+      "note": "in original product's image the centre stone diamond is different then the image's centre stone",
+      "decidedFor": "2026-09-25T11:15:51.919Z"
+    },
+    "side": {
+      "status": "approved",
+      "note": "",
+      "decidedFor": "2026-09-25T11:15:52.734Z"
+    }
+  }
+}

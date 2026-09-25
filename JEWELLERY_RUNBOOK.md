@@ -39,6 +39,16 @@ Add `--keep-background` to skip the background swap, or `--size 2000` for larger
 
 **Watermark logo:** save your logo (the version with the ALVORA wordmark underneath) as `client/public/assets/brand/alvora-logo.png`. The watermark then uses it automatically. You can also brand any single photo with `pnpm brand:image photo.jpg --out some-folder`.
 
+## AI photo upgrade
+
+Sharper versions of the studio photos and new styled photos (on a hand, on a model, close-up, side view) are made by AI, then approved by you one by one. Nothing reaches the site until you approve it.
+
+1. `pnpm jewellery:ai-photos generate --pieces ALV-R-0001,ALV-E-0006` (or `--all`). Needs an image AI key.
+2. `pnpm jewellery:ai-photos review` builds the approval page's photos; Claude publishes the page for you.
+3. After you approve or reject each photo: `pnpm jewellery:ai-photos apply --decisions <saved decisions>`, then `pnpm jewellery:build` and `pnpm social:images`.
+
+Rejected photos can be remade with `generate --retry-rejected`; your rejection note is given to the AI.
+
 ## Names, prices and hiding a piece
 
 All in `data/jewellery/pieces.json`. After editing, run `pnpm jewellery:build`.
