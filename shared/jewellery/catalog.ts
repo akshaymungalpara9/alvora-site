@@ -48,8 +48,15 @@ export type JewelleryPiece = {
 
 export const ALL_PIECES = rawCatalog as JewelleryPiece[];
 
-/** Pieces on the site (retail and trade), as set by data/jewellery/launch.json. */
-export const PUBLIC_PIECES = ALL_PIECES.filter((piece) => piece.live);
+/**
+ * Pieces on the site (retail and trade): chosen by data/jewellery/launch.json,
+ * and shown once they have at least one photo.
+ */
+export function isShown(piece: Pick<JewelleryPiece, "live" | "images">) {
+  return piece.live && piece.images.length > 0;
+}
+
+export const PUBLIC_PIECES = ALL_PIECES.filter(isShown);
 
 export function findPublicPiece(slug: string): JewelleryPiece | undefined {
   return PUBLIC_PIECES.find((piece) => piece.slug === slug);

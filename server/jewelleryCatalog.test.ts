@@ -50,6 +50,13 @@ describe("jewellery catalogue", () => {
     }
   });
 
+  it("shows only launch pieces that have a photo", () => {
+    for (const piece of PUBLIC_PIECES) {
+      expect(piece.live, piece.code).toBe(true);
+      expect(piece.images.length, piece.code).toBeGreaterThan(0);
+    }
+  });
+
   it("serves image paths only under the Alvora asset folder", () => {
     for (const piece of ALL_PIECES) {
       for (const image of piece.images) expect(image.src).toMatch(/^\/assets\/jewellery\/alv-[a-z]-\d{4}\/\d{2}\.webp$/);

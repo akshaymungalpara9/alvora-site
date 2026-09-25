@@ -1,6 +1,6 @@
 import { TRPCError } from "@trpc/server";
 import { z } from "zod";
-import { findPieceByCode } from "../../shared/jewellery/catalog";
+import { findPieceByCode, isShown } from "../../shared/jewellery/catalog";
 import { adminProcedure, publicProcedure, router } from "../_core/trpc";
 import {
   createJewelleryEnquiry,
@@ -50,7 +50,7 @@ export const jewelleryRouter = router({
     if (website.trim()) throw new TRPCError({ code: "BAD_REQUEST", message: "Invalid public submission" });
 
     const found = rest.pieceCode ? findPieceByCode(rest.pieceCode) : undefined;
-    const piece = found?.live ? found : undefined;
+    const piece = found && isShown(found) ? found : undefined;
     if (rest.kind === "piece" && !piece) throw new TRPCError({ code: "BAD_REQUEST", message: "Unknown piece" });
     const enquiry: JewelleryEnquiryInput = { ...rest, pieceCode: piece?.code, pieceName: piece?.name };
 

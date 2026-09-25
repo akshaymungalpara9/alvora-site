@@ -256,6 +256,14 @@ fs.mkdirSync(committedDir, { recursive: true });
 for (const file of fs.readdirSync(outDir)) {
   fs.copyFileSync(path.join(outDir, file), path.join(committedDir, file));
 }
+// After a clean run, drop snapshots of routes that no longer exist (e.g. a
+// hidden piece), so the server can't keep serving them.
+if (!failures.length) {
+  const current = new Set(fs.readdirSync(outDir));
+  for (const file of fs.readdirSync(committedDir)) {
+    if (file.endsWith(".html") && !current.has(file)) fs.rmSync(path.join(committedDir, file));
+  }
+}
 console.log(
   `[prerender] Mirrored snapshots → prerendered/  (commit this folder; Railway uses it when Chromium is unavailable)`
 );

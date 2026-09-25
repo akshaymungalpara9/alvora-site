@@ -490,7 +490,7 @@ async function main() {
 
   const report = [
     `Alvora jewellery import report — ${new Date().toISOString()}`,
-    `Live on the site: ${catalog.filter((c) => c.live).length} (rule: data/jewellery/launch.json)`,
+    `On the launch list: ${catalog.filter((c) => c.live).length} (rule: data/jewellery/launch.json); shown on the site (with photos): ${catalog.filter((c) => c.live && c.images.length).length}`,
     `Pieces in catalogue: ${catalog.length} (wave A: ${catalog.filter((c) => c.wave === "A").length}, wave B: ${catalog.filter((c) => c.wave === "B").length})`,
     "",
     `Missing photos (${missingImages.length}):`,
@@ -525,7 +525,8 @@ const JEWELLERY_ROUTE = /^\/(jewellery|engagement-rings|rings|earrings|necklaces
 function syncPublicRoutes(catalog) {
   const routesPath = path.join(ROOT, "scripts", "publicRoutes.json");
   const existing = JSON.parse(fs.readFileSync(routesPath, "utf8")).filter((route) => !JEWELLERY_ROUTE.test(route));
-  const live = catalog.filter((piece) => piece.live);
+  // Same rule as isShown() in shared/jewellery/catalog.ts.
+  const live = catalog.filter((piece) => piece.live && piece.images.length > 0);
   const collections = COLLECTION_ROUTES.filter(([, key]) => live.some((piece) => (key ? piece.collections.includes(key) : true))).map(([route]) => route);
   const shapes = [...new Set(live.filter((piece) => piece.collections.includes("engagement-rings") && piece.shape).map((piece) => piece.shape))]
     .filter((shape) => Object.keys(SHAPE_LABELS).includes(shape))
