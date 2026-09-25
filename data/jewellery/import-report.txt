@@ -1,13 +1,11 @@
-Alvora jewellery import report — 2026-09-25T20:10:45.296Z
-On the launch list: 307 (rule: data/jewellery/launch.json); shown on the site (with photos): 216
+Alvora jewellery import report — 2026-09-25T20:56:52.001Z
+On the launch list: 325 (rule: data/jewellery/launch.json); shown on the site (with photos): 232
 Pieces in catalogue: 347 (wave A: 245, wave B: 102)
 
-Missing photos (131):
+Missing photos (115):
   ALV-R-0002  Solene Oval Heritage  (looked for folder: carat/vintage-art-deco-oval-cut-diamond-ring)
   ALV-R-0009  Talia Oval East-West  (looked for folder: carat/solitaire-oval-cut-diamond-ring-in-east-to-west-setting)
   ALV-R-0012  Oriel Marquise Heritage  (looked for folder: carat/marquise-cut-vintage-diamond-ring-with-filigree-details)
-  ALV-P-0001  Elowen Emerald Pendant  (looked for folder: carat/solitaire-emerald-cut-pendant-in-white-gold)
-  ALV-P-0002  Ines Marquise Pendant  (looked for folder: carat/solitaire-style-marquise-diamond-pendant)
   ALV-R-0015  Livia Dutch Marquise Heritage  (looked for folder: carat/dutch-marquise-engagement-ring-with-hidden-filigree-detailing)
   ALV-R-0020  Yara Marquise Solitaire  (looked for folder: carat/nature-inspired-marquise-diamond-ring-with-secure-leaf-style-prong)
   ALV-R-0021  Zelie Oval Solitaire  (looked for folder: carat/nature-inspired-oval-diamond-ring-with-leaf-style-prong-setting)
@@ -19,27 +17,13 @@ Missing photos (131):
   ALV-R-0031  Liora Marquise Solitaire  (looked for folder: carat/muse-style-marquise-diamond-ring-with-tulip-setting)
   ALV-R-0032  Mireille Dutch Marquise Heritage  (looked for folder: carat/art-deco-dutch-marquise-ring-in-milgrain-details)
   ALV-R-0033  Nika Oval East-West  (looked for folder: pooja/1-to-5-ct-contemporary-lab-grown-oval-cut-diamond-luna-east-west-bezel-solitaire-ring-in-10k-14k-18k-gold-pooja-diamond-igi-certified-lab-diamond)
-  ALV-P-0003  Odile Cushion Pendant  (looked for folder: carat/cushion-cut-solitaire-diamond-pendant-with-claw-prong)
   ALV-R-0037  Una Pear Heritage  (looked for folder: carat/pear-diamond-nature-inspired-engagement-ring-in-filigree-style)
   ALV-P-0004  Vivienne Pear Pendant  (looked for folder: carat/pear-diamond-pendant-in-solitaire-style)
-  ALV-P-0005  Vivienne Princess Pendant  (looked for folder: carat/princess-cut-diamond-pendant-in-solitaire-setting)
-  ALV-P-0006  Amara Round Pendant  (looked for folder: carat/round-diamond-pendant-in-solitaire-setting)
-  ALV-P-0007  Coralie Pendant  (looked for folder: carat/white-gold-diamond-pendant-with-solitaire-style)
   ALV-R-0039  Doria Oval Three Stone  (looked for folder: pooja/1-to-5-ct-luxe-floating-oval-cut-lab-grown-diamond-three-stone-ring-with-hidden-halo-in-10k-14k-18k-gold-pooja-diamond-igi-certified-lab-diamond)
   ALV-R-0043  Gisele Dutch Marquise Heritage  (looked for folder: carat/dutch-marquise-ring-with-kite-and-round-side-stones)
-  ALV-P-0008  Honora Halo Pendant  (looked for folder: carat/halo-design-libra-pendant-in-white-gold)
-  ALV-P-0009  Leonie Halo Pendant  (looked for folder: carat/halo-style-taurus-pendant-in-rose-gold)
-  ALV-P-0010  Nadia Round Pendant  (looked for folder: carat/round-diamond-moon-pendant-in-yellow-gold)
-  ALV-P-0011  Perrine Marquise Pendant  (looked for folder: carat/round-and-marquise-diamond-pendant-in-sweden-cross-style)
   ALV-R-0049  Verity Marquise Solitaire  (looked for folder: carat/marquise-cut-diamond-ring-with-hidden-flower-crown)
-  ALV-P-0012  Blythe Oval Pendant  (looked for folder: carat/oval-diamond-pendant-with-four-claw-prong)
-  ALV-P-0013  Clio Radiant Pendant  (looked for folder: carat/radiant-cut-pendant-set-in-four-claw-prong)
   ALV-R-0050  Dione Dutch Marquise Heritage  (looked for folder: carat/dutch-marquise-diamond-ring-with-autumn-leaf-style-prongs)
   ALV-R-0051  Edda Solitaire  (looked for folder: carat/oval-cut-nature-inspired-engagement-ring-in-euro-shank)
-  ALV-P-0014  Ursa Round Pendant  (looked for folder: carat/round-cut-diamond-cross-pendant)
-  ALV-P-0015  Wilhelmina Round Pendant  (looked for folder: carat/palm-tree-pendant-with-round-lab-grown-diamond-in-tropical-style)
-  ALV-P-0016  Ysolde Round Pendant  (looked for folder: carat/round-diamond-gold-saturn-pendant)
-  ALV-P-0017  Zinaida Asscher Pendant  (looked for folder: carat/white-gold-asscher-cut-diamond-pendant)
   ALV-R-0066  Damaris Oval Halo  (looked for folder: pooja/1-to-5-ct-twisted-vine-hidden-halo-oval-cut-lab-grown-diamond-ring-pooja-diamond-igi-certified-lab-diamond)
   ALV-R-0067  Eulalie Oval Halo  (looked for folder: pooja/1-to-5-ct-elegant-lab-grown-oval-cut-petal-six-prong-diamond-ring-with-hidden-halo-in-10k-14k-18k-gold-pooja-diamond-igi-certified-lab-diamond)
   ALV-R-0068  Florine Oval Halo  (looked for folder: pooja/1-to-5-ct-lab-grown-marquise-cut-secret-halo-2mm-diamond-ring-with-hidden-halo-in-10k-14k-18k-gold-pooja-diamond-igi-certified-lab-diamond)
