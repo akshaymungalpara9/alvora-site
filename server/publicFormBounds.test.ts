@@ -4,7 +4,7 @@ import { describe, expect, it } from "vitest";
 describe("public production-brief client field bounds", () => {
   it("matches server-side identity and brief limits on English and localised routes", () => {
     const pages = [
-      readFileSync("client/src/pages/Home.tsx", "utf8"),
+      readFileSync("client/src/pages/TradeHome.tsx", "utf8"),
       readFileSync("client/src/pages/MarketLanding.tsx", "utf8"),
     ];
     for (const page of pages) {

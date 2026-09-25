@@ -83,9 +83,9 @@ const STONES = loadStonesPublic();
 const STONES_BY_REPORT = new Map<string, StoneRecord>(STONES.map((s) => [s.report, s]));
 const STONES_META = loadStonesMeta();
 
-/** Candidates for the daily rotation: IGI stones with a video, sorted by report ascending. */
+/** Candidates for the daily rotation: IGI stones with an embeddable video, sorted by report ascending. */
 const TODAY_CANDIDATES: readonly StoneRecord[] = STONES
-  .filter((s) => s.lab === "IGI" && s.videoUrl !== null)
+  .filter((s) => s.lab === "IGI" && s.videoUrl !== null && s.videoEmbeddable)
   .slice()
   .sort((a, b) => {
     if (a.report.length !== b.report.length) return a.report.length - b.report.length;

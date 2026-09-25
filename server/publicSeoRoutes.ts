@@ -60,12 +60,13 @@ const BUILD_DATE = getBuildDate();
 // Keep this in sync with the export below; used by sitemap test and prerender.
 export const PUBLIC_SITEMAP_PATHS = PUBLIC_ROUTES;
 
+// Wholesale landing set; the jewellery home at "/" is English-only.
 const HOME_ALTERNATES = [
-  { hreflang: "en",      path: "/" },
+  { hreflang: "en",      path: "/trade" },
   { hreflang: "fr",      path: "/fr" },
   { hreflang: "it",      path: "/it" },
   { hreflang: "en-US",   path: "/us" },
-  { hreflang: "x-default", path: "/" },
+  { hreflang: "x-default", path: "/trade" },
 ] as const;
 
 type SitemapEntry = {
@@ -79,7 +80,8 @@ type RouteMetadata = Omit<SitemapEntry, "path">;
 
 // Per-route sitemap metadata. Paths come from publicRoutes.json; only metadata lives here.
 const ROUTE_META: Record<string, RouteMetadata> = {
-  "/":    { changefreq: "weekly",  priority: "1.0", alternates: HOME_ALTERNATES },
+  "/":    { changefreq: "weekly",  priority: "1.0" },
+  "/trade": { changefreq: "weekly", priority: "0.9", alternates: HOME_ALTERNATES },
   "/fr":  { changefreq: "weekly",  priority: "0.9", alternates: HOME_ALTERNATES },
   "/it":  { changefreq: "weekly",  priority: "0.9", alternates: HOME_ALTERNATES },
   "/us":  { changefreq: "weekly",  priority: "0.9", alternates: HOME_ALTERNATES },

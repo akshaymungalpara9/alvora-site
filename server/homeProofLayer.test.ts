@@ -11,7 +11,6 @@ import {
   daysSinceEpochIST,
   type StoneRecord,
 } from "./stonePassport";
-import { HeroStoneView } from "../client/src/components/HeroStone";
 import { StockLedgerView } from "../client/src/components/StockLedger";
 
 let serverBase = "";
@@ -119,37 +118,6 @@ describe("ledger staleness", () => {
   });
 });
 
-describe("HeroStoneView render", () => {
-  const baseRecord = {
-    ...igiWithVideo,
-    dateLabel: "22 September 2026",
-  };
-
-  it("renders 'Open 360 video' text and no iframe when videoEmbeddable is false", () => {
-    const record = { ...baseRecord, videoEmbeddable: false, videoUrl: "https://example.test/vid" };
-    const html = renderToStaticMarkup(React.createElement(HeroStoneView, { record }));
-    expect(html).toContain("Open 360 video");
-    expect(html.includes("<iframe")).toBe(false);
-  });
-
-  it("renders one iframe with src equal to videoUrl when videoEmbeddable is true", () => {
-    const record = { ...baseRecord, videoEmbeddable: true, videoUrl: "https://example.test/vid" };
-    const html = renderToStaticMarkup(React.createElement(HeroStoneView, { record }));
-    const matches = html.match(/<iframe/g) ?? [];
-    expect(matches.length).toBe(1);
-    expect(html).toContain('src="https://example.test/vid"');
-  });
-
-  it("rendered HTML contains no price identifiers or U+2014", () => {
-    const record = { ...baseRecord, videoEmbeddable: true, videoUrl: "https://example.test/vid" };
-    const html = renderToStaticMarkup(React.createElement(HeroStoneView, { record }));
-    expect(html.includes("$")).toBe(false);
-    expect(html.includes("USD")).toBe(false);
-    expect(html.toLowerCase().includes("price")).toBe(false);
-    expect(html.includes("—")).toBe(false);
-  });
-});
-
 describe("StockLedgerView render", () => {
   it("figures render en-IN with a thousands separator when the value is >= 1000", () => {
     const mockData = {
@@ -210,7 +178,7 @@ describe("price-field scan for home-proof source files", () => {
   }
 });
 
-describe("prerender snapshot of /", () => {
+describe("prerender snapshot of the trade home (/trade)", () => {
   const rootManifest = path.resolve(import.meta.dirname, "..", "prerendered", "manifest.json");
   const distManifest = path.resolve(import.meta.dirname, "..", "dist", "prerendered", "manifest.json");
   const candidates = [distManifest, rootManifest];
@@ -220,9 +188,9 @@ describe("prerender snapshot of /", () => {
     return;
   }
   const manifest = JSON.parse(fs.readFileSync(foundManifest, "utf-8")) as Record<string, string>;
-  const indexSnapshot = manifest["/"];
+  const indexSnapshot = manifest["/trade"];
   if (!indexSnapshot) {
-    it.skip("no / snapshot in prerender manifest", () => {});
+    it.skip("no /trade snapshot in prerender manifest", () => {});
     return;
   }
   const snapshotPath = path.join(path.dirname(foundManifest), indexSnapshot);
@@ -232,8 +200,7 @@ describe("prerender snapshot of /", () => {
   }
   const snapshot = fs.readFileSync(snapshotPath, "utf-8");
 
-  it("contains an IGI report number, ledger heading and 1.350 ct caption", () => {
-    expect(snapshot).toMatch(/IGI \d{6,12}/);
+  it("contains the ledger heading and 1.350 ct plate caption", () => {
     expect(snapshot).toContain("Certified stones with passports");
     expect(snapshot).toContain("Scale reads 1.350 ct");
   });

@@ -46,3 +46,45 @@ export function trackRfqSubmit(productInterest: string, country: string, leadTyp
 export function trackArticleRead(slug: string): void {
   send('article_read', { slug });
 }
+
+// ── Conversions ─────────────────────────────────────────────────────────────
+// Each conversion carries the session's landing page so search performance can
+// be lined up with enquiries page by page (see seo/BRIEF.md).
+
+const LANDING_KEY = "alvora_landing";
+
+/** Remember the first page and referrer of this visit (per tab, no cookies). */
+export function rememberLandingPage(): void {
+  if (typeof window === "undefined") return;
+  try {
+    if (window.sessionStorage.getItem(LANDING_KEY)) return;
+    const referrerHost = document.referrer ? new URL(document.referrer).hostname : "";
+    const external = referrerHost && referrerHost !== window.location.hostname ? referrerHost : "";
+    window.sessionStorage.setItem(LANDING_KEY, JSON.stringify({ path: window.location.pathname, referrer: external }));
+  } catch {
+    // Storage can be unavailable (private mode); attribution is best-effort.
+  }
+}
+
+export function landingContext(): { landingPage: string; referrer: string } {
+  try {
+    const stored = JSON.parse(window.sessionStorage.getItem(LANDING_KEY) ?? "null") as { path?: string; referrer?: string } | null;
+    return { landingPage: stored?.path ?? window.location.pathname, referrer: stored?.referrer ?? "" };
+  } catch {
+    return { landingPage: window.location.pathname, referrer: "" };
+  }
+}
+
+type ConversionEvent = "jewellery_enquiry" | "consultation_request" | "trade_linesheet_request";
+
+/** Named conversion, sent to GA4 and Umami. */
+export function trackConversion(event: ConversionEvent, details: Record<string, string> = {}): void {
+  const { landingPage, referrer } = landingContext();
+  const params = { page_path: window.location.pathname, landing_page: landingPage, referrer_host: referrer, ...details };
+  send(event, params);
+  try {
+    (window as Window & { umami?: { track?: (name: string, data: Record<string, string>) => void } }).umami?.track?.(event, params);
+  } catch {
+    // Analytics must never break a form submission.
+  }
+}

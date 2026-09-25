@@ -7,6 +7,7 @@ import { adminAvailabilityRouter, publicAvailabilityRouter } from "./routers/ava
 import { adminProductionBriefRouter, publicProductionBriefRouter } from "./routers/briefs";
 import { adminTradeIntroducerRouter, tradeIntroducerRouter } from "./routers/introductions";
 import { adminOperationsRouter } from "./routers/operations";
+import { adminJewelleryRouter, jewelleryRouter } from "./routers/jewellery";
 
 export const appRouter = router({
   system: systemRouter,
@@ -27,6 +28,8 @@ export const appRouter = router({
   availability: publicAvailabilityRouter,
   productionBrief: publicProductionBriefRouter,
   introductions: tradeIntroducerRouter,
+  jewellery: jewelleryRouter,
+  adminJewellery: adminJewelleryRouter,
 });
 
 export type AppRouter = typeof appRouter;

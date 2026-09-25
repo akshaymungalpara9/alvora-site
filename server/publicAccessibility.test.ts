@@ -17,7 +17,7 @@ describe("public landing accessibility structure", () => {
 
   it("keeps focus treatment and skip targets in both public page shells", () => {
     const styles = readFileSync("client/src/index.css", "utf8");
-    const home = readFileSync("client/src/pages/Home.tsx", "utf8");
+    const home = readFileSync("client/src/pages/TradeHome.tsx", "utf8");
     const market = readFileSync("client/src/pages/MarketLanding.tsx", "utf8");
     expect(styles).toContain(":focus-visible");
     expect(styles).toContain(".skip-link");

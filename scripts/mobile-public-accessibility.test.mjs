@@ -6,7 +6,7 @@ const pageUrl = process.env.PUBLIC_TEST_BASE_URL || "http://localhost:3000/it";
 
 test("Italian skip link hands keyboard focus to main content at a mobile viewport", async () => {
   const browser = await chromium.launch({
-    executablePath: "/usr/bin/chromium",
+    executablePath: process.env.CHROMIUM_PATH || "/usr/bin/chromium",
     headless: true,
     args: ["--no-sandbox", "--disable-dev-shm-usage"],
   });

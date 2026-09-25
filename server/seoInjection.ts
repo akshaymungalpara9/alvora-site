@@ -1,7 +1,11 @@
 import { availabilitySeo, publicSeo, publicSocialImage, publicSocialImageAlt } from "../client/src/lib/publicSeo";
 import { COMPANY } from "../shared/companyInfo";
-import { getStone, getStoneOfToday, getStonesMetaSnapshot } from "./stonePassport";
+import { getStone, getStonesMetaSnapshot } from "./stonePassport";
 import { formatInTimeZone } from "date-fns-tz";
+import { CONSULTATION_META, TRADE_JEWELLERY_META, JEWELLERY_COLLECTION_META, JEWELLERY_HOME_META, pieceMeta, shapePageMeta } from "../shared/jewellery/seo";
+import { PUBLIC_PIECES, findPublicPiece, type JewelleryCollection } from "../shared/jewellery/catalog";
+import { findGuide } from "../shared/jewellery/editorial";
+import { JEWELLERY_FAQ } from "../shared/jewellery/faq";
 import { isStonePassportIndexable } from "./_core/env";
 
 const STONE_PASSPORT_ROUTE = /^\/stone\/(\d{6,12})$/;
@@ -119,13 +123,14 @@ function mkFaqPage(questions: Array<{ q: string; a: string }>) {
   };
 }
 
+/** Wholesale landing set: the English trade home at /trade plus FR/IT/US variants. */
 function publicHreflangAlternates(origin: string) {
   return [
-    { lang: "en", href: `${origin}/` },
+    { lang: "en", href: `${origin}/trade` },
     { lang: "fr", href: `${origin}/fr` },
     { lang: "it", href: `${origin}/it` },
     { lang: "en-US", href: `${origin}/us` },
-    { lang: "x-default", href: `${origin}/` },
+    { lang: "x-default", href: `${origin}/trade` },
   ];
 }
 
@@ -138,15 +143,133 @@ function availabilityHreflangAlternates(origin: string) {
   ];
 }
 
+const COLLECTION_KEYS: Record<string, JewelleryCollection | null> = {
+  "/jewellery": null,
+  "/engagement-rings": "engagement-rings",
+  "/rings": "rings",
+  "/earrings": "earrings",
+  "/necklaces": "pendants",
+  "/wedding-bands": "wedding-bands",
+  "/jewellery/antique-cuts": "antique-cuts",
+  "/jewellery/coloured-stones": "coloured-stones",
+};
+const SHAPE_ROUTE = /^\/engagement-rings\/shape\/([a-z-]+)$/;
+const PIECE_ROUTE = /^\/jewellery\/([a-z0-9-]+)$/;
+
+function mkBreadcrumbs(origin: string, trail: Array<{ name: string; path: string }>) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: trail.map((item, index) => ({ "@type": "ListItem", position: index + 1, name: item.name, item: `${origin}${item.path}` })),
+  };
+}
+
+function mkItemList(origin: string, name: string, pieces: typeof PUBLIC_PIECES) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name,
+    numberOfItems: pieces.length,
+    itemListElement: pieces.slice(0, 30).map((piece, index) => ({ "@type": "ListItem", position: index + 1, url: `${origin}/jewellery/${piece.slug}`, name: piece.name })),
+  };
+}
+
+/** Jewellery routes: collections, shape pages, pieces and the consultation page. */
+function jewelleryRouteMeta(pathname: string, origin: string): RouteMeta | null {
+  const url = (p: string) => `${origin}${p}`;
+  if (pathname === "/book-a-consultation") return { lang: "en", ...CONSULTATION_META, canonical: url(pathname) };
+  if (pathname === "/trade/jewellery") return { lang: "en", ...TRADE_JEWELLERY_META, canonical: url(pathname) };
+  const guideMatch = /^\/guides\/([a-z0-9-]+)$/.exec(pathname);
+  if (guideMatch) {
+    const guide = findGuide(guideMatch[1]);
+    if (!guide) return null;
+    return {
+      lang: "en",
+      title: guide.title,
+      description: guide.description,
+      canonical: url(pathname),
+      serviceJsonLd: [
+        { ...mkArticle(origin, pathname, guide.heading, guide.description), datePublished: guide.published, author: { "@type": "Organization", name: "Alvora" }, publisher: { "@type": "Organization", name: "Alvora" } },
+        mkBreadcrumbs(origin, [{ name: "Home", path: "/" }, { name: guide.heading, path: pathname }]),
+      ],
+    };
+  }
+
+  if (pathname in COLLECTION_KEYS) {
+    const key = COLLECTION_KEYS[pathname];
+    const meta = JEWELLERY_COLLECTION_META[pathname];
+    const pieces = PUBLIC_PIECES.filter((piece) => (key ? piece.collections.includes(key) : true));
+    return {
+      lang: "en",
+      title: meta.title,
+      description: meta.description,
+      canonical: url(pathname),
+      robots: pieces.length ? undefined : "noindex,follow",
+      serviceJsonLd: [mkItemList(origin, meta.heading, pieces), mkBreadcrumbs(origin, [{ name: "Home", path: "/" }, { name: meta.heading, path: pathname }])],
+    };
+  }
+
+  const shapeMatch = SHAPE_ROUTE.exec(pathname);
+  if (shapeMatch) {
+    const pieces = PUBLIC_PIECES.filter((piece) => piece.shape === shapeMatch[1] && piece.collections.includes("engagement-rings"));
+    const label = pieces[0]?.shapeLabel ?? shapeMatch[1].replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
+    const meta = shapePageMeta(shapeMatch[1], label);
+    return {
+      lang: "en",
+      ...meta,
+      canonical: url(pathname),
+      robots: pieces.length ? undefined : "noindex,follow",
+      serviceJsonLd: [mkItemList(origin, `${label} engagement rings`, pieces), mkBreadcrumbs(origin, [{ name: "Home", path: "/" }, { name: "Engagement rings", path: "/engagement-rings" }, { name: label, path: pathname }])],
+    };
+  }
+
+  const pieceMatch = PIECE_ROUTE.exec(pathname);
+  if (pieceMatch) {
+    const piece = findPublicPiece(pieceMatch[1]);
+    if (!piece) return null;
+    const meta = pieceMeta(piece);
+    const category = { ring: ["Engagement rings", "/engagement-rings"], band: ["Wedding & bands", "/wedding-bands"], earrings: ["Earrings", "/earrings"], pendant: ["Necklaces & pendants", "/necklaces"] }[piece.category];
+    const product: Record<string, unknown> = {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      name: piece.name,
+      sku: piece.code,
+      description: piece.description,
+      brand: { "@type": "Brand", name: "Alvora" },
+      url: url(pathname),
+      ...(piece.images.length ? { image: piece.images.map((image) => `${origin}${image.src}`) } : {}),
+      ...(piece.fromPriceUsd != null
+        ? { offers: { "@type": "AggregateOffer", priceCurrency: "USD", lowPrice: piece.fromPriceUsd, offerCount: 1, availability: "https://schema.org/MadeToOrder", url: url(pathname) } }
+        : {}),
+    };
+    return {
+      lang: "en",
+      ...meta,
+      canonical: url(pathname),
+      serviceJsonLd: [product, mkBreadcrumbs(origin, [
+        { name: "Home", path: "/" },
+        { name: category[0], path: category[1] },
+        ...(piece.shape && piece.shapeLabel && piece.collections.includes("engagement-rings") ? [{ name: piece.shapeLabel, path: `/engagement-rings/shape/${piece.shape}` }] : []),
+        { name: piece.name, path: pathname },
+      ])],
+    };
+  }
+  return null;
+}
+
 export function resolveRouteMeta(pathname: string, origin: string): RouteMeta | null {
   const stoneMatch = STONE_PASSPORT_ROUTE.exec(pathname);
   if (stoneMatch) {
     return stonePassportRouteMeta(stoneMatch[1], origin);
   }
+  const jewellery = jewelleryRouteMeta(pathname, origin);
+  if (jewellery) return jewellery;
   const url = (p: string) => `${origin}${p}`;
   switch (pathname) {
     case "/":
-      return { ...publicSeo.global, title: "Lab-Grown Diamond Manufacturer & Wholesale Supplier | Alvora", description: "Alvora is a Surat-based lab-grown diamond manufacturer supplying wholesale CVD and HPHT diamonds, layouts and matched pairs to jewellers worldwide.", canonical: url("/"), alternates: publicHreflangAlternates(origin), serviceJsonLd: mkFaqPage([
+      return { lang: "en", ...JEWELLERY_HOME_META, canonical: url("/"), serviceJsonLd: mkFaqPage(JEWELLERY_FAQ) };
+    case "/trade":
+      return { ...publicSeo.global, title: "Lab-Grown Diamond Manufacturer & Wholesale Supplier | Alvora", description: "Alvora is a Surat-based lab-grown diamond manufacturer supplying wholesale CVD and HPHT diamonds, layouts and matched pairs to jewellers worldwide.", canonical: url("/trade"), alternates: publicHreflangAlternates(origin), serviceJsonLd: mkFaqPage([
         { q: "Is there a minimum order?", a: "The minimum order depends on the product, size, shape, certification, and whether the request is stock, a sample, a layout, or custom production. Category-specific minimums are confirmed in the quotation before approval. Buyers should include the expected quantity and repeat-order plan so the applicable minimum can be discussed clearly." },
         { q: "Are your stones IGI or GIA certified?", a: "Alvora can supply IGI-certified laboratory-grown diamonds where applicable, with report-linked identity and familiar 4Cs information. IGI is generally the practical wholesale baseline for comparison and inventory workflows. GIA can be requested when a retailer or destination channel requires its name; buyers should confirm the report format needed before ordering." },
         { q: "Can I request a sample or memo?", a: "A sample or memo request can be discussed before the first production order, subject to the goods and commercial terms. Availability, return conditions, shipping, insurance, and any charges should be confirmed in writing. Custom-cut or specially produced goods may require separate treatment from standard stock." },
@@ -675,16 +798,6 @@ function jsonForScript(value: unknown): string {
   return JSON.stringify(value).replace(/</g, "\\u003c").replace(/>/g, "\\u003e");
 }
 
-/**
- * Builds the hero-stone hydration payload for the "/" route. Returns "" when
- * no candidates exist so the client-side query falls back to fetching /today.
- */
-export function heroStoneHydrationTag(): string {
-  const record = getStoneOfToday();
-  if (!record) return "";
-  return `<script type="application/json" id="hero-stone">${jsonForScript(record)}</script>`;
-}
-
 /** Builds the ledger hydration tag so StockLedger has real figures at first paint. */
 export function stockLedgerHydrationTag(): string {
   const snapshot = getStonesMetaSnapshot();
@@ -740,7 +853,7 @@ export function injectSeoIntoHtml(html: string, pathname: string, origin: string
     ...(meta.alternates ?? []).map(({ lang, href }) => `<link rel="alternate" hreflang="${esc(lang)}" href="${esc(href)}" />`),
     `<script type="application/ld+json">${JSON.stringify(buildOrgJsonLd(origin))}</script>`,
     ...serviceJsonLdTags,
-    ...(pathname === "/" ? [heroStoneHydrationTag(), stockLedgerHydrationTag()].filter(Boolean) : []),
+    ...(pathname === "/trade" ? [stockLedgerHydrationTag()].filter(Boolean) : []),
   ].join("\n  ");
 
   return html

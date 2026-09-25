@@ -288,6 +288,47 @@ export const tradeIntroductions = mysqlTable(
   ],
 );
 
+/**
+ * Public jewellery enquiries and consultation requests. Saved before the
+ * internal alert is attempted so a delivery failure never loses a lead.
+ */
+export const jewelleryEnquiries = mysqlTable(
+  "jewellery_enquiries",
+  {
+    id: int("id").autoincrement().primaryKey(),
+    kind: mysqlEnum("kind", ["piece", "consultation"]).default("piece").notNull(),
+    pieceCode: varchar("pieceCode", { length: 20 }),
+    pieceName: varchar("pieceName", { length: 180 }),
+    metal: varchar("metal", { length: 40 }),
+    karat: varchar("karat", { length: 10 }),
+    caratWeight: varchar("caratWeight", { length: 20 }),
+    ringSize: varchar("ringSize", { length: 20 }),
+    contactName: varchar("contactName", { length: 180 }).notNull(),
+    email: varchar("email", { length: 320 }).notNull(),
+    phone: varchar("phone", { length: 80 }),
+    country: varchar("country", { length: 80 }),
+    preferredContact: mysqlEnum("preferredContact", ["email", "whatsapp", "phone", "video"]).default("email").notNull(),
+    preferredTime: varchar("preferredTime", { length: 160 }),
+    budget: varchar("budget", { length: 60 }),
+    message: text("message"),
+    landingPage: varchar("landingPage", { length: 300 }),
+    referrer: varchar("referrer", { length: 200 }),
+    alertStatus: mysqlEnum("alertStatus", ["pending", "sent", "failed"]).default("pending").notNull(),
+    alertError: text("alertError"),
+    alertMessageId: varchar("alertMessageId", { length: 160 }),
+    followUpStatus: mysqlEnum("followUpStatus", ["new", "contacted", "quoted", "won", "lost", "on_hold"]).default("new").notNull(),
+    ownerName: varchar("ownerName", { length: 120 }),
+    internalNote: text("internalNote"),
+    lastActionAt: timestamp("lastActionAt"),
+    createdAt: timestamp("createdAt").defaultNow().notNull(),
+    updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+  },
+  (table) => [
+    index("jewellery_enquiries_created_idx").on(table.createdAt),
+    index("jewellery_enquiries_status_idx").on(table.followUpStatus, table.createdAt),
+  ],
+);
+
 export type User = typeof users.$inferSelect;
 export type InsertUser = typeof users.$inferInsert;
 export type BuyerAccount = typeof buyerAccounts.$inferSelect;
@@ -295,3 +336,4 @@ export type AvailabilityStone = typeof availabilityStones.$inferSelect;
 export type AvailabilityImport = typeof availabilityImports.$inferSelect;
 export type AvailabilityCuration = typeof availabilityCuration.$inferSelect;
 export type ProductionBrief = typeof productionBriefs.$inferSelect;
+export type JewelleryEnquiry = typeof jewelleryEnquiries.$inferSelect;

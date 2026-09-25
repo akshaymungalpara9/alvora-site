@@ -1,0 +1,8 @@
+{
+  "_comment": "Which launch-list pieces are live on the site. Only rows in launch_shortlist_v1.csv are ever considered. Per partner: \"all\" or a list of categories (ring, band, earrings, pendant). Run `pnpm jewellery:build` after editing.",
+  "partners": {
+    "junerings": "all",
+    "pooja": "all",
+    "carat": ["earrings"]
+  }
+}

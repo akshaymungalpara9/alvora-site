@@ -4,10 +4,16 @@ import { trackWhatsappClick } from "@/lib/ga4";
 import { findProductPage } from "@/lib/productPages";
 import { buildWhatsAppHrefWithMessage, WhatsAppInquiry } from "@/lib/whatsapp";
 import { COMPANY } from "@shared/companyInfo";
+import { findPublicPiece } from "@shared/jewellery/catalog";
 
-const ADMIN_ROUTES = ["/admin", "/admin/buyers", "/admin/availability", "/admin/briefs"];
+const JEWELLERY_PATHS = /^\/($|jewellery|engagement-rings|rings|earrings|necklaces|pendants|wedding-bands|book-a-consultation)/;
+
+const ADMIN_ROUTES = ["/admin", "/admin/buyers", "/admin/availability", "/admin/briefs", "/admin/jewellery"];
 
 function buildMessage(location: string): string {
+  const piece = location.startsWith("/jewellery/") ? findPublicPiece(location.slice("/jewellery/".length)) : undefined;
+  if (piece) return `Hello Alvora, I'd like to ask about the ${piece.name} (${piece.code}).`;
+  if (JEWELLERY_PATHS.test(location)) return "Hello Alvora, I'd like help choosing a piece of jewellery.";
   const page = findProductPage(location);
   if (page) return `Hello Alvora, I'd like availability & pricing for ${page.h1}.`;
   return WhatsAppInquiry;

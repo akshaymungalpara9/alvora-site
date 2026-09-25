@@ -21,6 +21,7 @@ describe("Railway asset portability", () => {
 
   it("keeps public landing pages independent of the Manus storage proxy for site imagery", () => {
     const files = [
+      path.join(projectRoot, "client", "src", "pages", "TradeHome.tsx"),
       path.join(projectRoot, "client", "src", "pages", "Home.tsx"),
       path.join(projectRoot, "client", "src", "pages", "MarketLanding.tsx"),
       path.join(projectRoot, "client", "src", "pages", "Insights.tsx"),

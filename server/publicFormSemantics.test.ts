@@ -8,7 +8,7 @@ function expectWrappedLabel(page: string, fieldName: "name" | "email" | "company
 describe("public production-brief form semantics", () => {
   it("provides identity autofill metadata and compatible email entry semantics on every public route", () => {
     const pages = [
-      readFileSync("client/src/pages/Home.tsx", "utf8"),
+      readFileSync("client/src/pages/TradeHome.tsx", "utf8"),
       readFileSync("client/src/pages/MarketLanding.tsx", "utf8"),
     ];
     for (const page of pages) {

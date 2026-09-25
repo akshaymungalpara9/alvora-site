@@ -116,3 +116,14 @@ client/public/__manus__/version.json
 # local-only deploy secrets scratch file (never commit)
 .env.railway.txt
 _tmp_*
+
+# Local tooling and working notes (never commit)
+.claude/
+GEO Audit/
+Alvora Answer-First Openings.md
+Alvora Placeholder Copy.md
+Alvora SEO Rewrite.md
+SEO_CONTENT_EXPORT.md
+
+# Partner source photos (processed copies live in client/public/assets/jewellery)
+data/jewellery/raw-images/

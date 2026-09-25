@@ -1,0 +1,8228 @@
+[
+  {
+    "code": "ALV-R-0001",
+    "slug": "aurel-oval-east-west",
+    "name": "Aurel Oval East-West",
+    "collectionName": "Aurel",
+    "wave": "A",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "oval",
+    "shapeLabel": "Oval",
+    "style": "east-west",
+    "styleLabel": "East-West",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": null,
+    "description": "An oval lab-grown diamond turned on its side and held in a slim east-west setting.",
+    "tags": [],
+    "featuredScore": 68,
+    "addedOn": null,
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-r-0001/01.webp",
+        "thumb": "/assets/jewellery/alv-r-0001/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0001/02.webp",
+        "thumb": "/assets/jewellery/alv-r-0001/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0001/03.webp",
+        "thumb": "/assets/jewellery/alv-r-0001/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0001/04.webp",
+        "thumb": "/assets/jewellery/alv-r-0001/04-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
+  },
+  {
+    "code": "ALV-R-0002",
+    "slug": "solene-oval-heritage",
+    "name": "Solene Oval Heritage",
+    "collectionName": "Solene",
+    "wave": "A",
+    "live": false,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "oval",
+    "shapeLabel": "Oval",
+    "style": "vintage",
+    "styleLabel": "Heritage",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": 1020,
+    "description": "An oval lab-grown diamond in a heritage setting with hand-finished detailing along the band.",
+    "tags": [],
+    "featuredScore": 64,
+    "addedOn": null,
+    "images": []
+  },
+  {
+    "code": "ALV-R-0003",
+    "slug": "vela-emerald-bezel",
+    "name": "Vela Emerald Bezel",
+    "collectionName": "Vela",
+    "wave": "A",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "emerald",
+    "shapeLabel": "Emerald",
+    "style": "bezel",
+    "styleLabel": "Bezel",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": null,
+    "description": "An emerald lab-grown diamond wrapped in a clean, protective bezel of polished gold.",
+    "tags": [],
+    "featuredScore": 62,
+    "addedOn": null,
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-r-0003/01.webp",
+        "thumb": "/assets/jewellery/alv-r-0003/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0003/02.webp",
+        "thumb": "/assets/jewellery/alv-r-0003/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0003/03.webp",
+        "thumb": "/assets/jewellery/alv-r-0003/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
+  },
+  {
+    "code": "ALV-R-0004",
+    "slug": "orla-emerald-bezel",
+    "name": "Orla Emerald Bezel",
+    "collectionName": "Orla",
+    "wave": "A",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings",
+      "antique-cuts"
+    ],
+    "shape": "emerald",
+    "shapeLabel": "Emerald",
+    "style": "bezel",
+    "styleLabel": "Bezel",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": null,
+    "description": "An emerald lab-grown diamond wrapped in a clean, protective bezel of polished gold.",
+    "tags": [],
+    "featuredScore": 62,
+    "addedOn": null,
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-r-0004/01.webp",
+        "thumb": "/assets/jewellery/alv-r-0004/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0004/02.webp",
+        "thumb": "/assets/jewellery/alv-r-0004/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0004/03.webp",
+        "thumb": "/assets/jewellery/alv-r-0004/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
+  },
+  {
+    "code": "ALV-R-0005",
+    "slug": "ondine-oval-bezel",
+    "name": "Ondine Oval Bezel",
+    "collectionName": "Ondine",
+    "wave": "A",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "oval",
+    "shapeLabel": "Oval",
+    "style": "bezel",
+    "styleLabel": "Bezel",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": null,
+    "description": "An oval lab-grown diamond wrapped in a clean, protective bezel of polished gold.",
+    "tags": [],
+    "featuredScore": 62,
+    "addedOn": null,
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-r-0005/01.webp",
+        "thumb": "/assets/jewellery/alv-r-0005/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0005/02.webp",
+        "thumb": "/assets/jewellery/alv-r-0005/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0005/03.webp",
+        "thumb": "/assets/jewellery/alv-r-0005/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
+  },
+  {
+    "code": "ALV-R-0006",
+    "slug": "aurel-pear-east-west",
+    "name": "Aurel Pear East-West",
+    "collectionName": "Aurel",
+    "wave": "A",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "pear",
+    "shapeLabel": "Pear",
+    "style": "east-west",
+    "styleLabel": "East-West",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": null,
+    "description": "A pear lab-grown diamond turned on its side and held in a slim east-west setting.",
+    "tags": [],
+    "featuredScore": 60,
+    "addedOn": null,
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-r-0006/01.webp",
+        "thumb": "/assets/jewellery/alv-r-0006/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0006/02.webp",
+        "thumb": "/assets/jewellery/alv-r-0006/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0006/03.webp",
+        "thumb": "/assets/jewellery/alv-r-0006/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
+  },
+  {
+    "code": "ALV-R-0007",
+    "slug": "selene-elongated-cushion-heritage",
+    "name": "Selene Elongated Cushion Heritage",
+    "collectionName": "Selene",
+    "wave": "A",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings",
+      "antique-cuts"
+    ],
+    "shape": "elongated-cushion",
+    "shapeLabel": "Elongated Cushion",
+    "style": "vintage",
+    "styleLabel": "Heritage",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": null,
+    "description": "An elongated cushion lab-grown diamond in a heritage setting with hand-finished detailing along the band.",
+    "tags": [],
+    "featuredScore": 58,
+    "addedOn": null,
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-r-0007/01.webp",
+        "thumb": "/assets/jewellery/alv-r-0007/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0007/02.webp",
+        "thumb": "/assets/jewellery/alv-r-0007/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0007/03.webp",
+        "thumb": "/assets/jewellery/alv-r-0007/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
+  },
+  {
+    "code": "ALV-R-0008",
+    "slug": "selene-oval-heritage",
+    "name": "Selene Oval Heritage",
+    "collectionName": "Selene",
+    "wave": "A",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings",
+      "antique-cuts"
+    ],
+    "shape": "oval",
+    "shapeLabel": "Oval",
+    "style": "vintage",
+    "styleLabel": "Heritage",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": null,
+    "description": "An oval lab-grown diamond in a heritage setting with hand-finished detailing along the band.",
+    "tags": [],
+    "featuredScore": 58,
+    "addedOn": null,
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-r-0008/01.webp",
+        "thumb": "/assets/jewellery/alv-r-0008/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0008/02.webp",
+        "thumb": "/assets/jewellery/alv-r-0008/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0008/03.webp",
+        "thumb": "/assets/jewellery/alv-r-0008/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
+  },
+  {
+    "code": "ALV-R-0009",
+    "slug": "talia-oval-east-west",
+    "name": "Talia Oval East-West",
+    "collectionName": "Talia",
+    "wave": "A",
+    "live": false,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "oval",
+    "shapeLabel": "Oval",
+    "style": "east-west",
+    "styleLabel": "East-West",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": 770,
+    "description": "An oval lab-grown diamond turned on its side and held in a slim east-west setting.",
+    "tags": [],
+    "featuredScore": 58,
+    "addedOn": null,
+    "images": []
+  },
+  {
+    "code": "ALV-E-0001",
+    "slug": "cyra-round-studs",
+    "name": "Cyra Round Studs",
+    "collectionName": "Cyra",
+    "wave": "A",
+    "live": true,
+    "category": "earrings",
+    "collections": [
+      "earrings"
+    ],
+    "shape": "round",
+    "shapeLabel": "Round",
+    "style": "stud",
+    "styleLabel": "Studs",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": 220,
+    "description": "A pair of round lab-grown diamonds in secure claw settings, matched stone for stone.",
+    "tags": [],
+    "featuredScore": 56,
+    "addedOn": null,
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-e-0001/01.webp",
+        "thumb": "/assets/jewellery/alv-e-0001/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-e-0001/02.webp",
+        "thumb": "/assets/jewellery/alv-e-0001/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
+  },
+  {
+    "code": "ALV-E-0002",
+    "slug": "maelis-round-studs",
+    "name": "Maelis Round Studs",
+    "collectionName": "Maelis",
+    "wave": "A",
+    "live": true,
+    "category": "earrings",
+    "collections": [
+      "earrings"
+    ],
+    "shape": "round",
+    "shapeLabel": "Round",
+    "style": "stud",
+    "styleLabel": "Studs",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": 370,
+    "description": "A pair of round lab-grown diamonds in secure claw settings, matched stone for stone.",
+    "tags": [],
+    "featuredScore": 56,
+    "addedOn": null,
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-e-0002/01.webp",
+        "thumb": "/assets/jewellery/alv-e-0002/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-e-0002/02.webp",
+        "thumb": "/assets/jewellery/alv-e-0002/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
+  },
+  {
+    "code": "ALV-R-0010",
+    "slug": "nerida-elongated-cushion-bezel",
+    "name": "Nerida Elongated Cushion Bezel",
+    "collectionName": "Nerida",
+    "wave": "A",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings",
+      "antique-cuts"
+    ],
+    "shape": "elongated-cushion",
+    "shapeLabel": "Elongated Cushion",
+    "style": "bezel",
+    "styleLabel": "Bezel",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": null,
+    "description": "An elongated cushion lab-grown diamond wrapped in a clean, protective bezel of polished gold.",
+    "tags": [],
+    "featuredScore": 56,
+    "addedOn": null,
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-r-0010/01.webp",
+        "thumb": "/assets/jewellery/alv-r-0010/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0010/02.webp",
+        "thumb": "/assets/jewellery/alv-r-0010/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0010/03.webp",
+        "thumb": "/assets/jewellery/alv-r-0010/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
+  },
+  {
+    "code": "ALV-R-0011",
+    "slug": "ilse-emerald-bezel",
+    "name": "Ilse Emerald Bezel",
+    "collectionName": "Ilse",
+    "wave": "A",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "emerald",
+    "shapeLabel": "Emerald",
+    "style": "bezel",
+    "styleLabel": "Bezel",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": null,
+    "description": "An emerald lab-grown diamond wrapped in a clean, protective bezel of polished gold.",
+    "tags": [],
+    "featuredScore": 56,
+    "addedOn": null,
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-r-0011/01.webp",
+        "thumb": "/assets/jewellery/alv-r-0011/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0011/02.webp",
+        "thumb": "/assets/jewellery/alv-r-0011/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0011/03.webp",
+        "thumb": "/assets/jewellery/alv-r-0011/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
+  },
+  {
+    "code": "ALV-R-0012",
+    "slug": "oriel-marquise-heritage",
+    "name": "Oriel Marquise Heritage",
+    "collectionName": "Oriel",
+    "wave": "A",
+    "live": false,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "marquise",
+    "shapeLabel": "Marquise",
+    "style": "vintage",
+    "styleLabel": "Heritage",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": 770,
+    "description": "A marquise lab-grown diamond in a vintage setting with filigree along the gallery.",
+    "tags": [],
+    "featuredScore": 55,
+    "addedOn": null,
+    "images": []
+  },
+  {
+    "code": "ALV-P-0001",
+    "slug": "elowen-emerald-pendant",
+    "name": "Elowen Emerald Pendant",
+    "collectionName": "Elowen",
+    "wave": "A",
+    "live": false,
+    "category": "pendant",
+    "collections": [
+      "pendants"
+    ],
+    "shape": "emerald",
+    "shapeLabel": "Emerald",
+    "style": "solitaire",
+    "styleLabel": "Pendant",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": 430,
+    "description": "An emerald lab-grown diamond suspended on a fine gold chain in a clean, lifted setting.",
+    "tags": [],
+    "featuredScore": 54,
+    "addedOn": null,
+    "images": []
+  },
+  {
+    "code": "ALV-P-0002",
+    "slug": "ines-marquise-pendant",
+    "name": "Ines Marquise Pendant",
+    "collectionName": "Ines",
+    "wave": "A",
+    "live": false,
+    "category": "pendant",
+    "collections": [
+      "pendants"
+    ],
+    "shape": "marquise",
+    "shapeLabel": "Marquise",
+    "style": "solitaire",
+    "styleLabel": "Pendant",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": 430,
+    "description": "A marquise lab-grown diamond suspended on a fine gold chain in a clean, lifted setting.",
+    "tags": [],
+    "featuredScore": 54,
+    "addedOn": null,
+    "images": []
+  },
+  {
+    "code": "ALV-R-0013",
+    "slug": "sabine-elongated-cushion-heritage",
+    "name": "Sabine Elongated Cushion Heritage",
+    "collectionName": "Sabine",
+    "wave": "A",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings",
+      "antique-cuts"
+    ],
+    "shape": "elongated-cushion",
+    "shapeLabel": "Elongated Cushion",
+    "style": "vintage",
+    "styleLabel": "Heritage",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": null,
+    "description": "An elongated cushion lab-grown diamond in a heritage setting with hand-finished detailing along the band.",
+    "tags": [],
+    "featuredScore": 54,
+    "addedOn": null,
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-r-0013/01.webp",
+        "thumb": "/assets/jewellery/alv-r-0013/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0013/02.webp",
+        "thumb": "/assets/jewellery/alv-r-0013/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0013/03.webp",
+        "thumb": "/assets/jewellery/alv-r-0013/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
+  },
+  {
+    "code": "ALV-R-0014",
+    "slug": "celeste-green-oval-solitaire",
+    "name": "Celeste Green Oval Solitaire",
+    "collectionName": "Celeste",
+    "wave": "A",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings",
+      "coloured-stones"
+    ],
+    "shape": "oval",
+    "shapeLabel": "Oval",
+    "style": "solitaire",
+    "styleLabel": "Solitaire",
+    "stoneColour": "green",
+    "stoneColourLabel": "Green",
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": [
+      3,
+      3
+    ],
+    "fromPriceUsd": null,
+    "description": "A single green oval lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "tags": [],
+    "featuredScore": 54,
+    "addedOn": null,
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-r-0014/01.webp",
+        "thumb": "/assets/jewellery/alv-r-0014/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0014/02.webp",
+        "thumb": "/assets/jewellery/alv-r-0014/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0014/03.webp",
+        "thumb": "/assets/jewellery/alv-r-0014/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
+  },
+  {
+    "code": "ALV-R-0015",
+    "slug": "livia-dutch-marquise-heritage",
+    "name": "Livia Dutch Marquise Heritage",
+    "collectionName": "Livia",
+    "wave": "A",
+    "live": false,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "marquise",
+    "shapeLabel": "Marquise",
+    "style": "vintage",
+    "styleLabel": "Heritage",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": 1000,
+    "description": "A Dutch marquise lab-grown diamond with filigree tucked beneath the stone, seen only from the side of the ring.",
+    "tags": [
+      "dutch-marquise"
+    ],
+    "featuredScore": 53,
+    "addedOn": null,
+    "images": []
+  },
+  {
+    "code": "ALV-R-0016",
+    "slug": "noor-oval-solitaire",
+    "name": "Noor Oval Solitaire",
+    "collectionName": "Noor",
+    "wave": "A",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "oval",
+    "shapeLabel": "Oval",
+    "style": "solitaire",
+    "styleLabel": "Solitaire",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": null,
+    "description": "A single oval lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "tags": [],
+    "featuredScore": 52,
+    "addedOn": null,
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-r-0016/01.webp",
+        "thumb": "/assets/jewellery/alv-r-0016/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0016/02.webp",
+        "thumb": "/assets/jewellery/alv-r-0016/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0016/03.webp",
+        "thumb": "/assets/jewellery/alv-r-0016/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
+  },
+  {
+    "code": "ALV-R-0017",
+    "slug": "rhea-oval-solitaire",
+    "name": "Rhea Oval Solitaire",
+    "collectionName": "Rhea",
+    "wave": "A",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "oval",
+    "shapeLabel": "Oval",
+    "style": "solitaire",
+    "styleLabel": "Solitaire",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": null,
+    "description": "A single oval lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "tags": [],
+    "featuredScore": 52,
+    "addedOn": null,
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-r-0017/01.webp",
+        "thumb": "/assets/jewellery/alv-r-0017/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0017/02.webp",
+        "thumb": "/assets/jewellery/alv-r-0017/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0017/03.webp",
+        "thumb": "/assets/jewellery/alv-r-0017/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
+  },
+  {
+    "code": "ALV-R-0018",
+    "slug": "thea-old-mine-heritage",
+    "name": "Thea Old Mine Heritage",
+    "collectionName": "Thea",
+    "wave": "A",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings",
+      "antique-cuts"
+    ],
+    "shape": "old-mine",
+    "shapeLabel": "Old Mine",
+    "style": "vintage",
+    "styleLabel": "Heritage",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": null,
+    "description": "An old mine lab-grown diamond in a heritage setting with hand-finished detailing along the band.",
+    "tags": [],
+    "featuredScore": 52,
+    "addedOn": null,
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-r-0018/01.webp",
+        "thumb": "/assets/jewellery/alv-r-0018/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0018/02.webp",
+        "thumb": "/assets/jewellery/alv-r-0018/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0018/03.webp",
+        "thumb": "/assets/jewellery/alv-r-0018/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
+  },
+  {
+    "code": "ALV-R-0019",
+    "slug": "vesna-oval-solitaire",
+    "name": "Vesna Oval Solitaire",
+    "collectionName": "Vesna",
+    "wave": "A",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "oval",
+    "shapeLabel": "Oval",
+    "style": "solitaire",
+    "styleLabel": "Solitaire",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": null,
+    "description": "A single oval lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "tags": [],
+    "featuredScore": 52,
+    "addedOn": null,
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-r-0019/01.webp",
+        "thumb": "/assets/jewellery/alv-r-0019/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0019/02.webp",
+        "thumb": "/assets/jewellery/alv-r-0019/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0019/03.webp",
+        "thumb": "/assets/jewellery/alv-r-0019/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
+  },
+  {
+    "code": "ALV-R-0020",
+    "slug": "yara-marquise-solitaire",
+    "name": "Yara Marquise Solitaire",
+    "collectionName": "Yara",
+    "wave": "A",
+    "live": false,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "marquise",
+    "shapeLabel": "Marquise",
+    "style": "solitaire",
+    "styleLabel": "Solitaire",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": 620,
+    "description": "A marquise lab-grown diamond held securely by leaf-shaped claws.",
+    "tags": [],
+    "featuredScore": 52,
+    "addedOn": null,
+    "images": []
+  },
+  {
+    "code": "ALV-R-0021",
+    "slug": "zelie-oval-solitaire",
+    "name": "Zelie Oval Solitaire",
+    "collectionName": "Zelie",
+    "wave": "A",
+    "live": false,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "oval",
+    "shapeLabel": "Oval",
+    "style": "solitaire",
+    "styleLabel": "Solitaire",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": 790,
+    "description": "A single oval lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "tags": [],
+    "featuredScore": 52,
+    "addedOn": null,
+    "images": []
+  },
+  {
+    "code": "ALV-R-0022",
+    "slug": "anouk-radiant-east-west",
+    "name": "Anouk Radiant East-West",
+    "collectionName": "Anouk",
+    "wave": "A",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "radiant",
+    "shapeLabel": "Radiant",
+    "style": "east-west",
+    "styleLabel": "East-West",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": null,
+    "description": "A radiant lab-grown diamond turned on its side and held in a slim east-west setting.",
+    "tags": [],
+    "featuredScore": 52,
+    "addedOn": null,
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-r-0022/01.webp",
+        "thumb": "/assets/jewellery/alv-r-0022/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0022/02.webp",
+        "thumb": "/assets/jewellery/alv-r-0022/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0022/03.webp",
+        "thumb": "/assets/jewellery/alv-r-0022/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
+  },
+  {
+    "code": "ALV-R-0023",
+    "slug": "brisa-oval-bezel",
+    "name": "Brisa Oval Bezel",
+    "collectionName": "Brisa",
+    "wave": "A",
+    "live": false,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "oval",
+    "shapeLabel": "Oval",
+    "style": "bezel",
+    "styleLabel": "Bezel",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": 1070,
+    "description": "An oval lab-grown diamond wrapped in a clean, protective bezel of polished gold.",
+    "tags": [],
+    "featuredScore": 51,
+    "addedOn": null,
+    "images": []
+  },
+  {
+    "code": "ALV-R-0024",
+    "slug": "delphine-dutch-marquise-heritage",
+    "name": "Delphine Dutch Marquise Heritage",
+    "collectionName": "Delphine",
+    "wave": "A",
+    "live": false,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "marquise",
+    "shapeLabel": "Marquise",
+    "style": "vintage",
+    "styleLabel": "Heritage",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": 1140,
+    "description": "A Dutch marquise lab-grown diamond in a vintage-inspired setting, its straight-sided outline held by fine claws.",
+    "tags": [
+      "dutch-marquise"
+    ],
+    "featuredScore": 50,
+    "addedOn": null,
+    "images": []
+  },
+  {
+    "code": "ALV-R-0025",
+    "slug": "esra-oval-solitaire",
+    "name": "Esra Oval Solitaire",
+    "collectionName": "Esra",
+    "wave": "A",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "oval",
+    "shapeLabel": "Oval",
+    "style": "solitaire",
+    "styleLabel": "Solitaire",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": null,
+    "description": "A single oval lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "tags": [],
+    "featuredScore": 50,
+    "addedOn": null,
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-r-0025/01.webp",
+        "thumb": "/assets/jewellery/alv-r-0025/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
+  },
+  {
+    "code": "ALV-R-0026",
+    "slug": "faye-round-solitaire",
+    "name": "Faye Round Solitaire",
+    "collectionName": "Faye",
+    "wave": "A",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings",
+      "antique-cuts"
+    ],
+    "shape": "round",
+    "shapeLabel": "Round",
+    "style": "solitaire",
+    "styleLabel": "Solitaire",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": null,
+    "description": "A single round lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "tags": [],
+    "featuredScore": 50,
+    "addedOn": null,
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-r-0026/01.webp",
+        "thumb": "/assets/jewellery/alv-r-0026/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0026/02.webp",
+        "thumb": "/assets/jewellery/alv-r-0026/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0026/03.webp",
+        "thumb": "/assets/jewellery/alv-r-0026/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
+  },
+  {
+    "code": "ALV-R-0027",
+    "slug": "greer-dutch-marquise-heritage",
+    "name": "Greer Dutch Marquise Heritage",
+    "collectionName": "Greer",
+    "wave": "A",
+    "live": false,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "marquise",
+    "shapeLabel": "Marquise",
+    "style": "vintage",
+    "styleLabel": "Heritage",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": [
+      1,
+      5
+    ],
+    "fromPriceUsd": 1390,
+    "description": "A Dutch marquise lab-grown diamond, from 1 to 5 carats, framed by a beaded milgrain edge.",
+    "tags": [
+      "dutch-marquise"
+    ],
+    "featuredScore": 49,
+    "addedOn": null,
+    "images": []
+  },
+  {
+    "code": "ALV-R-0028",
+    "slug": "halia-dutch-marquise-heritage",
+    "name": "Halia Dutch Marquise Heritage",
+    "collectionName": "Halia",
+    "wave": "A",
+    "live": false,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "marquise",
+    "shapeLabel": "Marquise",
+    "style": "vintage",
+    "styleLabel": "Heritage",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": 1040,
+    "description": "A Dutch marquise lab-grown diamond on a band with hand-engraved filigree.",
+    "tags": [
+      "dutch-marquise"
+    ],
+    "featuredScore": 49,
+    "addedOn": null,
+    "images": []
+  },
+  {
+    "code": "ALV-R-0029",
+    "slug": "isolde-dutch-marquise-heritage",
+    "name": "Isolde Dutch Marquise Heritage",
+    "collectionName": "Isolde",
+    "wave": "A",
+    "live": false,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "marquise",
+    "shapeLabel": "Marquise",
+    "style": "vintage",
+    "styleLabel": "Heritage",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": 740,
+    "description": "A Dutch marquise lab-grown diamond in a nature-inspired sunflower setting.",
+    "tags": [
+      "dutch-marquise"
+    ],
+    "featuredScore": 49,
+    "addedOn": null,
+    "images": []
+  },
+  {
+    "code": "ALV-E-0003",
+    "slug": "kaia-marquise-studs",
+    "name": "Kaia Marquise Studs",
+    "collectionName": "Kaia",
+    "wave": "A",
+    "live": true,
+    "category": "earrings",
+    "collections": [
+      "earrings"
+    ],
+    "shape": "marquise",
+    "shapeLabel": "Marquise",
+    "style": "stud",
+    "styleLabel": "Studs",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": 390,
+    "description": "A pair of marquise lab-grown diamonds in secure claw settings, matched stone for stone.",
+    "tags": [],
+    "featuredScore": 48,
+    "addedOn": null,
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-e-0003/01.webp",
+        "thumb": "/assets/jewellery/alv-e-0003/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-e-0003/02.webp",
+        "thumb": "/assets/jewellery/alv-e-0003/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
+  },
+  {
+    "code": "ALV-R-0030",
+    "slug": "jora-elongated-cushion-solitaire",
+    "name": "Jora Elongated Cushion Solitaire",
+    "collectionName": "Jora",
+    "wave": "A",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "elongated-cushion",
+    "shapeLabel": "Elongated Cushion",
+    "style": "solitaire",
+    "styleLabel": "Solitaire",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": null,
+    "description": "A single elongated cushion lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "tags": [],
+    "featuredScore": 48,
+    "addedOn": null,
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-r-0030/01.webp",
+        "thumb": "/assets/jewellery/alv-r-0030/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
+  },
+  {
+    "code": "ALV-R-0031",
+    "slug": "liora-marquise-solitaire",
+    "name": "Liora Marquise Solitaire",
+    "collectionName": "Liora",
+    "wave": "A",
+    "live": false,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "marquise",
+    "shapeLabel": "Marquise",
+    "style": "solitaire",
+    "styleLabel": "Solitaire",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": 780,
+    "description": "A marquise lab-grown diamond held in a petal-like tulip setting.",
+    "tags": [],
+    "featuredScore": 48,
+    "addedOn": null,
+    "images": []
+  },
+  {
+    "code": "ALV-R-0032",
+    "slug": "mireille-dutch-marquise-heritage",
+    "name": "Mireille Dutch Marquise Heritage",
+    "collectionName": "Mireille",
+    "wave": "A",
+    "live": false,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "marquise",
+    "shapeLabel": "Marquise",
+    "style": "vintage",
+    "styleLabel": "Heritage",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": 1030,
+    "description": "A Dutch marquise lab-grown diamond in an Art Deco setting finished with milgrain.",
+    "tags": [
+      "dutch-marquise"
+    ],
+    "featuredScore": 47,
+    "addedOn": null,
+    "images": []
+  },
+  {
+    "code": "ALV-E-0004",
+    "slug": "tove-round-studs",
+    "name": "Tove Round Studs",
+    "collectionName": "Tove",
+    "wave": "A",
+    "live": true,
+    "category": "earrings",
+    "collections": [
+      "earrings"
+    ],
+    "shape": "round",
+    "shapeLabel": "Round",
+    "style": "stud",
+    "styleLabel": "Studs",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": 360,
+    "description": "A pair of round lab-grown diamonds in secure claw settings, matched stone for stone.",
+    "tags": [],
+    "featuredScore": 46,
+    "addedOn": null,
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-e-0004/01.webp",
+        "thumb": "/assets/jewellery/alv-e-0004/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
+  },
+  {
+    "code": "ALV-E-0005",
+    "slug": "xanthe-round-studs",
+    "name": "Xanthe Round Studs",
+    "collectionName": "Xanthe",
+    "wave": "A",
+    "live": true,
+    "category": "earrings",
+    "collections": [
+      "earrings"
+    ],
+    "shape": "round",
+    "shapeLabel": "Round",
+    "style": "stud",
+    "styleLabel": "Studs",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": 280,
+    "description": "A pair of round lab-grown diamonds in secure claw settings, matched stone for stone.",
+    "tags": [],
+    "featuredScore": 46,
+    "addedOn": null,
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-e-0005/01.webp",
+        "thumb": "/assets/jewellery/alv-e-0005/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-e-0005/02.webp",
+        "thumb": "/assets/jewellery/alv-e-0005/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
+  },
+  {
+    "code": "ALV-P-0003",
+    "slug": "odile-cushion-pendant",
+    "name": "Odile Cushion Pendant",
+    "collectionName": "Odile",
+    "wave": "A",
+    "live": false,
+    "category": "pendant",
+    "collections": [
+      "pendants"
+    ],
+    "shape": "cushion",
+    "shapeLabel": "Cushion",
+    "style": "solitaire",
+    "styleLabel": "Pendant",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": 430,
+    "description": "A cushion lab-grown diamond suspended on a fine gold chain in a clean, lifted setting.",
+    "tags": [],
+    "featuredScore": 46,
+    "addedOn": null,
+    "images": []
+  },
+  {
+    "code": "ALV-P-0004",
+    "slug": "vivienne-pear-pendant",
+    "name": "Vivienne Pear Pendant",
+    "collectionName": "Vivienne",
+    "wave": "A",
+    "live": false,
+    "category": "pendant",
+    "collections": [
+      "pendants"
+    ],
+    "shape": "pear",
+    "shapeLabel": "Pear",
+    "style": "solitaire",
+    "styleLabel": "Pendant",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": 430,
+    "description": "A pear lab-grown diamond suspended on a fine gold chain in a clean, lifted setting.",
+    "tags": [],
+    "featuredScore": 46,
+    "addedOn": null,
+    "images": []
+  },
+  {
+    "code": "ALV-P-0005",
+    "slug": "vivienne-princess-pendant",
+    "name": "Vivienne Princess Pendant",
+    "collectionName": "Vivienne",
+    "wave": "A",
+    "live": false,
+    "category": "pendant",
+    "collections": [
+      "pendants"
+    ],
+    "shape": "princess",
+    "shapeLabel": "Princess",
+    "style": "solitaire",
+    "styleLabel": "Pendant",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": 430,
+    "description": "A princess lab-grown diamond suspended on a fine gold chain in a clean, lifted setting.",
+    "tags": [],
+    "featuredScore": 46,
+    "addedOn": null,
+    "images": []
+  },
+  {
+    "code": "ALV-P-0006",
+    "slug": "amara-round-pendant",
+    "name": "Amara Round Pendant",
+    "collectionName": "Amara",
+    "wave": "A",
+    "live": false,
+    "category": "pendant",
+    "collections": [
+      "pendants"
+    ],
+    "shape": "round",
+    "shapeLabel": "Round",
+    "style": "solitaire",
+    "styleLabel": "Pendant",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": 430,
+    "description": "A round lab-grown diamond suspended on a fine gold chain in a clean, lifted setting.",
+    "tags": [],
+    "featuredScore": 46,
+    "addedOn": null,
+    "images": []
+  },
+  {
+    "code": "ALV-P-0007",
+    "slug": "coralie-pendant",
+    "name": "Coralie Pendant",
+    "collectionName": "Coralie",
+    "wave": "A",
+    "live": false,
+    "category": "pendant",
+    "collections": [
+      "pendants"
+    ],
+    "shape": null,
+    "shapeLabel": null,
+    "style": "solitaire",
+    "styleLabel": "Pendant",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": 290,
+    "description": "A lab-grown diamond suspended on a fine gold chain in a clean, lifted setting.",
+    "tags": [],
+    "featuredScore": 46,
+    "addedOn": null,
+    "images": []
+  },
+  {
+    "code": "ALV-R-0033",
+    "slug": "nika-oval-east-west",
+    "name": "Nika Oval East-West",
+    "collectionName": "Nika",
+    "wave": "A",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "oval",
+    "shapeLabel": "Oval",
+    "style": "east-west",
+    "styleLabel": "East-West",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "10K",
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": [
+      1,
+      5
+    ],
+    "fromPriceUsd": 1000,
+    "description": "An oval lab-grown diamond turned on its side and held in a slim east-west setting.",
+    "tags": [],
+    "featuredScore": 46,
+    "addedOn": "2026-01-20",
+    "images": []
+  },
+  {
+    "code": "ALV-R-0034",
+    "slug": "pia-emerald-solitaire",
+    "name": "Pia Emerald Solitaire",
+    "collectionName": "Pia",
+    "wave": "A",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "emerald",
+    "shapeLabel": "Emerald",
+    "style": "solitaire",
+    "styleLabel": "Solitaire",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": null,
+    "description": "A single emerald lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "tags": [],
+    "featuredScore": 46,
+    "addedOn": null,
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-r-0034/01.webp",
+        "thumb": "/assets/jewellery/alv-r-0034/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0034/02.webp",
+        "thumb": "/assets/jewellery/alv-r-0034/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0034/03.webp",
+        "thumb": "/assets/jewellery/alv-r-0034/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
+  },
+  {
+    "code": "ALV-R-0035",
+    "slug": "romilly-old-mine-heritage",
+    "name": "Romilly Old Mine Heritage",
+    "collectionName": "Romilly",
+    "wave": "A",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings",
+      "antique-cuts"
+    ],
+    "shape": "old-mine",
+    "shapeLabel": "Old Mine",
+    "style": "vintage",
+    "styleLabel": "Heritage",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": null,
+    "description": "An old mine lab-grown diamond in a heritage setting with hand-finished detailing along the band.",
+    "tags": [],
+    "featuredScore": 46,
+    "addedOn": null,
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-r-0035/01.webp",
+        "thumb": "/assets/jewellery/alv-r-0035/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0035/02.webp",
+        "thumb": "/assets/jewellery/alv-r-0035/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0035/03.webp",
+        "thumb": "/assets/jewellery/alv-r-0035/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
+  },
+  {
+    "code": "ALV-R-0036",
+    "slug": "saskia-champagne-oval-solitaire",
+    "name": "Saskia Champagne Oval Solitaire",
+    "collectionName": "Saskia",
+    "wave": "A",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings",
+      "coloured-stones"
+    ],
+    "shape": "oval",
+    "shapeLabel": "Oval",
+    "style": "solitaire",
+    "styleLabel": "Solitaire",
+    "stoneColour": "champagne",
+    "stoneColourLabel": "Champagne",
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": null,
+    "description": "A single champagne oval lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "tags": [],
+    "featuredScore": 46,
+    "addedOn": null,
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-r-0036/01.webp",
+        "thumb": "/assets/jewellery/alv-r-0036/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0036/02.webp",
+        "thumb": "/assets/jewellery/alv-r-0036/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0036/03.webp",
+        "thumb": "/assets/jewellery/alv-r-0036/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
+  },
+  {
+    "code": "ALV-R-0037",
+    "slug": "una-pear-heritage",
+    "name": "Una Pear Heritage",
+    "collectionName": "Una",
+    "wave": "A",
+    "live": false,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "pear",
+    "shapeLabel": "Pear",
+    "style": "vintage",
+    "styleLabel": "Heritage",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": 780,
+    "description": "A pear lab-grown diamond in a heritage setting with hand-finished detailing along the band.",
+    "tags": [],
+    "featuredScore": 46,
+    "addedOn": null,
+    "images": []
+  },
+  {
+    "code": "ALV-R-0038",
+    "slug": "beatrix-old-mine-heritage",
+    "name": "Beatrix Old Mine Heritage",
+    "collectionName": "Beatrix",
+    "wave": "A",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings",
+      "antique-cuts"
+    ],
+    "shape": "old-mine",
+    "shapeLabel": "Old Mine",
+    "style": "vintage",
+    "styleLabel": "Heritage",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": null,
+    "description": "An old mine lab-grown diamond in a heritage setting with hand-finished detailing along the band.",
+    "tags": [],
+    "featuredScore": 46,
+    "addedOn": null,
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-r-0038/01.webp",
+        "thumb": "/assets/jewellery/alv-r-0038/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0038/02.webp",
+        "thumb": "/assets/jewellery/alv-r-0038/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0038/03.webp",
+        "thumb": "/assets/jewellery/alv-r-0038/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
+  },
+  {
+    "code": "ALV-R-0039",
+    "slug": "doria-oval-three-stone",
+    "name": "Doria Oval Three Stone",
+    "collectionName": "Doria",
+    "wave": "A",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "oval",
+    "shapeLabel": "Oval",
+    "style": "three-stone",
+    "styleLabel": "Three Stone",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "10K",
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": [
+      1,
+      5
+    ],
+    "fromPriceUsd": 1100,
+    "description": "An oval lab-grown diamond framed by two side stones, matched for colour and cut.",
+    "tags": [],
+    "featuredScore": 45,
+    "addedOn": "2026-03-17",
+    "images": []
+  },
+  {
+    "code": "ALV-P-0008",
+    "slug": "honora-halo-pendant",
+    "name": "Honora Halo Pendant",
+    "collectionName": "Honora",
+    "wave": "A",
+    "live": false,
+    "category": "pendant",
+    "collections": [
+      "pendants"
+    ],
+    "shape": null,
+    "shapeLabel": null,
+    "style": "halo",
+    "styleLabel": "Halo Pendant",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": 410,
+    "description": "A lab-grown diamond suspended on a fine gold chain in a clean, lifted setting.",
+    "tags": [],
+    "featuredScore": 44,
+    "addedOn": null,
+    "images": []
+  },
+  {
+    "code": "ALV-P-0009",
+    "slug": "leonie-halo-pendant",
+    "name": "Leonie Halo Pendant",
+    "collectionName": "Leonie",
+    "wave": "A",
+    "live": false,
+    "category": "pendant",
+    "collections": [
+      "pendants"
+    ],
+    "shape": null,
+    "shapeLabel": null,
+    "style": "halo",
+    "styleLabel": "Halo Pendant",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": 430,
+    "description": "A lab-grown diamond suspended on a fine gold chain in a clean, lifted setting.",
+    "tags": [],
+    "featuredScore": 44,
+    "addedOn": null,
+    "images": []
+  },
+  {
+    "code": "ALV-P-0010",
+    "slug": "nadia-round-pendant",
+    "name": "Nadia Round Pendant",
+    "collectionName": "Nadia",
+    "wave": "A",
+    "live": false,
+    "category": "pendant",
+    "collections": [
+      "pendants"
+    ],
+    "shape": "round",
+    "shapeLabel": "Round",
+    "style": "solitaire",
+    "styleLabel": "Pendant",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": 220,
+    "description": "A round lab-grown diamond suspended on a fine gold chain in a clean, lifted setting.",
+    "tags": [],
+    "featuredScore": 44,
+    "addedOn": null,
+    "images": []
+  },
+  {
+    "code": "ALV-R-0040",
+    "slug": "elodie-marquise-solitaire",
+    "name": "Elodie Marquise Solitaire",
+    "collectionName": "Elodie",
+    "wave": "A",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "marquise",
+    "shapeLabel": "Marquise",
+    "style": "solitaire",
+    "styleLabel": "Solitaire",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": null,
+    "description": "A single marquise lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "tags": [],
+    "featuredScore": 44,
+    "addedOn": null,
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-r-0040/01.webp",
+        "thumb": "/assets/jewellery/alv-r-0040/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0040/02.webp",
+        "thumb": "/assets/jewellery/alv-r-0040/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0040/03.webp",
+        "thumb": "/assets/jewellery/alv-r-0040/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
+  },
+  {
+    "code": "ALV-R-0041",
+    "slug": "elodie-pear-solitaire",
+    "name": "Elodie Pear Solitaire",
+    "collectionName": "Elodie",
+    "wave": "A",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "pear",
+    "shapeLabel": "Pear",
+    "style": "solitaire",
+    "styleLabel": "Solitaire",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": null,
+    "description": "A single pear lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "tags": [],
+    "featuredScore": 44,
+    "addedOn": null,
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-r-0041/01.webp",
+        "thumb": "/assets/jewellery/alv-r-0041/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0041/02.webp",
+        "thumb": "/assets/jewellery/alv-r-0041/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0041/03.webp",
+        "thumb": "/assets/jewellery/alv-r-0041/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
+  },
+  {
+    "code": "ALV-R-0042",
+    "slug": "fiora-oval-solitaire",
+    "name": "Fiora Oval Solitaire",
+    "collectionName": "Fiora",
+    "wave": "A",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "oval",
+    "shapeLabel": "Oval",
+    "style": "solitaire",
+    "styleLabel": "Solitaire",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": null,
+    "description": "A single oval lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "tags": [],
+    "featuredScore": 44,
+    "addedOn": null,
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-r-0042/01.webp",
+        "thumb": "/assets/jewellery/alv-r-0042/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0042/02.webp",
+        "thumb": "/assets/jewellery/alv-r-0042/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0042/03.webp",
+        "thumb": "/assets/jewellery/alv-r-0042/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
+  },
+  {
+    "code": "ALV-R-0043",
+    "slug": "gisele-dutch-marquise-heritage",
+    "name": "Gisele Dutch Marquise Heritage",
+    "collectionName": "Gisele",
+    "wave": "A",
+    "live": false,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "marquise",
+    "shapeLabel": "Marquise",
+    "style": "vintage",
+    "styleLabel": "Heritage",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": 1170,
+    "description": "A Dutch marquise lab-grown diamond flanked by kite-shaped and round side stones.",
+    "tags": [
+      "dutch-marquise"
+    ],
+    "featuredScore": 44,
+    "addedOn": null,
+    "images": []
+  },
+  {
+    "code": "ALV-R-0044",
+    "slug": "pia-oval-solitaire",
+    "name": "Pia Oval Solitaire",
+    "collectionName": "Pia",
+    "wave": "A",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "oval",
+    "shapeLabel": "Oval",
+    "style": "solitaire",
+    "styleLabel": "Solitaire",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": null,
+    "description": "A single oval lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "tags": [],
+    "featuredScore": 44,
+    "addedOn": null,
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-r-0044/01.webp",
+        "thumb": "/assets/jewellery/alv-r-0044/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0044/02.webp",
+        "thumb": "/assets/jewellery/alv-r-0044/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0044/03.webp",
+        "thumb": "/assets/jewellery/alv-r-0044/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
+  },
+  {
+    "code": "ALV-R-0045",
+    "slug": "marisol-oval-solitaire",
+    "name": "Marisol Oval Solitaire",
+    "collectionName": "Marisol",
+    "wave": "A",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "oval",
+    "shapeLabel": "Oval",
+    "style": "solitaire",
+    "styleLabel": "Solitaire",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": null,
+    "description": "A single oval lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "tags": [],
+    "featuredScore": 44,
+    "addedOn": null,
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-r-0045/01.webp",
+        "thumb": "/assets/jewellery/alv-r-0045/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0045/02.webp",
+        "thumb": "/assets/jewellery/alv-r-0045/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0045/03.webp",
+        "thumb": "/assets/jewellery/alv-r-0045/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
+  },
+  {
+    "code": "ALV-R-0046",
+    "slug": "oriane-marquise-east-west",
+    "name": "Oriane Marquise East-West",
+    "collectionName": "Oriane",
+    "wave": "A",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "marquise",
+    "shapeLabel": "Marquise",
+    "style": "east-west",
+    "styleLabel": "East-West",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": null,
+    "description": "A marquise lab-grown diamond turned on its side and held in a slim east-west setting.",
+    "tags": [],
+    "featuredScore": 44,
+    "addedOn": null,
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-r-0046/01.webp",
+        "thumb": "/assets/jewellery/alv-r-0046/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
+  },
+  {
+    "code": "ALV-P-0011",
+    "slug": "perrine-marquise-pendant",
+    "name": "Perrine Marquise Pendant",
+    "collectionName": "Perrine",
+    "wave": "A",
+    "live": false,
+    "category": "pendant",
+    "collections": [
+      "pendants"
+    ],
+    "shape": "marquise",
+    "shapeLabel": "Marquise",
+    "style": "solitaire",
+    "styleLabel": "Pendant",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": 320,
+    "description": "A marquise lab-grown diamond suspended on a fine gold chain in a clean, lifted setting.",
+    "tags": [],
+    "featuredScore": 42,
+    "addedOn": null,
+    "images": []
+  },
+  {
+    "code": "ALV-E-0006",
+    "slug": "seren-marquise-studs",
+    "name": "Seren Marquise Studs",
+    "collectionName": "Seren",
+    "wave": "A",
+    "live": true,
+    "category": "earrings",
+    "collections": [
+      "earrings"
+    ],
+    "shape": "marquise",
+    "shapeLabel": "Marquise",
+    "style": "stud",
+    "styleLabel": "Studs",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": 90,
+    "description": "A pair of marquise lab-grown diamonds in secure claw settings, matched stone for stone.",
+    "tags": [],
+    "featuredScore": 40,
+    "addedOn": null,
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-e-0006/01.webp",
+        "thumb": "/assets/jewellery/alv-e-0006/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-e-0006/02.webp",
+        "thumb": "/assets/jewellery/alv-e-0006/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-e-0006/03.webp",
+        "thumb": "/assets/jewellery/alv-e-0006/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
+  },
+  {
+    "code": "ALV-E-0007",
+    "slug": "ada-oval-studs",
+    "name": "Ada Oval Studs",
+    "collectionName": "Ada",
+    "wave": "A",
+    "live": true,
+    "category": "earrings",
+    "collections": [
+      "earrings"
+    ],
+    "shape": "oval",
+    "shapeLabel": "Oval",
+    "style": "stud",
+    "styleLabel": "Studs",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": 220,
+    "description": "A pair of oval lab-grown diamonds in secure claw settings, matched stone for stone.",
+    "tags": [],
+    "featuredScore": 40,
+    "addedOn": null,
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-e-0007/01.webp",
+        "thumb": "/assets/jewellery/alv-e-0007/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-e-0007/02.webp",
+        "thumb": "/assets/jewellery/alv-e-0007/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-e-0007/03.webp",
+        "thumb": "/assets/jewellery/alv-e-0007/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
+  },
+  {
+    "code": "ALV-P-0012",
+    "slug": "blythe-oval-pendant",
+    "name": "Blythe Oval Pendant",
+    "collectionName": "Blythe",
+    "wave": "A",
+    "live": false,
+    "category": "pendant",
+    "collections": [
+      "pendants"
+    ],
+    "shape": "oval",
+    "shapeLabel": "Oval",
+    "style": "solitaire",
+    "styleLabel": "Pendant",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": 430,
+    "description": "An oval lab-grown diamond suspended on a fine gold chain in a clean, lifted setting.",
+    "tags": [],
+    "featuredScore": 40,
+    "addedOn": null,
+    "images": []
+  },
+  {
+    "code": "ALV-P-0013",
+    "slug": "clio-radiant-pendant",
+    "name": "Clio Radiant Pendant",
+    "collectionName": "Clio",
+    "wave": "A",
+    "live": false,
+    "category": "pendant",
+    "collections": [
+      "pendants"
+    ],
+    "shape": "radiant",
+    "shapeLabel": "Radiant",
+    "style": "solitaire",
+    "styleLabel": "Pendant",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": 430,
+    "description": "A radiant lab-grown diamond suspended on a fine gold chain in a clean, lifted setting.",
+    "tags": [],
+    "featuredScore": 40,
+    "addedOn": null,
+    "images": []
+  },
+  {
+    "code": "ALV-R-0047",
+    "slug": "tamsin-champagne-emerald-solitaire",
+    "name": "Tamsin Champagne Emerald Solitaire",
+    "collectionName": "Tamsin",
+    "wave": "A",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings",
+      "coloured-stones"
+    ],
+    "shape": "emerald",
+    "shapeLabel": "Emerald",
+    "style": "solitaire",
+    "styleLabel": "Solitaire",
+    "stoneColour": "champagne",
+    "stoneColourLabel": "Champagne",
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": null,
+    "description": "A single champagne emerald lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "tags": [],
+    "featuredScore": 40,
+    "addedOn": null,
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-r-0047/01.webp",
+        "thumb": "/assets/jewellery/alv-r-0047/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0047/02.webp",
+        "thumb": "/assets/jewellery/alv-r-0047/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
+  },
+  {
+    "code": "ALV-R-0048",
+    "slug": "ulla-elongated-cushion-solitaire",
+    "name": "Ulla Elongated Cushion Solitaire",
+    "collectionName": "Ulla",
+    "wave": "A",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "elongated-cushion",
+    "shapeLabel": "Elongated Cushion",
+    "style": "solitaire",
+    "styleLabel": "Solitaire",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": null,
+    "description": "A single elongated cushion lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "tags": [],
+    "featuredScore": 40,
+    "addedOn": null,
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-r-0048/01.webp",
+        "thumb": "/assets/jewellery/alv-r-0048/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0048/02.webp",
+        "thumb": "/assets/jewellery/alv-r-0048/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0048/03.webp",
+        "thumb": "/assets/jewellery/alv-r-0048/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
+  },
+  {
+    "code": "ALV-R-0049",
+    "slug": "verity-marquise-solitaire",
+    "name": "Verity Marquise Solitaire",
+    "collectionName": "Verity",
+    "wave": "A",
+    "live": false,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "marquise",
+    "shapeLabel": "Marquise",
+    "style": "solitaire",
+    "styleLabel": "Solitaire",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": 970,
+    "description": "A marquise lab-grown diamond with a small flower crown hidden beneath the stone.",
+    "tags": [],
+    "featuredScore": 40,
+    "addedOn": null,
+    "images": []
+  },
+  {
+    "code": "ALV-R-0050",
+    "slug": "dione-dutch-marquise-heritage",
+    "name": "Dione Dutch Marquise Heritage",
+    "collectionName": "Dione",
+    "wave": "A",
+    "live": false,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "marquise",
+    "shapeLabel": "Marquise",
+    "style": "vintage",
+    "styleLabel": "Heritage",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": 1020,
+    "description": "A Dutch marquise lab-grown diamond held by claws shaped like autumn leaves.",
+    "tags": [
+      "dutch-marquise"
+    ],
+    "featuredScore": 39,
+    "addedOn": null,
+    "images": []
+  },
+  {
+    "code": "ALV-R-0051",
+    "slug": "edda-solitaire",
+    "name": "Edda Solitaire",
+    "collectionName": "Edda",
+    "wave": "A",
+    "live": false,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings",
+      "antique-cuts"
+    ],
+    "shape": "old-euro",
+    "shapeLabel": null,
+    "style": "solitaire",
+    "styleLabel": "Solitaire",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": 870,
+    "description": "A single lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "tags": [],
+    "featuredScore": 39,
+    "addedOn": null,
+    "images": []
+  },
+  {
+    "code": "ALV-E-0008",
+    "slug": "hesper-emerald-studs",
+    "name": "Hesper Emerald Studs",
+    "collectionName": "Hesper",
+    "wave": "A",
+    "live": true,
+    "category": "earrings",
+    "collections": [
+      "earrings"
+    ],
+    "shape": "emerald",
+    "shapeLabel": "Emerald",
+    "style": "stud",
+    "styleLabel": "Studs",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": 180,
+    "description": "A pair of emerald lab-grown diamonds in secure claw settings, matched stone for stone.",
+    "tags": [],
+    "featuredScore": 38,
+    "addedOn": null,
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-e-0008/01.webp",
+        "thumb": "/assets/jewellery/alv-e-0008/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-e-0008/02.webp",
+        "thumb": "/assets/jewellery/alv-e-0008/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-e-0008/03.webp",
+        "thumb": "/assets/jewellery/alv-e-0008/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
+  },
+  {
+    "code": "ALV-E-0009",
+    "slug": "hesper-marquise-studs",
+    "name": "Hesper Marquise Studs",
+    "collectionName": "Hesper",
+    "wave": "A",
+    "live": true,
+    "category": "earrings",
+    "collections": [
+      "earrings"
+    ],
+    "shape": "marquise",
+    "shapeLabel": "Marquise",
+    "style": "stud",
+    "styleLabel": "Studs",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": 230,
+    "description": "A pair of marquise lab-grown diamonds in secure claw settings, matched stone for stone.",
+    "tags": [],
+    "featuredScore": 38,
+    "addedOn": null,
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-e-0009/01.webp",
+        "thumb": "/assets/jewellery/alv-e-0009/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-e-0009/02.webp",
+        "thumb": "/assets/jewellery/alv-e-0009/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-e-0009/03.webp",
+        "thumb": "/assets/jewellery/alv-e-0009/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
+  },
+  {
+    "code": "ALV-E-0010",
+    "slug": "jessamy-marquise-studs",
+    "name": "Jessamy Marquise Studs",
+    "collectionName": "Jessamy",
+    "wave": "A",
+    "live": true,
+    "category": "earrings",
+    "collections": [
+      "earrings"
+    ],
+    "shape": "marquise",
+    "shapeLabel": "Marquise",
+    "style": "stud",
+    "styleLabel": "Studs",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": 410,
+    "description": "A pair of marquise lab-grown diamonds in secure claw settings, matched stone for stone.",
+    "tags": [],
+    "featuredScore": 38,
+    "addedOn": null,
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-e-0010/01.webp",
+        "thumb": "/assets/jewellery/alv-e-0010/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-e-0010/02.webp",
+        "thumb": "/assets/jewellery/alv-e-0010/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
+  },
+  {
+    "code": "ALV-E-0011",
+    "slug": "kestrel-round-studs",
+    "name": "Kestrel Round Studs",
+    "collectionName": "Kestrel",
+    "wave": "A",
+    "live": true,
+    "category": "earrings",
+    "collections": [
+      "earrings"
+    ],
+    "shape": "round",
+    "shapeLabel": "Round",
+    "style": "stud",
+    "styleLabel": "Studs",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": 330,
+    "description": "A pair of round lab-grown diamonds in secure claw settings, matched stone for stone.",
+    "tags": [],
+    "featuredScore": 38,
+    "addedOn": null,
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-e-0011/01.webp",
+        "thumb": "/assets/jewellery/alv-e-0011/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-e-0011/02.webp",
+        "thumb": "/assets/jewellery/alv-e-0011/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
+  },
+  {
+    "code": "ALV-R-0052",
+    "slug": "freya-emerald-solitaire",
+    "name": "Freya Emerald Solitaire",
+    "collectionName": "Freya",
+    "wave": "A",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings",
+      "antique-cuts"
+    ],
+    "shape": "emerald",
+    "shapeLabel": "Emerald",
+    "style": "solitaire",
+    "styleLabel": "Solitaire",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": null,
+    "description": "A single emerald lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "tags": [],
+    "featuredScore": 38,
+    "addedOn": null,
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-r-0052/01.webp",
+        "thumb": "/assets/jewellery/alv-r-0052/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0052/02.webp",
+        "thumb": "/assets/jewellery/alv-r-0052/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0052/03.webp",
+        "thumb": "/assets/jewellery/alv-r-0052/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
+  },
+  {
+    "code": "ALV-R-0053",
+    "slug": "galia-emerald-solitaire",
+    "name": "Galia Emerald Solitaire",
+    "collectionName": "Galia",
+    "wave": "A",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "emerald",
+    "shapeLabel": "Emerald",
+    "style": "solitaire",
+    "styleLabel": "Solitaire",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": null,
+    "description": "A single emerald lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "tags": [],
+    "featuredScore": 38,
+    "addedOn": null,
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-r-0053/01.webp",
+        "thumb": "/assets/jewellery/alv-r-0053/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0053/02.webp",
+        "thumb": "/assets/jewellery/alv-r-0053/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0053/03.webp",
+        "thumb": "/assets/jewellery/alv-r-0053/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
+  },
+  {
+    "code": "ALV-R-0054",
+    "slug": "ione-emerald-solitaire",
+    "name": "Ione Emerald Solitaire",
+    "collectionName": "Ione",
+    "wave": "A",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "emerald",
+    "shapeLabel": "Emerald",
+    "style": "solitaire",
+    "styleLabel": "Solitaire",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": null,
+    "description": "A single emerald lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "tags": [],
+    "featuredScore": 38,
+    "addedOn": null,
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-r-0054/01.webp",
+        "thumb": "/assets/jewellery/alv-r-0054/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0054/02.webp",
+        "thumb": "/assets/jewellery/alv-r-0054/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0054/03.webp",
+        "thumb": "/assets/jewellery/alv-r-0054/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
+  },
+  {
+    "code": "ALV-R-0055",
+    "slug": "linnea-champagne-solitaire",
+    "name": "Linnea Champagne Solitaire",
+    "collectionName": "Linnea",
+    "wave": "A",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings",
+      "coloured-stones"
+    ],
+    "shape": "moval",
+    "shapeLabel": null,
+    "style": "solitaire",
+    "styleLabel": "Solitaire",
+    "stoneColour": "champagne",
+    "stoneColourLabel": "Champagne",
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": null,
+    "description": "A single champagne lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "tags": [],
+    "featuredScore": 36,
+    "addedOn": null,
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-r-0055/01.webp",
+        "thumb": "/assets/jewellery/alv-r-0055/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
+  },
+  {
+    "code": "ALV-R-0056",
+    "slug": "meline-radiant-solitaire",
+    "name": "Meline Radiant Solitaire",
+    "collectionName": "Meline",
+    "wave": "A",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "radiant",
+    "shapeLabel": "Radiant",
+    "style": "solitaire",
+    "styleLabel": "Solitaire",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": null,
+    "description": "A single radiant lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "tags": [],
+    "featuredScore": 36,
+    "addedOn": null,
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-r-0056/01.webp",
+        "thumb": "/assets/jewellery/alv-r-0056/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0056/02.webp",
+        "thumb": "/assets/jewellery/alv-r-0056/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
+  },
+  {
+    "code": "ALV-R-0057",
+    "slug": "nell-radiant-solitaire",
+    "name": "Nell Radiant Solitaire",
+    "collectionName": "Nell",
+    "wave": "A",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "radiant",
+    "shapeLabel": "Radiant",
+    "style": "solitaire",
+    "styleLabel": "Solitaire",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": null,
+    "description": "A single radiant lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "tags": [],
+    "featuredScore": 36,
+    "addedOn": null,
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-r-0057/01.webp",
+        "thumb": "/assets/jewellery/alv-r-0057/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0057/02.webp",
+        "thumb": "/assets/jewellery/alv-r-0057/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0057/03.webp",
+        "thumb": "/assets/jewellery/alv-r-0057/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
+  },
+  {
+    "code": "ALV-R-0058",
+    "slug": "odessa-marquise-solitaire",
+    "name": "Odessa Marquise Solitaire",
+    "collectionName": "Odessa",
+    "wave": "A",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "marquise",
+    "shapeLabel": "Marquise",
+    "style": "solitaire",
+    "styleLabel": "Solitaire",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": null,
+    "description": "A single marquise lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "tags": [],
+    "featuredScore": 36,
+    "addedOn": null,
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-r-0058/01.webp",
+        "thumb": "/assets/jewellery/alv-r-0058/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0058/02.webp",
+        "thumb": "/assets/jewellery/alv-r-0058/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0058/03.webp",
+        "thumb": "/assets/jewellery/alv-r-0058/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
+  },
+  {
+    "code": "ALV-E-0012",
+    "slug": "rosalind-green-studs",
+    "name": "Rosalind Green Studs",
+    "collectionName": "Rosalind",
+    "wave": "A",
+    "live": true,
+    "category": "earrings",
+    "collections": [
+      "earrings",
+      "antique-cuts",
+      "coloured-stones"
+    ],
+    "shape": "portuguese",
+    "shapeLabel": null,
+    "style": "stud",
+    "styleLabel": "Studs",
+    "stoneColour": "green",
+    "stoneColourLabel": "Green",
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": 2420,
+    "description": "A pair of green lab-grown diamonds in secure claw settings, matched stone for stone.",
+    "tags": [],
+    "featuredScore": 34,
+    "addedOn": null,
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-e-0012/01.webp",
+        "thumb": "/assets/jewellery/alv-e-0012/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
+  },
+  {
+    "code": "ALV-P-0014",
+    "slug": "ursa-round-pendant",
+    "name": "Ursa Round Pendant",
+    "collectionName": "Ursa",
+    "wave": "A",
+    "live": false,
+    "category": "pendant",
+    "collections": [
+      "pendants"
+    ],
+    "shape": "round",
+    "shapeLabel": "Round",
+    "style": "solitaire",
+    "styleLabel": "Pendant",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": 220,
+    "description": "A round lab-grown diamond suspended on a fine gold chain in a clean, lifted setting.",
+    "tags": [],
+    "featuredScore": 34,
+    "addedOn": null,
+    "images": []
+  },
+  {
+    "code": "ALV-R-0059",
+    "slug": "philippa-solitaire",
+    "name": "Philippa Solitaire",
+    "collectionName": "Philippa",
+    "wave": "A",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings",
+      "antique-cuts"
+    ],
+    "shape": "old-euro",
+    "shapeLabel": null,
+    "style": "solitaire",
+    "styleLabel": "Solitaire",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": null,
+    "description": "A single lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "tags": [],
+    "featuredScore": 34,
+    "addedOn": null,
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-r-0059/01.webp",
+        "thumb": "/assets/jewellery/alv-r-0059/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0059/02.webp",
+        "thumb": "/assets/jewellery/alv-r-0059/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0059/03.webp",
+        "thumb": "/assets/jewellery/alv-r-0059/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
+  },
+  {
+    "code": "ALV-R-0060",
+    "slug": "sidonie-solitaire",
+    "name": "Sidonie Solitaire",
+    "collectionName": "Sidonie",
+    "wave": "A",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "moval",
+    "shapeLabel": null,
+    "style": "solitaire",
+    "styleLabel": "Solitaire",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": null,
+    "description": "A single lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "tags": [],
+    "featuredScore": 34,
+    "addedOn": null,
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-r-0060/01.webp",
+        "thumb": "/assets/jewellery/alv-r-0060/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0060/02.webp",
+        "thumb": "/assets/jewellery/alv-r-0060/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0060/03.webp",
+        "thumb": "/assets/jewellery/alv-r-0060/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
+  },
+  {
+    "code": "ALV-R-0061",
+    "slug": "tessaly-solitaire",
+    "name": "Tessaly Solitaire",
+    "collectionName": "Tessaly",
+    "wave": "A",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": null,
+    "shapeLabel": null,
+    "style": "solitaire",
+    "styleLabel": "Solitaire",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": null,
+    "description": "A single lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "tags": [],
+    "featuredScore": 34,
+    "addedOn": null,
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-r-0061/01.webp",
+        "thumb": "/assets/jewellery/alv-r-0061/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0061/02.webp",
+        "thumb": "/assets/jewellery/alv-r-0061/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0061/03.webp",
+        "thumb": "/assets/jewellery/alv-r-0061/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
+  },
+  {
+    "code": "ALV-P-0015",
+    "slug": "wilhelmina-round-pendant",
+    "name": "Wilhelmina Round Pendant",
+    "collectionName": "Wilhelmina",
+    "wave": "A",
+    "live": false,
+    "category": "pendant",
+    "collections": [
+      "pendants"
+    ],
+    "shape": "round",
+    "shapeLabel": "Round",
+    "style": "solitaire",
+    "styleLabel": "Pendant",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": 270,
+    "description": "A round lab-grown diamond suspended on a fine gold chain in a clean, lifted setting.",
+    "tags": [],
+    "featuredScore": 32,
+    "addedOn": null,
+    "images": []
+  },
+  {
+    "code": "ALV-P-0016",
+    "slug": "ysolde-round-pendant",
+    "name": "Ysolde Round Pendant",
+    "collectionName": "Ysolde",
+    "wave": "A",
+    "live": false,
+    "category": "pendant",
+    "collections": [
+      "pendants"
+    ],
+    "shape": "round",
+    "shapeLabel": "Round",
+    "style": "solitaire",
+    "styleLabel": "Pendant",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": 330,
+    "description": "A round lab-grown diamond suspended on a fine gold chain in a clean, lifted setting.",
+    "tags": [],
+    "featuredScore": 32,
+    "addedOn": null,
+    "images": []
+  },
+  {
+    "code": "ALV-P-0017",
+    "slug": "zinaida-asscher-pendant",
+    "name": "Zinaida Asscher Pendant",
+    "collectionName": "Zinaida",
+    "wave": "A",
+    "live": false,
+    "category": "pendant",
+    "collections": [
+      "pendants"
+    ],
+    "shape": "asscher",
+    "shapeLabel": "Asscher",
+    "style": "solitaire",
+    "styleLabel": "Pendant",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": 430,
+    "description": "An asscher lab-grown diamond suspended on a fine gold chain in a clean, lifted setting.",
+    "tags": [],
+    "featuredScore": 32,
+    "addedOn": null,
+    "images": []
+  },
+  {
+    "code": "ALV-R-0062",
+    "slug": "valen-cushion-solitaire",
+    "name": "Valen Cushion Solitaire",
+    "collectionName": "Valen",
+    "wave": "A",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings",
+      "antique-cuts"
+    ],
+    "shape": "cushion",
+    "shapeLabel": "Cushion",
+    "style": "solitaire",
+    "styleLabel": "Solitaire",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": null,
+    "description": "A single cushion lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "tags": [],
+    "featuredScore": 32,
+    "addedOn": null,
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-r-0062/01.webp",
+        "thumb": "/assets/jewellery/alv-r-0062/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0062/02.webp",
+        "thumb": "/assets/jewellery/alv-r-0062/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0062/03.webp",
+        "thumb": "/assets/jewellery/alv-r-0062/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
+  },
+  {
+    "code": "ALV-R-0063",
+    "slug": "aveline-baguette-solitaire",
+    "name": "Aveline Baguette Solitaire",
+    "collectionName": "Aveline",
+    "wave": "A",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "baguette",
+    "shapeLabel": "Baguette",
+    "style": "solitaire",
+    "styleLabel": "Solitaire",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": null,
+    "description": "A single baguette lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "tags": [],
+    "featuredScore": 28,
+    "addedOn": null,
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-r-0063/01.webp",
+        "thumb": "/assets/jewellery/alv-r-0063/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0063/02.webp",
+        "thumb": "/assets/jewellery/alv-r-0063/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0063/03.webp",
+        "thumb": "/assets/jewellery/alv-r-0063/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
+  },
+  {
+    "code": "ALV-R-0064",
+    "slug": "bettina-baguette-solitaire",
+    "name": "Bettina Baguette Solitaire",
+    "collectionName": "Bettina",
+    "wave": "A",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "baguette",
+    "shapeLabel": "Baguette",
+    "style": "solitaire",
+    "styleLabel": "Solitaire",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": null,
+    "description": "A single baguette lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "tags": [],
+    "featuredScore": 28,
+    "addedOn": null,
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-r-0064/01.webp",
+        "thumb": "/assets/jewellery/alv-r-0064/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0064/02.webp",
+        "thumb": "/assets/jewellery/alv-r-0064/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0064/03.webp",
+        "thumb": "/assets/jewellery/alv-r-0064/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
+  },
+  {
+    "code": "ALV-R-0065",
+    "slug": "cosima-blue-solitaire",
+    "name": "Cosima Blue Solitaire",
+    "collectionName": "Cosima",
+    "wave": "A",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings",
+      "coloured-stones"
+    ],
+    "shape": null,
+    "shapeLabel": null,
+    "style": "solitaire",
+    "styleLabel": "Solitaire",
+    "stoneColour": "blue",
+    "stoneColourLabel": "Blue",
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": null,
+    "description": "A single blue lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "tags": [],
+    "featuredScore": 26,
+    "addedOn": null,
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-r-0065/01.webp",
+        "thumb": "/assets/jewellery/alv-r-0065/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0065/02.webp",
+        "thumb": "/assets/jewellery/alv-r-0065/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-r-0065/03.webp",
+        "thumb": "/assets/jewellery/alv-r-0065/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
+  },
+  {
+    "code": "ALV-R-0066",
+    "slug": "damaris-oval-halo",
+    "name": "Damaris Oval Halo",
+    "collectionName": "Damaris",
+    "wave": "B",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "oval",
+    "shapeLabel": "Oval",
+    "style": "halo",
+    "styleLabel": "Halo",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": [
+      1,
+      5
+    ],
+    "fromPriceUsd": 1000,
+    "description": "An oval lab-grown diamond lifted by a fine halo of pavé that catches light from every angle.",
+    "tags": [],
+    "featuredScore": 44,
+    "addedOn": "2026-01-29",
+    "images": []
+  },
+  {
+    "code": "ALV-R-0067",
+    "slug": "eulalie-oval-halo",
+    "name": "Eulalie Oval Halo",
+    "collectionName": "Eulalie",
+    "wave": "B",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "oval",
+    "shapeLabel": "Oval",
+    "style": "halo",
+    "styleLabel": "Halo",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "10K",
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": [
+      1,
+      5
+    ],
+    "fromPriceUsd": 1050,
+    "description": "An oval lab-grown diamond lifted by a fine halo of pavé that catches light from every angle.",
+    "tags": [],
+    "featuredScore": 43,
+    "addedOn": "2026-01-26",
+    "images": []
+  },
+  {
+    "code": "ALV-R-0068",
+    "slug": "florine-oval-halo",
+    "name": "Florine Oval Halo",
+    "collectionName": "Florine",
+    "wave": "B",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "oval",
+    "shapeLabel": "Oval",
+    "style": "halo",
+    "styleLabel": "Halo",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "10K",
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": [
+      1,
+      5
+    ],
+    "fromPriceUsd": 1000,
+    "description": "An oval lab-grown diamond lifted by a fine halo of pavé that catches light from every angle.",
+    "tags": [],
+    "featuredScore": 43,
+    "addedOn": "2026-01-27",
+    "images": []
+  },
+  {
+    "code": "ALV-R-0069",
+    "slug": "genevieve-oval-halo",
+    "name": "Genevieve Oval Halo",
+    "collectionName": "Genevieve",
+    "wave": "B",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "oval",
+    "shapeLabel": "Oval",
+    "style": "halo",
+    "styleLabel": "Halo",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "10K",
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": [
+      1,
+      5
+    ],
+    "fromPriceUsd": 1000,
+    "description": "An oval lab-grown diamond lifted by a fine halo of pavé that catches light from every angle.",
+    "tags": [],
+    "featuredScore": 43,
+    "addedOn": "2026-01-21",
+    "images": []
+  },
+  {
+    "code": "ALV-R-0070",
+    "slug": "hortense-oval-halo",
+    "name": "Hortense Oval Halo",
+    "collectionName": "Hortense",
+    "wave": "B",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "oval",
+    "shapeLabel": "Oval",
+    "style": "halo",
+    "styleLabel": "Halo",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "10K",
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": [
+      1,
+      5
+    ],
+    "fromPriceUsd": 1050,
+    "description": "An oval lab-grown diamond lifted by a fine halo of pavé that catches light from every angle.",
+    "tags": [],
+    "featuredScore": 43,
+    "addedOn": "2026-01-13",
+    "images": []
+  },
+  {
+    "code": "ALV-R-0071",
+    "slug": "ilaria-oval-halo",
+    "name": "Ilaria Oval Halo",
+    "collectionName": "Ilaria",
+    "wave": "B",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "oval",
+    "shapeLabel": "Oval",
+    "style": "halo",
+    "styleLabel": "Halo",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "10K",
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": [
+      1,
+      5
+    ],
+    "fromPriceUsd": 1150,
+    "description": "An oval lab-grown diamond lifted by a fine halo of pavé that catches light from every angle.",
+    "tags": [],
+    "featuredScore": 43,
+    "addedOn": "2026-01-13",
+    "images": []
+  },
+  {
+    "code": "ALV-R-0072",
+    "slug": "josette-oval-halo",
+    "name": "Josette Oval Halo",
+    "collectionName": "Josette",
+    "wave": "B",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "oval",
+    "shapeLabel": "Oval",
+    "style": "halo",
+    "styleLabel": "Halo",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "10K",
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": [
+      1,
+      5
+    ],
+    "fromPriceUsd": 1000,
+    "description": "An oval lab-grown diamond lifted by a fine halo of pavé that catches light from every angle.",
+    "tags": [],
+    "featuredScore": 43,
+    "addedOn": "2026-01-17",
+    "images": []
+  },
+  {
+    "code": "ALV-R-0073",
+    "slug": "katrin-oval-halo",
+    "name": "Katrin Oval Halo",
+    "collectionName": "Katrin",
+    "wave": "B",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "oval",
+    "shapeLabel": "Oval",
+    "style": "halo",
+    "styleLabel": "Halo",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "10K",
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": [
+      1,
+      5
+    ],
+    "fromPriceUsd": 1000,
+    "description": "An oval lab-grown diamond lifted by a fine halo of pavé that catches light from every angle.",
+    "tags": [],
+    "featuredScore": 43,
+    "addedOn": "2026-01-19",
+    "images": []
+  },
+  {
+    "code": "ALV-R-0074",
+    "slug": "lucienne-oval-halo",
+    "name": "Lucienne Oval Halo",
+    "collectionName": "Lucienne",
+    "wave": "B",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "oval",
+    "shapeLabel": "Oval",
+    "style": "halo",
+    "styleLabel": "Halo",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "10K",
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": [
+      1,
+      5
+    ],
+    "fromPriceUsd": 1050,
+    "description": "An oval lab-grown diamond lifted by a fine halo of pavé that catches light from every angle.",
+    "tags": [],
+    "featuredScore": 43,
+    "addedOn": "2026-01-20",
+    "images": []
+  },
+  {
+    "code": "ALV-R-0075",
+    "slug": "margaux-oval-halo",
+    "name": "Margaux Oval Halo",
+    "collectionName": "Margaux",
+    "wave": "B",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "oval",
+    "shapeLabel": "Oval",
+    "style": "halo",
+    "styleLabel": "Halo",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "10K",
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": [
+      1,
+      5
+    ],
+    "fromPriceUsd": 1000,
+    "description": "An oval lab-grown diamond lifted by a fine halo of pavé that catches light from every angle.",
+    "tags": [],
+    "featuredScore": 43,
+    "addedOn": "2026-01-21",
+    "images": []
+  },
+  {
+    "code": "ALV-R-0076",
+    "slug": "noemi-oval-halo",
+    "name": "Noemi Oval Halo",
+    "collectionName": "Noemi",
+    "wave": "B",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "oval",
+    "shapeLabel": "Oval",
+    "style": "halo",
+    "styleLabel": "Halo",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "10K",
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": [
+      1,
+      5
+    ],
+    "fromPriceUsd": 1000,
+    "description": "An oval lab-grown diamond lifted by a fine halo of pavé that catches light from every angle.",
+    "tags": [],
+    "featuredScore": 43,
+    "addedOn": "2026-01-27",
+    "images": []
+  },
+  {
+    "code": "ALV-R-0077",
+    "slug": "doria-round-three-stone",
+    "name": "Doria Round Three Stone",
+    "collectionName": "Doria",
+    "wave": "B",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "round",
+    "shapeLabel": "Round",
+    "style": "three-stone",
+    "styleLabel": "Three Stone",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "10K",
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": [
+      1,
+      5
+    ],
+    "fromPriceUsd": 1100,
+    "description": "A round lab-grown diamond framed by two side stones, matched for colour and cut.",
+    "tags": [],
+    "featuredScore": 43,
+    "addedOn": "2026-03-17",
+    "images": []
+  },
+  {
+    "code": "ALV-R-0078",
+    "slug": "ottilie-oval-halo",
+    "name": "Ottilie Oval Halo",
+    "collectionName": "Ottilie",
+    "wave": "B",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "oval",
+    "shapeLabel": "Oval",
+    "style": "halo",
+    "styleLabel": "Halo",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "10K",
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": [
+      1,
+      5
+    ],
+    "fromPriceUsd": 1000,
+    "description": "An oval lab-grown diamond lifted by a fine halo of pavé that catches light from every angle.",
+    "tags": [],
+    "featuredScore": 43,
+    "addedOn": "2026-01-16",
+    "images": []
+  },
+  {
+    "code": "ALV-E-0013",
+    "slug": "paloma-round-halo-studs",
+    "name": "Paloma Round Halo Studs",
+    "collectionName": "Paloma",
+    "wave": "B",
+    "live": true,
+    "category": "earrings",
+    "collections": [
+      "earrings"
+    ],
+    "shape": "round",
+    "shapeLabel": "Round",
+    "style": "halo",
+    "styleLabel": "Halo Studs",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": 370,
+    "description": "A round lab-grown diamond lifted by a fine halo of pavé that catches light from every angle.",
+    "tags": [],
+    "featuredScore": 42,
+    "addedOn": null,
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-e-0013/01.webp",
+        "thumb": "/assets/jewellery/alv-e-0013/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-e-0013/02.webp",
+        "thumb": "/assets/jewellery/alv-e-0013/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
+  },
+  {
+    "code": "ALV-R-0079",
+    "slug": "damaris-round-halo",
+    "name": "Damaris Round Halo",
+    "collectionName": "Damaris",
+    "wave": "B",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "round",
+    "shapeLabel": "Round",
+    "style": "halo",
+    "styleLabel": "Halo",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": [
+      1,
+      5
+    ],
+    "fromPriceUsd": 1000,
+    "description": "A round lab-grown diamond lifted by a fine halo of pavé that catches light from every angle.",
+    "tags": [],
+    "featuredScore": 42,
+    "addedOn": "2026-01-29",
+    "images": []
+  },
+  {
+    "code": "ALV-R-0080",
+    "slug": "quilla-oval-solitaire",
+    "name": "Quilla Oval Solitaire",
+    "collectionName": "Quilla",
+    "wave": "B",
+    "live": false,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "oval",
+    "shapeLabel": "Oval",
+    "style": "solitaire",
+    "styleLabel": "Solitaire",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": 1000,
+    "description": "A single oval lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "tags": [],
+    "featuredScore": 42,
+    "addedOn": null,
+    "images": []
+  },
+  {
+    "code": "ALV-R-0081",
+    "slug": "renata-round-bezel",
+    "name": "Renata Round Bezel",
+    "collectionName": "Renata",
+    "wave": "B",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "round",
+    "shapeLabel": "Round",
+    "style": "bezel",
+    "styleLabel": "Bezel",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": [
+      1,
+      5
+    ],
+    "fromPriceUsd": 1150,
+    "description": "A round lab-grown diamond wrapped in a clean, protective bezel of polished gold.",
+    "tags": [],
+    "featuredScore": 42,
+    "addedOn": "2025-12-16",
+    "images": []
+  },
+  {
+    "code": "ALV-R-0082",
+    "slug": "solveig-oval-heritage",
+    "name": "Solveig Oval Heritage",
+    "collectionName": "Solveig",
+    "wave": "B",
+    "live": false,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "oval",
+    "shapeLabel": "Oval",
+    "style": "vintage",
+    "styleLabel": "Heritage",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": 940,
+    "description": "An oval lab-grown diamond in a heritage setting with hand-finished detailing along the band.",
+    "tags": [],
+    "featuredScore": 42,
+    "addedOn": null,
+    "images": []
+  },
+  {
+    "code": "ALV-R-0083",
+    "slug": "eulalie-round-halo",
+    "name": "Eulalie Round Halo",
+    "collectionName": "Eulalie",
+    "wave": "B",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "round",
+    "shapeLabel": "Round",
+    "style": "halo",
+    "styleLabel": "Halo",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "10K",
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": [
+      1,
+      5
+    ],
+    "fromPriceUsd": 1050,
+    "description": "A round lab-grown diamond lifted by a fine halo of pavé that catches light from every angle.",
+    "tags": [],
+    "featuredScore": 41,
+    "addedOn": "2026-01-26",
+    "images": []
+  },
+  {
+    "code": "ALV-R-0084",
+    "slug": "genevieve-round-halo",
+    "name": "Genevieve Round Halo",
+    "collectionName": "Genevieve",
+    "wave": "B",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "round",
+    "shapeLabel": "Round",
+    "style": "halo",
+    "styleLabel": "Halo",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "10K",
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": [
+      1,
+      5
+    ],
+    "fromPriceUsd": 1000,
+    "description": "A round lab-grown diamond lifted by a fine halo of pavé that catches light from every angle.",
+    "tags": [],
+    "featuredScore": 41,
+    "addedOn": "2026-01-21",
+    "images": []
+  },
+  {
+    "code": "ALV-R-0085",
+    "slug": "hortense-round-halo",
+    "name": "Hortense Round Halo",
+    "collectionName": "Hortense",
+    "wave": "B",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "round",
+    "shapeLabel": "Round",
+    "style": "halo",
+    "styleLabel": "Halo",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "10K",
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": [
+      1,
+      5
+    ],
+    "fromPriceUsd": 1050,
+    "description": "A round lab-grown diamond lifted by a fine halo of pavé that catches light from every angle.",
+    "tags": [],
+    "featuredScore": 41,
+    "addedOn": "2026-01-13",
+    "images": []
+  },
+  {
+    "code": "ALV-R-0086",
+    "slug": "ilaria-round-halo",
+    "name": "Ilaria Round Halo",
+    "collectionName": "Ilaria",
+    "wave": "B",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "round",
+    "shapeLabel": "Round",
+    "style": "halo",
+    "styleLabel": "Halo",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "10K",
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": [
+      1,
+      5
+    ],
+    "fromPriceUsd": 1150,
+    "description": "A round lab-grown diamond lifted by a fine halo of pavé that catches light from every angle.",
+    "tags": [],
+    "featuredScore": 41,
+    "addedOn": "2026-01-13",
+    "images": []
+  },
+  {
+    "code": "ALV-R-0087",
+    "slug": "josette-round-halo",
+    "name": "Josette Round Halo",
+    "collectionName": "Josette",
+    "wave": "B",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "round",
+    "shapeLabel": "Round",
+    "style": "halo",
+    "styleLabel": "Halo",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "10K",
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": [
+      1,
+      5
+    ],
+    "fromPriceUsd": 1000,
+    "description": "A round lab-grown diamond lifted by a fine halo of pavé that catches light from every angle.",
+    "tags": [],
+    "featuredScore": 41,
+    "addedOn": "2026-01-17",
+    "images": []
+  },
+  {
+    "code": "ALV-R-0088",
+    "slug": "katrin-round-halo",
+    "name": "Katrin Round Halo",
+    "collectionName": "Katrin",
+    "wave": "B",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "round",
+    "shapeLabel": "Round",
+    "style": "halo",
+    "styleLabel": "Halo",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "10K",
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": [
+      1,
+      5
+    ],
+    "fromPriceUsd": 1000,
+    "description": "A round lab-grown diamond lifted by a fine halo of pavé that catches light from every angle.",
+    "tags": [],
+    "featuredScore": 41,
+    "addedOn": "2026-01-19",
+    "images": []
+  },
+  {
+    "code": "ALV-R-0089",
+    "slug": "lucienne-round-halo",
+    "name": "Lucienne Round Halo",
+    "collectionName": "Lucienne",
+    "wave": "B",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "round",
+    "shapeLabel": "Round",
+    "style": "halo",
+    "styleLabel": "Halo",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "10K",
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": [
+      1,
+      5
+    ],
+    "fromPriceUsd": 1050,
+    "description": "A round lab-grown diamond lifted by a fine halo of pavé that catches light from every angle.",
+    "tags": [],
+    "featuredScore": 41,
+    "addedOn": "2026-01-20",
+    "images": []
+  },
+  {
+    "code": "ALV-R-0090",
+    "slug": "margaux-round-halo",
+    "name": "Margaux Round Halo",
+    "collectionName": "Margaux",
+    "wave": "B",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "round",
+    "shapeLabel": "Round",
+    "style": "halo",
+    "styleLabel": "Halo",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "10K",
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": [
+      1,
+      5
+    ],
+    "fromPriceUsd": 1000,
+    "description": "A round lab-grown diamond lifted by a fine halo of pavé that catches light from every angle.",
+    "tags": [],
+    "featuredScore": 41,
+    "addedOn": "2026-01-21",
+    "images": []
+  },
+  {
+    "code": "ALV-R-0091",
+    "slug": "florine-round-halo",
+    "name": "Florine Round Halo",
+    "collectionName": "Florine",
+    "wave": "B",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "round",
+    "shapeLabel": "Round",
+    "style": "halo",
+    "styleLabel": "Halo",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "10K",
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": [
+      1,
+      5
+    ],
+    "fromPriceUsd": 1000,
+    "description": "A round lab-grown diamond lifted by a fine halo of pavé that catches light from every angle.",
+    "tags": [],
+    "featuredScore": 41,
+    "addedOn": "2026-01-27",
+    "images": []
+  },
+  {
+    "code": "ALV-R-0092",
+    "slug": "noemi-round-halo",
+    "name": "Noemi Round Halo",
+    "collectionName": "Noemi",
+    "wave": "B",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "round",
+    "shapeLabel": "Round",
+    "style": "halo",
+    "styleLabel": "Halo",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "10K",
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": [
+      1,
+      5
+    ],
+    "fromPriceUsd": 1000,
+    "description": "A round lab-grown diamond lifted by a fine halo of pavé that catches light from every angle.",
+    "tags": [],
+    "featuredScore": 41,
+    "addedOn": "2026-01-27",
+    "images": []
+  },
+  {
+    "code": "ALV-R-0093",
+    "slug": "ottilie-round-halo",
+    "name": "Ottilie Round Halo",
+    "collectionName": "Ottilie",
+    "wave": "B",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "round",
+    "shapeLabel": "Round",
+    "style": "halo",
+    "styleLabel": "Halo",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "10K",
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": [
+      1,
+      5
+    ],
+    "fromPriceUsd": 1000,
+    "description": "A round lab-grown diamond lifted by a fine halo of pavé that catches light from every angle.",
+    "tags": [],
+    "featuredScore": 41,
+    "addedOn": "2026-01-16",
+    "images": []
+  },
+  {
+    "code": "ALV-E-0014",
+    "slug": "tatiana-marquise-studs",
+    "name": "Tatiana Marquise Studs",
+    "collectionName": "Tatiana",
+    "wave": "B",
+    "live": true,
+    "category": "earrings",
+    "collections": [
+      "earrings"
+    ],
+    "shape": "marquise",
+    "shapeLabel": "Marquise",
+    "style": "stud",
+    "styleLabel": "Studs",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": 410,
+    "description": "A pair of marquise lab-grown diamonds in secure claw settings, matched stone for stone.",
+    "tags": [],
+    "featuredScore": 40,
+    "addedOn": null,
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-e-0014/01.webp",
+        "thumb": "/assets/jewellery/alv-e-0014/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-e-0014/02.webp",
+        "thumb": "/assets/jewellery/alv-e-0014/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
+  },
+  {
+    "code": "ALV-E-0015",
+    "slug": "tatiana-round-studs",
+    "name": "Tatiana Round Studs",
+    "collectionName": "Tatiana",
+    "wave": "B",
+    "live": true,
+    "category": "earrings",
+    "collections": [
+      "earrings"
+    ],
+    "shape": "round",
+    "shapeLabel": "Round",
+    "style": "stud",
+    "styleLabel": "Studs",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": 420,
+    "description": "A pair of round lab-grown diamonds in secure claw settings, matched stone for stone.",
+    "tags": [],
+    "featuredScore": 40,
+    "addedOn": null,
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-e-0015/01.webp",
+        "thumb": "/assets/jewellery/alv-e-0015/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-e-0015/02.webp",
+        "thumb": "/assets/jewellery/alv-e-0015/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
+  },
+  {
+    "code": "ALV-E-0016",
+    "slug": "valerie-round-studs",
+    "name": "Valerie Round Studs",
+    "collectionName": "Valerie",
+    "wave": "B",
+    "live": true,
+    "category": "earrings",
+    "collections": [
+      "earrings"
+    ],
+    "shape": "round",
+    "shapeLabel": "Round",
+    "style": "stud",
+    "styleLabel": "Studs",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": 220,
+    "description": "A pair of round lab-grown diamonds in secure claw settings, matched stone for stone.",
+    "tags": [],
+    "featuredScore": 40,
+    "addedOn": null,
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-e-0016/01.webp",
+        "thumb": "/assets/jewellery/alv-e-0016/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
+  },
+  {
+    "code": "ALV-E-0017",
+    "slug": "wynne-round-studs",
+    "name": "Wynne Round Studs",
+    "collectionName": "Wynne",
+    "wave": "B",
+    "live": true,
+    "category": "earrings",
+    "collections": [
+      "earrings"
+    ],
+    "shape": "round",
+    "shapeLabel": "Round",
+    "style": "stud",
+    "styleLabel": "Studs",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": 380,
+    "description": "A pair of round lab-grown diamonds in secure claw settings, matched stone for stone.",
+    "tags": [],
+    "featuredScore": 40,
+    "addedOn": null,
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-e-0017/01.webp",
+        "thumb": "/assets/jewellery/alv-e-0017/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-e-0017/02.webp",
+        "thumb": "/assets/jewellery/alv-e-0017/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-e-0017/03.webp",
+        "thumb": "/assets/jewellery/alv-e-0017/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
+  },
+  {
+    "code": "ALV-E-0018",
+    "slug": "yolande-round-studs",
+    "name": "Yolande Round Studs",
+    "collectionName": "Yolande",
+    "wave": "B",
+    "live": true,
+    "category": "earrings",
+    "collections": [
+      "earrings"
+    ],
+    "shape": "round",
+    "shapeLabel": "Round",
+    "style": "stud",
+    "styleLabel": "Studs",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": 360,
+    "description": "A pair of round lab-grown diamonds in secure claw settings, matched stone for stone.",
+    "tags": [],
+    "featuredScore": 40,
+    "addedOn": null,
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-e-0018/01.webp",
+        "thumb": "/assets/jewellery/alv-e-0018/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-e-0018/02.webp",
+        "thumb": "/assets/jewellery/alv-e-0018/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-e-0018/03.webp",
+        "thumb": "/assets/jewellery/alv-e-0018/03-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
+  },
+  {
+    "code": "ALV-E-0019",
+    "slug": "zosia-round-studs",
+    "name": "Zosia Round Studs",
+    "collectionName": "Zosia",
+    "wave": "B",
+    "live": true,
+    "category": "earrings",
+    "collections": [
+      "earrings"
+    ],
+    "shape": "round",
+    "shapeLabel": "Round",
+    "style": "stud",
+    "styleLabel": "Studs",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": 460,
+    "description": "A pair of round lab-grown diamonds in secure claw settings, matched stone for stone.",
+    "tags": [],
+    "featuredScore": 40,
+    "addedOn": null,
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-e-0019/01.webp",
+        "thumb": "/assets/jewellery/alv-e-0019/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-e-0019/02.webp",
+        "thumb": "/assets/jewellery/alv-e-0019/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
+  },
+  {
+    "code": "ALV-R-0094",
+    "slug": "nika-emerald-east-west",
+    "name": "Nika Emerald East-West",
+    "collectionName": "Nika",
+    "wave": "B",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "emerald",
+    "shapeLabel": "Emerald",
+    "style": "east-west",
+    "styleLabel": "East-West",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "10K",
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": [
+      1,
+      5
+    ],
+    "fromPriceUsd": 1000,
+    "description": "An emerald lab-grown diamond turned on its side and held in a slim east-west setting.",
+    "tags": [],
+    "featuredScore": 40,
+    "addedOn": "2026-01-20",
+    "images": []
+  },
+  {
+    "code": "ALV-E-0020",
+    "slug": "adele-round-bezel-studs",
+    "name": "Adele Round Bezel Studs",
+    "collectionName": "Adele",
+    "wave": "B",
+    "live": true,
+    "category": "earrings",
+    "collections": [
+      "earrings"
+    ],
+    "shape": "round",
+    "shapeLabel": "Round",
+    "style": "bezel",
+    "styleLabel": "Bezel Studs",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "10K",
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": [
+      1,
+      3
+    ],
+    "fromPriceUsd": 650,
+    "description": "A round lab-grown diamond wrapped in a clean, protective bezel of polished gold.",
+    "tags": [],
+    "featuredScore": 38,
+    "addedOn": "2026-02-02",
+    "images": []
+  },
+  {
+    "code": "ALV-E-0021",
+    "slug": "bianca-emerald-bezel-studs",
+    "name": "Bianca Emerald Bezel Studs",
+    "collectionName": "Bianca",
+    "wave": "B",
+    "live": true,
+    "category": "earrings",
+    "collections": [
+      "earrings"
+    ],
+    "shape": "emerald",
+    "shapeLabel": "Emerald",
+    "style": "bezel",
+    "styleLabel": "Bezel Studs",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "10K",
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": [
+      1,
+      3
+    ],
+    "fromPriceUsd": 650,
+    "description": "An emerald lab-grown diamond wrapped in a clean, protective bezel of polished gold.",
+    "tags": [],
+    "featuredScore": 38,
+    "addedOn": "2026-02-02",
+    "images": []
+  },
+  {
+    "code": "ALV-E-0022",
+    "slug": "bianca-pear-bezel-studs",
+    "name": "Bianca Pear Bezel Studs",
+    "collectionName": "Bianca",
+    "wave": "B",
+    "live": true,
+    "category": "earrings",
+    "collections": [
+      "earrings"
+    ],
+    "shape": "pear",
+    "shapeLabel": "Pear",
+    "style": "bezel",
+    "styleLabel": "Bezel Studs",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "10K",
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": [
+      1,
+      3
+    ],
+    "fromPriceUsd": 650,
+    "description": "A pear lab-grown diamond wrapped in a clean, protective bezel of polished gold.",
+    "tags": [],
+    "featuredScore": 38,
+    "addedOn": "2026-02-02",
+    "images": []
+  },
+  {
+    "code": "ALV-E-0023",
+    "slug": "bianca-round-bezel-studs",
+    "name": "Bianca Round Bezel Studs",
+    "collectionName": "Bianca",
+    "wave": "B",
+    "live": true,
+    "category": "earrings",
+    "collections": [
+      "earrings"
+    ],
+    "shape": "round",
+    "shapeLabel": "Round",
+    "style": "bezel",
+    "styleLabel": "Bezel Studs",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "10K",
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": [
+      1,
+      3
+    ],
+    "fromPriceUsd": 650,
+    "description": "A round lab-grown diamond wrapped in a clean, protective bezel of polished gold.",
+    "tags": [],
+    "featuredScore": 38,
+    "addedOn": "2026-02-02",
+    "images": []
+  },
+  {
+    "code": "ALV-R-0095",
+    "slug": "carys-oval-east-west",
+    "name": "Carys Oval East-West",
+    "collectionName": "Carys",
+    "wave": "B",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "oval",
+    "shapeLabel": "Oval",
+    "style": "east-west",
+    "styleLabel": "East-West",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "10K",
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": [
+      1,
+      5
+    ],
+    "fromPriceUsd": 1550,
+    "description": "An oval lab-grown diamond turned on its side and held in a slim east-west setting.",
+    "tags": [],
+    "featuredScore": 38,
+    "addedOn": "2026-01-26",
+    "images": []
+  },
+  {
+    "code": "ALV-E-0024",
+    "slug": "daria-emerald-studs",
+    "name": "Daria Emerald Studs",
+    "collectionName": "Daria",
+    "wave": "B",
+    "live": true,
+    "category": "earrings",
+    "collections": [
+      "earrings"
+    ],
+    "shape": "emerald",
+    "shapeLabel": "Emerald",
+    "style": "stud",
+    "styleLabel": "Studs",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": 900,
+    "description": "A pair of emerald lab-grown diamonds in secure claw settings, matched stone for stone.",
+    "tags": [],
+    "featuredScore": 36,
+    "addedOn": "2025-12-11",
+    "images": []
+  },
+  {
+    "code": "ALV-E-0025",
+    "slug": "daria-marquise-studs",
+    "name": "Daria Marquise Studs",
+    "collectionName": "Daria",
+    "wave": "B",
+    "live": true,
+    "category": "earrings",
+    "collections": [
+      "earrings"
+    ],
+    "shape": "marquise",
+    "shapeLabel": "Marquise",
+    "style": "stud",
+    "styleLabel": "Studs",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": 900,
+    "description": "A pair of marquise lab-grown diamonds in secure claw settings, matched stone for stone.",
+    "tags": [],
+    "featuredScore": 36,
+    "addedOn": "2025-12-11",
+    "images": []
+  },
+  {
+    "code": "ALV-E-0026",
+    "slug": "daria-oval-studs",
+    "name": "Daria Oval Studs",
+    "collectionName": "Daria",
+    "wave": "B",
+    "live": true,
+    "category": "earrings",
+    "collections": [
+      "earrings"
+    ],
+    "shape": "oval",
+    "shapeLabel": "Oval",
+    "style": "stud",
+    "styleLabel": "Studs",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": 900,
+    "description": "A pair of oval lab-grown diamonds in secure claw settings, matched stone for stone.",
+    "tags": [],
+    "featuredScore": 36,
+    "addedOn": "2025-12-11",
+    "images": []
+  },
+  {
+    "code": "ALV-E-0027",
+    "slug": "daria-pear-studs",
+    "name": "Daria Pear Studs",
+    "collectionName": "Daria",
+    "wave": "B",
+    "live": true,
+    "category": "earrings",
+    "collections": [
+      "earrings"
+    ],
+    "shape": "pear",
+    "shapeLabel": "Pear",
+    "style": "stud",
+    "styleLabel": "Studs",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": 900,
+    "description": "A pair of pear lab-grown diamonds in secure claw settings, matched stone for stone.",
+    "tags": [],
+    "featuredScore": 36,
+    "addedOn": "2025-12-11",
+    "images": []
+  },
+  {
+    "code": "ALV-E-0028",
+    "slug": "daria-round-studs",
+    "name": "Daria Round Studs",
+    "collectionName": "Daria",
+    "wave": "B",
+    "live": true,
+    "category": "earrings",
+    "collections": [
+      "earrings"
+    ],
+    "shape": "round",
+    "shapeLabel": "Round",
+    "style": "stud",
+    "styleLabel": "Studs",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": 900,
+    "description": "A pair of round lab-grown diamonds in secure claw settings, matched stone for stone.",
+    "tags": [],
+    "featuredScore": 36,
+    "addedOn": "2025-12-11",
+    "images": []
+  },
+  {
+    "code": "ALV-E-0029",
+    "slug": "emmeline-halo-studs",
+    "name": "Emmeline Halo Studs",
+    "collectionName": "Emmeline",
+    "wave": "B",
+    "live": true,
+    "category": "earrings",
+    "collections": [
+      "earrings"
+    ],
+    "shape": null,
+    "shapeLabel": null,
+    "style": "halo",
+    "styleLabel": "Halo Studs",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": 360,
+    "description": "A lab-grown diamond lifted by a fine halo of pavé that catches light from every angle.",
+    "tags": [],
+    "featuredScore": 36,
+    "addedOn": null,
+    "images": [
+      {
+        "src": "/assets/jewellery/alv-e-0029/01.webp",
+        "thumb": "/assets/jewellery/alv-e-0029/01-600.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/assets/jewellery/alv-e-0029/02.webp",
+        "thumb": "/assets/jewellery/alv-e-0029/02-600.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ]
+  },
+  {
+    "code": "ALV-R-0096",
+    "slug": "fabienne-oval-three-stone",
+    "name": "Fabienne Oval Three Stone",
+    "collectionName": "Fabienne",
+    "wave": "B",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "oval",
+    "shapeLabel": "Oval",
+    "style": "three-stone",
+    "styleLabel": "Three Stone",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "10K",
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": [
+      1,
+      5
+    ],
+    "fromPriceUsd": 1100,
+    "description": "An oval lab-grown diamond framed by two side stones, matched for colour and cut.",
+    "tags": [],
+    "featuredScore": 35,
+    "addedOn": "2026-02-13",
+    "images": []
+  },
+  {
+    "code": "ALV-R-0097",
+    "slug": "gaia-oval-solitaire",
+    "name": "Gaia Oval Solitaire",
+    "collectionName": "Gaia",
+    "wave": "B",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "oval",
+    "shapeLabel": "Oval",
+    "style": "solitaire",
+    "styleLabel": "Solitaire",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "10K",
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": [
+      1,
+      5
+    ],
+    "fromPriceUsd": 1250,
+    "description": "A single oval lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "tags": [],
+    "featuredScore": 35,
+    "addedOn": "2026-01-26",
+    "images": []
+  },
+  {
+    "code": "ALV-R-0098",
+    "slug": "heloise-emerald-heritage",
+    "name": "Heloise Emerald Heritage",
+    "collectionName": "Heloise",
+    "wave": "B",
+    "live": false,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "emerald",
+    "shapeLabel": "Emerald",
+    "style": "vintage",
+    "styleLabel": "Heritage",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": 760,
+    "description": "An emerald lab-grown diamond in a heritage setting with hand-finished detailing along the band.",
+    "tags": [],
+    "featuredScore": 35,
+    "addedOn": null,
+    "images": []
+  },
+  {
+    "code": "ALV-R-0099",
+    "slug": "irene-emerald-bezel",
+    "name": "Irene Emerald Bezel",
+    "collectionName": "Irene",
+    "wave": "B",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "emerald",
+    "shapeLabel": "Emerald",
+    "style": "bezel",
+    "styleLabel": "Bezel",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "10K",
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": [
+      1,
+      5
+    ],
+    "fromPriceUsd": 1100,
+    "description": "An emerald lab-grown diamond wrapped in a clean, protective bezel of polished gold.",
+    "tags": [],
+    "featuredScore": 34,
+    "addedOn": "2026-01-19",
+    "images": []
+  },
+  {
+    "code": "ALV-R-0100",
+    "slug": "juliane-emerald-solitaire",
+    "name": "Juliane Emerald Solitaire",
+    "collectionName": "Juliane",
+    "wave": "B",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "emerald",
+    "shapeLabel": "Emerald",
+    "style": "solitaire",
+    "styleLabel": "Solitaire",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": [
+      2,
+      5
+    ],
+    "fromPriceUsd": 1900,
+    "description": "A single emerald lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "tags": [],
+    "featuredScore": 34,
+    "addedOn": "2025-12-12",
+    "images": []
+  },
+  {
+    "code": "ALV-R-0101",
+    "slug": "kalina-emerald-three-stone",
+    "name": "Kalina Emerald Three Stone",
+    "collectionName": "Kalina",
+    "wave": "B",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "emerald",
+    "shapeLabel": "Emerald",
+    "style": "three-stone",
+    "styleLabel": "Three Stone",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": [
+      1,
+      3
+    ],
+    "fromPriceUsd": 1150,
+    "description": "An emerald lab-grown diamond framed by two side stones, matched for colour and cut.",
+    "tags": [],
+    "featuredScore": 34,
+    "addedOn": "2025-12-18",
+    "images": []
+  },
+  {
+    "code": "ALV-R-0102",
+    "slug": "fabienne-round-three-stone",
+    "name": "Fabienne Round Three Stone",
+    "collectionName": "Fabienne",
+    "wave": "B",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "round",
+    "shapeLabel": "Round",
+    "style": "three-stone",
+    "styleLabel": "Three Stone",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "10K",
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": [
+      1,
+      5
+    ],
+    "fromPriceUsd": 1100,
+    "description": "A round lab-grown diamond framed by two side stones, matched for colour and cut.",
+    "tags": [],
+    "featuredScore": 33,
+    "addedOn": "2026-02-13",
+    "images": []
+  },
+  {
+    "code": "ALV-R-0103",
+    "slug": "gaia-round-solitaire",
+    "name": "Gaia Round Solitaire",
+    "collectionName": "Gaia",
+    "wave": "B",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "round",
+    "shapeLabel": "Round",
+    "style": "solitaire",
+    "styleLabel": "Solitaire",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "10K",
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": [
+      1,
+      5
+    ],
+    "fromPriceUsd": 1250,
+    "description": "A single round lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "tags": [],
+    "featuredScore": 33,
+    "addedOn": "2026-01-26",
+    "images": []
+  },
+  {
+    "code": "ALV-B-0001",
+    "slug": "priya-emerald-eternity-band",
+    "name": "Priya Emerald Eternity Band",
+    "collectionName": "Priya",
+    "wave": "B",
+    "live": true,
+    "category": "band",
+    "collections": [
+      "wedding-bands"
+    ],
+    "shape": "emerald",
+    "shapeLabel": "Emerald",
+    "style": "eternity",
+    "styleLabel": "Eternity Band",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": 2200,
+    "description": "A continuous line of emerald lab-grown diamonds, matched for colour and size around the band.",
+    "tags": [],
+    "featuredScore": 32,
+    "addedOn": "2025-12-13",
+    "images": []
+  },
+  {
+    "code": "ALV-E-0030",
+    "slug": "bianca-heart-bezel-studs",
+    "name": "Bianca Heart Bezel Studs",
+    "collectionName": "Bianca",
+    "wave": "B",
+    "live": true,
+    "category": "earrings",
+    "collections": [
+      "earrings"
+    ],
+    "shape": "heart",
+    "shapeLabel": "Heart",
+    "style": "bezel",
+    "styleLabel": "Bezel Studs",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "10K",
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": [
+      1,
+      3
+    ],
+    "fromPriceUsd": 650,
+    "description": "A heart lab-grown diamond wrapped in a clean, protective bezel of polished gold.",
+    "tags": [],
+    "featuredScore": 32,
+    "addedOn": "2026-02-02",
+    "images": []
+  },
+  {
+    "code": "ALV-E-0031",
+    "slug": "lisette-round-drop-earrings",
+    "name": "Lisette Round Drop Earrings",
+    "collectionName": "Lisette",
+    "wave": "B",
+    "live": true,
+    "category": "earrings",
+    "collections": [
+      "earrings"
+    ],
+    "shape": "round",
+    "shapeLabel": "Round",
+    "style": "drop",
+    "styleLabel": "Drop Earrings",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "10K",
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": [
+      1,
+      3
+    ],
+    "fromPriceUsd": 700,
+    "description": "Round lab-grown diamond drops that move gently with the wearer.",
+    "tags": [],
+    "featuredScore": 32,
+    "addedOn": "2026-02-02",
+    "images": []
+  },
+  {
+    "code": "ALV-R-0104",
+    "slug": "nanette-oval-three-stone",
+    "name": "Nanette Oval Three Stone",
+    "collectionName": "Nanette",
+    "wave": "B",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "oval",
+    "shapeLabel": "Oval",
+    "style": "three-stone",
+    "styleLabel": "Three Stone",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "10K",
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": [
+      1,
+      5
+    ],
+    "fromPriceUsd": 1100,
+    "description": "An oval lab-grown diamond framed by two side stones, matched for colour and cut.",
+    "tags": [],
+    "featuredScore": 32,
+    "addedOn": "2026-03-12",
+    "images": []
+  },
+  {
+    "code": "ALV-R-0105",
+    "slug": "octavia-emerald-east-west",
+    "name": "Octavia Emerald East-West",
+    "collectionName": "Octavia",
+    "wave": "B",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "emerald",
+    "shapeLabel": "Emerald",
+    "style": "east-west",
+    "styleLabel": "East-West",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "10K",
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": [
+      1,
+      5
+    ],
+    "fromPriceUsd": 1000,
+    "description": "An emerald lab-grown diamond turned on its side and held in a slim east-west setting.",
+    "tags": [],
+    "featuredScore": 32,
+    "addedOn": "2026-01-21",
+    "images": []
+  },
+  {
+    "code": "ALV-R-0106",
+    "slug": "carys-emerald-east-west",
+    "name": "Carys Emerald East-West",
+    "collectionName": "Carys",
+    "wave": "B",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "emerald",
+    "shapeLabel": "Emerald",
+    "style": "east-west",
+    "styleLabel": "East-West",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "10K",
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": [
+      1,
+      5
+    ],
+    "fromPriceUsd": 1550,
+    "description": "An emerald lab-grown diamond turned on its side and held in a slim east-west setting.",
+    "tags": [],
+    "featuredScore": 32,
+    "addedOn": "2026-01-26",
+    "images": []
+  },
+  {
+    "code": "ALV-R-0107",
+    "slug": "irene-radiant-bezel",
+    "name": "Irene Radiant Bezel",
+    "collectionName": "Irene",
+    "wave": "B",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "radiant",
+    "shapeLabel": "Radiant",
+    "style": "bezel",
+    "styleLabel": "Bezel",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "10K",
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": [
+      1,
+      5
+    ],
+    "fromPriceUsd": 1100,
+    "description": "A radiant lab-grown diamond wrapped in a clean, protective bezel of polished gold.",
+    "tags": [],
+    "featuredScore": 32,
+    "addedOn": "2026-01-19",
+    "images": []
+  },
+  {
+    "code": "ALV-R-0108",
+    "slug": "kalina-radiant-three-stone",
+    "name": "Kalina Radiant Three Stone",
+    "collectionName": "Kalina",
+    "wave": "B",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "radiant",
+    "shapeLabel": "Radiant",
+    "style": "three-stone",
+    "styleLabel": "Three Stone",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": [
+      1,
+      3
+    ],
+    "fromPriceUsd": 1100,
+    "description": "A radiant lab-grown diamond framed by two side stones, matched for colour and cut.",
+    "tags": [],
+    "featuredScore": 32,
+    "addedOn": "2025-12-18",
+    "images": []
+  },
+  {
+    "code": "ALV-R-0109",
+    "slug": "rosamund-emerald-signet",
+    "name": "Rosamund Emerald Signet",
+    "collectionName": "Rosamund",
+    "wave": "B",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "rings"
+    ],
+    "shape": "emerald",
+    "shapeLabel": "Emerald",
+    "style": "signet",
+    "styleLabel": "Signet",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": [
+      1,
+      5
+    ],
+    "fromPriceUsd": 1200,
+    "description": "A signet profile with an emerald lab-grown diamond set flush into the face.",
+    "tags": [],
+    "featuredScore": 31,
+    "addedOn": "2025-12-13",
+    "images": []
+  },
+  {
+    "code": "ALV-E-0032",
+    "slug": "signe-emerald-halo-studs",
+    "name": "Signe Emerald Halo Studs",
+    "collectionName": "Signe",
+    "wave": "B",
+    "live": true,
+    "category": "earrings",
+    "collections": [
+      "earrings"
+    ],
+    "shape": "emerald",
+    "shapeLabel": "Emerald",
+    "style": "halo",
+    "styleLabel": "Halo Studs",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "10K",
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": [
+      1,
+      3
+    ],
+    "fromPriceUsd": 700,
+    "description": "An emerald lab-grown diamond lifted by a fine halo of pavé that catches light from every angle.",
+    "tags": [],
+    "featuredScore": 30,
+    "addedOn": "2026-02-02",
+    "images": []
+  },
+  {
+    "code": "ALV-P-0018",
+    "slug": "viola-cushion-pendant",
+    "name": "Viola Cushion Pendant",
+    "collectionName": "Viola",
+    "wave": "B",
+    "live": false,
+    "category": "pendant",
+    "collections": [
+      "pendants"
+    ],
+    "shape": "cushion",
+    "shapeLabel": "Cushion",
+    "style": "solitaire",
+    "styleLabel": "Pendant",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": 290,
+    "description": "A cushion lab-grown diamond suspended on a fine gold chain in a clean, lifted setting.",
+    "tags": [],
+    "featuredScore": 30,
+    "addedOn": null,
+    "images": []
+  },
+  {
+    "code": "ALV-R-0110",
+    "slug": "tallis-emerald-three-stone",
+    "name": "Tallis Emerald Three Stone",
+    "collectionName": "Tallis",
+    "wave": "B",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "emerald",
+    "shapeLabel": "Emerald",
+    "style": "three-stone",
+    "styleLabel": "Three Stone",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "10K",
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": [
+      1,
+      5
+    ],
+    "fromPriceUsd": 1150,
+    "description": "An emerald lab-grown diamond framed by two side stones, matched for colour and cut.",
+    "tags": [],
+    "featuredScore": 30,
+    "addedOn": "2026-02-13",
+    "images": []
+  },
+  {
+    "code": "ALV-R-0111",
+    "slug": "nanette-round-three-stone",
+    "name": "Nanette Round Three Stone",
+    "collectionName": "Nanette",
+    "wave": "B",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "round",
+    "shapeLabel": "Round",
+    "style": "three-stone",
+    "styleLabel": "Three Stone",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "10K",
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": [
+      1,
+      5
+    ],
+    "fromPriceUsd": 1100,
+    "description": "A round lab-grown diamond framed by two side stones, matched for colour and cut.",
+    "tags": [],
+    "featuredScore": 30,
+    "addedOn": "2026-03-12",
+    "images": []
+  },
+  {
+    "code": "ALV-R-0112",
+    "slug": "carys-radiant-east-west",
+    "name": "Carys Radiant East-West",
+    "collectionName": "Carys",
+    "wave": "B",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "radiant",
+    "shapeLabel": "Radiant",
+    "style": "east-west",
+    "styleLabel": "East-West",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "10K",
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": [
+      1,
+      5
+    ],
+    "fromPriceUsd": 1550,
+    "description": "A radiant lab-grown diamond turned on its side and held in a slim east-west setting.",
+    "tags": [],
+    "featuredScore": 30,
+    "addedOn": "2026-01-26",
+    "images": []
+  },
+  {
+    "code": "ALV-R-0113",
+    "slug": "wilda-emerald-three-stone",
+    "name": "Wilda Emerald Three Stone",
+    "collectionName": "Wilda",
+    "wave": "B",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "emerald",
+    "shapeLabel": "Emerald",
+    "style": "three-stone",
+    "styleLabel": "Three Stone",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "10K",
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": [
+      1,
+      5
+    ],
+    "fromPriceUsd": 1100,
+    "description": "An emerald lab-grown diamond framed by two side stones, matched for colour and cut.",
+    "tags": [],
+    "featuredScore": 29,
+    "addedOn": "2026-03-03",
+    "images": []
+  },
+  {
+    "code": "ALV-R-0114",
+    "slug": "anika-asscher-heritage",
+    "name": "Anika Asscher Heritage",
+    "collectionName": "Anika",
+    "wave": "B",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "asscher",
+    "shapeLabel": "Asscher",
+    "style": "vintage",
+    "styleLabel": "Heritage",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "10K",
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": [
+      1,
+      5
+    ],
+    "fromPriceUsd": 1000,
+    "description": "An asscher lab-grown diamond in a heritage setting with hand-finished detailing along the band.",
+    "tags": [],
+    "featuredScore": 29,
+    "addedOn": "2026-01-08",
+    "images": []
+  },
+  {
+    "code": "ALV-B-0002",
+    "slug": "felicity-emerald-wrap-ring",
+    "name": "Felicity Emerald Wrap Ring",
+    "collectionName": "Felicity",
+    "wave": "B",
+    "live": true,
+    "category": "band",
+    "collections": [
+      "wedding-bands"
+    ],
+    "shape": "emerald",
+    "shapeLabel": "Emerald",
+    "style": "wrap",
+    "styleLabel": "Wrap Ring",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": [
+      1,
+      5
+    ],
+    "fromPriceUsd": 1200,
+    "description": "An open, sculptural band set with emerald lab-grown diamonds that curve around the finger.",
+    "tags": [],
+    "featuredScore": 28,
+    "addedOn": "2025-12-13",
+    "images": []
+  },
+  {
+    "code": "ALV-R-0115",
+    "slug": "brigitte-emerald-solitaire",
+    "name": "Brigitte Emerald Solitaire",
+    "collectionName": "Brigitte",
+    "wave": "B",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "emerald",
+    "shapeLabel": "Emerald",
+    "style": "solitaire",
+    "styleLabel": "Solitaire",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "10K",
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": [
+      1,
+      5
+    ],
+    "fromPriceUsd": 1000,
+    "description": "A single emerald lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "tags": [],
+    "featuredScore": 28,
+    "addedOn": "2026-01-19",
+    "images": []
+  },
+  {
+    "code": "ALV-R-0116",
+    "slug": "camille-emerald-solitaire",
+    "name": "Camille Emerald Solitaire",
+    "collectionName": "Camille",
+    "wave": "B",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "emerald",
+    "shapeLabel": "Emerald",
+    "style": "solitaire",
+    "styleLabel": "Solitaire",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "10K",
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": [
+      1,
+      5
+    ],
+    "fromPriceUsd": 1000,
+    "description": "A single emerald lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "tags": [],
+    "featuredScore": 28,
+    "addedOn": "2026-01-19",
+    "images": []
+  },
+  {
+    "code": "ALV-R-0117",
+    "slug": "dagny-asscher-three-stone",
+    "name": "Dagny Asscher Three Stone",
+    "collectionName": "Dagny",
+    "wave": "B",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "asscher",
+    "shapeLabel": "Asscher",
+    "style": "three-stone",
+    "styleLabel": "Three Stone",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": [
+      1,
+      5
+    ],
+    "fromPriceUsd": 1100,
+    "description": "An asscher lab-grown diamond framed by two side stones, matched for colour and cut.",
+    "tags": [],
+    "featuredScore": 28,
+    "addedOn": "2025-12-17",
+    "images": []
+  },
+  {
+    "code": "ALV-R-0118",
+    "slug": "guinevere-emerald-three-stone",
+    "name": "Guinevere Emerald Three Stone",
+    "collectionName": "Guinevere",
+    "wave": "B",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "emerald",
+    "shapeLabel": "Emerald",
+    "style": "three-stone",
+    "styleLabel": "Three Stone",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "10K",
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": [
+      1,
+      5
+    ],
+    "fromPriceUsd": 1050,
+    "description": "An emerald lab-grown diamond framed by two side stones, matched for colour and cut.",
+    "tags": [],
+    "featuredScore": 26,
+    "addedOn": "2026-04-02",
+    "images": []
+  },
+  {
+    "code": "ALV-R-0119",
+    "slug": "hazel-emerald-three-stone",
+    "name": "Hazel Emerald Three Stone",
+    "collectionName": "Hazel",
+    "wave": "B",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "emerald",
+    "shapeLabel": "Emerald",
+    "style": "three-stone",
+    "styleLabel": "Three Stone",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "10K",
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": [
+      1,
+      5
+    ],
+    "fromPriceUsd": 1050,
+    "description": "An emerald lab-grown diamond framed by two side stones, matched for colour and cut.",
+    "tags": [],
+    "featuredScore": 26,
+    "addedOn": "2026-04-07",
+    "images": []
+  },
+  {
+    "code": "ALV-R-0120",
+    "slug": "imogen-emerald-three-stone",
+    "name": "Imogen Emerald Three Stone",
+    "collectionName": "Imogen",
+    "wave": "B",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "emerald",
+    "shapeLabel": "Emerald",
+    "style": "three-stone",
+    "styleLabel": "Three Stone",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "10K",
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": [
+      1,
+      5
+    ],
+    "fromPriceUsd": 1050,
+    "description": "An emerald lab-grown diamond framed by two side stones, matched for colour and cut.",
+    "tags": [],
+    "featuredScore": 26,
+    "addedOn": "2026-04-09",
+    "images": []
+  },
+  {
+    "code": "ALV-R-0121",
+    "slug": "johanna-cushion-bezel",
+    "name": "Johanna Cushion Bezel",
+    "collectionName": "Johanna",
+    "wave": "B",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "cushion",
+    "shapeLabel": "Cushion",
+    "style": "bezel",
+    "styleLabel": "Bezel",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": [
+      1,
+      5
+    ],
+    "fromPriceUsd": 1300,
+    "description": "A cushion lab-grown diamond wrapped in a clean, protective bezel of polished gold.",
+    "tags": [],
+    "featuredScore": 26,
+    "addedOn": "2025-12-18",
+    "images": []
+  },
+  {
+    "code": "ALV-R-0122",
+    "slug": "karina-hexagon-three-stone",
+    "name": "Karina Hexagon Three Stone",
+    "collectionName": "Karina",
+    "wave": "B",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "hexagon",
+    "shapeLabel": "Hexagon",
+    "style": "three-stone",
+    "styleLabel": "Three Stone",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": [
+      1,
+      3
+    ],
+    "fromPriceUsd": 1500,
+    "description": "A hexagon lab-grown diamond framed by two side stones, matched for colour and cut.",
+    "tags": [],
+    "featuredScore": 26,
+    "addedOn": "2025-12-18",
+    "images": []
+  },
+  {
+    "code": "ALV-R-0123",
+    "slug": "lavinia-pear-solitaire",
+    "name": "Lavinia Pear Solitaire",
+    "collectionName": "Lavinia",
+    "wave": "B",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "pear",
+    "shapeLabel": "Pear",
+    "style": "solitaire",
+    "styleLabel": "Solitaire",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": [
+      1,
+      5
+    ],
+    "fromPriceUsd": 1400,
+    "description": "A single pear lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "tags": [],
+    "featuredScore": 26,
+    "addedOn": "2025-12-14",
+    "images": []
+  },
+  {
+    "code": "ALV-R-0124",
+    "slug": "mathilde-round-solitaire",
+    "name": "Mathilde Round Solitaire",
+    "collectionName": "Mathilde",
+    "wave": "B",
+    "live": false,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "round",
+    "shapeLabel": "Round",
+    "style": "solitaire",
+    "styleLabel": "Solitaire",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": 1000,
+    "description": "A single round lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "tags": [],
+    "featuredScore": 26,
+    "addedOn": null,
+    "images": []
+  },
+  {
+    "code": "ALV-R-0125",
+    "slug": "ninon-marquise-solitaire",
+    "name": "Ninon Marquise Solitaire",
+    "collectionName": "Ninon",
+    "wave": "B",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "marquise",
+    "shapeLabel": "Marquise",
+    "style": "solitaire",
+    "styleLabel": "Solitaire",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": [
+      1,
+      5
+    ],
+    "fromPriceUsd": 1050,
+    "description": "A single marquise lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "tags": [],
+    "featuredScore": 25,
+    "addedOn": "2025-12-16",
+    "images": []
+  },
+  {
+    "code": "ALV-R-0126",
+    "slug": "orsola-pear-three-stone",
+    "name": "Orsola Pear Three Stone",
+    "collectionName": "Orsola",
+    "wave": "B",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "pear",
+    "shapeLabel": "Pear",
+    "style": "three-stone",
+    "styleLabel": "Three Stone",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "10K",
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": [
+      1,
+      5
+    ],
+    "fromPriceUsd": 1100,
+    "description": "A pear lab-grown diamond framed by two side stones, matched for colour and cut.",
+    "tags": [],
+    "featuredScore": 24,
+    "addedOn": "2026-03-13",
+    "images": []
+  },
+  {
+    "code": "ALV-R-0127",
+    "slug": "paulette-pear-three-stone",
+    "name": "Paulette Pear Three Stone",
+    "collectionName": "Paulette",
+    "wave": "B",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "pear",
+    "shapeLabel": "Pear",
+    "style": "three-stone",
+    "styleLabel": "Three Stone",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "10K",
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": [
+      1,
+      5
+    ],
+    "fromPriceUsd": 1050,
+    "description": "A pear lab-grown diamond framed by two side stones, matched for colour and cut.",
+    "tags": [],
+    "featuredScore": 24,
+    "addedOn": "2026-03-27",
+    "images": []
+  },
+  {
+    "code": "ALV-R-0128",
+    "slug": "rowena-marquise-bezel",
+    "name": "Rowena Marquise Bezel",
+    "collectionName": "Rowena",
+    "wave": "B",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "marquise",
+    "shapeLabel": "Marquise",
+    "style": "bezel",
+    "styleLabel": "Bezel",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": [
+      1,
+      5
+    ],
+    "fromPriceUsd": 1300,
+    "description": "A marquise lab-grown diamond wrapped in a clean, protective bezel of polished gold.",
+    "tags": [],
+    "featuredScore": 24,
+    "addedOn": "2025-12-13",
+    "images": []
+  },
+  {
+    "code": "ALV-R-0129",
+    "slug": "sunniva-bezel",
+    "name": "Sunniva Bezel",
+    "collectionName": "Sunniva",
+    "wave": "B",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": null,
+    "shapeLabel": null,
+    "style": "bezel",
+    "styleLabel": "Bezel",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "10K",
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": [
+      1,
+      5
+    ],
+    "fromPriceUsd": 1000,
+    "description": "A lab-grown diamond wrapped in a clean, protective bezel of polished gold.",
+    "tags": [],
+    "featuredScore": 22,
+    "addedOn": "2026-01-20",
+    "images": []
+  },
+  {
+    "code": "ALV-R-0130",
+    "slug": "theodora-hexagon-three-stone",
+    "name": "Theodora Hexagon Three Stone",
+    "collectionName": "Theodora",
+    "wave": "B",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "hexagon",
+    "shapeLabel": "Hexagon",
+    "style": "three-stone",
+    "styleLabel": "Three Stone",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": [
+      1,
+      3
+    ],
+    "fromPriceUsd": 1400,
+    "description": "A hexagon lab-grown diamond framed by two side stones, matched for colour and cut.",
+    "tags": [],
+    "featuredScore": 22,
+    "addedOn": "2025-12-18",
+    "images": []
+  },
+  {
+    "code": "ALV-R-0131",
+    "slug": "ulrike-hexagon-three-stone",
+    "name": "Ulrike Hexagon Three Stone",
+    "collectionName": "Ulrike",
+    "wave": "B",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "hexagon",
+    "shapeLabel": "Hexagon",
+    "style": "three-stone",
+    "styleLabel": "Three Stone",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": [
+      1,
+      3
+    ],
+    "fromPriceUsd": 1500,
+    "description": "A hexagon lab-grown diamond framed by two side stones, matched for colour and cut.",
+    "tags": [],
+    "featuredScore": 22,
+    "addedOn": "2025-12-18",
+    "images": []
+  },
+  {
+    "code": "ALV-R-0132",
+    "slug": "vanya-blue-radiant-halo",
+    "name": "Vanya Blue Radiant Halo",
+    "collectionName": "Vanya",
+    "wave": "B",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings",
+      "coloured-stones"
+    ],
+    "shape": "radiant",
+    "shapeLabel": "Radiant",
+    "style": "halo",
+    "styleLabel": "Halo",
+    "stoneColour": "blue",
+    "stoneColourLabel": "Blue",
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": [
+      1,
+      5
+    ],
+    "fromPriceUsd": 4400,
+    "description": "A blue radiant lab-grown diamond lifted by a fine halo of pavé that catches light from every angle.",
+    "tags": [],
+    "featuredScore": 18,
+    "addedOn": "2025-12-27",
+    "images": []
+  },
+  {
+    "code": "ALV-R-0133",
+    "slug": "winifred-pink-radiant-halo",
+    "name": "Winifred Pink Radiant Halo",
+    "collectionName": "Winifred",
+    "wave": "B",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings",
+      "coloured-stones"
+    ],
+    "shape": "radiant",
+    "shapeLabel": "Radiant",
+    "style": "halo",
+    "styleLabel": "Halo",
+    "stoneColour": "pink",
+    "stoneColourLabel": "Pink",
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": [
+      1,
+      5
+    ],
+    "fromPriceUsd": 4600,
+    "description": "A pink radiant lab-grown diamond lifted by a fine halo of pavé that catches light from every angle.",
+    "tags": [],
+    "featuredScore": 18,
+    "addedOn": "2025-12-27",
+    "images": []
+  },
+  {
+    "code": "ALV-R-0134",
+    "slug": "ximena-pear-halo",
+    "name": "Ximena Pear Halo",
+    "collectionName": "Ximena",
+    "wave": "B",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "pear",
+    "shapeLabel": "Pear",
+    "style": "halo",
+    "styleLabel": "Halo",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": [
+      1,
+      5
+    ],
+    "fromPriceUsd": 1800,
+    "description": "A pear lab-grown diamond lifted by a fine halo of pavé that catches light from every angle.",
+    "tags": [],
+    "featuredScore": 18,
+    "addedOn": "2025-12-14",
+    "images": []
+  },
+  {
+    "code": "ALV-B-0003",
+    "slug": "zerlina-marquise-wrap-ring",
+    "name": "Zerlina Marquise Wrap Ring",
+    "collectionName": "Zerlina",
+    "wave": "B",
+    "live": true,
+    "category": "band",
+    "collections": [
+      "wedding-bands"
+    ],
+    "shape": "marquise",
+    "shapeLabel": "Marquise",
+    "style": "wrap",
+    "styleLabel": "Wrap Ring",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": [
+      2,
+      4
+    ],
+    "fromPriceUsd": 3600,
+    "description": "An open, sculptural band set with marquise lab-grown diamonds that curve around the finger.",
+    "tags": [],
+    "featuredScore": 16,
+    "addedOn": "2025-12-13",
+    "images": []
+  },
+  {
+    "code": "ALV-B-0004",
+    "slug": "bryony-pear-wrap-ring",
+    "name": "Bryony Pear Wrap Ring",
+    "collectionName": "Bryony",
+    "wave": "B",
+    "live": true,
+    "category": "band",
+    "collections": [
+      "wedding-bands"
+    ],
+    "shape": "pear",
+    "shapeLabel": "Pear",
+    "style": "wrap",
+    "styleLabel": "Wrap Ring",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": 1150,
+    "description": "An open, sculptural band set with pear lab-grown diamonds that curve around the finger.",
+    "tags": [],
+    "featuredScore": 16,
+    "addedOn": "2025-12-17",
+    "images": []
+  },
+  {
+    "code": "ALV-R-0135",
+    "slug": "yvaine-marquise-solitaire",
+    "name": "Yvaine Marquise Solitaire",
+    "collectionName": "Yvaine",
+    "wave": "B",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "marquise",
+    "shapeLabel": "Marquise",
+    "style": "solitaire",
+    "styleLabel": "Solitaire",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": 1800,
+    "description": "A single marquise lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "tags": [],
+    "featuredScore": 16,
+    "addedOn": "2025-12-15",
+    "images": []
+  },
+  {
+    "code": "ALV-R-0136",
+    "slug": "alcina-marquise-solitaire",
+    "name": "Alcina Marquise Solitaire",
+    "collectionName": "Alcina",
+    "wave": "B",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "marquise",
+    "shapeLabel": "Marquise",
+    "style": "solitaire",
+    "styleLabel": "Solitaire",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": [
+      2,
+      5
+    ],
+    "fromPriceUsd": 2400,
+    "description": "A single marquise lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "tags": [],
+    "featuredScore": 16,
+    "addedOn": "2025-12-13",
+    "images": []
+  },
+  {
+    "code": "ALV-R-0137",
+    "slug": "calliope-radiant-halo",
+    "name": "Calliope Radiant Halo",
+    "collectionName": "Calliope",
+    "wave": "B",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "radiant",
+    "shapeLabel": "Radiant",
+    "style": "halo",
+    "styleLabel": "Halo",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": [
+      1,
+      5
+    ],
+    "fromPriceUsd": 3000,
+    "description": "A radiant lab-grown diamond lifted by a fine halo of pavé that catches light from every angle.",
+    "tags": [],
+    "featuredScore": 16,
+    "addedOn": "2025-12-15",
+    "images": []
+  },
+  {
+    "code": "ALV-R-0138",
+    "slug": "desma-pear-solitaire",
+    "name": "Desma Pear Solitaire",
+    "collectionName": "Desma",
+    "wave": "B",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "pear",
+    "shapeLabel": "Pear",
+    "style": "solitaire",
+    "styleLabel": "Solitaire",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": 900,
+    "description": "A single pear lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "tags": [],
+    "featuredScore": 14,
+    "addedOn": "2025-12-17",
+    "images": []
+  },
+  {
+    "code": "ALV-R-0139",
+    "slug": "evadne-asscher-solitaire",
+    "name": "Evadne Asscher Solitaire",
+    "collectionName": "Evadne",
+    "wave": "B",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": "asscher",
+    "shapeLabel": "Asscher",
+    "style": "solitaire",
+    "styleLabel": "Solitaire",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "10K",
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": [
+      1,
+      5
+    ],
+    "fromPriceUsd": 1000,
+    "description": "A single asscher lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "tags": [],
+    "featuredScore": 12,
+    "addedOn": "2026-01-12",
+    "images": []
+  },
+  {
+    "code": "ALV-R-0140",
+    "slug": "filippa-solitaire",
+    "name": "Filippa Solitaire",
+    "collectionName": "Filippa",
+    "wave": "B",
+    "live": true,
+    "category": "ring",
+    "collections": [
+      "engagement-rings",
+      "rings"
+    ],
+    "shape": null,
+    "shapeLabel": null,
+    "style": "solitaire",
+    "styleLabel": "Solitaire",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": [
+      2,
+      5
+    ],
+    "fromPriceUsd": 3900,
+    "description": "A single lab-grown diamond, held high in a precise claw setting on a slender band.",
+    "tags": [],
+    "featuredScore": 9,
+    "addedOn": "2025-12-13",
+    "images": []
+  },
+  {
+    "code": "ALV-B-0005",
+    "slug": "gwendolen-round-wrap-ring",
+    "name": "Gwendolen Round Wrap Ring",
+    "collectionName": "Gwendolen",
+    "wave": "B",
+    "live": true,
+    "category": "band",
+    "collections": [
+      "wedding-bands"
+    ],
+    "shape": "round",
+    "shapeLabel": "Round",
+    "style": "wrap",
+    "styleLabel": "Wrap Ring",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": null,
+    "fromPriceUsd": 1150,
+    "description": "An open, sculptural band set with round lab-grown diamonds that curve around the finger.",
+    "tags": [],
+    "featuredScore": 6,
+    "addedOn": "2025-12-17",
+    "images": []
+  },
+  {
+    "code": "ALV-B-0006",
+    "slug": "hermia-heart-wrap-ring",
+    "name": "Hermia Heart Wrap Ring",
+    "collectionName": "Hermia",
+    "wave": "B",
+    "live": true,
+    "category": "band",
+    "collections": [
+      "wedding-bands"
+    ],
+    "shape": "heart",
+    "shapeLabel": "Heart",
+    "style": "wrap",
+    "styleLabel": "Wrap Ring",
+    "stoneColour": "white",
+    "stoneColourLabel": null,
+    "karats": [
+      "14K",
+      "18K"
+    ],
+    "metalColours": [
+      "yellow",
+      "white",
+      "rose"
+    ],
+    "caratRange": [
+      1,
+      5
+    ],
+    "fromPriceUsd": 1900,
+    "description": "An open, sculptural band set with heart lab-grown diamonds that curve around the finger.",
+    "tags": [],
+    "featuredScore": 5,
+    "addedOn": "2025-12-17",
+    "images": []
+  }
+]

@@ -46,40 +46,6 @@ function routeKey(route) {
 
 const indexHtml = fs.readFileSync(path.join(distPublic, "index.html"), "utf-8");
 
-// Compute today's hero stone at prerender time so the "/" snapshot matches
-// what the production server injects on each request. Skips gracefully when
-// the data file is not present.
-function loadTodayHeroStone() {
-  const stonesPath = path.resolve(__dirname, "../server/data/stones.public.json");
-  if (!fs.existsSync(stonesPath)) return null;
-  try {
-    const stones = JSON.parse(fs.readFileSync(stonesPath, "utf-8"));
-    const candidates = stones
-      .filter((s) => s.lab === "IGI" && s.videoUrl !== null)
-      .slice()
-      .sort((a, b) => {
-        if (a.report.length !== b.report.length) return a.report.length - b.report.length;
-        return a.report.localeCompare(b.report);
-      });
-    if (candidates.length === 0) return null;
-    const MS_PER_DAY = 86_400_000;
-    const IST_OFFSET_MS = 5.5 * 60 * 60 * 1000;
-    const days = Math.floor((Date.now() + IST_OFFSET_MS) / MS_PER_DAY);
-    const record = candidates[days % candidates.length];
-    const dateLabel = new Intl.DateTimeFormat("en-GB", {
-      day: "numeric",
-      month: "long",
-      year: "numeric",
-      timeZone: "Asia/Kolkata",
-    }).format(new Date());
-    return { ...record, dateLabel };
-  } catch {
-    return null;
-  }
-}
-
-const heroStoneRecord = loadTodayHeroStone();
-
 function loadLedgerSnapshot() {
   const metaPath = path.resolve(__dirname, "../server/data/stones.meta.json");
   if (!fs.existsSync(metaPath)) return null;
@@ -100,12 +66,8 @@ function loadLedgerSnapshot() {
 const ledgerSnapshot = loadLedgerSnapshot();
 
 function injectHomeHydrationTags(html, pathname) {
-  if (pathname !== "/") return html;
+  if (pathname !== "/trade") return html;
   const tags = [];
-  if (heroStoneRecord) {
-    const payload = JSON.stringify(heroStoneRecord).replace(/</g, "\\u003c").replace(/>/g, "\\u003e");
-    tags.push(`<script type="application/json" id="hero-stone">${payload}</script>`);
-  }
   if (ledgerSnapshot) {
     const payload = JSON.stringify(ledgerSnapshot).replace(/</g, "\\u003c").replace(/>/g, "\\u003e");
     tags.push(`<script type="application/json" id="stock-ledger-data">${payload}</script>`);
@@ -237,9 +199,16 @@ for (const route of ROUTES) {
       timeout: 30_000,
     });
 
+    // Lazy routes first render the Suspense fallback; wait for the real page
+    // (no loading placeholder, and a heading present) before snapshotting.
     await page.waitForFunction(
-      () => (document.getElementById("root")?.children.length ?? 0) > 0,
-      { timeout: 15_000 }
+      () => {
+        const root = document.getElementById("root");
+        if (!root || root.children.length === 0) return false;
+        if (root.querySelector(".route-loading")) return false;
+        return Boolean(root.querySelector("h1, h2"));
+      },
+      { timeout: 20_000 }
     );
 
     const rootHtml = await page.evaluate(
@@ -286,6 +255,14 @@ if (failures.length) {
 fs.mkdirSync(committedDir, { recursive: true });
 for (const file of fs.readdirSync(outDir)) {
   fs.copyFileSync(path.join(outDir, file), path.join(committedDir, file));
+}
+// After a clean run, drop snapshots of routes that no longer exist (e.g. a
+// hidden piece), so the server can't keep serving them.
+if (!failures.length) {
+  const current = new Set(fs.readdirSync(outDir));
+  for (const file of fs.readdirSync(committedDir)) {
+    if (file.endsWith(".html") && !current.has(file)) fs.rmSync(path.join(committedDir, file));
+  }
 }
 console.log(
   `[prerender] Mirrored snapshots → prerendered/  (commit this folder; Railway uses it when Chromium is unavailable)`

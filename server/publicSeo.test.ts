@@ -5,7 +5,7 @@ import { publicSeo, publicSocialImage } from "../client/src/lib/publicSeo";
 describe("public locale metadata", () => {
   it("defines complete discoverability metadata for every public manufacturing route", () => {
     expect(Object.keys(publicSeo)).toEqual(["global", "fr", "it", "us"]);
-    expect(publicSeo.global.path).toBe("/");
+    expect(publicSeo.global.path).toBe("/trade");
     expect(publicSeo.fr).toMatchObject({ lang: "fr", path: "/fr" });
     expect(publicSeo.it).toMatchObject({ lang: "it", path: "/it" });
     expect(publicSeo.us).toMatchObject({ lang: "en-US", path: "/us" });
