@@ -7,6 +7,7 @@ author: Alvora Diamonds
 readingTime: 4 min
 relatedProduct: /trade
 answerSentence: "Fluorescence is a glow some diamonds show under ultraviolet light, and BGM stands for brown, green or milky undertones that sit outside the colour grade; both can change how a stone faces up, so buyers should confirm them beyond the certificate's 4Cs."
+buyerNote: "Ask for fluorescence and BGM status beyond the 4Cs on every stone; both affect how a diamond faces up in jewellery."
 eyebrow: STONE QUALITY
 ---
 

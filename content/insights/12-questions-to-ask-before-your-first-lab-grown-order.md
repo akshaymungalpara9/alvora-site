@@ -7,6 +7,7 @@ author: Alvora Diamonds
 readingTime: 7 min
 relatedProduct: /precision-lab-grown-diamond-wholesale
 answerSentence: "Before placing a first lab-grown diamond order, a B2B buyer should confirm twelve order-level details in writing: payment terms, price validity, sample approval, specification tolerance, certification, dispatch timing, shipping insurance, customs responsibility, tracking, discrepancy deadlines, remedy terms and return conditions - the mechanics of the transaction rather than the credentials of the seller."
+buyerNote: "Confirm these twelve order details in writing before you pay anything; most first-order problems start as unconfirmed assumptions."
 eyebrow: PRE-ORDER CHECKLIST
 ---
 

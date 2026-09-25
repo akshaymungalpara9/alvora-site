@@ -7,6 +7,7 @@ author: Alvora Diamonds
 readingTime: 6 min
 relatedProduct: /calibrated-diamond-layouts
 answerSentence: A complete calibrated parcel specification covers shape, size range, dimensional tolerance, colour and clarity band, quantity per size, growth method, certification and delivery format; an incomplete spec forces the manufacturer to either guess at your intent or delay your quote with clarifying questions.
+buyerNote: "Copy this specification structure into your next enquiry; complete specifications get accurate quotes, partial ones get assumptions."
 eyebrow: BUYER'S CHECKLIST
 ---
 
@@ -56,6 +57,8 @@ One timing point worth planning around: stock and standard calibrated parcels ty
 A usable melee spec for a manufacturer's first enquiry might read: round brilliant; 1.00–1.10 mm; tolerance ±0.02 mm on diameter; colour F–G; clarity VS; quantity 500 pieces; CVD or HPHT acceptable, untreated preferred; IGI or GIA certification on a per-parcel basis or graded uncertified supply by agreement; delivery in sealed parcel papers, sizes separated, standard courier with tracking and insurance.
 
 That block answers every question the cutting and sorting teams need to ask, and it allows the sales desk to return a firm quotation rather than a questionnaire.
+
+For a version you can copy straight into an enquiry email, use the [calibrated parcel specification template](/calibrated-parcel-specification-template).
 
 ## In closing
 

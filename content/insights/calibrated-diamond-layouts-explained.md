@@ -7,6 +7,7 @@ author: Alvora Diamonds
 readingTime: 4 min
 relatedProduct: /calibrated-diamond-layouts
 answerSentence: A calibrated diamond layout is a coordinated group of stones selected or produced to fit a design within agreed dimensional, visual, and documentation criteria.
+buyerNote: "Order layouts when a design needs stones that match each other, not just a specification on paper; agree the tolerances before production starts."
 eyebrow: MANUFACTURING GUIDE
 ---
 

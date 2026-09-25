@@ -8,6 +8,8 @@ export interface InsightMarkdownArticle {
   readingTime: string;
   relatedProduct: string;
   answerSentence: string;
+  buyerNote?: string;
+  reviewedDate?: string;
   paaQuestions?: string[];
   jsonLd: object | object[] | null;
   body: string;
@@ -24,6 +26,8 @@ interface MarkdownModule {
     readingTime: string;
     relatedProduct: string;
     answerSentence: string;
+    buyerNote?: string;
+    reviewedDate?: string;
     paaQuestions?: string[];
   };
   body: string;
@@ -42,6 +46,8 @@ function toArticle(filepath: string, mod: MarkdownModule): InsightMarkdownArticl
     readingTime: mod.frontmatter.readingTime,
     relatedProduct: mod.frontmatter.relatedProduct,
     answerSentence: mod.frontmatter.answerSentence,
+    buyerNote: mod.frontmatter.buyerNote,
+    reviewedDate: mod.frontmatter.reviewedDate,
     paaQuestions: mod.frontmatter.paaQuestions,
     jsonLd: mod.jsonLd,
     body: mod.body,

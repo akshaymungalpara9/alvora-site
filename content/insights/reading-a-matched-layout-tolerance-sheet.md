@@ -7,6 +7,7 @@ author: Alvora Diamonds
 readingTime: 6 min
 relatedProduct: /calibrated-diamond-layouts
 answerSentence: A matched-layout tolerance sheet constrains how far individual stones in a layout set may deviate from one another - across dimensions, weight, colour and cut - and reading it correctly means checking what each stated tolerance actually controls before approving the layout for production.
+buyerNote: "Read a tolerance sheet line by line before approving a layout; approval images close the loop on what words cannot show."
 eyebrow: TECHNICAL GUIDE
 ---
 

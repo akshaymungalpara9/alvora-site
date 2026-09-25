@@ -3,10 +3,12 @@ slug: import-duty-lc-terms-lab-grown-diamonds
 title: "Import Duties and Payment Terms for Lab-Grown Diamonds, Explained"
 metaDescription: What first-time importers of loose lab-grown diamonds should ask about duties, tariffs, letters of credit, advance payment and memo terms - by market, in plain language.
 publishedDate: "2026-09-10"
+reviewedDate: "2026-09-26"
 author: Alvora Diamonds
 readingTime: 7 min
 relatedProduct: /precision-lab-grown-diamond-wholesale
 answerSentence: First-time importers of loose lab-grown diamonds should confirm the duty treatment for their specific market with a customs broker, and settle payment structure - advance, letter of credit or memo - with the supplier in writing before the first order, since both the tariff environment and credit terms vary by destination and relationship.
+buyerNote: "Confirm duty treatment with a customs broker in your market before pricing an order, and settle payment terms in writing before production."
 eyebrow: COMPLIANCE GUIDE
 ---
 
@@ -21,11 +23,15 @@ Importing loose lab-grown diamonds for the first time raises two sets of questio
 
 ## Question 1: What duty applies in my market, on what classification?
 
+Evidence: Unknown - confirm at quote
+
 **United States.** This is the market where most has changed. Loose lab-grown diamonds polished in India were excluded from the natural-diamond exemption agreed in the US–India framework announced in February 2026, and remain subject to an 18% reciprocal tariff once the interim agreement takes effect [1](https://rapaport.com/news/us-to-nix-tariff-on-indian-gems-and-natural-diamonds/). At the time of that announcement the tariff was still at 25% pending formal conclusion, with implementation to be confirmed through official channels [2](https://nationaljeweler.com/articles/14682-u-s-india-trade-deal-one-step-closer-to-being-finalized). Ask your broker: what is the applicable rate today, under which tariff line, and does any origin documentation change it?
 
 **Canada, the EU (Belgium), the UAE and the Gulf.** Duty treatment varies by trade agreement and product classification, and loose stones, semi-set goods and finished jewellery are often treated differently. Rather than relying on any article - including this one - ask your broker two questions: the MFN duty for loose lab-grown diamonds under the relevant heading in the 7104 chapter, and whether any preferential treatment applies to goods of Indian origin.
 
 ## Question 2: Who clears customs, and on what Incoterms?
+
+Evidence: Unknown - confirm at quote
 
 On a pro forma invoice, the Incoterm decides whether the seller or the buyer is the importer of record, who pays freight, and where risk transfers. Common arrangements in diamond trade:
 
@@ -39,11 +45,15 @@ For first orders, CIF to your nearest major airport with your own broker handlin
 
 ## Question 3: How will we pay - advance, letter of credit or memo?
 
+Evidence: Unknown - confirm at quote
+
 - **Advance payment (TT):** the norm for new relationships and small orders. Keep first orders modest, verify certificates before and on receipt, and never pay more than you can afford to lose on an unproven supplier.
 - **Letter of credit (LC):** suited to larger orders where neither party yet extends credit. The bank pays against conforming documents, which protects both sides - but LC costs and document-strictness mean it rarely makes sense below a certain value. Ask your bank what that threshold is for you.
 - **Memo (consignment):** goods shipped for inspection before payment. Established relationships earn memo terms over time; treat any supplier offering generous memo terms to a brand-new customer as a reason for extra verification, not celebration.
 
 ## Question 4: What documents and insurance travel with the goods?
+
+Evidence: Verified public evidence
 
 Confirm the shipment will carry a commercial invoice, packing list, certificate copies matching the stones, an insured airway bill and - where applicable - any certificates of origin your broker needs. Ask specifically about shipping insurance: high-value parcels should be insured door-to-door by a policy you can see, and the claim procedure should be agreed before the first dispatch, not after a loss.
 

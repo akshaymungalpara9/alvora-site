@@ -507,6 +507,13 @@ export function resolveRouteMeta(pathname: string, origin: string): RouteMeta | 
         canonical: url("/calibrated-diamond-layouts"),
         serviceJsonLd: { "@context": "https://schema.org", "@type": "Service", name: "Calibrated Lab-Grown Diamond Layouts", serviceType: "Calibrated laboratory-grown diamond layouts", provider: { "@type": "Organization", name: "Alvora Diamonds", address: { "@type": "PostalAddress", addressLocality: "Surat", addressCountry: "IN" } }, areaServed: "Worldwide" },
       };
+    case "/calibrated-parcel-specification-template":
+      return {
+        lang: "en",
+        title: "Calibrated Parcel Specification Template | Alvora",
+        description: "A ready-to-copy specification template for calibrated lab-grown diamond parcels: shape, size range, tolerance, colour and clarity bands, quantity, certification and delivery format.",
+        canonical: url("/calibrated-parcel-specification-template"),
+      };
     case "/matched-lab-grown-diamond-pairs":
       return {
         lang: "en",

@@ -7,6 +7,7 @@ author: Alvora Diamonds
 readingTime: 4 min
 relatedProduct: /cvd-lab-grown-diamonds
 answerSentence: CVD and HPHT are different laboratory-grown diamond production methods, and wholesale buyers should choose between them by the finished specification, disclosure, and supply requirement rather than method alone.
+buyerNote: "Choose by the finished stone and its disclosure, not the method label; ask for treatment status and verify it against the report."
 eyebrow: PRODUCTION METHODS
 ---
 
