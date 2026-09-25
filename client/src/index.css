@@ -1098,3 +1098,8 @@ body { color: var(--ink); }
 .insight-answer-label { font-family: var(--mono); font-size: .64rem; letter-spacing: .14em; text-transform: uppercase; color: var(--signal); margin: 0 0 .5rem; }
 .insight-answer-text { margin: 0 0 .6rem; font-weight: 500; }
 .insight-answer-buyer { margin: 0; color: var(--signal-text); font-size: .92em; }
+.insight-evidence { font-family: var(--mono); font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; color: var(--signal-text); display: flex; align-items: center; gap: .45rem; margin: .35rem 0 1rem; }
+.insight-evidence::before { content: ""; width: .45rem; height: .45rem; border-radius: 50%; background: var(--signal); flex: none; }
+.insight-evidence-process::before { background: #7a8a99; }
+.insight-evidence-unknown::before { background: #b58a3c; }
+.form-field-hint { display: block; font-size: .8rem; color: var(--signal-text); margin: .2rem 0 .45rem; }

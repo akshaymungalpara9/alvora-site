@@ -23,15 +23,21 @@ An IGI lab-grown diamond report is verified in three steps: check the report num
 
 ## Step 1: check the report online
 
+Evidence: Verified public evidence
+
 Every IGI report carries a unique number. Enter it on IGI's verification page and read the record directly from the laboratory: carat weight, colour, clarity, cut or polish and symmetry grades, measurements, fluorescence, growth method and the laboratory-grown origin statement.
 
 Treat the online record as the source of truth. A printed or forwarded report is a copy; the database entry is the report.
 
 ## Step 2: match the laser inscription
 
+Evidence: Verified public evidence
+
 IGI laser-inscribes the report number on the stone's girdle. Under a jeweller's loupe, the inscription on the stone should read exactly the number you verified online. An uninscribed stone, or an inscription that does not match, stops the purchase until explained.
 
 ## Step 3: reconcile stone and paperwork
+
+Evidence: Alvora process
 
 The verified record should describe the stone in hand: same weight to the hundredth, same measurements, same grades. For parcels and layouts, the invoice should list each stone against its own report number so every stone can be checked individually at goods-in.
 

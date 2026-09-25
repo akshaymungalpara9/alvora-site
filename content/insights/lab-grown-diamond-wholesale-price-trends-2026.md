@@ -25,15 +25,21 @@ For per-carat context and why single numbers mislead, read [Lab-Grown Diamond Pr
 
 ## The long decline: what the record shows
 
+Evidence: Verified public evidence
+
 The documented trend is a long, steep decline. Rapaport's reporting on the economics of lab-grown, drawing on Bain & Company's annual diamond-sector analysis, recorded that the average wholesale price of polished synthetic diamonds had slid to 14% of natural counterparts by 2021, down from 20% in 2020, while retail sat at roughly 30% of equivalent naturals [1](https://rapaport.com/magazine-article/the-economics-of-lab-grown/). The same reporting noted that the decrease had been a near-continuous trend since around 2016, driven by production scaling and improving grower economics - but also quoted producers observing that declines were beginning to flatten as prices approached cost levels.
 
 That flattening matters more than the raw fall. A price approaching production cost cannot fall much further without supply exiting the market, and several growers interviewed in the trade press described exactly that dynamic: rates were being reduced toward cost, and below that, stones would sell at a loss.
 
 ## Not all sizes moved together
 
+Evidence: Verified public evidence
+
 The headline average conceals meaningful segmentation, which Rapaport's reporting documented at the time. Prices for lab-grown melee - the small accent stones retailers need in volume - spiked at points because demand for fully lab-grown pieces outran the limited number of growers able to produce small stones economically [1](https://rapaport.com/magazine-article/the-economics-of-lab-grown/). Conversely, one-carat rounds saw supply expand fastest as growing became easier, and prices in that mainstream band fell more quickly than larger sizes, where demand held up as consumers traded size for money. The pattern that emerged is one the trade has seen persist: categories constrained by production quirks behave differently from categories where supply scales freely.
 
 ## Where trade commentary stood entering 2026
+
+Evidence: Verified public evidence
 
 Rapaport's end-of-2025 industry outlook, summarising prevailing expectations, anticipated continued price compression through 2026 in the popular one-to-three-carat round segment as production scales and retailers compete on size for money, with sub-$1,000 lab-grown centre stones becoming normal at retail [2](https://rapaport.com/news/where-the-diamond-industrys-headed-in-2026-according-to-chatgpt/). The same outlook expected the market to bifurcate further: lab-grown consolidating its position in value segments while natural diamonds concentrated in heritage and luxury positioning. Two caveats belong with any forward-looking commentary: it is commentary, not data, and it sits on top of a tariff environment that has added a policy-driven cost layer to cross-border supply since 2025, which wholesale price indices do not capture.
 

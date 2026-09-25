@@ -1,11 +1,35 @@
 import { MoveLeft, MoveRight } from "lucide-react";
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { trackArticleRead } from "@/lib/ga4";
 import { applyDocumentMetadata } from "@/lib/publicSeo";
 import { findInsightArticle, INSIGHT_ARTICLES } from "@/lib/insightsArticles";
 import WhatsAppQuickContact from "@/components/WhatsAppQuickContact";
+
+
+const EVIDENCE_CLASSES: Record<string, string> = {
+  "Verified public evidence": "insight-evidence-verified",
+  "Alvora process": "insight-evidence-process",
+  "Unknown - confirm at quote": "insight-evidence-unknown",
+};
+
+type MdParagraphProps = React.HTMLAttributes<HTMLParagraphElement> & { node?: unknown; children?: React.ReactNode };
+
+function EvidenceAwareParagraph({ node: _node, children, ...rest }: MdParagraphProps) {
+  const first = Array.isArray(children) ? children[0] : children;
+  const text = typeof first === "string" ? first : "";
+  if (text.startsWith("Evidence: ")) {
+    const label = text.slice("Evidence: ".length).trim();
+    const cls = EVIDENCE_CLASSES[label] ?? "insight-evidence-process";
+    return (
+      <p className={`insight-evidence ${cls}`} {...rest}>
+        {children}
+      </p>
+    );
+  }
+  return <p {...rest}>{children}</p>;
+}
 
 function formatDate(iso: string) {
   return new Date(iso).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
@@ -174,7 +198,7 @@ function InsightArticlePage({ slug }: { slug: string }) {
         </div>
 
         <div className="insight-body">
-          <ReactMarkdown remarkPlugins={[remarkGfm]}>{displayBody}</ReactMarkdown>
+          <ReactMarkdown remarkPlugins={[remarkGfm]} components={{ p: EvidenceAwareParagraph }}>{displayBody}</ReactMarkdown>
         </div>
 
         <div className="insight-cta-block">

@@ -24,19 +24,27 @@ Three laboratories dominate the paperwork that accompanies lab-grown diamonds: I
 
 ## What each laboratory actually grades
 
+Evidence: Verified public evidence
+
 All three laboratories grade lab-grown diamonds for the standard criteria: carat weight, colour, clarity and cut quality, alongside disclosure of the growth method (CVD or HPHT) and any post-growth treatments. GIA issues Laboratory-Grown Diamond Reports that explicitly identify the stone as laboratory-grown and note growth method and treatment where detected [1](https://www.gia.edu/gem-lab/laboratory-grown-diamond-reports). IGI likewise issues dedicated lab-grown reports with growth-method disclosure [2](https://igi.org/). SGL provides grading reports for both natural and lab-grown diamonds through its Indian facilities [3](https://sglabs.com/).
 
 A report from any of the three tells you the stone was examined by trained gemologists using calibrated equipment. The practical differences lie less in what is graded than in how each report is received where you sell.
 
 ## GIA: the consumer-recognition benchmark
 
+Evidence: Verified public evidence
+
 GIA's name recognition among US consumers is unmatched, built over decades of natural-diamond grading. For a US retailer selling a certified solitaire to an end consumer, a GIA laboratory-grown report removes almost all explanation from the sales conversation. The trade-offs are cost and throughput: GIA grading carries a premium and, for many wholesale-scale parcels, the per-stone economics favour other options. GIA is typically the right request for significant single stones where the end buyer is a retail consumer.
 
 ## IGI: the wholesale workhorse
 
+Evidence: Verified public evidence
+
 IGI grades the largest volume of lab-grown diamonds in the trade, and its reports are the most commonly encountered in international B2B transactions. In wholesale, memo and manufacturing supply, "IGI certified" functions as a shared language between seller and buyer: the report format is familiar, verification is straightforward, and consistency across high-volume grading is well established. For calibrated parcels, matched pairs and melee supply where per-stone certificate cost matters, IGI is the standard request. This is also why manufacturers such as Alvora Diamonds certify through IGI and GIA: IGI for the volume flow, GIA where the end market expects it.
 
 ## SGL: the domestic-context laboratory
+
+Evidence: Verified public evidence
 
 SGL is a long-established Indian laboratory that grades both natural and lab-grown stones. Buyers most often encounter SGL reports on Indian domestic trade, small commercial parcels and goods moving within the local supply chain before re-export. That context matters: an SGL report is a legitimate grading document, but retail customers in Western markets are less likely to recognise the name, and some retailers' internal policies specify IGI or GIA for consumer-facing inventory. If you receive a parcel with SGL paperwork, the sensible step is not to reject it but to verify the report on SGL's portal and, if your market requires, arrange re-certification through IGI or GIA before sale.
 

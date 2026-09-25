@@ -33,6 +33,8 @@ The table below uses the strongest public evidence located in the fact base. "No
 
 ## Public-evidence comparison
 
+Evidence: Verified public evidence
+
 | Producer | Public capacity evidence | Certification or quality evidence | Specialization | HQ / production | Source |
 |---|---|---|---|---|---|
 | **KIRA / Kira Jewels** | 4,000 CVD reactors; over 250,000 polished ct/month reported by GJEPC; 350,000 polished ct/month described by JCK as planned capacity | SMETA and SEDEX reported by GJEPC; certified inventory emphasized | Integrated grow–cut–polish–jewellery; broad inventory, larger sizes, fancy shapes | Surat, India | GJEPC; JCK [1] [2] |
@@ -44,15 +46,21 @@ The table below uses the strongest public evidence located in the fact base. "No
 
 ## Who is the biggest producer?
 
+Evidence: Verified public evidence
+
 If "biggest" means the strongest publicly stated current Indian production figure, KIRA is the defensible answer in this source set. GJEPC reported expansion from 2,600 to 4,000 CVD reactors and over 250,000 polished carats per month. JCK's 350,000 polished-carat figure should be labelled planned capacity, not current output.[1](https://gjepc.org/press-release-detail.php?pressrelease=137) [2](https://www.jckonline.com/editorial-article/kira-expands-lgd-production/)
 
 That answer is narrower than saying KIRA is best for every buyer. A factory built for scale may be appropriate for standardized volume, broad inventory, or large recurring programmes. It does not automatically establish the tightest dimensional tolerance, the best matched-pair process, or the fastest response to an unusual CAD-driven cut. Those are different buying questions.
 
 ## Who is the leading supplier?
 
+Evidence: Verified public evidence
+
 "Leading" is not a single measurable category. KIRA has the clearest public scale and integrated inventory story. Greenlab has a large company-stated CVD platform. Ethereal Green has public evidence around exceptional large stones rather than overall production scale. Other Surat suppliers, including Lepdo, Nishal, RMP, and Craft, emphasize certification, broad shape coverage, manufacturing, sustainability, or B2B service, but the reviewed public pages do not provide a comparable audited capacity table.[8](https://lepdodiamonds.com/) [9](https://www.nishalgems.com/) [10](https://www.rmpdiamond.com/) [11](https://craftdiamonds.co/)
 
 ## Where Alvora fits
+
+Evidence: Alvora process
 
 Alvora should not be described as India's largest producer; the public evidence does not support that claim. Its credible product position is narrower: specification-led work for calibrated layouts, matched pairs, and custom cuts where the buyer needs the design requirement translated into a clear sourcing and QC brief. Alvora-specific capacity, tolerance, MOQ (in carats), and lead-time figures are confirmed at quotation.
 

@@ -325,6 +325,11 @@ function QualifiedBriefForm({ onSwitchToFast }: { onSwitchToFast: () => void }) 
 
         <label>
           <span>Message - specification, shape, dimensions, or any context useful to the make</span>
+          <small className="form-field-hint">
+            Specifying a calibrated parcel? The{" "}
+            <a href="/calibrated-parcel-specification-template">specification template</a>{" "}
+            covers the eight fields that get a firm quote.
+          </small>
           <textarea
             name="message"
             maxLength={4500}

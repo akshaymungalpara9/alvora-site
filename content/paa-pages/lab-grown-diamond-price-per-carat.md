@@ -27,11 +27,15 @@ For where wholesale prices are heading, read [Lab-Grown Diamond Wholesale Price 
 
 ## What can be stated responsibly?
 
+Evidence: Verified public evidence
+
 The public record supports a direction, not a neat price card. Edahn Golan data cited by JCK showed major declines in popular goods: 1–3ct goods were down 42% year over year in Q2 2025; the full-year 2025 wholesale decline was reported at 26%; Q1 2026 was down 14% year over year; and Q2 2026 was down 13% year over year.[1](https://www.jckonline.com/editorial-article/lab-grown-wholesale-freefall/) The rate of decline moderated, but prices remained far below the index's historical starting point.
 
 India's official export evidence points in the same direction. GJEPC reported polished laboratory-grown diamond exports of USD $1.13bn in FY2025–26, down 10.55% year over year while volumes increased.[2](https://gjepc.org/) More volume with lower export value is consistent with price compression, but it does not provide a buyer-specific per-carat quote.
 
 ## Public price evidence by requested category
+
+Evidence: Verified public evidence
 
 | Size | Colour / clarity | Certification | Public evidence | How to use it |
 |---|---|---|---|---|
@@ -45,17 +49,23 @@ The matrix is intentionally incomplete. Filling the blank cells with invented nu
 
 ## Why colour, clarity, cut, and certificate matter
 
+Evidence: Verified public evidence
+
 A quote is not determined by carat weight alone. Colour and clarity affect the commercial grade, while cut, polish, symmetry, transparency, fluorescence, and shape affect visual and setting suitability. CVD and HPHT goods can also price differently; public trade commentary has reported HPHT discounting in some sub-two-carat categories because of a lower cost base, but there is no universal percentage applicable to every stone.[3](https://www.jckonline.com/editorial-article/lab-grown-wholesale-freefall/)
 
 Certification adds cost and comparability, but the laboratory format matters. IGI is commonly used for wholesale comparison and can identify laboratory-grown origin and core 4Cs details. GIA's current colourless laboratory-grown service uses Premium or Standard assessments, while GCAL 8X is differentiated by performance-oriented evidence and imaging.[4](https://www.igi.org/reports/lab-grown-diamond-report/) [5](https://www.gia.edu/gem-lab-service/laboratory-grown-diamond) [6](https://www.gcalusa.com/gcal-8x-cut-grade.html)
 
 ## Why prices are still falling
 
+Evidence: Verified public evidence
+
 The decline reflects supply and pricing dynamics rather than a single cause. Reactor additions, larger output, HPHT expansion into categories previously associated more with CVD, retailer inventory accumulation, memo returns, and lower downstream replacement values have increased pressure through the chain.[1](https://www.jckonline.com/editorial-article/lab-grown-wholesale-freefall/) Standardized colourless goods are particularly exposed because they are easy to compare and widely supplied.
 
 A slower year-over-year decline is not the same as a return to former prices. Buyers should avoid anchoring on a historic invoice or a supplier's old price list. Quote validity, inventory date, report status, and delivery terms should be stated.
 
 ## How to get a real quote for your specification
+
+Evidence: Unknown - confirm at quote
 
 State shape, carat or measurements, colour, clarity, cut, CVD or HPHT preference, treatment disclosure, certificate laboratory, quantity, tolerance if buying a layout or pair, destination, and required date. Ask whether the price is per carat or per stone, whether certification and freight are included, and who bears insurance, duties, taxes, and customs costs.
 

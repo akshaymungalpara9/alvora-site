@@ -26,6 +26,8 @@ For the due-diligence questions to put to a manufacturer, read [12 Questions to 
 
 ## A decision rubric
 
+Evidence: Verified public evidence
+
 | Buyer need | Shortlist starting point | Why it may fit | What to verify |
 |---|---|---|---|
 | Highest-volume standardized goods | KIRA / Kira Jewels | Public evidence of 4,000 CVD reactors and more than 250,000 polished ct/month reported by GJEPC; integrated grow–cut–polish–jewellery model [1](https://gjepc.org/press-release-detail.php?pressrelease=137) | Current availability, price basis, certificate mix, replenishment, and delivery terms |
@@ -39,6 +41,8 @@ For the due-diligence questions to put to a manufacturer, read [12 Questions to 
 The table is a starting point, not a universal ranking. Public supplier claims differ in scope and are not all independently audited.
 
 ## What each competitor appears built to solve
+
+Evidence: Verified public evidence
 
 **KIRA / Kira Jewels** presents the scale-and-infrastructure model: growing, cutting, polishing, grading, setting, broad certified inventory, calibrated layouts, matched pairs, fancy colours, and trade distribution. The public evidence is strongest for volume and breadth; it does not by itself establish the tightest tolerance for a specific design.[1](https://kiradiam.com/)
 
@@ -57,6 +61,8 @@ The table is a starting point, not a universal ranking. Public supplier claims d
 **Ajahara Diamonds** appears primarily as a marketplace-style Surat manufacturer and supplier profile with many product categories. It may be useful for transactional enquiries, but public technical specificity around calibrated layouts, matched pairs, and international workflow is limited.[9](https://www.ajaharadiamonds.com/)
 
 ## Certification changes the comparison
+
+Evidence: Verified public evidence
 
 IGI is generally the practical wholesale baseline because its laboratory-grown report uses familiar 4Cs information, identifies origin, and supports online verification.[10](https://www.igi.org/reports/lab-grown-diamond-report/) GIA may matter when a downstream channel requires its institutional name, but its current colourless laboratory-grown service uses Premium or Standard assessments rather than the conventional natural-diamond format.[11](https://www.gia.edu/gem-lab-service/laboratory-grown-diamond) GCAL or GCAL 8X may fit a performance-led centre stone where imaging, optical symmetry, and cut evidence are central.[12](https://www.gcalusa.com/gcal-8x-cut-grade.html)
 

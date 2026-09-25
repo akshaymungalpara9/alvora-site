@@ -23,17 +23,23 @@ Importing lab-grown diamonds from India is a standard courier-cleared trade ship
 
 ## The commercial documents
 
+Evidence: Alvora process
+
 A trade shipment rests on a small set of documents: the proforma or commercial invoice, the packing list, and the certificate record for each stone. At Alvora, specification, certificate references and dispatch details are confirmed in writing for each order, and shipment documentation is prepared against the confirmed destination and delivery arrangement.
 
 For parcel and layout orders, the per-stone invoice reconciles each stone to its certificate, so goods-in checking and any customs query can be answered stone by stone.
 
 ## Classification and destination charges
 
+Evidence: Unknown - confirm at quote
+
 Loose polished synthetic diamonds are typically classified under HS 7104, but final classification is shipment-specific and belongs to the destination customs authority. Alvora does not publish duty or tax percentages: rates, thresholds and treatment differ by destination and change over time, and the figure that matters is the one confirmed for your shipment.
 
 US buyers receive tariff-inclusive quotes within the confirmed quotation scope, so there are no customs surprises inside that scope. For other destinations, import VAT, GST or duties are confirmed within each quotation before dispatch.
 
 ## Insurance and dispatch
+
+Evidence: Alvora process
 
 Shipments are cleared through international courier with insurance arranged according to the order. The dispatch route and insurance confirmation are provided with the confirmed shipment.
 

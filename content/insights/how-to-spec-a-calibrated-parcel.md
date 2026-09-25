@@ -58,6 +58,8 @@ A usable melee spec for a manufacturer's first enquiry might read: round brillia
 
 That block answers every question the cutting and sorting teams need to ask, and it allows the sales desk to return a firm quotation rather than a questionnaire.
 
+For a version you can copy straight into an enquiry email, use the [calibrated parcel specification template](/calibrated-parcel-specification-template).
+
 ## In closing
 
 A precise specification is the cheapest quality-control step in the entire supply chain - it costs you ten minutes and a careful table. Manufacturers, for their part, respond to precision with precision: well-specified orders move faster through quotation, production and inspection, and both parties spend less time on clarification loops. If you are building a calibrated specification for the first time, start with the eight-field table above, and treat every field you leave blank as a decision you are delegating to someone else.
