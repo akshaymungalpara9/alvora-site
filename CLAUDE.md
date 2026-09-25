@@ -72,6 +72,10 @@ before big changes, and end each work session with a short summary.
 - Treatment: `scripts/jewellery/brand-image.mjs` (also `pnpm brand:image`).
   Studio shots get the background swapped and are cropped to fill the frame;
   lifestyle/hand shots keep their background inside an ivory frame.
+- Up to **12 photos per piece** (`MAX_IMAGES_PER_PIECE`). Near-duplicates are
+  skipped before numbering: a 64-bit difference hash (dhash) drops any photo
+  within 2 bits of one already kept. Dropped filenames are logged to the
+  git-ignored `data/jewellery/skipped-photos.txt` so you can review the trims.
 - Status (2026-09-25): June Rings 45/45 and Carat earrings 20/20 have photos.
   **Pooja (91 pieces) still needs photos**; they appear automatically once
   added and `pnpm jewellery:images` is run.
@@ -80,10 +84,16 @@ before big changes, and end each work session with a short summary.
   (`client/public/assets/jewellery/shared/grading-report*.webp`,
   `GRADING_REPORT_IMAGE` in `shared/jewellery/catalog.ts`). It is an
   owner-supplied AI image; replace with a real IGI report photo when available.
-- Owner photo overrides: ALV-R-0042 (Fiora Oval Solitaire) uses the owner's
-  model and hand photos as images 03-04 instead of the partner lifestyle shot.
-  The committed output in `client/public/assets/jewellery/alv-r-0042/` is the
-  source of truth; if raw photos are re-downloaded, keep that override.
+- Owner photo overrides: set `"lockedImages": true` on a piece in
+  `data/jewellery/pieces.json` and `pnpm jewellery:images` leaves that piece's
+  `client/public/assets/jewellery/<code>/` folder alone. Currently set on
+  ALV-R-0042 (Fiora Oval Solitaire), whose images 03-04 are the owner's own
+  model and hand photos.
+- After a re-import the numbering of a piece's shots can shift (e.g. a photo
+  that was slot 02 is now 03). If that piece has entries in
+  `data/jewellery/ai-photos/approved.json`, remap the `"NN"` key so it still
+  points at the source photo the AI enhancement was based on. See the diffing
+  approach used on 2026-09-25 (dhash old vs new NN.webp).
 
 ## AI photo upgrade (owner-approved only)
 - `pnpm jewellery:ai-photos generate|review|apply` (`scripts/jewellery/ai-photos.mjs`):

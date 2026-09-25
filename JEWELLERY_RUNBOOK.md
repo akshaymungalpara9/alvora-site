@@ -24,6 +24,10 @@ Plain-English guide to the jewellery side of the site. Commands are run from the
 
 Every photo is framed on an ivory background, gets the Alvora watermark, is renamed to the piece code (no partner names), and has its hidden file data stripped. Raw photos are never committed to GitHub.
 
+Each piece keeps at most **12 photos**, in their partner-numbered order. Near-duplicates are skipped automatically (a fingerprint check finds photos that look the same). If you want to know what was skipped, open `data/jewellery/skipped-photos.txt` — it lists each dropped filename and why (near-duplicate of another kept photo, or over the 12-photo cap). That file is not committed.
+
+If a piece has photos you don't want the build to overwrite (owner model shots, hand-approved edits), add `"lockedImages": true` to that piece's entry in `data/jewellery/pieces.json`. `pnpm jewellery:images` then leaves that piece's output folder alone. ALV-R-0042 (Fiora Oval Solitaire) is the current example.
+
 Pieces whose photo folder could not be matched are listed in `data/jewellery/import-report.txt`. To fix one, set `imageFolder` for that piece in `data/jewellery/pieces.json` to the right folder name and run the command again.
 
 **Branding any photos (one command):**

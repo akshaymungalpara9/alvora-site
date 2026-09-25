@@ -15,7 +15,7 @@
   "ALV-R-0001": {
     "replace": {
       "01": "ai-enhance-01",
-      "02": "ai-enhance-02"
+      "03": "ai-enhance-02"
     },
     "extra": [
       "ai-model",

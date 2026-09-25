@@ -130,3 +130,4 @@ data/jewellery/raw-images/
 # AI photo candidates and review bundles (only approved photos are committed)
 data/jewellery/ai-photos/candidates/
 data/jewellery/ai-photos/review/
+data/jewellery/skipped-photos.txt

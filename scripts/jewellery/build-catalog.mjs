@@ -26,6 +26,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import sharp from "sharp";
 import { withApprovedAiPhotos } from "./ai-approved.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -37,11 +38,14 @@ const PRICING_PATH = path.join(DATA, "pricing.json");
 const LAUNCH_PATH = path.join(DATA, "launch.json");
 const RAW_IMAGES = path.join(DATA, "raw-images");
 const REPORT_PATH = path.join(DATA, "import-report.txt");
+const SKIPPED_PHOTOS_PATH = path.join(DATA, "skipped-photos.txt");
 const CATALOG_PATH = path.join(ROOT, "shared", "jewellery", "catalog.json");
 const SOURCING_PATH = path.join(ROOT, "server", "data", "jewellery-sourcing.json");
 const IMAGE_OUT = path.join(ROOT, "client", "public", "assets", "jewellery");
 
-const MAX_IMAGES_PER_PIECE = 8;
+const MAX_IMAGES_PER_PIECE = 12;
+/** Difference-hash distance below which two photos are treated as duplicates. */
+const DHASH_MAX_DISTANCE = 2;
 const IMAGE_SIZES = [
   { suffix: "", width: 1400 },
   { suffix: "-600", width: 600 },
@@ -301,13 +305,68 @@ function findImageFolder(partner, folderName) {
   return null;
 }
 
-function listSourceImages(folder) {
-  return fs
+/** 64-bit difference hash: shrink to 9x8 greyscale, one bit per row of side-by-side comparisons. */
+async function dhash64(file) {
+  const buf = await sharp(file)
+    .greyscale()
+    .resize(9, 8, { fit: "fill" })
+    .raw()
+    .toBuffer();
+  let hash = 0n;
+  for (let row = 0; row < 8; row += 1) {
+    for (let col = 0; col < 8; col += 1) {
+      const i = row * 9 + col;
+      hash = (hash << 1n) | (buf[i] > buf[i + 1] ? 1n : 0n);
+    }
+  }
+  return hash;
+}
+
+function hammingBigInt(a, b) {
+  let x = a ^ b;
+  let count = 0;
+  while (x) {
+    x &= x - 1n;
+    count += 1;
+  }
+  return count;
+}
+
+/**
+ * List source photos in numeric filename order, skipping near-duplicates (dhash
+ * within DHASH_MAX_DISTANCE bits of an already-kept photo) and capping at
+ * MAX_IMAGES_PER_PIECE. Returns { kept: absolute paths, skipped: {file, reason} }.
+ */
+async function listSourceImages(folder) {
+  const files = fs
     .readdirSync(folder)
     .filter((file) => /\.(jpe?g|png|webp)$/i.test(file))
-    .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }))
-    .slice(0, MAX_IMAGES_PER_PIECE)
-    .map((file) => path.join(folder, file));
+    .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
+  const kept = [];
+  const keptHashes = [];
+  const skipped = [];
+  for (const file of files) {
+    const full = path.join(folder, file);
+    let hash;
+    try {
+      hash = await dhash64(full);
+    } catch (error) {
+      skipped.push({ file, reason: `unreadable: ${error.message}` });
+      continue;
+    }
+    const dupIndex = keptHashes.findIndex((prev) => hammingBigInt(prev, hash) <= DHASH_MAX_DISTANCE);
+    if (dupIndex !== -1) {
+      skipped.push({ file, reason: `near-duplicate of ${path.basename(kept[dupIndex])} (dhash ≤ ${DHASH_MAX_DISTANCE})` });
+      continue;
+    }
+    if (kept.length >= MAX_IMAGES_PER_PIECE) {
+      skipped.push({ file, reason: `over the ${MAX_IMAGES_PER_PIECE}-photo cap` });
+      continue;
+    }
+    kept.push(full);
+    keptHashes.push(hash);
+  }
+  return { kept, skipped };
 }
 
 async function writeImages(code, sources) {
@@ -384,6 +443,7 @@ async function main() {
   const sourcing = {};
   const missingImages = [];
   const missingPrices = [];
+  const skippedPhotoLog = [];
 
   for (const row of ordered) {
     const key = `${row.partner}:${row.handle}`;
@@ -428,8 +488,14 @@ async function main() {
 
     let images = [];
     const folder = findImageFolder(row.partner, piece.imageFolder);
-    if (withImages && folder) {
-      images = await writeImages(piece.code, listSourceImages(folder));
+    if (piece.lockedImages) {
+      // Owner-supplied photos are the source of truth for this piece; never
+      // regenerate. See CLAUDE.md "Owner photo overrides".
+      images = existingImages(piece.code);
+    } else if (withImages && folder) {
+      const { kept, skipped } = await listSourceImages(folder);
+      images = await writeImages(piece.code, kept);
+      if (skipped.length) skippedPhotoLog.push({ code: piece.code, name: piece.name, folder: piece.imageFolder, skipped });
     } else {
       images = existingImages(piece.code);
     }
@@ -506,6 +572,25 @@ async function main() {
     "",
   ].join("\n");
   fs.writeFileSync(REPORT_PATH, report);
+
+  if (withImages) {
+    if (skippedPhotoLog.length) {
+      const lines = [
+        `Photos skipped by pnpm jewellery:images — ${new Date().toISOString()}`,
+        `Cap: ${MAX_IMAGES_PER_PIECE} photos per piece; near-duplicate threshold: dhash ≤ ${DHASH_MAX_DISTANCE} bits`,
+        "",
+      ];
+      for (const entry of skippedPhotoLog.sort((a, b) => a.code.localeCompare(b.code))) {
+        lines.push(`${entry.code}  ${entry.name}  (source folder: ${entry.folder})`);
+        for (const s of entry.skipped) lines.push(`  ${s.file}  —  ${s.reason}`);
+        lines.push("");
+      }
+      fs.writeFileSync(SKIPPED_PHOTOS_PATH, `${lines.join("\n")}\n`);
+      console.log(`Skipped photos: ${skippedPhotoLog.reduce((n, e) => n + e.skipped.length, 0)} across ${skippedPhotoLog.length} pieces → ${path.relative(ROOT, SKIPPED_PHOTOS_PATH)}`);
+    } else if (fs.existsSync(SKIPPED_PHOTOS_PATH)) {
+      fs.rmSync(SKIPPED_PHOTOS_PATH);
+    }
+  }
 
   console.log(`Catalogue: ${catalog.length} pieces → ${path.relative(ROOT, CATALOG_PATH)}`);
   console.log(`Missing photos: ${missingImages.length}, missing prices: ${missingPrices.length}. See ${path.relative(ROOT, REPORT_PATH)}`);

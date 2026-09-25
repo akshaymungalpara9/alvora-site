@@ -618,7 +618,8 @@
     "imageFolder": "dawn-oval",
     "priceUsd": null,
     "hidden": false,
-    "notes": ""
+    "lockedImages": true,
+    "notes": "Images 03-04 are owner's model/hand photos; lockedImages prevents jewellery:images from regenerating this piece."
   },
   "carat:dutch-marquise-ring-with-kite-and-round-side-stones": {
     "code": "ALV-R-0043",

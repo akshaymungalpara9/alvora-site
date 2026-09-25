@@ -1,4 +1,4 @@
-Alvora jewellery import report — 2026-09-25T10:29:51.892Z
+Alvora jewellery import report — 2026-09-25T14:23:58.820Z
 On the launch list: 156 (rule: data/jewellery/launch.json); shown on the site (with photos): 65
 Pieces in catalogue: 196 (wave A: 94, wave B: 102)
 
