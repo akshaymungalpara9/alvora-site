@@ -24,9 +24,9 @@ function ConfirmationMessage({ state, onReset }: { state: SubmissionState; onRes
       {state === "sending"
         ? "Recording your enquiry…"
         : state === "sent"
-        ? "Thank you. Your enquiry has been recorded and sent to the Alvora team. We will respond with production detail and pricing."
+        ? "Thank you. Your enquiry has been recorded and sent to the Alvora team. We will respond with a quotation within 24 hours."
         : state === "saved"
-        ? "Thank you. Your enquiry has been safely recorded for the Alvora team. We will respond shortly."
+        ? "Thank you. Your enquiry has been safely recorded for the Alvora team. We will respond within 24 hours."
         : <>Your enquiry could not be recorded. Please try again, or{" "}
             <button className="inline-link" onClick={onReset} type="button">reset the form</button>.</>}
     </p>
@@ -60,6 +60,18 @@ export default function FastRfqForm({
     event.preventDefault();
     const values = new FormData(event.currentTarget);
     const country = String(values.get("country") || "");
+    const shape = String(values.get("spec_shape") || "");
+    const carat = String(values.get("spec_carat") || "").trim();
+    const colour = String(values.get("spec_colour") || "");
+    const quantity = String(values.get("spec_quantity") || "").trim();
+    const freeText = String(values.get("requirement") || "").trim();
+    const specLines = [
+      shape ? `Shape: ${shape}` : null,
+      carat ? `Carat weight: ${carat}` : null,
+      colour ? `Colour: ${colour}` : null,
+      quantity ? `Quantity: ${quantity}` : null,
+      freeText || null,
+    ].filter(Boolean);
     setSubmissionState("idle");
     submitFastRfq.mutate({
       market: mapCountryToMarket(country),
@@ -68,7 +80,7 @@ export default function FastRfqForm({
       email: String(values.get("email") || "").trim(),
       company: String(values.get("company") || "").trim() || undefined,
       phone: String(values.get("phone") || "").trim(),
-      requirement: String(values.get("requirement") || "").trim(),
+      requirement: specLines.join("\n"),
     });
     trackRfqSubmit("Fast RFQ", country, "fast_rfq");
   };
@@ -140,15 +152,67 @@ export default function FastRfqForm({
           </label>
         </div>
 
+        <div className="rfq-row">
+          <label>
+            <span>Shape</span>
+            <select name="spec_shape" defaultValue="">
+              <option value="">Any shape</option>
+              <option>Round</option>
+              <option>Oval</option>
+              <option>Cushion</option>
+              <option>Elongated Cushion</option>
+              <option>Emerald</option>
+              <option>Radiant</option>
+              <option>Pear</option>
+              <option>Marquise</option>
+              <option>Old Mine</option>
+              <option>Baguette</option>
+              <option>Other / mixed</option>
+            </select>
+          </label>
+          <label>
+            <span>Carat weight</span>
+            <input
+              name="spec_carat"
+              type="text"
+              maxLength={120}
+              placeholder="e.g. 1.00 ct, or 0.30-0.50 ct"
+            />
+          </label>
+        </div>
+
+        <div className="rfq-row">
+          <label>
+            <span>Colour</span>
+            <select name="spec_colour" defaultValue="">
+              <option value="">Any colour</option>
+              <option>D-F (colourless)</option>
+              <option>G-H (near colourless)</option>
+              <option>I-J</option>
+              <option>Fancy colour</option>
+              <option>Not sure yet</option>
+            </select>
+          </label>
+          <label>
+            <span>Quantity</span>
+            <input
+              name="spec_quantity"
+              type="text"
+              maxLength={120}
+              placeholder="e.g. 20 stones, or 1 layout"
+            />
+          </label>
+        </div>
+
         <label>
           <span>What do you need? *</span>
           <textarea
             name="requirement"
             minLength={2}
             maxLength={5000}
-            rows={5}
+            rows={4}
             required
-            placeholder="Shape, carat weight, colour, clarity, quantity, certification, timeline - or paste your spec sheet."
+            placeholder="Clarity, certification, timeline, or anything already decided - or paste your spec sheet."
           />
         </label>
 
@@ -162,7 +226,7 @@ export default function FastRfqForm({
               ? "Sending…"
               : <>Get Price &amp; Availability <ArrowUpRight size={18} /></>}
           </button>
-          <p>We respond with per-stone pricing, lead time, and certification options.</p>
+          <p>We respond with a quotation within 24 hours: per-stone pricing, lead time, and certification options.</p>
         </div>
 
         <ConfirmationMessage state={submissionState} onReset={() => setSubmissionState("idle")} />
