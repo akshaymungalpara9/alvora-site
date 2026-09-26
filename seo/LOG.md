@@ -168,3 +168,13 @@ Append-only. Newest entry at the bottom. Never delete an entry.
 
 **Measure**
 - First 50 pins live; a test click from a pin recorded as source_class pinterest in GA4; Instagram bio-link sessions with utm_source=instagram. Read at the 10 October checkpoint.
+## 2026-09-26: Marquise money page refresh (workstream 1C)
+
+**Changed**
+- /engagement-rings/shape/marquise now renders its own editorial block again (it had fallen back to generic copy when Dutch marquise pieces left the shown catalogue): live piece count in the intro, the "from" price read from the pricing table, the centre-stone standard (E colour, VS1 clarity, Excellent polish and symmetry on white stones, 0.5 to 6 ct), and an answer block for "What is a vintage marquise engagement ring?". URL, title pattern and H1 unchanged. New internal link from /engagement-rings to the marquise page; the guide and homepage shape strip already linked it. ItemList JSON-LD on shape pages now lists pieces in the page's display order. Product-card alt text now builds from name, shape, style and metal.
+
+**Why**
+- The money page for the "vintage marquise engagement ring" cluster had no marquise-specific copy after the Dutch pieces left the shown list, and the brief's counts (15 pieces, 8 Dutch) no longer matched the live catalogue (12 shown, 0 Dutch).
+
+**Measure**
+- Search Console impressions, clicks and position for the marquise cluster (seo/STATE.md) at the 10 October checkpoint versus the 14 days before 26 September; enquiries and WhatsApp clicks with landing_page = /engagement-rings/shape/marquise once 1A attribution is live.

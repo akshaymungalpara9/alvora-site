@@ -1,13 +1,26 @@
 import type { JewelleryImage, JewelleryPiece } from "@shared/jewellery/catalog";
 import ShapeIcon from "./ShapeIcon";
 
+type PieceForAlt = Pick<JewelleryPiece, "name" | "shape" | "shapeLabel" | "code" | "images" | "styleLabel" | "category" | "collections">;
+
 type Props = {
-  piece: Pick<JewelleryPiece, "name" | "shape" | "shapeLabel" | "code" | "images" | "styleLabel">;
+  piece: PieceForAlt;
   image?: JewelleryImage;
   sizes?: string;
   priority?: boolean;
   className?: string;
 };
+
+function categoryNoun(piece: PieceForAlt): string {
+  if (piece.category === "ring") return piece.collections.includes("engagement-rings") ? "engagement ring" : "ring";
+  if (piece.category === "band") return "wedding band";
+  return piece.category;
+}
+
+function fallbackAlt(piece: PieceForAlt): string {
+  const parts = [piece.shapeLabel?.toLowerCase(), piece.styleLabel?.toLowerCase()].filter(Boolean).join(" ");
+  return `${piece.name}, ${parts ? `${parts} ` : ""}lab-grown diamond ${categoryNoun(piece)} in silver, gold or platinum`;
+}
 
 /**
  * A catalogue photo, or a drawn placeholder while photography is pending.
@@ -31,7 +44,7 @@ export default function PieceImage({ piece, image = piece.images[0], sizes = "(m
       sizes={sizes}
       width={image.width ?? 1400}
       height={image.height ?? 1400}
-      alt={image.alt ?? `${piece.name}${piece.styleLabel ? `, ${piece.styleLabel.toLowerCase()} setting` : ""}`}
+      alt={image.alt ?? fallbackAlt(piece)}
       loading={priority ? "eager" : "lazy"}
       decoding="async"
       {...(priority ? { fetchPriority: "high" as const } : {})}
