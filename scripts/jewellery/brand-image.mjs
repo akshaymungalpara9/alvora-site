@@ -43,7 +43,7 @@ export const BRAND_IMAGE_STYLE = {
   enclosedMaxSpread: 1.2, // …and they are as smooth as a studio backdrop
   // Product shots on a studio background are cropped to the piece and enlarged
   // so it fills the frame, instead of floating small in empty space.
-  subjectFill: 0.66, // longest side of the piece as a share of the canvas
+  subjectFill: 0.78, // longest side of the piece as a share of the canvas
   maxUpscale: 2.5, // never enlarge the source more than this, to stay sharp
   shadowTolerance: 40, // pixels within this of the backdrop tone count as shadow when framing
 };
@@ -213,17 +213,31 @@ async function knockOutBackground({ data, info }, style) {
  * `source` may be a path or a Buffer.
  */
 export async function brandImage(source, size, style = BRAND_IMAGE_STYLE) {
+  return (await brandImageWithMeta(source, size, style)).pipeline;
+}
+
+/**
+ * Same render as brandImage, but also reports how the photo was framed:
+ * whether the studio background was found (cutout), the piece bounding box,
+ * the scale actually applied, and whether the upscale cap held the piece
+ * below the requested fill. Used by reframe-leads.mjs to flag photos that
+ * need manual cropping or an AI upscale.
+ */
+export async function brandImageWithMeta(source, size, style = BRAND_IMAGE_STYLE) {
   const inner = Math.round(size * (1 - style.framePadding * 2));
   const cutout = style.replaceBackground
     ? await knockOutBackground(await sharp(source).rotate().resize({ width: WORKING_SIZE, height: WORKING_SIZE, fit: "inside", withoutEnlargement: true }).flatten({ background: "#ffffff" }).raw().toBuffer({ resolveWithObject: true }), style)
     : null;
   let photo;
+  let meta = { cutout: false, box: null, scale: null, capped: false, fill: null };
   if (cutout) {
     // Scale the piece to fill the frame (within the upscale limit) and centre
     // it: take a square window around the piece, padding with transparency
     // where the window runs past the photo's edge.
     const { box } = cutout;
-    const scale = Math.min((size * style.subjectFill) / Math.max(box.width, box.height), style.maxUpscale);
+    const wantScale = (size * style.subjectFill) / Math.max(box.width, box.height);
+    const scale = Math.min(wantScale, style.maxUpscale);
+    meta = { cutout: true, box, scale, capped: wantScale > style.maxUpscale, fill: (Math.max(box.width, box.height) * scale) / size };
     const side = Math.round(size / scale);
     const cx = box.left + box.width / 2;
     const cy = box.top + box.height / 2;
@@ -262,9 +276,62 @@ export async function brandImage(source, size, style = BRAND_IMAGE_STYLE) {
     ];
   }
 
-  return sharp(backdropSvg(size, style))
+  const pipeline = sharp(backdropSvg(size, style))
     .composite([photoLayer, ...watermark])
+    .sharpen({ sigma: 0.5 })
     .webp({ quality: 82 });
+  return { pipeline, meta };
+}
+
+/**
+ * Render a branded square image from an externally produced RGBA cutout (PNG
+ * buffer) and the piece's bounding box inside it. Same framing, watermark and
+ * sharpen as the studio-background path in brandImageWithMeta.
+ */
+export async function brandCutoutImage(cutoutPng, box, srcWidth, srcHeight, size, style = BRAND_IMAGE_STYLE) {
+  const wantScale = (size * style.subjectFill) / Math.max(box.width, box.height);
+  const scale = Math.min(wantScale, style.maxUpscale);
+  const meta = { cutout: true, box, scale, capped: wantScale > style.maxUpscale, fill: (Math.max(box.width, box.height) * scale) / size };
+  const side = Math.round(size / scale);
+  const cx = box.left + box.width / 2;
+  const cy = box.top + box.height / 2;
+  const wantLeft = Math.round(cx - side / 2);
+  const wantTop = Math.round(cy - side / 2);
+  const x0 = Math.max(0, wantLeft);
+  const y0 = Math.max(0, wantTop);
+  const x1 = Math.min(srcWidth, wantLeft + side);
+  const y1 = Math.min(srcHeight, wantTop + side);
+  const window = await sharp(cutoutPng)
+    .extract({ left: x0, top: y0, width: x1 - x0, height: y1 - y0 })
+    .extend({ left: x0 - wantLeft, top: y0 - wantTop, right: wantLeft + side - x1, bottom: wantTop + side - y1, background: { r: 0, g: 0, b: 0, alpha: 0 } })
+    .png()
+    .toBuffer();
+  const photo = await sharp(window).resize({ width: size, height: size, fit: "fill" }).png().toBuffer({ resolveWithObject: true });
+
+  const margin = Math.round(size * style.margin);
+  const photoLayer = { input: photo.data, left: Math.round((size - photo.info.width) / 2), top: Math.round((size - photo.info.height) / 2) };
+
+  let watermark;
+  if (fs.existsSync(LOGO_PATH)) {
+    const logo = await logoBuffer(size, style);
+    watermark = [{ input: logo.buffer, left: size - margin - logo.width, top: size - margin - logo.height }];
+  } else {
+    const mark = await markBuffer(size, style);
+    const word = wordmarkSvg(size, style);
+    const gap = Math.round(size * 0.008);
+    const wordLeft = size - margin - word.width;
+    const baseline = size - margin;
+    watermark = [
+      { input: mark.buffer, left: wordLeft - gap - mark.size, top: baseline - mark.size },
+      { input: word.svg, left: wordLeft, top: baseline - Math.round((mark.size + word.height) / 2) },
+    ];
+  }
+
+  const pipeline = sharp(backdropSvg(size, style))
+    .composite([photoLayer, ...watermark])
+    .sharpen({ sigma: 0.5 })
+    .webp({ quality: 82 });
+  return { pipeline, meta };
 }
 
 const IMAGE_FILE = /\.(jpe?g|png|webp|tiff?|avif|heic)$/i;
