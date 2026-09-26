@@ -37,6 +37,10 @@ export const JEWELLERY_ENQUIRIES_DDL = `CREATE TABLE IF NOT EXISTS \`jewellery_e
 	\`message\` text,
 	\`landingPage\` varchar(300),
 	\`referrer\` varchar(200),
+	\`utmSource\` varchar(120),
+	\`utmMedium\` varchar(120),
+	\`utmCampaign\` varchar(160),
+	\`sourceClass\` varchar(40),
 	\`alertStatus\` enum('pending','sent','failed') NOT NULL DEFAULT 'pending',
 	\`alertError\` text,
 	\`alertMessageId\` varchar(160),
@@ -69,6 +73,10 @@ export type JewelleryEnquiryInput = {
   message?: string;
   landingPage?: string;
   referrer?: string;
+  utmSource?: string;
+  utmMedium?: string;
+  utmCampaign?: string;
+  sourceClass?: string;
 };
 
 export type FollowUpStatus = JewelleryEnquiry["followUpStatus"];

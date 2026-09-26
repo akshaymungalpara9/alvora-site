@@ -155,3 +155,16 @@ Append-only. Newest entry at the bottom. Never delete an entry.
 - Changed: dropped the 4:5 clip variants; the homepage and product pages all use the same three 16:9 clips. Phones (under 640px) stack the cards vertically at full width instead of a swipe row. The finishing clip ships as the reversed 16:9 cut at full frame, no crop, no letterbox.
 - Why: the generated finishing clip pans across the full frame width, so any 4:5 crop clipped the side stones; keeping one 16:9 set also halves the number of assets to maintain.
 - Measure: unchanged (enquiry and WhatsApp-click rate on product pages, 14 days before and after the clips ship).
+
+---
+
+## 2026-09-26: Enquiry and WhatsApp attribution (workstream 1A)
+
+**Changed**
+- Every enquiry and WhatsApp click now records the visit's first page, referrer host, utm_source, utm_medium, utm_campaign and a classified source (google, bing, ai_assistant, pinterest, instagram, indiamart, email, direct, other). Stored on the enquiry row (new nullable columns, migration 0015), sent as GA4 and Umami event parameters, and shown on the admin enquiry view.
+
+**Why**
+- Enquiry and WhatsApp-click rates per landing page were not reliably attributable: UTMs from campaigns (Pinterest, Instagram, IndiaMART) and AI-assistant referrers were dropped, so the 10 October before/after comparison for the product-page work could not be read per source.
+
+**Measure**
+- Coverage: share of new enquiry rows with a non-empty sourceClass (target: all rows, since "direct" is the floor) and with UTM fields where a campaign link was used. Compare product-page enquiry and WhatsApp-click rate by source_class at the 10 October checkpoint against the 14 days before 26 September.

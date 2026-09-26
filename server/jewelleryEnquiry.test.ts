@@ -111,7 +111,17 @@ describe("jewellery enquiries", () => {
     await expect(jewelleryRouter.createCaller({} as never).submit({ ...pieceInput, kind: "consultation", pieceCode: undefined })).resolves.toMatchObject({ saved: true });
     expect(email.sendTransactionalEmail.mock.calls[0][0].subject).toContain("[Consultation]");
     const migration = readFileSync("drizzle/0013_jewellery_enquiries.sql", "utf8").trim();
-    expect(JEWELLERY_ENQUIRIES_DDL.trim()).toBe(migration);
+    const attribution = readFileSync("drizzle/0015_enquiry_attribution.sql", "utf8");
+    // The runtime DDL is the original create plus the 0015 attribution columns.
+    const expected = migration.replace(
+      "\`referrer\` varchar(200),",
+      "\`referrer\` varchar(200),\n\t\`utmSource\` varchar(120),\n\t\`utmMedium\` varchar(120),\n\t\`utmCampaign\` varchar(160),\n\t\`sourceClass\` varchar(40),",
+    );
+    expect(expected).not.toBe(migration);
+    expect(JEWELLERY_ENQUIRIES_DDL.trim()).toBe(expected);
+    for (const column of ["utmSource", "utmMedium", "utmCampaign", "sourceClass"]) {
+      expect(attribution).toContain(`ADD \`${column}\``);
+    }
   });
 
   it("keeps the saved enquiry and records a failed alert", async () => {

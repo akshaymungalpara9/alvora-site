@@ -41,6 +41,10 @@ export const jewelleryEnquiryInput = z.object({
   // Attribution: the first page of the visit and the external referrer host.
   landingPage: optionalText(300).transform((value) => (value && value.startsWith("/") ? value : undefined)),
   referrer: optionalText(200),
+  utmSource: optionalText(120),
+  utmMedium: optionalText(120),
+  utmCampaign: optionalText(160),
+  sourceClass: z.enum(["google", "bing", "ai_assistant", "pinterest", "instagram", "indiamart", "email", "direct", "other"]).optional(),
 });
 
 export const jewelleryRouter = router({
