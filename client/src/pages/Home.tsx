@@ -12,6 +12,7 @@ import ShapeSelector, { SHOP_SHAPES } from "@/components/jewellery/ShapeSelector
 import EditorialBand from "@/components/jewellery/EditorialBand";
 import PieceImage from "@/components/jewellery/PieceImage";
 import HeroSlides, { type HeroSlide } from "@/components/jewellery/HeroSlides";
+import CraftSteps from "@/components/jewellery/CraftSteps";
 import { pieceHref } from "@/components/jewellery/ProductCard";
 import { PUBLIC_PIECES, formatFromPrice } from "@shared/jewellery/catalog";
 import { fromPriceInr } from "@shared/jewellery/pricing";
@@ -86,6 +87,8 @@ export default function Home() {
           </dl>
         </div>
       </section>
+
+      <CraftSteps withJsonLd />
 
       {liveShapes.length ? (
         <section className="jh-section jh-shapes" aria-labelledby="shop-by-shape">

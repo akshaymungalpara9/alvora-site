@@ -6,6 +6,7 @@ import PieceImage from "@/components/jewellery/PieceImage";
 import MetalSwatches, { METAL_LABELS } from "@/components/jewellery/MetalSwatches";
 import CollectionGrid from "@/components/jewellery/CollectionGrid";
 import EnquiryForm, { type PieceSelection } from "@/components/jewellery/EnquiryForm";
+import CraftSteps from "@/components/jewellery/CraftSteps";
 import NotFound from "@/pages/NotFound";
 import { GRADING_REPORT_IMAGE, PUBLIC_PIECES, findPublicPiece, formatFromPrice, type MetalColour } from "@shared/jewellery/catalog";
 import { pieceMeta } from "@shared/jewellery/seo";
@@ -253,6 +254,8 @@ export default function ProductPage({ slug }: { slug: string }) {
           {story.paragraphs.map((paragraph) => <p key={paragraph.slice(0, 24)}>{paragraph}</p>)}
         </section>
       ) : null}
+
+      <CraftSteps />
 
       <section className="jp-enquire" id="enquire" aria-labelledby="enquire-heading">
         <div>
