@@ -122,3 +122,17 @@ Append-only. Newest entry at the bottom. Never delete an entry.
 **Decided**
 - The cream `.specialty-section-ink` band stays as a design alternation; only its text colour was wrong.
 - The brand gold eyebrow (#c7a75a on cream, about 2.1:1) is a deliberate site-wide accent used on owner-approved pages; left unchanged.
+## 2026-09-26: Catalogue lead-photo coherence pass (all 232 live pieces)
+
+**Done**
+- Re-processed every live catalogue lead card (rings, earrings, pendants, bands) to one standard: piece detected and cropped from the original full-resolution source, composited centred on the ivory backdrop with the Alvora watermark at a fixed product-to-frame ratio (longest side 0.78 of frame, subjectFill 0.78), light sharpen (sigma 0.5), exported at 2x card size (1400px lead plus 600px thumb).
+- 228 of 232 live pieces shipped to the new standard. Real-ESRGAN (realesr-general-x4v3) upscaling used on 58 pieces where the tight crop would have been too low-resolution; every upscale visually compared against its original for invented detail before shipping. 17 lifestyle leads with unusable primary photos were recomposed from a different photo in the same source folder (original lead stays in the gallery); 3 pieces with only AI-generated lead images were normalised from those sources.
+- 4 pieces stay as-is (ALV-R-0213, ALV-R-0214, ALV-R-0215, ALV-R-0219): on-hand-only sources where subject isolation either keeps the hand or drops the band, which would misrepresent the piece. Listed for the owner.
+- Lifestyle and styled shots remain untouched as secondary gallery photos; only lead card images changed. No partner names, SKUs or original filenames in public output.
+
+**Verification**
+- Full-catalogue contact sheets (6 sheets, all 232 cards) reviewed visually for centring, fill consistency, backdrop and watermark coherence before merge.
+- Gates: tsc clean, validate-seo-meta 326 routes, vitest identical to main baseline (12 pre-existing failures), full build with prerender snapshots.
+
+**Next**
+- Owner to review the 4 stays-as-is pieces and supply studio photos if they should join the standard.
