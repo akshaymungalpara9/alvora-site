@@ -11,6 +11,22 @@ before big changes, and end each work session with a short summary.
   were given and log what shipped in `seo/LOG.md`.
 - House style for all copy and docs: no em-dashes anywhere.
 
+## Owner decisions (2026-09-26)
+- Audience priority: **primary = D2C buyers of Alvora lab-grown diamond
+  jewellery**; secondary = traders, brokers and jewellers buying loose LGDs
+  or jewellery for trade (they must also drive sales). The homepage stays
+  jewellery-first with a clear trade door; the 26 Sep visitor-readiness
+  audit's "trade door primary" recommendation is not adopted.
+- Named bylines: Akshay Mungalpara and Rashesh Vadodariya (roles to
+  confirm) replace "Alvora Diamonds editorial team".
+- `sameAs` profiles confirmed: Instagram, Pinterest, IndiaMART (Alvora
+  Diamonds account only, never the Alvora Global Fabrics one). Add only once
+  the live URLs are supplied. Others in progress.
+- Office: Diamond World, Mini Bazaar, Surat. Full address, PIN, GSTIN, IEC
+  and GJEPC still to come.
+- The monthly GEO prompt panel (`seo/geo-prompt-panel.md`) is run by the
+  owner's execution tools, not the strategy session.
+
 ## What the site is
 - **Retail jewellery is the homepage.** Engagement rings, earrings and more,
   set with lab-grown diamonds. Buying is **enquiry-first**: no checkout. A
