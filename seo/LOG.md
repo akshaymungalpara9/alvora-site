@@ -155,3 +155,16 @@ Append-only. Newest entry at the bottom. Never delete an entry.
 - Changed: dropped the 4:5 clip variants; the homepage and product pages all use the same three 16:9 clips. Phones (under 640px) stack the cards vertically at full width instead of a swipe row. The finishing clip ships as the reversed 16:9 cut at full frame, no crop, no letterbox.
 - Why: the generated finishing clip pans across the full frame width, so any 4:5 crop clipped the side stones; keeping one 16:9 set also halves the number of assets to maintain.
 - Measure: unchanged (enquiry and WhatsApp-click rate on product pages, 14 days before and after the clips ship).
+
+---
+
+## 2026-09-26: Pinterest and Instagram preparation (workstream 1D)
+
+**Changed**
+- Product pages now serve og:type "product" with product:price:amount and product:price:currency (INR) where the piece has a rupee price; price-on-request pieces get neither tag. Every page supports the Pinterest domain-claim meta when PINTEREST_DOMAIN_VERIFY is set in Railway (no value hard-coded). New pnpm social:pinterest script writes data/social/pinterest-bulk.csv (232 pins, 16 boards, UTM-tagged links) and data/social/instagram-links.md (9 collection links with Instagram UTM tags).
+
+**Why**
+- Pinterest and Instagram become measurable inbound channels: every pin is a durable UTM-tagged link, and once 1A attribution merges, clicks from them land as source_class pinterest/instagram.
+
+**Measure**
+- First 50 pins live; a test click from a pin recorded as source_class pinterest in GA4; Instagram bio-link sessions with utm_source=instagram. Read at the 10 October checkpoint.
