@@ -5,6 +5,7 @@
  * See seo/reports for the research behind each page.
  */
 import { PUBLIC_PIECES, type JewelleryPiece } from "./catalog";
+import { CENTRE_STONE_CARATS, CENTRE_STONE_GRADE, isWhite } from "./centreStone";
 import { formatInr, fromPriceInr } from "./pricing";
 
 export type EditorialSection = { heading: string; body: string[]; link?: { label: string; href: string } };
@@ -16,7 +17,15 @@ export type ShapeContent = {
   intro: string;
   sections: EditorialSection[];
   guide?: { label: string; href: string };
+  answer?: { question: string; text: string; buyerNote: string };
 };
+
+/** "a", "a and b", "a, b and c" (house style: no Oxford comma). */
+function joinList(items: string[]): string {
+  if (items.length <= 1) return items[0] ?? "";
+  if (items.length === 2) return `${items[0]} and ${items[1]}`;
+  return `${items.slice(0, -1).join(", ")} and ${items[items.length - 1]}`;
+}
 
 
 
@@ -30,20 +39,37 @@ function priceSpan(pieces: JewelleryPiece[]) {
 export function shapeContentFor(shape: string): ShapeContent | null {
   if (shape !== "marquise") return null;
   const pieces = PUBLIC_PIECES.filter((p) => p.shape === "marquise" && p.collections.includes("engagement-rings"));
+  if (!pieces.length) return null;
   const dutch = pieces.filter((p) => p.tags.includes("dutch-marquise")).length;
-  // This copy is about vintage and Dutch marquise; without Dutch pieces on sale
-  // it would promise rings we do not show, so the generic template is used.
-  if (!dutch) return null;
+  // The vintage and Dutch copy below only runs while Dutch (or otherwise
+  // vintage-detailed) marquise pieces are actually on sale; without them it
+  // would promise rings we do not show.
+  const vintage = dutch > 0;
   const span = priceSpan(pieces);
   const fromText = span ? ` from ${formatInr(span.from)}` : "";
+  const styleList = joinList(Array.from(new Map(pieces.map((p) => [p.style, p.styleLabel.toLowerCase()])).values()));
+  const carats = `${CENTRE_STONE_CARATS[0]} to ${CENTRE_STONE_CARATS[CENTRE_STONE_CARATS.length - 1]} ct`;
+  const grade = `${CENTRE_STONE_GRADE.colour} colour, ${CENTRE_STONE_GRADE.clarity} clarity with ${CENTRE_STONE_GRADE.cut} polish and symmetry`;
+  const gradeSentence = pieces.every(isWhite)
+    ? `Every centre stone is ${grade}, in your choice of ${carats}.`
+    : `White centre stones are ${grade}, in your choice of ${carats}; champagne and coloured stones are graded to the same ${CENTRE_STONE_GRADE.clarity} standard.`;
   return {
-    title: "Vintage & Dutch Marquise Engagement Rings, Lab-Grown | Alvora",
-    description: `Vintage-style marquise and Dutch marquise lab-grown diamond engagement rings with milgrain, filigree and engraved detail, made to order in silver, 14K or 18K gold, or platinum${fromText}.`,
-    heading: "Vintage & Dutch marquise engagement rings",
-    intro: `Lab-grown marquise diamonds in vintage-style settings, from the classic curved marquise to the straighter-sided Dutch marquise, made to your size in silver, 14K or 18K gold, or platinum${fromText}.`,
+    title: vintage ? "Vintage & Dutch Marquise Engagement Rings, Lab-Grown | Alvora" : "Marquise Lab-Grown Diamond Engagement Rings | Alvora",
+    description: vintage
+      ? `Vintage-style marquise and Dutch marquise lab-grown diamond engagement rings with milgrain, filigree and engraved detail, made to order in silver, 14K or 18K gold, or platinum${fromText}.`
+      : `${pieces.length} marquise lab-grown diamond engagement rings in ${styleList} settings, made to order in silver, 14K or 18K gold, or platinum${fromText}.`,
+    heading: vintage ? "Vintage & Dutch marquise engagement rings" : "Marquise engagement rings",
+    intro: vintage
+      ? `Lab-grown marquise diamonds in vintage-style settings, from the classic curved marquise to the straighter-sided Dutch marquise, made to your size in silver, 14K or 18K gold, or platinum${fromText}.`
+      : `${pieces.length} marquise lab-grown diamond engagement rings in ${styleList} settings, made to your size in silver, 14K or 18K gold, or platinum${fromText}. ${gradeSentence}`,
     guide: { label: "Dutch marquise or classic marquise? Read the guide", href: "/guides/dutch-marquise-vs-marquise" },
+    answer: {
+      question: "What is a vintage marquise engagement ring?",
+      text: "A vintage marquise engagement ring sets the long, pointed marquise diamond, a shape born in 18th-century France, with details borrowed from heirloom jewellery: milgrain edges, filigree, hand engraving or leaf-shaped claws. The stone lengthens the look of the finger, and the detailing gives it the character of a ring passed down through generations.",
+      buyerNote: "What this means for you: every ring here is made to order, so if a vintage detail matters to you, mention it in your enquiry and we will tell you what is possible before you commit.",
+    },
     sections: [
-      {
+      ...(vintage ? [{
         heading: "What makes a marquise engagement ring vintage?",
         body: [
           "The setting does. Milgrain edges, filigree, hand engraving and leaf- or flower-shaped claws give a marquise the look of an heirloom, while the long, pointed stone itself has been a jewellery classic since 18th-century France.",
@@ -57,7 +83,7 @@ export function shapeContentFor(shape: string): ShapeContent | null {
           `${dutch} of the ${pieces.length} rings here are Dutch marquise. Both shapes lengthen the look of the finger.`,
         ],
         link: { label: "Compare the two shapes in detail", href: "/guides/dutch-marquise-vs-marquise" },
-      },
+      }] : []),
       {
         heading: "How much does a lab-grown marquise engagement ring cost?",
         body: [

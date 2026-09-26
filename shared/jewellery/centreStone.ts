@@ -18,7 +18,7 @@ export function hasCentreStone(piece: Pick<JewelleryPiece, "category" | "collect
 }
 
 /** Colour grades apply to white diamonds only; coloured diamonds are described by their colour. */
-function isWhite(piece: Piece) {
+export function isWhite(piece: Piece) {
   return !piece.stoneColourLabel;
 }
 

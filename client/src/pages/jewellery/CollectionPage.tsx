@@ -125,7 +125,18 @@ export default function CollectionPage({ path, shape }: Props) {
         {editorial?.guide ? (
           <Link href={editorial.guide.href} className="jw-link jc-guide-link">{editorial.guide.label} <ArrowRight size={13} /></Link>
         ) : null}
+        {!shape && path === "/engagement-rings" ? (
+          <Link href="/engagement-rings/shape/marquise" className="jw-link jc-guide-link">Drawn to a longer stone? Start with the marquise rings <ArrowRight size={13} /></Link>
+        ) : null}
       </section>
+
+      {editorial?.answer ? (
+        <div className="insight-answer-block">
+          <p className="insight-answer-label">{editorial.answer.question}</p>
+          <p className="insight-answer-text">{editorial.answer.text}</p>
+          <p className="insight-answer-buyer">{editorial.answer.buyerNote}</p>
+        </div>
+      ) : null}
 
       {isEngagement || shape ? (
         <div className="jc-shapes">

@@ -367,7 +367,7 @@ function jewelleryRouteMeta(pathname: string, origin: string): RouteMeta | null 
 
   const shapeMatch = SHAPE_ROUTE.exec(pathname);
   if (shapeMatch) {
-    const pieces = PUBLIC_PIECES.filter((piece) => piece.shape === shapeMatch[1] && piece.collections.includes("engagement-rings"));
+    const pieces = PUBLIC_PIECES.filter((piece) => piece.shape === shapeMatch[1] && piece.collections.includes("engagement-rings")).sort((a, b) => b.featuredScore - a.featuredScore);
     const label = pieces[0]?.shapeLabel ?? shapeMatch[1].replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
     const meta = shapePageMeta(shapeMatch[1], label);
     return {
