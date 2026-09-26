@@ -3,6 +3,30 @@
 Read this first. The owner is non-technical: explain in plain English, plan
 before big changes, and end each work session with a short summary.
 
+## Who does what (owner decision, 2026-09-26)
+- Claude (the owner's strategy session) owns **inbound, SEO and GEO strategy
+  only**: plans, priorities, briefs and execution-ready prompts.
+- **Execution is done by the owner using other LLMs / coding agents** (Claude
+  Code, Codex, etc.). If you are the executing agent, follow the brief you
+  were given and log what shipped in `seo/LOG.md`.
+- House style for all copy and docs: no em-dashes anywhere.
+
+## Owner decisions (2026-09-26)
+- Audience priority: **primary = D2C buyers of Alvora lab-grown diamond
+  jewellery**; secondary = traders, brokers and jewellers buying loose LGDs
+  or jewellery for trade (they must also drive sales). The homepage stays
+  jewellery-first with a clear trade door; the 26 Sep visitor-readiness
+  audit's "trade door primary" recommendation is not adopted.
+- Named bylines: Akshay Mungalpara and Rashesh Vadodariya (roles to
+  confirm) replace "Alvora Diamonds editorial team".
+- `sameAs` profiles confirmed: Instagram, Pinterest, IndiaMART (Alvora
+  Diamonds account only, never the Alvora Global Fabrics one). Add only once
+  the live URLs are supplied. Others in progress.
+- Office: Diamond World, Mini Bazaar, Surat. Full address, PIN, GSTIN, IEC
+  and GJEPC still to come.
+- The monthly GEO prompt panel (`seo/geo-prompt-panel.md`) is run by the
+  owner's execution tools, not the strategy session.
+
 ## What the site is
 - **Retail jewellery is the homepage.** Engagement rings, earrings and more,
   set with lab-grown diamonds. Buying is **enquiry-first**: no checkout. A
@@ -24,7 +48,8 @@ before big changes, and end each work session with a short summary.
 ## Catalogue: how it works
 - Source list: `data/jewellery/launch_shortlist_v1.csv`.
 - **Launch rule**: `data/jewellery/launch.json`: June Rings (all), Pooja
-  Diamond (all), Carat Diamonds (earrings only).
+  Diamond (all), Carat Diamonds (earrings and pendants; pendants added
+  2026-09-26).
 - A piece is shown on the site only when it is on the launch list **and has
   at least one photo** (`isShown()` in `shared/jewellery/catalog.ts`).
   Empty collections hide from the navigation automatically.
@@ -37,10 +62,11 @@ before big changes, and end each work session with a short summary.
 ## Prices (owner-set 2026-09-25)
 - `shared/jewellery/pricing.ts`: engagement rings are priced in rupees by
   metal (925 sterling silver, 14K gold, 18K gold, platinum) and centre-stone
-  carat (0.5–6 ct). "From" price = 0.5 ct in silver (₹25,000); the product page
+  carat (0.5–6 ct). "From" price = 0.5 ct in silver (₹30,000 since the +10%
+  rise on 2026-09-25; `retailMultiplier` 1.10); the product page
   opens on it. Platinum = 14K prices (owner-confirmed). Silver and platinum are
   white only; gold keeps yellow/white/rose.
-- Earrings show "Price on request" (owner's choice). The partner list prices
+- Earrings and pendants show "Price on request" (owner's choice). The partner list prices
   (`fromPriceUsd`) are internal only: they may be trade prices, so don't publish
   them without a markup decision.
 - Launch offer: table prices are the offer prices; runs until 25 Dec 2026
@@ -76,9 +102,21 @@ before big changes, and end each work session with a short summary.
   skipped before numbering: a 64-bit difference hash (dhash) drops any photo
   within 2 bits of one already kept. Dropped filenames are logged to the
   git-ignored `data/jewellery/skipped-photos.txt` so you can review the trims.
-- Status (2026-09-25): June Rings 196/196 and Carat earrings 20/20 have photos.
-  **Pooja (91 pieces) still needs photos**; they appear automatically once
-  added and `pnpm jewellery:images` is run.
+- Status (2026-09-26): catalogue 347 pieces (291 rings, 32 earrings, 18
+  pendants, 6 bands); **232 shown on the site** (196 rings, 20 earrings, 16
+  pendants). Hidden for lack of photos: 95 rings, 12 earrings, 2 pendants
+  (ALV-P-0004 pear, ALV-P-0018 cushion) and all 6 bands. The Pooja pieces
+  (91) still need photos; they appear automatically once added and
+  `pnpm jewellery:images` is run. `data/jewellery/import-report.txt` is the
+  source of truth for these counts.
+- Lead-card standard (2026-09-26, PR #22): every lead card is the piece
+  cropped from the original, centred on ivory at subjectFill 0.78, light
+  sharpen, 1400px lead + 600px thumb. 58 upscaled with Real-ESRGAN
+  (realesr-general-x4v3), each checked against its original. Four pieces
+  kept as-is (ALV-R-0213, 0214, 0215, 0219: on-hand-only sources); they need
+  studio photos from the owner.
+- Damaged-photo sweep of all 232 cards is in progress (2026-09-26): a
+  per-piece fix plan goes to the owner before anything live changes.
 
 - Every product gallery ends with the shared grading-report photo
   (`client/public/assets/jewellery/shared/grading-report*.webp`,
@@ -131,16 +169,29 @@ before big changes, and end each work session with a short summary.
 - Follows the owner's SEO/AEO playbook: conversions first, one money page at
   a time, weekly loop, every claim sourced. Files in `seo/` (`BRIEF.md`,
   `STATE.md`, `LOG.md`, `WEEKLY_LOOP.md`, `reports/`).
-- Next money page: `/earrings`.
+- Next money page: `/earrings` (per `seo/LOG.md`; `seo/STATE.md` baseline
+  still describes the marquise bet and pre-launch state).
+- Monthly GEO prompt panel: `seo/geo-prompt-panel.md` (36 prompts, first run
+  in the October cycle).
 - Route meta: `server/seoInjection.ts`; `npx tsx scripts/validate-seo-meta.ts`
   checks every title/description is unique. Prerendered snapshots in
   `prerendered/` are regenerated by `pnpm build` (needs `CHROMIUM_PATH`) and
   committed.
 
 ## GEO (AI search) status
-- Phase 1 (2026-09-17) was partly undone by the 2026-09-23 production
-  checkpoint: /availability is blocked in robots.txt again and missing from
-  the sitemap and llms.txt. Awaiting the owner's decision to reopen it.
+- /availability reopened to crawlers on 2026-09-25 (PR #10): robots.txt now
+  blocks only `/buyer-availability`, `/admin`, `/api/`; /availability is in
+  the sitemap.
+- GEO Phase 1: 9 of 12 items live as of 2026-09-26 (one Alvora Diamonds
+  entity, article markup with real dates, breadcrumbs and ItemList on all 22
+  insights articles, labelled answer blocks, bylines and last-reviewed dates,
+  evidence labels on 8 volatile articles, llms.txt listing all 22 articles
+  with a drift-guard test, the calibrated-parcel specification template page,
+  the prompt panel). Owner-gated: redacted documents, off-site outreach,
+  company facts (address, PIN, GSTIN, IEC, GJEPC).
+- Readability: white-on-cream text fixed site-wide and DRAFT-VALUE terms
+  removed (PR #21, contrast audit over 326 routes). Unconfirmed tolerance,
+  MOQ and lead-time values read "On request".
 - Stock facts from `server/data/stones.public.json` (3,185 stones): white
   colours D–G (plus 4 outliers), clarity IF–SI2 (mostly VVS2–VS1), cut mostly
   Ideal/Excellent. Public copy must match these.
@@ -153,11 +204,22 @@ before big changes, and end each work session with a short summary.
 - Logo file at `client/public/assets/brand/alvora-logo.png` (optional).
 - Two Carat earrings appear to be the same product (flower-stud marquise vs
   marquise prong-style); decide whether to hide one.
-- After launch: connect Google Search Console and Bing Webmaster Tools.
+- After launch: connect Google Search Console and Bing Webmaster Tools
+  (the brand-search plan needs the Search Console login).
+- Company facts for GEO/entity markup: address, PIN, GSTIN, IEC, GJEPC.
+- Pendants: is there a pear pendant photo set (ALV-P-0004)? Is the spare
+  rose-gold cushion set ALV-P-0018 Viola?
+- Six likely-same-design ring pairs from the June Rings wave 2 import were
+  kept separate pending review; three band designs are classed as rings.
 
 ## Commands
 - `pnpm dev` (localhost:3000), `pnpm check`, `pnpm vitest run`, `pnpm build`.
-- Deploy: from the owner's Mac, `railway up` (no Railway token in the cloud).
-- Known pre-existing test failures (9): resend, whatsapp, buyerWorkflow ×2,
-  publicLegalSeo sitemap, publicMakerLanguage ×2, publicSeo og image,
-  tradeEngagementPublic.
+- Deploy: live site matched `origin/main` on 2026-09-26 (PR #20 template page
+  and PR #19 pendants were live). The older note says deploy is `railway up`
+  from the owner's Mac; confirm which route is current before deploying.
+- The owner's Mac copy at `LBG/website` could not fetch from GitHub on
+  2026-09-26 (SSH host key check fails) and was behind `origin/main`. Work
+  from a fresh HTTPS clone, not from that folder.
+- Known pre-existing test failures: 12 as of 2026-09-26 (was 9). Compare
+  against the main baseline, not zero.
+- Prerender snapshots: 326 routes.
