@@ -56,6 +56,8 @@ interface RouteMeta {
   robots?: string;
   alternates?: Array<{ lang: string; href: string }>;
   serviceJsonLd?: object | object[];
+  ogType?: string;
+  productPriceInr?: number | null;
 }
 
 function buildOrgJsonLd(origin: string) {
@@ -378,6 +380,8 @@ function jewelleryRouteMeta(pathname: string, origin: string): RouteMeta | null 
       lang: "en",
       ...meta,
       canonical: url(pathname),
+      ogType: "product",
+      productPriceInr: fromPriceInr(piece),
       serviceJsonLd: [product, mkBreadcrumbs(origin, [
         { name: "Home", path: "/" },
         { name: category[0], path: category[1] },
@@ -1036,7 +1040,8 @@ export function injectSeoIntoHtml(html: string, pathname: string, origin: string
 
   const tags = [
     `<meta name="robots" content="${esc(robots)}" />`,
-    `<meta property="og:type" content="website" />`,
+    ...(process.env.PINTEREST_DOMAIN_VERIFY ? [`<meta name="p:domain_verify" content="${esc(process.env.PINTEREST_DOMAIN_VERIFY)}" />`] : []),
+    `<meta property="og:type" content="${esc(meta.ogType ?? "website")}" />`,
     `<meta property="og:title" content="${esc(meta.title)}" />`,
     `<meta property="og:description" content="${esc(meta.description)}" />`,
     `<meta property="og:url" content="${esc(meta.canonical)}" />`,
@@ -1045,6 +1050,12 @@ export function injectSeoIntoHtml(html: string, pathname: string, origin: string
     `<meta property="og:image:height" content="630" />`,
     `<meta property="og:image:type" content="image/jpeg" />`,
     `<meta property="og:image:alt" content="${esc(social.alt)}" />`,
+    ...(meta.ogType === "product" && meta.productPriceInr != null
+      ? [
+          `<meta property="product:price:amount" content="${meta.productPriceInr}" />`,
+          `<meta property="product:price:currency" content="INR" />`,
+        ]
+      : []),
     `<meta property="og:site_name" content="Alvora" />`,
     `<meta property="og:locale" content="${ogLocale}" />`,
     ...ogLocaleAlternates.map((loc) => `<meta property="og:locale:alternate" content="${loc}" />`),
