@@ -1,8 +1,6 @@
 import { useEffect, useRef } from "react";
 import "./CraftSteps.css";
 
-export type CraftStepsVariant = "home" | "product";
-
 interface CraftStep {
   slug: string;
   title: string;
@@ -31,9 +29,9 @@ const STEPS: CraftStep[] = [
   },
 ];
 
-function assetBase(slug: string, variant: CraftStepsVariant) {
-  const ratio = variant === "home" ? "16x9" : "4x5";
-  return `/assets/craft/${slug}-${ratio}`;
+// The owner dropped the 4:5 variants: every placement uses the 16:9 clips.
+function assetBase(slug: string) {
+  return `/assets/craft/${slug}-16x9`;
 }
 
 /** Adds VideoObject JSON-LD for the three clips (homepage only). */
@@ -48,8 +46,8 @@ function useCraftJsonLd(enabled: boolean) {
       "@type": "VideoObject",
       name: step.title,
       description: step.copy,
-      thumbnailUrl: `${origin}${assetBase(step.slug, "home")}.jpg`,
-      contentUrl: `${origin}${assetBase(step.slug, "home")}.mp4`,
+      thumbnailUrl: `${origin}${assetBase(step.slug)}.jpg`,
+      contentUrl: `${origin}${assetBase(step.slug)}.mp4`,
       uploadDate,
     }));
     const el = document.createElement("script");
@@ -61,9 +59,9 @@ function useCraftJsonLd(enabled: boolean) {
   }, [enabled]);
 }
 
-export default function CraftSteps({ variant }: { variant: CraftStepsVariant }) {
+export default function CraftSteps({ withJsonLd = false }: { withJsonLd?: boolean }) {
   const rootRef = useRef<HTMLElement | null>(null);
-  useCraftJsonLd(variant === "home");
+  useCraftJsonLd(withJsonLd);
 
   useEffect(() => {
     const root = rootRef.current;
@@ -93,11 +91,11 @@ export default function CraftSteps({ variant }: { variant: CraftStepsVariant }) 
   }, []);
 
   return (
-    <section className={`craft-steps craft-steps-${variant}`} aria-labelledby="craft-steps-heading" ref={rootRef}>
+    <section className="craft-steps" aria-labelledby="craft-steps-heading" ref={rootRef}>
       <h2 id="craft-steps-heading">How your piece is made</h2>
       <div className="craft-steps-row">
         {STEPS.map((step) => {
-          const base = assetBase(step.slug, variant);
+          const base = assetBase(step.slug);
           return (
             <article className="craft-step" key={step.slug}>
               <div className="craft-step-media">

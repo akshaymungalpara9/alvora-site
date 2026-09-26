@@ -255,7 +255,7 @@ export default function ProductPage({ slug }: { slug: string }) {
         </section>
       ) : null}
 
-      <CraftSteps variant="product" />
+      <CraftSteps />
 
       <section className="jp-enquire" id="enquire" aria-labelledby="enquire-heading">
         <div>

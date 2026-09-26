@@ -150,3 +150,8 @@ Append-only. Newest entry at the bottom. Never delete an entry.
 - Why: owner wants the craft story visible with motion on the two highest-intent page types, without hurting page performance.
 - Measure: enquiry and WhatsApp-click rate on product pages over the 14 days before and after the clips ship.
 - Note: the section code ships before the six final MP4s; cards show their poster slots once pnpm craft:videos runs on the supplied clips. Trade pages unchanged.
+
+## 26 September 2026 - craft section revision: 16:9 on every page
+- Changed: dropped the 4:5 clip variants; the homepage and product pages all use the same three 16:9 clips. Phones (under 640px) stack the cards vertically at full width instead of a swipe row. The finishing clip ships as the reversed 16:9 cut at full frame, no crop, no letterbox.
+- Why: the generated finishing clip pans across the full frame width, so any 4:5 crop clipped the side stones; keeping one 16:9 set also halves the number of assets to maintain.
+- Measure: unchanged (enquiry and WhatsApp-click rate on product pages, 14 days before and after the clips ship).

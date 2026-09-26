@@ -1,11 +1,9 @@
 // Encodes the six owner-supplied craft clips for the CraftSteps section.
 // Inputs (git-ignored, supplied by the owner via the video workflow):
-//   data/craft-videos/selection-16x9.mp4  (homepage)
+//   data/craft-videos/selection-16x9.mp4
 //   data/craft-videos/setting-16x9.mp4
-//   data/craft-videos/finishing-16x9.mp4
-//   data/craft-videos/selection-4x5.mp4   (product pages)
-//   data/craft-videos/setting-4x5.mp4
-//   data/craft-videos/finishing-4x5.mp4
+//   data/craft-videos/finishing-16x9.mp4  (reversed cut, used full-frame)
+// The owner dropped the 4:5 variants: product pages use the same 16:9 clips.
 // Outputs (committed): client/public/assets/craft/<name>.mp4 (H.264 CRF 26,
 // no audio, faststart, under 2.5 MB), <name>.webm (VP9) and <name>.jpg
 // (poster taken from the last frame).
@@ -17,7 +15,7 @@ const INPUT_DIR = path.resolve("data/craft-videos");
 const OUTPUT_DIR = path.resolve("client/public/assets/craft");
 const MAX_MP4_BYTES = 2.5 * 1024 * 1024;
 
-const NAMES = ["selection-16x9", "setting-16x9", "finishing-16x9", "selection-4x5", "setting-4x5", "finishing-4x5"];
+const NAMES = ["selection-16x9", "setting-16x9", "finishing-16x9"];
 
 function ffmpeg(args) {
   execFileSync("ffmpeg", ["-y", "-hide_banner", "-loglevel", "error", ...args], { stdio: "inherit" });
@@ -28,7 +26,7 @@ const present = NAMES.filter((name) => !missing.includes(name));
 if (!present.length) {
   console.error(`No input clips found in ${INPUT_DIR}. Expected:`);
   for (const name of NAMES) console.error(`  - ${name}.mp4`);
-  console.error("Place the six owner-supplied MP4s there and re-run pnpm craft:videos.");
+  console.error("Place the three owner-supplied MP4s there and re-run pnpm craft:videos.");
   process.exit(1);
 }
 if (missing.length) {
