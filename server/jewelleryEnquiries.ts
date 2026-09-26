@@ -63,6 +63,7 @@ export type JewelleryEnquiryInput = {
   email: string;
   phone?: string;
   country?: string;
+  displayedCurrency?: string;
   preferredContact: "email" | "whatsapp" | "phone" | "video";
   preferredTime?: string;
   budget?: string;
@@ -184,6 +185,7 @@ export function buildJewelleryAlert(enquiry: JewelleryEnquiryInput & { id?: numb
     ["Contact", `${enquiry.contactName} <${enquiry.email}>`],
     ["Phone / WhatsApp", enquiry.phone],
     ["Country", enquiry.country],
+    ["Displayed currency", enquiry.displayedCurrency],
     ["Prefers", CONTACT_LABELS[enquiry.preferredContact]],
     ["Best time", enquiry.preferredTime],
     ["Budget", enquiry.budget],
@@ -249,6 +251,7 @@ function toInput(row: JewelleryEnquiry): JewelleryEnquiryInput & { id: number } 
     email: row.email,
     phone: row.phone ?? undefined,
     country: row.country ?? undefined,
+    displayedCurrency: row.displayedCurrency ?? undefined,
     preferredContact: row.preferredContact,
     preferredTime: row.preferredTime ?? undefined,
     budget: row.budget ?? undefined,
@@ -271,9 +274,9 @@ export const csvCell = (value: unknown) => {
 
 export function exportJewelleryEnquiriesCsv(rows: JewelleryEnquiry[]) {
   const sourcing = loadJewellerySourcing();
-  const columns = ["ID", "Received (UTC)", "Type", "Status", "Owner", "Name", "Email", "Phone", "Country", "Prefers", "Best time", "Piece code", "Piece", "Metal", "Karat", "Carat", "Ring size", "Budget", "Message", "Landing page", "Referrer", "Maker", "Maker handle", "Alert", "Internal note"];
+  const columns = ["ID", "Received (UTC)", "Type", "Status", "Owner", "Name", "Email", "Phone", "Country", "Displayed currency", "Prefers", "Best time", "Piece code", "Piece", "Metal", "Karat", "Carat", "Ring size", "Budget", "Message", "Landing page", "Referrer", "Maker", "Maker handle", "Alert", "Internal note"];
   const lines = rows.map((row) => [
-    row.id, row.createdAt.toISOString(), row.kind, row.followUpStatus, row.ownerName, row.contactName, row.email, row.phone, row.country, row.preferredContact, row.preferredTime, row.pieceCode, row.pieceName, row.metal, row.karat, row.caratWeight, row.ringSize, row.budget, row.message, row.landingPage, row.referrer,
+    row.id, row.createdAt.toISOString(), row.kind, row.followUpStatus, row.ownerName, row.contactName, row.email, row.phone, row.country, row.displayedCurrency, row.preferredContact, row.preferredTime, row.pieceCode, row.pieceName, row.metal, row.karat, row.caratWeight, row.ringSize, row.budget, row.message, row.landingPage, row.referrer,
     row.pieceCode ? sourcing[row.pieceCode]?.partner : "", row.pieceCode ? sourcing[row.pieceCode]?.handle : "", row.alertStatus, row.internalNote,
   ].map(csvCell).join(","));
   return [columns.map(csvCell).join(","), ...lines].join("\n");

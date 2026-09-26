@@ -3,10 +3,8 @@
  *
  * Prices are set in rupees (pricing.ts). Other currencies are converted with
  * owner-set rates (rupees per one unit) and rounded to a tidy amount. A
- * currency with no rate is not offered; visitors then see rupees.
- *
- * The visitor's currency is guessed from their time zone (no location
- * lookup) and can be changed with the currency switcher.
+ * currency with no rate is not offered; visitors then see USD.
+ * The visitor may change the display currency with the switcher.
  */
 
 export type CurrencyCode = "INR" | "USD" | "GBP" | "EUR" | "AED" | "CAD" | "AUD" | "SGD";
@@ -34,6 +32,14 @@ export const CURRENCIES: Currency[] = [
 ];
 
 export const BASE_CURRENCY: CurrencyCode = "INR";
+export const DEFAULT_DISPLAY_CURRENCY: CurrencyCode = "USD";
+
+const EUROZONE_COUNTRIES = new Set("AT BE CY DE EE ES FI FR GR HR IE IT LT LU LV MT NL PT SI SK".split(" "));
+
+export function currencyForCountry(country: string | null | undefined): CurrencyCode {
+  const code: CurrencyCode = country === "IN" ? "INR" : country === "GB" ? "GBP" : country === "CA" ? "CAD" : country === "AU" ? "AUD" : country && EUROZONE_COUNTRIES.has(country) ? "EUR" : DEFAULT_DISPLAY_CURRENCY;
+  return availableCurrencies().some((entry) => entry.code === code) ? code : DEFAULT_DISPLAY_CURRENCY;
+}
 
 export function availableCurrencies() {
   return CURRENCIES.filter((c) => c.inrPerUnit != null);
@@ -41,7 +47,7 @@ export function availableCurrencies() {
 
 function currency(code: CurrencyCode) {
   const found = CURRENCIES.find((c) => c.code === code && c.inrPerUnit != null);
-  return found ?? CURRENCIES[0];
+  return found ?? CURRENCIES.find((c) => c.code === DEFAULT_DISPLAY_CURRENCY)!;
 }
 
 /** Rupee amount in the given currency, rounded to its tidy step. */
@@ -63,24 +69,4 @@ export function formatMoney(amountInr: number, code: CurrencyCode = BASE_CURRENC
 
 export function roundingStep(code: CurrencyCode) {
   return currency(code).roundTo;
-}
-
-const EUROZONE = new Set([
-  "Amsterdam", "Athens", "Berlin", "Bratislava", "Brussels", "Dublin", "Helsinki", "Lisbon", "Ljubljana", "Luxembourg", "Madrid",
-  "Malta", "Monaco", "Paris", "Riga", "Rome", "Tallinn", "Vienna", "Vilnius", "Zagreb", "Nicosia", "Andorra", "San_Marino", "Vatican",
-]);
-
-/** Best guess from an IANA time zone such as "Europe/London". */
-export function currencyForTimeZone(timeZone: string | undefined): CurrencyCode {
-  if (!timeZone) return BASE_CURRENCY;
-  const [region, city = ""] = timeZone.split("/");
-  let guess: CurrencyCode = "USD";
-  if (timeZone === "Asia/Kolkata" || timeZone === "Asia/Calcutta") guess = "INR";
-  else if (timeZone === "Europe/London" || timeZone === "Europe/Belfast") guess = "GBP";
-  else if (region === "Europe" && EUROZONE.has(city)) guess = "EUR";
-  else if (timeZone === "Asia/Dubai") guess = "AED";
-  else if (timeZone === "Asia/Singapore") guess = "SGD";
-  else if (region === "Australia") guess = "AUD";
-  else if (/^America\/(Toronto|Vancouver|Edmonton|Winnipeg|Halifax|St_Johns|Regina|Montreal)$/.test(timeZone)) guess = "CAD";
-  return currency(guess).code;
 }

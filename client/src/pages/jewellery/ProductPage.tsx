@@ -95,7 +95,7 @@ export default function ProductPage({ slug }: { slug: string }) {
   const price = priced && carat ? ringPriceInr(ringMetal, carat) : null;
   const offer = price != null && showLaunchOffer();
   const metalList = priced ? "925 sterling silver, 14K or 18K gold, or platinum" : `Solid ${piece.karats.join(" or ")} gold`;
-  const whatsappHref = buildWhatsAppHrefWithMessage(COMPANY.whatsappNumber, `Hello Alvora, I'd like to ask about the ${piece.name} (${piece.code}): ${summary}.`);
+  const whatsappHref = buildWhatsAppHrefWithMessage(COMPANY.whatsappNumber, `Hello Alvora, I'd like to ask about the ${piece.name} (${piece.code}): ${summary}. ${price != null ? `(seen at ${formatMoney(price, currency)} in ${currency})` : `(price shown in ${currency}: on request)`}`);
   const category = CATEGORY_LINKS[piece.category];
   const shapeCrumb = piece.shape && piece.collections.includes("engagement-rings") && piece.shapeLabel ? { label: piece.shapeLabel, href: `/engagement-rings/shape/${piece.shape}` } : null;
   // The grading-report photo closes every gallery.
@@ -155,6 +155,7 @@ export default function ProductPage({ slug }: { slug: string }) {
           ) : (
             <p className="jp-price">
               <strong>{formatFromPrice(piece, currency)}</strong>
+              <CurrencySwitcher />
               <span>We quote your exact selection</span>
             </p>
           )}
@@ -221,7 +222,7 @@ export default function ProductPage({ slug }: { slug: string }) {
           <div className="jp-actions">
             <a href="#enquire" className="jw-button">Enquire about this piece <ArrowRight size={15} strokeWidth={1.6} /></a>
             {whatsappHref ? (
-              <a href={whatsappHref} target="_blank" rel="noreferrer" className="jw-button jp-whatsapp" onClick={() => trackWhatsappClick("jewellery_product")}>
+              <a href={whatsappHref} target="_blank" rel="noreferrer" className="jw-button jp-whatsapp" onClick={() => trackWhatsappClick("jewellery_product", currency)}>
                 <MessageCircle size={15} strokeWidth={1.6} /> Ask on WhatsApp
               </a>
             ) : null}

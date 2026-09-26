@@ -187,13 +187,21 @@ try {
 // ── 5. Snapshot each route ────────────────────────────────────────────────────
 fs.mkdirSync(outDir, { recursive: true });
 
-const manifest = {};
+const manifest = process.env.PRERENDER_START && fs.existsSync(path.join(outDir, "manifest.json"))
+  ? JSON.parse(fs.readFileSync(path.join(outDir, "manifest.json"), "utf-8")) : {};
 const failures = [];
 
-for (const route of ROUTES) {
+for (const route of ROUTES.slice(Number(process.env.PRERENDER_START || 0), Number(process.env.PRERENDER_END || ROUTES.length))) {
   let page;
   try {
+    // RESUME_PRERENDER avoids repeating successful pages after an interrupted local run.
+    const filename = `${routeKey(route)}.html`;
+    if (process.env.RESUME_PRERENDER === "1" && fs.existsSync(path.join(outDir, filename))) {
+      manifest[route] = filename;
+      continue;
+    }
     page = await browser.newPage();
+    await page.addInitScript(() => { window.__ALVORA_PRERENDER__ = true; });
     await page.goto(`http://localhost:${PORT}${route}`, {
       waitUntil: "load",
       timeout: 30_000,
@@ -217,7 +225,6 @@ for (const route of ROUTES) {
 
     if (!rootHtml.trim()) throw new Error("#root is empty after hydration");
 
-    const filename = `${routeKey(route)}.html`;
     fs.writeFileSync(path.join(outDir, filename), rootHtml, "utf-8");
     manifest[route] = filename;
     console.log(
@@ -248,7 +255,7 @@ if (failures.length) {
     `(${failures.join(", ")}). Those routes will fall back to the SEO shell.`
   );
 } else {
-  console.log(`[prerender] All ${ROUTES.length} routes snapshotted.`);
+  console.log(`[prerender] ${Object.keys(manifest).length}/${ROUTES.length} routes snapshotted.`);
 }
 
 // ── 7. Mirror to committed prerendered/ so Railway always has a fallback ───────
@@ -258,7 +265,7 @@ for (const file of fs.readdirSync(outDir)) {
 }
 // After a clean run, drop snapshots of routes that no longer exist (e.g. a
 // hidden piece), so the server can't keep serving them.
-if (!failures.length) {
+if (!failures.length && Object.keys(manifest).length === ROUTES.length) {
   const current = new Set(fs.readdirSync(outDir));
   for (const file of fs.readdirSync(committedDir)) {
     if (file.endsWith(".html") && !current.has(file)) fs.rmSync(path.join(committedDir, file));

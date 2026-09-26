@@ -35,8 +35,8 @@ function send(event: string, params: Record<string, string>): void {
   window.gtag('event', event, params);
 }
 
-export function trackWhatsappClick(ctaLocation: string): void {
-  send('whatsapp_click', { page_path: window.location.pathname, cta_location: ctaLocation });
+export function trackWhatsappClick(ctaLocation: string, currency?: string): void {
+  send('whatsapp_click', { page_path: window.location.pathname, cta_location: ctaLocation, ...(currency ? { currency } : {}) });
 }
 
 export function trackRfqSubmit(productInterest: string, country: string, leadType?: string): void {

@@ -181,3 +181,5 @@ div.jp-price { flex-direction: column; align-items: flex-start; gap: 4px; }
   .jg-head { padding: 36px 16px 30px; }
   .jg-body { padding: 0 16px 52px; }
 }
+
+.jw-currency-label { font-size: .75rem; margin-right: .45rem; white-space: nowrap; }

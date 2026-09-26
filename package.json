@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "NODE_ENV=development tsx watch server/_core/index.ts",
     "prebuild": "node scripts/check-no-todo.mjs && tsx scripts/validate-seo-meta.ts",
-    "build": "vite build && cp scripts/publicRoutes.json dist/publicRoutes.json && mkdir -p dist/data && cp server/data/*.json dist/data/ && esbuild server/_core/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist && node scripts/prerender.mjs",
+    "build": "vite build && cp scripts/publicRoutes.json dist/publicRoutes.json && mkdir -p dist/data && cp server/data/*.json dist/data/ && mkdir -p dist/data/geo && cp server/data/geo/*.gz dist/data/geo/ && esbuild server/_core/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist && node scripts/prerender.mjs",
     "stones:build": "node scripts/build-stones-index.mjs",
     "plates:build": "node scripts/build-plates.mjs",
     "jewellery:build": "node scripts/jewellery/build-catalog.mjs",
@@ -24,7 +24,8 @@
     "test:mobile-a11y": "node --test scripts/mobile-public-accessibility.test.mjs",
     "test:public-cookie-posture": "node --test scripts/public-cookie-posture.test.mjs",
     "db:push": "drizzle-kit generate && drizzle-kit migrate",
-    "social:pinterest": "node scripts/social/pinterest-feed.mjs"
+    "social:pinterest": "node scripts/social/pinterest-feed.mjs",
+    "geo:refresh": "node scripts/refresh-geo-db.mjs"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.693.0",

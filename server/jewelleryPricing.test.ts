@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { CENTRE_STONE_CARATS } from "@shared/jewellery/centreStone";
-import { convertFromInr, currencyForTimeZone, formatMoney } from "@shared/jewellery/currency";
+import { convertFromInr, formatMoney } from "@shared/jewellery/currency";
 import { LAUNCH_OFFER, RING_METALS, RING_PRICES_INR, formatFullPrice, fromPriceInr, fullPriceInr, launchOfferActive, ringPriceInr } from "@shared/jewellery/pricing";
 import { PUBLIC_PIECES } from "@shared/jewellery/catalog";
 
@@ -45,17 +45,6 @@ describe("jewellery pricing", () => {
     expect(convertFromInr(25000, "CAD")).toBe(360);
     expect(convertFromInr(25000, "AUD")).toBe(360);
     for (const code of ["USD", "GBP", "EUR", "CAD", "AUD"] as const) expect(convertFromInr(123456, code) % 10).toBe(0);
-  });
-
-  it("guesses the currency from the time zone and falls back to rupees without a rate", () => {
-    expect(currencyForTimeZone("Asia/Kolkata")).toBe("INR");
-    expect(currencyForTimeZone("Europe/London")).toBe("GBP");
-    expect(currencyForTimeZone("Europe/Paris")).toBe("EUR");
-    expect(currencyForTimeZone("America/New_York")).toBe("USD");
-    expect(currencyForTimeZone("America/Toronto")).toBe("CAD");
-    expect(currencyForTimeZone("Australia/Sydney")).toBe("AUD");
-    expect(currencyForTimeZone("Asia/Dubai")).toBe("INR");
-    expect(currencyForTimeZone(undefined)).toBe("INR");
   });
 
   it("keeps the saving at the offer percentage in every currency", () => {

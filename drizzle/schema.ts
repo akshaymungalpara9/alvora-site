@@ -307,6 +307,7 @@ export const jewelleryEnquiries = mysqlTable(
     email: varchar("email", { length: 320 }).notNull(),
     phone: varchar("phone", { length: 80 }),
     country: varchar("country", { length: 80 }),
+    displayedCurrency: varchar("displayedCurrency", { length: 3 }),
     preferredContact: mysqlEnum("preferredContact", ["email", "whatsapp", "phone", "video"]).default("email").notNull(),
     preferredTime: varchar("preferredTime", { length: 160 }),
     budget: varchar("budget", { length: 60 }),
