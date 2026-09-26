@@ -1,9 +1,12 @@
 import { useEffect, useMemo } from "react";
 import { fromPriceInr } from "@shared/jewellery/pricing";
+import { formatMoney } from "@shared/jewellery/currency";
+import { useCurrency } from "@/lib/currency";
 import { Link, useLocation, useSearch } from "wouter";
 import { ArrowRight } from "lucide-react";
 import JewelleryShell from "@/components/jewellery/JewelleryShell";
 import CollectionGrid from "@/components/jewellery/CollectionGrid";
+import CurrencySwitcher from "@/components/jewellery/CurrencySwitcher";
 import ShapeSelector, { SHOP_SHAPES } from "@/components/jewellery/ShapeSelector";
 import { PUBLIC_PIECES, type JewelleryCollection, type JewelleryPiece } from "@shared/jewellery/catalog";
 import { JEWELLERY_COLLECTION_META, shapePageMeta } from "@shared/jewellery/seo";
@@ -25,10 +28,10 @@ export const COLLECTION_ROUTES: Record<string, JewelleryCollection | null> = {
 
 /** "From" price bands in rupees (prices are set in rupees; see pricing.ts). */
 const PRICE_BANDS = [
-  { value: "under-50000", label: "Under ₹50,000", test: (p: number) => p < 50000 },
-  { value: "50000-100000", label: "₹50,000 – ₹1,00,000", test: (p: number) => p >= 50000 && p < 100000 },
-  { value: "100000-200000", label: "₹1,00,000 – ₹2,00,000", test: (p: number) => p >= 100000 && p < 200000 },
-  { value: "200000-plus", label: "₹2,00,000+", test: (p: number) => p >= 200000 },
+  { value: "under-50000", max: 50000, label: "Under", test: (p: number) => p < 50000 },
+  { value: "50000-100000", min: 50000, max: 100000, label: "Range", test: (p: number) => p >= 50000 && p < 100000 },
+  { value: "100000-200000", min: 100000, max: 200000, label: "Range", test: (p: number) => p >= 100000 && p < 200000 },
+  { value: "200000-plus", min: 200000, label: "Plus", test: (p: number) => p >= 200000 },
 ] as const;
 
 const SORTS = [
@@ -50,6 +53,8 @@ function sortPieces(pieces: JewelleryPiece[], sort: string) {
 }
 
 export default function CollectionPage({ path, shape }: Props) {
+  const currency = useCurrency();
+  const priceBandLabel = (item: typeof PRICE_BANDS[number]) => item.label === "Under" ? `Under ${formatMoney(item.max, currency)}` : item.label === "Plus" ? `${formatMoney(item.min, currency)}+` : `${formatMoney(item.min, currency)} - ${formatMoney(item.max, currency)}`;
   const search = useSearch();
   const [location, navigate] = useLocation();
   const params = useMemo(() => new URLSearchParams(search), [search]);
@@ -185,7 +190,7 @@ export default function CollectionPage({ path, shape }: Props) {
             <select value={active.price ?? ""} onChange={(event) => setParam("price", event.target.value || null)}>
               <option value="">Any price</option>
               {PRICE_BANDS.map((item) => (
-                <option key={item.value} value={item.value}>{item.label}</option>
+                <option key={item.value} value={item.value}>{priceBandLabel(item)}</option>
               ))}
             </select>
           </label>
@@ -195,6 +200,7 @@ export default function CollectionPage({ path, shape }: Props) {
           ) : null}
         </div>
         <div className="jc-sort">
+          <CurrencySwitcher id="collection-currency" />
           <p className="jc-count" aria-live="polite">{results.length} {results.length === 1 ? "piece" : "pieces"}</p>
           <label>
             <span>Sort</span>

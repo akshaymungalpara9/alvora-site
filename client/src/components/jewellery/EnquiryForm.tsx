@@ -2,6 +2,7 @@ import { useState, type FormEvent } from "react";
 import { ArrowRight, Check } from "lucide-react";
 import { trpc } from "@/lib/trpc";
 import { landingContext, trackConversion } from "@/lib/ga4";
+import { useCurrency } from "@/lib/currency";
 import type { JewelleryPiece } from "@shared/jewellery/catalog";
 
 export type PieceSelection = {
@@ -28,9 +29,10 @@ const CONTACT_OPTIONS = [
 type ContactPreference = (typeof CONTACT_OPTIONS)[number]["value"];
 
 export default function EnquiryForm({ kind, piece, selection = {}, idPrefix = "jw" }: Props) {
+  const currency = useCurrency();
   const [preferredContact, setPreferredContact] = useState<ContactPreference>(kind === "consultation" ? "whatsapp" : "email");
   const submit = trpc.jewellery.submit.useMutation({
-    onSuccess: () => trackConversion(kind === "consultation" ? "consultation_request" : "jewellery_enquiry", piece ? { piece_code: piece.code } : {}),
+    onSuccess: () => trackConversion(kind === "consultation" ? "consultation_request" : "jewellery_enquiry", piece ? { piece_code: piece.code, currency } : { currency }),
   });
   const id = (name: string) => `${idPrefix}-${name}`;
 
@@ -47,6 +49,7 @@ export default function EnquiryForm({ kind, piece, selection = {}, idPrefix = "j
       email: text("email") ?? "",
       phone: text("phone"),
       country: text("country"),
+      displayedCurrency: currency,
       preferredContact,
       preferredTime: text("preferred_time"),
       budget: text("budget"),

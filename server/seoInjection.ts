@@ -1,3 +1,4 @@
+import { convertFromInr, DEFAULT_DISPLAY_CURRENCY } from "../shared/jewellery/currency";
 import { CENTRE_STONE_CARATS, centreStoneSummary, hasCentreStone } from "../shared/jewellery/centreStone";
 import { RING_METALS, fromPriceInr, highPriceInr } from "../shared/jewellery/pricing";
 import { availabilitySeo, publicSeo, publicSocialImage, publicSocialImageAlt } from "../client/src/lib/publicSeo";
@@ -395,7 +396,7 @@ function jewelleryRouteMeta(pathname: string, origin: string): RouteMeta | null 
       url: url(pathname),
       ...(piece.images.length ? { image: piece.images.map((image) => `${origin}${image.src}`) } : {}),
       ...(fromPriceInr(piece) != null
-        ? { offers: { "@type": "AggregateOffer", priceCurrency: "INR", lowPrice: fromPriceInr(piece), highPrice: highPriceInr(piece), offerCount: RING_METALS.length * CENTRE_STONE_CARATS.length, availability: "https://schema.org/MadeToOrder", url: url(pathname) } }
+        ? { offers: { "@type": "AggregateOffer", priceCurrency: DEFAULT_DISPLAY_CURRENCY, lowPrice: convertFromInr(fromPriceInr(piece)!, DEFAULT_DISPLAY_CURRENCY), highPrice: convertFromInr(highPriceInr(piece)!, DEFAULT_DISPLAY_CURRENCY), offerCount: RING_METALS.length * CENTRE_STONE_CARATS.length, availability: "https://schema.org/MadeToOrder", url: url(pathname) } }
         : {}),
     };
     return {
@@ -1074,8 +1075,8 @@ export function injectSeoIntoHtml(html: string, pathname: string, origin: string
     `<meta property="og:image:alt" content="${esc(social.alt)}" />`,
     ...(meta.ogType === "product" && meta.productPriceInr != null
       ? [
-          `<meta property="product:price:amount" content="${meta.productPriceInr}" />`,
-          `<meta property="product:price:currency" content="INR" />`,
+          `<meta property="product:price:amount" content="${convertFromInr(meta.productPriceInr, DEFAULT_DISPLAY_CURRENCY)}" />`,
+          `<meta property="product:price:currency" content="${DEFAULT_DISPLAY_CURRENCY}" />`,
         ]
       : []),
     `<meta property="og:site_name" content="Alvora" />`,

@@ -10,6 +10,7 @@ import { createContext } from "./context";
 import { serveStatic, setupVite } from "./vite";
 import { registerPublicSeoRoutes } from "../publicSeoRoutes";
 import { registerQualifierFollowUpSchedule } from "../qualifierFollowUpSchedule";
+import { registerGeoRoute } from "../geo";
 import { registerStonePassportRoutes } from "../stonePassport";
 
 function isPortAvailable(port: number): Promise<boolean> {
@@ -41,7 +42,10 @@ async function startServer() {
   }
 
   const app = express();
+  // Railway terminates TLS at one proxy hop; trust that hop for req.ip (X-Forwarded-For).
+  app.set("trust proxy", 1);
   const server = createServer(app);
+  registerGeoRoute(app);
   // Configure body parser with larger size limit for file uploads
   app.use(express.json({ limit: "50mb" }));
   app.use(express.urlencoded({ limit: "50mb", extended: true }));

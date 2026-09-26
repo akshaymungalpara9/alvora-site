@@ -1,3 +1,4 @@
+import { currentCurrency } from "@/lib/currency";
 declare global {
   interface Window {
     dataLayer: unknown[];
@@ -35,8 +36,8 @@ function send(event: string, params: Record<string, string>): void {
   window.gtag('event', event, params);
 }
 
-export function trackWhatsappClick(ctaLocation: string): void {
-  send('whatsapp_click', { page_path: window.location.pathname, cta_location: ctaLocation });
+export function trackWhatsappClick(ctaLocation: string, currency?: string): void {
+  send('whatsapp_click', { page_path: window.location.pathname, cta_location: ctaLocation, currency: currency ?? currentCurrency() });
 }
 
 export function trackRfqSubmit(productInterest: string, country: string, leadType?: string): void {
@@ -80,7 +81,7 @@ type ConversionEvent = "jewellery_enquiry" | "consultation_request" | "trade_lin
 /** Named conversion, sent to GA4 and Umami. */
 export function trackConversion(event: ConversionEvent, details: Record<string, string> = {}): void {
   const { landingPage, referrer } = landingContext();
-  const params = { page_path: window.location.pathname, landing_page: landingPage, referrer_host: referrer, ...details };
+  const params = { page_path: window.location.pathname, landing_page: landingPage, referrer_host: referrer, currency: currentCurrency(), ...details };
   send(event, params);
   try {
     (window as Window & { umami?: { track?: (name: string, data: Record<string, string>) => void } }).umami?.track?.(event, params);

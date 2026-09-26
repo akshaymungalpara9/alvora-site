@@ -178,3 +178,11 @@ Append-only. Newest entry at the bottom. Never delete an entry.
 
 **Measure**
 - Search Console impressions, clicks and position for the marquise cluster (seo/STATE.md) at the 10 October checkpoint versus the 14 days before 26 September; enquiries and WhatsApp clicks with landing_page = /engagement-rings/shape/marquise once 1A attribution is live.
+
+## 2026-09-27: Geo-aware jewellery display currency (PR, not live)
+
+**Changed:** New visitors see USD on first paint. A local DB-IP Country Lite lookup selects INR, GBP, CAD, AUD, EUR or USD when a country is known; the switcher choice takes priority. Product structured prices and prerendered prices use converted USD, while source prices stay in INR. Enquiries and jewellery conversion/WhatsApp events carry the displayed currency.
+
+**Why:** Previously, prerendered product prices began in rupees even for international visitors, then changed after the client guessed from their time zone. This makes first paint predictable and uses country only when the IP lookup has an answer.
+
+**Measure:** Compare the share of enquiries by displayed currency, plus the product-page enquiry rate, over the 14 days before and after release. The database column must be added before merging this PR. No deployment or merge is included here.
