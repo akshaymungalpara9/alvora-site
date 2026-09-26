@@ -34,34 +34,12 @@ function assetBase(slug: string) {
   return `/assets/craft/${slug}-16x9`;
 }
 
-/** Adds VideoObject JSON-LD for the three clips (homepage only). */
-function useCraftJsonLd(enabled: boolean) {
-  useEffect(() => {
-    if (!enabled) return;
-    const id = "craft-steps-jsonld";
-    if (document.getElementById(id)) return;
-    const origin = window.location.origin;
-    const uploadDate = new Date().toISOString().slice(0, 10);
-    const graph = STEPS.map((step) => ({
-      "@type": "VideoObject",
-      name: step.title,
-      description: step.copy,
-      thumbnailUrl: `${origin}${assetBase(step.slug)}.jpg`,
-      contentUrl: `${origin}${assetBase(step.slug)}.mp4`,
-      uploadDate,
-    }));
-    const el = document.createElement("script");
-    el.id = id;
-    el.type = "application/ld+json";
-    el.textContent = JSON.stringify({ "@context": "https://schema.org", "@graph": graph });
-    document.head.appendChild(el);
-    return () => el.remove();
-  }, [enabled]);
-}
+// VideoObject JSON-LD for the three clips is injected server-side on the
+// homepage only (mkCraftVideos in server/seoInjection.ts), matching how every
+// other page's structured data is served.
 
-export default function CraftSteps({ withJsonLd = false }: { withJsonLd?: boolean }) {
+export default function CraftSteps() {
   const rootRef = useRef<HTMLElement | null>(null);
-  useCraftJsonLd(withJsonLd);
 
   useEffect(() => {
     const root = rootRef.current;

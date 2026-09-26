@@ -88,7 +88,7 @@ export default function Home() {
         </div>
       </section>
 
-      <CraftSteps withJsonLd />
+      <CraftSteps />
 
       {liveShapes.length ? (
         <section className="jh-section jh-shapes" aria-labelledby="shop-by-shape">

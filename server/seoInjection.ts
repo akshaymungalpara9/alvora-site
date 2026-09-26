@@ -298,6 +298,28 @@ function mkWebSite(origin: string) {
   };
 }
 
+// VideoObject entries for the three craft clips on the homepage (owner copy,
+// 2026-09-26). Product pages deliberately get none, to avoid 232 duplicates.
+function mkCraftVideos(origin: string) {
+  const steps = [
+    { slug: "selection", name: "Diamond Selection", description: "We carefully select lab grown diamonds for brilliance, clarity and balance so the final piece looks refined from every angle." },
+    { slug: "setting", name: "Precision Setting", description: "Each stone is set with attention to proportion, security and comfort, so your jewellery feels beautiful and wearable." },
+    { slug: "finishing", name: "Final Finishing", description: "Every piece is polished, checked and packed with care before it reaches you." },
+  ];
+  const uploadDate = new Date().toISOString().slice(0, 10);
+  return {
+    "@context": "https://schema.org",
+    "@graph": steps.map((step) => ({
+      "@type": "VideoObject",
+      name: step.name,
+      description: step.description,
+      thumbnailUrl: `${origin}/assets/craft/${step.slug}-16x9.jpg`,
+      contentUrl: `${origin}/assets/craft/${step.slug}-16x9.mp4`,
+      uploadDate,
+    })),
+  };
+}
+
 function mkItemList(origin: string, name: string, pieces: typeof PUBLIC_PIECES) {
   return {
     "@context": "https://schema.org",
@@ -403,7 +425,7 @@ export function resolveRouteMeta(pathname: string, origin: string): RouteMeta | 
   const url = (p: string) => `${origin}${p}`;
   switch (pathname) {
     case "/":
-      return { lang: "en", ...JEWELLERY_HOME_META, canonical: url("/"), serviceJsonLd: [mkFaqPage(JEWELLERY_FAQ), mkWebSite(origin)] };
+      return { lang: "en", ...JEWELLERY_HOME_META, canonical: url("/"), serviceJsonLd: [mkFaqPage(JEWELLERY_FAQ), mkWebSite(origin), mkCraftVideos(origin)] };
     case "/trade":
       return { ...publicSeo.global, title: "Lab-Grown Diamond Manufacturer & Wholesale Supplier | Alvora", description: "Alvora is a Surat-based lab-grown diamond manufacturer supplying wholesale CVD and HPHT diamonds, layouts and matched pairs to jewellers worldwide.", canonical: url("/trade"), alternates: publicHreflangAlternates(origin), serviceJsonLd: [mkFaqPage([
         { q: "Is there a minimum order?", a: "The minimum order depends on the product, size, shape, certification, and whether the request is stock, a sample, a layout, or custom production. Category-specific minimums are confirmed in the quotation before approval. Buyers should include the expected quantity and repeat-order plan so the applicable minimum can be discussed clearly." },
