@@ -1,0 +1,74 @@
+.craft-steps {
+  margin: 0 auto;
+  max-width: 72rem;
+  padding: 2.5rem 1.25rem;
+}
+
+.craft-steps h2 {
+  font-family: "Cormorant", serif;
+  font-weight: 500;
+  font-size: 1.75rem;
+  margin: 0 0 1.5rem;
+  text-align: center;
+}
+
+.craft-steps-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.craft-step-media {
+  aspect-ratio: 16 / 9;
+  background: #f7f3eb;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.craft-steps-product .craft-step-media {
+  aspect-ratio: 4 / 5;
+}
+
+.craft-step-media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.craft-step h3 {
+  font-family: "Cormorant", serif;
+  font-weight: 500;
+  font-size: 1.2rem;
+  margin: 0.75rem 0 0.25rem;
+}
+
+.craft-step p {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 0;
+  color: #3d3a33;
+}
+
+.craft-steps-caption {
+  margin-top: 1rem;
+  font-size: 0.75rem;
+  color: #7a756a;
+  text-align: center;
+}
+
+@media (max-width: 640px) {
+  .craft-steps-row {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 0.75rem;
+    padding-bottom: 0.5rem;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .craft-step {
+    flex: 0 0 78%;
+    scroll-snap-align: center;
+  }
+}

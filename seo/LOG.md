@@ -144,3 +144,9 @@ Append-only. Newest entry at the bottom. Never delete an entry.
 - 13 cards reprocessed from cleaner alternate studio photos with an ML cutout (rembg u2net) + 6 reshoot-list pieces swapped to their best available photo, all centred at the 0.78 standard: ALV-R-0142, 0143, 0144, 0160, 0166, 0168, 0169, 0180, 0181, 0182, 0200, 0204, 0223, 0242, 0243, 0248, 0258, 0273, 0277.
 - ALV-R-0163 and ALV-R-0231 have no usable photo at all; held for studio reshoot, current cards unchanged.
 - 12 low-resolution sources upscaled 4x (Real-ESRGAN) with per-image fidelity checks.
+
+## 26 September 2026 - craft video section (code and pipeline; clips pending)
+- Changed: added a three-step "How your piece is made" video section to the homepage (below the hero, 16:9) and to every jewellery product page (after the centre-stone story, before the enquiry block, 4:5). New component client/src/components/jewellery/CraftSteps.tsx with viewport-triggered play, reduced-motion fallback and VideoObject JSON-LD on the homepage only. New pnpm craft:videos pipeline (scripts/video/encode-craft.mjs) encodes the owner's six MP4s to H.264 + WebM + last-frame posters under client/public/assets/craft/.
+- Why: owner wants the craft story visible with motion on the two highest-intent page types, without hurting page performance.
+- Measure: enquiry and WhatsApp-click rate on product pages over the 14 days before and after the clips ship.
+- Note: the section code ships before the six final MP4s; cards show their poster slots once pnpm craft:videos runs on the supplied clips. Trade pages unchanged.

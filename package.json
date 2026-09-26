@@ -17,6 +17,7 @@
     "brand:image": "node scripts/jewellery/brand-image.mjs",
     "prerender": "node scripts/prerender.mjs",
     "start": "NODE_ENV=production node dist/index.js",
+    "craft:videos": "node scripts/video/encode-craft.mjs",
     "check": "tsc --noEmit && node scripts/check-no-todo.mjs",
     "format": "prettier --write .",
     "test": "vitest run && node --test scripts/validate-partner-availability.test.mjs",
