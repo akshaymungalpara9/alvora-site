@@ -1,7 +1,7 @@
 import { useState, type FormEvent } from "react";
 import { ArrowRight, Check } from "lucide-react";
 import { trpc } from "@/lib/trpc";
-import { landingContext, trackConversion } from "@/lib/ga4";
+import { classifySource, landingContext, trackConversion } from "@/lib/ga4";
 import type { JewelleryPiece } from "@shared/jewellery/catalog";
 
 export type PieceSelection = {
@@ -51,7 +51,10 @@ export default function EnquiryForm({ kind, piece, selection = {}, idPrefix = "j
       preferredTime: text("preferred_time"),
       budget: text("budget"),
       message: text("message"),
-      ...landingContext(),
+      ...(() => {
+        const ctx = landingContext();
+        return { ...ctx, sourceClass: classifySource(ctx.referrer, ctx.utmSource) };
+      })(),
     });
   };
 
