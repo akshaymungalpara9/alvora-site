@@ -37,7 +37,7 @@ function send(event: string, params: Record<string, string>): void {
 }
 
 export function trackWhatsappClick(ctaLocation: string, currency?: string): void {
-  send('whatsapp_click', { page_path: window.location.pathname, cta_location: ctaLocation, { currency: currency ?? currentCurrency() } });
+  send('whatsapp_click', { page_path: window.location.pathname, cta_location: ctaLocation, currency: currency ?? currentCurrency() });
 }
 
 export function trackRfqSubmit(productInterest: string, country: string, leadType?: string): void {
