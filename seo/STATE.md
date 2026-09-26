@@ -2,6 +2,8 @@
 
 Updated: 2026-09-24. The jewellery site is **not live yet**, so there are no Search Console or conversion baselines. The first real baseline starts 14 days after launch.
 
+**Status note 2026-09-26:** the jewellery site is live (launched 25 Sep; 232 pieces shown, 326 routes). The 14-day baseline clock starts once Search Console is connected, which is still pending. The current money-page bet per `LOG.md` is `/earrings`; the marquise table below is kept as the first bet's record.
+
 ## Money page (current bet)
 - **Page:** `/engagement-rings/shape/marquise`
 - **Main query:** `vintage marquise engagement ring`
