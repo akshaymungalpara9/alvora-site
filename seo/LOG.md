@@ -136,3 +136,11 @@ Append-only. Newest entry at the bottom. Never delete an entry.
 
 **Next**
 - Owner to review the 4 stays-as-is pieces and supply studio photos if they should join the standard.
+
+## 26 September 2026 - damaged card repair (19 pieces)
+- Owner reported ghosted/dissolving bands, clipped prongs and stone-only crops on cards shipped in the coherence wave (PR #22).
+- Root cause: tone-based background knockout misread bright reflective metal and pale facets as backdrop, leaving semi-transparent cut edges.
+- Full 228-card visual sweep at review size: 21 damaged confirmed, 5 borderline kept (complete silhouettes).
+- 13 cards reprocessed from cleaner alternate studio photos with an ML cutout (rembg u2net) + 6 reshoot-list pieces swapped to their best available photo, all centred at the 0.78 standard: ALV-R-0142, 0143, 0144, 0160, 0166, 0168, 0169, 0180, 0181, 0182, 0200, 0204, 0223, 0242, 0243, 0248, 0258, 0273, 0277.
+- ALV-R-0163 and ALV-R-0231 have no usable photo at all; held for studio reshoot, current cards unchanged.
+- 12 low-resolution sources upscaled 4x (Real-ESRGAN) with per-image fidelity checks.
